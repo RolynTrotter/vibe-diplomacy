@@ -33,13 +33,27 @@ def main() -> int:
         "--deadline-hours", type=float, default=24.0,
         help="Hours per phase before the scheduled deadline adjudicates.",
     )
+    parser.add_argument(
+        "--press", choices=["none", "full"], default="none",
+        help="'full' enables negotiation/messaging; 'none' is gunboat.",
+    )
+    parser.add_argument(
+        "--adjudicator-pubkey",
+        help="Reuse an existing adjudicator public key (base64) instead of "
+             "generating one. Use this when ADJUDICATOR_PRIVATE_KEY is already "
+             "set as a repo secret, so a new game needs no new secret.",
+    )
     args = parser.parse_args()
 
     root = repo_root(args.root)
     human = {p.upper() for p in args.human}
     idle = {p.upper() for p in args.idle}
 
-    priv_b64, pub_b64 = crypto.generate_keypair()
+    reuse_key = bool(args.adjudicator_pubkey)
+    if reuse_key:
+        priv_b64, pub_b64 = None, args.adjudicator_pubkey.strip()
+    else:
+        priv_b64, pub_b64 = crypto.generate_keypair()
 
     # Public key (committed).
     pub_path = state.pubkey_file(root)
@@ -57,6 +71,7 @@ def main() -> int:
     config = {
         "name": args.name,
         "variant": "standard",
+        "press": args.press,
         "deadline_hours": args.deadline_hours,
         "powers": {p: {"type": player_type(p)} for p in POWERS},
     }

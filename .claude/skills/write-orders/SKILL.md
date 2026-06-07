@@ -8,6 +8,11 @@ description: Validate, seal, and submit your Diplomacy orders for the current ph
 You play exactly one power on exactly one `game/<name>` branch. You submit your
 orders by committing a single sealed file: `orders/<YOUR_POWER>/<phase>.enc`.
 
+**You must have claimed your seat first** (the `join-game` skill). Orders are
+**signed with your power's private key** so the adjudicator can prove they came
+from you — nobody else can submit your orders, and you can't submit theirs. If
+you haven't claimed, `submit_orders` will tell you to run `join_game`.
+
 ## 1. Validate + seal locally
 
 ```bash

@@ -23,3 +23,13 @@ def parse_orders(text: str) -> list[str]:
     """
     raw = text.replace(";", "\n").splitlines()
     return [line.strip() for line in raw if line.strip() and not line.strip().startswith("#")]
+
+
+def canonical_order_payload(power: str, phase: str, orders: list[str]) -> str:
+    """Stable serialization of an order set, signed by the submitter and
+    verified by the adjudicator so no one can submit another power's orders."""
+    import json
+    return json.dumps(
+        {"power": power.upper(), "phase": phase, "orders": list(orders)},
+        sort_keys=True, separators=(",", ":"),
+    )
