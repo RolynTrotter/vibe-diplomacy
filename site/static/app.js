@@ -160,12 +160,20 @@ function renderTalk() {
     btn.classList.toggle("dim", pair.length === 2 && !pair.includes(p));
   }
 
+  // Messages are revealed only once a game ends.
+  if (meta.messages_locked) {
+    thread.innerHTML = `<p class="none">🔒 Messages stay private while the game is in progress. They're revealed here for the post-mortem once the game ends.</p>`;
+    return;
+  }
   if (!pair.length) {
     thread.innerHTML = `<p class="none">Pick a power (and optionally a second) to see their messages.</p>`;
     return;
   }
   if (!meta.messages.length) {
-    thread.innerHTML = `<p class="none">No messages in this game yet — full-press comms aren't enabled. The buttons are ready for when they are.</p>`;
+    const msg = meta.complete
+      ? "No messages were exchanged in this game."
+      : "No messages yet — full-press comms aren't enabled. The buttons are ready for when they are.";
+    thread.innerHTML = `<p class="none">${msg}</p>`;
     return;
   }
 
