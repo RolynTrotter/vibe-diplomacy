@@ -55,3 +55,31 @@
   continent; otherwise it holds the isle / supports the Norway push.
 - F1901 plan: F NWG - NOR, F NTH support/cover, A YOR hold or convoy. Aim: build
   a fleet for continued northern pressure on Russia.
+
+## F1901M — board confirms all Spring deals held
+- Spring adjudicated clean: F EDI->NWG, F LON->NTH, A LVP->YOR all landed.
+- TRIP-WIRES all GREEN: France went F BRE->MAO (NOT into ENG) — Channel DMZ kept.
+  Germany took DEN by land/sea and is in RUH (Low Countries push) — North Sea
+  clean, no German fleet in NTH. Russia went SOUTH (UKR/SEV/RUM/BOT) — no Barents
+  or Norway pressure. Every ally honored Spring.
+- Standings: RUSSIA 4 (leader), everyone else 3. Russia is the one to watch.
+
+### Negotiation round (F1901M) — messages sent
+- GERMANY: confirmed North Sea stays uncontested through Fall builds. I take
+  Norway only; they take Holland/Belgium by land. Anti-Russia coordination
+  reaffirmed for when Russia crowds Scandinavia. Best ally.
+- RUSSIA: reaffirmed Norway(me)/Sweden(them) split, Barents+Norwegian quiet, no
+  StP push. Framed their 4-center lead as reason to stay unprovocative in north.
+  Trust low-but-cooperative; holding peace while they expand south.
+- FRANCE: thanked for honoring Channel DMZ (MAO not ENG). Confirmed ENG empty
+  both ways for Fall. Kept Atlantic-partnership door open; floated joint pressure
+  if Germany overreaches to Belgium. Trust moderate-high.
+
+### Intended F1901M moves (DO NOT SUBMIT — talk round only)
+- F NWG - NOR   (take Norway = build center)
+- F NTH S NWG - NOR  (guarantee Norway against any surprise; NTH stays put,
+  also keeps North Sea covered vs German/Russian fleet)
+- A YOR H  (hold the isle; convoy-ready if north ever needs an army)
+- Fall build target: a new FLEET (EDI/LON) for sustained northern pressure on RU.
+- Watch for: any fleet appearing in NTH or NWG, French fleet in ENG, Russian
+  fleet toward Barents/StP. None expected, but Fall is when betrayals come.

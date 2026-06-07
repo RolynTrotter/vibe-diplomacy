@@ -50,3 +50,41 @@ clean 2-build year (Spain + Portugal).
 - England: Channel DMZ verifiable next phase — watch if fleet enters ENG.
 - Germany: fine for now; Belgium concession is the test of good faith.
 - Russia (4 centers): unengaged, the real long-game danger. Monitor.
+
+## S1901M RESOLUTION — ALL DEALS HELD (verified vs public moves)
+- ENGLAND: F LON->NTH, F EDI->NWG. NO English fleet entered ENG. Channel DMZ
+  HELD. England heading north as promised (Norwegian Sea + North Sea).
+- ITALY: A VEN H. Venice did NOT enter PIE. Piedmont DMZ HELD. (F NAP->ION,
+  A ROM->APU = eastward/Lepanto-ish posture, no west.)
+- GERMANY: A MUN->RUH, A BER->KIE, F KIE->DEN. NO army in BUR/Rhine.
+  Non-aggression HELD. Germany has DEN, RUH positions it for Belgium/Holland.
+- RUSSIA: A WAR->UKR, A MOS->SEV, F SEV->RUM (RUM grab), F STP/SC->BOT.
+  Strong south + Baltic push. Still top of leaderboard at 4. Watch.
+- My moves landed clean: F MAO, A SPA (Spain held), A BUR. On track for 2 builds.
+
+## Diplomacy round — F1901M (negotiation)
+Sent 3 messages (ENG, GER, ITA). Theme: thank each for honoring spring deals,
+re-affirm all three DMZ/non-aggression pacts for Fall, flag Russia as shared
+concern.
+- ENGLAND: re-confirmed Channel DMZ (fleet stays OUT of ENG). Kept Atlantic
+  partnership warm. Offered to lean A BUR toward Belgium IF England wants to
+  contest Germany there — optionality, not a commitment.
+- GERMANY: re-confirmed Belgium concession + BUR/MAR stay quiet both ways.
+  Asked Germany to keep off BUR/MAR again. Reinforced anti-Russia alignment.
+- ITALY: re-confirmed Piedmont DMZ (A MAR will NOT enter PIE). Reassured no
+  western-Med ambition; encouraged Italy east (Tunis/Balkans vs Russo-Turkey).
+
+## ORDERS PLAN (F1901M) — to submit in write-orders round, NOT yet
+- F MAO -> POR : take Portugal (2nd build). Uncontested expected.
+- A SPA H : hold Spain (already own it; keeps the center).
+- A BUR : DEFENSIVE hold (or BUR->BEL only if England deal firms up AND I judge
+  curbing Germany worth the trust cost — DEFAULT = hold, honor Germany pact).
+- Result if clean: builds in BRE/MAR/PAR. Likely F BRE (Atlantic) + A MAR/PAR.
+
+## Reads for after F1901M resolves
+- Re-verify all three pacts again at resolution (same checks as spring).
+- Watch Belgium outcome: who actually takes it (Germany expected).
+- Russia trajectory: if they keep snowballing, start building toward an
+  eventual eastern/central counter with Germany + Italy.
+- England long-game: Atlantic partner now, but biggest naval rival later —
+  keep the Channel verifiable every phase.

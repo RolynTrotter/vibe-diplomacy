@@ -1,5 +1,30 @@
 # RUSSIA — private notes (aurora)
 
+## Strategic situation (F1901M) — Negotiation Round
+- Spring played out CLEAN — every DMZ held. Now F SEV->RUM landed (I hold F RUM),
+  F BOT staged for Sweden, A UKR + A SEV backing south. Still the leader at 4
+  centers; Fall is where I cash Rumania + Sweden into 6. Strategy unchanged: lock
+  the captures via the deals, provoke nobody, deny any coalition a trigger.
+
+### Spring verification (DONE — both critical DMZs honored)
+- TURKEY: F ANK -> CON (NOT Black Sea). BLA DMZ kept. Trust UP.
+- AUSTRIA: A VIE H (NOT Galicia). Galician DMZ kept. Trust UP.
+- ENGLAND: F EDI -> NWG, F LON -> NTH — staging Norway, not toward me. Good.
+- GERMANY: F KIE -> DEN — taking Denmark as agreed, not contesting Sweden. Good.
+- ITALY: ION/APU/VEN — pointed at the Med, no relevance to me. Neutral fine.
+
+### Fall plan (orders NEXT round, NOT this one)
+- F RUM HOLD -> secures Rumania as my center.
+- F BOT -> SWE -> secures Sweden as my center.
+- A UKR / A SEV: support/backstop RUM and the south; stay out of GAL (DMZ).
+- Target end-1901: 6 centers (MOS, SEV, STP, WAR, RUM, SWE). On track.
+
+### Fall messages sent (this round)
+- TURKEY: confirm BLA stays empty Fall; I hold RUM, they take BUL; warm 1902 talk.
+- AUSTRIA: confirm Serbia=theirs, Rumania=mine, Galicia empty; stable east.
+- ENGLAND: confirm Norway=theirs, Sweden=mine uncontested; north quiet.
+- GERMANY: confirm Denmark=theirs, Sweden=mine; quiet Sil/Pru; open anti-England.
+
 ## Strategic situation (S1901M) — after Negotiation Round 2
 - 4 centers (largest), 4 fronts, everyone watching me. Strategy holding: quiet
   borders, peaceful growth to ~5-6 centers, avoid a coalition. ALL FOUR neighbors

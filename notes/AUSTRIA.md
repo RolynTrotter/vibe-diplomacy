@@ -38,3 +38,26 @@ Watch in Fall adjudication results: did Russia stay out of Galicia? Did Italy ru
 - Re-contact Turkey + Germany for a Russia read before Fall.
 - Verify Italy's Lepanto is real (watch F NAP / A ROM / movement toward Ion/Tunis).
 - If Russia moves into Galicia despite the deal, pivot to anti-Russia coalition (Turkey + Italy ready).
+
+## S1901M ADJUDICATION RESULTS — everyone kept faith
+- ME: A BUD->SER (got Serbia), F TRI->ALB, A VIE H. Now: A VIE, A SER, F ALB. 3 centers.
+- RUSSIA: held Galicia DMZ (WAR->UKR, MOS->SEV, SEV->RUM, STP/SC->BOT). Took Rumania as agreed.
+  Clean. Still leader at 4 centers. No betrayal. KEEP WATCHING (Bothnia fleet = north push).
+- ITALY: ran Lepanto for real (NAP->ION, ROM->APU, VEN H). Adriatic quiet. Trust CONFIRMED.
+  Most reliable ally. He ships an army east to support me in 1902.
+- TURKEY: ANK->CON, CON->BUL (Bulgaria-bound), SMY->ARM (faces Russia). As agreed. Buffer holds.
+- GERMANY: KIE->DEN, MUN->RUH, BER->KIE. Defensive, no Tyrolia/Bohemia pressure. Counterweight ally.
+
+## FALL 1901 PLAN (negotiation done, orders next round)
+- A SER -> GRE  (take Greece, the clean neutral; brings me to 4 centers = builds 1).
+  -> OR F ALB->GRE and A SER holds, if I want Serbia garrisoned. Decide at order time.
+  Cleanest grab: F ALB->GRE (fleet takes Greece), A SER H (hold the center I own). That's
+  the SAFE version — Serbia stays covered, no risk of bouncing myself. PREFER THIS.
+- A VIE -> HOLD again (Galicia DMZ with Russia still on; no pressure on anyone).
+- Result if it works: BUD, TRI, VIE, GRE + SER = 5 centers? No — Serbia/Greece. Centers:
+  BUD, TRI, VIE, SER (held), GRE (new) = 5 centers, +2 build! Strong Fall.
+- Messages sent F1901M: Italy (confirm Tunis + Greece is mine, partners), Russia (Galicia
+  stays DMZ, Greece is my western Balkans, Rumania yours), Turkey (Greece mine per deal,
+  watch Russia in Black Sea, anti-Juggernaut partner), Germany (counterweight, share Russia reads).
+- WATCH at order time: ensure F ALB->GRE not bounced; nobody else moving on Greece. If Italy
+  surprises toward Ionian->Greece, renegotiate. Keep Vienna covered vs any Galicia surprise.

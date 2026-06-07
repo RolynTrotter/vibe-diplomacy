@@ -21,3 +21,26 @@
 - F1901: convoy A Apulia -> Tunis (via Ion) if Ion is mine; grab Tunis center.
 - Confirm Austria actually took Serbia (not a Venice bounce) before deepening commitment.
 - Decide Lepanto timing vs Turkey — keep him relaxed until forces are committed east.
+
+## F1901M — NEGOTIATION round (this phase)
+### Spring results verified (public board)
+- AUSTRIA delivered: A BUD-SER (Serbia taken), F TRI-ALB (Albania, eyeing Greece), A VIE H. Honored Venice/Adriatic/Tyrolia DMZ. **Trust high — alliance real.**
+- FRANCE honored PIE DMZ (A MAR-SPA, not Piedmont). Iberia development as promised. West calm.
+- TURKEY: F ANK-CON, A CON-BUL (Bulgaria taken), A SMY-ARM. His army went EAST to Armenia — home/Bulgaria are thin. Left Greece neutral.
+- RUSSIA: A WAR-UKR, A MOS-SEV, F SEV-RUM (Rumania), F STP/SC-BOT. North-focused, took Rumania. Still board leader at 4.
+- My spring: F NAP-ION, A ROM-APU, A VEN H — all landed. Lepanto set up, Apulia is convoy-ready.
+
+### F1901M plan (orders next round)
+- **Tunis = my build.** Convoy A APU -> TUN via F ION. Clean, uncontested (Turkey relaxed, France south is empty). This is my 4th center.
+- A VEN: hold or move toward east-staging. Keep honoring Austria DMZ. Lean HOLD for safety unless Austria signals.
+- Watch Austria F ALB -> GRE (his Greece grab). Our lanes don't collide — I'm in Ion/Tun, he's in Greece off Albania. Confirmed via msg.
+
+### Messages sent F1901M (3)
+- AUSTRIA: confirmed Tunis is mine / Greece is his; reaffirmed 1902 army-east pledge; flagged Turkey's exposed home after A SMY-ARM.
+- TURKEY: kept false peace — "Tunis is just a Med build," no-go line holds. He stays relaxed while my Lepanto matures.
+- FRANCE: reaffirmed PIE DMZ, committed south, no western ambitions.
+
+### To revisit
+- After F1901 builds: if I get Tunis build, build F NAP (push Med toward Aegean for Lepanto) OR A (east via Apulia). Likely F NAP to keep pressure on Turkey.
+- 1902: deliver army-east to Austria as pledged — but stay alert Austria doesn't grow too fast off Turkey and turn on Venice. Keep Venice covered.
+- Turkey betrayal timing: my Lepanto turns hot once I have fleets in/near Aegean. Don't tip him until forces committed.

@@ -56,3 +56,30 @@ as the threat and steering me toward the Black Sea (i.e., away from themselves).
 - Do NOT let myself become the tool someone uses to knock down Russia AND get
   stabbed afterward. Keep Russia warm enough to threaten a Juggernaut as leverage.
 - Reassess before Fall after seeing actual openings.
+
+## F1901M — board after Spring (everyone kept their word)
+- My position: F CON, A BUL, A ARM. Centers ANK/CON/SMY (3). Build owed if BUL holds.
+- **Russia HONORED the DMZ**: F SEV - RUM, A MOS - SEV, A WAR - UKR, F STP/SC - BOT.
+  No BLA fleet. Pointed north + Rumania, exactly as promised. Tied for lead (4).
+- **Austria** went west/north Balkans: A BUD - SER, F TRI - ALB, A VIE H. Did NOT
+  contest Bulgaria. Buffer respected. Now at SER + ALB (eyeing Greece/Ionian?).
+- **Italy** went west: F NAP - ION, A ROM - APU, A VEN H. No Lepanto, no Aegean push.
+  ION fleet is the one to watch long-term but cooperative for now.
+- **My A CON - BUL SUCCEEDED** — Bulgaria occupied, just need to hold it for the build.
+
+### F1901M negotiation (round 1) — sent
+- **Russia**: proposed renewing Black Sea DMZ for Fall (no BLA either side); reaffirmed
+  west-push partnership as the future. Banking trust, keeping Juggernaut latent.
+- **Italy**: confirmed Aegean/Ionian no-go holds; ceded Greece to them; flank stays quiet.
+- **Austria**: confirmed SE split holds, no Turkish drift to SER/GRE; flagged willing
+  anti-Russia partner if Russia overreaches. Both bank a build.
+
+### F1901M intended orders (NOT submitted yet — orders round)
+- **A BUL HOLDS** (or A BUL - BUL secured) — lock the build. This is non-negotiable.
+- **F CON - AEG** — reach into Aegean; can support BUL or pressure GRE later, stays
+  east of Italy's no-go line. Honors DMZ (not BLA). Gives Fall flexibility.
+- **A ARM** — flexible: ARM - SMY to backfill home, or hold to watch Russia/SEV.
+  Decide in orders round. ARM is land (DMZ-safe).
+- NOTE: F CON could support A BUL hold if any threat to Bulgaria appears (none seen —
+  Austria at SER not BUL, Russia at RUM not contesting). Reassess with live board.
+- Build target after Fall: a fleet at CON/SMY or army; lean fleet to project Aegean.

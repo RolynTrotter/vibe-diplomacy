@@ -33,3 +33,35 @@ WESTERN lean confirmed, Russia kept friendly. All four neighbors replied constru
 - France into Burgundy = hostile signal toward Munich.
 - England into North Sea + Russia into Sweden simultaneously = squeeze on Denmark; need England deal to hold.
 - Russia at 4 centers could snowball — keep east quiet but be ready to coordinate vs Russia later.
+
+## F1901M plan / posture (negotiation round)
+KEY DEVELOPMENT: France DID play A PAR - BUR (S1901 result), despite promising Burgundy stays
+"defensive." BUR now borders BOTH Munich AND Belgium. This is the central risk this fall:
+- France could lunge BUR -> BEL and steal Belgium ahead of my A RUH -> BEL.
+- Or BUR -> MUN to grab my home center (Munich currently undefended once A MUN moved to RUH).
+France SAYS it's defensive and Belgium is still mine. Testing that this round.
+
+Current board: my units F DEN, A KIE, A RUH. Centers BER, KIE, MUN (Denmark grabbed S1901 — F DEN).
+Standings all bunched: everyone 3 except Russia 4, Austria 4? (verify on board). I'm on track.
+
+### Messages sent (F1901M negotiation)
+- **FRANCE**: Called out the Burgundy move directly but kept tone non-hostile. Reaffirmed I take
+  Belgium via RUH this fall; asked Burgundy to HOLD or pull back (Mar/Par), NOT touch BEL/MUN/Rhine.
+  Explicit warning: if BUR lunges at BEL or MUN, I treat it as war and pull England in vs France.
+  Asked them to confirm Belgium still mine + Burgundy defensive.
+- **ENGLAND**: Reaffirmed E/G deal (N.Sea uncontested, they take Norway, I take DEN+Low Countries).
+  Told them about the French BUR move; floated the agreed anti-France lean if France grabs BEL/Channel.
+  Asked them to confirm they stay off DEN/HOL and their fall is purely north (nothing bumps BEL).
+- **RUSSIA**: Kept border calm; blessed their Sweden grab; gentle note that fast growth draws a bloc.
+- **AUSTRIA**: Munich defensive reaffirmed; shared Russia read; asked Austria to lean on France if
+  France turns west-aggressive. Keep SE counterweight alive.
+
+### Fall 1901 ORDER reads (decide next round, after replies)
+- Primary: A RUH -> BEL (claim Belgium = 2nd build w/ Denmark).
+- Munich defense problem: if France replies coldly / BUR looks aggressive, may need A KIE -> MUN
+  to cover the home center instead of using it elsewhere — but that costs tempo. Weigh vs RUH->BEL.
+  Note A RUH could also go RUH->MUN to defend if France looks hostile (but then lose Belgium tempo).
+- F DEN: holds Denmark (already mine). Could support a Low Countries play or stay put.
+- DECISION HINGES ON FRANCE'S REPLY: cooperative -> RUH->BEL, leave MUN open (risk it).
+  Hostile/silent -> prioritize covering MUN; consider bouncing BUR. Watch for the betrayal.
+- Worst case to avoid: lose Munich to a BUR->MUN stab while my armies are off chasing Belgium.
