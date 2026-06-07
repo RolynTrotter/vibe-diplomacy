@@ -1,20 +1,32 @@
 # AUSTRIA — private notes (aurora)
 
-## Strategic read (S1901M)
+## Strategic read (S1901M, end of negotiation)
 - Surrounded: Italy (west), Russia (NE/Galicia), Turkey (SE). Germany distant ally.
 - RUSSIA at 4 centers already — the early standout threat. Watch for Juggernaut (R+T).
-- Core needs: NO Galician bloodbath, friendly Italy, take western Balkans (Serbia, then Greece/Bulgaria).
+- Core needs: NO Galician bloodbath, friendly Italy, take western Balkans (Serbia, then Greece).
+- GOOD NEWS: all four neighbors gave favorable round-2 replies. Everyone openly fears a
+  snowballing Russia — useful leverage if Russia overreaches later.
 
-## Plan / diplomacy
-- ITALY: pitch DMZ Tyrolia/Adriatic/Venice; encourage Tunis + Lepanto vs Turkey. Most valuable ally.
-- RUSSIA: lock Galician DMZ. Let me have Serbia; avoid collision over Rumania.
-- TURKEY: probe — quiet SE flank, or coordinate vs Russia. Avoid R+T combine.
-- GERMANY: keep friendly, counterweight to Russia in the north.
+## Confirmed deals (round 2)
+- ITALY (strongest ally): DMZ Tyrolia/Venice/Adriatic CONFIRMED. I give a quiet Adriatic,
+  no pressure on Venice; Italy runs Lepanto -> Tunis vs Turkey and ships an army east to
+  support me into Balkans/Smyrna in 1902. He has my back, I have his. MOST VALUABLE.
+- RUSSIA: Galician DMZ both ways CONFIRMED. Serbia is mine, Rumania is his. Clean spheres.
+  Trust but verify — he's the biggest threat; watch Galicia for a lie.
+- TURKEY: Southeastern peace. Serbia mine, Bulgaria his, Greece neutral/contested (not an
+  A-T flashpoint). Willing anti-Russia partner if Russia overreaches.
+- GERMANY: Friendly, Munich defensive (no Tyrolia/Bohemia pressure). Counterweight vs
+  Russia. Will share intel on Russian intentions.
 
-## Likely opening (decide next round, do NOT order yet)
-- A VIE -> Galicia OR hold/Tyrolia depending on Russia deal (Hedgehog if Russia untrusted).
-- A BUD -> Serbia (build toward 4 centers).
-- F TRI -> Albania (supports Serbia / Greece next) or Adriatic if Italy distrusted.
+## Planned S1901M opening (commit next round, do NOT order yet)
+- A BUD -> SER  (grab the easy neutral center; builds toward 4).
+- F TRI -> ALB  (positions for Serbia/Greece support next year; keeps Adriatic quiet for
+  Italy as promised — do NOT go Adriatic, that would alarm Italy and break trust).
+- A VIE -> HOLD  (honors BOTH DMZs: Galicia banned by Russia deal, Tyrolia banned by Italy
+  deal). Keeps Vienna covered. Hedgehog-lite. Revisit Galicia in Fall only if Russia lies.
 
-## Open threads
-- Awaiting replies from ITA, RUS, TUR, GER. Reassess alliance after round 2.
+## Open threads / before Fall
+- Trust order: ITALY > GERMANY/TURKEY > RUSSIA (watch him).
+- Re-contact Turkey + Germany for a Russia read before Fall.
+- Verify Italy's Lepanto is real (watch F NAP / A ROM / movement toward Ion/Tunis).
+- If Russia moves into Galicia despite the deal, pivot to anti-Russia coalition (Turkey + Italy ready).

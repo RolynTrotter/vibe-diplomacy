@@ -15,15 +15,27 @@ clean 2-build year (Spain + Portugal).
   whichever offers the better deal / seems more trustworthy.
 - ITALY: proposed mutual Piedmont DMZ so I can develop west and they go east.
 
-## Intended opening orders (tentative — NOT submitted)
-- F BRE -> MAO (Mid-Atlantic): flexible — can convoy/cover Spain or Portugal,
-  keeps Channel option open without antagonizing England.
-- A MAR -> SPA (Spain): grab the southern center.
-- A PAR -> BUR or PIC: BUR if I trust Germany less (defensive/flexible), PIC if
-  Channel is truly DMZ'd and I want to pressure Belgium / support north.
-  Leaning PAR -> BUR for flexibility; revisit after round 2 replies.
+## Diplomacy round 2 — DEALS CONFIRMED
+- ENGLAND: Channel DMZ CONFIRMED both ways. I keep fleet out of ENG, they
+  keep clear of Brest/coast. They go north (Norway/Scandinavia). Floated future
+  Atlantic partnership + coordination if Germany overreaches on Belgium.
+- ITALY: Piedmont DMZ CONFIRMED both ways. MAR will not enter PIE; Venice
+  stays out. Italy heads to Tunis/Balkans, no western ambitions. Calmest border.
+- GERMANY: Non-aggression CONFIRMED. Germany off Burgundy/Rhine; I stay west.
+  Conceded Belgium to Germany peacefully (provided England doesn't fight there).
+  Both agree Russia is the long-term threat. I told Germany I'll hold BUR
+  defensively, not push it — keeps things quiet.
 
-## Open questions for round 2
-- Does England actually accept the Channel DMZ? If yes, PAR can go PIC.
-- Does Germany want Belgium peacefully, or is England going to fight me there?
-- Italy's reply on Piedmont determines whether A MAR can safely commit to Spain.
+## Finalized opening orders (NOT yet submitted)
+- F BRE -> MAO (Mid-Atlantic): supports Spain/Portugal next, Channel-neutral.
+- A MAR -> SPA (Spain): grab southern center. Safe given Italy Piedmont DMZ.
+- A PAR -> BUR (Burgundy): DEFENSIVE/flexible. England + Germany friendly but
+  unproven — BUR covers Marseilles/Belgium options and signals no aggression
+  to Germany (promised to hold, not push). Target: clean 2-build year
+  (Spain + Portugal in autumn).
+
+## Trust read
+- Italy: most credible (mutual interest in quiet border). Trust high.
+- England: Channel DMZ verifiable next phase — watch if fleet enters ENG.
+- Germany: fine for now; Belgium concession is the test of good faith.
+- Russia (4 centers): unengaged, the real long-game danger. Monitor.

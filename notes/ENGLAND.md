@@ -20,7 +20,19 @@
 - A LVP -> YOR or EDI (convoy-ready / hold the isle)
 - Goal builds: Norway (and Belgium if E/G coordination allows).
 
-### Open questions / next round
-- Confirm France DMZ. If yes, point everything north.
-- Lock Germany's anti-Russia or anti-France lean.
-- Gauge if Russia is being honest about Sweden/StP.
+### Round 2 — deals FINALIZED
+- FRANCE: Channel DMZ CONFIRMED both ways. France develops Iberia (Spain/Port),
+  no designs on islands. Offered Belgium support later vs greedy Germany. Trust:
+  moderate-high. Trip-wire: a French fleet entering ENG = betrayal.
+- GERMANY: E/G understanding LOCKED. I take seas + Norway; Germany takes Denmark
+  + Holland by land. North Sea uncontested. I will NOT enter DEN/HOL. Best ally.
+  Trip-wire: a German fleet in NTH = betrayal.
+- RUSSIA: Scandinavia split CONFIRMED. Operative point: I get NORWAY, Russia gets
+  SWEDEN, Barents/Norwegian seas quiet, no StP push from Russia. Holding peace;
+  Russia still the long-term northern threat. Trust: low-but-cooperative.
+
+### FINAL intended S1901M moves (still NOT submitted)
+- F EDI -> NWG  (Norwegian Sea, toward Norway build)
+- F LON -> NTH  (North Sea; covers Norway — agreed uncontested with Germany)
+- A LVP -> YOR  (mobile; convoy-ready toward Norway, holds the isle)
+- Build target: Norway. Belgium only if France supports and Germany allows.

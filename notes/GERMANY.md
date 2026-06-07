@@ -9,13 +9,20 @@ Central and exposed. Russia is early leader (4 centers) — watch them but don't
 - **RUSSIA**: Proposed Sweden(theirs)/Denmark(mine) split, quiet Silesia/Prussia border. Non-aggression to keep my east calm.
 - **AUSTRIA**: Friendly channel only; reassured I won't pressure Tyrolia/Bohemia. Munich stays defensive.
 
-### Lean
-Slight WESTERN lean (E/G), but keep Russia friendly. Goal: Denmark + Holland for two builds, no early enemies.
+### Lean — FINALIZED (round 2)
+WESTERN lean confirmed, Russia kept friendly. All four neighbors replied constructively; everyone offered exactly what I asked. Goal: Denmark + Belgium for TWO builds, zero early enemies.
 
-### Likely opening (decide next round, do NOT order yet)
-- F KIE -> DEN (or HOL via Holland later)
-- A BER -> KIE (support/backfill, supports Denmark) or BER hold
-- A MUN -> RUH (toward Holland / flexible vs Burgundy) — keep non-threatening to France
+### Confirmed deals (S1901M)
+- **FRANCE**: Mutual non-aggression CONFIRMED. France focusing Iberia, no Burgundy push. **France explicitly gives me Belgium** — take it. Quiet Franco-German border. Aligned on watching Russia.
+- **ENGLAND**: E/G partnership CONFIRMED. North Sea uncontested, England takes Norway/Scandinavia lead, I get free hand in Low Countries + Denmark. Will coordinate vs Russia in the north later.
+- **RUSSIA**: Sweden(theirs)/Denmark(mine) split CONFIRMED. Calm Silesia/Prussia border, Warsaw pointed away. Quiet east this spring.
+- **AUSTRIA**: Friendly channel, Munich defensive. Austria = SE counterweight vs Russia. No Tyrolia/Bohemia threat.
+
+### Planned opening — TARGETS: Denmark + Belgium (two builds)
+- F KIE -> DEN (grab Denmark, Russia not contesting)
+- A MUN -> RUH (set up Belgium grab next; non-threatening to France)
+- A BER -> KIE (backfill Kiel, flexible)
+  - Belgium: reach via RUH -> BEL in fall. France conceded it.
 - Watch: don't commit A MUN to Burgundy unless France turns hostile.
 
 ### Threats to monitor
