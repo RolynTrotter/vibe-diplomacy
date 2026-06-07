@@ -147,6 +147,14 @@ def build_game(name: str, ref: str, out: Path) -> dict | None:
             "orders": orders,
         })
 
+    # Full-press comms (Epic 5) live in mail/revealed.json, written by the
+    # adjudicator only at game end. Merge them with any engine-native messages.
+    if complete:
+        revealed_raw = read_json_at(ref, "mail/revealed.json")
+        if isinstance(revealed_raw, list):
+            messages.extend(normalize_messages(revealed_raw, ""))
+            messages.sort(key=lambda m: (m.get("phase", ""), m.get("sender", "")))
+
     # Messages are revealed only once the game is over (secrecy during play).
     meta = {
         "name": name,

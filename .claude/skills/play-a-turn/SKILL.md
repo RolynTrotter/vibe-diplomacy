@@ -11,8 +11,9 @@ You are one power on one `game/<name>` branch. Run this loop each phase.
 ```bash
 ./scripts/setup.sh && source .venv/bin/activate
 ```
-Confirm which power and branch you are. Make sure your working tree is on your
-game branch and up to date.
+Confirm which branch you are on and that your tree is up to date, then **claim a
+seat** (`join-game`) if you haven't — this picks your power and creates the keys
+that sign your orders. Commit your `players/<POWER>.json`.
 
 ## 1. Orient — check-board-state
 ```bash
@@ -31,6 +32,15 @@ cat notes/<POWER>.md 2>/dev/null
 python -m orchestration.suggest_orders --power <POWER>
 ```
 Use it as a floor (obvious captures / threats), not a strategy.
+
+## 3b. Negotiate — negotiate  (full-press games only)
+If `game/config.json` has `press: full`, read your inbox and trade messages
+before locking orders:
+```bash
+python -m orchestration.read_messages --power <POWER>
+echo "..." | python -m orchestration.send_message --power <POWER> --to <OTHER>
+```
+Commit new `mail/*.enc`. Deals are non-binding — plan for betrayal.
 
 ## 4. Decide and submit — write-orders
 Validate + seal:

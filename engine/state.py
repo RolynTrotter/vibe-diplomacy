@@ -77,6 +77,31 @@ def power_orders_file(root: Path, power: str, phase: str) -> Path:
     return orders_dir(root) / power.upper() / f"{phase}.enc"
 
 
+# --- Full-press comms (Epic 5) -------------------------------------------- #
+def players_dir(root: Path) -> Path:
+    return Path(root) / "players"
+
+
+def player_file(root: Path, power: str) -> Path:
+    """Public identity for a power: its message public key (committed)."""
+    return players_dir(root) / f"{power.upper()}.json"
+
+
+def player_privkey_file(root: Path, power: str) -> Path:
+    """A power's PRIVATE message key. Gitignored (*.privkey); never committed."""
+    return Path(root) / "secrets" / f"{power.upper()}.privkey"
+
+
+def mail_dir(root: Path) -> Path:
+    """Pool of sealed messages, named by random id (no metadata in the name)."""
+    return Path(root) / "mail"
+
+
+def revealed_messages_file(root: Path) -> Path:
+    """Plaintext messages, written only once the game ends."""
+    return mail_dir(root) / "revealed.json"
+
+
 def load_game(root: Path) -> Game:
     """Reconstruct the live Game from state/current.json."""
     with open(state_file(root), encoding="utf-8") as fh:

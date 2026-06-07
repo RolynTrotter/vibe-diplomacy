@@ -22,10 +22,10 @@ import json
 import os
 import sys
 
-from orchestration._common import repo_root
+from orchestration._common import canonical_order_payload, repo_root
 from orchestration.game_status import collect
 
-from engine import adjudicate, crypto, state
+from engine import adjudicate, comms, crypto, state
 
 
 def _read_sealed_orders(root, private_key: str, phase: str, live_powers) -> dict:
@@ -35,12 +35,38 @@ def _read_sealed_orders(root, private_key: str, phase: str, live_powers) -> dict
         if not path.exists():
             continue
         sealed = path.read_text(encoding="utf-8")
-        payload = json.loads(crypto.decrypt(private_key, sealed))
+        try:
+            payload = json.loads(crypto.decrypt(private_key, sealed))
+        except Exception:
+            # Corrupt or non-decryptable file (e.g. tampering): treat as no
+            # orders rather than crashing the whole phase. The power holds.
+            print(f"WARNING: {power}'s order file is unreadable; ignoring.",
+                  file=sys.stderr)
+            continue
         if payload.get("phase") != phase:
             print(f"WARNING: {power} orders are for {payload.get('phase')}, "
                   f"not {phase}; ignoring.", file=sys.stderr)
             continue
-        orders_by_power[power] = payload.get("orders", [])
+        if payload.get("power", "").upper() != power:
+            print(f"WARNING: {power}'s file claims to be {payload.get('power')!r}; "
+                  f"ignoring (possible forgery).", file=sys.stderr)
+            continue
+
+        # Authenticate: the orders must be signed by THIS power's committed key,
+        # so e.g. France can't submit Germany's orders.
+        orders = payload.get("orders", [])
+        spub = comms.sign_pubkey(root, power)
+        sig = payload.get("sig")
+        canonical = canonical_order_payload(power, phase, orders)
+        if not spub:
+            print(f"WARNING: {power} has no claimed identity (players/{power}.json); "
+                  f"ignoring its orders.", file=sys.stderr)
+            continue
+        if not sig or not crypto.verify(spub, canonical, sig):
+            print(f"WARNING: {power} orders failed signature verification; "
+                  f"ignoring (possible forgery).", file=sys.stderr)
+            continue
+        orders_by_power[power] = orders
     return orders_by_power
 
 
@@ -105,6 +131,15 @@ def main() -> int:
         path = state.power_orders_file(root, power, phase)
         if path.exists():
             path.unlink()
+
+    # At game end, reveal the sealed message archive for the public post-mortem
+    # (full-press convention: messages are private during play, public at end).
+    if game.is_game_done:
+        revealed = comms.reveal(root, private_key)
+        out = state.revealed_messages_file(root)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(revealed, indent=2), encoding="utf-8")
+        print(f"Game over — revealed {len(revealed)} message(s) to {out}.")
 
     print(f"Processed {phase} -> {game.get_current_phase()}. "
           f"Revealed orders to {history_path}.")

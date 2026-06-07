@@ -100,6 +100,11 @@ def main() -> int:
     priv = init_game(args.name)
     env = {**os.environ, "ADJUDICATOR_PRIVATE_KEY": priv}
 
+    # Claim every seat so each power can sign its orders (the adjudicator now
+    # verifies signatures, so e.g. France can't submit Germany's orders).
+    for power in POWERS:
+        run("orchestration.join_game", ["--power", power])
+
     for i in range(args.adjudications):
         st = status()
         if st["done"]:

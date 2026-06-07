@@ -16,9 +16,9 @@ import argparse
 import json
 import sys
 
-from orchestration._common import parse_orders, repo_root
+from orchestration._common import canonical_order_payload, parse_orders, repo_root
 
-from engine import crypto, state, validate
+from engine import comms, crypto, state, validate
 
 
 def main() -> int:
@@ -60,9 +60,21 @@ def main() -> int:
         print("(dry run — nothing written)")
         return 0
 
+    # Sign the orders so the adjudicator can prove they came from this power
+    # (and not, say, France submitting Germany's orders). Requires a claimed seat.
+    keys = comms.load_keys(root, power)
+    if not keys or not keys.get("sign"):
+        print(f"\nNo signing key for {power}. Claim your seat first:",
+              file=sys.stderr)
+        print("    python -m orchestration.join_game --power " + power,
+              file=sys.stderr)
+        return 1
+
+    signature = crypto.sign(keys["sign"],
+                            canonical_order_payload(power, phase, result.accepted))
     pub_b64 = state.pubkey_file(root).read_text(encoding="utf-8")
     payload = json.dumps(
-        {"power": power, "phase": phase, "orders": result.accepted},
+        {"power": power, "phase": phase, "orders": result.accepted, "sig": signature},
         sort_keys=True,
     )
     sealed = crypto.encrypt(pub_b64, payload)
@@ -70,7 +82,7 @@ def main() -> int:
     out = state.power_orders_file(root, power, phase)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(sealed + "\n", encoding="utf-8")
-    print(f"\nSealed orders written to {out}")
+    print(f"\nSealed + signed orders written to {out}")
     print("Commit this file to the game branch to submit your turn.")
     return 0
 
