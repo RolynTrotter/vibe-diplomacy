@@ -18,6 +18,7 @@
       <div class="view-toggle" role="group" aria-label="View mode">
         <button id="btn-map" class="active" type="button">Map</button>
         <button id="btn-text" type="button">Text</button>
+        <button id="btn-talk" type="button">Talk</button>
       </div>
     </div>
   </header>
@@ -26,6 +27,11 @@
     <div id="board">
       <img id="map-img" alt="Board map" />
       <section id="text-view" hidden></section>
+      <section id="talk-view" hidden>
+        <p class="talk-hint">Tap two powers to read their messages.</p>
+        <div id="power-picker" class="power-picker"></div>
+        <div id="thread" class="thread"></div>
+      </section>
       <p id="status" class="status">Loading…</p>
     </div>
 

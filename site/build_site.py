@@ -67,6 +67,27 @@ def read_json_at(ref: str, path: str) -> dict | None:
         return None
 
 
+def normalize_messages(raw: list | None, phase: str) -> list[dict]:
+    """Flatten a saved phase's messages to {phase, sender, recipient, body}.
+
+    Broadcasts use recipient 'GLOBAL'. Only public messages reach this builder;
+    private full-press comms (Epic 5) are encrypted per-recipient and would need
+    an explicit reveal step before they could appear in the public viewer.
+    """
+    out = []
+    for m in raw or []:
+        body = m.get("message") or m.get("body") or ""
+        if not body:
+            continue
+        out.append({
+            "phase": m.get("phase", phase),
+            "sender": (m.get("sender") or "").upper(),
+            "recipient": (m.get("recipient") or "GLOBAL").upper(),
+            "body": body,
+        })
+    return out
+
+
 def phase_label(code: str) -> str:
     """'S1901M' -> 'Spring 1901 — Movement'."""
     if len(code) >= 6 and code[0] in SEASONS:
@@ -86,8 +107,10 @@ def build_game(name: str, ref: str, out: Path) -> dict | None:
     game_dir.mkdir(parents=True, exist_ok=True)
 
     phases_meta = []
+    messages: list[dict] = []
     for ph in saved["phases"]:
         code = ph["name"]
+        messages.extend(normalize_messages(ph.get("messages"), code))
         game = Game()
         game.set_state(ph["state"])
         orders = {p: o for p, o in (ph.get("orders") or {}).items() if o}
@@ -111,6 +134,7 @@ def build_game(name: str, ref: str, out: Path) -> dict | None:
         "title": config.get("name", name),
         "phases": phases_meta,
         "current_phase": phases_meta[-1]["code"],
+        "messages": messages,
     }
     (game_dir / "meta.json").write_text(json.dumps(meta), encoding="utf-8")
     print(f"  + {name}: {len(phases_meta)} phases rendered")

@@ -5,21 +5,27 @@ const POWER_COLORS = {
   AUSTRIA: "#c48f3f", ENGLAND: "#7b53a6", FRANCE: "#4f7fd6", GERMANY: "#6b6b6b",
   ITALY: "#4aa05a", RUSSIA: "#cfd2d8", TURKEY: "#d8b13a",
 };
+const POWERS = Object.keys(POWER_COLORS);
 
 const el = (id) => document.getElementById(id);
 const gameSelect = el("game-select");
 const mapImg = el("map-img");
 const textView = el("text-view");
+const talkView = el("talk-view");
 const statusEl = el("status");
 const scoreboard = el("scoreboard");
+const phaseBar = document.querySelector(".phase-bar");
 const range = el("phase-range");
 const phaseLabel = el("phase-label");
 const prevBtn = el("prev");
 const nextBtn = el("next");
+const powerPicker = el("power-picker");
+const thread = el("thread");
 
 let meta = null;        // current game's meta.json
 let index = 0;          // current phase index
-let mode = "map";       // "map" | "text"
+let mode = "map";       // "map" | "text" | "talk"
+let pair = [];          // selected powers for the talk view (max 2)
 const preloaded = new Set();
 
 function setStatus(msg) {
@@ -55,13 +61,16 @@ async function loadGame(name) {
   } catch (e) {
     setStatus("Could not load game data."); return;
   }
+  meta.messages = meta.messages || [];
   preloaded.clear();
+  pair = [];
   range.max = String(meta.phases.length - 1);
   index = meta.phases.length - 1; // open on the latest phase
   range.value = String(index);
   el("src-link").innerHTML =
     `· <a href="https://github.com/RolynTrotter/vibe-diplomacy/tree/game/${name}">source</a>`;
-  showPhase(index);
+  buildPowerPicker();
+  render();
 }
 
 function preload(i) {
@@ -90,9 +99,7 @@ function renderScoreboard(ph) {
 function renderText(ph) {
   const powers = Object.keys(ph.orders).sort();
   let html = `<h2>${ph.label}</h2>`;
-  if (!powers.length) {
-    html += `<p class="none">No orders this phase.</p>`;
-  }
+  if (!powers.length) html += `<p class="none">No orders this phase.</p>`;
   for (const power of powers) {
     const orders = ph.orders[power];
     html += `<div class="power"><h3 style="color:${POWER_COLORS[power] || "#fff"}">${power}</h3>`;
@@ -104,48 +111,140 @@ function renderText(ph) {
   textView.innerHTML = html;
 }
 
-function showPhase(i) {
+// ---- Talk view -----------------------------------------------------------
+function buildPowerPicker() {
+  powerPicker.innerHTML = "";
+  for (const power of POWERS) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "power-btn";
+    btn.dataset.power = power;
+    btn.innerHTML =
+      `<span class="dot" style="background:${POWER_COLORS[power]}"></span>` +
+      `<span>${power.slice(0, 3)}</span>`;
+    btn.addEventListener("click", () => togglePower(power));
+    powerPicker.appendChild(btn);
+  }
+}
+
+function togglePower(power) {
+  const i = pair.indexOf(power);
+  if (i >= 0) pair.splice(i, 1);
+  else { pair.push(power); if (pair.length > 2) pair.shift(); }
+  renderTalk();
+}
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"]/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+function messagesForPair() {
+  const [a, b] = pair;
+  return meta.messages.filter((m) => {
+    const cast = m.recipient === "GLOBAL";
+    if (pair.length === 1) {
+      return m.sender === a || m.recipient === a || (cast && m.sender === a);
+    }
+    const between = (m.sender === a && m.recipient === b) ||
+                    (m.sender === b && m.recipient === a);
+    return between || (cast && (m.sender === a || m.sender === b));
+  });
+}
+
+function renderTalk() {
+  // reflect selection state on buttons
+  for (const btn of powerPicker.children) {
+    const p = btn.dataset.power;
+    btn.classList.toggle("sel", pair.includes(p));
+    btn.classList.toggle("dim", pair.length === 2 && !pair.includes(p));
+  }
+
+  if (!pair.length) {
+    thread.innerHTML = `<p class="none">Pick a power (and optionally a second) to see their messages.</p>`;
+    return;
+  }
+  if (!meta.messages.length) {
+    thread.innerHTML = `<p class="none">No messages in this game yet — full-press comms aren't enabled. The buttons are ready for when they are.</p>`;
+    return;
+  }
+
+  const msgs = messagesForPair();
+  if (!msgs.length) {
+    thread.innerHTML = `<p class="none">No messages between ${pair.join(" & ")}.</p>`;
+    return;
+  }
+
+  const anchor = pair[0];
+  let html = "";
+  let lastPhase = null;
+  for (const m of msgs) {
+    if (m.phase !== lastPhase) {
+      html += `<div class="phase-sep">${m.phase}</div>`;
+      lastPhase = m.phase;
+    }
+    if (m.recipient === "GLOBAL") {
+      html += `<div class="bubble cast"><div class="who" style="color:${POWER_COLORS[m.sender]}">${m.sender} → all</div>${escapeHtml(m.body)}</div>`;
+    } else {
+      const side = m.sender === anchor ? "right" : "left";
+      html += `<div class="bubble ${side}"><div class="who" style="color:${POWER_COLORS[m.sender]}">${m.sender} → ${m.recipient}</div>${escapeHtml(m.body)}</div>`;
+    }
+  }
+  thread.innerHTML = html;
+}
+
+// ---- Render dispatch -----------------------------------------------------
+function render() {
   if (!meta) return;
-  index = Math.max(0, Math.min(i, meta.phases.length - 1));
+  index = Math.max(0, Math.min(index, meta.phases.length - 1));
   const ph = meta.phases[index];
   range.value = String(index);
   phaseLabel.textContent = ph.label;
   prevBtn.disabled = index === 0;
   nextBtn.disabled = index === meta.phases.length - 1;
 
-  renderScoreboard(ph);
+  const boardMode = mode !== "talk";
+  scoreboard.hidden = !boardMode;
+  phaseBar.style.display = boardMode ? "" : "none";
+  mapImg.hidden = mode !== "map";
+  textView.hidden = mode !== "text";
+  talkView.hidden = mode !== "talk";
+  setStatus("");
+
   if (mode === "map") {
-    setStatus("");
-    mapImg.hidden = false;
-    textView.hidden = true;
+    renderScoreboard(ph);
     mapImg.src = ph.svg;
-  } else {
-    mapImg.hidden = true;
-    textView.hidden = false;
-    setStatus("");
+    preload(index + 1);
+    preload(index - 1);
+  } else if (mode === "text") {
+    renderScoreboard(ph);
     renderText(ph);
+  } else {
+    renderTalk();
   }
-  // Preload neighbours for smooth scrubbing.
-  preload(index + 1);
-  preload(index - 1);
 }
 
 function setMode(next) {
   mode = next;
   el("btn-map").classList.toggle("active", next === "map");
   el("btn-text").classList.toggle("active", next === "text");
-  showPhase(index);
+  el("btn-talk").classList.toggle("active", next === "talk");
+  render();
 }
 
+function step(delta) { index += delta; render(); }
+
 gameSelect.addEventListener("change", () => loadGame(gameSelect.value));
-range.addEventListener("input", () => showPhase(Number(range.value)));
-prevBtn.addEventListener("click", () => showPhase(index - 1));
-nextBtn.addEventListener("click", () => showPhase(index + 1));
+range.addEventListener("input", () => { index = Number(range.value); render(); });
+prevBtn.addEventListener("click", () => step(-1));
+nextBtn.addEventListener("click", () => step(1));
 el("btn-map").addEventListener("click", () => setMode("map"));
 el("btn-text").addEventListener("click", () => setMode("text"));
+el("btn-talk").addEventListener("click", () => setMode("talk"));
 document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowLeft") showPhase(index - 1);
-  if (e.key === "ArrowRight") showPhase(index + 1);
+  if (mode === "talk") return;
+  if (e.key === "ArrowLeft") step(-1);
+  if (e.key === "ArrowRight") step(1);
 });
 
 loadManifest();
