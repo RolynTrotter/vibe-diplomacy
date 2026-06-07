@@ -34,6 +34,19 @@ as the threat and steering me toward the Black Sea (i.e., away from themselves).
   exact pair in the orders round based on final board.
 - Bulgaria = primary Fall build target. Leave Greece to Italy.
 
+### S1901M SUBMITTED (sealed)
+- **F ANK - CON** — honors Black Sea DMZ (BLA empty), repositions fleet for Aegean reach.
+- **A CON - BUL** — grabbing Bulgaria (primary Fall build target). CON/ANK swap resolves
+  fine simultaneously since A CON vacates as F ANK enters.
+- **A SMY - ARM** — watch Russia, flexible. ARM is a land move (DMZ-safe, not BLA); can
+  pivot back or support a later western push if trust holds.
+- Suggester wanted F ANK - BLA (ignores DMZ) — deliberately overridden to keep faith with Russia.
+
+### Fall 1901 outlook
+- If A CON - BUL succeeds: secure BUL for the build. Greece left to Italy per deal.
+- F at CON can reach AEG to support BUL. Reassess after seeing whether Russia kept
+  Sevastopol off BLA as promised, and Austria/Italy openings.
+
 ### Watch
 - Russia warm but watched (strongest; DMZ buys peace, not loyalty). Keep Juggernaut
   as latent leverage. Austria = near-term anti-Russia ally. Italy = low threat, honor

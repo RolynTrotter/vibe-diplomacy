@@ -18,7 +18,15 @@
 - GERMANY: Friendly, Munich defensive (no Tyrolia/Bohemia pressure). Counterweight vs
   Russia. Will share intel on Russian intentions.
 
-## Planned S1901M opening (commit next round, do NOT order yet)
+## SUBMITTED S1901M (sealed)
+- A BUD - SER  (taking the neutral center per all deals)
+- F TRI - ALB  (Adriatic kept quiet for Italy; sets up Serbia/Greece support in Fall)
+- A VIE H      (honors both DMZs; Vienna covered, no Galicia per Russia deal)
+Rationale: every neighbor confirmed favorable deals; no reason to break trust round 1.
+Watch in Fall adjudication results: did Russia stay out of Galicia? Did Italy run Lepanto
+(F Nap->Ion, A Rom->Apu)? Any Italian move into Tyrolia/Adriatic = betrayal flag.
+
+## (orig) Planned S1901M opening
 - A BUD -> SER  (grab the easy neutral center; builds toward 4).
 - F TRI -> ALB  (positions for Serbia/Greece support next year; keeps Adriatic quiet for
   Italy as promised — do NOT go Adriatic, that would alarm Italy and break trust).

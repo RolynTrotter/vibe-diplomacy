@@ -10,11 +10,12 @@
 - **TURKEY — false peace.** Agreed Ionian/Aegean no-go, I stay west of Greece. He thinks we're at peace. REALITY: I'm running Lepanto AGAINST him. Keep him relaxed; F Nap->Ion is "toward Tunis" cover. I told him Greece is his, but Austria may take it.
 - **RUSSIA — no contact this round.** No shared border. Watch the Juggernaut lead.
 
-## Planned S1901M orders (write next phase — NOT submitted)
+## S1901M orders SUBMITTED (sealed)
 - F NAP -> ION  (Lepanto step 1; reads as Tunis-bound, also positions vs Turkey)
 - A ROM -> APU  (convoy-ready for Tunis in F1901, or army east in 1902)
-- A VEN -> HOLD (home defense; honors Austria DMZ, keeps Venice safe vs any double-cross)
-- DO NOT move into PIE (France DMZ).
+- A VEN H       (home defense; honors Austria DMZ, keeps Venice safe vs any double-cross)
+- Honored PIE DMZ with France; honored Adriatic/Tyrolia/Venice DMZ with Austria.
+- All 3 accepted + sealed to orders/ITALY/S1901M.enc.
 
 ## To revisit next phase
 - F1901: convoy A Apulia -> Tunis (via Ion) if Ion is mine; grab Tunis center.

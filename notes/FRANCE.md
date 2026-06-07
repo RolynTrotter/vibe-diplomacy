@@ -26,13 +26,24 @@ clean 2-build year (Spain + Portugal).
   Both agree Russia is the long-term threat. I told Germany I'll hold BUR
   defensively, not push it — keeps things quiet.
 
-## Finalized opening orders (NOT yet submitted)
+## SUBMITTED orders (S1901M) — sealed to orders/FRANCE/S1901M.enc
 - F BRE -> MAO (Mid-Atlantic): supports Spain/Portugal next, Channel-neutral.
 - A MAR -> SPA (Spain): grab southern center. Safe given Italy Piedmont DMZ.
 - A PAR -> BUR (Burgundy): DEFENSIVE/flexible. England + Germany friendly but
   unproven — BUR covers Marseilles/Belgium options and signals no aggression
   to Germany (promised to hold, not push). Target: clean 2-build year
   (Spain + Portugal in autumn).
+
+## Reads for next phase (after S1901M resolves)
+- Autumn plan: F MAO -> POR for Portugal; A SPA holds (already in Spain) =>
+  clean 2 builds (SPA + POR). If SPA contested, MAO supports instead.
+- VERIFY DEALS at resolution:
+  * England — confirm no English fleet entered ENG (Channel DMZ test). If
+    breached, recall Atlantic plan, defend Brest/coast.
+  * Italy — confirm Venice did NOT enter PIE (Piedmont DMZ test).
+  * Germany — confirm no army in BUR/Rhine; check they went Low Countries/
+    Denmark. Belgium concession = good-faith test.
+- Russia (4 SC): keep monitoring eastward expansion; long-game threat.
 
 ## Trust read
 - Italy: most credible (mutual interest in quiet border). Trust high.

@@ -18,14 +18,22 @@
 - **ITALY:** No shared border, mutual stay-out-of-way. Told them no Juggernaut /
   no anti-Austria this year (reassurance to defuse coalition talk).
 
-## Finalized S1901M orders (write next phase — NOT submitted yet)
-- **F SEV -> RUM** — grab Rumania. Clean, respects BLA DMZ (army-route center).
+## SUBMITTED S1901M orders (sealed to orders/RUSSIA/S1901M.enc)
+- **F SEV -> RUM** — grab Rumania. Clean, respects BLA DMZ (no Black Sea entry).
 - **F STP/SC -> BOT** (Gulf of Bothnia) — sets up F BOT->SWE in Fall for Sweden.
 - **A WAR -> UKR** — backs Rumania, flexes defensively toward Gal without entering
   it (respects DMZ). Keeps options vs Turkey/Austria if deals break.
 - **A MOS -> SEV** — backfill south, reinforce Rumania/Black Sea area, keep flex.
-  (Alt: A MOS -> STP if north feels threatened — but England deal makes that
-  unnecessary; prefer southern reinforcement.)
+
+## Reads for next phase (Fall 1901)
+- RUM should fall to F SEV uncontested if Turkey/Austria honor deals.
+- F BOT->SWE in Fall to take Sweden (Germany + England both ceded it). Confirm
+  Germany takes DEN and England takes NWY — if either grabs SWE, that's a stab
+  and triggers the anti-greed coord both offered.
+- VERIFY in adjudication: Turkey kept F ANK out of BLA; Austria kept Vienna out
+  of GAL. If BLA entered -> Turkey cheated, pivot F SEV defensive, lean Austria.
+- A UKR can backstop RUM or pivot to GAL/SEV depending on threats.
+- Target end-1901: 6 centers (MOS, SEV, STP, WAR, RUM, SWE) via confirmed deals.
 
 Net 1901 target: +Rumania (Spring), +Sweden (Fall) -> 6 centers, all via quiet
 deals, no provocations.

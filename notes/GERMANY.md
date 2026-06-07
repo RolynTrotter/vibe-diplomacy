@@ -18,12 +18,16 @@ WESTERN lean confirmed, Russia kept friendly. All four neighbors replied constru
 - **RUSSIA**: Sweden(theirs)/Denmark(mine) split CONFIRMED. Calm Silesia/Prussia border, Warsaw pointed away. Quiet east this spring.
 - **AUSTRIA**: Friendly channel, Munich defensive. Austria = SE counterweight vs Russia. No Tyrolia/Bohemia threat.
 
-### Planned opening — TARGETS: Denmark + Belgium (two builds)
-- F KIE -> DEN (grab Denmark, Russia not contesting)
-- A MUN -> RUH (set up Belgium grab next; non-threatening to France)
-- A BER -> KIE (backfill Kiel, flexible)
-  - Belgium: reach via RUH -> BEL in fall. France conceded it.
-- Watch: don't commit A MUN to Burgundy unless France turns hostile.
+### SUBMITTED S1901M orders (accepted + sealed)
+- F KIE - DEN (grab Denmark; Russia not contesting)
+- A MUN - RUH (stage for Belgium in fall; non-threatening to France)
+- A BER - KIE (backfill Kiel, flexible)
+
+### Fall 1901 plan (reads for next phase)
+- A RUH -> BEL to claim Belgium (France conceded it; only fight if England grabs it).
+- F DEN holds Denmark / can pivot to HOL or SWE depending on board.
+- Targets: Denmark + Belgium = TWO builds. Confirm both held before adjudication.
+- Watch: don't commit A MUN/RUH to Burgundy unless France turns hostile.
 
 ### Threats to monitor
 - France into Burgundy = hostile signal toward Munich.
