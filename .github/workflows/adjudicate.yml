@@ -1,0 +1,96 @@
+name: adjudicate
+
+# The "server": the only place the adjudicator private key exists.
+#
+#   * On push to a game branch (orders/** changed): adjudicate as soon as every
+#     live power has submitted ("advance when all submitted").
+#   * On schedule: sweep all game branches and force any whose phase clock has
+#     passed its deadline ("timed deadline").
+#   * Manually (workflow_dispatch): force a specific branch (a phone-friendly
+#     way for the GM to end a phase early).
+#
+# Game state lives ONLY on game/* branches; main is infra-only and is never
+# adjudicated.
+
+on:
+  push:
+    branches: ["game/**"]
+    paths: ["orders/**"]
+  schedule:
+    - cron: "0 * * * *"   # hourly deadline sweep
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "game/<name> branch to adjudicate"
+        required: true
+      force:
+        description: "Force adjudication (ignore unsubmitted powers)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  # Push / manual: adjudicate a single branch.
+  adjudicate-branch:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Adjudicate
+        env:
+          ADJUDICATOR_PRIVATE_KEY: ${{ secrets.ADJUDICATOR_PRIVATE_KEY }}
+        run: |
+          python -m orchestration.run_adjudication \
+            ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+      - name: Commit & push if state changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            phase=$(python -m orchestration.game_status --json | python -c "import sys,json; print(json.load(sys.stdin)['phase'])")
+            git config user.name "diplomacy-adjudicator[bot]"
+            git config user.email "adjudicator@users.noreply.github.com"
+            git add -A
+            git commit -m "Adjudicate: now at ${phase}"
+            git push
+          else
+            echo "No state change; nothing to commit."
+          fi
+
+  # Schedule: sweep every game branch and force any past its deadline.
+  deadline-sweep:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Sweep game branches
+        env:
+          ADJUDICATOR_PRIVATE_KEY: ${{ secrets.ADJUDICATOR_PRIVATE_KEY }}
+        run: |
+          git config user.name "diplomacy-adjudicator[bot]"
+          git config user.email "adjudicator@users.noreply.github.com"
+          for ref in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin/game); do
+            branch="${ref#origin/}"
+            echo "::group::$branch"
+            git checkout -B "$branch" "$ref"
+            python -m orchestration.run_adjudication --respect-deadline || true
+            if [ -n "$(git status --porcelain)" ]; then
+              git add -A
+              git commit -m "Deadline adjudication for $branch"
+              git push origin "$branch"
+            fi
+            echo "::endgroup::"
+          done

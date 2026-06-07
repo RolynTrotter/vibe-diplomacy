@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Local secrets — the adjudicator PRIVATE key must NEVER be committed.
+# (Only game/adjudicator_pub.key is committed; the private key lives in a
+#  GitHub Actions repo secret.)
+*adjudicator_priv*
+*.privkey
+secrets.local
