@@ -1,5 +1,16 @@
 # RUSSIA — private notes (aurora)
 
+## SUBMITTED W1901A builds (sealed to orders/RUSSIA/W1901A.enc)
+- Owe 2 builds (6 centers, 4 units). SEV occupied by A SEV; MOS/WAR/STP open.
+- **A WAR B** — flex toward Galicia/Silesia border; keeps pressure options vs
+  Austria/Germany without provoking (won't enter GAL, DMZ honored).
+- **A MOS B** — central reserve; can backfill south (Turkey/RUM) or north (StP).
+- Chose two armies over fleets: my fleets (RUM, SWE) already cover Scandinavia +
+  Black Sea approaches; land flexibility is the gap. Non-provocative, no new fleet
+  that would alarm Turkey (BLA) or England/Germany (north).
+- 1901 closed on target: 6 centers via clean deals, no DMZ broken, no coalition
+  trigger. Largest power; keep growth quiet in 1902.
+
 ## SUBMITTED F1901M orders (sealed to orders/RUSSIA/F1901M.enc)
 - **F RUM H** — secure Rumania as my center (banks the Spring capture).
 - **A UKR S F RUM** — defend Rumania at strength 2 vs any BLA/Gal surprise. Stays

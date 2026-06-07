@@ -96,3 +96,14 @@
   Channel empty vs France, Norway-only vs Russia (Sweden theirs).
 - Expect 4 centers after Fall (EDI/LON/LVP + NOR) -> one build, plan a FLEET
   for continued northern pressure. Re-check trip-wires after adjudication.
+
+## W1901A — SUBMITTED
+- Fall landed as planned: 4 centers (EDI/LON/LVP + NWY), 3 units, 1 build due.
+- BUILD: F EDI B. Sealed to /orders/ENGLAND/W1901A.enc.
+- Rationale: new fleet at EDI keeps northern pressure projecting toward Russia/
+  Scandinavia (NWG/Barents reach) and reinforces the North Sea cluster. Fleet
+  over army — England's power is naval; A YOR already covers the isle.
+- All deals intact: E/G North Sea uncontested, Channel DMZ w/ France, Norway-
+  only split w/ Russia (Sweden theirs). Russia still the long-term north threat.
+- 1902 read: F EDI -> NWG to keep a fleet forward; watch Russia's fleet count
+  and any Barents/StP push. Coordinate w/ Germany if Russia crowds Scandinavia.

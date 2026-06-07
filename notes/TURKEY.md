@@ -100,3 +100,12 @@ as the threat and steering me toward the Black Sea (i.e., away from themselves).
   1902 west-push coordination once year closes. Watch if Russia turns south/crowds BLA;
   Austria + Italy both flagged as willing anti-Juggernaut partners if so.
 - Honor Greece-to-Austria and Aegean/Ionian no-go with Italy. Flanks stay quiet.
+
+## W1901A SUBMITTED (sealed)
+- 4 centers (ANK, CON, SMY, BUL), 3 units -> build 1.
+- **F CON B** — builds a fleet at home Constantinople (unoccupied). Projects into
+  Aegean/Med per plan; gives two-fleet reach (F AEG + F CON) for Fall flexibility
+  while A BUL/A SMY hold the land. Kept ANK free; CON fleet is better positioned
+  west. DMZ-safe (no BLA commitment forced). Now 4 units after build.
+- Standings: Russia leads (6c/4u), Austria/France/Germany at 5. Russia growing —
+  keep DMZ warm but watch closely; anti-Juggernaut partners (Austria, Italy) ready.

@@ -82,3 +82,12 @@ build but keep everything else. Expected outcome: Denmark + Belgium held = TWO b
 - Trust ledger so far: France HONORED spring (kept Rhine/BUR clean) but DID occupy BUR — watch closely.
   England honored North Sea + Low Countries hands-off. Russia honored quiet east. Austria pure SE focus.
 - Watch: Russia growth (Sweden + Rumania + Bothnia). Keep E/G anti-Russia option warm for later north.
+
+## W1901A builds (SUBMITTED + sealed)
+F1901 result confirmed: Denmark + Belgium held = grew to 5 centers (BER, KIE, MUN, BEL, DEN),
+adjustment due = build 2. Both home centers BER and KIE open and unoccupied.
+- A BER B  (army at Berlin — east-flexible defense/expansion; covers Silesia/Prussia, keeps Russia border honest)
+- F KIE B  (fleet at Kiel — north build supporting the E/G partnership; can contest Holland/Sweden later or back F DEN)
+Rationale: standard 2-build for a healthy center power. Fleet at Kiel grows northern presence
+(Baltic/North Sea reach) per E/G plan; army at Berlin gives land flexibility eastward. MUN left
+unbuilt — A MUN already covers it and France's BUR stayed cooperative. Now at 5 units / 5 centers.

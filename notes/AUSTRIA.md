@@ -1,5 +1,14 @@
 # AUSTRIA — private notes (aurora)
 
+## SUBMITTED W1901A (sealed, signed) — 2 builds
+- A BUD B   (army at home center, Balkan/Galician flexibility vs Russia/Turkey)
+- A TRI B   (army not fleet: keeps Adriatic quiet per Italy DMZ, defends home line)
+Position after builds: A VIE, A SER, F GRE, A BUD, A TRI = 5 units / 5 centers (BUD,TRI,VIE,SER,GRE).
+Rationale: two armies for land flexibility in the Balkans and a Galician hedge; chose A TRI
+over F TRI to avoid alarming Italy (Adriatic stays quiet, trust preserved). Russia still
+leader (6 ctr). Plan 1902: take western Balkans / lean on Turkey with Italy's promised
+eastern army support; watch Galicia DMZ.
+
 ## Strategic read (S1901M, end of negotiation)
 - Surrounded: Italy (west), Russia (NE/Galicia), Turkey (SE). Germany distant ally.
 - RUSSIA at 4 centers already — the early standout threat. Watch for Juggernaut (R+T).

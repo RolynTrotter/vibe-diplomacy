@@ -57,3 +57,9 @@
 - Build choice: lean **F NAP** to keep maturing Lepanto toward the Aegean. Alt: A for the 1902 army-east pledge to Austria.
 - Verify Tunis actually landed (board) and that Austria took Greece (F ALB-GRE) before deepening.
 - Watch Russia (board leader). Keep Turkey relaxed until my fleets are committed east.
+
+## W1901A builds SUBMITTED (sealed)
+- Tunis landed: 4 centers (NAP, ROM, VEN, TUN), +1 build.
+- **F NAP B** — accepted + sealed to orders/ITALY/W1901A.enc.
+- Rationale: matures Lepanto toward the Aegean, keeps Med pressure on Turkey while false peace holds. Now at 4 units (A VEN, F ION, A TUN, F NAP).
+- Next (1902): deliver army-east pledge to Austria; push fleets toward Aegean before tipping Turkey. Watch Russia (board leader, 6 centers). Keep Venice covered vs any Austrian double-cross.

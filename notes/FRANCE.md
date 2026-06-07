@@ -1,5 +1,16 @@
 # FRANCE — private notes (aurora)
 
+## BUILDS (W1901A) — SUBMITTED, sealed to orders/FRANCE/W1901A.enc
+Clean 2-build year landed: 5 SC (BRE, MAR, PAR, POR, SPA), build 2. Home
+centers BRE/MAR/PAR all unoccupied (units in SPA, BUR, POR).
+- F BRE B : Atlantic fleet. Powers the England Atlantic-partnership plan and
+  gives naval reach (MAO/IRI/ENG-adjacent) without breaking the Channel DMZ.
+- A PAR B : flexible inland army. Backs BUR defensively, can reinforce
+  MAR/Iberia or pivot toward Belgium/Munich later if pacts shift. Honors the
+  quiet-west posture (no provocative second fleet at MAR toward Italy).
+Now 3 armies (SPA, BUR, PAR) + 2 fleets (POR, BRE). Strong, balanced spring '02.
+Next: re-confirm ENG/GER/ITA pacts; watch Russia (top of board) eastward.
+
 ## Strategy (S1901M)
 Classic French opening: secure Iberia (Spain + Portugal), keep the Channel
 quiet, avoid an early Alpine fight with Italy. Russia opened at 4 centers — the
