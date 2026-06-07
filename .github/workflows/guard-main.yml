@@ -1,0 +1,38 @@
+name: Guard main (infra-only)
+
+# main holds infrastructure only. Game state (state/, orders/, history/, game/)
+# lives exclusively on game/<name> branches. This check fails any PR into main
+# that ADDS or MODIFIES game-state files, so a stray "merge" can't pollute main.
+# Deletions are allowed, so cleanup PRs pass.
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  no-game-state:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reject game-state files
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          # Only added/modified/renamed files — not deletions (so cleanups pass).
+          bad=$(git diff --diff-filter=ACMRT --name-only "$BASE" "$HEAD" \
+                | grep -E '^(state|orders|history)/|^game/' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::main is infra-only. This PR adds game-state files that"
+            echo "::error::belong on a game/<name> branch, not main:"
+            echo "$bad" | sed 's/^/  - /'
+            echo
+            echo "If this is a real game, target a game/<name> branch instead."
+            exit 1
+          fi
+          echo "OK — no game-state files added to main."
