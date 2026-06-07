@@ -34,6 +34,7 @@ STATIC = Path(__file__).resolve().parent / "static"
 sys.path.insert(0, str(ROOT))
 
 from diplomacy import Game  # noqa: E402
+from diplomacy.utils.export import from_saved_game_format  # noqa: E402
 
 SEASONS = {"S": "Spring", "F": "Fall", "W": "Winter"}
 PHASE_TYPES = {"M": "Movement", "R": "Retreats", "A": "Adjustments"}
@@ -67,6 +68,43 @@ def read_json_at(ref: str, path: str) -> dict | None:
         return None
 
 
+def is_complete(saved: dict) -> bool:
+    """Whether the match has ended (solo win or draw).
+
+    A finished game has a final 'COMPLETED' phase and reports is_game_done.
+    """
+    phases = saved.get("phases") or []
+    if phases and phases[-1].get("name") == "COMPLETED":
+        return True
+    try:
+        return bool(from_saved_game_format(saved).is_game_done)
+    except Exception:
+        return False
+
+
+def normalize_messages(raw: list | None, phase: str) -> list[dict]:
+    """Flatten a saved phase's messages to {phase, sender, recipient, body}.
+
+    Broadcasts use recipient 'GLOBAL'. Convention: messages are PUBLIC ONLY AT
+    GAME END (see build_game) — Diplomacy negotiation stays secret while the game
+    is live, and is revealed for post-mortem once it's over. Private full-press
+    comms (Epic 5) are additionally encrypted per-recipient and would need the
+    same end-of-game reveal before they could appear here.
+    """
+    out = []
+    for m in raw or []:
+        body = m.get("message") or m.get("body") or ""
+        if not body:
+            continue
+        out.append({
+            "phase": m.get("phase", phase),
+            "sender": (m.get("sender") or "").upper(),
+            "recipient": (m.get("recipient") or "GLOBAL").upper(),
+            "body": body,
+        })
+    return out
+
+
 def phase_label(code: str) -> str:
     """'S1901M' -> 'Spring 1901 — Movement'."""
     if len(code) >= 6 and code[0] in SEASONS:
@@ -81,13 +119,16 @@ def build_game(name: str, ref: str, out: Path) -> dict | None:
         print(f"  ! {name}: no state/current.json with phases; skipping")
         return None
     config = read_json_at(ref, "game/config.json") or {}
+    complete = is_complete(saved)
 
     game_dir = out / "games" / name
     game_dir.mkdir(parents=True, exist_ok=True)
 
     phases_meta = []
+    messages: list[dict] = []
     for ph in saved["phases"]:
         code = ph["name"]
+        messages.extend(normalize_messages(ph.get("messages"), code))
         game = Game()
         game.set_state(ph["state"])
         orders = {p: o for p, o in (ph.get("orders") or {}).items() if o}
@@ -106,19 +147,26 @@ def build_game(name: str, ref: str, out: Path) -> dict | None:
             "orders": orders,
         })
 
+    # Messages are revealed only once the game is over (secrecy during play).
     meta = {
         "name": name,
         "title": config.get("name", name),
         "phases": phases_meta,
         "current_phase": phases_meta[-1]["code"],
+        "complete": complete,
+        "messages": messages if complete else [],
+        "messages_locked": (not complete) and bool(messages),
     }
     (game_dir / "meta.json").write_text(json.dumps(meta), encoding="utf-8")
-    print(f"  + {name}: {len(phases_meta)} phases rendered")
+    revealed = len(meta["messages"])
+    locked = " (messages sealed until game end)" if meta["messages_locked"] else ""
+    print(f"  + {name}: {len(phases_meta)} phases, {revealed} messages{locked}")
     return {
         "name": name,
         "title": meta["title"],
         "phase_count": len(phases_meta),
         "current_phase": meta["current_phase"],
+        "complete": complete,
     }
 
 
