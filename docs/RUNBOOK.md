@@ -87,3 +87,23 @@ python -m orchestration.game_status        # who has moved, builds owed, phase
 ```
 Or just open the visualizer: <https://rolyntrotter.github.io/vibe-diplomacy/>.
 The game ends when a power controls 18 supply centers (or by agreed draw).
+
+## G. Conductor mode (one session instead of seven)
+
+For self-play, evaluation, or a solo sandbox you don't need seven sessions. Use
+the **`conduct-match`** skill: one session spawns each power as a scoped
+subagent, hands each only its own context (public board + that power's notes /
+inbox), and adjudicates between phases. Each power still plays through the real
+signed/sealed pipeline, so the files are the log and the conductor holds almost
+no state.
+
+- **Method toggle:** callstack-first — install once with
+  `/plugin marketplace add unwind-labs/callstack` then
+  `/plugin install callstack@unwind-labs`. Native subagents are the fallback
+  (`CONDUCTOR_METHOD=native`).
+- **Trust:** here isolation is enforced by context boundaries, not cryptography —
+  the conductor sees everything. Fine for self-play; use the seven-session path
+  (sections A–E) for distrusting players. The modes compose (some powers as
+  subagents, some as independent sessions).
+- For a fast local run, export `ADJUDICATOR_PRIVATE_KEY` so the conductor
+  adjudicates in-session; push the game branch periodically for the visualizer.

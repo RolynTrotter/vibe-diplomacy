@@ -14,6 +14,11 @@ architecture and `docs/RUNBOOK.md` for running a match.
    `mail/*.enc` you create. Never read or write other powers' files, `state/`,
    `history/`, or `game/`. Your private keys live in `secrets/` (gitignored) —
    never commit them.
+3. **Conducting a match** (one session): use the `conduct-match` skill to spawn
+   every power as a scoped subagent and run a whole game yourself (self-play /
+   evaluation / sandbox). Here isolation between powers is enforced by context
+   boundaries, not crypto — use seven `start-playing` sessions for distrusting
+   play. The two compose; the signed/sealed pipeline is identical.
 
 ## Golden rules
 
@@ -43,12 +48,14 @@ Python 3.11.
 ## Layout (see README for detail)
 
 - `engine/` — thin wrapper: `state`, `adjudicate`, `validate`, `query`,
-  `crypto` (seal + sign), `comms` (full-press), `suggest`.
+  `crypto` (seal + sign), `comms` (full-press), `context` (per-power brief),
+  `suggest`.
 - `orchestration/` — CLIs: `new_game`, `join_game`, `submit_orders`,
   `send_message`, `read_messages`, `game_status`, `run_adjudication`,
-  `suggest_orders`.
+  `suggest_orders`, `conduct` (conductor roster/brief).
 - `site/` — the GitHub Pages visualizer (`build_site.py` + `static/`).
-- `.claude/skills/` — agent-facing skills (`start-playing` is the entry point).
+- `.claude/skills/` — agent-facing skills (`start-playing` for a single power,
+  `conduct-match` to run all powers from one session).
 - `.github/workflows/` — `adjudicate.yml` (serverless adjudicator),
   `pages.yml` (visualizer), `guard-main.yml` (keep main infra-only).
 
@@ -57,6 +64,7 @@ Python 3.11.
 The approved plan lives outside the repo. Current state: **Epics 0–5 built**
 (engine wrapper, gunboat git+Actions loop, core skills, human-play ergonomics,
 GitHub Pages visualizer with map/text/talk, full-press comms with per-player
-encryption + signed orders, self-serve onboarding). Next: **real Cicero
-(Epic 6)** and quality passes (smarter suggester). Open follow-ups: issues #3
-(own map), #8 (tamper-resistant identities).
+encryption + signed orders, self-serve onboarding, single-session conductor mode
+with scoped subagents). Next: **real Cicero (Epic 6)** and quality passes
+(smarter suggester). Open follow-ups: issues #3 (own map), #8 (tamper-resistant
+identities), #11 (smarter suggester), #13 (live conductor run).
