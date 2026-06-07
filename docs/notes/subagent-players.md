@@ -1,6 +1,8 @@
 # Running players as scoped subagents (one session per match)
 
-**Status:** exploration / design note. Prompted by a look at
+**Status:** implemented (conductor mode, callstack-first with a native toggle) —
+see `.claude/skills/conduct-match`, `orchestration/conduct.py`, and
+`engine/context.py`. Prompted by a look at
 [unwind-labs/callstack](https://github.com/unwind-labs/callstack).
 **Question:** can we run all seven powers as subagents *with selective context*
 inside a single Claude Code session, instead of seven separate sessions?
