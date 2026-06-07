@@ -38,6 +38,7 @@ engine/         thin wrapper around the diplomacy engine
   query.py        board questions (units, centers, adjacency, builds)
   crypto.py       SealedBox order secrecy + Ed25519 signing
   comms.py        full-press messaging (claims, sealed mail pool, reveal)
+  context.py      per-power selective brief (conductor mode)
   suggest.py      tactical suggestions (heuristic now; Cicero later)
 orchestration/  CLIs the skills + workflow call
   new_game.py        initialize a match (--press, adjudicator key reuse)
@@ -48,12 +49,13 @@ orchestration/  CLIs the skills + workflow call
   game_status.py     phone-friendly status (no decryption)
   run_adjudication.py the adjudicator (CI only; holds the private key)
   suggest_orders.py  print suggestions
+  conduct.py         conductor helpers (roster + per-power brief)
 site/           static GitHub Pages visualizer
   build_site.py     bake SVG board + JSON manifest from every game/* branch
   static/           mobile-first viewer (game dropdown, map/text/talk, slider)
-.claude/skills/ agent-facing skills (start-playing, join-game, play-a-turn,
-                negotiate, check-board-state, write-orders, run-cicero,
-                consult-notes)
+.claude/skills/ agent-facing skills (start-playing, conduct-match, join-game,
+                play-a-turn, negotiate, check-board-state, write-orders,
+                run-cicero, consult-notes, study-strategy)
 .github/workflows/adjudicate.yml   the serverless adjudicator
 .github/workflows/pages.yml        builds & deploys the visualizer
 scripts/sync.sh push your files past other sessions without conflicts
@@ -78,6 +80,12 @@ python -m orchestration.new_game --name frostbite --human ENGLAND
 **To drop an agent into a game**, point a session at the repo and say
 *"play vibe-diplomacy on branch `game/<name>`"* — the `start-playing` skill finds
 the game, claims a free power, and starts. Open seven and they self-organize.
+
+**Or run the whole match from one session** with the `conduct-match` skill: it
+spawns each power as a scoped subagent (callstack-first, native subagents as a
+toggle), hands each only its own context, and adjudicates between phases. Great
+for self-play and evaluation; for distrusting players use the seven-session path
+above. The two compose, and both go through the same signed/sealed pipeline.
 
 See [docs/RUNBOOK.md](docs/RUNBOOK.md) for the full new-game and
 seven-sessions procedure, and `.claude/skills/play-a-turn` for the agent loop.
