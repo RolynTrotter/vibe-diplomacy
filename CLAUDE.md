@@ -8,9 +8,12 @@ architecture and `docs/RUNBOOK.md` for running a match.
 1. **Developing the engine/skills** (this kind of session): work on `main` (or a
    feature branch). Run the test suite before committing.
 2. **Playing a match** (an in-game session): you are ONE power on ONE
-   `game/<name>` branch. Use the `play-a-turn` skill. Commit only your own
-   `orders/<POWER>/<phase>.enc` and `notes/<POWER>.md`. Never read or write other
-   powers' files, `state/`, `history/`, or `game/`.
+   `game/<name>` branch. Start with `start-playing` (claims a free seat), then
+   `play-a-turn` each phase. Commit only your own `players/<POWER>.json`,
+   `orders/<POWER>/<phase>.enc`, `notes/<POWER>.md`, and (full-press) the
+   `mail/*.enc` you create. Never read or write other powers' files, `state/`,
+   `history/`, or `game/`. Your private keys live in `secrets/` (gitignored) —
+   never commit them.
 
 ## Golden rules
 
@@ -20,8 +23,12 @@ architecture and `docs/RUNBOOK.md` for running a match.
   public key (`engine/crypto.py`). The private key exists ONLY in the
   `ADJUDICATOR_PRIVATE_KEY` GitHub Actions secret and is read ONLY by
   `orchestration/run_adjudication.py`. Never log, commit, or expose it.
-- **`main` is infra-only.** Game state (`state/`, `orders/`, `history/`, `game/`)
-  exists only on `game/<name>` branches.
+- **Orders & messages are signed.** Each power signs with its own key
+  (`engine/comms.py`); the adjudicator verifies against `players/<POWER>.json`.
+  Players' private keys live in `secrets/` (gitignored). Never commit secrets/.
+- **`main` is infra-only.** Game state (`state/`, `orders/`, `history/`,
+  `players/`, `mail/`, `game/`) exists only on `game/<name>` branches; a
+  `guard-main` check blocks it from landing on `main`.
 
 ## Setup & tests
 
@@ -36,15 +43,20 @@ Python 3.11.
 ## Layout (see README for detail)
 
 - `engine/` — thin wrapper: `state`, `adjudicate`, `validate`, `query`,
-  `crypto`, `suggest`.
-- `orchestration/` — CLIs: `new_game`, `submit_orders`, `game_status`,
-  `run_adjudication`, `suggest_orders`.
-- `.claude/skills/` — agent-facing skills.
-- `.github/workflows/adjudicate.yml` — the serverless adjudicator.
+  `crypto` (seal + sign), `comms` (full-press), `suggest`.
+- `orchestration/` — CLIs: `new_game`, `join_game`, `submit_orders`,
+  `send_message`, `read_messages`, `game_status`, `run_adjudication`,
+  `suggest_orders`.
+- `site/` — the GitHub Pages visualizer (`build_site.py` + `static/`).
+- `.claude/skills/` — agent-facing skills (`start-playing` is the entry point).
+- `.github/workflows/` — `adjudicate.yml` (serverless adjudicator),
+  `pages.yml` (visualizer), `guard-main.yml` (keep main infra-only).
 
 ## Roadmap
 
-The approved plan lives outside the repo. Current state: **Epics 0–2 built**
-(engine wrapper, gunboat git+Actions loop, core skills). Next: human-play
-ergonomics (Epic 3), GitHub Pages map (Epic 4), full-press comms with per-player
-encryption (Epic 5), real Cicero (Epic 6).
+The approved plan lives outside the repo. Current state: **Epics 0–5 built**
+(engine wrapper, gunboat git+Actions loop, core skills, human-play ergonomics,
+GitHub Pages visualizer with map/text/talk, full-press comms with per-player
+encryption + signed orders, self-serve onboarding). Next: **real Cicero
+(Epic 6)** and quality passes (smarter suggester). Open follow-ups: issues #3
+(own map), #8 (tamper-resistant identities).

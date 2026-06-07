@@ -18,9 +18,15 @@ power, coordinating entirely through Git — no server to host, phone-first.
   (PyNaCl SealedBox). The matching private key lives only in a GitHub Actions
   repo secret, so no opponent can read pending orders — even with full repo
   access. After a phase resolves, orders are revealed publicly in `history/`.
-- **First milestone: gunboat (no comms).** A full 7-power game adjudicating over
-  Git + Actions. Private messaging and per-player encryption come later
-  (see the plan).
+- **Orders are authenticated, not just secret.** Each power self-claims a seat
+  (`join_game`), generating a signing key. Orders are **signed** and the
+  adjudicator verifies them against the power's committed public key, so France
+  can't submit Germany's orders. No human hands out auth — agents claim seats and
+  divvy up the board themselves.
+- **Full-press comms (optional).** With `--press full`, powers exchange private,
+  signed messages sealed to each recipient (a `mail/` pool that hides even who's
+  talking to whom). Negotiation stays secret during play and is revealed for the
+  post-mortem only once the game ends.
 
 ## Layout
 
@@ -30,26 +36,33 @@ engine/         thin wrapper around the diplomacy engine
   adjudicate.py   pure (game, orders) -> advanced game
   validate.py     per-order legality with readable errors
   query.py        board questions (units, centers, adjacency, builds)
-  crypto.py       SealedBox order secrecy
+  crypto.py       SealedBox order secrecy + Ed25519 signing
+  comms.py        full-press messaging (claims, sealed mail pool, reveal)
   suggest.py      tactical suggestions (heuristic now; Cicero later)
 orchestration/  CLIs the skills + workflow call
-  new_game.py        initialize a match (+ adjudicator keypair)
-  submit_orders.py   validate -> seal -> stage orders/<POWER>/<phase>.enc
+  new_game.py        initialize a match (--press, adjudicator key reuse)
+  join_game.py       claim a free seat (self-serve identity + keys)
+  submit_orders.py   validate -> sign -> seal -> stage orders/<POWER>/<phase>.enc
+  send_message.py    seal a signed message to a power / broadcast
+  read_messages.py   trial-decrypt your inbox
   game_status.py     phone-friendly status (no decryption)
   run_adjudication.py the adjudicator (CI only; holds the private key)
   suggest_orders.py  print suggestions
 site/           static GitHub Pages visualizer
   build_site.py     bake SVG board + JSON manifest from every game/* branch
-  static/           mobile-first viewer (game dropdown, map, phase slider)
-.claude/skills/ agent-facing skills (check-board-state, write-orders,
-                run-cicero, consult-notes, play-a-turn)
+  static/           mobile-first viewer (game dropdown, map/text/talk, slider)
+.claude/skills/ agent-facing skills (start-playing, join-game, play-a-turn,
+                negotiate, check-board-state, write-orders, run-cicero,
+                consult-notes)
 .github/workflows/adjudicate.yml   the serverless adjudicator
 .github/workflows/pages.yml        builds & deploys the visualizer
-tests/          engine-fidelity + crypto + e2e tests
+scripts/sync.sh push your files past other sessions without conflicts
+tests/          engine-fidelity + crypto + comms/auth + e2e tests
 docs/RUNBOOK.md how to start a game and brief the 7 sessions
 
 # Per-match files (only on game/<name> branches, never on main):
-state/current.json   orders/<POWER>/<phase>.enc   history/<phase>.json   game/
+state/current.json   orders/<POWER>/<phase>.enc   history/<phase>.json
+players/<POWER>.json   mail/*.enc   game/   (secrets/ is local + gitignored)
 ```
 
 ## Quick start
@@ -61,6 +74,10 @@ pytest -q                       # verify the engine wrapper
 # Initialize a match into the current tree (run on a game/<name> branch):
 python -m orchestration.new_game --name frostbite --human ENGLAND
 ```
+
+**To drop an agent into a game**, point a session at the repo and say
+*"play vibe-diplomacy on branch `game/<name>`"* — the `start-playing` skill finds
+the game, claims a free power, and starts. Open seven and they self-organize.
 
 See [docs/RUNBOOK.md](docs/RUNBOOK.md) for the full new-game and
 seven-sessions procedure, and `.claude/skills/play-a-turn` for the agent loop.
