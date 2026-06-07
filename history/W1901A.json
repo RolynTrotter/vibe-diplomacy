@@ -1,0 +1,53 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BUD B",
+      "F TRI B"
+    ],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A BRE B",
+      "A MAR B",
+      "A PAR B"
+    ],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F STP/SC B"
+    ],
+    "TURKEY": [
+      "F ANK B",
+      "A SMY B"
+    ]
+  },
+  "phase": "W1901A",
+  "results": {
+    "A BRE": [
+      ""
+    ],
+    "A BUD": [
+      ""
+    ],
+    "A MAR": [
+      "void"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "F ANK": [
+      ""
+    ],
+    "F STP/SC": [
+      ""
+    ],
+    "F TRI": [
+      ""
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
