@@ -88,3 +88,19 @@ concern.
   eventual eastern/central counter with Germany + Italy.
 - England long-game: Atlantic partner now, but biggest naval rival later —
   keep the Channel verifiable every phase.
+
+## SUBMITTED orders (F1901M) — sealed to orders/FRANCE/F1901M.enc
+- F MAO -> POR : take Portugal (2nd build). Uncontested expected.
+- A SPA H : hold Spain (keep the center; gives clean 2-build year SPA+POR).
+- A BUR H : DEFENSIVE hold. Chose to honor Germany pact over England's Belgium
+  offer — Germany explicitly flagged BUR->BEL/MUN as a casus belli (would pull
+  England in against me), and a quiet 2-build year is worth more than gambling
+  on an early Belgium fight. Trust capital preserved with Germany.
+- Expected result: builds in BRE/MAR/PAR (likely F BRE for Atlantic + 1 home).
+
+## Decision rationale (F1901M)
+- Declined England's standing offer to lean BUR -> BEL. Rationale: Germany's
+  Belgium concession + quiet-BUR pact held all spring; breaking it now for a
+  contested Belgium (Germany moves RUH->BEL same turn) risks a wasted bounce AND
+  a two-front war (Germany + England-if-Germany-flips). Default plan = clean
+  growth, keep all three pacts intact. Revisit Belgium in 1902 if leverage shifts.

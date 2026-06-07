@@ -83,3 +83,16 @@
 - Fall build target: a new FLEET (EDI/LON) for sustained northern pressure on RU.
 - Watch for: any fleet appearing in NTH or NWG, French fleet in ENG, Russian
   fleet toward Barents/StP. None expected, but Fall is when betrayals come.
+
+### F1901M — SUBMITTED
+- F NWG - NWY        (take Norway = +1 center / build)
+- F NTH S F NWG - NWY (guarantee Norway; NTH also keeps North Sea covered)
+- A YOR H            (hold the isle; convoy-ready)
+- All three legal, sealed to /orders/ENGLAND/F1901M.enc.
+- NOTE: province code is NWY (not NOR); support syntax needs unit type:
+  "F NTH S F NWG - NWY". Suggester pushed YOR convoy->DEN; DECLINED (DEN is
+  Germany's per E/G deal — taking it would break the alliance trip-wire).
+- Kept all three Fall deals: declined to contest Belgium (left to Germany),
+  Channel empty vs France, Norway-only vs Russia (Sweden theirs).
+- Expect 4 centers after Fall (EDI/LON/LVP + NOR) -> one build, plan a FLEET
+  for continued northern pressure. Re-check trip-wires after adjudication.

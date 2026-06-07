@@ -1,5 +1,18 @@
 # RUSSIA — private notes (aurora)
 
+## SUBMITTED F1901M orders (sealed to orders/RUSSIA/F1901M.enc)
+- **F RUM H** — secure Rumania as my center (banks the Spring capture).
+- **A UKR S F RUM** — defend Rumania at strength 2 vs any BLA/Gal surprise. Stays
+  out of Galicia (DMZ honored). Backstops the south.
+- **F BOT -> SWE** — take Sweden (Germany + England both ceded it). Banks 6th center.
+- **A SEV H** — backfill south, keep flex, no provocations.
+- All deals reconfirmed for Fall before submit: AUSTRIA (Vienna out of Gal, RUM
+  mine, no objection), ENGLAND (Norway theirs, Sweden mine, north frozen), GERMANY
+  (Denmark theirs, Sweden mine, Sil/Pru quiet), TURKEY (BLA DMZ renewed, Bulgaria
+  theirs, no Sevastopol threat). On track for 6 centers end-1901.
+- VERIFY next adjudication: SWE landed uncontested (no German/English grab = stab),
+  RUM held, BLA empty (Turkey kept fleet out), Vienna out of Gal.
+
 ## Strategic situation (F1901M) — Negotiation Round
 - Spring played out CLEAN — every DMZ held. Now F SEV->RUM landed (I hold F RUM),
   F BOT staged for Sweden, A UKR + A SEV backing south. Still the leader at 4

@@ -65,3 +65,20 @@ Standings all bunched: everyone 3 except Russia 4, Austria 4? (verify on board).
 - DECISION HINGES ON FRANCE'S REPLY: cooperative -> RUH->BEL, leave MUN open (risk it).
   Hostile/silent -> prioritize covering MUN; consider bouncing BUR. Watch for the betrayal.
 - Worst case to avoid: lose Munich to a BUR->MUN stab while my armies are off chasing Belgium.
+
+### SUBMITTED F1901M orders (accepted + sealed)
+- A RUH - BEL  (claim Belgium; France reaffirmed it's mine + BUR stays defensive)
+- A KIE - MUN  (BACKFILL/DEFEND Munich vs any BUR->MUN stab — hedge against the one real risk)
+- F DEN H      (secure Denmark, already mine)
+Rationale: France's F1901 reply was warm and explicitly reconfirmed Belgium + defensive Burgundy,
+but BUR borders both MUN and BEL, so I covered Munich with KIE rather than leave it open. Costs only
+the chance to push KIE elsewhere (Kiel center is safe — England friendly, off North Sea, no nearby
+threat). If France played BUR->MUN it bounces; if BUR->BEL it bounces my RUH and I lose the Belgium
+build but keep everything else. Expected outcome: Denmark + Belgium held = TWO builds (BER + KIE open).
+
+### Going into Winter 1901 / 1902 (reads for next phase)
+- If builds confirmed: likely A BER (defend/expand east-flexible) + F KIE (north, supports E/G + can
+  contest Sweden/Holland later). Reassess after seeing F1901 adjudication.
+- Trust ledger so far: France HONORED spring (kept Rhine/BUR clean) but DID occupy BUR — watch closely.
+  England honored North Sea + Low Countries hands-off. Russia honored quiet east. Austria pure SE focus.
+- Watch: Russia growth (Sweden + Rumania + Bothnia). Keep E/G anti-Russia option warm for later north.

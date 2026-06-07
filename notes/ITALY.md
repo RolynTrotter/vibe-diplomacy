@@ -44,3 +44,16 @@
 - After F1901 builds: if I get Tunis build, build F NAP (push Med toward Aegean for Lepanto) OR A (east via Apulia). Likely F NAP to keep pressure on Turkey.
 - 1902: deliver army-east to Austria as pledged — but stay alert Austria doesn't grow too fast off Turkey and turn on Venice. Keep Venice covered.
 - Turkey betrayal timing: my Lepanto turns hot once I have fleets in/near Aegean. Don't tip him until forces committed.
+
+## F1901M orders SUBMITTED (sealed)
+- A APU - TUN VIA      (convoy to Tunis = 4th center, the build)
+- F ION C A APU - TUN  (the convoy lane; Ion is mine, uncontested)
+- A VEN H              (home defense; honors Austria Venice/Adriatic/Tyrolia DMZ)
+- All 3 accepted + sealed to orders/ITALY/F1901M.enc.
+- Honored ALL deals: PIE DMZ (France), Adriatic/Venice/Tyrolia DMZ (Austria), Ionian/Aegean no-go (Turkey).
+- NOTE: suggester pushed a knife on Austria (Apu->Gre convoy, Ven->Tri, Ion support Bul-Gre). REJECTED — would blow up my best alliance and break Turkey false-peace prematurely. Stuck to diplomatic plan.
+
+### Next phase (W1901A builds) — expected +1 from Tunis
+- Build choice: lean **F NAP** to keep maturing Lepanto toward the Aegean. Alt: A for the 1902 army-east pledge to Austria.
+- Verify Tunis actually landed (board) and that Austria took Greece (F ALB-GRE) before deepening.
+- Watch Russia (board leader). Keep Turkey relaxed until my fleets are committed east.

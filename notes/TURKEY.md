@@ -83,3 +83,20 @@ as the threat and steering me toward the Black Sea (i.e., away from themselves).
 - NOTE: F CON could support A BUL hold if any threat to Bulgaria appears (none seen —
   Austria at SER not BUL, Russia at RUM not contesting). Reassess with live board.
 - Build target after Fall: a fleet at CON/SMY or army; lean fleet to project Aegean.
+
+### F1901M SUBMITTED (sealed)
+- **A BUL H** — locks Bulgaria for the build. No threat seen (Austria at SER eyeing
+  Greece, Russia holding RUM, neither contesting). Build non-negotiable.
+- **F CON - AEG** — repositions into the Aegean for Fall flexibility (can support BUL,
+  pressure GRE later). Stays east of Italy's no-go line; honors Russia DMZ (not BLA).
+- **A ARM - SMY** — backfills home, keeps the SE calm. DMZ-safe land move, no
+  provocation toward Russia/SEV. Trust with Russia compounds.
+- Suggester wanted aggressive anti-Russia moves (A ARM S UKR-SEV, A BUL S UKR-RUM,
+  F CON S RUM-BUL) — ignores my DMZ deals. Deliberately overridden to keep faith.
+- Expect a build (likely a fleet at SMY to project Aegean/Med, or hold options open).
+
+### Going into W1901 / 1902
+- After Bulgaria locks: 4 centers, +1 build. Keep Russia DMZ warm — talk concrete
+  1902 west-push coordination once year closes. Watch if Russia turns south/crowds BLA;
+  Austria + Italy both flagged as willing anti-Juggernaut partners if so.
+- Honor Greece-to-Austria and Aegean/Ionian no-go with Italy. Flanks stay quiet.

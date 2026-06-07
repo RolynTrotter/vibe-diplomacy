@@ -61,3 +61,17 @@ Watch in Fall adjudication results: did Russia stay out of Galicia? Did Italy ru
   watch Russia in Black Sea, anti-Juggernaut partner), Germany (counterweight, share Russia reads).
 - WATCH at order time: ensure F ALB->GRE not bounced; nobody else moving on Greece. If Italy
   surprises toward Ionian->Greece, renegotiate. Keep Vienna covered vs any Galicia surprise.
+
+## SUBMITTED F1901M (sealed, signed)
+- F ALB - GRE   (fleet grabs the neutral Greek center; clean per Italy+Turkey deals -> +1 build)
+- A SER H       (garrison Serbia; keeps the center I own covered, no self-bounce risk)
+- A VIE H       (honor Galicia DMZ with Russia; Vienna stays covered vs any surprise)
+Rationale: all four neighbors reconfirmed deals in F1901M press. Italy takes Tunis (no
+collision), Turkey to Bulgaria (no drift to Greece), Russia to Rumania (Galicia empty),
+Germany defensive. Chose garrison version (fleet takes Greece, army holds Serbia) over the
+supported-move version so I bank BOTH centers regardless of any surprise. Ignored the
+heuristic suggester (it wanted A VIE->GAL and foreign-unit supports = would break my DMZs).
+Expected result: BUD, TRI, VIE, SER, GRE = 5 centers -> +2 builds. Strong fall.
+WATCH adjudication: did Greece land uncontested? Did Russia really only take Rumania (no
+Galicia)? Italy stay out of Adriatic/Ionian-toward-Greece? Plan 1902 builds + Italy's
+promised eastern army support next session.
