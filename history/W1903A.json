@@ -1,0 +1,40 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI B"
+    ],
+    "FRANCE": [
+      "A MAR B",
+      "A PAR B"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "F NAP B",
+      "F ROM B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1903A",
+  "results": {
+    "A EDI": [
+      ""
+    ],
+    "A MAR": [
+      ""
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "F NAP": [
+      ""
+    ],
+    "F ROM": [
+      "void"
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BUD S A GAL - RUM",
+      "F GRE S F BLA - BUL",
+      "A SER S F GRE - BUL/SC",
+      "F TRI S A TYR - VEN",
+      "A VIE - BOH"
+    ],
+    "ENGLAND": [
+      "A BEL - HOL VIA",
+      "F EDI S A BEL - YOR",
+      "F LON S F BRE - ENG",
+      "F NTH S F SWE - DEN",
+      "F NWY S F BOT - SWE"
+    ],
+    "FRANCE": [
+      "F BRE S F MAO - GAS",
+      "A GAS S F MAO - SPA",
+      "F MAO C A POR - SPA",
+      "A MUN - BER",
+      "A POR - SPA"
+    ],
+    "GERMANY": [
+      "A KIE - MUN",
+      "A RUH S F NTH - BEL",
+      "F SWE - NWY"
+    ],
+    "ITALY": [
+      "F ION S A SER - GRE",
+      "A TYR S A BUD - TRI",
+      "A VEN S A VIE - TRI"
+    ],
+    "RUSSIA": [
+      "F BOT - SWE",
+      "A GAL S A BUD - VIE",
+      "F LVN S F SWE - BAL",
+      "A RUM S F GRE - BUL/SC",
+      "F SEV S A CON - ARM"
+    ],
+    "TURKEY": [
+      "F ARM S A RUM - SEV",
+      "F BLA C A CON - SEV",
+      "A BUL S A GAL - RUM",
+      "A CON - SEV VIA"
+    ]
+  },
+  "phase": "S1903M",
+  "results": {
+    "A BEL": [],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A CON": [
+      "bounce"
+    ],
+    "A GAL": [
+      "void"
+    ],
+    "A GAS": [
+      "void"
+    ],
+    "A KIE": [],
+    "A MUN": [],
+    "A POR": [],
+    "A RUH": [
+      "void"
+    ],
+    "A RUM": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A TYR": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [],
+    "F ARM": [
+      "void"
+    ],
+    "F BLA": [],
+    "F BOT": [],
+    "F BRE": [
+      "void"
+    ],
+    "F EDI": [
+      "void"
+    ],
+    "F GRE": [
+      "void"
+    ],
+    "F ION": [
+      "void"
+    ],
+    "F LON": [
+      "void"
+    ],
+    "F LVN": [
+      "void"
+    ],
+    "F MAO": [],
+    "F NTH": [
+      "void"
+    ],
+    "F NWY": [],
+    "F SEV": [
+      "void"
+    ],
+    "F SWE": [
+      "bounce",
+      "dislodged"
+    ],
+    "F TRI": [
+      "void"
+    ]
+  }
+}
