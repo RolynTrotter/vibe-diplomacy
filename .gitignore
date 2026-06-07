@@ -12,3 +12,6 @@ venv/
 *adjudicator_priv*
 *.privkey
 secrets.local
+
+# Built Pages output
+_site/

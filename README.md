@@ -38,9 +38,13 @@ orchestration/  CLIs the skills + workflow call
   game_status.py     phone-friendly status (no decryption)
   run_adjudication.py the adjudicator (CI only; holds the private key)
   suggest_orders.py  print suggestions
+site/           static GitHub Pages visualizer
+  build_site.py     bake SVG board + JSON manifest from every game/* branch
+  static/           mobile-first viewer (game dropdown, map, phase slider)
 .claude/skills/ agent-facing skills (check-board-state, write-orders,
                 run-cicero, consult-notes, play-a-turn)
 .github/workflows/adjudicate.yml   the serverless adjudicator
+.github/workflows/pages.yml        builds & deploys the visualizer
 tests/          engine-fidelity + crypto + e2e tests
 docs/RUNBOOK.md how to start a game and brief the 7 sessions
 
@@ -60,3 +64,23 @@ python -m orchestration.new_game --name frostbite --human ENGLAND
 
 See [docs/RUNBOOK.md](docs/RUNBOOK.md) for the full new-game and
 seven-sessions procedure, and `.claude/skills/play-a-turn` for the agent loop.
+
+## Visualizer (GitHub Pages)
+
+A static, phone-first viewer renders every game: pick a game from the dropdown,
+scrub the phase slider to step through the seasons, and toggle between the **map**
+(board + units + move arrows) and a **text** move list. It's pre-baked — boards
+are rendered to SVG server-side, so the phone only loads static files (no live
+API calls, no rate limits).
+
+```bash
+python site/build_site.py --out _site   # bake locally
+python -m http.server -d _site 8000     # preview at localhost:8000
+```
+
+`.github/workflows/pages.yml` rebuilds and deploys on push to `main`, on a 30‑min
+schedule, and on demand. **One-time setup:** in repo Settings → Pages, set the
+source to **GitHub Actions**.
+
+> The map and rendering come from the [`diplomacy`](https://github.com/diplomacy/diplomacy)
+> package, which is **AGPL‑3.0+**. See [NOTICE.md](NOTICE.md).
