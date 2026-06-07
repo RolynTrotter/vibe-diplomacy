@@ -1,0 +1,166 @@
+:root {
+  --bg: #1d2330;
+  --panel: #272e3f;
+  --ink: #e8ecf5;
+  --muted: #9aa6bd;
+  --accent: #6ea8fe;
+  --line: #3a4256;
+}
+
+/* Power colours roughly matching the engine's map palette. */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Sticky header keeps controls reachable with a thumb. */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--panel);
+  padding: max(env(safe-area-inset-top), 10px) 12px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.field { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+.field span { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+select {
+  width: 100%;
+  padding: 11px 10px;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  appearance: none;
+}
+
+.view-toggle { display: flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.view-toggle button {
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  background: var(--bg);
+  color: var(--muted);
+  border: 0;
+}
+.view-toggle button.active { background: var(--accent); color: #10151f; font-weight: 600; }
+
+main { padding: 12px; max-width: 1100px; margin: 0 auto; }
+
+/* Board fills width; the SVG keeps its aspect ratio. Pinch-zoom works natively. */
+#board {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: auto;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#map-img { width: 100%; height: auto; display: block; }
+#map-img[hidden] { display: none; }
+
+.status { position: absolute; color: var(--muted); font-size: 0.9rem; padding: 16px; }
+
+#text-view { width: 100%; padding: 14px; }
+#text-view h2 { font-size: 1rem; margin: 0 0 10px; }
+#text-view .power { margin: 0 0 10px; }
+#text-view .power h3 { margin: 0 0 4px; font-size: 0.9rem; }
+#text-view ul { margin: 0; padding-left: 18px; }
+#text-view li { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85rem; color: var(--ink); }
+#text-view .none { color: var(--muted); font-style: italic; }
+
+/* Compact supply-center scoreboard. */
+.scoreboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 2px;
+}
+.sc-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.sc-chip .dot { width: 10px; height: 10px; border-radius: 50%; }
+.sc-chip .n { font-variant-numeric: tabular-nums; color: var(--muted); }
+
+/* Phase slider row: big targets for thumbs. */
+.phase-bar {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 10px 0 max(env(safe-area-inset-bottom), 10px);
+  background: linear-gradient(transparent, var(--bg) 22%);
+}
+.step {
+  flex: 0 0 auto;
+  width: 46px; height: 46px;
+  font-size: 1.6rem; line-height: 1;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.step:disabled { opacity: 0.35; }
+.phase-slider { flex: 1; min-width: 0; }
+.phase-label { text-align: center; font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+
+input[type=range] {
+  width: 100%;
+  height: 40px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+input[type=range]::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: var(--line); }
+input[type=range]::-moz-range-track { height: 6px; border-radius: 3px; background: var(--line); }
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  margin-top: -11px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); border: 3px solid #10151f;
+}
+input[type=range]::-moz-range-thumb {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); border: 3px solid #10151f;
+}
+
+footer {
+  padding: 14px 12px max(env(safe-area-inset-bottom), 14px);
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+footer a { color: var(--accent); }

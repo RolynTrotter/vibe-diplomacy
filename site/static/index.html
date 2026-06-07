@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d2330">
+  <title>Vibe Diplomacy — Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Vibe Diplomacy</h1>
+    <div class="controls">
+      <label class="field">
+        <span>Game</span>
+        <select id="game-select"></select>
+      </label>
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button id="btn-map" class="active" type="button">Map</button>
+        <button id="btn-text" type="button">Text</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="board">
+      <img id="map-img" alt="Board map" />
+      <section id="text-view" hidden></section>
+      <p id="status" class="status">Loading…</p>
+    </div>
+
+    <div id="scoreboard" class="scoreboard"></div>
+
+    <div class="phase-bar">
+      <button id="prev" class="step" type="button" aria-label="Previous phase">‹</button>
+      <div class="phase-slider">
+        <input id="phase-range" type="range" min="0" max="0" value="0" step="1" />
+        <div id="phase-label" class="phase-label">—</div>
+      </div>
+      <button id="next" class="step" type="button" aria-label="Next phase">›</button>
+    </div>
+  </main>
+
+  <footer>
+    Map &amp; adjudication by the
+    <a href="https://github.com/diplomacy/diplomacy">diplomacy</a> engine
+    (AGPL&nbsp;v3+). <span id="src-link"></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

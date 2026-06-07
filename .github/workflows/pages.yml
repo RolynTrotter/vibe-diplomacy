@@ -1,0 +1,54 @@
+name: Build & deploy visualizer
+
+# Bakes a static viewer from every game/* branch and deploys to GitHub Pages.
+# The board SVGs are rendered server-side here, so the phone only loads static
+# files (no live API calls, no rate limits).
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "*/30 * * * *"   # refresh after games advance
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish; only keep the latest queued build.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch all game branches
+        run: git fetch origin '+refs/heads/game/*:refs/remotes/origin/game/*' || true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build site
+        run: python site/build_site.py --out _site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
