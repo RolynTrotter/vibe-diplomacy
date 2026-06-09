@@ -7,18 +7,25 @@
 - Centers: BER, KIE, MUN, DEN, HOL (5 SCs)
 - Long-term: Scandinavia + Lowlands + eastern expansion
 
-## Trust / read on opponents
-- RUSSIA: F BOT bounced us out of SWE — direct rival in north; F BOT likely in SWE or BOT
-- ENGLAND: F NTH is the biggest near-term threat — may try BEL or HOL in S1902
-- FRANCE: focused west (Iberia/Atlantic), low threat to us now
-- AUSTRIA: focused south/Balkans, not a concern
-- ITALY: focused south/Med, not a concern
-- TURKEY: far away, irrelevant early
+## S1902M orders submitted
+- F DEN - SWE (SWE was EMPTY — great opportunity; England F NWY could contest)
+- F KIE - BAL (support F DEN-SWE from sea; secures grab even vs Russia counter)
+- A HOL H (hold vs England F ENG threat)
+- A RUH - BEL (BEL was empty — opportunistic grab for 6th center; may bounce France A BUR)
+- A MUN H (eastern reserve)
 
-## Reminders for S1902
-- SWE still contested — F DEN should push SWE again (Russia likely holds it from BOT-SWE)
-- F KIE can threaten DEN or move to Baltic (BAL) to pressure Russia or support DEN-SWE
-- England's F NTH threatens HOL/BEL/DEN — watch for English aggression
-- A RUH can push to BEL or hold as buffer; A MUN is eastern reserve
-- A HOL holds or supports F KIE if England challenges DEN
-- Key priority: secure SWE for 6th center; contest with F DEN + F KIE support via BAL
+## Trust / read on opponents
+- RUSSIA: F BOT still in BOT (didn't take SWE in W1901A); contesting Scandinavia with us
+- ENGLAND: F NWY, F EDI, F ENG, A YOR — F NWY could race us to SWE; F ENG threatens HOL/BEL
+- FRANCE: A BUR in place — could contest BEL with A BUR; otherwise focused west (Iberia)
+- AUSTRIA: A VIE, A SER, F GRE, A BUD — consolidated south, not a concern
+- ITALY: A TRI, A APU, F TUN, F NAP, A ROM — Med-focused, not a concern
+- TURKEY: A BUL, A CON, F BLA, F SMY — far away, irrelevant
+
+## Reminders for F1902
+- If SWE succeeds: F BAL can support F SWE hold or push further; target NWY if England moved out
+- If BEL succeeds: defend it — England F ENG and France A BUR both threaten it
+- If BEL bounced: A RUH back to position; consider pushing MUN-SIL for eastern pressure
+- A HOL: if England didn't attack, consider moving NTH side for flexibility
+- Watch England's F EDI — could move to NTH or NWG threatening Scandinavia
+- Key priority F1902: consolidate SWE + BEL if both land = 7 SCs (huge); defend what we took
