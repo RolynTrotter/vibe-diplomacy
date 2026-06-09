@@ -1,31 +1,36 @@
 # RUSSIA — strategy notebook
 
 ## Standing plan
-- Classic southern opening: contest Black Sea vs Turkey, grab RUM in Fall.
-- Northern push toward SWE via BOT/FIN.
-- Pressure GAL to either take BUD or block Austria from RUM.
+- South-first: F SEV (new) contests BLA vs Turkey; F RUM holds Balkans.
+- North: F BOT targets SWE in S1902M (bounced Fall 1901 with Germany).
+- Center: A WAR + A UKR can pressure GAL or support each other.
 
-## F1901M orders submitted
-- F SEV - RUM (direct grab; BLA bounce left SEV in place, but SEV is adjacent to RUM)
-- A UKR S F SEV - RUM (insurance vs Turkey A BUL or Austria A SER contesting RUM)
-- F BOT - SWE (free grab, no Germans in sight)
-- A WAR - GAL (Austria's A VIE is in VIE not GAL; GAL empty — contest it)
+## Results post F1901M
+- RUM secured by F SEV. SWE BOUNCED (F BOT vs F DEN, mutual bounce).
+- A WAR bounced out of GAL (Austria A VIE moved in).
+- Turkey F ANK seized BLA — now F BLA threatens SEV and RUM.
+- Austria A VIE now in GAL — threatens UKR and RUM from north.
+- Only 1 build in W1901A (5 SCs, 4 units).
 
-## Trust / read on opponents (post S1901M)
-- TURKEY: F ANK bounced our F SEV in BLA — confirmed hostile south. A BUL in position to contest RUM.
-- AUSTRIA: A VIE bounced our A WAR from GAL — hostile or just racing neutrals. A SER threatens RUM.
-- GERMANY: F DEN grabbed Denmark. A KIE, A RUH — watch SIL/PRU corridor for future friction.
-- ENGLAND: Moved to NTH and ENG, YOR — standard western focus, not a near-term threat.
-- FRANCE: BUR, SPA, MAO — fully west-focused, no threat.
-- ITALY: ION, APU, TYR — Lepanto-ish; could threaten Balkans if they push east.
+## W1901A orders submitted
+- F SEV B (fleet to contest BLA in spring; most urgent threat is Turkey)
 
-## Reminders for W1901A (expected builds: +2 if RUM and SWE land)
-- Build 2 units, likely A MOS + F SEV or F STP/NC for northern pressure.
-- If RUM bounced (Turkey/Austria contested), reassess build count.
-- Priority builds: one army for Balkan push, one fleet for north (NWY/STP area) or south (BLA control).
+## Units entering S1902M
+- A WAR (WAR), A UKR (UKR), F BOT (BOT), F RUM (RUM), F SEV (SEV)
 
-## Standing plan (updated)
-- RUM secured = 5 SCs. SWE = 6 SCs. Two builds in W1901A.
-- W1901A: Build F STP/NC (target NWY) + A MOS (Balkan/GAL pressure).
-- 1902 targets: NWY in north, BUL/SER in south through GAL+RUM.
-- Keep Turkey contained — F SEV must stay mobile in south.
+## Trust / read on opponents (post F1901M)
+- TURKEY: F BLA confirmed — enemy #1. Will try to take SEV or dislodge F RUM.
+- AUSTRIA: A GAL is a dagger at UKR/WAR/RUM. A SER + F GRE in south — busy with Italy/Balkans.
+- GERMANY: Grabbed SWE (bounced with us). A HOL, A RUH — western focus, not immediate threat.
+- ENGLAND: F NWY, F BEL, A YOR — England grabbed NWY; that's OUR target. Friction in north.
+- FRANCE: POR, SPA, BEL contest — fully western, no threat.
+- ITALY: TUN, TRI — Lepanto-ish; pushing into Austria means less Balkan pressure on us.
+
+## Reminders for S1902M
+- F SEV - BLA (must contest or Turkey dominates south entirely).
+- F RUM — support SEV into BLA, or hold to defend against A GAL/A SER pressure.
+- A UKR — move to RUM as backup, or threaten GAL.
+- A WAR — hold or move to SIL/PRU to pressure Germany, or GAL to pressure Austria.
+- F BOT - SWE (try again; Germany may move F SWE away to attack England).
+- Priority: lock down BLA, keep RUM, threaten NWY/SWE in north.
+- England in NWY blocks our NWY grab — need to think about diplomatic vs military response.
