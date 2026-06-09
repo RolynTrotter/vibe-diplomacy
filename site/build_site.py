@@ -39,10 +39,19 @@ from diplomacy.utils.export import from_saved_game_format  # noqa: E402
 SEASONS = {"S": "Spring", "F": "Fall", "W": "Winter"}
 PHASE_TYPES = {"M": "Movement", "R": "Retreats", "A": "Adjustments"}
 
+POWERS = ("AUSTRIA", "ENGLAND", "FRANCE", "GERMANY", "ITALY", "RUSSIA", "TURKEY")
+
 
 def git(*args: str) -> str:
     return subprocess.run(["git", *args], cwd=ROOT, text=True,
                           capture_output=True).stdout
+
+
+def read_text_at(ref: str, path: str) -> str | None:
+    """Raw file contents at a git ref, or None if missing/empty."""
+    raw = git("show", f"{ref}:{path}")
+    return raw if raw.strip() else None
+
 
 
 def list_game_refs() -> list[tuple[str, str]]:
@@ -105,6 +114,21 @@ def normalize_messages(raw: list | None, phase: str) -> list[dict]:
     return out
 
 
+def collect_notes(ref: str) -> dict[str, str]:
+    """Each power's private strategy notebook (`notes/<POWER>.md`), if any.
+
+    Like messages, notes reveal a power's plans and intentions, so the caller
+    publishes them ONLY once the game is over (see build_game) — secret while
+    the match is live, revealed for the post-mortem.
+    """
+    notes: dict[str, str] = {}
+    for power in POWERS:
+        text = read_text_at(ref, f"notes/{power}.md")
+        if text:
+            notes[power] = text
+    return notes
+
+
 def phase_label(code: str) -> str:
     """'S1901M' -> 'Spring 1901 — Movement'."""
     if len(code) >= 6 and code[0] in SEASONS:
@@ -155,7 +179,9 @@ def build_game(name: str, ref: str, out: Path) -> dict | None:
             messages.extend(normalize_messages(revealed_raw, ""))
             messages.sort(key=lambda m: (m.get("phase", ""), m.get("sender", "")))
 
-    # Messages are revealed only once the game is over (secrecy during play).
+    # Messages and notes are revealed only once the game is over (secrecy
+    # during play) — a power's notebook gives away its plans just like its mail.
+    notes = collect_notes(ref)
     meta = {
         "name": name,
         "title": config.get("name", name),
@@ -164,11 +190,16 @@ def build_game(name: str, ref: str, out: Path) -> dict | None:
         "complete": complete,
         "messages": messages if complete else [],
         "messages_locked": (not complete) and bool(messages),
+        "notes": notes if complete else {},
+        "notes_locked": (not complete) and bool(notes),
     }
     (game_dir / "meta.json").write_text(json.dumps(meta), encoding="utf-8")
     revealed = len(meta["messages"])
     locked = " (messages sealed until game end)" if meta["messages_locked"] else ""
-    print(f"  + {name}: {len(phases_meta)} phases, {revealed} messages{locked}")
+    note_n = len(meta["notes"])
+    note_locked = " (notes sealed until game end)" if meta["notes_locked"] else ""
+    print(f"  + {name}: {len(phases_meta)} phases, {revealed} messages{locked}"
+          f", {note_n} notebooks{note_locked}")
     return {
         "name": name,
         "title": meta["title"],

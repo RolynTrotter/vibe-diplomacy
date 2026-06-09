@@ -63,7 +63,7 @@ Python 3.11.
 
 The approved plan lives outside the repo. Current state: **Epics 0–5 built**
 (engine wrapper, gunboat git+Actions loop, core skills, human-play ergonomics,
-GitHub Pages visualizer with map/text/talk, full-press comms with per-player
+GitHub Pages visualizer with map/text/talk/notes, full-press comms with per-player
 encryption + signed orders, self-serve onboarding, single-session conductor mode
 with scoped subagents). Next: **real Cicero (Epic 6)** and quality passes
 (smarter suggester). Open follow-ups: issues #3 (own map), #8 (tamper-resistant
