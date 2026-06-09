@@ -1,0 +1,56 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "F LON B",
+      "F EDI B"
+    ],
+    "FRANCE": [
+      "F BRE B"
+    ],
+    "GERMANY": [
+      "F KIE B",
+      "A BER B"
+    ],
+    "ITALY": [
+      "F NAP B"
+    ],
+    "RUSSIA": [
+      "F SEV B",
+      "A MOS B"
+    ],
+    "TURKEY": [
+      "F ANK B"
+    ]
+  },
+  "phase": "W1901A",
+  "results": {
+    "A BER": [
+      ""
+    ],
+    "A MOS": [
+      ""
+    ],
+    "F ANK": [
+      ""
+    ],
+    "F BRE": [
+      ""
+    ],
+    "F EDI": [
+      ""
+    ],
+    "F KIE": [
+      ""
+    ],
+    "F LON": [
+      ""
+    ],
+    "F NAP": [
+      ""
+    ],
+    "F SEV": [
+      ""
+    ]
+  }
+}
