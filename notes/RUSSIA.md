@@ -27,6 +27,10 @@
 - FRANCE: Fully western — POR, SPA, BEL — no threat.
 - ITALY: TUN, TRI, 5 units — pressing Austria hard; good for us.
 
+## S1902R — no retreats
+- Russia had no dislodged units; submitted empty retreat orders.
+- Awaiting F1902M.
+
 ## Reminders for F1902M
 - If BLA seized: F BLA can threaten ANK/CON; F RUM or A UKR support further push.
 - If SWE seized: hold and build; F BOT from SWE can threaten NWY.

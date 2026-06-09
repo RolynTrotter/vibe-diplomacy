@@ -39,6 +39,10 @@
 - AUSTRIA: A BUD, A SER, F GRE — strong in Balkans. If we take RUM, Austria may feel squeezed from two sides (us + Russia).
 - ITALY: Built F NAP + A ROM. Now 5 units — aggressive. F TUN threatens AEG/ION. Watch for F TUN - ION or A TRI - ALB threatening GRE.
 
+## S1902R — no retreats
+- Turkey had no dislodged units; submitted empty retreat orders.
+- Awaiting F1902M.
+
 ## Plan for F1902M (tentative)
 - If RUM taken: F RUM holds or attacks SEV; A CON - BUL or ANK; F AEG threatens GRE.
 - If RUM bounced: F BLA - RUM again or F BLA - SEV threat; re-evaluate BUL support.
