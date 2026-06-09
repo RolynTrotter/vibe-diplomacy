@@ -26,6 +26,10 @@
 - FRANCE: Has A BUR — could move to BEL and counter our F ENG push.
 - RUSSIA: F BOT in position for SWE — three-way contest possible.
 
+## S1902R — no retreats
+- England had no dislodged units; submitted empty retreat orders.
+- Waiting for F1902M phase.
+
 ## Reminders for F1902M
 - If SWE succeeded: F NWY back to NWY or push to FIN/BAR; F NTH threatens DEN or supports BEL.
 - If BEL succeeded: protect it with support; France/Germany will try to dislodge.
