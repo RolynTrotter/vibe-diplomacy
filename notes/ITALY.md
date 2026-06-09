@@ -19,6 +19,10 @@
 - RECOMMENDED: F NAP + A ROM (if 2 builds confirmed).
 - Keep A TYR in TRI; move A APU to support TRI or push toward ADR/GRE.
 
+## W1901A — submitted
+- Built F NAP (Lepanto / eastern med) + A ROM (land reinforcement for TRI).
+- Now 5 units: A APU, F TUN, A TRI, F NAP, A ROM.
+
 ## S1902M preview
 - Austria will likely counter-attack TRI with A VIE -> TRI or A BUD -> TRI.
 - Hold TRI with support: A TYR S A TRI H (or new unit).
