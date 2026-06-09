@@ -1,30 +1,31 @@
 # ITALY — strategy notebook
 
 ## Standing plan
-- Classic Lepanto pivot: took TUN with F ION, grabbed TRI with A TYR (Austria vacated).
-- If both TUN + TRI succeed: 5 SCs, 2 builds in W1901A — strong early position.
-- Build options: F NAP (eastern med pressure / Lepanto vs Turkey) or A ROM (land power consolidation).
-- A APU is convoy-ready for Greece or can support into TRI if contested.
+- 5 SCs, 5 units: A APU, F TUN, A TRI, F NAP, A ROM. Tied for lead with FRANCE/GERMANY/RUSSIA.
+- Eastern med Lepanto push: F NAP -> ION -> GRE threat. F TUN -> TYS for flexibility.
+- Defend TRI while expanding east. VEN secured by A ROM -> VEN.
 
-## Trust / read on opponents (after F1901M)
-- AUSTRIA: moved F TRI -> ALB in S1901M — went south to grab Greece/Serbia, left TRI open. We walked in. They will be furious. Expect Austrian counter-attack on TRI/TYR in S1902M.
-- TURKEY: standard opening. Austria in ALB means Austria is competing for Greece — Turkey may fight Austria, giving us breathing room.
-- FRANCE: watch for A MAR -> PIE; if France is busy in Iberia, we are safe west.
-- RUSSIA: unknown; standard 4-unit opening. Likely heading south toward TUR or BOH/GAL.
+## Trust / read on opponents (after W1901A)
+- AUSTRIA: A VIE + A BUD + A SER all adjacent to TRI — maximum TRI threat. F GRE in place.
+  Austria can do 2:1 supported attack on TRI. TRI may fall this phase.
+- TURKEY: A BUL, A CON, F BLA, F SMY — F SMY threatening AEG. Potential rival for GRE/eastern med.
+  Turkey's F SMY could move AEG; Turkey-Austria fight in the east benefits Italy.
+- FRANCE: Took POR. 5 units. Watch for A MAR push west or into Iberia. Not immediately threatening.
+- RUSSIA: 5 units, F SEV -> RUM in F1901. Likely clashing with Turkey/Austria in the east.
+- GERMANY: 5 units (took HOL + SWE or similar). Not an Italian concern this phase.
+- ENGLAND: 4 units. Northern focused.
 
-## W1901A reminders
-- Expect 2 builds (TUN + TRI pending adjudication).
-- Build F NAP = Lepanto option vs Turkey, eastern fleet power.
-- Build A ROM = land reinforcement to hold TRI/TYR vs Austria.
-- RECOMMENDED: F NAP + A ROM (if 2 builds confirmed).
-- Keep A TYR in TRI; move A APU to support TRI or push toward ADR/GRE.
+## S1902M — orders submitted
+- A TRI H (defend, but Austria has 3 units adjacent — TRI may fall)
+- A ROM -> VEN (secure empty Italian SC)
+- A APU H (hold, protect south Italy / support staging)
+- F NAP -> ION (eastern push, threatens GRE next turn or supports convoy)
+- F TUN -> TYS (fleet reposition north/west for flexibility)
 
-## W1901A — submitted
-- Built F NAP (Lepanto / eastern med) + A ROM (land reinforcement for TRI).
-- Now 5 units: A APU, F TUN, A TRI, F NAP, A ROM.
-
-## S1902M preview
-- Austria will likely counter-attack TRI with A VIE -> TRI or A BUD -> TRI.
-- Hold TRI with support: A TYR S A TRI H (or new unit).
-- Consider A APU -> ADR or ION-based convoy for Greece.
-- Long game: ally with Turkey vs Austria, then pivot vs Turkey once Austria is down.
+## F1902M reminders
+- If TRI holds: press advantage — A VEN -> TRI (advance) or toward Austria.
+- If TRI falls: regroup. A VEN holds VEN, F ION -> GRE or AEG to compensate.
+- F ION (assuming reached): aim for GRE (Austrian F GRE). GRE is undefended if Austria commits north.
+- Consider A APU -> NAP to free up convoys, or hold as backstop.
+- Long game: contest GRE with F ION, ally with Russia vs Austria if Austria is aggressive.
+- Watch Turkey's F SMY — if it goes AEG, Turkey-Austria war helps Italy in the east.
