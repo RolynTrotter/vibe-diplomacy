@@ -22,10 +22,18 @@
 - F NAP -> ION (eastern push, threatens GRE next turn or supports convoy)
 - F TUN -> TYS (fleet reposition north/west for flexibility)
 
+## S1902R — retreat submitted
+- A TRI dislodged by Austria A BUD (supported A SER). TRI SC still held (Italy owns 5 SCs).
+- Retreated A TRI R TYR — repositions to threaten TRI back in F1902M, applies pressure on Austria.
+- Units after retreat: A APU, F ION (from NAP), F TYS (from TUN), A VEN (from ROM), A TYR = 5 units.
+- Italy has +1 build owed in W1902A (5 SCs, 5 units after retreat = balanced, plus 1 build from gaining TUN).
+
 ## F1902M reminders
-- If TRI holds: press advantage — A VEN -> TRI (advance) or toward Austria.
-- If TRI falls: regroup. A VEN holds VEN, F ION -> GRE or AEG to compensate.
-- F ION (assuming reached): aim for GRE (Austrian F GRE). GRE is undefended if Austria commits north.
-- Consider A APU -> NAP to free up convoys, or hold as backstop.
-- Long game: contest GRE with F ION, ally with Russia vs Austria if Austria is aggressive.
+- A TYR -> TRI (retake TRI from Austria — key priority)
+- A VEN S A TYR -> TRI (support the retake)
+- F ION -> GRE or AEG (eastern push, contest GRE vs Austrian F GRE->ION)
+- A APU H or -> NAP as backstop
+- F TYS: hold or support TRI operation if possible
+- Build in W1902A: likely A ROM or F NAP depending on F1902M results.
+- Long game: contest GRE with F ION, ally with Russia vs Austria if Austria continues aggression.
 - Watch Turkey's F SMY — if it goes AEG, Turkey-Austria war helps Italy in the east.
