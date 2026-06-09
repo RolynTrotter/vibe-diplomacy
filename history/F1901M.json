@@ -1,0 +1,81 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "F ALB - GRE",
+      "A SER S F ALB - GRE",
+      "A VIE - GAL"
+    ],
+    "ENGLAND": [
+      "F NTH - NWY",
+      "F ENG - BEL",
+      "A YOR H"
+    ],
+    "FRANCE": [
+      "F MAO - POR",
+      "A BUR - BEL",
+      "A SPA H"
+    ],
+    "GERMANY": [
+      "F DEN - SWE",
+      "A KIE - HOL",
+      "A RUH S A KIE - HOL"
+    ],
+    "ITALY": [
+      "F ION - TUN",
+      "A TYR - TRI",
+      "A APU H"
+    ],
+    "RUSSIA": [
+      "F SEV - RUM",
+      "A UKR S F SEV - RUM",
+      "F BOT - SWE",
+      "A WAR - GAL"
+    ],
+    "TURKEY": [
+      "A BUL - GRE",
+      "A CON - BUL",
+      "F ANK - BLA"
+    ]
+  },
+  "phase": "F1901M",
+  "results": {
+    "A APU": [],
+    "A BUL": [
+      "bounce"
+    ],
+    "A BUR": [
+      "bounce"
+    ],
+    "A CON": [
+      "bounce"
+    ],
+    "A KIE": [],
+    "A RUH": [],
+    "A SER": [],
+    "A SPA": [],
+    "A TYR": [],
+    "A UKR": [],
+    "A VIE": [
+      "bounce"
+    ],
+    "A WAR": [
+      "bounce"
+    ],
+    "A YOR": [],
+    "F ALB": [],
+    "F ANK": [],
+    "F BOT": [
+      "bounce"
+    ],
+    "F DEN": [
+      "bounce"
+    ],
+    "F ENG": [
+      "bounce"
+    ],
+    "F ION": [],
+    "F MAO": [],
+    "F NTH": [],
+    "F SEV": []
+  }
+}
