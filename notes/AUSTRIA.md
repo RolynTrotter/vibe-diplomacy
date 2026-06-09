@@ -32,11 +32,33 @@
 - Austria had no dislodged units; submitted empty retreat orders.
 - Waiting for F1902M phase.
 
-## Reminders for F1902M
-- If TRI taken: we hold 5 SC. BUD moves to GAL or RUM region next.
-- If TRI bounced (Italy got support from APU/ROM): reassess — may need naval approach via ADR.
-- GAL: if A VIE succeeds, watch for Russia counter-move (A WAR or A UKR into GAL/BUD).
-- F ION position: can threaten NAP, TUN, or move to ADR for TRI amphibious pressure next fall.
-- Russia has A WAR, A UKR — GAL grab critical to preempt westward pressure.
-- Italy has A APU, A ROM, A TRI, F NAP, F TUN — large southern force; retaking TRI reduces their SC count.
-- Turkey still holding BUL, CON, BLA fleet — not an immediate threat but watch AEG/BUL.
+## S1902M results
+- A BUD - TRI: SUCCESS (Italy's A TRI dislodged, retreated to TYR)
+- A SER S A BUD - TRI: held support
+- A VIE - GAL: BOUNCED (Russia A WAR also moved to GAL — GAL is contested)
+- F GRE - ION: BOUNCED (Italy F NAP also moved to ION — both bounced back)
+- Units entering F1902M: A TRI (was BUD), A VIE, A SER, F GRE
+
+## F1902M orders submitted
+- A TRI H (hold TRI — Italy threatens with A TYR + A VEN support = strength 2)
+- A VIE S A TRI (support hold — makes defense strength 2, matching Italy's attack, TRI holds!)
+- F GRE - ION (escape Turkey's F AEG threat, gain naval position)
+- A SER - BUL (opportunistic push at Turkey's BUL SC; bounce worst case, gain best case)
+
+## Updated board read entering F1902M
+- Italy (5 units): A TYR, A VEN, A APU, F NAP, F TYS — all concentrated against TRI/south Italy
+- Russia (5 units): F BOT, F RUM, F SEV, A UKR, A WAR — strong, controls RUM + has F RUM supported
+- Turkey (4 units): F AEG, F BLA, A BUL, A CON — threatens GRE/ION + BUL pressure on SER
+- GAL is empty but Russia bounced us twice — A WAR is poised to grab it
+
+## Updated trust levels
+- ITALY: HOSTILE — retaliating for TRI loss. Expect 2-army TRI attack this fall.
+- RUSSIA: NEUTRAL-HOSTILE — blocked our GAL expansion. F RUM fortified with SEV support.
+- TURKEY: CAUTIOUS — F AEG threatens GRE. A BUL threatens SER. Not yet attacking directly.
+
+## Reminders for W1902A (if centers change)
+- If TRI holds + BUL taken: 5 centers → build 1 unit (BUD open, VIE occupied)
+- If TRI holds + BUL bounces: stay at 4 centers → no builds
+- If TRI lost: drop to 3 centers → must disband 1 unit — catastrophic
+- Next spring: A SER or new unit can push GAL; F ION can threaten NAP or ADR
+- Italy's A TYR position stays threatening — watch VIE flank if Italy moves TYR-VIE
