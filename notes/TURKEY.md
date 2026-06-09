@@ -1,22 +1,27 @@
 # TURKEY — strategy notebook
 
 ## Standing plan
-- Secure BUL (Fall 1901 certain) and contest BLA vs Russia.
+- Grab GRE in F1901M to reach 4 SC; build a fleet in W1901A.
 - Long-term: dominate the eastern Med and Balkans; aim for 6+ SC by 1903.
 
 ## S1901M orders played
-- F ANK - BLA (contest Black Sea; deny Russia F SEV access)
-- A CON - BUL (grab neutral SC — should succeed unopposed)
-- A SMY - CON (reposition for Balkan push next phase)
+- F ANK - BLA (bounced by Russia F SEV)
+- A CON - BUL (succeeded — BUL secured)
+- A SMY - CON (repositioned)
+
+## F1901M orders played
+- A BUL - GRE (contest GRE neutral SC; Austria in ALB and Italy in ION are rivals)
+- A CON - BUL (back-fill BUL to hold the SC)
+- F ANK - BLA (contest BLA again vs Russia F SEV)
 
 ## Trust / read on opponents
-- RUSSIA: F SEV is the immediate threat — BLA contest is critical. If Russia bounces us in BLA, reassess and consider ARM route.
-- AUSTRIA: A BUD, A VIE, F TRI — will likely contest SER/GRE/RUM. Potential ally vs Russia for RUM, but rival in Balkans long-term.
-- ITALY: F NAP, A ROM, A VEN — not an immediate threat. Could race us to GRE via ION.
+- RUSSIA: F SEV still threatening BLA — two bounces if BLA goes again. If bounced again, route F ANK to ARM or consider holding ANK and building a CON fleet.
+- AUSTRIA: Took SER and ALB — dangerous in the Balkans. F ALB threatens GRE; if Austria moves ALB-GRE we lose the race. Long-term rival for Balkans.
+- ITALY: F ION now positioned — could contest GRE. Italy is a threat to our Mediterranean ambitions. Watch for ION - AEG or ION - GRE.
 
-## Reminders for F1901M
-- If F ANK succeeded to BLA: can move BLA - RUM or BLA - SEV in Fall.
-- A CON should be in BUL — take the SC.
-- A SMY now in CON — can support BUL hold or move to AEG/BUL.
-- Watch if Austria moves to SER (blocks our path to GRE/SER from BUL).
-- If BLA bounce: F ANK stays ANK or tries ARM; reconsider eastern strategy.
+## Reminders for W1901A / S1902M
+- If GRE taken: build F SMY (or F CON) — fleet needed for AEG/EAS dominance.
+- If GRE bounced (Austria or Italy beat us): reassess; BUL is still safe.
+- If BLA bounced again: F ANK - ARM next, threatening SEV from land side.
+- BUL is secure (A CON moving there). No threat to BUL unless Austria pushes from SER.
+- Target for 1902: RUM (from BUL or BLA if captured), SMY/AEG expansion.
