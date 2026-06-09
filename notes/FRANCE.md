@@ -1,24 +1,30 @@
 # FRANCE — Strategy Notes
 
-## S1901M
-**Orders submitted:**
-- F BRE - MAO (position for POR/SPA/north Atlantic control)
-- A PAR - BUR (central position; if bounce, still strategically valuable)
-- A MAR - SPA (secure neutral SC immediately)
+## Standing position (after W1901A)
+**Units:** A BUR, A SPA, F POR + new builds F BRE, A PAR (5 units total)
+**Centers:** BRE, MAR, PAR, POR, SPA (5 SCs)
 
-**Strategic intent:**
-- Classic western opening: grab SPA, control MAO, probe BUR
-- If BUR succeeds: pressure on BEL (4th SC) and MUN, strong western position
-- If BUR bounces (Germany likely moved MUN-BUR or Italy moved TYR-BUR): reassess next phase
-- F MAO next turn can go to POR or IRI/NAO; consider MAO-SPA/NC for POR convoy
+## W1901A builds submitted
+- F BRE B — Atlantic fleet for ENG/MAO/IRI control and northern pressure
+- A PAR B — Central army reserve; can push BEL or reinforce BUR/MAR
 
-**Read on neighbors:**
-- ENGLAND: 3 units (F EDI, F LON, A LVP) — natural enemy for BEL/ENG/NTH. In gunboat, expect ENG move toward NTH or ENG channel.
-- GERMANY: A BER, A MUN, F KIE — MUN might move BUR (contest), KIE likely goes to DEN
-- ITALY: A ROM, A VEN, F NAP — VEN threatens PIE/TYR; NAP goes to ION/TYS; watch PIE
+## Read on opponents (after F1901M)
+- ENGLAND: Took NWY (F NTH-NWY), took BEL (F ENG-BEL) — strong 4-SC start, building F EDI. Dangerous naval power. BEL puts England on my doorstep — priority rivalry.
+- GERMANY: Took HOL (A KIE-HOL supported by RUH), took SWE (F DEN-SWE). Strong 5-SC start, building A MUN + F KIE. Focused east/north, not directly threatening me yet.
+- ITALY: Took TUN (F ION-TUN), tried TRI (A TYR-TRI) — Italy moved away from France. Builds F NAP + A ROM. Italy is not an immediate threat to MAR.
+- RUSSIA: Took RUM (F SEV-RUM), bounced in GAL/SWE. Building somewhere. Watch NOR/SWE contest with England.
+- AUSTRIA: Took GRE (F ALB-GRE supported by SER). Growing in Balkans.
+- TURKEY: Bounced in GRE, took BUL. Constrained.
 
-**Next phase priorities:**
-- If in BUR: move toward BEL or hold + support SPA
-- F MAO -> POR (grab 2nd neutral SC)
-- A MAR -> hold or support if threatened by Italy
-- Build toward 5 SCs by end of 1901 if possible
+## S1902M priorities
+- F BRE -> ENG or MAO (contest channel, threaten BEL or push Atlantic)
+- A BUR -> BEL (attack England's fresh hold, or support if another unit threatens)
+- A PAR -> support BUR attack on BEL, or move PIC to set up BEL attack
+- A SPA -> hold or GAS (flex toward MAR support or northern push)
+- F POR -> MAO (Atlantic control, open for future convoys or IRI)
+- Key goal: dislodge England from BEL before they consolidate
+
+## Trust levels
+- ENGLAND: hostile — in BEL, will contest northern SCs
+- GERMANY: neutral/watch — busy east, not threatening me yet; potential rival for BEL
+- ITALY: non-threatening — focused south/east
