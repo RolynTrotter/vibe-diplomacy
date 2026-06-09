@@ -28,6 +28,10 @@
 - A VIE - GAL (race Russia to neutral buffer zone)
 - F GRE - ION (expand naval; threatens Italy's Ionian position, cuts Italy off from TUN support)
 
+## S1902R — no retreats
+- Austria had no dislodged units; submitted empty retreat orders.
+- Waiting for F1902M phase.
+
 ## Reminders for F1902M
 - If TRI taken: we hold 5 SC. BUD moves to GAL or RUM region next.
 - If TRI bounced (Italy got support from APU/ROM): reassess — may need naval approach via ADR.
