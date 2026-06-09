@@ -35,6 +35,10 @@ support from PIC.
 F BRE into MAO expands Atlantic presence. Next phase F MAO can threaten IRI,
 NAO, or SPA/WES.
 
+## S1902R — no retreats
+- France had no dislodged units; submitted empty retreat orders.
+- Awaiting F1902M results.
+
 ## F1902M priorities
 - If A BUR took BEL: A PIC S A BEL H (protect it), or push further
 - If BEL bounced: A PIC S A BUR - BEL (supported 2-strength attack in fall)
