@@ -15,8 +15,20 @@
 - GERMANY: Took DEN. Will likely push into Scandinavia (SWE, NWY) in 1902 — friction ahead.
 - RUSSIA: STP/SC not in NWY — may target SWE or NOR via BOT. Rival for northern SCs.
 
-## Reminders for S1902M
-- Priority: push for BEL (F ENG -> BEL or support) and SWE (F NWY -> SWE).
-- F EDI -> NTH to free up NTH for BEL/DEN operations, or F EDI -> NWG for northern flexibility.
-- A YOR can move to LON or WAL to free EDI or support southern operations.
-- Watch Germany's build — if they build in KIE, Scandinavia becomes contested fast.
+## S1902M orders submitted
+- F NWY - SWE (racing Germany F DEN and Russia F BOT for SWE)
+- F EDI - NTH (positions us for BEL/DEN pressure in fall)
+- F ENG - BEL (opportunistic; France has A BUR — may bounce)
+- A YOR H (holds home territory)
+
+## Trust / read update (entering S1902M)
+- GERMANY: Has F DEN + F KIE + A HOL/RUH/MUN — 5 units, strong. Will contest SWE.
+- FRANCE: Has A BUR — could move to BEL and counter our F ENG push.
+- RUSSIA: F BOT in position for SWE — three-way contest possible.
+
+## Reminders for F1902M
+- If SWE succeeded: F NWY back to NWY or push to FIN/BAR; F NTH threatens DEN or supports BEL.
+- If BEL succeeded: protect it with support; France/Germany will try to dislodge.
+- If bounced everywhere: regroup — NTH is the key bottleneck, hold it.
+- A YOR: consider moving toward LON to free for future build, or push north to support fleet ops.
+- Long-term: 6th SC target is DEN or HOL after SWE+BEL secured.
