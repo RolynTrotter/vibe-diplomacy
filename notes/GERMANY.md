@@ -22,6 +22,10 @@
 - ITALY: A TRI, A APU, F TUN, F NAP, A ROM — Med-focused, not a concern
 - TURKEY: A BUL, A CON, F BLA, F SMY — far away, irrelevant
 
+## S1902R — no retreats
+- Germany had no dislodged units; submitted empty retreat orders.
+- Awaiting F1902M phase.
+
 ## Reminders for F1902
 - If SWE succeeds: F BAL can support F SWE hold or push further; target NWY if England moved out
 - If BEL succeeds: defend it — England F ENG and France A BUR both threaten it
