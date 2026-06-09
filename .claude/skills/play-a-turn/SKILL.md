@@ -1,6 +1,6 @@
 ---
 name: play-a-turn
-description: Play one full Diplomacy turn end-to-end for your power — orient on the board, recall your plan, get tactical suggestions, decide, then validate, seal, and submit your orders. Use this as the top-level loop each time it is your turn.
+description: Play one full Diplomacy turn end-to-end for your power — orient on the board, recall your plan, negotiate, decide, then validate, seal, and submit your orders. Use this as the top-level loop each time it is your turn.
 ---
 
 # Play a Turn
@@ -27,13 +27,7 @@ provinces and read the latest `history/` to see what opponents just did.
 cat notes/<POWER>.md 2>/dev/null
 ```
 
-## 3. Get options — run-cicero
-```bash
-python -m orchestration.suggest_orders --power <POWER>
-```
-Use it as a floor (obvious captures / threats), not a strategy.
-
-## 3b. Negotiate — negotiate  (full-press games only)
+## 3. Negotiate — negotiate  (full-press games only)
 If `game/config.json` has `press: full`, read your inbox and trade messages
 before locking orders:
 ```bash

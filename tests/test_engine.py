@@ -129,6 +129,18 @@ def test_adjacency_and_province_info():
     assert info["owner"] == "FRANCE"
 
 
+def test_full_graph_covers_board():
+    game = state.new_game("fg")
+    graph = query.full_graph(game)
+    # Every province appears once (coasts collapsed onto their base).
+    assert "PAR" in graph and "SPA" in graph
+    assert "SPA/SC" not in graph
+    # Occupancy and adjacency are reported per province.
+    assert graph["PAR"]["units"] == ["FRANCE: A PAR"]
+    assert "BUR" in graph["PAR"]["adjacent"]
+    assert graph["BUR"]["units"] == []
+
+
 def test_heuristic_suggestions_are_legal():
     game = state.new_game("s")
     result = suggest.suggest(game, "FRANCE")
