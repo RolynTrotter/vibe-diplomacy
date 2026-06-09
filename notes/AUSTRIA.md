@@ -14,8 +14,14 @@
 - ITALY: A VEN adjacent to TRI — could threaten TRI if they play Key Lepanto or stab. Monitor closely. TRI undefended now; if Italy moves VEN->TRI we clash.
 - TURKEY: Will contest BUL and likely GRE. Fleet in ALB may race Turkey to GRE.
 
-## Reminders for F1901M
-- BUD should take SER (move in if uncontested, or hold if already there).
-- ALB -> GRE to grab second neutral SC (watch for Turkey F CON -> BUL/EC or similar blocking moves).
-- VIE or GAL unit: if Russia bounced in GAL, consider GAL->RUM for a 3rd build. If Russia is in GAL, defend BUD.
-- Aim for 2 builds after fall 1901 (SER + GRE = 5 centers).
+## F1901M orders submitted
+- F ALB - GRE (supported by A SER — Turkey's A BUL is adjacent to GRE and could contest)
+- A SER S F ALB - GRE
+- A VIE - GAL (GAL was empty after Russia bounced there in spring; advancing to buffer/pressure Russia)
+
+## Reminders for W1901A (builds)
+- Expect 2 builds: SER (already held) + GRE (if move succeeds with support)
+- Build F TRI (to protect Adriatic/Ionian) and A BUD or A VIE to expand
+- If GRE fails (Turkey beats support somehow), reassess — only 1 build
+- A VIE is now in GAL: good pressure on Russia, watch RUM opportunity in S1902M
+- TRI remains undefended — watch Italy closely
