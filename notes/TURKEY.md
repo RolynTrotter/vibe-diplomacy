@@ -43,9 +43,27 @@
 - Turkey had no dislodged units; submitted empty retreat orders.
 - Awaiting F1902M.
 
-## Plan for F1902M (tentative)
-- If RUM taken: F RUM holds or attacks SEV; A CON - BUL or ANK; F AEG threatens GRE.
-- If RUM bounced: F BLA - RUM again or F BLA - SEV threat; re-evaluate BUL support.
-- F AEG in position: can support A BUL - GRE if Austria is weak, or threaten ION.
-- A BUL: attack GRE from BUL/SC with AEG support if Austria weakens.
-- Key: reach 6 SC by end of 1902 (RUM + one of GRE/SER).
+## S1902M results (revealed)
+- F BLA - RUM: BOUNCED (Russia played F RUM - BLA + F SEV S — mutual bounce)
+- A BUL S F BLA - RUM: held in BUL (support given but bounce anyway)
+- F SMY - AEG: SUCCEEDED (F AEG now in Aegean)
+- A CON - BUL: BOUNCED (BUL occupied by A BUL which didn't move)
+- Net: BLA held, AEG taken, BUL/CON unchanged, RUM still Russia's
+
+## F1902M orders submitted
+- F AEG - GRE (strength-2 attack with BUL support)
+- A BUL S F AEG - GRE (committed support — if Austria's A SER defends, bounce; if not, GRE falls)
+- A CON - BUL (backfill BUL as A BUL is supporting not moving)
+- F BLA - RUM (counter-attack forces Russia to defend RUM rather than attack BLA; removes the F RUM - BLA threat)
+
+## Trust / read update (F1902M)
+- RUSSIA: Played F RUM - BLA + F SEV S — hostile, wants BLA back badly. Two fleets committed to BLA. F BLA - RUM now forces Russia to choose: hold RUM or retake BLA — can't do both easily.
+- AUSTRIA: Already submitted orders before us. A SER could support F GRE; hard to know. Austria was focused on Galicia (A VIE - GAL in S1902M) so A SER may be moving north rather than defending GRE. Taking the bet.
+- ITALY: F GRE (Austria's) being vacated opens ION path for Italy too. F TYS/ION fleet could threaten us in AEG/EAS long term.
+
+## Plan for W1902A / 1903
+- If GRE taken + BLA held: 5 SC (ANK, CON, SMY, BUL, GRE) — build A SMY or F SMY
+- If GRE taken + BLA lost: 4 SC (net zero but better shape — GRE > BLA strategically)
+- If GRE bounced + BLA held: 4 SC — reposition F AEG, try again
+- If GRE bounced + BLA lost: 3 SC — crisis, need emergency rebuild
+- Next priority: consolidate Balkans, pressure RUM from BLA + BUL, keep Italy out of AEG
