@@ -28,12 +28,24 @@
 - Units after retreat: A APU, F ION (from NAP), F TYS (from TUN), A VEN (from ROM), A TYR = 5 units.
 - Italy has +1 build owed in W1902A (5 SCs, 5 units after retreat = balanced, plus 1 build from gaining TUN).
 
-## F1902M reminders
-- A TYR -> TRI (retake TRI from Austria — key priority)
-- A VEN S A TYR -> TRI (support the retake)
-- F ION -> GRE or AEG (eastern push, contest GRE vs Austrian F GRE->ION)
-- A APU H or -> NAP as backstop
-- F TYS: hold or support TRI operation if possible
-- Build in W1902A: likely A ROM or F NAP depending on F1902M results.
-- Long game: contest GRE with F ION, ally with Russia vs Austria if Austria continues aggression.
-- Watch Turkey's F SMY — if it goes AEG, Turkey-Austria war helps Italy in the east.
+## F1902M — orders submitted
+- A TYR - TRI (retake TRI — supported attack at strength 2)
+- A VEN S A TYR - TRI (support)
+- F NAP - ION (eastern push; F NAP was still in NAP since it bounced ION in S1902M)
+- F TYS H (hold, reposition next phase)
+- A APU H (hold, backstop)
+
+Key board reads going into F1902M:
+- Austria: A TRI (in TRI), A SER (in SER), A VIE (in VIE — bounced GAL attempt), F GRE
+- Austria A VIE is adjacent to TRI and could support A TRI = 2v2 stalemate. But we try anyway.
+- Turkey: F AEG (from SMY), A BUL, A CON, F BLA. Turkey's F AEG threatens GRE — Austria-Turkey friction good for Italy.
+- F NAP -> ION gets us in position to threaten GRE in W1902A or S1903M.
+
+## W1902A reminders
+- If TRI recaptured: 6 SCs vs 5 units = build 1. Build F NAP or A ROM (F NAP preferred for eastern push).
+- If TRI not recaptured: 5 SCs vs 5 units = no build.
+- F ION (from NAP) -> GRE next phase if Austria's F GRE is weakened or Turkey attacks it.
+- Consider: if Turkey takes GRE, that's also bad — want F ION to contest.
+- A TYR (if in TRI): A TRI hold, then work with Austria alliance or push further.
+- A TYR (if bounced back to TYR): repeat attempt or pivot to VIE threat.
+- Long game: Lepanto with F ION + possible 2nd fleet for eastern med dominance.
