@@ -2,17 +2,21 @@
 
 ## Standing plan
 - Classic Western opening: NTH + ENG control gives maximum leverage.
-- Fall 1901: F NTH -> NWY (guaranteed +1 SC), F ENG -> BEL or MAO depending on France's moves.
-- A YOR: flexible — convoy to NWY via NTH, or push to NTH to free EDI fleet.
 - Target 5 SCs by end of 1902: EDI, LON, LVP, NWY, BEL (or DEN/HOL).
+- NOTE: Armies cannot enter sea provinces — A YOR cannot move to NTH directly.
 
-## Trust / read on opponents (S1901M — opening, no data yet)
-- FRANCE: Likely opened to ENG (F BRE -> MAO or ENG). If they took ENG, bounce means war. If MAO, possible de-facto truce — watch F1901M.
-- GERMANY: Probable KIE -> DEN or HEL. Germany in DEN threatens NWY race. Watch carefully.
-- RUSSIA: STP/SC fleet — threatens NWY from north (STP/SC -> NWY in F1901M possible). Must beat them to NWY.
+## F1901M orders submitted
+- F NTH - NWY (racing Russia/Germany for +1 SC)
+- F ENG - BEL (France went MAO, channel clear, +1 SC)
+- A YOR H (hold to guard home SCs; can't enter NTH)
+- Expecting 2 builds in W1901A if both captures succeed.
 
-## Reminders for next phase (F1901M)
-- F NTH -> NWY (top priority, race Russia).
-- F ENG: if France took ENG, fight for it; if clear, -> BEL for easy SC.
-- A YOR: if NWY convoy needed, move to NTH and convoy from there (but fleet already moving — use A YOR -> NTH only if NWY threatened). Otherwise A YOR -> NTH to add pressure or hold.
-- Never leave home SCs unguarded if someone is probing.
+## Trust / read on opponents (after S1901M)
+- FRANCE: Went to MAO, not ENG — de-facto truce in the channel for now. Watch if they bounce back toward ENG.
+- GERMANY: Took DEN (F KIE -> DEN). Germany will likely contest NWY or build aggressively. Potential friction in Scandinavia.
+- RUSSIA: STP/SC fleet moved to BOT — not contesting NWY directly this fall, good news. Still a Scandinavian rival long-term.
+
+## Reminders for W1901A
+- If NWY + BEL both taken: build 2 units. Prefer F EDI (Scandinavian pressure) + A LVP (continental flexibility).
+- If only NWY taken: build 1 fleet (F EDI or F LON for BEL follow-up).
+- Keep A YOR at home or push to LON/WAL for southern defense.
