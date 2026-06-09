@@ -28,10 +28,20 @@
 - AUSTRIA: Took GRE from us (via ALB support). Austria has SER, ALB, GRE — strong Balkan position. Long-term rival; do not let them reach 6+ SC.
 - ITALY: F ION positioned — likely to contest AEG or threaten EAS. Could be a naval rival. Watch Italy's W1901A build.
 
-## Plan for S1902M
-- F BLA: push toward RUM (F BLA - RUM) or hold/threaten ARM to keep Russia busy.
-- A BUL: support F BLA into RUM, or push toward SER if Austria looks weak.
-- A CON: move to cover BUL or push toward ANK/ARM as second army.
-- F SMY: move to AEG (F SMY - AEG) to contest GRE and threaten Italy's ION.
-- Top priority: RUM (from BLA) and AEG (from SMY) to reach 6 SC quickly.
-- Keep BUL covered — Austria in SER and GRE could squeeze BUL.
+## S1902M orders submitted
+- F BLA - RUM (attack Russia's F RUM — aim for 5th SC)
+- A BUL S F BLA - RUM (supported attack, strength 2 vs strength 1)
+- F SMY - AEG (free move, AEG was empty — opens GRE path)
+- A CON - BUL (backfill BUL while A BUL is supporting)
+
+## Trust / read update (S1902M)
+- RUSSIA: Built F SEV in W1901A — now has F SEV + F RUM. If F SEV - RUM was ordered, BLA attack bounces. If F SEV holds or moves elsewhere, we take RUM. Either way, RUM is contested.
+- AUSTRIA: A BUD, A SER, F GRE — strong in Balkans. If we take RUM, Austria may feel squeezed from two sides (us + Russia).
+- ITALY: Built F NAP + A ROM. Now 5 units — aggressive. F TUN threatens AEG/ION. Watch for F TUN - ION or A TRI - ALB threatening GRE.
+
+## Plan for F1902M (tentative)
+- If RUM taken: F RUM holds or attacks SEV; A CON - BUL or ANK; F AEG threatens GRE.
+- If RUM bounced: F BLA - RUM again or F BLA - SEV threat; re-evaluate BUL support.
+- F AEG in position: can support A BUL - GRE if Austria is weak, or threaten ION.
+- A BUL: attack GRE from BUL/SC with AEG support if Austria weakens.
+- Key: reach 6 SC by end of 1902 (RUM + one of GRE/SER).
