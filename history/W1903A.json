@@ -1,0 +1,29 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A PAR B"
+    ],
+    "GERMANY": [
+      "F HEL D"
+    ],
+    "ITALY": [
+      "F NAP B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1903A",
+  "results": {
+    "A PAR": [
+      ""
+    ],
+    "F HEL": [
+      ""
+    ],
+    "F NAP": [
+      ""
+    ]
+  }
+}

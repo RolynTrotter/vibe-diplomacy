@@ -1,0 +1,29 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "F EDI B"
+    ],
+    "FRANCE": [],
+    "GERMANY": [
+      "A BOH D"
+    ],
+    "ITALY": [
+      "A VEN B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1904A",
+  "results": {
+    "A BOH": [
+      ""
+    ],
+    "A VEN": [
+      ""
+    ],
+    "F EDI": [
+      ""
+    ]
+  }
+}

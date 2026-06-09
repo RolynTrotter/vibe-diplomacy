@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [
+      "F HOL R KIE"
+    ],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "S1904R",
+  "results": {
+    "F HOL": []
+  }
+}
