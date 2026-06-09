@@ -45,6 +45,24 @@ print(query.adjustment_summary(g))
 PY
 ```
 
+Whole-map graph — every province at once (what unit is in it and what it
+connects to):
+
+```bash
+python - <<'PY'
+from engine import state, query
+g = state.load_game(".")
+
+for prov, info in sorted(query.full_graph(g).items()):
+    occ = ", ".join(info["units"]) or "empty"
+    print(f"{prov}: [{occ}]  ->  {', '.join(info['adjacent'])}")
+PY
+```
+
+`query.full_graph(g)` returns `{PROV: {"units": [...], "adjacent": [...]}}` for
+every province (coasts collapsed onto their base), so you can see the whole
+board's shape and occupancy in one pass.
+
 ## Notes
 - Province codes are the standard 3-letter abbreviations (PAR, BUR, MAO…).
   Coasts use a suffix like `SPA/SC`.

@@ -69,6 +69,32 @@ def province_info(game: Game, province: str) -> dict:
     }
 
 
+def full_graph(game: Game) -> dict[str, dict]:
+    """Adjacency + occupancy for every province on the board.
+
+    Maps each province (coasts collapsed onto their base) to the units standing
+    in it and the provinces it connects to. The whole board graph in one call —
+    handy for seeing the shape of the map and where everyone is at a glance.
+    """
+    # Index every unit by the province it occupies (coast suffix stripped).
+    units_by_prov: dict[str, list[str]] = {}
+    for name, power in game.powers.items():
+        for unit in power.units:
+            prov = unit.split()[1].split("/")[0].upper()
+            units_by_prov.setdefault(prov, []).append(f"{name}: {unit}")
+
+    graph: dict[str, dict] = {}
+    for loc in game.map.locs:
+        prov = loc.upper().split("/")[0]
+        if prov in graph:
+            continue
+        graph[prov] = {
+            "units": units_by_prov.get(prov, []),
+            "adjacent": adjacencies(game, prov),
+        }
+    return graph
+
+
 def adjustment_summary(game: Game) -> dict[str, int]:
     """Per-power build (+) / disband (-) count: centers minus units."""
     return {

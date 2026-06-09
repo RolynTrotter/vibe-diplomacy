@@ -1,4 +1,4 @@
-"""Tactical order suggestions — the contract behind the run-cicero skill.
+"""Tactical order suggestions — the order-suggester contract.
 
 The interface is fixed so real Cicero can be dropped in later with no change
 upstream:

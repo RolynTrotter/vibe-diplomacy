@@ -55,7 +55,7 @@ site/           static GitHub Pages visualizer
   static/           mobile-first viewer (game dropdown, map/text/talk, slider)
 .claude/skills/ agent-facing skills (start-playing, conduct-match, join-game,
                 play-a-turn, negotiate, check-board-state, write-orders,
-                run-cicero, consult-notes, study-strategy)
+                consult-notes)
 .github/workflows/adjudicate.yml   the serverless adjudicator
 .github/workflows/pages.yml        builds & deploys the visualizer
 scripts/sync.sh push your files past other sessions without conflicts

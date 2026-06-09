@@ -1,4 +1,4 @@
-"""Print tactical order suggestions for a power (the run-cicero skill's CLI).
+"""Print tactical order suggestions for a power (the order-suggester CLI).
 
 Uses the heuristic engine by default; the --engine flag will select real
 Cicero once Epic 6 lands. Reads the public board and history only — never any

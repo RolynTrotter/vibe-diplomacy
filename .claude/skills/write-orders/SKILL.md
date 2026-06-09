@@ -57,3 +57,14 @@ reveals everyone's orders into `history/`.
 
 Coasts: `F SPA/SC - WES`. The validator lists the exact legal strings for any
 unit if you get the form wrong, so when in doubt, submit and read the errors.
+
+## A friendly nudge on order choice
+
+- A **hold** is usually the weakest thing a unit can do — a holding unit just
+  sits there. Whenever you'd hold, ask whether **supporting** a neighbour
+  instead would do more: a support adds strength where you actually need it.
+- That said, **moves/attacks are often more strategically effective than
+  supports**, because a support can be *cut* (any enemy unit that attacks the
+  supporter cancels the support), while a move grabs ground and forces your
+  opponent to react. Use supports to win a specific fight; use moves to take
+  centers and seize the initiative.
