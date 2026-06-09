@@ -5,18 +5,18 @@
 - Target 5 SCs by end of 1902: EDI, LON, LVP, NWY, BEL (or DEN/HOL).
 - NOTE: Armies cannot enter sea provinces — A YOR cannot move to NTH directly.
 
-## F1901M orders submitted
-- F NTH - NWY (racing Russia/Germany for +1 SC)
-- F ENG - BEL (France went MAO, channel clear, +1 SC)
-- A YOR H (hold to guard home SCs; can't enter NTH)
-- Expecting 2 builds in W1901A if both captures succeed.
+## W1901A result
+- NWY taken (F NTH -> NWY success), BEL bounced (F ENG stayed in ENG).
+- Built F EDI — northern fleet to pressure Scandinavia and support NWY.
+- Units entering 1902: F ENG, F EDI, A YOR, F NWY (4 units, 4 centers)
 
-## Trust / read on opponents (after S1901M)
-- FRANCE: Went to MAO, not ENG — de-facto truce in the channel for now. Watch if they bounce back toward ENG.
-- GERMANY: Took DEN (F KIE -> DEN). Germany will likely contest NWY or build aggressively. Potential friction in Scandinavia.
-- RUSSIA: STP/SC fleet moved to BOT — not contesting NWY directly this fall, good news. Still a Scandinavian rival long-term.
+## Trust / read on opponents (after F1901M)
+- FRANCE: Went to MAO, not ENG — channel still clear. Watch for BEL or ENG aggression in 1902.
+- GERMANY: Took DEN. Will likely push into Scandinavia (SWE, NWY) in 1902 — friction ahead.
+- RUSSIA: STP/SC not in NWY — may target SWE or NOR via BOT. Rival for northern SCs.
 
-## Reminders for W1901A
-- If NWY + BEL both taken: build 2 units. Prefer F EDI (Scandinavian pressure) + A LVP (continental flexibility).
-- If only NWY taken: build 1 fleet (F EDI or F LON for BEL follow-up).
-- Keep A YOR at home or push to LON/WAL for southern defense.
+## Reminders for S1902M
+- Priority: push for BEL (F ENG -> BEL or support) and SWE (F NWY -> SWE).
+- F EDI -> NTH to free up NTH for BEL/DEN operations, or F EDI -> NWG for northern flexibility.
+- A YOR can move to LON or WAL to free EDI or support southern operations.
+- Watch Germany's build — if they build in KIE, Scandinavia becomes contested fast.
