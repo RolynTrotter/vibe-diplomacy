@@ -53,3 +53,16 @@ Key board reads going into F1902M:
 ## F1902R — no retreats
 - Italy had no dislodged units; submitted empty retreat orders.
 - Awaiting W1902A adjudication.
+
+## W1902A disband
+- 4 centers (ROM, NAP, VEN, TUN), 5 units → disband 1
+- TRI not retaken in F1902M — Austria held (A VIE supported A TRI, matched our A TYR S A VEN attack strength 2v2)
+- Disbanded: A APU (weakest, furthest from front — no adjacent SC and redundant with A VEN/A TYR coverage)
+- 4 units entering S1903M: A TYR, A VEN, F NAP (actually F ION if NAP→ION succeeded), F TYS
+
+## Plan for S1903M
+- A TYR + A VEN: repeat TRI attack (2v2 again unless Austria weakens VIE)
+- F ION: threaten GRE or pressure Turkey; don't let Austria keep it unchallenged
+- F TYS: hold or push WES/LYO for western naval presence
+- Must retake TRI to regain 5 SCs and get back to parity — currently weakest at 4 SCs
+- Watch Austria's build (likely A BUD) — if they bring BUD toward TRI that's 3v2 threat
