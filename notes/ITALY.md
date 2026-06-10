@@ -66,3 +66,24 @@ Key board reads going into F1902M:
 - F TYS: hold or push WES/LYO for western naval presence
 - Must retake TRI to regain 5 SCs and get back to parity — currently weakest at 4 SCs
 - Watch Austria's build (likely A BUD) — if they bring BUD toward TRI that's 3v2 threat
+
+## S1903M orders submitted
+- A TYR - TRI (attack TRI — Austria will likely support hold with A VIE = 2v2 standoff again)
+- A VEN S A TYR - TRI (support = strength 2 attack; ties Austria's supported defense)
+- F NAP - ION (advance fleet to Ionian; threatens GRE, AEG, ADR next phase)
+- F TYS H (hold — positioned to support ION or push WES/LYO later)
+
+## Key board read entering S1903M
+- Austria: A TRI, A VIE, A SER, F GRE, A BUD — VIE will support TRI = 2v2 deadlock likely
+- Austria's A BUD is moving toward GAL (Russia pressure) — may free up VIE for TRI support
+- Turkey: F AEG (threatens GRE from south), A BUL, A CON, F ANK
+- F ION in position next phase to push GRE or AEG — threatens both Austria and Turkey
+- Russia: A GAL threatening Austria's north — if Austria shifts VIE to GAL response, TRI opens
+
+## Reminders for F1903M
+- If TRI taken in spring: 5 SCs → 1 build (A ROM or F ROM) — rebuild to 5 units
+- If TRI bounced again: stay at 4 SCs; consider TYR→VIE threat if Austria distracted
+- F ION: can move GRE (supported by F TYS→ION?), or AEG, or ADR for Adriatic pressure
+- F TYS: push to LYO for western influence, or TUN, or support ION fleet
+- Austria's weak point: if Russia presses from GAL AND Italy presses from TYR, Austria stretched
+- Long term: after TRI, target BUD or GRE for further expansion east
