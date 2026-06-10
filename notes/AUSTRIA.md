@@ -96,3 +96,15 @@
 - Key threat: Italy will attack TRI again in F1903M; Russia A GAL may push BUD/VIE
 - Consider pushing SER-BUL or SER-RUM in fall if Russia/Turkey distracted
 - F GRE could push AEG or ION if Turkey is weakened
+
+## S1903R — retreat phase outcome
+- A BUD: dislodged by Russia A GAL (supported by A RUM). No valid retreat — disbanded.
+- F GRE: dislodged by Turkey F AEG (supported by A BUL). Retreated to ALB (only valid square).
+- Units after retreats: A TRI, A VIE, A SER, F ALB (4 units); still hold 5 SCs → net +1 build in W1903A.
+
+## Key reads entering F1903M
+- RUSSIA: A GAL pushed BUD — aggressive eastern pressure. Will likely try to occupy BUD SC in fall.
+- TURKEY: F AEG dislodged F GRE — Turkey pressing Balkans from south. F ALB in ALB is exposed.
+- ALB is not a SC; F ALB must be used offensively or it becomes a wasted retreat.
+- Priority F1903M plan: A VIE - BUD (retake BUD before Russia can occupy), A TRI H, A VIE S A TRI or push, A SER H, F ALB - ION or ADR (threaten Turkey's naval corridor).
+- Longer term: need a two-front defense resolved — cannot fight Italy AND Russia simultaneously.
