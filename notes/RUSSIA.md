@@ -2,7 +2,7 @@
 
 ## Standing plan
 - South: F BLA controls Black Sea; F RUM anchors Balkans; press into Turkey.
-- North: SWE is the prize — F BOT must secure it; Germany has F DEN contesting.
+- North: SWE contested by Germany (F DEN + F BAL). Switch to FIN as safe grab.
 - Center: A UKR fills RUM after fleet moves; A WAR presses GAL for Austrian SC.
 
 ## Results post W1901A / entering S1902M
@@ -31,10 +31,35 @@
 - Russia had no dislodged units; submitted empty retreat orders.
 - Awaiting F1902M.
 
-## Reminders for F1902M
-- If BLA seized: F BLA can threaten ANK/CON; F RUM or A UKR support further push.
-- If SWE seized: hold and build; F BOT from SWE can threaten NWY.
-- If GAL seized: pressure BUD or VIE next fall; watch for Austrian counter.
-- If BLA bounced: F RUM stays, reconsider F SEV→ARM route.
-- Germany with F KIE is a potential BAL threat — watch if they build more fleets.
-- NWY is still a long-term target but England holds it firmly.
+## S1902M results (entering F1902M)
+- F BOT→SWE BOUNCED again — Germany F DEN held. Germany now has F BAL too!
+- F RUM→BLA BOUNCED — Turkey A BUL supported F BLA (2 vs 2). Critical failure.
+- A UKR→RUM BOUNCED (F RUM didn't vacate as planned).
+- A WAR→GAL BOUNCED — Austria A VIE was there defending.
+- All 5 bounces! Russia still at 5 SCs (MOS, SEV, STP, WAR, RUM), 5 units.
+- Turkey: F BLA, A BUL, A CON, F AEG (SMY moved to AEG). Italy retreated A TRI→TYR.
+- Germany: F DEN, F BAL, A RUH, A HOL, A MUN. Strong in north.
+
+## F1902M orders submitted
+- F RUM - BLA (2nd attempt; Turkey may not support F BLA again if F AEG is moving)
+- F SEV S F RUM - BLA (2-strength attack on BLA)
+- A UKR - RUM (fill RUM if F RUM vacates)
+- F BOT - FIN (safe grab! Germany F DEN + F BAL too strong for SWE)
+- A WAR - GAL (try again — Austria A VIE may have moved)
+
+## Trust / read on opponents (post S1902M)
+- TURKEY: Disciplined — A BUL supported F BLA last phase. F AEG is new threat (ION/GRE). If A BUL is moving south to support F AEG→GRE, BLA attack may succeed.
+- AUSTRIA: A VIE defended GAL. Italy pressing TRI (dislodged A TRI to TYR). Austria is under pressure.
+- GERMANY: F BAL built — now has 2 fleets in north. SWE is lost; FIN is accessible safely.
+- ENGLAND: F NTH, F NWY, F ENG, A YOR. Strong in north and west.
+- FRANCE: A SPA, A BUR, F POR, F MAO, A PIC — fully western.
+- ITALY: A APU, F NAP, F TYS, A VEN, A TYR — pressing hard on Austria.
+
+## Reminders for W1902A
+- If BLA seized + FIN seized: +2 builds. Build 2 fleets (SEV and STP/NC).
+- If BLA seized only: +1 build. Build F SEV to press Turkey.
+- If FIN seized only: +1 build. Build F STP/NC for NWY pressure.
+- If both bounce again: 0 builds. Reassess — consider A WAR→UKR to redeploy south.
+- GAL: if seized, long-term target is BUD or VIE. Austria is weakening.
+- Turkey's F AEG threatens GRE (Austria's) — possible attack coming on Austria too.
+- NWY remains out of reach; FIN is the northern target for now.
