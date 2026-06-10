@@ -79,9 +79,27 @@
 
 ## W1902A — no adjustment
 - 4 units, 4 centers → adjustment 0 → submitted waive (empty orders)
-- F1902M outcome pending adjudication (GRE result unknown)
-- If GRE taken: 5 SCs → 1 build next phase (A SMY or F SMY)
-- If GRE bounced: stay at 4, no build — F AEG still positioned, repeat in S1903M
-- Russia controls BLA — biggest strategic threat heading into 1903
-- Italy's fleet (F ION or F NAP) could contest AEG/EAS — watch carefully
-- S1903M priority: GRE if not taken, then pressure RUM from BUL
+- F1902M: GRE bounced — Austria A SER supported F GRE (2v2 = standoff), OR A SER didn't support but Austria held anyway
+- Board entering S1903M: F AEG, F ANK, A BUL, A CON — 4 units, 4 SCs (ANK, CON, SMY, BUL)
+- Russia controls BLA (F BLA), has A GAL threatening Austria BUD, A RUM in Balkans
+
+## S1903M board read
+- GRE: Austria F GRE still there — A BUL S F AEG→GRE = strength 2. Austria's A SER could support (2v2) or Austria could have A SER moving elsewhere (Italy/Russia pressure)
+- BLA: Russia F BLA there — F ANK→BLA is 1v1 bounce; no support available for strength 2
+- Austria: under pressure from Russia (GAL→BUD) AND Italy (TYR→TRI) — A SER may not be able to support F GRE
+- Italy: F NAP→ION (advancing!), F TYS H — Italy fleet entering ION threatens GRE from the west too
+
+## S1903M orders submitted
+- F AEG - GRE (strength 2 attack on Austria F GRE with BUL support)
+- A BUL S F AEG - GRE (support — if Austria A SER holds in SER rather than supports GRE, we win)
+- F ANK - BLA (attempt to retake BLA — 1v1 with Russia F BLA, likely bounce but applies pressure)
+- A CON - BUL (backfill BUL while A BUL is supporting the GRE attack)
+
+## Reminders for F1903M
+- If GRE captured: 5 SCs → 1 build (A SMY or second fleet); much stronger position
+- If GRE bounced again: Austria A SER is supporting; need to cut that support (A BUL→SER?)
+- If BLA retaken: bonus! 5 SCs + cut Russia's Black Sea control
+- Italy F ION is now in Ionian — threatens GRE from west; also threatens AEG; watch carefully
+- A CON→BUL backfill protects against ION fleet push toward BUL or CON
+- Russia threat: F BLA + A RUM + A GAL — Turkey's north is exposed; need ANK/CON defense
+- Long-term: GRE + RUM would be 6 SCs; work with whoever opposes Russia
