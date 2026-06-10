@@ -102,3 +102,19 @@
 ## S1903R — no retreat orders
 - Russia had no dislodged units; submitted empty retreat orders.
 - S1903M result confirmed: A GAL→BUD succeeded — Austria A BUD disbanded (no valid retreats). BUD should be Russia's in F1903M fall count.
+
+## F1903M orders submitted
+- A BUD H (hold BUD to capture Austrian SC — Austrian A VIE is only threat, countered by RUM support)
+- A RUM S A BUD (2-strength hold; Austria cannot retake BUD without additional support)
+- F ARM - ANK (attack Turkish F ANK; supported by F BLA = 2v1 unless A CON supports)
+- F BLA S F ARM - ANK (support ARM attack on ANK; 2 strength vs Turkey's 1)
+- F FIN H (hold; NWY unreachable directly from FIN — engine rejected F FIN-NWY)
+
+## Reminders for W1903A / S1904M
+- If BUD captured + ANK captured: +2 builds → up to 7 SCs; build 2 units
+- If BUD only: +1 build → 6 SCs
+- F FIN cannot reach NWY directly — needs STP/SC or SWE as stepping stone
+- Germany A PRU threatens WAR/LVN; keep A WAR or A MOS available
+- Austria will have +1 build (5 SCs, 4 units entering fall); watch A VIE retake attempt on BUD
+- Turkey's A CON may support F ANK — if 2v2, ARM bounces; but then CON doesn't move south
+- After ANK (if taken): SMY or CON next; Turkey collapses fast with 3 SCs
