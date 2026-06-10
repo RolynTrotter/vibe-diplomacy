@@ -61,8 +61,28 @@ Atlantic chain F POR→MAO→IRI gives better positioning. GAS army adds mobilit
 
 ## W1902A — no adjustment
 - 5 units, 5 centers → adjustment 0 → submitted waive (empty orders)
-- F1902M outcome pending adjudication (BEL result unknown)
-- If BEL taken: 6 SCs → 1 build (A PAR or F BRE) entering S1903M
-- If BEL failed: stay at 5, no build — regroup and try again S1903M
-- Germany at 6 centers is the top threat alongside England
-- Atlantic chain (MAO/IRI/GAS) gives good flexibility for 1903
+- F1902M: BEL bounced (Germany matched with HOL+RUH support or England contested)
+- Board entering S1903M: A BUR, A PIC, A GAS, F MAO, F IRI — 5 units, 5 SCs
+
+## S1903M board read
+- BEL still empty — must take it now, it cannot stay neutral forever
+- England: F ENG, F NTH, F NWY, A YOR — F NTH adjacent to DEN (empty, likely England's target)
+- Germany: A RUH, A HOL, A MUN, F BAL, F SWE, A BER — A HOL and A RUH both border BEL
+- If England goes for DEN with NTH, they vacate pressure on BEL → our opening
+- ENG: England's F ENG is currently there — if they pivot NTH→DEN + ENG→NTH, ENG opens up
+
+## S1903M orders submitted
+- A BUR - BEL (supported attack on empty SC; strength 2)
+- A PIC S A BUR - BEL (support — beats single German defender from HOL or RUH)
+- A GAS - PAR (repositions army toward north or as reserve)
+- F MAO - ENG (grab ENG if England vacates; key channel control)
+- F IRI S F MAO - ENG (support ensures strength 2 entry into ENG)
+
+## Reminders for F1903M
+- If BEL + ENG captured: 7 SCs → 2 builds — F BRE + A MAR or similar; dominant position
+- If only BEL: 6 SCs → 1 build (F BRE — push NAO or reinforce ENG)
+- If BEL fails again: serious problem — Germany too entrenched near BEL
+- ENG control threatens LON, gives Atlantic leverage
+- Germany (6 SCs) remains biggest rival — consider working with England briefly
+- England will want ENG back in fall — fortify with IRI support or NTH threat
+- Long-term: MAR→PIE eventually if Italy weakens
