@@ -108,3 +108,23 @@
 - Turkey had no dislodged units; submitted empty retreat orders.
 - S1903M result confirmed: F AEG→GRE succeeded (Austria F GRE dislodged, retreated to ALB). GRE should be Turkey's in F1903M fall count.
 - F ANK→BLA result: either bounced or succeeded — will confirm in F1903M.
+
+## F1903M orders submitted
+- F GRE H (hold GRE to count 5th SC)
+- A BUL S F GRE (support hold — defeats any single-unit attack from ALB, SER, or ION)
+- F ANK H (hold to defend against Russia F ARM)
+- A CON S F ANK (support hold — defeats Russia F ARM attack even with F BLA support = 2v2 standoff)
+
+## F1903M board read (entering fall)
+- Austria: F ALB adjacent to GRE (threat!), A SER adjacent to GRE (threat!). Also A VIE, A TRI. Austria submitted already — might be moving ALB→GRE or SER→GRE.
+- Russia: F ARM adjacent to ANK — CRITICAL threat. F BLA also adjacent to ANK. Could be 2v2 attack (F ARM→ANK + F BLA S) vs (F ANK H + A CON S). If both attack with support = 2v2, ANK holds (stalemated).
+- Italy: F ION adjacent to GRE — could contest. Italy has F TYS, A VEN, A TYR too.
+- Turkey's A BUL support on GRE is the key defensive anchor. If BUL is cut (nothing to cut it), F GRE holds vs any 1-unit attack.
+- Russia F BLA + F ARM = possible coordinated 2-fleet attack on ANK. A CON S F ANK is critical insurance.
+
+## Plan for W1903A
+- If F GRE holds → 5 SCs (ANK, CON, SMY, BUL, GRE) → build 1 unit (F SMY preferred for eastern med control)
+- New unit options: F SMY (AEG/EAS projection), A SMY (support toward RUM/ARM long-term)
+- Priority for 1904: push toward RUM (via BUL + new unit), keep Italy/Austria contained
+- Russia is the #1 threat (2 fleets threatening ANK). Need to neutralize F ARM or F BLA.
+- Consider building F SMY to threaten ARM/SEV from south, or AEG reinforcement
