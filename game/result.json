@@ -1,0 +1,16 @@
+{
+  "game": "local-2",
+  "status": "finished",
+  "outcome": "draw",
+  "ended_after": "F1903M",
+  "final_standings": {
+    "RUSSIA": { "centers": 6, "units": 5 },
+    "FRANCE": { "centers": 6, "units": 5 },
+    "GERMANY": { "centers": 5, "units": 6 },
+    "ENGLAND": { "centers": 5, "units": 4 },
+    "TURKEY": { "centers": 5, "units": 4 },
+    "ITALY": { "centers": 4, "units": 4 },
+    "AUSTRIA": { "centers": 3, "units": 4 }
+  },
+  "notes": "Game ended by agreement after F1903M (no 18-SC solo). Russia and France co-lead at 6 SCs; Austria trailing at 3 after losing BUD to Russia and GRE to Turkey."
+}
