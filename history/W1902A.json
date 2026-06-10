@@ -1,0 +1,29 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BUD B"
+    ],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [
+      "A BER B"
+    ],
+    "ITALY": [
+      "A APU D"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1902A",
+  "results": {
+    "A APU": [
+      ""
+    ],
+    "A BER": [
+      ""
+    ],
+    "A BUD": [
+      ""
+    ]
+  }
+}
