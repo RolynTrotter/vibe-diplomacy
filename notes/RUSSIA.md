@@ -70,10 +70,31 @@
 
 ## W1902A — no adjustment
 - 5 units, 5 centers → adjustment 0 → submitted waive (empty orders)
-- F1902M results pending adjudication (BLA and FIN outcomes unknown)
-- If BLA seized: 6 SCs → 1 build next phase (F SEV)
-- If FIN seized: 6 SCs → 1 build (F STP/NC)
-- If both: 7 SCs → 2 builds
-- If neither: 5 SCs, 5 units — must find new angles in S1903M
-- Germany now at 6 SCs (built A BER) — strongest power; shift some attention north
-- Turkey's F AEG remains threatening; Austria is under Italian pressure
+- F1902M SUCCESS: F BLA seized (Turkey F BLA dislodged!), F FIN seized, A GAL seized!
+- 5 SCs entering S1903M: MOS, SEV, STP, WAR, RUM (still 5 — GAL/BLA/FIN not SCs, just occupation)
+- Wait: GAL IS an Austrian SC — we occupy it! But does Russia *own* it yet? Need fall to lock SC.
+- Board entering S1903M: F SEV, A GAL, A RUM, F FIN, F BLA — 5 units, 5 SCs
+
+## S1903M board read
+- A GAL threatens VIE and BUD (both Austrian SCs) — A RUM can support A GAL→BUD (str 2)
+- F BLA controls Black Sea — Turkey F ANK is there but vulnerable; CON is army
+- F FIN: NWY has England F NWY (str 1 bounce), SWE has Germany F SWE + F BAL support (str 1 vs 2 = lose)
+- Austria: A TRI, A VIE, A SER, F GRE, A BUD — being pressed by Italy AND Russia simultaneously
+- Turkey: F AEG, F ANK, A BUL, A CON — Turkey still intact but BLA lost to us
+
+## S1903M orders submitted
+- A GAL - BUD (supported attack on Austria A BUD — strength 2)
+- A RUM S A GAL - BUD (support = strength 2 vs Austria's strength 1)
+- F BLA H (hold Black Sea — secure, threatens ANK/CON next phase)
+- F FIN H (hold Finland — no good adjacent move this phase)
+- F SEV - ARM (advance toward ANK; positions for Turkey pressure next phase)
+
+## Reminders for F1903M
+- If BUD captured: Austria loses home SC, now at 4 SCs (TRI, VIE, SER, GRE) — down from 5. Build available for Russia!
+- BUD capture + existing RUM/GAL gives Russia 7 SCs → 2 builds needed; major power breakout
+- F SEV→ARM positions for ANK attack in fall (ARM adj to ANK/SEV)
+- Turkey F ANK + F AEG: if ANK is taken, Turkey collapses to 3 SCs
+- F FIN→NWY: England will try to hold NWY — consider when England is distracted
+- F FIN→SWE: too strong with Germany F BAL support — avoid
+- Watch Germany A BER→PRU: threatens Russia's eastern flank (LVN, WAR)
+- Germany at 6 SCs is dominant; don't let them reach 8+
