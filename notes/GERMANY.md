@@ -67,3 +67,20 @@
 - A RUH: flexible — BEL, BUR, or ruhr defense
 - A MUN: eastern reserve; could push BOH or SIL with A BER
 - England is top threat to SWE — must prioritize defense of F SWE
+
+## S1903M orders submitted
+- F SWE H (hold; supported by F BAL = strength 2 defense)
+- F BAL S F SWE (key support — England F NWY only has strength 1, we hold)
+- A HOL H (hold vs England F NTH or France pressure on BEL/HOL)
+- A RUH - BEL (BEL is empty — try solo grab; may bounce France A BUR)
+- A BER - PRU (eastern expansion; PRU empty, threatens Russia LVN/WAR axis)
+- A MUN - BOH (BOH empty; threatens Austria VIE + Russia GAL from north)
+
+## Reminders for F1903M
+- DEN is now EMPTY (we vacated for SWE in F1902M) — England likely grabbed it in S1903M
+- If BEL captured: 7 SCs → 1 build (A KIE or F KIE); dominant position
+- If BEL bounced vs France: standoff, no progress — try HOL S RUH-BEL next time
+- BOH + PRU give flanking pressure on Russia and Austria — expand east in fall
+- England will try to retake SWE from SKA in fall — F BAL must stay to support
+- France A BUR+PIC contested BEL — they're the western threat now, not England
+- Consider A BER-SIL or PRU-WAR push to pressure Russia if opportunity arises
