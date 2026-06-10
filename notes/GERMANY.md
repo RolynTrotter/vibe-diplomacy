@@ -54,3 +54,16 @@
 ## F1902R — no retreats
 - Germany had no dislodged units; submitted empty retreat orders.
 - Awaiting W1902A adjudication.
+
+## W1902A build
+- 6 centers (SWE secured, BEL result unknown), 5 units → build 1
+- Built: A BER (eastern flexibility; BER was empty, KIE also available but BER better for PRU/SIL)
+- 6 units entering S1903M: A MUN, A RUH, A HOL, F BAL, F SWE, A BER
+
+## Plan for S1903M
+- Defend SWE: England F NWY almost certain to try retake it → need F BAL or F DEN/KIE support
+- A BER → PRU or SIL for eastern pressure (Russia/Austria)
+- A HOL: hold vs England threat; or push BEL if BEL wasn't taken in F1902M
+- A RUH: flexible — BEL, BUR, or ruhr defense
+- A MUN: eastern reserve; could push BOH or SIL with A BER
+- England is top threat to SWE — must prioritize defense of F SWE
