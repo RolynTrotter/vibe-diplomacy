@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "F GRE R ALB"
+    ],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "S1903R",
+  "results": {
+    "F GRE": []
+  }
+}
