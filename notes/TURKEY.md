@@ -76,3 +76,12 @@
   - F ANK can rebuild pressure via BLA if opportunity arises
   - GRE capture now critical — need that 5th SC
   - Watch Russia — two fleets (SEV + the one that took BLA) dominating Black Sea now
+
+## W1902A — no adjustment
+- 4 units, 4 centers → adjustment 0 → submitted waive (empty orders)
+- F1902M outcome pending adjudication (GRE result unknown)
+- If GRE taken: 5 SCs → 1 build next phase (A SMY or F SMY)
+- If GRE bounced: stay at 4, no build — F AEG still positioned, repeat in S1903M
+- Russia controls BLA — biggest strategic threat heading into 1903
+- Italy's fleet (F ION or F NAP) could contest AEG/EAS — watch carefully
+- S1903M priority: GRE if not taken, then pressure RUM from BUL
