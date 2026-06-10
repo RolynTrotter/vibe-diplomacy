@@ -108,3 +108,25 @@
 - ALB is not a SC; F ALB must be used offensively or it becomes a wasted retreat.
 - Priority F1903M plan: A VIE - BUD (retake BUD before Russia can occupy), A TRI H, A VIE S A TRI or push, A SER H, F ALB - ION or ADR (threaten Turkey's naval corridor).
 - Longer term: need a two-front defense resolved — cannot fight Italy AND Russia simultaneously.
+
+## F1903M orders submitted
+- A TRI H (hold TRI vs Italy's A TYR + A VEN attack)
+- A SER S A TRI (give TRI defense strength 2 = match Italy's 2-unit attack, TRI holds)
+- A VIE - BUD (attempt to retake BUD; Russia A BUD has no support from GAL since GAL is empty, only A RUM could support from RUM)
+- F ALB - GRE (attempt to retake GRE; Turkey F GRE has 1 unit, F ALB is 1 unit, 50/50 unless Turkey's A BUL supports)
+
+## Board analysis for F1903M
+- Italy: A TYR + A VEN can attack TRI at strength 2; A TRI + A SER support = defense strength 2 = TRI holds
+- Russia: A BUD + A RUM (RUM could support BUD); GAL is EMPTY — if Russia supports BUD from RUM, A VIE bounces
+- Turkey: F GRE + A BUL could support GRE; if A BUL supports F GRE, F ALB bounces
+- Germany: A BOH threatens VIE flank; no support for Austria from anyone
+- If BUD retaken: 5 SCs secured = +1 build in W1903A (build A BUD)
+- If BUD bounces and GRE bounces: 5 SCs = +1 build (build somewhere)
+- If TRI holds and BUD retaken and GRE retaken: 6 SCs = +2 builds
+
+## Reminders for W1903A / S1904M
+- Best case: 6 SCs (TRI holds, BUD retaken, GRE retaken) → build 2 (A BUD + something)
+- Likely case: 5 SCs (TRI holds, one of BUD/GRE retaken) → build 1
+- Worst case: TRI falls to Italy — catastrophic (down to 3-4 SCs, major disband)
+- Italy remains primary threat; Russia secondary; Turkey tertiary
+- Next spring: continue pressure on BUD with more units; use F to contest Aegean/Ionian
