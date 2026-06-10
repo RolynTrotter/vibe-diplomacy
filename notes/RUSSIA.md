@@ -67,3 +67,13 @@
 ## F1902R — no retreats
 - Russia had no dislodged units; submitted empty retreat orders.
 - Awaiting W1902A adjudication.
+
+## W1902A — no adjustment
+- 5 units, 5 centers → adjustment 0 → submitted waive (empty orders)
+- F1902M results pending adjudication (BLA and FIN outcomes unknown)
+- If BLA seized: 6 SCs → 1 build next phase (F SEV)
+- If FIN seized: 6 SCs → 1 build (F STP/NC)
+- If both: 7 SCs → 2 builds
+- If neither: 5 SCs, 5 units — must find new angles in S1903M
+- Germany now at 6 SCs (built A BER) — strongest power; shift some attention north
+- Turkey's F AEG remains threatening; Austria is under Italian pressure
