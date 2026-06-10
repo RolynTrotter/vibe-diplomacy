@@ -83,3 +83,6 @@
 - Germany will want DEN back — prepare to defend or coordinate
 - France F IRI + F MAO = western threat; watch for ENG pressure
 - Consider HOL grab in fall with NTH support (Germany A HOL)
+
+## S1903R — no retreat orders
+- England had no dislodged units; submitted empty retreat orders.

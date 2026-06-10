@@ -84,3 +84,6 @@
 - England will try to retake SWE from SKA in fall — F BAL must stay to support
 - France A BUR+PIC contested BEL — they're the western threat now, not England
 - Consider A BER-SIL or PRU-WAR push to pressure Russia if opportunity arises
+
+## S1903R — no retreat orders
+- Germany had no dislodged units; submitted empty retreat orders.

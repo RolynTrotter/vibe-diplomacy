@@ -87,3 +87,6 @@ Key board reads going into F1902M:
 - F TYS: push to LYO for western influence, or TUN, or support ION fleet
 - Austria's weak point: if Russia presses from GAL AND Italy presses from TYR, Austria stretched
 - Long term: after TRI, target BUD or GRE for further expansion east
+
+## S1903R — no retreat orders
+- Italy had no dislodged units; submitted empty retreat orders.

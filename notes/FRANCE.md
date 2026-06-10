@@ -86,3 +86,6 @@ Atlantic chain F POR→MAO→IRI gives better positioning. GAS army adds mobilit
 - Germany (6 SCs) remains biggest rival — consider working with England briefly
 - England will want ENG back in fall — fortify with IRI support or NTH threat
 - Long-term: MAR→PIE eventually if Italy weakens
+
+## S1903R — no retreat orders
+- France had no dislodged units; submitted empty retreat orders.

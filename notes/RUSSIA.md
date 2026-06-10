@@ -98,3 +98,7 @@
 - F FIN→SWE: too strong with Germany F BAL support — avoid
 - Watch Germany A BER→PRU: threatens Russia's eastern flank (LVN, WAR)
 - Germany at 6 SCs is dominant; don't let them reach 8+
+
+## S1903R — no retreat orders
+- Russia had no dislodged units; submitted empty retreat orders.
+- S1903M result confirmed: A GAL→BUD succeeded — Austria A BUD disbanded (no valid retreats). BUD should be Russia's in F1903M fall count.

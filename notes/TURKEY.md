@@ -103,3 +103,8 @@
 - A CON→BUL backfill protects against ION fleet push toward BUL or CON
 - Russia threat: F BLA + A RUM + A GAL — Turkey's north is exposed; need ANK/CON defense
 - Long-term: GRE + RUM would be 6 SCs; work with whoever opposes Russia
+
+## S1903R — no retreat orders
+- Turkey had no dislodged units; submitted empty retreat orders.
+- S1903M result confirmed: F AEG→GRE succeeded (Austria F GRE dislodged, retreated to ALB). GRE should be Turkey's in F1903M fall count.
+- F ANK→BLA result: either bounced or succeeded — will confirm in F1903M.
