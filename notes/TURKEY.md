@@ -67,3 +67,12 @@
 - If GRE bounced + BLA held: 4 SC — reposition F AEG, try again
 - If GRE bounced + BLA lost: 3 SC — crisis, need emergency rebuild
 - Next priority: consolidate Balkans, pressure RUM from BLA + BUL, keep Italy out of AEG
+
+## F1902R — retreat
+- F BLA dislodged by Russia (F RUM + F SEV support). Russia fully committed to recapturing BLA.
+- Retreated F BLA R ANK (ANK safe, ARM alternative but further from action)
+- Now have: F ANK, F AEG, A BUL, A CON = 4 units, 4 SC
+- Russia took BLA — big loss. Now need to reassess 1903 strategy:
+  - F ANK can rebuild pressure via BLA if opportunity arises
+  - GRE capture now critical — need that 5th SC
+  - Watch Russia — two fleets (SEV + the one that took BLA) dominating Black Sea now
