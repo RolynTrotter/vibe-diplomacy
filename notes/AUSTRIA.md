@@ -66,3 +66,16 @@
 ## F1902R — no retreats
 - Austria had no dislodged units; submitted empty retreat orders.
 - Awaiting W1902A adjudication.
+
+## W1902A build
+- Outcome: 5 centers (TRI held, BUL taken), 4 units → build 1
+- Built: A BUD (only available home SC — BUD empty, VIE and TRI both occupied)
+- 5 units entering S1903M: A TRI, A VIE, A SER, F ION, A BUD
+
+## Plan for S1903M
+- A BUD key use: push GAL (block Russia) or support TRI defense vs Italy A TYR
+- F ION: threaten NAP or hold; Italy must defend on two fronts
+- A SER: hold or push BUL (Turkey at 4 centers, not growing)
+- A VIE: defend or cover GAL if Russia presses
+- A TRI: hold or push north with support from A VIE
+- Priority: contain Italy's A TYR + A VEN threat to TRI; explore diplomacy with Russia re: GAL truce
