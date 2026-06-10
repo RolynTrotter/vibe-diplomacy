@@ -86,3 +86,24 @@
 
 ## S1903R — no retreat orders
 - England had no dislodged units; submitted empty retreat orders.
+
+## F1903M orders submitted
+- F DEN H (hold the captured SC — must not lose it)
+- F SKA S F DEN (support from north, strength 2 minimum)
+- F NTH S F DEN (double support from south — strength 3 defense)
+- A YOR H (home guard)
+- Rationale: Germany A PRU + F BAL can mount strength-2 attack on DEN; double support ensures DEN holds at strength 3.
+
+## Trust / read update (entering F1903M)
+- GERMANY: A PRU is the key threat to DEN; F BAL likely supports. A HOL + A RUH + A BOH also in play.
+- FRANCE: took ENG (F MAO→ENG succeeded in S1903M); A BEL (BUR→BEL); A PIC supported. France is expanding fast and controls the Channel — HOSTILE.
+- RUSSIA: F FIN (north), F BLA, F ARM (east), A RUM, A BUD — busy with east, not immediate threat to England.
+- AUSTRIA: A SER, A VIE, A TRI, F ALB (retreated from GRE) — 5 centers, Austria gained GRE then lost it to Turkey.
+- TURKEY: F GRE (took from Austria), A BUL, A CON, F ANK — growing in south.
+
+## Reminders for W1903A
+- If DEN holds → 5 SCs (EDI, LON, LVP, NWY, DEN) → 1 build → build F LON (to retake ENG channel) or A LVP (army for BEL push)
+- F LON is best build: retake ENG from France, restore channel dominance, deny France further expansion
+- After W1903A: consider F DEN→HOL (with NTH support) to grab Germany's 6th center
+- France is the #1 threat now: F ENG + A BEL + A PIC = stranglehold on English home SCs possible
+- Germany still dangerous at 6 centers but France growing fast — watch closely
