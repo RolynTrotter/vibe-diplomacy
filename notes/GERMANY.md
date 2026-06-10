@@ -87,3 +87,35 @@
 
 ## S1903R — no retreat orders
 - Germany had no dislodged units; submitted empty retreat orders.
+
+## F1903M board read
+- England took DEN in S1903M (F NTH→DEN); England now holds F DEN, F SKA, F NTH, A YOR
+- France took BEL in S1903M (A BUR→BEL supported by A PIC); France holds A BEL, A PIC, A PAR, F IRI, F ENG
+- Germany centers entering F1903M: BER, KIE, MUN, DEN (owned but occupied by England), HOL, SWE = 6
+- Key risk: if DEN is lost this fall, Germany drops to 5 SCs and must disband
+
+## F1903M orders submitted
+- F BAL - DEN (attack England's F DEN; supported by F SWE)
+- F SWE S F BAL - DEN (strength 2 attack on DEN; risk: F SKA→SWE cuts this support)
+- A PRU - BER (consolidate east; BER was empty after A BER→PRU in S1903M)
+- A HOL - BEL (attack France's A BEL at strength 1)
+- A RUH S A HOL - BEL (support BEL attack to strength 2; France A PIC may counter-support)
+- A BOH - SIL (eastern expansion; SIL appears empty)
+
+## Tactical notes for F1903M
+- DEN retake: F BAL→DEN + F SWE support = strength 2 vs England F DEN = 1 → should succeed
+  UNLESS England plays F SKA→SWE to cut F SWE's support (worst case: DEN bounces, SWE holds)
+- BEL attack: A HOL→BEL + A RUH support = strength 2 vs France A BEL = 1 → should succeed
+  UNLESS France plays A PIC S A BEL (then BEL holds at strength 2 vs our 2 → bounce)
+- SIL expansion: A BOH→SIL likely succeeds (SIL empty); gives pressure on Warsaw and Berlin
+
+## Reminders for W1903A / S1904M
+- If DEN retaken + BEL captured + SIL: Germany potentially at 8 SCs → 2 builds!
+- If only DEN retaken: 6 SCs, no adjustment needed
+- Likely builds if centers allow: F KIE (North Sea threat) or A MUN (eastern reserve)
+- England has 4 fleets concentrated in North Sea / Scandinavia — serious threat long term
+- France western threat: if BEL secured, consider pushing BUR with A RUH + A HOL
+- Russia F FIN adjacent to SWE — must watch Russia's intentions in Scandinavia
+- A BOH in SIL (if successful) opens: SIL→WAR (pressure Russia), SIL→BER (defensive), SIL→MUN
+- A PRU back in BER: flexible for SIL, PRU, or KIE support next spring
+- Priority 1904: hold Scandinavia, press France in Lowlands, expand east vs Russia
