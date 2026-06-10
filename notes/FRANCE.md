@@ -58,3 +58,11 @@ Atlantic chain F POR→MAO→IRI gives better positioning. GAS army adds mobilit
 ## F1902R — no retreats
 - France had no dislodged units; submitted empty retreat orders.
 - Awaiting W1902A adjudication.
+
+## W1902A — no adjustment
+- 5 units, 5 centers → adjustment 0 → submitted waive (empty orders)
+- F1902M outcome pending adjudication (BEL result unknown)
+- If BEL taken: 6 SCs → 1 build (A PAR or F BRE) entering S1903M
+- If BEL failed: stay at 5, no build — regroup and try again S1903M
+- Germany at 6 centers is the top threat alongside England
+- Atlantic chain (MAO/IRI/GAS) gives good flexibility for 1903
