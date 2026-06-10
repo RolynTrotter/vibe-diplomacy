@@ -57,3 +57,12 @@
 ## F1902R — no retreats
 - England had no dislodged units; submitted empty retreat orders.
 - Awaiting W1902A adjudication.
+
+## W1902A — no adjustment
+- 4 units, 4 centers → adjustment 0 → submitted waive (empty orders)
+- F1902M results: BEL and SWE outcomes unknown until adjudication reveals
+- If BEL taken: 5 SCs entering 1903 → 1 build available (A/F LON)
+- If SWE also taken: 6 SCs → 2 builds
+- If neither: stay at 4; reposition for DEN/BEL in S1903M
+- Germany grew to 6 centers — strongest power; watch for northern rivalry
+- Watch France: MAO fleet could threaten ENG in 1903
