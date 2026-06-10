@@ -60,9 +60,26 @@
 
 ## W1902A — no adjustment
 - 4 units, 4 centers → adjustment 0 → submitted waive (empty orders)
-- F1902M results: BEL and SWE outcomes unknown until adjudication reveals
-- If BEL taken: 5 SCs entering 1903 → 1 build available (A/F LON)
-- If SWE also taken: 6 SCs → 2 builds
-- If neither: stay at 4; reposition for DEN/BEL in S1903M
-- Germany grew to 6 centers — strongest power; watch for northern rivalry
-- Watch France: MAO fleet could threaten ENG in 1903
+- F1902M results: BEL bounced (ENG→BEL bounced), SWE bounced (NWY→SWE bounced)
+- Germany took SWE (F DEN→SWE supported by F BAL), now at 6 centers
+- England stays at 4 centers: EDI, LON, LVP, NWY entering 1903
+
+## S1903M board read
+- DEN is EMPTY — Germany moved F DEN→SWE, DEN unoccupied → prime target
+- France: A BUR, A PIC, A GAS, F MAO, F IRI — strong pressure; A PIC+BUR could 2-stack BEL
+- Germany: A RUH, A HOL, A MUN, F BAL, F SWE, A BER — 6 centers, dominant
+- Russia: F FIN — adjacent to SWE, could threaten if Germany weakens
+
+## S1903M orders submitted
+- F NTH - DEN (DEN is empty — uncontested SC grab)
+- F NWY - SKA (positions for SWE later, threatens DEN from north)
+- F ENG - NTH (backfill NTH, maintain pressure, guard channel from France)
+- A YOR H (hold home territory)
+
+## Reminders for F1903M
+- DEN capture gives 5 SCs → build 1 unit in fall (F LON or A LON)
+- From SKA: can push SWE (Germany F SWE) or support DEN hold vs Germany recapture
+- NTH (new): supports BEL grab, DEN defense, or move to HOL
+- Germany will want DEN back — prepare to defend or coordinate
+- France F IRI + F MAO = western threat; watch for ENG pressure
+- Consider HOL grab in fall with NTH support (Germany A HOL)
