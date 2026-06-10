@@ -54,3 +54,7 @@ Atlantic chain F POR→MAO→IRI gives better positioning. GAS army adds mobilit
 - ITALY: LOW THREAT currently — watch if F TYS → LYO or WES
 - RUSSIA: DISTANT — busy east/Balkans
 - AUSTRIA/TURKEY: IRRELEVANT for France near-term
+
+## F1902R — no retreats
+- France had no dislodged units; submitted empty retreat orders.
+- Awaiting W1902A adjudication.

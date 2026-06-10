@@ -50,3 +50,7 @@
 - Consider eastern play: MUN-SIL, A BER-PRU, etc. to pressure Russia/Austria in 1903
 - England is biggest threat to Scandinavia — watch F NTH and F NWY movements
 - France in BUR/PIC remains a western flanking threat — keep A HOL/A RUH ready to defend
+
+## F1902R — no retreats
+- Germany had no dislodged units; submitted empty retreat orders.
+- Awaiting W1902A adjudication.

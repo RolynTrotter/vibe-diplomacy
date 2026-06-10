@@ -62,3 +62,7 @@
 - If TRI lost: drop to 3 centers → must disband 1 unit — catastrophic
 - Next spring: A SER or new unit can push GAL; F ION can threaten NAP or ADR
 - Italy's A TYR position stays threatening — watch VIE flank if Italy moves TYR-VIE
+
+## F1902R — no retreats
+- Austria had no dislodged units; submitted empty retreat orders.
+- Awaiting W1902A adjudication.

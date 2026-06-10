@@ -49,3 +49,7 @@ Key board reads going into F1902M:
 - A TYR (if in TRI): A TRI hold, then work with Austria alliance or push further.
 - A TYR (if bounced back to TYR): repeat attempt or pivot to VIE threat.
 - Long game: Lepanto with F ION + possible 2nd fleet for eastern med dominance.
+
+## F1902R — no retreats
+- Italy had no dislodged units; submitted empty retreat orders.
+- Awaiting W1902A adjudication.

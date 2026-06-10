@@ -53,3 +53,7 @@
 - If only BEL: one build, keep NTH positioned to defend BEL and threaten DEN
 - DEN is next SC target after BEL — F NTH→DEN or lobby NWY toward SKA
 - Watch France: A PIC + MAO fleet = ENG threat in 1903
+
+## F1902R — no retreats
+- England had no dislodged units; submitted empty retreat orders.
+- Awaiting W1902A adjudication.

@@ -63,3 +63,7 @@
 - GAL: if seized, long-term target is BUD or VIE. Austria is weakening.
 - Turkey's F AEG threatens GRE (Austria's) — possible attack coming on Austria too.
 - NWY remains out of reach; FIN is the northern target for now.
+
+## F1902R — no retreats
+- Russia had no dislodged units; submitted empty retreat orders.
+- Awaiting W1902A adjudication.
