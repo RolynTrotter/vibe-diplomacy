@@ -90,3 +90,25 @@ Key board reads going into F1902M:
 
 ## S1903R — no retreat orders
 - Italy had no dislodged units; submitted empty retreat orders.
+
+## F1903M orders submitted
+- A TYR - TRI (two-unit attack on TRI; if Austria's A VIE diverts to BUD to retake from Russia, TRI falls)
+- A VEN S A TYR - TRI (support = strength 2 attack)
+- F ION - GRE (attack Turkey's freshly-captured GRE; 1v1 fleet fight, good opportunity)
+- F TYS - ION (reposition to ION for broader eastern-med flexibility next phase)
+
+## Key board reads entering F1903M
+- Russia's A BUD is IN BUD — Austria lost BUD to Russia! Austria's A VIE likely must choose BUD retake vs TRI support.
+- Turkey's F GRE just captured GRE from Austria (Austria's F GRE was dislodged → retreated to ALB as F ALB).
+- Austria units: A TRI, A VIE, A SER, F ALB. Austria under extreme pressure from all sides.
+- If A VIE → BUD (likely): TRI has only A TRI (strength 1) vs Italy's 2 → TRI FALLS.
+- F ION → GRE: Turkey F GRE is 1 defender; no adjacent Turkish support expected. Good 50/50+ grab.
+- Austria's F ALB (adjacent to ADR, GRE, ION, SER, TRI) — could interfere, but retreat units can move freely next phase.
+
+## Reminders for W1903A / S1904M
+- If TRI captured: 5 SCs → build 1. Build F NAP (naval power in Adriatic/eastern med).
+- If GRE also captured: 6 SCs → build 2. Build F NAP + A ROM.
+- Next phase priorities: consolidate TRI, press GRE or AEG, watch Austria's collapse vs Russia/Turkey.
+- Austria's F ALB is dangerous — it can move to TRI, ADR, or GRE. Monitor closely.
+- Turkey: A BUL, A CON, F ANK — Turkey's ground forces could push SER or BUL. Watch for Turkey expanding into Balkans.
+- Long-term: Italy wants eastern med dominance. GRE → AEG → SMY or BUL next chain.
