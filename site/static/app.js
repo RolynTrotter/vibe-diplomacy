@@ -21,11 +21,15 @@ const prevBtn = el("prev");
 const nextBtn = el("next");
 const powerPicker = el("power-picker");
 const thread = el("thread");
+const notesView = el("notes-view");
+const notePicker = el("note-picker");
+const notebook = el("notebook");
 
 let meta = null;        // current game's meta.json
 let index = 0;          // current phase index
-let mode = "map";       // "map" | "text" | "talk"
+let mode = "map";       // "map" | "text" | "talk" | "notes"
 let pair = [];          // selected powers for the talk view (max 2)
+let notePower = null;   // selected power for the notes view
 const preloaded = new Set();
 
 function setStatus(msg) {
@@ -62,14 +66,17 @@ async function loadGame(name) {
     setStatus("Could not load game data."); return;
   }
   meta.messages = meta.messages || [];
+  meta.notes = meta.notes || {};
   preloaded.clear();
   pair = [];
+  notePower = null;
   range.max = String(meta.phases.length - 1);
   index = meta.phases.length - 1; // open on the latest phase
   range.value = String(index);
   el("src-link").innerHTML =
     `· <a href="https://github.com/RolynTrotter/vibe-diplomacy/tree/game/${name}">source</a>`;
   buildPowerPicker();
+  buildNotePicker();
   render();
 }
 
@@ -201,6 +208,95 @@ function renderTalk() {
   thread.innerHTML = html;
 }
 
+// ---- Notes view ----------------------------------------------------------
+function buildNotePicker() {
+  notePicker.innerHTML = "";
+  for (const power of POWERS) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "power-btn";
+    btn.dataset.power = power;
+    btn.innerHTML =
+      `<span class="dot" style="background:${POWER_COLORS[power]}"></span>` +
+      `<span>${power.slice(0, 3)}</span>`;
+    btn.addEventListener("click", () => selectNotePower(power));
+    notePicker.appendChild(btn);
+  }
+}
+
+function selectNotePower(power) {
+  notePower = notePower === power ? null : power;
+  renderNotes();
+}
+
+// Tiny markdown renderer for the notebook (headings, bullets, bold/italic/code).
+// Escape first so user text can never inject HTML, then add tags.
+function renderInlineMd(s) {
+  return s
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+    .replace(/`([^`]+)`/g, "<code>$1</code>");
+}
+
+function renderMarkdown(src) {
+  const lines = escapeHtml(src).split("\n");
+  let html = "";
+  let inList = false;
+  const closeList = () => { if (inList) { html += "</ul>"; inList = false; } };
+  for (const line of lines) {
+    const t = line.trim();
+    let m;
+    if (!t) {
+      closeList();
+    } else if ((m = t.match(/^(#{1,4})\s+(.*)$/))) {
+      closeList();
+      const lvl = Math.min(m[1].length + 2, 6);
+      html += `<h${lvl}>${renderInlineMd(m[2])}</h${lvl}>`;
+    } else if ((m = t.match(/^[-*]\s+(.*)$/))) {
+      if (!inList) { html += "<ul>"; inList = true; }
+      html += `<li>${renderInlineMd(m[1])}</li>`;
+    } else {
+      closeList();
+      html += `<p>${renderInlineMd(t)}</p>`;
+    }
+  }
+  closeList();
+  return html;
+}
+
+function renderNotes() {
+  for (const btn of notePicker.children) {
+    btn.classList.toggle("sel", btn.dataset.power === notePower);
+    btn.classList.toggle("dim", notePower && btn.dataset.power !== notePower);
+  }
+
+  // Notebooks are revealed only once a game ends (secrecy during play).
+  if (meta.notes_locked) {
+    notebook.innerHTML = `<p class="none">🔒 Power notebooks stay private while the game is in progress. They're revealed here for the post-mortem once the game ends.</p>`;
+    return;
+  }
+  const powersWithNotes = Object.keys(meta.notes);
+  if (!powersWithNotes.length) {
+    const msg = meta.complete
+      ? "No notebooks were kept in this game."
+      : "No notebooks yet. They'll appear here once the game ends.";
+    notebook.innerHTML = `<p class="none">${msg}</p>`;
+    return;
+  }
+  if (!notePower) {
+    notebook.innerHTML = `<p class="none">Pick a power to read their notebook.</p>`;
+    return;
+  }
+  const text = meta.notes[notePower];
+  if (!text) {
+    notebook.innerHTML = `<p class="none">${notePower} kept no notebook.</p>`;
+    return;
+  }
+  notebook.innerHTML =
+    `<div class="note-head" style="color:${POWER_COLORS[notePower]}">${notePower}</div>` +
+    `<div class="note-body">${renderMarkdown(text)}</div>`;
+}
+
 // ---- Render dispatch -----------------------------------------------------
 function render() {
   if (!meta) return;
@@ -211,12 +307,13 @@ function render() {
   prevBtn.disabled = index === 0;
   nextBtn.disabled = index === meta.phases.length - 1;
 
-  const boardMode = mode !== "talk";
+  const boardMode = mode === "map" || mode === "text";
   scoreboard.hidden = !boardMode;
   phaseBar.style.display = boardMode ? "" : "none";
   mapImg.hidden = mode !== "map";
   textView.hidden = mode !== "text";
   talkView.hidden = mode !== "talk";
+  notesView.hidden = mode !== "notes";
   setStatus("");
 
   if (mode === "map") {
@@ -227,8 +324,10 @@ function render() {
   } else if (mode === "text") {
     renderScoreboard(ph);
     renderText(ph);
-  } else {
+  } else if (mode === "talk") {
     renderTalk();
+  } else {
+    renderNotes();
   }
 }
 
@@ -237,6 +336,7 @@ function setMode(next) {
   el("btn-map").classList.toggle("active", next === "map");
   el("btn-text").classList.toggle("active", next === "text");
   el("btn-talk").classList.toggle("active", next === "talk");
+  el("btn-notes").classList.toggle("active", next === "notes");
   render();
 }
 
@@ -249,8 +349,9 @@ nextBtn.addEventListener("click", () => step(1));
 el("btn-map").addEventListener("click", () => setMode("map"));
 el("btn-text").addEventListener("click", () => setMode("text"));
 el("btn-talk").addEventListener("click", () => setMode("talk"));
+el("btn-notes").addEventListener("click", () => setMode("notes"));
 document.addEventListener("keydown", (e) => {
-  if (mode === "talk") return;
+  if (mode === "talk" || mode === "notes") return;
   if (e.key === "ArrowLeft") step(-1);
   if (e.key === "ArrowRight") step(1);
 });

@@ -52,7 +52,7 @@ orchestration/  CLIs the skills + workflow call
   conduct.py         conductor helpers (roster + per-power brief)
 site/           static GitHub Pages visualizer
   build_site.py     bake SVG board + JSON manifest from every game/* branch
-  static/           mobile-first viewer (game dropdown, map/text/talk, slider)
+  static/           mobile-first viewer (game dropdown, map/text/talk/notes, slider)
 .claude/skills/ agent-facing skills (start-playing, conduct-match, join-game,
                 play-a-turn, negotiate, check-board-state, write-orders,
                 consult-notes)
@@ -94,9 +94,11 @@ seven-sessions procedure, and `.claude/skills/play-a-turn` for the agent loop.
 
 A static, phone-first viewer renders every game: pick a game from the dropdown,
 scrub the phase slider to step through the seasons, and toggle between the **map**
-(board + units + move arrows) and a **text** move list. It's pre-baked — boards
-are rendered to SVG server-side, so the phone only loads static files (no live
-API calls, no rate limits).
+(board + units + move arrows), a **text** move list, **talk** (the message
+threads), and **notes** (each power's private strategy notebook). Like messages,
+notebooks stay sealed during play and are revealed for the post-mortem only once
+the game ends. It's pre-baked — boards are rendered to SVG server-side, so the
+phone only loads static files (no live API calls, no rate limits).
 
 ```bash
 python site/build_site.py --out _site   # bake locally

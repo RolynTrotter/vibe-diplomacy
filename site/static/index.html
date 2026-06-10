@@ -19,6 +19,7 @@
         <button id="btn-map" class="active" type="button">Map</button>
         <button id="btn-text" type="button">Text</button>
         <button id="btn-talk" type="button">Talk</button>
+        <button id="btn-notes" type="button">Notes</button>
       </div>
     </div>
   </header>
@@ -31,6 +32,11 @@
         <p class="talk-hint">Tap two powers to read their messages.</p>
         <div id="power-picker" class="power-picker"></div>
         <div id="thread" class="thread"></div>
+      </section>
+      <section id="notes-view" hidden>
+        <p class="talk-hint">Pick a power to read their private notebook.</p>
+        <div id="note-picker" class="power-picker"></div>
+        <div id="notebook" class="notebook"></div>
       </section>
       <p id="status" class="status">Loading…</p>
     </div>
