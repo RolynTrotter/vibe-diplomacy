@@ -72,10 +72,27 @@
 - Built: A BUD (only available home SC — BUD empty, VIE and TRI both occupied)
 - 5 units entering S1903M: A TRI, A VIE, A SER, F ION, A BUD
 
-## Plan for S1903M
-- A BUD key use: push GAL (block Russia) or support TRI defense vs Italy A TYR
-- F ION: threaten NAP or hold; Italy must defend on two fronts
-- A SER: hold or push BUL (Turkey at 4 centers, not growing)
-- A VIE: defend or cover GAL if Russia presses
-- A TRI: hold or push north with support from A VIE
-- Priority: contain Italy's A TYR + A VEN threat to TRI; explore diplomacy with Russia re: GAL truce
+## W1902A correction
+- NOTE: F ION did NOT survive to W1902A — board shows F GRE (not F ION) and no F ION unit
+- Actual 5 units entering S1903M: A TRI, A VIE, A SER, F GRE, A BUD
+- Italy also only has 4 units (A TYR, A VEN, F NAP, F TYS) — APU unit gone somewhere
+
+## S1903M orders submitted
+- A TRI H (hold TRI vs Italy's A TYR + A VEN 2-unit attack)
+- A VIE S A TRI (support = defense strength 2, equals Italy's attack force)
+- A BUD - GAL (challenge Russia's A GAL position, force them onto back foot)
+- A SER H (guard vs Turkey A BUL push south)
+- F GRE H (guard vs Turkey F AEG threat)
+
+## Board read entering S1903M
+- ITALY: A TYR, A VEN, F NAP, F TYS — TYR+VEN can attack TRI with strength 2
+- RUSSIA: A GAL, A RUM, F SEV, F FIN, F BLA — GAL directly threatens VIE/BUD
+- TURKEY: A BUL, A CON, F AEG, F ANK — F AEG threatens GRE; A BUL threatens SER; F ANK can contest BLA vs Russia
+- GERMANY: strong at 6 SCs, not directly threatening Austria
+
+## Reminders for F1903M
+- If TRI holds: good, maintain 5 centers
+- If BUD successfully takes GAL: Russia pushed back, open path to WAR eventually
+- Key threat: Italy will attack TRI again in F1903M; Russia A GAL may push BUD/VIE
+- Consider pushing SER-BUL or SER-RUM in fall if Russia/Turkey distracted
+- F GRE could push AEG or ION if Turkey is weakened
