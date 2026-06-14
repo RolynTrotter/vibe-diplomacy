@@ -51,3 +51,17 @@
 - ITALY: unknown | no contact yet
 - AUSTRIA: unknown | no contact yet
 - TURKEY: unknown | no contact yet
+
+## F1902M results
+- F NWY bounced (Germany has F DEN in Skagerrak area, likely blocked expansion north)
+- F BEL bounced (German A KIE likely contested Holland)
+- A YOR held (safe consolidation)
+- F IRI → MAO (succeeded, now controlling Atlantic entrance)
+
+Current units: F BEL, F NWY, A YOR, F MAO (4 units, 5 centers)
+
+## W1902A adjustment (submitted)
+- Built F LVP (maintain naval superiority, add fleet for western defense)
+- Total units after: F BEL, F NWY, A YOR, F MAO, F LVP (5 units, 5 centers)
+- This gives us balanced fleet-forward posture for Atlantic/North Sea operations
+- Strategy: use naval concentration to support France against Russia while maintaining home defense
