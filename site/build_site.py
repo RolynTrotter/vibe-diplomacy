@@ -78,12 +78,7 @@ def read_json_at(ref: str, path: str) -> dict | None:
 
 
 def is_complete(saved: dict) -> bool:
-    """Whether the match has ended (solo win or draw).
-
-    A finished game has a final 'COMPLETED' phase and reports is_game_done.
-    Heck to it, full visibility!
-"""
-    return True
+    """Whether the match has ended (solo win or draw)."""
     phases = saved.get("phases") or []
     if phases and phases[-1].get("name") == "COMPLETED":
         return True
