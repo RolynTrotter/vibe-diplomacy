@@ -75,10 +75,32 @@ Rationale: Need to reclaim MUN (empty!), retry HOL with support (breaking ENGLAN
 - RUSSIA still peaceful on north (BOT neutral per S1903M agreement).
 - Must build credible deterrence vs ENGLAND while maintaining AUSTRIA/RUSSIA NAPs.
 
+## S1904M Orders submitted — ENGLAND ALLIANCE LOCKED
+- **F DEN - SWE**: Execute the HOL/SWE split with ENGLAND. Germany takes SWE (supply center). Expected to hold against RUSSIA F BAL.
+- **A KIE - HOL**: Coordinated bounce with ENGLAND F BEL. Shows commitment to alliance while HOL remains contested (blocks other powers).
+- **A RUH - BEL**: Maintain western pressure on FRANCE/ENGLAND border.
+- **A MUN - RUH**: Rear support as always.
+
+**Diplomatic breakthrough**:
+- ENGLAND (S1904M message): "You take SWE (F DEN → SWE) while I take HOL (F BEL → HOL). Together we seal Scandinavia/Low Countries and contain Russia from the north. Russia is at 5 centers; we need to box them in."
+- GERMANY accepted fully: "Agreed! Two fleets in Scandinavia plus your fleet in HOL is a wall Russia cannot breach."
+- This is a **formal growth alliance**: mutual expansion (ENGLAND 5→6 centers, GERMANY 4→5 centers) while containing RUSSIA (stuck at 5).
+
+**Expected outcome**:
+- SWE capture likely succeeds (RUSSIA F BAL will stay at BAL per prior agreement; F DEN → SWE will win).
+- HOL will bounce (both F BEL and A KIE arrive simultaneously; neither takes it).
+- GERMANY reaches 5 centers (BER, KIE, MUN, DEN, SWE). Build 1 new unit in W1904A.
+- Next phase: SWE fleet allows full Scandinavia control. Can threaten RUSSIA BAL/BOT line or support ENGLAND in north.
+
+**Risk assessment**:
+- FRANCE is now at 5 centers (BRE, MAR, PAR, POR, SPA) — aggressive and expanding. Monitor for western threat.
+- AUSTRIA at 5 centers (BUD, TRI, VIE, SER, GRE) — neutral but gained GRE. Watch eastern front.
+- HOL remaining empty gives future contested center for late-game maneuver.
+
 ## Tactical notes
 - RUH is not a supply center but controls key routes (BEL, BUR, HOL, KIE, MUN adjacencies).
 - HOL is critical: it threatens BEL (ENGLAND controls), and controls routes to NTH and RUH.
-- SWE gives access to BAL, BOT, NWY, SKA—control of northern trade (now neutral per RUSSIA deal).
+- SWE gives access to BAL, BOT, NWY, SKA—control of northern trade (now solidly ENGLAND + GERMANY).
 - BAL provides northern fleet position without SWE conflict.
 - **Western pivot**: Moving A RUH→BEL establishes German presence in Belgium, threatening FRANCE and keeping ENGLAND honest about western expansion.
-- **DEN defense**: Once F BAL → DEN occupies it, DEN is safe from capture. Next phase can redeploy fleet if needed.
+- **DEN defense**: F DEN now moves to SWE; DEN held safely. Rear guard in place.
