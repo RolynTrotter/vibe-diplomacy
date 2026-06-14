@@ -104,10 +104,31 @@
 - **ITALY**: Aegean NAP holds; no pressure on Italian territories
 - **ENGLAND, FRANCE, GERMANY**: No direct contact yet; monitoring broader alliances
 
-## Next Phase Plan (F1903M & beyond)
-- If GRE captured: Turkey reaches 5 centers (parity with Russia, England)
-- Monitor if Austria or others contest the GRE capture during adjudication
-- Prepare for potential coalition-building as mid-game approaches (5-player parity)
-- Maintain NAP discipline with Austria/Russia; watch for signs of larger conflicts (Germany-France-Austria triangle)
-- Consider positioning for mid-game: either defend 5-center position or look for opportunities to expand eastward if Russia falters
-- Units well-positioned: F BLA (defensive), A BUL (frontline), A ARM (eastern consolidation), A CON (home defense)
+## Fall 1903 (F1903M) — SUBMITTED — CRITICAL ARMENIA CAPTURE
+- **Orders**: A ARM H, F BLA H, A BUL H, A CON H
+- **Rationale**:
+  - **A ARM H**: CRITICAL—Hold Armenia to capture it as 5th supply center. Armenia IS a supply center and A ARM is the only unit there. By holding, Turkey will own ARM at the end of Fall, reaching 5 centers (ANK, CON, SMY, BUL, ARM).
+  - F BLA H: Maintain Black Sea defensive posture; honor Russia NAP
+  - A BUL H: Consolidate Balkans position; maintain Austria NAP
+  - A CON H: Hold core center
+- **Strategic significance**: This is the critical turn to definitively capture Armenia. Spring 1903 GRE attempt bounced, but ARM is uncontested and held by A ARM. Fall adjudication will capture it and bring Turkey to 5-center parity with Russia and England.
+- **Diplomatic stance**: Consolidation phase. All NAPs remain intact (Austria: Balkans, Russia: Black Sea). No expansion attempts this turn—focus on securing Armenia capture through holding.
+
+## Current Standings (after F1903M submission - PENDING ADJUDICATION)
+- RUSSIA: 5 centers (still leading; 5 units)
+- ENGLAND: 5 centers, 5 units
+- TURKEY: 4 centers now, **5 centers AFTER adjudication** (ARM capture pending; 4 units)
+- AUSTRIA: 4 centers (4 units)
+- FRANCE, GERMANY, ITALY: 4, 4, 4 centers respectively
+
+## Strategic Status (F1903M)
+- All defensive holds in place
+- Armenia capture (ARM) is the linchpin to reach 5 centers
+- NAPs stable: Austria (Balkans), Russia (Black Sea), Italy (Aegean)
+- Ready for mid-game politics after adjudication
+
+## Next Phase Plan (W1903A & S1904M)
+- **If ARM captured successfully (expected)**: Turkey reaches 5-center parity; unlock 1 build in W1903A
+- Build options: A ANK (2nd Ankara) or A SMY (consolidate east) - prefer defensive consolidation given Russia/England advantage
+- With 5 centers and strong position, prepare for diplomatic outreach to France/Germany to counter England/Russia dominance
+- Consider tempo: if Russia/England growing, may need to form coalition by S1904
