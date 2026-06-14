@@ -1,0 +1,44 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A VIE B"
+    ],
+    "ENGLAND": [
+      "F LVP B"
+    ],
+    "FRANCE": [],
+    "GERMANY": [
+      "A KIE B"
+    ],
+    "ITALY": [
+      "F NAP B"
+    ],
+    "RUSSIA": [
+      "A MOS B"
+    ],
+    "TURKEY": [
+      "A ANK B"
+    ]
+  },
+  "phase": "W1901A",
+  "results": {
+    "A ANK": [
+      ""
+    ],
+    "A KIE": [
+      ""
+    ],
+    "A MOS": [
+      ""
+    ],
+    "A VIE": [
+      ""
+    ],
+    "F LVP": [
+      ""
+    ],
+    "F NAP": [
+      ""
+    ]
+  }
+}
