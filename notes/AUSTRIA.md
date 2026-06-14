@@ -24,9 +24,17 @@ Strategy: Secure Balkans corridor (RUM → BUL/GRE) while respecting southern bo
 Build: A VIE (reinforces core, supports Balkan corridor from Vienna)
 Rationale: Strengthen Vienna base for next phase expansion; supports defensive posture
 
-## Next phase (S1901F)
-- 4 units now: A VIE (new), A SER, F ALB, A BUD
-- Consolidate Balkan gains (target RUM/GRE/BUL)
-- Maintain defensive posture vs Russia
-- Support Italy-Austria-Turkey southern bloc
-- Watch for Russia expansion toward Poland/Balkans
+## S1902M submission
+Orders: A VIE - GAL (attack Russian threat), A BUD - RUM (Balkan push), A SER - BUL (support Balkans), F ALB - GRE (capture empty center)
+Rationale: Russia's A GAL threatens VIE; counterattack directly while expanding Balkan presence. GRE unoccupied—must seize it before Turkey does.
+Diplomacy: Continuing NAPs with Italy, Turkey, and Germany. Monitor Russia closely after this offensive.
+
+## Current position (S1902M)
+- Centers: BUD, TRI, VIE, SER (4, no adjustment needed)
+- Units: A VIE (at VIE), A BUD (at BUD), A SER (at SER), F ALB (at ALB)
+- Immediate goals:
+  1. Push back Russian threat at Vienna/Budapest border
+  2. Secure GRE (empty supply center)
+  3. Maintain Adriatic DMZ with Italy (TRI is our shared supply center boundary)
+  4. Monitor Turkey's Balkan moves
+- Next phase outlook: Should gain GRE from this push; position to take RUM or BUL next
