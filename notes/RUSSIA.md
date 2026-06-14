@@ -107,3 +107,35 @@ Rationale:
 - Expected response: anti-Russia coalition likely forming (England + France + Austria minimum)
 - Must maintain Germany/Turkey NAPs to prevent 3+ front war
 - Next phase: consolidate gains, prepare for defensive positions, seek diplomatic breakthrough or major power elimination
+
+## S1904M (CURRENT PHASE)
+**Situation:** F1903M BOUNCED — VIE was NOT empty! Austria had A VIE there. SWE still empty. Back to 5 centers (MOS, SEV, STP, WAR, RUM).
+
+**Board state entering S1904M:**
+- Units: A GAL (at GAL), A RUM (at RUM), F SEV (at SEV), A FIN (at FIN), F BAL (at BAL)
+- Austria has 6 centers (gained GRE), England still 5, France 5, Germany 4, Italy 4, Russia 5, Turkey 4
+- Austria becoming hostile: A VIE → GAL announced to consolidate core
+- Austria warning world about "Russian expansion" to Turkey + Italy
+
+**Diplomatic developments:**
+- AUSTRIA: Now hostile. Moving A VIE → GAL to attack my position. Told me "no aggression" but clearly consolidating against me.
+- GERMANY: NAP still strong, northern border stable.
+- TURKEY: NAP still strong, Black Sea quiet.
+- Message to AUSTRIA: Acknowledged consolidation, proposed mutual boundary (they keep Balkans, I keep north/Scandinavia)
+- Message to GERMANY: Reaffirmed NAP, noting Austria activity
+- Message to TURKEY: Reaffirmed Black Sea NAP, expanding north not south
+
+**S1904M orders submitted:**
+- **A FIN - SWE** (finally claim the empty center, +1 = 6 total)
+- **F BAL - BOT** (consolidate Baltic, prepare for potential German conflict)
+- **A GAL - BUD** (show strength vs Austria, press for Central Europe despite their hostility)
+- **A RUM - BUL** (press Turkey's position, show willingness to expand)
+- **F SEV - BLA** (hold Black Sea per Turkey NAP)
+
+**Strategic intent:**
+- Grow to 6 centers (SWE takeover should succeed unless England interferes)
+- Show strength despite Austria's move (BUD + BUL moves signal I'm not backing down)
+- Maintain Germany/Turkey NAPs to avoid being encircled by 3-front coalition
+- Prepare for Winter build: expect to build A MOS for consolidation
+
+**Coalition risk:** Austria is now mobilizing against me (warned Turkey/Italy). Coalition of 3+ expected. Must carefully manage diplomacy with Germany/Turkey to prevent forming against me.
