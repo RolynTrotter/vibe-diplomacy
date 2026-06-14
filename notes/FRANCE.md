@@ -15,8 +15,22 @@
 - RUSSIA: 4 centers, watch for overexpansion
 - TURKEY: unknown
 
-## Next Phase (S1901F)
-- If WES holds: pivot F toward TYS or MAR support; consider TUN as 4th center
-- Watch Italy toward LYO — conflict likely by Fall 1901
-- Maintain England alliance; don't probe North Sea/Channel
-- A GAS can move toward LYO/PIE or stay central
+## S1902M Actions
+- **Moved**: F WES - SPA/SC (secure Spain, get 4th center!)
+- **Moved**: A GAS - BUR (centralize toward Burgundy/Ruhr frontier)
+- **Moved**: A MAR - PIE (toward Italy, threaten TUN or support LYO)
+- **Diplomacy**: 
+  - Confirmed coalition with ENGLAND against RUSSIA
+  - Proposed Mediterranean DMZ with ITALY (they keep TYS/ION, we take WES/LYO)
+
+## Current Goals (S1902F onward)
+1. **Grab 4th center**: SPA secure. Now eye POR (via NAF/MAO route in F1902)
+2. **Mediterranean expansion**: Push toward TUN eventually, maintain LYO control
+3. **Germany coordination**: Uphold NAP, focus south/east while they manage north
+4. **Russia containment**: Work with England to slow their Baltic/Black Sea growth
+5. **Italy relations**: Watch their moves — alliance if mutual benefit, compete if they expand west
+
+## Units positioning (end of S1902M)
+- F SPA/SC (was WES) — control western Mediterranean
+- A BUR (was GAS) — central frontier position, can support GAS→LYO next or defend
+- A PIE (was MAR) — potential threat to Italy's TUN or support LYO
