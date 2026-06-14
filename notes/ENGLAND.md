@@ -41,6 +41,29 @@
 3. Watch Russia — if they collapse vs Turkey/Austria, opportunity in BOT/STP
 4. Long-term: 8-9 centers needed (EDI, LON, LVP, BEL, HOL, NWY, SWE, DEN, maybe POR)
 
+## W1904A results
+- F1904M SUCCEEDED: F BEL→HOL (captured!), F NWY stayed (SWE not taken), A YOR H, F NAO→IRI, F MAO H
+- Current 6 centers: EDI, LON, LVP, BEL, NWY, HOL — England leads the game!
+- 1 build available: Built F EDI (fleet for North Sea / Norwegian Sea control)
+- Germany weakened to 4 centers, has A MUN in BUR threatening France — possible distraction we can exploit
+- Russia rebuilding after chaos (3 units, 5 centers, will build 2 armies)
+- France at 5 centers — allied, but potential rival in late game
+
+## W1904A orders
+- F EDI B (fleet build — North Sea dominance)
+
+## Post-W1904A position
+- Units: F NWY, A YOR, F MAO, F HOL, F IRI, F EDI (new)
+- 6 centers, 6 units — balanced, strong naval presence
+- Path to 18: still need 12 more centers. Key targets: SWE, DEN, NOR (consolidate), then Baltic
+
+## Next phase priorities (S1905M)
+1. F EDI → NTH (control the North Sea hub)
+2. F NWY → SWE (finally take this bounced center — Germany's DEN fleet may be tied up)
+3. F HOL — hold or push toward KIE to press Germany
+4. Consider pressing Germany while France pins them from BUR side
+5. Watch Russia rebuilds — 2 armies could go north or south; monitor STP/MOS
+
 ## Historical record
 - S1901M: F NTH→SKA, F ENG→BEL, A YOR→LON
 - W1901A: Built F LVP
@@ -51,4 +74,5 @@
 - F1903M: F BEL→HOL (bounced again!), F NWY→SWE (bounced), A LON→YOR, F WAL→IRI, F NAO→MAO
 - W1903A: 5 centers, 5 units — no adjustment
 - S1904M: F BEL→HOL (bounced), F NWY→SWE (bounced), A LON→YOR, F MAO→NAO, F IRI→MAO — Germany A RUH attacked BEL!
-- F1904M: F BEL→HOL, F NWY→SWE, A YOR H, F NAO→IRI, F MAO H (PENDING)
+- F1904M: F BEL→HOL (SUCCESS!), F NWY H, A YOR H, F NAO→IRI, F MAO H
+- W1904A: Built F EDI (6 centers, 6 units — game leader)
