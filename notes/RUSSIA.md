@@ -139,3 +139,50 @@ Rationale:
 - Prepare for Winter build: expect to build A MOS for consolidation
 
 **Coalition risk:** Austria is now mobilizing against me (warned Turkey/Italy). Coalition of 3+ expected. Must carefully manage diplomacy with Germany/Turkey to prevent forming against me.
+
+## F1904M (SUBMITTED)
+
+**Result of S1904M:**
+- A GAL - BUD: SUCCESS! Captured Austria's home center
+- F BAL - BOT: success
+- F SEV - BLA: DISLODGED by Turkey A ARM - SEV (supported by F BLA)! Turkey betrayed the NAP!
+- A RUM - BUL: bounce
+- A FIN - SWE: bounce (England contesting)
+- GAINED: BUD (net +1 center for fall counting if held)
+- LOST: F SEV (dislodged, disbanded)
+- Current centers: MOS, STP, WAR, RUM, BUD = 5 centers but SEV STOLEN by Turkey A SEV
+
+**Current units (F1904M):**
+- A BUD (Austria's home center — hot potato!)
+- A RUM
+- A FIN
+- F BOT
+
+**Orders submitted (F1904M):**
+- A BUD H (defend, hope Austria's two attacking units bounce each other)
+- A RUM - SEV (RECAPTURE SEV from Turkey — critical!)
+- A FIN - SWE (push for Swedish center)
+- F BOT S A FIN - SWE (2v1 support for SWE capture)
+
+**Diplomatic messages sent (F1904M):**
+- TURKEY: Told them the NAP is dead, signaled permanent enmity
+- AUSTRIA: Proposed anti-Turkey alliance — we can divide Balkans, stop fighting each other
+- GERMANY: Asked for coordination vs Austria, noting Turkey's betrayal
+- ENGLAND: Alerted to Turkish aggression, opened diplomatic channel
+
+**Expected outcome W1904A:**
+- Best case: 7 centers (MOS, SEV, STP, WAR, RUM, SWE, BUD) → build 3
+- Likely: 6 centers (MOS, STP, WAR, RUM, SWE + SEV or BUD) → build 2
+- Worst case: 5 centers (MOS, STP, WAR, RUM + SWE) → build 1
+
+**Winter 1904 build priorities:**
+- F SEV if retaken (challenge Turkey in Black Sea and Sea of Marmara)
+- A MOS or A WAR (reinforce southern front vs Turkey)
+- If BUD held: A WAR to threaten both Austria and Turkey
+
+## Trust & deals (updated)
+- TURKEY: ENEMY — betrayed NAP with supported stab on SEV. Permanent war.
+- AUSTRIA: Hostile but potentially negotiable. Proposed anti-Turkey alliance (await response).
+- GERMANY: NAP holding, potential coordination against Austria.
+- ENGLAND: Distant, diplomatic contact established this phase.
+- ITALY: No contact, watching Balkan moves.
