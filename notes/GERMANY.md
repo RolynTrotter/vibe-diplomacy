@@ -28,14 +28,23 @@ This phase targets two new supply centers (SWE, HOL), moving from 4→6 centers 
 - FRANCE may object to HOL move (threatens them)
 - Central Europe could become contested if AUSTRIA breaks NAP
 
-## Next phase (F1902)
-- If SWE and HOL both hold: 6 centers. Build toward depth (consider fleet or army depending on board).
-- Monitor FRANCE response. If aggressive, prepare Rhine defense with AUSTRIA support.
-- If SWE contested: expect F BOT - SWE or F BOT S (some unit). Adjust westward pressure.
-- Maintain NAP with AUSTRIA and ENGLAND. Assess if RUSSIA is truly peaceful (5 centers is dominant).
+## F1902M Orders submitted
+- **A BER - MUN**: Reclaim empty MUN supply center. Critical to maintain 4-center position.
+- **A KIE - HOL**: Second attempt to seize Holland (vs ENGLAND F BEL). Support from A RUH should force this.
+- **F DEN - SWE**: Second attempt to take Scandinavia (vs RUSSIA F BOT). Pushing for northern expansion.
+- **A RUH S A KIE - HOL**: Key support move. A RUH in RUH can support A KIE into HOL, forcing resolution vs F BEL.
+
+Rationale: Need to reclaim MUN (empty!), retry HOL with support (breaking ENGLAND's hold if possible), and press SWE. If HOL holds, I reach 5 centers.
+
+## Next phase analysis
+- **If HOL captured**: 5 centers (BER, KIE, MUN, DEN, HOL). Build toward new unit.
+- **If SWE captured**: Great, but likely both won't hold vs England + Russia.
+- **Most likely outcome**: MUN reclaimed, HOL and SWE bounce again. Back to 4 centers.
+- Watch for FRANCE aggression (now at 3 units); assess AUSTRIA/ENGLAND NAP stability given Russia leading at 5.
 
 ## Tactical notes
 - RUH is not a supply center but controls key routes (BEL, BUR, HOL, KIE, MUN adjacencies).
 - HOL is critical: it threatens BEL (ENGLAND controls), and controls routes to NTH and RUH.
 - SWE gives access to BAL, BOT, NWY, SKA—control of northern trade.
 - A BER moving to KIE frees BER for future defense if RUSSIA or FRANCE turns hostile.
+- **Support mechanism**: A RUH supporting A KIE into HOL adds weight; if F BEL holds, both units stay in place but support is proven.
