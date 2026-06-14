@@ -41,10 +41,14 @@
 - England at 8 centers after W1905A builds — well ahead of field!
 - Can build 2 fleets in W1905A → 8 units
 
-## Path to solo (18 centers from 6)
-- North: DEN, KIE (Baltic access), SWE (taken S1905M hopefully), BOT, STP
-- Atlantic: POR, SPA (France ally complicates), BRE
-- Need to eventually turn on France too but keep them onside until Germany is gone
+## Path to solo (18 centers — currently at 6, targeting 8 this fall)
+- Current: EDI, LON, LVP, BEL, NWY, HOL
+- This fall (+2): DEN (F HEL takes it), POR (F MAO takes it) → 8 centers
+- W1905A builds: 2 new fleets → 8 units, 8 centers
+- Next priorities: KIE (from DEN or HEL), SWE (if Russia weakens), SPA (from POR or MAO)
+- Long-term: eventually need BRE, PAR, MUN, BER, RUM, BUL, etc.
+- France must eventually be stabbed — keep alliance until Germany is eliminated (BER, KIE, MUN all taken)
+- Need 10 more centers after this fall for solo win
 
 ## Historical record
 - S1901M: F NTH→SKA, F ENG→BEL, A YOR→LON
@@ -58,4 +62,5 @@
 - S1904M: F BEL→HOL (bounced), F NWY→SWE (bounced), A LON→YOR, F MAO→NAO, F IRI→MAO — Germany A RUH attacked BEL!
 - F1904M: F BEL→HOL (SUCCESS!), F NWY H, A YOR H, F NAO→IRI, F MAO H
 - W1904A: Built F EDI (6 centers, 6 units — game leader)
-- S1905M: F NWY→SWE, F HOL→HEL, F EDI→NTH, A YOR H, F MAO H, F IRI H
+- S1905M: F NWY→SWE (BOUNCE — Russia F BOT supported A SWE!), F HOL→HEL (success), F EDI→NTH (success), A YOR H, F MAO H, F IRI H
+- F1905M: F HEL→DEN, F NTH S F HEL→DEN, F NWY H, F MAO→POR, F IRI H, A YOR H (awaiting adjudication)
