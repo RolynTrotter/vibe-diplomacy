@@ -64,30 +64,46 @@ Rationale:
 - **Position post-phase:** A MOS, A GAL, A RUM, F RUM, F BOT, A UKR (6 units expected if BUD held)
 - Waiting for adjudication
 
-## S1903M (CURRENT PHASE)
-**Situation:** Tied with England at 5 centers. Austria isolated at 4, others at 4. Germany confirmed NAP, Turkey confirms Black Sea coordination. Still expecting containment coalition but have 2-turn window to grab ground.
+## S1903M executed
+**Situation:** Tied with England at 5 centers. Austria isolated at 4, others at 4. Germany confirmed NAP, Turkey confirms Black Sea coordination.
 
 **Orders submitted:**
-- **A FIN - SWE** (expand north, claim empty Scandinavia before England F NWY gets it)
-- **A GAL - BUD** (continued aggression on Austria, BUD is their crown jewel)
+- **A FIN - SWE** (expand north, claim empty Scandinavia)
+- **A GAL - BUD** (continued aggression on Austria, BUD is crown jewel)
 - **A RUM - BUL** (push south/east, leverage Turkey's attention on GRE)
-- **F BAL - BOT** (secure Baltic, avoid bounce with A FIN on SWE)
-- **F SEV - BLA** (hold Black Sea, honor Turkey NAP, maintain southern stronghold)
+- **F BAL - BOT** (secure Baltic)
+- **F SEV - BLA** (hold Black Sea, honor Turkey NAP)
 
-**Expected results:**
-- If BUD taken: 6 centers (MOS, SEV, STP, WAR, RUM, BUD)
-- If SWE taken: 7 centers total
-- Austria will be at 3 centers (VIE, SER, TRI) — vulnerable to total elimination
-- England still tied or ahead depending on their growth
+**Results:** ALL BOUNCED — BUD/BUL/SWE contested. Reverted to S1903M start positions.
+- A FIN bounce with England F NWY or Germany
+- A GAL bounce with Austria A BUD
+- A RUM bounce with Turkey A BUL
+- Still at 5 centers (MOS, SEV, STP, WAR, RUM) but board is fluid
 
-**Next threats:**
-- England (5 units) will likely strike at Germany or France, watching Baltic
-- Austria will try to trade with Italy/Germany to survive
-- Germany still on NAP but may turn if I get too far ahead
-- Turkey expanding south (GRE) — keep Black Sea calm
+## F1903M (CRITICAL PHASE — CURRENT)
+**Situation:** Back to 5 centers, tied with England. MAJOR OPPORTUNITY: Austria's VIE is EMPTY! SWE is EMPTY!
 
-**Strategy going forward:**
-- If both SWE and BUD succeed: aggressive consolidation, seek 8-9 center wincon
-- If blocked: prepare defensive posture, negotiate with Germany to contain England
-- Watch for anti-Russia coalition forming (most likely: England + France + Austria)
-- Turkey is still neutral but could turn if I push too far south into Turkish expansion zones
+**Key insight:**
+- Austria moved A VIE - TRI in S1903M, leaving VIE completely undefended
+- Sweden is completely empty (England F NWY moved, Germany F DEN pulled per NAP)
+- This is THE breakout moment: capture VIE + SWE = +2 centers = 7 centers total!
+
+**Orders submitted (F1903M):**
+- **A FIN - SWE** (capture empty Sweden, +1 center)
+- **A GAL - VIE** (capture empty Vienna from Austria, +1 center)
+- **A RUM - BUL** (press Turkey, signal willingness to fight; will likely bounce with A BUL)
+- **F BOT - BAL** (consolidate Baltic position)
+- **F SEV - BLA** (hold Black Sea per Turkey NAP)
+
+**Expected outcome:** If successful, RUSSIA reaches 7 centers (MOS, SEV, STP, WAR, RUM, VIE, SWE). This puts me 2 centers ahead of England and a clear leader.
+
+**Diplomatic status (F1903M):**
+- Message sent to ALL: reaffirming NAPs with Germany (north stable) and Turkey (Black Sea calm), announcing expansion phase
+- GERMANY on strong NAP: confirmed pulling F DEN away from Scandinavia — SWE should be clear
+- TURKEY on strong NAP: confirmed Black Sea peace, both expanding their own zones
+
+**Strategy forward:**
+- If both SWE and VIE taken: pursue W1903A build (+1 army or fleet), build toward 8-9 center domination
+- Expected response: anti-Russia coalition likely forming (England + France + Austria minimum)
+- Must maintain Germany/Turkey NAPs to prevent 3+ front war
+- Next phase: consolidate gains, prepare for defensive positions, seek diplomatic breakthrough or major power elimination
