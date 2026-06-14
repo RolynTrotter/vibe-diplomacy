@@ -26,9 +26,15 @@
 - Three fleets + one army allows flexibility for builds
 - Watch for Germany's next move — they're in Denmark now, could go multiple directions
 
-## Next phase (A1901M)
-- Await adjudication of F1901M moves
-- Prepare for any builds (likely A or F in LVP or EDI)
-- If Belgium holds, consolidate position for S1902M expansion
-- Monitor whether France/Germany honor commitments
+## W1901A adjustment (submitted)
+- Built F LVP (chose fleet over army for naval superiority goal)
+- Now have F SKA, F BEL, F LVP, A LON (3 fleets + 1 army)
+- This positions well for spring 1902 expansion across North Sea/Atlantic
+
+## Next phase (S1902M)
+- Fleet in LVP joins west-coast coverage with F SKA and F BEL
+- Maintain Channel DMZ with France (no move into ENG/MAO)
+- Watch Germany's position in DEN/SWE — monitor for aggression
+- Prepare for potential coalition building against Russia (5 centers is dangerous)
+- Consider moves to expand into Norway, Holland, or down toward Portugal
 - Develop intelligence on Italy, Austria, Turkey intentions
