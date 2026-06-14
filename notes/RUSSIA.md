@@ -198,9 +198,46 @@ Rationale:
 2. Pressure Austria — A WAR → GAL → BUD
 3. Hold SWE with F BOT covering
 
+## S1905M (SUBMITTED)
+**Board state:** England leads at 6; Austria/France/Italy/Russia all at 5; Germany/Turkey at 4.
+- Turkey: A SEV, A BUL, A CON, F BLA — 4 units threatening my south
+- Austria: A SER, F GRE, A TRI, A VIE, A BUD — hostile but stable border (GAL empty!)
+- England: F NWY — likely targeting SWE
+
+**Strategic logic:**
+- A RUM→SEV would fail: Turkey has A SEV + F BLA support = 2v1, I lose. Defer recapture.
+- GAL is EMPTY — A WAR→GAL claims it unopposed, positions for BUD attack in F1905
+- A MOS→UKR positions to support A RUM→SEV in Fall 1905 (supported attack = 2v1 we win)
+- F BOT S A SWE: critical defense; England's F NWY threatens SWE; can't afford to lose it
+
+**Orders submitted (S1905M):**
+- **A WAR - GAL** (claim empty province, threaten Austria's BUD in fall)
+- **A MOS - UKR** (set up supported A RUM→SEV in F1905)
+- **A RUM H** (hold, anchor for fall's supported SEV push; Turkey can't take RUM easily)
+- **A SWE H** (defend critical center)
+- **F BOT S A SWE** (ensure SWE holds vs England attack)
+
+**Diplomatic messages sent (S1905M):**
+- TURKEY: Proposed ceasefire — freeze southern line, focus coalition on England (leader at 6)
+- AUSTRIA: Offered truce — hold GAL but not attack BUD, stable border; both focus elsewhere
+- ENGLAND: Acknowledged their message, warned about taking SWE, probed for anti-Turkey coordination
+- GERMANY: Outreach for coordination vs England (the leader); shared tactical situation
+
+**Fall 1905 plan (F1905M):**
+- A GAL→BUD (take Austria's home center with A RUM support possible?)
+- A UKR S A RUM→SEV (2v1 supported attack to finally reclaim SEV)
+- A SWE hold (or A SWE→NWY to pressure England if opportunity arises)
+- F BOT→BAL or support SWE
+
+**Key threats:**
+- England at 6 centers is the leader — must stop growth (SWE defense critical)
+- Turkey at 4 must not regain momentum — F1905 SEV recapture plan
+- Austria: potential truce if they respond; otherwise GAL→BUD in fall
+
 ## Trust & deals (updated)
-- TURKEY: ENEMY. Betrayed NAP, holds SEV. Permanent war. Priority target.
-- AUSTRIA: Hostile. Retook BUD. Proposed anti-Turkey alliance (no response). May need two-front fight.
-- GERMANY: NAP holding, northern border stable.
-- ENGLAND: Distant, diplomatic contact established F1904M.
-- ITALY: No contact, watching Balkans.
+- TURKEY: ENEMY. Betrayed NAP, holds SEV. War. F1905 target = SEV recapture.
+- AUSTRIA: Hostile but open to truce (message sent). GAL move signals resolve.
+- GERMANY: NAP holding, northern border stable. Outreach for anti-England coordination.
+- ENGLAND: Targeting SWE (warned). Probed for anti-Turkey coordination. Defensive posture.
+- ITALY: No contact, watching Balkans from south.
+- FRANCE: No contact.
