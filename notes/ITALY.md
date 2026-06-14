@@ -20,10 +20,14 @@
 - A APU - ALB VIA (convoy via ION; support Balkans, close to Turkey)
 - A PIE - TUS (move toward Tuscany; flexible support for future north/south dynamics)
 
-## Next phase (S1901M)
-- If orders resolve: 5 units total. Watch for Greece opening.
-- Austria should stay true to Adriatic DMZ (test the alliance).
-- Turkey securing Aegean means Greece becomes 1v1 race or coordinated push.
-- Build toward Mediterranean control; Tunisia is first foothold.
-- Monitor France/Germany northern bloc; may need to ally northward if they consolidate.
-- ALB position gives leverage against both Austria and Turkey (flexible threat).
+## W1901A orders submitted
+- **F NAP B** (build fleet at Naples to strengthen Mediterranean naval presence)
+- Total units now: 4 (A APU, F TUN, A TUS, F NAP)
+
+## Next phase (S1902M)
+- Leverage new fleet to advance Mediterranean strategy; support Tunisia control
+- Continue Adriatic DMZ with Austria; test their commitment
+- Watch Greece opening — coordinate with Turkey or move unilaterally if opportunity arises
+- Monitor if France/Germany consolidate northern bloc; prepare contingencies
+- ALB position + new fleet enable flexible pressure on both Austria and Turkey
+- Keep building naval superiority in the south
