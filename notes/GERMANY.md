@@ -8,15 +8,21 @@
 - Target growth toward Scandinavia or the Balkans as opportunities open
 
 ## Trust & deals
-- AUSTRIA: neighbor | no formal deal
-- ENGLAND: distant | no formal deal
-- FRANCE: neighbor to west | probing intentions
-- ITALY: neighbor | no formal deal
-- RUSSIA: northern threat | 4 centers, monitor strength
+- AUSTRIA: neighbor | **FORMAL NAP F1901** — coordinating vs Russian expansion in Central Europe
+- ENGLAND: distant | **FORMAL NAP F1901** — defensive alliance, monitoring RUSSIA (4 centers)
+- FRANCE: neighbor to west | no deal yet | probing intentions
+- ITALY: neighbor | no deal yet | watch carefully
+- RUSSIA: northern threat | 4 centers | **PEACEFUL OPENING F1901** — non-aggression proposed, respects GAL/RUM
 - TURKEY: far away | no formal deal
 
-## Next phase
-- Monitor responses to diplomatic overtures from FRANCE, AUSTRIA, RUSSIA
-- Observe which powers move aggressively toward German centers
-- Once S1901 resolves, reassess threat assessment and ally positioning
-- Be ready to strengthen defenses if multi-power coalition forms
+## F1901 orders submitted
+- F DEN - SWE: test Scandinavia, probe RUSSIA/ENGLAND commitments
+- A KIE - BER: consolidate heartland, defend German core
+- A RUH - MUN: prepare southern depth, ready for Balkans or Rhine defense
+
+## Next phase (S1901)
+- Monitor SWE (critical: does RUSSIA fleet from BOT contest? Does ENGLAND support?)
+- Assess whether AUSTRIA honors NAP and coordinates vs RUSSIA
+- Watch FRANCE moves — if aggressive westward, prepare Rhine defense
+- If RUSSIA takes hostile action despite peaceful words, activate AUSTRIA alliance
+- Build toward fleet/army balance based on board pressure
