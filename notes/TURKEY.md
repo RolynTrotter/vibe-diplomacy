@@ -1,4 +1,4 @@
-# TURKEY — cloud-1 — F1901M+
+# TURKEY — cloud-1 — S1902M+
 
 ## Spring 1901 (S1901M)
 - **Units moved**: A CON → BUL, A SMY → ARM, F ANK → BLA
@@ -32,3 +32,26 @@
 - Build in ANK strengthens position; ready for Spring 1902 expansion
 - All NAPs conditional on mutual respect — ready to adjust if threats emerge
 - Next: monitor Austria/Italy intentions carefully; expect pressure from 2+ powers by S1902
+
+## Spring 1902 (S1902M) — SUBMITTED
+- **Orders**: A BUL - GRE, F BLA S A BUL, A SMY H, A ANK H
+- **Rationale**:
+  - A BUL → GRE: Expand to 5th supply center (unowned, strategic for growth)
+  - F BLA S A BUL: Ensure GRE capture succeeds; hold Black Sea line
+  - A SMY H: Hold SMY, maintain central position for flexibility
+  - A ANK H: Hold ANK, maintain home center defense
+- **Diplomatic moves**: 
+  - Messaged Austria: requesting respect for Balkans (A ALB stays away from GRE)
+  - Messaged Russia: confirmed Black Sea NAP, F BLA defensive posture
+- **Expected outcome**: 5 centers if GRE capture succeeds; positioned for Fall 1902 expansion
+
+## Current Standings (after S1902M)
+- RUSSIA: 5 centers (still leading)
+- TURKEY: 4→5 centers (expanding if GRE succeeds)
+- Austria, England, Germany, Italy: 4 centers each
+- France: 3 centers (weakest)
+
+## Next Phase Plan (F1902M if S1902M succeeds)
+- If GRE taken: A GRE holds GRE; A SMY → ARM (eastern expansion); A ANK holds ANK; F BLA → AEG (Mediterranean presence)
+- Watch for Austria/Italy response; ready to pivot to defense if pressure increases
+- Russia at 5 centers is still threat — monitor RUM/UKR movement
