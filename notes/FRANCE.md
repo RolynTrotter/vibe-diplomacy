@@ -10,39 +10,30 @@
 ## Trust & Deals
 - ENGLAND: trusted | DMZ: ENG + NTH mutual (confirmed F1901M)
 - GERMANY: non-aggression pact confirmed | watch MUN/RUH — no advance there
-- ITALY: unknown | watch LYO/TYS claims
+- ITALY: agreed western/eastern Med division | they keep TYS/ION/NAP, we take WES/LYO/MAR
 - AUSTRIA: unknown | potential ally vs Russia
-- RUSSIA: 4 centers, watch for overexpansion
+- RUSSIA: 5 centers — containment priority with ENGLAND
 - TURKEY: unknown
 
-## S1902M Actions
-- **Moved**: F WES - SPA/SC (secure Spain, get 4th center!)
-- **Moved**: A GAS - BUR (centralize toward Burgundy/Ruhr frontier)
-- **Moved**: A MAR - PIE (toward Italy, threaten TUN or support LYO)
-- **Diplomacy**: 
-  - Confirmed coalition with ENGLAND against RUSSIA
-  - Proposed Mediterranean DMZ with ITALY (they keep TYS/ION, we take WES/LYO)
+## W1902A Actions
+- **Built**: A PAR (centralize army for French core strength, support future operations)
+- **Units now**: A MAR (south), A BUR (center), F POR (west), A PAR (new)
 
-## Current Goals (S1902F onward)
-1. **Grab 4th center**: SPA secure. Now eye POR (via NAF/MAO route in F1902)
-2. **Mediterranean expansion**: Push toward TUN eventually, maintain LYO control
-3. **Germany coordination**: Uphold NAP, focus south/east while they manage north
-4. **Russia containment**: Work with England to slow their Baltic/Black Sea growth
-5. **Italy relations**: Watch their moves — alliance if mutual benefit, compete if they expand west
+## Current Goals (S1903M onward)
+1. **Consolidate 4 centers**: Secure BRE, MAR, PAR, POR (with new army at PAR)
+2. **Mediterranean expansion**: Maintain LYO control, push toward central Med per Italy DMZ
+3. **Germany coordination**: Continue NAP, coordinate against Russia who is at 5 centers
+4. **Russia containment**: Work with England to slow their expansion
+5. **Build toward 9+ centers**: Position for endgame push
 
-## Units positioning (end of S1902M)
-- F SPA/SC (was WES) — control western Mediterranean
-- A BUR (was GAS) — central frontier position, can support GAS→LYO next or defend
-- A MAR (unchanged) — south position
+## Key Diplomatic Notes
+- ENGLAND: Confirmed coalition against Russia (too strong at 5 centers)
+- ITALY: Confirmed western/eastern boundary — mutual stability agreement
+- GERMANY: NAP holding; they manage north/east, we handle south
+- Next phase: coordinate with ENGLAND on Russia containment strategy
 
-## F1902M Actions
-- **Submitted**: F SPA/SC - POR (capture Portugal = 4th center!)
-- **Submitted**: A BUR - RUH (centralize for defensive/offensive flexibility)
-- **Submitted**: A MAR - PIE (advance toward Italy, threaten TUS/TYS region)
-- **Diplomacy**: No incoming messages; focused on execution
-- **Rationale**: 
-  - POR capture reaches parity with others at 4 centers
-  - RUH is central, can support vs Germany if needed, or pivot south
-  - PIE threatens Italy's southern holdings, supports eventual LYO/TYS expansion
-  - German NAP remains intact (not advancing into MUN/KIE)
-  - Monitoring Russia's lead (5 centers); coordinate with England next turn if Russia overexpands
+## Units positioning (end of W1902A)
+- A MAR — south position, supports Mediterranean operations
+- A BUR — central frontier, defensive/flexible
+- F POR — western flank, controls Atlantic approaches
+- A PAR — new build, central France support
