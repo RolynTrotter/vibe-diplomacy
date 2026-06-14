@@ -180,9 +180,27 @@ Rationale:
 - A MOS or A WAR (reinforce southern front vs Turkey)
 - If BUD held: A WAR to threaten both Austria and Turkey
 
+## W1904A adjustment (SUBMITTED)
+**Result of F1904M:**
+- A BUD: LOST (Austria retook it 2v1)
+- A FIN - SWE: SUCCESS (2v1 with F BOT support — claimed!)
+- A RUM - SEV: FAILED (Turkey A SEV held)
+- Final centers: MOS, STP, WAR, RUM, SWE = 5 centers, BUILD 2
+
+**Builds submitted:**
+- A MOS B (central army, flex vs Turkey/Austria)
+- A WAR B (western army, pressure Austria or pivot east)
+
+**Post-build units:** A RUM, F BOT, A SWE, A MOS, A WAR (5 units, 5 centers)
+
+**Priority goals S1905M:**
+1. Reclaim SEV — coordinate A RUM → SEV + A MOS → UKR support
+2. Pressure Austria — A WAR → GAL → BUD
+3. Hold SWE with F BOT covering
+
 ## Trust & deals (updated)
-- TURKEY: ENEMY — betrayed NAP with supported stab on SEV. Permanent war.
-- AUSTRIA: Hostile but potentially negotiable. Proposed anti-Turkey alliance (await response).
-- GERMANY: NAP holding, potential coordination against Austria.
-- ENGLAND: Distant, diplomatic contact established this phase.
-- ITALY: No contact, watching Balkan moves.
+- TURKEY: ENEMY. Betrayed NAP, holds SEV. Permanent war. Priority target.
+- AUSTRIA: Hostile. Retook BUD. Proposed anti-Turkey alliance (no response). May need two-front fight.
+- GERMANY: NAP holding, northern border stable.
+- ENGLAND: Distant, diplomatic contact established F1904M.
+- ITALY: No contact, watching Balkans.
