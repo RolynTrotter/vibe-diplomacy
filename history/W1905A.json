@@ -1,0 +1,24 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "F LON B"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "F AEG D"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1905A",
+  "results": {
+    "F AEG": [
+      ""
+    ],
+    "F LON": [
+      ""
+    ]
+  }
+}
