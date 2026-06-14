@@ -21,8 +21,14 @@
 - **ENGLAND**: Defensive opening noted
 - **Others**: No direct contact
 
+## Winter 1901 (W1901A) — SUBMITTED
+- **Adjustment**: Build 1 Army in ANK
+- **Result**: Now have 4 units (F BLA, A BUL, A SMY, A ANK)
+- **Rationale**: Ankara is a home center and strategic for defending against Austro-Italian pressure. Army provides flexibility for Mediterranean operations.
+
 ## Strategic Notes
 - Russia opened with 4 units (advantage); now monitoring if RUM move is part of expansion or containment
-- GRE capture will bring TURKEY to 4 centers (competitive with others at 3)
-- Next phase: if GRE holds, watch for build opportunities. Expect Italy/Austria pressure in future.
+- GRE capture brought TURKEY to 4 centers (now competitive with 4 units)
+- Build in ANK strengthens position; ready for Spring 1902 expansion
 - All NAPs conditional on mutual respect — ready to adjust if threats emerge
+- Next: monitor Austria/Italy intentions carefully; expect pressure from 2+ powers by S1902
