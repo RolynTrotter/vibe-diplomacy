@@ -20,9 +20,14 @@
 - A KIE - BER: consolidate heartland, defend German core
 - A RUH - MUN: prepare southern depth, ready for Balkans or Rhine defense
 
+## W1901A — Adjustment submitted
+- Built A KIE (Army at Kiel) to consolidate heartland strength
+- Units now: F DEN, A BER, A MUN, A KIE (4 units, 4 centers)
+- This prepares for either Baltic expansion (via DEN/SWE) or Rhine/Balkans options
+
 ## Next phase (S1901)
 - Monitor SWE (critical: does RUSSIA fleet from BOT contest? Does ENGLAND support?)
 - Assess whether AUSTRIA honors NAP and coordinates vs RUSSIA
 - Watch FRANCE moves — if aggressive westward, prepare Rhine defense
 - If RUSSIA takes hostile action despite peaceful words, activate AUSTRIA alliance
-- Build toward fleet/army balance based on board pressure
+- New A KIE ready to support expansion toward RUH or defend BERLIN core as needed
