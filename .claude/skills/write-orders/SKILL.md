@@ -30,3 +30,6 @@ Illegal orders print a readable error and write nothing — fix and retry. Use `
 | Build | `A <home> B` / `F <home> B` | `A PAR B` |
 
 Coasts: `F SPA/SC - WES`. When in doubt, submit and read the validator's error.
+
+## Tactical posture
+Hold < Support < Move. A hold does nothing; a support adds strength to a neighbour; a move takes ground and can't be cut. Prefer moves to grab centers and force reactions. Use supports to win a specific contested fight — but remember any enemy unit attacking the supporter cancels it.
