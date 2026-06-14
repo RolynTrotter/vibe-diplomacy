@@ -23,9 +23,27 @@
 - **Position post-build:** A MOS, A GAL, F RUM, F BOT, A UKR (5 units, 5 centers)
 - Ready for S1902M movement phase
 
-## Next phase (S1902M)
-- Watch Austria's response in GAL (expect bounce or consolidation)
-- Push for more centers via BLA and southern route
-- Maintain coordination with Turkey on Ottoman border
-- Keep Germany neutral by honoring BOT arrangement
-- Use new MOS army for Balkan/Central Europe pressure
+## S1902M executed
+- **F RUM → BUL/EC** (claim Black Sea coast, southern expansion)
+- **A UKR → RUM** (follow-up to southern advance)
+- **A GAL → BUD** (aggressive: attack Austria's S1901 build, show I won't be contained as leader)
+- **F BOT → SWE** (secure northern empty center, expand Baltic)
+- **A MOS → STP** (hold and defend home)
+
+Messages sent:
+- To GERMANY: Reaffirmed NAP, BOT neutral, promised focus on south/east
+- To TURKEY: Reaffirmed Black Sea coordination, mutual defense
+
+Rationale:
+- I'm at 5 centers, leading the board. Expect containment from others.
+- Aggressive GAL→BUD move signals I'll fight for position, not just grow passively.
+- Southern push (RUM+UKR) aims to grab BUL and expand toward Turkish border.
+- Northern (BOT→SWE) keeps pace with German growth.
+- Maintaining Germany & Turkey relationships to avoid being triple-teamed.
+
+## Next phase
+- Monitor if Austria retaliates for BUD attack
+- If BUL bounces, consider repositioning A UKR
+- Watch for alliance signals from others (they may try to contain my lead)
+- Turkey likely building more armies—may need to defend Black Sea more actively
+- Continue southern expansion toward GRE and eastern Mediterranean
