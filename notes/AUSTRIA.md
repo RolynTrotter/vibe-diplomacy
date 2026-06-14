@@ -90,3 +90,15 @@ Diplomacy:
 - **RUSSIA**: Warned against taking VIE—my army moving there, expect it to remain mine
 - **TURKEY**: Confirmed NAP—GRE is survival, not aggression. Balkan spheres respected.
 Strategy: Consolidate 5-center power status. Defend core (VIE-BUD-TRI), maintain Balkan control (SER, soon GRE). Prepare for potential Russia conflict next turn.
+
+## S1904M submission (OFFENSIVE AGAINST RUSSIA!)
+Orders: A VIE - GAL, A SER - RUM, A BUD - VIE, A TRI H, F GRE H
+Rationale:
+- **A VIE - GAL**: AGGRESSIVE—push Russia's A GAL back from my core. Vienna needs to hold the center; GAL is contested but taking it signals strength.
+- **A SER - RUM**: Direct attack on Russia's Rumania. Russia's A RUM is there, but winning this contest gains a center.
+- **A BUD - VIE**: Support Vienna defensively; creates a 2-army fortress at BUD-VIE.
+- **A TRI H, F GRE H**: Hold Balkans; maintain fleet in Mediterranean.
+Diplomacy sent:
+- **RUSSIA**: Signaled A VIE - GAL move for consolidation, not aggression. Requested peace.
+- **ALL POWERS**: Broadcast NAP confirmation. Italy and Turkey remain allied; respect Adriatic DMZ and Balkan coexistence.
+Strategy: Shift from defensive consolidation to offensive expansion. Russia is tied at 5 centers with me; gaining RUM would give 6, while defending GAL pushes them back. Next goal: climb to 6-7 centers by contesting Balkans aggressively. Win condition: 9 centers (need 4 more).
