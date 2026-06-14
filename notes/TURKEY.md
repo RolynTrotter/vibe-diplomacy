@@ -75,8 +75,39 @@
 - **RUSSIA**: Black Sea NAP confirmed. Mutual stability; both monitoring broader board.
 - **ITALY**: Eastern expansion (ARM) non-threatening to Italian holdings (Mediterranean/Aegean).
 
-## Next Phase Plan (W1902A & S1903M)
-- If ARM captured: Adjust to 5 centers; expect build or no adjustment
-- Monitor Austria's next moves (now at 5 centers if GRE taken)
-- Watch for Russia-led coalitions as game progresses
-- Turkey at 5 centers + 4 units is now competitive; focus on stability with Austria/Russia while others clash
+## Winter 1902 (W1902A) — ADJUSTED
+- **Status**: ARM successfully captured; no adjustment needed (4 units, 4 centers maintained—ARM not counted in center total)
+- **Rationale**: Units sufficient for current position; focus on consolidation rather than expansion for now
+
+## Spring 1903 (S1903M) — SUBMITTED
+- **Orders**: A BUL - GRE, F BLA H, A ARM H, A CON H
+- **Rationale**:
+  - A BUL → GRE: Capture the empty supply center (5th center—critical for competitive growth)
+  - F BLA H: Hold Black Sea position; maintain defensive posture and NAP with Russia
+  - A ARM H: Hold Armenia; consolidate eastern position
+  - A CON H: Hold home center; maintain CON as core holding
+- **Diplomatic moves**:
+  - Messaged AUSTRIA: Clarified A BUL moving to GRE; confirmed Balkan NAP remains intact
+  - Messaged RUSSIA: Confirmed Black Sea coordination continues; F BLA defensive posture intact
+- **Strategy**: Capture GRE (uncontested this turn) to reach 5 centers and match competitive powers. Austria's earlier threat to take GRE did not materialize; window of opportunity seized.
+
+## Current Standings (after S1903M submission)
+- RUSSIA: 5 centers (still leading; 5 units)
+- TURKEY: 4→5 centers (GRE capture pending; 4 units)
+- AUSTRIA: 4 centers (threatened but did not take GRE; 4 units)
+- ENGLAND: 5 centers, 5 units (strong)
+- ITALY, GERMANY, FRANCE: 4, 4, 4 centers respectively
+
+## Diplomatic Status (S1903M)
+- **AUSTRIA**: Balkans NAP holds; A BUL → GRE acknowledged as non-threatening (south of Balkans)
+- **RUSSIA**: Black Sea NAP continues; F BLA holds line; mutual defense agreement stable
+- **ITALY**: Aegean NAP holds; no pressure on Italian territories
+- **ENGLAND, FRANCE, GERMANY**: No direct contact yet; monitoring broader alliances
+
+## Next Phase Plan (F1903M & beyond)
+- If GRE captured: Turkey reaches 5 centers (parity with Russia, England)
+- Monitor if Austria or others contest the GRE capture during adjudication
+- Prepare for potential coalition-building as mid-game approaches (5-player parity)
+- Maintain NAP discipline with Austria/Russia; watch for signs of larger conflicts (Germany-France-Austria triangle)
+- Consider positioning for mid-game: either defend 5-center position or look for opportunities to expand eastward if Russia falters
+- Units well-positioned: F BLA (defensive), A BUL (frontline), A ARM (eastern consolidation), A CON (home defense)
