@@ -30,7 +30,9 @@ python -m orchestration.conduct roster
 - `to_play: []` → trivial phase (no dislodgements / all-zero adjustment) → skip to **d**
 - otherwise → continue
 
-### b. Negotiation rounds (full-press only)
+### b. Negotiation rounds (full-press + movement phases only)
+Skip entirely if `phase_type` is `R` or `A` — negotiation only happens in movement phases.
+
 Run 1–3 rounds **before** orders. Build a brief per power, then fan out all live powers in parallel with this task:
 
 > You are **P** on `game/<name>`. Brief: «paste brief output».
