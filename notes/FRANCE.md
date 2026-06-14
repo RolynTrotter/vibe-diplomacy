@@ -37,3 +37,27 @@
 - A BUR — central frontier, defensive/flexible
 - F POR — western flank, controls Atlantic approaches
 - A PAR — new build, central France support
+
+## S1903M Orders Submitted
+```
+F POR - SPA/SC       # Grab empty supply center Spain (coast)
+A MAR - GAS          # Advance toward western Med expansion
+A BUR - MAR          # Consolidate south, support expansion
+A PAR - BUR          # Centralize and support the push
+```
+
+Expected result (S1904M positioning):
+- **F SPA/SC**: Controls Spain (new center!)
+- **A GAS**: Western expansion gateway
+- **A MAR**: Southern consolidation
+- **A BUR**: Central support/reserves
+- **Centers after S1903M**: BRE, MAR, PAR, POR, **SPA** (5 total!)
+
+## Next Phase Strategy (F1903M)
+1. **Push for LYO**: Now at 5 centers with SPA. Next target is LYO for Mediterranean consolidation.
+   - A GAS could support westward expansion
+   - A MAR or fleet could move toward LYO
+2. **Monitor Russia/England**: At 5 centers each, they may become aggressive. Stay alert.
+3. **Italy coordination**: Confirm western/eastern boundary still holds. TYS/ION/NAP is theirs.
+4. **Germany NAP**: Continue respecting RUH/MUN/BEL. No conflict expected.
+5. **Build plan**: If supply centers continue, we'll build toward 6-7 centers by F1903A.
