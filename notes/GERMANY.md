@@ -9,25 +9,33 @@
 
 ## Trust & deals
 - AUSTRIA: neighbor | **FORMAL NAP F1901** — coordinating vs Russian expansion in Central Europe
-- ENGLAND: distant | **FORMAL NAP F1901** — defensive alliance, monitoring RUSSIA (4 centers)
-- FRANCE: neighbor to west | no deal yet | probing intentions
+- ENGLAND: distant | **FORMAL NAP F1901** — defensive alliance, monitoring RUSSIA (now 5 centers, leading)
+- FRANCE: neighbor to west | no deal yet | probing intentions (has 3 units: GAS, MAR, WES)
 - ITALY: neighbor | no deal yet | watch carefully
-- RUSSIA: northern threat | 4 centers | **PEACEFUL OPENING F1901** — non-aggression proposed, respects GAL/RUM
+- RUSSIA: northern threat | **5 centers (LEADING!)** | peaceful opening holding; BOT neutral per agreement
 - TURKEY: far away | no formal deal
 
-## F1901 orders submitted
-- F DEN - SWE: test Scandinavia, probe RUSSIA/ENGLAND commitments
-- A KIE - BER: consolidate heartland, defend German core
-- A RUH - MUN: prepare southern depth, ready for Balkans or Rhine defense
+## S1902M Orders submitted
+- **F DEN - SWE**: Aggressive expansion into Scandinavia (supply center). Racing against RUSSIA F BOT.
+- **A KIE - HOL**: Seize Holland (supply center) to establish western presence and threaten FRANCE.
+- **A MUN - RUH**: Consolidate central position at crossroads (not a supply center, but strategic depth).
+- **A BER - KIE**: Reposition consolidation army toward the action.
 
-## W1901A — Adjustment submitted
-- Built A KIE (Army at Kiel) to consolidate heartland strength
-- Units now: F DEN, A BER, A MUN, A KIE (4 units, 4 centers)
-- This prepares for either Baltic expansion (via DEN/SWE) or Rhine/Balkans options
+This phase targets two new supply centers (SWE, HOL), moving from 4→6 centers if both succeed. Aggressive but defensible given NAPs with AUSTRIA and ENGLAND.
 
-## Next phase (S1901)
-- Monitor SWE (critical: does RUSSIA fleet from BOT contest? Does ENGLAND support?)
-- Assess whether AUSTRIA honors NAP and coordinates vs RUSSIA
-- Watch FRANCE moves — if aggressive westward, prepare Rhine defense
-- If RUSSIA takes hostile action despite peaceful words, activate AUSTRIA alliance
-- New A KIE ready to support expansion toward RUH or defend BERLIN core as needed
+## Key risks
+- RUSSIA may contest SWE with F BOT
+- FRANCE may object to HOL move (threatens them)
+- Central Europe could become contested if AUSTRIA breaks NAP
+
+## Next phase (F1902)
+- If SWE and HOL both hold: 6 centers. Build toward depth (consider fleet or army depending on board).
+- Monitor FRANCE response. If aggressive, prepare Rhine defense with AUSTRIA support.
+- If SWE contested: expect F BOT - SWE or F BOT S (some unit). Adjust westward pressure.
+- Maintain NAP with AUSTRIA and ENGLAND. Assess if RUSSIA is truly peaceful (5 centers is dominant).
+
+## Tactical notes
+- RUH is not a supply center but controls key routes (BEL, BUR, HOL, KIE, MUN adjacencies).
+- HOL is critical: it threatens BEL (ENGLAND controls), and controls routes to NTH and RUH.
+- SWE gives access to BAL, BOT, NWY, SKA—control of northern trade.
+- A BER moving to KIE frees BER for future defense if RUSSIA or FRANCE turns hostile.
