@@ -33,4 +33,16 @@
 ## Units positioning (end of S1902M)
 - F SPA/SC (was WES) — control western Mediterranean
 - A BUR (was GAS) — central frontier position, can support GAS→LYO next or defend
-- A PIE (was MAR) — potential threat to Italy's TUN or support LYO
+- A MAR (unchanged) — south position
+
+## F1902M Actions
+- **Submitted**: F SPA/SC - POR (capture Portugal = 4th center!)
+- **Submitted**: A BUR - RUH (centralize for defensive/offensive flexibility)
+- **Submitted**: A MAR - PIE (advance toward Italy, threaten TUS/TYS region)
+- **Diplomacy**: No incoming messages; focused on execution
+- **Rationale**: 
+  - POR capture reaches parity with others at 4 centers
+  - RUH is central, can support vs Germany if needed, or pivot south
+  - PIE threatens Italy's southern holdings, supports eventual LYO/TYS expansion
+  - German NAP remains intact (not advancing into MUN/KIE)
+  - Monitoring Russia's lead (5 centers); coordinate with England next turn if Russia overexpands
