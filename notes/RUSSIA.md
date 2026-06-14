@@ -59,9 +59,35 @@ Rationale:
 - GAL→BUD continues Austria pressure; STP→FIN secures north; F SEV holds southern stronghold
 - Germany + Turkey relationships critical to survive the alliance phase (expect 2-3 powers to coalition)
 
-## Next phase (W1902A)
-- If I hold BUD, will have 6 centers (MOS, SEV, STP, WAR, RUM, BUD) — major breakout!
-- Else adjust: defend RUM, possibly build A WAR for Balkans punch
-- Watch for any anti-Russia coalition (most likely: Austria + Italy vs my lead)
-- Turkey still quiet but building armies — may pivot against me if I weaken Germany too much
-- Germany likely building north (KIE area) — monitor for treachery after our SWE deal
+## W1902A adjustment
+- **Built:** A UKR (army consolidates southern advance) — likely
+- **Position post-phase:** A MOS, A GAL, A RUM, F RUM, F BOT, A UKR (6 units expected if BUD held)
+- Waiting for adjudication
+
+## S1903M (CURRENT PHASE)
+**Situation:** Tied with England at 5 centers. Austria isolated at 4, others at 4. Germany confirmed NAP, Turkey confirms Black Sea coordination. Still expecting containment coalition but have 2-turn window to grab ground.
+
+**Orders submitted:**
+- **A FIN - SWE** (expand north, claim empty Scandinavia before England F NWY gets it)
+- **A GAL - BUD** (continued aggression on Austria, BUD is their crown jewel)
+- **A RUM - BUL** (push south/east, leverage Turkey's attention on GRE)
+- **F BAL - BOT** (secure Baltic, avoid bounce with A FIN on SWE)
+- **F SEV - BLA** (hold Black Sea, honor Turkey NAP, maintain southern stronghold)
+
+**Expected results:**
+- If BUD taken: 6 centers (MOS, SEV, STP, WAR, RUM, BUD)
+- If SWE taken: 7 centers total
+- Austria will be at 3 centers (VIE, SER, TRI) — vulnerable to total elimination
+- England still tied or ahead depending on their growth
+
+**Next threats:**
+- England (5 units) will likely strike at Germany or France, watching Baltic
+- Austria will try to trade with Italy/Germany to survive
+- Germany still on NAP but may turn if I get too far ahead
+- Turkey expanding south (GRE) — keep Black Sea calm
+
+**Strategy going forward:**
+- If both SWE and BUD succeed: aggressive consolidation, seek 8-9 center wincon
+- If blocked: prepare defensive posture, negotiate with Germany to contain England
+- Watch for anti-Russia coalition forming (most likely: England + France + Austria)
+- Turkey is still neutral but could turn if I push too far south into Turkish expansion zones
