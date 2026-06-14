@@ -1,0 +1,24 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "F LVP B"
+    ],
+    "FRANCE": [
+      "A PAR B"
+    ],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1902A",
+  "results": {
+    "A PAR": [
+      ""
+    ],
+    "F LVP": [
+      ""
+    ]
+  }
+}
