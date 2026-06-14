@@ -123,3 +123,42 @@ Strategy: Shift from defensive consolidation to offensive expansion. Russia is t
 - Watch Turkey — they hold BUL and SEV; important they stay anti-Russia
 - Watch Italy in AEG/EAS — strong fleet position, make sure they don't pivot to Adriatic
 - Russia is down to 4 units vs 5 centers (+1 build); they will rebuild — stay aggressive
+
+## F1904M actual outcome
+- BUD successfully retaken via A GAL - BUD + A VIE support (2v1 Russia)
+- SER - RUM bounced (Russia held RUM)
+- A TRI H, F GRE H: both held
+- Result: Back to 5 centers (BUD, TRI, VIE, SER, GRE) — no build in W1904A
+- Russia rebuilt 2 units (A MOS + A WAR = now at 5 units vs 5 centers)
+- Italy built F NAP — now very strong fleet (F ION, F SMY, F NAP)
+- Italy holds SMY! This means Italy is expanding into Turkish territory
+
+## S1905M submission
+Orders:
+- A SER - BUL (attack Turkey's BUL — supply center grab!)
+- F GRE S A SER - BUL (2-unit assault on BUL)
+- A BUD - RUM (opportunistic — if Russia's A RUM moves, we take it)
+- A VIE - BUD (chain move, maintain defensive depth)
+- A TRI H (hold Trieste)
+
+Rationale:
+- BUL is Turkey's center adjacent to SER; 2v1 assault with GRE support should succeed unless Turkey gets outside help
+- A BUD - RUM: Russia's A RUM might move to GAL/SER this spring; if so, RUM falls to us
+- England leads at 6 — must grow this phase. BUL would bring us to 6 (parity with England!)
+- Diplomatic: Messaged Italy (coordination), Turkey (warned about BUL), Russia (de-escalation)
+
+## Current threat assessment (S1905M)
+- ENGLAND: 6 centers, strong fleet (NWY, HOL, IRI, MAO, EDI) — growing fast, must catch up
+- RUSSIA: Rebuilding (A MOS + A WAR added); hostile but may de-escalate if we show strength
+- TURKEY: Stressed (lost SMY to Italy, holds SEV tenuously vs Russia); A BUL under attack from us
+- ITALY: Strong ally (F ION, F SMY, F NAP) — doing well, expanding into Turkey
+- FRANCE: A MAR, A SPA, A GAS, A PIC, F TYS — western bloc, Germany's A BUR threatens them
+- GERMANY: A BUR threatening France — may absorb western centers
+
+## Next phase priorities (after S1905M)
+- If BUL taken: 6 centers, build 1 unit (A BUD or A VIE — probably A BUD to fill chain)
+- If RUM also taken: 7 centers, build 2 units — need grand strategic pivot
+- Continue alliance with Italy; watch for Italy opportunism in Adriatic
+- Russia containment: GAL/RUM contested space; A VIE is the backbone
+- Turkey: may need to further press CON/SEV eventually (coordinate with Italy)
+- England: start watching — at 6 centers they're getting dangerous; we need 9 to win
