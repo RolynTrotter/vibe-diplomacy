@@ -38,9 +38,29 @@
 - Turkey and Austria alignments still hold; monitoring their moves next phase
 - Russia leading at 5 centers — eventual northern threat but distant for now
 
-## Next phase (F1902M)
-- Assess outcomes of Greek expansion attempts (will Turkey or Austria have grabbed it?)
-- If Greece remains unowned, plan F ION → GRE
-- If Turkey secures Greece, honor Aegean non-aggression and shift westward (Egyptian route)
-- Monitor northern consolidation; be ready to reposition if France/Germany threaten balance
-- Continue reinforcing centers; no builds due yet
+## F1902M outcome (pending adjudication)
+- **Board state before F1902M:**
+  - Units: A TUS, A VEN, F TYS, F ION
+  - Centers: NAP, ROM, VEN, TUN (4/4)
+- **Key events in F1902M:**
+  - GRE contested: Austria (F ALB → GRE), Turkey (A BUL → GRE), I attempted to avoid 3-way by holding position
+  - TUN secured: Maintained control (no order submitted; unit is F TYS after S1902M)
+  - Adriatic DMZ with Austria still holds
+  - France and western Med: Aligned on mutual non-aggression (France focuses WES/LYO, I focus TYS/ION/NAP)
+  - Turkey expanding east (ARM) — non-threatening, Aegean non-aggression holds
+  - Russia at 5 centers (still leading); future threat but distant
+
+## W1902A (Winter Adjustment) diplomacy
+- **Sent to FRANCE**: Confirmed western Med division — I keep TYS/ION/NAP corridor, France keeps WES/LYO/TUN zone
+- **Sent to AUSTRIA**: Confirmed alliance against Russia, respect Adriatic DMZ
+- **Sent to TURKEY**: Confirmed Aegean non-aggression, Turkey free to expand east, I focus west
+- **Adjustment owed**: 0 (4 units, 4 centers) — no builds or disbands needed
+- **Status**: Waiting on ENGLAND and FRANCE to submit winter adjustments before S1903M begins
+
+## Next phase (S1903M)
+- Once winter adjusts, spring movement begins
+- Current units should be: A TUS, A VEN, F TYS, F ION (pending F1902M adjudication)
+- Plan: Consolidate Mediterranean, push toward Egypt or contested Greece based on F1902M outcome
+- Monitor Austria/Turkey actions; maintain non-aggression pacts
+- Watch France/Germany/Russia northern moves — adjust alliances if balance shifts
+- Continue building naval superiority in Med for long-term dominance
