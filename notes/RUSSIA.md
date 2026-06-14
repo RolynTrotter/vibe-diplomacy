@@ -18,8 +18,14 @@
 - F RUM → BLA (secure Black Sea, coordinate with Turkey)
 - F BOT → SWE (expand north, stable opening with Germany)
 
+## W1901A adjustment
+- **Built:** A MOS (reinforces northern/central presence)
+- **Position post-build:** A MOS, A GAL, F RUM, F BOT, A UKR (5 units, 5 centers)
+- Ready for S1902M movement phase
+
 ## Next phase (S1902M)
 - Watch Austria's response in GAL (expect bounce or consolidation)
 - Push for more centers via BLA and southern route
 - Maintain coordination with Turkey on Ottoman border
 - Keep Germany neutral by honoring BOT arrangement
+- Use new MOS army for Balkan/Central Europe pressure
