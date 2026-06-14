@@ -54,13 +54,37 @@
 - ITALY: 5 centers, southern focus
 - TURKEY: 4 centers (stabbed Russia earlier per F1904M messages)
 
-## Next phase priorities (F1905M)
-- Consolidate PAR if captured. Build unit in W1905A if at 5 centers (army in BER).
-- If PAR bounced: A BUR + A RUH in place — try again with support from both.
-- Push anti-England coalition: Russia from north, Austria from south.
-- England must be challenged — cannot let them reach 7-8 centers.
-- Consider F DEN → NTH or SWE if opportunity arises.
-- Watch for Austrian opportunism against Germany's east flank.
+## F1905M — SURVIVAL MODE — Orders Submitted
+
+**Situation**: S1905M Paris attack FAILED (A PIC bounced or France defended). 
+- Germany has: A KIE, A RUH, F DEN, A BUR — 4 centers BER, KIE, MUN, DEN
+- England has F HEL + F NTH — 2v1 attack on DEN is imminent!
+- France has A PIC adjacent to BUR (my territory), A GAS nearby
+
+**Orders submitted (F1905M)**:
+- **F DEN H**: Hold Denmark
+- **A KIE S F DEN**: Bring DEN defense to 2 strength — creates 2v2 standoff vs England!
+- **A BUR → MUN**: Retreat to safety + ease France's concern about BUR
+- **A RUH H**: Hold, consolidate
+
+**Rationale**: Without A KIE support, England takes DEN 2v1 and Germany falls to 3 centers + must disband. The support creates a standoff — England cannot take DEN cleanly.
+
+**Diplomatic messages sent F1905M**:
+- FRANCE: Proposed Germany pulls A BUR back (which I did), asked France NOT to attack BUR/MUN this phase. Offered coalition vs England (the board leader at 6 centers).
+- RUSSIA: Urged anti-England coalition — England threatens SWE/Scandinavia = Russia's turf too.
+- ENGLAND: Warned them taking DEN removes their buffer vs France/Russia; offered genuine DEN-for-HOL partition.
+
+**Trust update**:
+- ENGLAND: **ENEMY** — 2v1 attacking DEN. No trust.
+- FRANCE: **POTENTIAL ALLY** — need them to not stab BUR/MUN while I'm defending DEN. Paris attack gone wrong has damaged trust. Need to rebuild.
+- RUSSIA: **POTENTIAL ALLY** — shared interest in checking England. Russia has A SWE, F BOT.
+
+## Next phase priorities (W1905A / S1906M)
+- If DEN holds (2v2 standoff with A KIE support): RELIEF! Rebuild trust, form anti-England coalition.
+- If DEN falls (England breaks standoff somehow): Germany at 3 centers, must disband 1 unit. Very dire.
+- Priority coalition: France + Germany + Russia vs England.
+- Key: convince France that A PIC→BUR is suicide when England threatens everyone.
+- Consider offering France HOL corridor via diplomacy once England is contained.
 
 ## Historical orders
 - S1902M: F DEN-SWE, A KIE-HOL, A MUN-RUH, A BER-KIE
@@ -70,3 +94,4 @@
 - S1904M: F DEN-SWE, A KIE-HOL, A RUH-BEL, A MUN-RUH (ALL BOUNCED)
 - F1904M: F DEN-SWE, A MUN-BUR, A RUH S A MUN-BUR, A KIE H (BUR succeeded!)
 - S1905M: A BUR-PAR, A RUH-BUR, F DEN H, A KIE-RUH
+- F1905M: F DEN H, A KIE S F DEN, A BUR-MUN, A RUH H (DEFENSIVE — hold DEN vs England 2v1)
