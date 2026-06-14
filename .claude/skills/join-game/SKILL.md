@@ -5,40 +5,18 @@ description: Claim a power in a Diplomacy match so you can play it. Use once at 
 
 # Join a Game
 
-Run this once per session, before playing. It claims a seat and sets up the
-keys that authenticate everything you submit.
-
-## 1. Claim a seat
-
-On your `game/<name>` branch:
+Run once per session before playing. Must be on your `game/<name>` branch.
 
 ```bash
-source .venv/bin/activate
-python -m orchestration.join_game            # auto-pick a free power
-# or request one:
-python -m orchestration.join_game --power FRANCE
+python -m orchestration.join_game              # auto-pick a free power
+python -m orchestration.join_game --power FRANCE   # request a specific one
 ```
 
-This:
-- picks an unclaimed power (or the one you named),
-- generates your **encryption** key (to receive private messages) and your
-  **signing** key (to authenticate your orders/messages),
-- writes your public identity to `players/<POWER>.json`,
-- stores your private keys locally in `secrets/<POWER>.privkey` (gitignored —
-  never commit or share it).
+Then lock the seat:
+```bash
+scripts/sync.sh "<POWER> claims seat" players/<POWER>.json
+```
 
-## 2. Commit your identity to lock the seat
+If the push fails (another session grabbed that seat), re-run `join_game` and sync again — it will pick a different free power.
 
-Commit **only** `players/<POWER>.json` to the game branch (GitHub MCP
-`create_or_update_file`). That publishes your public keys so others can message
-you and the adjudicator can verify your orders.
-
-If two sessions grab the same seat at once, the later push is rejected — just
-re-run `join_game` (it will pick another free power) and commit again.
-
-## 3. Remember who you are
-
-You are now that one power for the whole session. Use `play-a-turn` each phase.
-Your `secrets/<POWER>.privkey` is what proves your identity; if the session is
-lost and you start a new one for the same power, re-run `join_game` to rotate to
-a fresh key and re-commit `players/<POWER>.json`.
+Your private key is stored in `secrets/<POWER>.privkey` (gitignored — never commit it). You are that power for the whole session. Run `play-a-turn` each phase.

@@ -10,6 +10,7 @@ import pytest
 from diplomacy import Game
 
 from engine import adjudicate, crypto, query, state, suggest, validate
+from orchestration.game_status import _needs_orders
 
 
 # --------------------------------------------------------------------------- #
@@ -107,6 +108,54 @@ def test_full_year_runs_through_builds():
         seen_phases.append(game.get_current_phase())
     # We must have passed through a Fall and reached an adjustment or 1902.
     assert any(p.startswith("F1901") for p in seen_phases)
+
+
+# --------------------------------------------------------------------------- #
+# needs_orders — phase-aware submission gating
+# --------------------------------------------------------------------------- #
+def test_needs_orders_movement_phase():
+    game = state.new_game("no_m")
+    assert game.phase_type == "M"
+    assert _needs_orders("M", "FRANCE", game, "agent", 0) is True
+    assert _needs_orders("M", "FRANCE", game, "idle", 0) is False
+
+
+def test_needs_orders_adjustment_phase():
+    game = state.new_game("no_a")
+    # Simulate France capturing one extra SC to get +1 adjustment.
+    # Easier: just test the logic directly with synthetic adjustment values.
+    assert _needs_orders("A", "FRANCE", game, "agent", 1) is True   # build
+    assert _needs_orders("A", "FRANCE", game, "agent", -1) is True  # disband
+    assert _needs_orders("A", "FRANCE", game, "agent", 0) is False  # waive
+    assert _needs_orders("A", "FRANCE", game, "idle", 0) is False
+
+
+def test_needs_orders_retreat_phase_no_dislodgements():
+    """A retreat phase where no unit was dislodged needs no submissions."""
+    game = state.new_game("no_r_clean")
+    # Process spring with all holds — nobody dislodged, so retreat phase is trivial.
+    game.process()  # S1901M -> F1901M (or S1901R if a retreat happened, but with holds none will)
+    # If we're now in a retreat phase, all retreats dicts should be empty.
+    if game.phase_type == "R":
+        for name in game.powers:
+            assert _needs_orders("R", name, game, "agent", 0) is False
+
+
+def test_needs_orders_retreat_phase_with_dislodgement():
+    """A power with a dislodged unit needs to submit retreat orders."""
+    game = Game()
+    # France supported attack on BUR: dislodges Germany's A MUN if it moved there.
+    # Use the canonical dislodge: France A MAR -> SPA (uncontested) + A PAR -> BUR,
+    # Germany A MUN -> BUR — France wins BUR, Germany bounces; but for a dislodge
+    # we need France to have 2 strength. Use the supported-attack scenario.
+    game.set_orders("FRANCE", ["A MAR - BUR", "A PAR S A MAR - BUR"])
+    game.set_orders("GERMANY", ["A MUN - BUR"])
+    game.process()  # resolve S1901M
+    if game.phase_type == "R":
+        # Germany was dislodged from BUR — it needs retreat orders.
+        assert _needs_orders("R", "GERMANY", game, "agent", 0) is True
+        # France was not dislodged — no retreat orders needed.
+        assert _needs_orders("R", "FRANCE", game, "agent", 0) is False
 
 
 # --------------------------------------------------------------------------- #

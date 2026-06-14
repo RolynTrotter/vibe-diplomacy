@@ -5,69 +5,26 @@ description: Answer questions about the current Diplomacy board — what units a
 
 # Check Board State
 
-All answers come straight from the live engine, so they can never drift from
-the authoritative `state/current.json` on your game branch.
+Your brief (from `scripts/turn.sh`) already contains a board snapshot. Only query directly if you need something the brief doesn't cover.
 
-## Setup (once per session)
-
+## Full snapshot
 ```bash
-./scripts/setup.sh        # creates .venv and installs the engine
-source .venv/bin/activate
+python -m orchestration.game_status          # human-readable table
+python -m orchestration.game_status --json   # machine-readable
 ```
 
-## Commands
-
-Whole-board snapshot (phase, every power's units/centers, build/disband owed):
-
-```bash
-python -m orchestration.game_status            # human-readable table
-python -m orchestration.game_status --json     # machine-readable
-```
-
-Targeted province / board questions:
-
-```bash
-python - <<'PY'
+## Targeted queries
+```python
 from engine import state, query
 g = state.load_game(".")
 
-# What is adjacent to a province?
-print(query.adjacencies(g, "PAR"))
-
-# Full info on a province (type, SC?, owner, occupier, neighbours)
-print(query.province_info(g, "BUR"))
-
-# Who occupies a province right now?
-print(query.units_at(g, "MAO"))
-
-# Build/disband owed per power (+build / -disband)
-print(query.adjustment_summary(g))
-PY
+query.adjacencies(g, "PAR")        # provinces adjacent to PAR
+query.province_info(g, "BUR")      # type, SC?, owner, occupier, neighbours
+query.units_at(g, "MAO")           # who is in MAO
+query.adjustment_summary(g)        # build/disband owed per power
+query.full_graph(g)                # {PROV: {units, adjacent}} for every province
 ```
 
-Whole-map graph — every province at once (what unit is in it and what it
-connects to):
+Province codes are 3-letter (PAR, BUR, MAO). Coasts use a suffix: `SPA/SC`.
 
-```bash
-python - <<'PY'
-from engine import state, query
-g = state.load_game(".")
-
-for prov, info in sorted(query.full_graph(g).items()):
-    occ = ", ".join(info["units"]) or "empty"
-    print(f"{prov}: [{occ}]  ->  {', '.join(info['adjacent'])}")
-PY
-```
-
-`query.full_graph(g)` returns `{PROV: {"units": [...], "adjacent": [...]}}` for
-every province (coasts collapsed onto their base), so you can see the whole
-board's shape and occupancy in one pass.
-
-## Notes
-- Province codes are the standard 3-letter abbreviations (PAR, BUR, MAO…).
-  Coasts use a suffix like `SPA/SC`.
-- You can read the public history of resolved phases in `history/<phase>.json`
-  (every power's revealed orders and results) — useful for reading intentions.
-- You can NOT see other powers' *pending* orders for the current phase: they
-  are sealed (`orders/<POWER>/<phase>.enc`) and only the adjudicator can open
-  them. That secrecy is the whole game.
+**You cannot see opponents' pending orders** — only the public board and revealed `history/`. Sealed `.enc` files are unreadable until adjudication.

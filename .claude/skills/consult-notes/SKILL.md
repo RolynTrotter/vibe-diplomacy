@@ -5,40 +5,38 @@ description: Read and update your power's private strategy notebook — long-ter
 
 # Consult Notes
 
-Your container is ephemeral; your memory is not. Keep durable strategy in
-`notes/<YOUR_POWER>.md` on your game branch. Read it when you start a turn,
-append to it when your plans or trust assessments change.
+Your brief (from `scripts/turn.sh`) already includes your latest notes. No extra read needed.
 
-> Privacy in gunboat: there is no in-game messaging yet, so these are private
-> self-notes. When full-press comms land (plan Epic 5) notes become central to
-> tracking promises and betrayals.
-
-## Read your notes
-
+## Update
+Overwrite `notes/<POWER>.md` each phase — never append. Target: under 250 words.
 ```bash
-cat notes/FRANCE.md 2>/dev/null || echo "(no notes yet)"
+scripts/sync.sh "<POWER> notes" notes/<POWER>.md
 ```
 
-## Update your notes
-
-Edit `notes/FRANCE.md`, then commit it to your game branch with the GitHub MCP
-(`create_or_update_file`). Commit ONLY your own notes file.
-
-## Suggested structure
+## Format — three sections only
 
 ```markdown
-# FRANCE — strategy notebook
+# <POWER> — strategy notebook
 
 ## Standing plan
-- Open to the Atlantic + Iberia; aim for MAO, SPA, POR by Fall 1901.
+- <3–5 strategic goals, stable across the game>
 
-## Trust / read on opponents
-- ENGLAND: bounced me in the Channel S1901M — treat as hostile.
-- GERMANY: moved away from me — possible ally vs England.
+## Trust & deals
+- ENGLAND: trusted | DMZ: F ENG mutual (no fleet in ENG from either side)
+- FRANCE: suspicious — probed BUR | non-aggression: BUR/MAR quiet both ways
+- GERMANY: neutral | deal: Belgium conceded to GER
+- ITALY: reliable | DMZ: PIE + ADR mutual
+- RUSSIA: hostile, 4 centers | no deal
+- TURKEY: unknown | no deal
 
-## Reminders for next phase
-- Don't leave MAR undefended if Italy builds a fleet.
+## Next phase
+- <2–3 reminders for the coming phase only — replaced every turn>
 ```
 
-Keep it short and current — prune stale lines so the top of the file always
-reflects your live plan.
+The `|` separates your read (left) from active treaty terms (right). **Check deals before submitting orders** — if a move would violate one, either honor it or note the betrayal explicitly.
+
+## What NOT to write
+- Resolved orders — already in `history/`
+- Board state — comes from the brief
+- Diplomatic transcripts — live in the mail pool
+- Decision rationale — think it, don't commit it
