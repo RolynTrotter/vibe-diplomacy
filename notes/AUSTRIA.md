@@ -1,22 +1,27 @@
 # AUSTRIA — strategy notebook
 
 ## Standing plan
-- Expand toward Italy and Serbia (natural southern expansion)
+- Expand toward Balkans (primary) — take RUM, GRE, BUL region
 - Preserve relationship with Germany (northern ally against Russia)
-- Probe for alliances with Turkey and Italy early
-- Avoid direct conflict with Russia for now (4 centers already)
-- Position to capture 4th center in S1901F or F1901
+- Maintain NAP with Italy (Mediterranean focus) and Turkey (Balkan coexistence)
+- Avoid direct conflict with Russia (4 centers, monitor growth)
+- Position to capture 4th center in S1901F
 
-## Trust & deals
-- GERMANY: neutral | potential ally against Russia
-- ITALY: potential ally | competing for Serbia/Balkan region
-- RUSSIA: powerful but distant | no immediate threat
-- TURKEY: unknown | possible southern expansion partner
+## Trust & deals (F1901M)
+- GERMANY: friendly | natural sphere separation (agreed)
+- ITALY: allied | NAP confirmed—they focus Mediterranean, we focus Balkans
+- TURKEY: allied | NAP confirmed—peaceful Balkan coexistence
+- RUSSIA: monitor | currently leading at 4 centers
 - FRANCE: unknown
-- ENGLAND: unknown
+- ENGLAND: neutral | defensive stance (broadcast)
 
-## Next phase
-- Move F TRI to capture Trieste area expansion
-- A VIE to support southern movement
-- A BUD toward Serbia/Balkans
-- Negotiate with Italy and Turkey about Balkan partition
+## F1901M submission
+Orders: A VIE - BUD (regroup), A SER - RUM (Balkan push), F ALB - GRE (coastal support)
+Messages: Confirmed NAPs with Italy & Turkey, sphere agreement with Germany
+Strategy: Secure Balkans corridor (RUM → BUL/GRE) while respecting southern boundaries
+
+## Next phase (S1901F)
+- Consolidate Balkan gains (target RUM/GRE/BUL)
+- Maintain defensive posture vs Russia
+- Support Italy-Austria-Turkey southern bloc
+- Watch for Russia expansion toward Poland/Balkans
