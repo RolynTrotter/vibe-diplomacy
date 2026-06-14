@@ -31,16 +31,24 @@ scripts/sync.sh "<POWER> notes" notes/<POWER>.md
 - <3–5 bullets: strategic goals that persist across the game>
 - <e.g. "Secure Iberia by F1901, then pivot Atlantic">
 
-## Trust reads
-- ENGLAND: <one line — current read, updated in place each phase>
-- FRANCE: <one line>
-- GERMANY: <one line>
-- … (one line per power you care about)
+## Trust & deals
+- ENGLAND: trusted | DMZ: F ENG (mutual no-go both directions)
+- FRANCE: suspicious — probed BUR despite pact | non-aggression: BUR/MAR quiet
+- GERMANY: neutral | deal: Belgium conceded to GER
+- ITALY: reliable | DMZ: PIE mutual, ADR mutual
+- RUSSIA: hostile, 4 centers | no deal
+- TURKEY: unknown | no deal
+- <one line per power: trust read THEN active treaty terms, updated in place>
 
 ## Next phase
 - <2–3 bullet reminders for the coming phase only>
-- <e.g. "Verify Channel DMZ held before committing F MAO">
+- <e.g. "Verify Channel DMZ held — if ENG in ENG, treat as hostile">
 ```
+
+The `|` separator distinguishes your read (left) from binding commitments (right).
+Before submitting orders, glance at active deals and confirm none of your moves
+violate them. If you're deliberately breaking a deal, note it explicitly so you
+remember the diplomatic fallout.
 
 ## What NOT to put in notes
 
