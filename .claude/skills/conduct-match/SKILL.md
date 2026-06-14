@@ -5,7 +5,9 @@ description: Run a whole Diplomacy match from ONE session by spawning each power
 
 # Conduct a Match
 
-One session, seven subagents. You slice context and adjudicate; subagents do the real playing. Isolation is by context boundary (not crypto) — right for self-play/eval, not distrusting play.
+One session, seven subagents. You slice context and adjudicate; subagents execute specific tasks. Isolation is by context boundary (not crypto) — right for self-play/eval, not distrusting play.
+
+> **Note on `play-a-turn`**: that skill is for single-power 7-session play where each power manages its own full turn. In conductor mode, you orchestrate the steps directly — subagents get targeted tasks, not `play-a-turn`.
 
 ## 0. Setup (once)
 ```bash
@@ -29,20 +31,27 @@ python -m orchestration.conduct roster
 - otherwise → continue
 
 ### b. Negotiation rounds (full-press only)
-Run 1–3 rounds before orders. Each round: fan out all live powers with task _"read inbox and send messages; do NOT write orders yet."_ Commit after each round.
+Run 1–3 rounds **before** orders. Build a brief per power, then fan out all live powers in parallel with this task:
 
-### c. Fan out
-For each `P` in `to_play`, build a brief:
-```bash
-python -m orchestration.conduct brief --power P
-```
-Spawn subagents **in parallel** with:
-> You are **P** on `game/<name>`. Brief: «paste brief». Claim seat if needed (`join-game --power P`), play this phase (`play-a-turn`), use `scripts/submit.sh P` for orders and `scripts/sync.sh` for notes. Reply: "P submitted <phase>".
+> You are **P** on `game/<name>`. Brief: «paste brief output».
+> This is a **negotiation round only** — do not write orders yet.
+> Read your inbox: `python -m orchestration.read_messages --power P`
+> Send messages: `echo "..." | python -m orchestration.send_message --power P --to OTHER`
+> Commit new mail: `scripts/sync.sh "P <phase> messages" mail/`
+> Reply with one line: "P negotiated <phase> round <n>".
 
-- **callstack:** `/call <task for A>, <task for B>, … in parallel` (fresh mode)
-- **native:** one `Agent` call per power in a single message (concurrent)
+Commit between rounds: `git add -A && git commit -m "<phase> press round <n>"`.
 
-Keep briefs disjoint — never give a power another's brief, notes, or inbox.
+### c. Orders round
+Build a fresh brief per power (captures inbox after negotiation), then fan out `to_play` in parallel:
+
+> You are **P** on `game/<name>`. Brief: «paste brief output».
+> Claim your seat if you haven't: `python -m orchestration.join_game --power P && scripts/sync.sh "P claims seat" players/P.json`
+> Negotiation is complete. Submit your orders:
+> `echo "your orders here" | scripts/submit.sh P`
+> Update your notes (`notes/P.md`, 3-section format, ≤250 words) then:
+> `scripts/sync.sh "P notes" notes/P.md`
+> Reply with one line: "P submitted <phase>".
 
 ### d. Adjudicate
 ```bash
@@ -60,4 +69,4 @@ git push origin game/<name>
 Loop back to **a**.
 
 ## Finish
-When `done: true`, push and report the result. Full-press: the adjudicator will have written `mail/revealed.json` for the visualizer post-mortem.
+When `done: true`, push and report the result. Full-press: `mail/revealed.json` has the message transcript for the visualizer post-mortem.

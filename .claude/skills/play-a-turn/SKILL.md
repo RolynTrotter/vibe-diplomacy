@@ -5,6 +5,8 @@ description: Play one full Diplomacy turn end-to-end for your power — orient o
 
 # Play a Turn
 
+> **Single-power sessions only.** If you're a subagent inside a conductor session, follow the task instructions given to you — the conductor sequences negotiation and orders separately, so don't re-invoke this skill.
+
 ## 0. First time in the session
 Claim a seat if you haven't: `join-game`. Commit `players/<POWER>.json`.
 
