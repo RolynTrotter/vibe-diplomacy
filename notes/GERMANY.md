@@ -42,9 +42,25 @@ Rationale: Need to reclaim MUN (empty!), retry HOL with support (breaking ENGLAN
 - **Most likely outcome**: MUN reclaimed, HOL and SWE bounce again. Back to 4 centers.
 - Watch for FRANCE aggression (now at 3 units); assess AUSTRIA/ENGLAND NAP stability given Russia leading at 5.
 
+## S1903M Orders submitted
+- **F DEN - BAL**: Pull fleet south as promised to RUSSIA (backing off SWE). BAL provides northern support.
+- **A KIE - HOL**: Third attempt to capture HOL. Will contest with ENGLAND F BEL move.
+- **A RUH - BEL**: Advance westward into Belgium, pressuring FRANCE/ENGLAND border. Strong support position.
+- **A MUN - RUH**: Consolidate rear support and maint strength in center.
+
+**Diplomatic context**: 
+- RUSSIA offered NAP on SWE (both back off). Accepted to stabilize north and focus on western expansion.
+- ENGLAND proposed taking HOL themselves, offering support vs RUSSIA. Countered with proposal for coordinated growth (ENGLAND takes HOL, GERMANY pushes toward BUR/France).
+- Pivot strategy: Since I cannot beat ENGLAND for HOL alone, advance westward (RUH→BEL) to threaten FRANCE while ENGLAND deals with the HOL situation.
+
+**Risk & opportunity**: 
+- If A RUH→BEL holds, I gain a foothold threatening France/Belgium triangle. Next phase could push A KIE west or A MUN west through RUH.
+- ENGLAND leading at 5 centers (tied RUSSIA); if ENGLAND takes HOL (5→6), I must accelerate growth elsewhere (France, Italy border, or southern Balkans via Austria).
+- AUSTRIA still neutral on NAP stability; monitor for break.
+
 ## Tactical notes
 - RUH is not a supply center but controls key routes (BEL, BUR, HOL, KIE, MUN adjacencies).
 - HOL is critical: it threatens BEL (ENGLAND controls), and controls routes to NTH and RUH.
-- SWE gives access to BAL, BOT, NWY, SKA—control of northern trade.
-- A BER moving to KIE frees BER for future defense if RUSSIA or FRANCE turns hostile.
-- **Support mechanism**: A RUH supporting A KIE into HOL adds weight; if F BEL holds, both units stay in place but support is proven.
+- SWE gives access to BAL, BOT, NWY, SKA—control of northern trade (now neutral per RUSSIA deal).
+- BAL provides northern fleet position without SWE conflict.
+- **Western pivot**: Moving A RUH→BEL establishes German presence in Belgium, threatening FRANCE and keeping ENGLAND honest about western expansion.
