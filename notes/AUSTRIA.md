@@ -54,3 +54,19 @@ Diplomacy sent:
   3. Position for S1903M: RUM is next target (Russian-held but close)
   4. Maintain NAPs with Turkey & Italy; monitor Germany
   5. Watch Russia's next move—they're still dangerous
+
+## F1902M actual outcome
+Orders submitted: F ALB - GRE, A VIE S A BUD, A BUD H, A SER H
+Result: F ALB - GRE BOUNCED (Italy F ION also tried for GRE)
+- Both bounced; GRE remains unoccupied and neutral
+- Centers still: BUD, TRI, VIE, SER (4)
+- W1902A: No builds (0 adjustment)
+
+## S1903M submission (THIRD ATTEMPT FOR GRE!)
+Orders: F ALB - GRE, A VIE - TRI, A BUD - RUM, A SER - BUL
+Rationale:
+- **F ALB - GRE**: GRE still empty. This is the final push—take it before Turkey does. Uncontested now.
+- **A VIE - TRI**: Consolidate core (triple support: BUD, TRI, VIE for strength)
+- **A BUD - RUM**: Continue Balkan expansion; RUM is Russian-held but must contest it
+- **A SER - BUL**: Support the Balkan push; BUL is Turkish-held but we need leverage
+Status: Orders sealed and submitted. Awaiting adjudication.
