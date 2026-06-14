@@ -162,3 +162,43 @@ Rationale:
 - Russia containment: GAL/RUM contested space; A VIE is the backbone
 - Turkey: may need to further press CON/SEV eventually (coordinate with Italy)
 - England: start watching — at 6 centers they're getting dangerous; we need 9 to win
+
+## F1905M submission
+Orders:
+- A BUL H (HOLD to capture BUL as 6th center — do NOT move out!)
+- F GRE H (hold Greece; too exposed to advance fleet)
+- A BUD H (defend against Russia's A GAL — home center must hold)
+- A VIE S A BUD (in case Russia attacks BUD with support from RUM — VIE provides safety)
+- A TRI H (hold Trieste)
+
+Rationale:
+- BUL HOLD is the single most important move — guarantees 6th center capture this fall
+- A GAL (Russia) adjacent to BUD: VIE support prevents a supported 2v1 attack on BUD
+- Entire strategy is defensive consolidation: lock in BUL, protect BUD, hold everything else
+- England leads at 6 centers — Austria reaching 6 this fall restores parity
+
+Diplomacy sent:
+- RUSSIA: Accepted truce proposal — GAL holds, no BUD/VIE attack; Austria won't push into RUM/WAR; agreed both should watch England
+- ITALY: Confirmed holding GRE defensively; Italy keeps squeezing Turkey from CON; discussed long-term England threat
+- GERMANY: Acknowledged England danger; explained Austria's forces tied up defending eastern flank; wished Germany luck against France
+
+## Current trust assessment (F1905M)
+- ITALY: STRONG ALLY — reliable Adriatic DMZ, coordinating anti-Turkey in east, mentioned England as shared threat
+- RUSSIA: TENTATIVE TRUCE — accepted mutual non-aggression; A GAL is still a threat but truce reduces risk; verify they hold in GAL
+- GERMANY: FRIENDLY NEUTRAL — anti-England alignment possible; different theaters
+- TURKEY: DESPERATE — Italy taking SMY+CON, Austria grabbed BUL. Likely losing. Turkey as ally is dead weight now.
+- ENGLAND: EMERGING THREAT — 6 centers and growing. Must match or exceed their pace.
+- FRANCE: UNKNOWN — Germany is pressuring them from BUR. France may reach out for help.
+
+## W1905A projected build
+- After BUL capture: 6 centers (BUD, TRI, VIE, SER, GRE, BUL)
+- Units: 5 (F GRE, A TRI, A VIE, A BUD, A BUL) → build 1
+- Best build: A BUD or A VIE to strengthen the northern core against Russia
+- Alternative: F TRI to build Adriatic naval presence (watch Italy long-term)
+
+## S1906M priorities
+- Russia truce: if it holds, can push A BUL toward RUM or CON with Italy
+- If Russia breaks truce (attacks BUD/VIE): respond with A VIE - GAL counterattack
+- Italy + Austria can split CON/SEV/RUM once Turkey collapses completely
+- Watch England — at 7 centers next year they become very dangerous
+- Germany needs help if England absorbs DEN/HOL; Austria can't help directly but can advocate coalition
