@@ -1,53 +1,57 @@
 # ITALY — strategy notebook
 
 ## Standing plan
-- Dominate eastern Mediterranean — CON is the next prize
-- F SMY → CON: capture Turkish capital (S1905M move submitted)
-- F ION → AEG: control Aegean, threaten GRE/EAS, cut Turkey off
-- A TUS → ROM: consolidate home territory, free VEN for future advance
-- A VEN H: guard Adriatic / Austrian border
-- F NAP H: defensive, can pivot to ION or TYS
+- Dominate eastern Mediterranean — CON captured F1905M (6th center!)
+- Turkey is nearly eliminated: ANK and SEV are the remaining prizes
+- F CON in Constantinople — push toward ANK next phase
+- F AEG in Aegean — can support CON or push to EAS/GRE
+- Austria is our key ally — both at 6 centers after F1905M, coordinating to contain England
 
 ## Trust & deals
-- **AUSTRIA**: CONFIRMED | Adriatic DMZ holds; coordinating anti-Turkey push; A SER may push GRE
-- **TURKEY**: HOSTILE | We grabbed SMY last fall; now attacking CON this spring — all-out push to eliminate
-- **FRANCE**: CONFIRMED | Western Med division — I keep TYS/ION/NAP/TUN corridor, France keeps WES/LYO/MAR; France has F TYS now
-- ENGLAND: leader at 6 centers — will become the coalition target eventually; no direct contact
-- GERMANY: 4 centers, monitoring
-- RUSSIA: 5 centers, focused on northern front; not a direct threat to Italy
+- **AUSTRIA**: CONFIRMED | Adriatic DMZ holds; both at 6 centers after F1905M; coordinating anti-Turkey + anti-England strategy
+- **TURKEY**: HOSTILE | Eliminated from CON/SMY; only ANK and SEV remain + F BLA; finish them
+- **FRANCE**: CONFIRMED | Western Med division intact — I keep TYS/ION/NAP/TUN corridor, France keeps WES/LYO/MAR
+- ENGLAND: 7 centers — now the primary long-term threat; must grow faster to keep pace
+- GERMANY: 4 centers, under pressure from England/France; may collapse soon
+- RUSSIA: 5 centers, pressuring Turkey's SEV with A UKR + A RUM; not a direct threat to Italy
 
-## S1905M orders submitted
-- **F SMY - CON** | Attack Turkish capital — if A CON moves, we capture a 6th center
-- **F ION - AEG** | Aegean control — threatens GRE, supports eastern push, cuts Turkey's sea access
-- **A TUS - ROM** | Consolidate home; ROM was exposed without garrison
-- **A VEN H** | Hold Venice, Adriatic DMZ intact
-- **F NAP H** | Hold Naples, defensive
+## F1905M orders submitted
+- **F CON H** | Hold to capture CON as 6th supply center — Turkey's A CON moved to ANK in spring
+- **F AEG S F CON** | Support F CON's hold — defend against any Turkish counterplay from ANK
+- **A VEN H** | Maintain Adriatic DMZ with Austria
+- **A ROM H** | Hold Rome defensively
+- **F NAP H** | Hold Naples defensively
 
-## S1905M diplomatic messages sent
-- **TURKEY**: Demanded CON peacefully or we take it by force
-- **AUSTRIA**: Proposed coordinated strike — A SER → GRE while we take AEG/CON
-- **FRANCE**: Reaffirmed Med accord, noted we're pushing east not west
+## F1905M diplomatic messages sent
+- **AUSTRIA**: Confirmed F CON holds, coordination on England containment post-consolidation
 
-## S1905M rationale
-- CON is undefended if Turkey's A CON moves out to counter Russia or support BUL
-- Even if A CON holds, F SMY - CON is a bounce that prevents Turkey building there
-- F ION - AEG: controls key sea zone, supports F SMY's retreat or follow-up, threatens GRE
-- Austria is a valuable ally while Turkey exists — maintain relationship through 1905
-- Once Turkey is eliminated (~6 centers each), the Italy-Austria alliance will need re-evaluation
-- England at 6 is the long-term threat; need to grow fast to match
+## F1905M rationale
+- F CON is sitting in Constantinople with no Turkish unit there — holding captures it automatically
+- F AEG support makes the hold iron-clad even if Turkey attempts anything from ANK
+- No aggressive moves this phase — consolidate 6th center, then plan the push for ANK/SEV
+- Austria confirmed A BUL holds (their 6th center), F GRE holds — both powers consolidating together
+- Both Italy and Austria at 6 centers matches England — coalition position is strong
 
-## Looking ahead to F1905M
-- If CON captured: Italy at 6 centers! Equal to England — very strong position
-- F AEG can push to EAS or support ION into GRE next fall
-- Consider: A VEN - TRI if Austria overextended northward
-- Consider: A ROM - APU - ION convoy chain for further amphibious operations
-- Watch Russia-Austria dynamics: if Russia collapses, Austria might turn on Italy
+## Looking ahead to W1905A and S1906M
+- W1905A: Italy builds 1 unit (6 centers, 5 units → build 1)
+  - Best build: F NAP → F ION or A NAP for flexibility? Or keep NAP and build elsewhere
+  - Actually: no home supply center free... need to check which home center is open
+  - Wait: NAP, ROM, VEN are home centers; all have units (F NAP, A ROM, A VEN) — need to check if any is free after moves resolve
+  - F CON and F AEG are not home centers — Italy builds in NAP/ROM/VEN only
+  - All three home centers occupied! May not be able to build. Need to free a home center.
+  - Actually: if F NAP moves to ION in some future phase, NAP is free. But F NAP held this phase.
+  - Review after adjudication — if all 3 home centers are occupied by our 5 units, no build possible even with 6 centers
+- S1906M: Push F CON - ANK (capture Turkey's last center in the east)
+- F AEG: support CON - ANK or move to EAS for amphibious options
+- F NAP - ION: open a home center (NAP) for building if needed next winter
+- Watch England — if they hit 7+ centers, need Austria+Italy to start coordinating against them
+- Russia pressuring Turkey's SEV — if Russia takes it, Turkey is nearly done; Italy should grab ANK before Russia gets too far south
 
-## Board context (S1905M)
-- ENGLAND: 6 centers (F NWY, A YOR, F MAO, F HOL, F IRI, F EDI) — western dominator
-- AUSTRIA: 5 centers (A SER, F GRE, A TRI, A VIE, A BUD) — key ally, holds GRE
-- FRANCE: 5 centers (A MAR, A SPA, A GAS, A PIC, F TYS) — western Med partner
-- GERMANY: 4 centers (A KIE, A RUH, F DEN, A BUR) — squeezed by England/France
-- ITALY: 5 centers (A VEN, A TUS, F ION, F SMY, F NAP) — pushing east aggressively
-- RUSSIA: 5 centers (A RUM, F BOT, A SWE, A MOS, A WAR) — northern power, not Italy's problem
-- TURKEY: 4 centers (F BLA, A BUL, A CON, A SEV) — our primary target, shrinking
+## Board context (F1905M start)
+- ENGLAND: 6 centers → likely 7 (A SWE holds, possibly capturing DEN?)
+- AUSTRIA: 5 centers → 6 (A BUL holds, F GRE holds — BUL captured)
+- FRANCE: 5 centers (F ION adjacent to our sphere — watching)
+- ITALY: 5 centers → 6 (F CON holds — CON captured!)
+- RUSSIA: 5 centers (A UKR + A RUM pressuring Turkey's SEV)
+- GERMANY: 4 centers, squeezed
+- TURKEY: 4 centers → shrinking (only ANK + SEV + F BLA + CON, losing CON)
