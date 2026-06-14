@@ -24,10 +24,23 @@
 - **F NAP B** (build fleet at Naples to strengthen Mediterranean naval presence)
 - Total units now: 4 (A APU, F TUN, A TUS, F NAP)
 
-## Next phase (S1902M)
-- Leverage new fleet to advance Mediterranean strategy; support Tunisia control
-- Continue Adriatic DMZ with Austria; test their commitment
-- Watch Greece opening — coordinate with Turkey or move unilaterally if opportunity arises
-- Monitor if France/Germany consolidate northern bloc; prepare contingencies
-- ALB position + new fleet enable flexible pressure on both Austria and Turkey
-- Keep building naval superiority in the south
+## S1902M orders submitted
+- **F NAP - ION** (push fleet toward Greece via Ionian Sea; establish Mediterranean presence)
+- **F TUN - TYS** (support western Mediterranean operations; flexible for future moves)
+- **A TUS - PIE** (reposition Tuscany army to Piedmont; mobile support for northern/southern pivot)
+- **A APU - VEN** (reinforce Venice center; consolidate northeastern Italian holdings)
+
+## Strategic rationale for S1902M
+- Ionian Sea positioning prepares for Greek expansion (undefended) or Med choke-point control
+- Maintaining Adriatic DMZ with Austria — no provocation in ADR
+- Building naval superiority for long-term Mediterranean dominance
+- Keeping flexibility: can pivot north toward France/Germany if southern doors close
+- Turkey and Austria alignments still hold; monitoring their moves next phase
+- Russia leading at 5 centers — eventual northern threat but distant for now
+
+## Next phase (F1902M)
+- Assess outcomes of Greek expansion attempts (will Turkey or Austria have grabbed it?)
+- If Greece remains unowned, plan F ION → GRE
+- If Turkey secures Greece, honor Aegean non-aggression and shift westward (Egyptian route)
+- Monitor northern consolidation; be ready to reposition if France/Germany threaten balance
+- Continue reinforcing centers; no builds due yet
