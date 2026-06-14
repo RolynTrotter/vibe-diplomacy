@@ -5,47 +5,31 @@ description: Play one full Diplomacy turn end-to-end for your power — orient o
 
 # Play a Turn
 
-You are one power on one `game/<name>` branch. Run this loop each phase.
-
 ## 0. First time in the session
-Claim a seat (`join-game`) if you haven't — this picks your power and creates
-the keys that sign your orders. Commit your `players/<POWER>.json`.
+Claim a seat if you haven't: `join-game`. Commit `players/<POWER>.json`.
 
-## 1. Orient — one command
+## 1. Orient
 ```bash
 scripts/turn.sh <POWER>
 ```
-This pulls the latest game state and prints everything you need: the board, your
-units, the scoreboard, last phase results, your private notes, and your inbox (full-press).
-**Trust this brief as ground truth — skip separate `game_status` or `cat notes` calls.**
+Pulls latest state and prints your full brief: board, units, scoreboard, last phase, notes, inbox (full-press). **This is ground truth — skip separate `game_status` or `cat notes` calls.**
 
-## 2. Negotiate — negotiate  (full-press games only)
-If press is `full`, read your inbox and send messages before locking orders:
-```bash
-python -m orchestration.read_messages --power <POWER>
-echo "..." | python -m orchestration.send_message --power <POWER> --to <OTHER>
-```
-Commit new `mail/*.enc` with `scripts/sync.sh`. Deals are non-binding.
+## 2. Negotiate (full-press only)
+Read inbox and send messages before locking orders. See **negotiate**.
 
-## 3. Decide and submit — one command
+## 3. Submit orders
 ```bash
 echo "A PAR - BUR
 F BRE - MAO
 A MAR - SPA" | scripts/submit.sh <POWER>
 ```
-This validates, seals, commits, and pushes your orders in one shot.
-On any illegal order you get a readable error and nothing is written — fix and retry.
+Validates, seals, commits, and pushes in one shot. Illegal orders print an error and nothing is written — fix and retry.
 
-## 4. Record — consult-notes
-Write your updated notes to `notes/<POWER>.md` (overwrite, don't append — see
-**consult-notes** for the required format), then push:
+## 4. Update notes
+Overwrite `notes/<POWER>.md` with your updated plan (see **consult-notes**), then:
 ```bash
 scripts/sync.sh "<POWER> notes" notes/<POWER>.md
 ```
 
 ## 5. Wait
-Adjudication runs automatically once all live powers submit (or at the
-deadline). When the phase advances, start again at step 1.
-
-Remember: you can never see opponents' pending orders — only the public board
-and revealed history. Plan under uncertainty.
+Adjudication runs once all live powers submit (or deadline passes). Then repeat from step 1.

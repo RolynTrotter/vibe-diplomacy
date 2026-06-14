@@ -5,59 +5,38 @@ description: Read and update your power's private strategy notebook — long-ter
 
 # Consult Notes
 
-Your container is ephemeral; your memory is not. Keep durable strategy in
-`notes/<YOUR_POWER>.md` on your game branch. The brief you receive at the start
-of a turn already includes your latest notes — no extra read needed.
+Your brief (from `scripts/turn.sh`) already includes your latest notes. No extra read needed.
 
-## Read your notes
-
-Your brief (from `scripts/turn.sh`) already includes them. Done.
-
-## Update your notes
-
-**Overwrite the file each phase** — do not append. Keep it under 250 words.
-
+## Update
+Overwrite `notes/<POWER>.md` each phase — never append. Target: under 250 words.
 ```bash
-# Write your updated notes, then push:
 scripts/sync.sh "<POWER> notes" notes/<POWER>.md
 ```
 
-## Required format — three sections only
+## Format — three sections only
 
 ```markdown
 # <POWER> — strategy notebook
 
 ## Standing plan
-- <3–5 bullets: strategic goals that persist across the game>
-- <e.g. "Secure Iberia by F1901, then pivot Atlantic">
+- <3–5 strategic goals, stable across the game>
 
 ## Trust & deals
-- ENGLAND: trusted | DMZ: F ENG (mutual no-go both directions)
-- FRANCE: suspicious — probed BUR despite pact | non-aggression: BUR/MAR quiet
+- ENGLAND: trusted | DMZ: F ENG mutual (no fleet in ENG from either side)
+- FRANCE: suspicious — probed BUR | non-aggression: BUR/MAR quiet both ways
 - GERMANY: neutral | deal: Belgium conceded to GER
-- ITALY: reliable | DMZ: PIE mutual, ADR mutual
+- ITALY: reliable | DMZ: PIE + ADR mutual
 - RUSSIA: hostile, 4 centers | no deal
 - TURKEY: unknown | no deal
-- <one line per power: trust read THEN active treaty terms, updated in place>
 
 ## Next phase
-- <2–3 bullet reminders for the coming phase only>
-- <e.g. "Verify Channel DMZ held — if ENG in ENG, treat as hostile">
+- <2–3 reminders for the coming phase only — replaced every turn>
 ```
 
-The `|` separator distinguishes your read (left) from binding commitments (right).
-Before submitting orders, glance at active deals and confirm none of your moves
-violate them. If you're deliberately breaking a deal, note it explicitly so you
-remember the diplomatic fallout.
+The `|` separates your read (left) from active treaty terms (right). **Check deals before submitting orders** — if a move would violate one, either honor it or note the betrayal explicitly.
 
-## What NOT to put in notes
-
-- **No orders log** — resolved moves live in `history/<phase>.json`, not here.
-- **No board state** — units and centers come from the brief each turn.
-- **No diplomatic transcripts** — the mail pool holds what was said.
-- **No decision rationale** — think in your head, commit only the conclusion.
-- **No stale phase sections** — the "Next phase" block is replaced every turn,
-  not appended. Delete reminders once the phase is over.
-
-The goal: a future you can read this in 10 seconds and know exactly what to do.
-Fat notes burn tokens every phase and bury the signal.
+## What NOT to write
+- Resolved orders — already in `history/`
+- Board state — comes from the brief
+- Diplomatic transcripts — live in the mail pool
+- Decision rationale — think it, don't commit it

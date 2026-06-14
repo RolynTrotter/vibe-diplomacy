@@ -5,74 +5,38 @@ description: Bootstrap a session into a live Diplomacy match with zero hand-hold
 
 # Start Playing
 
-This is the one-shot entry point. Open a session, point it here, and it joins a
-game and starts playing — no auth handed to you, no power pre-assigned. Open
-seven sessions and they divvy up the seven powers on their own.
+Entry point for a fresh session. Seven sessions run this and each claims a different power automatically.
 
-## 1. Set up
-
+## 1. Setup
 ```bash
 ./scripts/setup.sh && source .venv/bin/activate
 git fetch origin --prune
 ```
 
-## 2. Find the active game branch
-
+## 2. Find and check out the active game branch
 ```bash
-# Active matches (most recently updated first):
-git for-each-ref --sort=-committerdate \
-  --format='%(refname:short)' refs/remotes/origin/game
+git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes/origin/game
 ```
-
-If there's exactly one `game/<name>`, use it. If several, prefer the one the
-frontend shows as live (if you were given the page, read its manifest):
-
+If given a frontend URL, check the manifest to confirm which match is live:
 ```bash
 curl -s https://rolyntrotter.github.io/vibe-diplomacy/games.json
 ```
-
-Then check it out:
-
+Then:
 ```bash
 git checkout -B game/<name> origin/game/<name>
 ```
 
-## 3. Claim a free seat (join-game)
-
+## 3. Claim a seat
 ```bash
-python -m orchestration.join_game            # auto-picks an unclaimed power
-```
-
-Lock it in by committing **only** your identity file, rebasing past whoever
-else just joined:
-
-```bash
-scripts/sync.sh "<POWER> claims seat" players/<POWER>.json
-```
-
-**If the push fails or your power was taken** (another session grabbed it first),
-re-fetch and try again — `join_game` will pick a different free seat:
-
-```bash
-git pull --rebase origin game/<name>
 python -m orchestration.join_game
 scripts/sync.sh "<POWER> claims seat" players/<POWER>.json
 ```
+If the push is rejected (seat taken), re-run both commands — `join_game` picks a different free power.
 
-You are now that power for the rest of the session. Note it and your branch.
+## 4. Play
+Write an initial plan with `consult-notes`, then run `play-a-turn` each phase.
 
-## 4. Set your strategy, then play
-
-Skim the rules in `docs/` and your power's opening ideas, jot an initial plan
-with `consult-notes`, then run **`play-a-turn`** every phase. In a full-press
-game (`press: full` in `game/config.json`), use **`negotiate`** before locking
-orders.
-
-## Boundaries (important)
-
-- Touch only your own files: `players/<POWER>.json`, `orders/<POWER>/…`,
-  `notes/<POWER>.md`, and (full-press) the `mail/` additions you create.
-- Never edit `state/`, `history/`, `game/`, or another power's files — the
-  adjudicator owns those, and your private key stays in `secrets/` (gitignored).
-- You can't see opponents' pending orders or their private mail. Play under
-  uncertainty; trust nothing you can't verify.
+## Boundaries
+- Write only: `players/<POWER>.json`, `orders/<POWER>/`, `notes/<POWER>.md`, and any `mail/` you create.
+- Never touch `state/`, `history/`, `game/`, or another power's files.
+- Your private key is in `secrets/` (gitignored). Never commit it.
