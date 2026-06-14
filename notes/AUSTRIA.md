@@ -29,12 +29,28 @@ Orders: A VIE - GAL (attack Russian threat), A BUD - RUM (Balkan push), A SER - 
 Rationale: Russia's A GAL threatens VIE; counterattack directly while expanding Balkan presence. GRE unoccupied—must seize it before Turkey does.
 Diplomacy: Continuing NAPs with Italy, Turkey, and Germany. Monitor Russia closely after this offensive.
 
-## Current position (S1902M)
-- Centers: BUD, TRI, VIE, SER (4, no adjustment needed)
-- Units: A VIE (at VIE), A BUD (at BUD), A SER (at SER), F ALB (at ALB)
-- Immediate goals:
-  1. Push back Russian threat at Vienna/Budapest border
-  2. Secure GRE (empty supply center)
-  3. Maintain Adriatic DMZ with Italy (TRI is our shared supply center boundary)
-  4. Monitor Turkey's Balkan moves
-- Next phase outlook: Should gain GRE from this push; position to take RUM or BUL next
+## S1902M actual outcome
+Orders submitted: A VIE - GAL, A BUD - RUM, A SER - BUL, F ALB - GRE
+Result: ALL BOUNCED (typical spring chaos)
+- Units retreated to: A VIE (VIE), A BUD (BUD), A SER (SER), F ALB (ALB)
+- Centers unchanged: BUD, TRI, VIE, SER (4)
+
+## F1902M submission (FALL—CRITICAL!)
+Orders: F ALB - GRE, A VIE S A BUD, A BUD H, A SER H
+Rationale:
+- **F ALB - GRE**: GRE is empty and uncontested now. Fall captures lock in! This gives me 5 centers.
+- **A VIE S A BUD**: Russia's A GAL is still adjacent; defend the core
+- **A BUD H, A SER H**: Hold Balkans defensively
+Diplomacy sent:
+- TURKEY: Explained GRE capture is survival, not aggression. NAP intact.
+- ITALY: Allied against Russian expansion. Mutual containment.
+
+## Current position (F1902M post-submission)
+- Centers after F1902M: BUD, TRI, VIE, SER, GRE (5! matching Russia)
+- Units (if successful): A VIE, A BUD, A SER, F GRE
+- Next goals:
+  1. Secure 5-center parity with Russia
+  2. Build a new unit in W1902A (likely A VIE to reinforce)
+  3. Position for S1903M: RUM is next target (Russian-held but close)
+  4. Maintain NAPs with Turkey & Italy; monitor Germany
+  5. Watch Russia's next move—they're still dangerous
