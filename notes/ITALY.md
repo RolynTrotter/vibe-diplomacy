@@ -47,9 +47,25 @@
 - This turn likely triggers France response—they may contest or retaliate. Watch for cooling of relations.
 - Current position: 4 centers, 4 units; after adjudication likely 5 if MAR capture succeeds.
 
+## S1904M orders submitted
+- **F AEG - EAS** | Continue Egyptian expansion, project power toward eastern Mediterranean
+- **A PIE - TUS** | Consolidate Tuscany hold, avoid France confrontation, maintain northern flexibility
+- **A VEN H** | Hold Venice, maintain Adriatic DMZ with Austria
+- **F TUN H** | Hold Tunisia, maintain secure supply center
+
+## S1904M rationale and board state
+- MAR capture attempt (F1903M) failed—France successfully held MAR or bounced the move
+- Current position remains stable: 4 centers (NAP, ROM, VEN, TUN), 4 units
+- France relation: Now "contested" after MAR grab attempt. Sent peace offer to reset western Med division
+- Austria relation: SOLID — GRE held, Adriatic DMZ respected, confirmed alliance
+- Turkey relation: SOLID — non-aggression maintained, coordinating against Russia expansion
+- Board context: Russia still leading at 5 centers; Austria 5, England 5, France 5, Germany 4, Turkey 4, Italy 4
+- Strategy: Consolidate, probe France for reset, prepare Mediterranean pivot for growth when opportunity opens
+- EAS move sets stage for Egyptian expansion in future turns if Turkey or Ottoman space opens
+
 ## Next turn priorities
-- Assess France's reaction to MAR capture; prepare for possible conflict
-- If MAR succeeds, adjust notes on France from "friendly" to "contested"
-- Monitor Austria for any Adriatic pushback; watch for signs of betrayal
-- Continue Russia containment focus; watch for UK-Russia coordination
-- If 5 centers, plan for adjustment (likely build 1 unit)
+- Monitor France's response to reset offer (diplomatic message sent S1904M)
+- Watch for any Austria/Adriatic violations or backstabs
+- Continue Egypt expansion push via EAS positioning
+- Assess if Russia's leading position triggers anti-Russia coalition formation
+- If consolidation holds, plan for adjustment phase (build timing)
