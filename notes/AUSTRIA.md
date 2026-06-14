@@ -70,3 +70,23 @@ Rationale:
 - **A BUD - RUM**: Continue Balkan expansion; RUM is Russian-held but must contest it
 - **A SER - BUL**: Support the Balkan push; BUL is Turkish-held but we need leverage
 Status: Orders sealed and submitted. Awaiting adjudication.
+
+## S1903M actual outcome
+Orders submitted: F ALB - GRE, A VIE - TRI, A BUD - RUM, A SER - BUL
+Result: **F ALB - GRE SUCCEEDED!**
+- F now in GRE (will capture on center adjudication)
+- A VIE moved to TRI (consolidated core)
+- A BUD → RUM bounced (Russia's A RUM held, mutual bounce)
+- A SER → BUL bounced (Turkey's A BUL held, mutual bounce)
+- Centers now: BUD, TRI, VIE, SER (4) + GRE pending capture = 5 centers!
+
+## F1903M submission (SECURING 5TH CENTER!)
+Orders: F GRE H, A BUD - VIE, A SER H, A TRI H
+Rationale:
+- **F GRE H**: HOLD to finalize GRE capture. Austria reaches parity with Russia (5 centers)!
+- **A BUD - VIE**: CRITICAL—reclaim Vienna before Russia's A GAL takes it. Vienna is empty and threatened.
+- **A SER H, A TRI H**: Defensive holds to maintain Balkan presence
+Diplomacy:
+- **RUSSIA**: Warned against taking VIE—my army moving there, expect it to remain mine
+- **TURKEY**: Confirmed NAP—GRE is survival, not aggression. Balkan spheres respected.
+Strategy: Consolidate 5-center power status. Defend core (VIE-BUD-TRI), maintain Balkan control (SER, soon GRE). Prepare for potential Russia conflict next turn.
