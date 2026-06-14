@@ -1,0 +1,24 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A VIE B"
+    ],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A BRE B"
+    ],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1903A",
+  "results": {
+    "A BRE": [
+      ""
+    ],
+    "A VIE": [
+      ""
+    ]
+  }
+}
