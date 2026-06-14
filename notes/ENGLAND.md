@@ -65,3 +65,32 @@ Current units: F BEL, F NWY, A YOR, F MAO (4 units, 5 centers)
 - Total units after: F BEL, F NWY, A YOR, F MAO, F LVP (5 units, 5 centers)
 - This gives us balanced fleet-forward posture for Atlantic/North Sea operations
 - Strategy: use naval concentration to support France against Russia while maintaining home defense
+
+## S1903M moves submitted
+- F BEL → HOL (finally secure Low Countries after two bounces; critical expansion)
+- F NWY → SWE (contest Scandinavia vs Russia/Germany; essential to contain Russia)
+- A YOR S F LVP → WAL (support western expansion, defend Wales)
+- F LVP → WAL (expand into Wales, consolidate western coast control)
+- F MAO → NAO (maintain Atlantic presence, flexibility for future ops)
+
+**Strategy**: Aggressive expansion on three fronts (HOL, SWE, WAL) while maintaining naval dominance. 
+Expected centers after: EDI, LON, LVP, BEL, NWY, HOL, WAL = 7 centers (if all succeed — significant jump toward 9).
+
+## Diplomacy this phase (S1903M)
+- Messaged GERMANY: proposed HOL coordination (you don't contest, I don't contest your moves; offer mutual support against Russia)
+- Confirmed with FRANCE: coalition strategy — I press north (HOL/SWE), France expands med (SPA/POR/TYS), Channel DMZ maintained
+- Positioned as western anchor against Russian expansion (5 centers still too many)
+
+## Trust & deals (updated S1903M)
+- FRANCE: Strong coalition confirmed | Channel DMZ intact | dividing expansion zones (north/med)
+- GERMANY: Seeking coordination on HOL | non-aggression maintained | awaiting response
+- RUSSIA: 5 centers remains threat | must contain via naval presence (SWE pressure, BAL blockade)
+- ITALY: unknown | no contact yet
+- AUSTRIA: unknown | no contact yet
+- TURKEY: unknown | no contact yet
+
+## Key tactical notes
+- HOL has been contested/empty for two turns; critical to finally take it (opens path to Ruhr/KIE if needed)
+- SWE is four-way contested (NWY/DEN/FIN/BAL) — this move tests if we can hold Scandinavia
+- WAL is uncontested — should succeed, giving us western anchor
+- Combined expansion to 7 centers puts us clearly ahead; need to continue pressure to reach 9
