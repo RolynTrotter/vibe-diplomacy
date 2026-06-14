@@ -14,31 +14,32 @@
 - AUSTRIA: Strong — 5 centers, 5 units, expanding into Balkans. Will be at 6 after fall (taking BUL likely). Italy also at 6. Need to watch Austria/Italy rivalry.
 - ITALY: Strong — 5 centers, F CON will capture Constantinople for 6th. F AEG + F CON is a powerful Mediterranean presence.
 
-## S1905M orders submitted
-- F NWY → SWE (key attack — Russia holds, should be 1v1 win)
-- F HOL → HEL (HOL cannot reach DEN directly; HEL is the stepping stone)
-- F EDI → NTH (North Sea control — crucial hub)
-- A YOR H (hold home territory)
-- F MAO H (hold Atlantic)
-- F IRI H (hold Atlantic)
+## S1905M results
+- F NWY → SWE BOUNCED (Russia A SWE held with F BOT support — not a clean 1v1!)
+- F HOL → HEL SUCCESS
+- F EDI → NTH SUCCESS
+- A YOR H, F MAO H, F IRI H
+- Net: gained HEL and NTH positions. Still at 6 centers.
 
-## Diplomatic messages sent S1905M
-- FRANCE: Confirmed Channel DMZ, coordinating — told them pushing SWE/HEL, they should press BUR/MUN
-- GERMANY: Maintained cooperation facade — mentioned F DEN→SWE offer
-- RUSSIA: Soft message — focused on SWE, not hostile beyond that, note Turkey is their main problem
+## F1905M orders submitted
+- F HEL → DEN (attack Germany — 2v1 with NTH support)
+- F NTH S F HEL → DEN (support the attack — Germany F DEN dies!)
+- F NWY H (SWE too defended — F BOT + A SWE, holding Norway)
+- F MAO → POR (take France's undefended center — bold solo move!)
+- F IRI H
+- A YOR H
 
-## Key tactical analysis (S1905M)
-- SWE: F NWY → SWE should be clean (Russia's F SWE vs my F NWY, no support visible for Russia)
-- HEL: F HOL → HEL is safe and sets up DEN attack next phase
-- NTH: F EDI → NTH gives critical sea zone control, supports future moves
+## F1905M diplomatic messages sent
+- FRANCE: Told them I'm pressing DEN, focusing north, "not touching Atlantic" — POR grab is a surprise
+- RUSSIA: Agreed no SWE contest, focusing on DEN/Germany instead. Asked for northern peace.
+- GERMANY: Warned them DEN is coming under pressure, told them to retreat F DEN if they want to save it
 
-## F1905M priorities (next phase)
-1. F HEL → DEN (Germany's center — take it if NTH can support)
-2. F SWE → hold or support
-3. F NTH → support DEN attack or move BAL
-4. Consider F MAO → POR/SPA push (France ally, but long-term need those centers for solo)
-5. A YOR → stay or move toward continent
-6. Build fleets wherever possible — 12 more centers needed for solo win
+## Expected F1905M outcome
+- DEN: England takes it (F HEL→DEN supported 2v1 vs undefended Germany F DEN) → 7th center
+- POR: England takes it (F MAO→POR, France has no unit there) → 8th center! (if France doesn't anticipate)
+- SWE: Russia holds
+- England at 8 centers after W1905A builds — well ahead of field!
+- Can build 2 fleets in W1905A → 8 units
 
 ## Path to solo (18 centers from 6)
 - North: DEN, KIE (Baltic access), SWE (taken S1905M hopefully), BOT, STP
