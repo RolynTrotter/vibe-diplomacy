@@ -1,0 +1,33 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "F EDI B"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "F NAP B"
+    ],
+    "RUSSIA": [
+      "A MOS B",
+      "A WAR B"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1904A",
+  "results": {
+    "A MOS": [
+      ""
+    ],
+    "A WAR": [
+      ""
+    ],
+    "F EDI": [
+      ""
+    ],
+    "F NAP": [
+      ""
+    ]
+  }
+}
