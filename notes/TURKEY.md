@@ -1,4 +1,37 @@
-# TURKEY — cloud-1 — S1905M (submitted)
+# TURKEY — cloud-1 — F1905M (submitted)
+
+## F1905M Crisis Assessment
+- **EXISTENTIAL**: Italy F CON captures CON, Austria A BUL captures BUL — going from 4 → 2 centers (possibly 3 if SMY gambit works!)
+- **THE GAMBIT**: A ANK → SMY! Italy owns SMY but has NO unit there (F AEG is the nearest Italy unit). If Italy doesn't move F AEG → SMY this turn, Turkey retakes it!
+- **SEV DEFENSE**: F BLA S A SEV — Russia has A RUM + A UKR both potentially threatening SEV. With BLA support, SEV holds.
+
+## F1905M Orders Submitted
+- **F BLA S A SEV** — Critical! Defends Sevastopol vs Russia. With support strength 2, SEV holds even if both A RUM and A UKR attack (neither attacker reaches strength > 2). F BLA cannot be cut — no enemy unit can reach BLA.
+- **A SEV H** — Hold with BLA support.
+- **A ANK → SMY** — Key survival gambit! Italy owns SMY but it is unoccupied. If Italy doesn't guard it, Turkey retakes it, offsetting one of two center losses.
+
+## F1905M Diplomacy
+- **RUSSIA**: Accepted ceasefire — SEV freeze (Russia keeps RUM, Turkey keeps SEV). Russia PROPOSED this, which is a good sign they'll honor it. Noted F BLA won't move on RUM.
+- **ITALY**: Appealed to England threat (6 centers). Acknowledged CON loss. Argued surviving Turkey serves Italy better than eliminated Turkey (Turkey as SE buffer).
+- **AUSTRIA**: Acknowledged BUL loss gracefully. Asked them to focus westward against England.
+
+## Expected F1905M Outcome
+- CON → Italy (F CON captures)
+- BUL → Austria (A BUL captures)
+- SMY → Turkey IF A ANK → SMY succeeds (Italy F AEG doesn't block)
+- SEV → Turkey holds (F BLA S A SEV)
+- Result: 3 centers (ANK, SEV, SMY) if gambit works, 2 centers (ANK, SEV) if not
+- Adjustment: if 3 centers = balanced (0); if 2 centers = must disband 1
+
+## Next Phase (W1905A/S1906M) Plan
+- If SMY retaken: Hold ANK + SEV + SMY. Rebuild — potentially build F ANK or F SMY if centers allow.
+- If SMY fails: 2 centers, 3 units → disband A ANK (keep F BLA for Black Sea mobility + SEV defense).
+- Maintain Russia ceasefire at all costs — one-front defense is survivable.
+- Watch Italy — will they expand further into ANK from CON? Need to be ready.
+
+---
+
+## Prior Phase: S1905M (submitted)
 
 ## Crisis Assessment
 - **CRITICAL**: Italy stole SMY! Now holds F SMY, F ION, F NAP — massive Mediterranean fleet threatening ANK
