@@ -1,19 +1,20 @@
 # AUSTRIA — strategy notebook
 
-## Standing plan
-- Expand toward Balkans (primary) — take RUM, GRE, BUL region
-- Preserve relationship with Germany (northern ally against Russia)
-- Maintain NAP with Italy (Mediterranean focus) and Turkey (Balkan coexistence)
-- Avoid direct conflict with Russia (4 centers, monitor growth)
-- Position to capture 4th center in S1901F
+## Current standing plan (updated F1904M)
+- **PRIORITY 1**: Retake BUD — Russia A BUD invaded our home center! A GAL - BUD supported by A VIE this phase
+- **PRIORITY 2**: Press A SER - RUM to threaten Russia's 5th center (RUM)
+- Hold TRI and GRE defensively; consolidate Balkan position
+- Coordinate with Turkey against Russia (asked Turkey to press A BUL - RUM or hold BLA)
+- Maintain NAP with Italy (Mediterranean focus, they hold EAS)
+- Russia is now the enemy; Germany is buffer, Italy/Turkey are allies
 
-## Trust & deals (F1901M)
-- GERMANY: friendly | natural sphere separation (agreed)
-- ITALY: allied | NAP confirmed—they focus Mediterranean, we focus Balkans
-- TURKEY: allied | NAP confirmed—peaceful Balkan coexistence
-- RUSSIA: monitor | currently leading at 4 centers
-- FRANCE: unknown
-- ENGLAND: neutral | defensive stance (broadcast)
+## Trust & deals
+- GERMANY: friendly | NAP confirmed — northern buffer
+- ITALY: allied | NAP confirmed — Mediterranean focus, Adriatic DMZ holds
+- TURKEY: allied | NAP with Turkey — requested anti-Russia coordination F1904M
+- RUSSIA: HOSTILE — invaded BUD in S1904M; at war until BUD retaken and terms reset
+- FRANCE: unknown / neutral
+- ENGLAND: neutral
 
 ## F1901M submission
 Orders: A VIE - BUD (regroup), A SER - RUM (Balkan push), F ALB - GRE (coastal support)
@@ -102,3 +103,23 @@ Diplomacy sent:
 - **RUSSIA**: Signaled A VIE - GAL move for consolidation, not aggression. Requested peace.
 - **ALL POWERS**: Broadcast NAP confirmation. Italy and Turkey remain allied; respect Adriatic DMZ and Balkan coexistence.
 Strategy: Shift from defensive consolidation to offensive expansion. Russia is tied at 5 centers with me; gaining RUM would give 6, while defending GAL pushes them back. Next goal: climb to 6-7 centers by contesting Balkans aggressively. Win condition: 9 centers (need 4 more).
+
+## F1904M orders submitted
+- A GAL - BUD (retake home center — Russia A BUD is squatting there!)
+- A VIE S A GAL - BUD (ensure success; both A GAL - BUD and A VIE support)
+- A SER - RUM (attack Russia's 5th center — if successful Austria goes to 6!)
+- A TRI H (hold Trieste)
+- F GRE H (hold Greece)
+
+## F1904M diplomatic actions
+- RUSSIA: Warned that BUD invasion is an act of war; offered reset if they withdraw and respect GAL/RUM boundary
+- TURKEY: Requested coordination — press A BUL toward RUM or hold F BLA to pin Russia
+- ITALY: Informed of Russia situation; reaffirmed NAP and Adriatic DMZ
+
+## Next phase priorities (W1904A / S1905M)
+- If BUD retaken AND RUM captured: Austria at 6 centers — W1904A build 1 unit (likely A BUD or A VIE)
+- If only BUD retaken: 5 centers, no build, continue RUM pressure in S1905M
+- Follow-up: A BUD - RUM or A BUD S A SER - RUM in S1905M
+- Watch Turkey — they hold BUL and SEV; important they stay anti-Russia
+- Watch Italy in AEG/EAS — strong fleet position, make sure they don't pivot to Adriatic
+- Russia is down to 4 units vs 5 centers (+1 build); they will rebuild — stay aggressive
