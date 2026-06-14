@@ -20,7 +20,12 @@ Orders: A VIE - BUD (regroup), A SER - RUM (Balkan push), F ALB - GRE (coastal s
 Messages: Confirmed NAPs with Italy & Turkey, sphere agreement with Germany
 Strategy: Secure Balkans corridor (RUM → BUL/GRE) while respecting southern boundaries
 
+## W1901A adjustment
+Build: A VIE (reinforces core, supports Balkan corridor from Vienna)
+Rationale: Strengthen Vienna base for next phase expansion; supports defensive posture
+
 ## Next phase (S1901F)
+- 4 units now: A VIE (new), A SER, F ALB, A BUD
 - Consolidate Balkan gains (target RUM/GRE/BUL)
 - Maintain defensive posture vs Russia
 - Support Italy-Austria-Turkey southern bloc
