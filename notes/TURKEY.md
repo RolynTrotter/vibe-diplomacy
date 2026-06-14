@@ -51,7 +51,32 @@
 - Austria, England, Germany, Italy: 4 centers each
 - France: 3 centers (weakest)
 
-## Next Phase Plan (F1902M if S1902M succeeds)
-- If GRE taken: A GRE holds GRE; A SMY → ARM (eastern expansion); A ANK holds ANK; F BLA → AEG (Mediterranean presence)
-- Watch for Austria/Italy response; ready to pivot to defense if pressure increases
-- Russia at 5 centers is still threat — monitor RUM/UKR movement
+## Fall 1902 (F1902M) — SUBMITTED
+- **Orders**: A SMY - ARM, A ANK - CON, A BUL H, F BLA S A SMY - ARM
+- **Rationale**:
+  - A SMY → ARM: Capture empty supply center (5th center—critical expansion)
+  - A ANK → CON: Reinforce home center, prepare for defense if needed
+  - A BUL H: Hold BUL, secure Balkans NAP with Austria
+  - F BLA S A SMY - ARM: Provide strength to ensure ARM capture succeeds
+- **Diplomatic moves**:
+  - Message to AUSTRIA: Acknowledged their need for GRE; proposed I take ARM instead (mutual non-interference)
+  - Message to RUSSIA: Confirmed Black Sea NAP holds; F BLA remains defensive
+  - Message to ITALY: Signaled east expansion to ARM (non-threatening to Mediterranean)
+- **Strategy**: Backed off GRE competition (Austria gets it); captured ARM instead to reach 5 centers without conflict
+
+## Current Standings (after F1902M submission)
+- RUSSIA: 5 centers (still leading)
+- TURKEY: 4→5 centers (ARM capture pending)
+- Austria, England, Germany, Italy: 4 centers each (Austria expected to take GRE soon)
+- France: 3 centers (weakest)
+
+## Diplomatic Agreements (End of F1902M)
+- **AUSTRIA**: Balkans NAP held; Austria takes GRE (survival move), Turkey takes ARM (eastern expansion). No hard feelings.
+- **RUSSIA**: Black Sea NAP confirmed. Mutual stability; both monitoring broader board.
+- **ITALY**: Eastern expansion (ARM) non-threatening to Italian holdings (Mediterranean/Aegean).
+
+## Next Phase Plan (W1902A & S1903M)
+- If ARM captured: Adjust to 5 centers; expect build or no adjustment
+- Monitor Austria's next moves (now at 5 centers if GRE taken)
+- Watch for Russia-led coalitions as game progresses
+- Turkey at 5 centers + 4 units is now competitive; focus on stability with Austria/Russia while others clash
