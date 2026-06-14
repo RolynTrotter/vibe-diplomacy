@@ -84,11 +84,6 @@ def main() -> int:
     args = parser.parse_args()
     root = repo_root(args.root)
 
-    private_key = os.environ.get("ADJUDICATOR_PRIVATE_KEY", "").strip()
-    if not private_key:
-        print("ADJUDICATOR_PRIVATE_KEY is not set.", file=sys.stderr)
-        return 2
-
     status = collect(root)
     if status["done"]:
         print("Game is already over; nothing to do.")
@@ -111,6 +106,12 @@ def main() -> int:
     if not status["all_submitted"] and not force:
         print(f"Not ready: waiting on {', '.join(status['waiting_on'])}.")
         return 0
+
+    # Only load the private key once we know adjudication is actually needed.
+    private_key = os.environ.get("ADJUDICATOR_PRIVATE_KEY", "").strip()
+    if not private_key:
+        print("ADJUDICATOR_PRIVATE_KEY is not set.", file=sys.stderr)
+        return 2
     live_powers = [n for n, p in status["powers"].items() if p["type"] != "idle"]
 
     orders_by_power = _read_sealed_orders(root, private_key, phase, live_powers)
