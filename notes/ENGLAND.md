@@ -31,10 +31,23 @@
 - Now have F SKA, F BEL, F LVP, A LON (3 fleets + 1 army)
 - This positions well for spring 1902 expansion across North Sea/Atlantic
 
-## Next phase (S1902M)
-- Fleet in LVP joins west-coast coverage with F SKA and F BEL
-- Maintain Channel DMZ with France (no move into ENG/MAO)
-- Watch Germany's position in DEN/SWE — monitor for aggression
-- Prepare for potential coalition building against Russia (5 centers is dangerous)
-- Consider moves to expand into Norway, Holland, or down toward Portugal
-- Develop intelligence on Italy, Austria, Turkey intentions
+## S1902M moves submitted
+- F SKA → NWY (secure Norway, block Russia's westward expansion)
+- F BEL → HOL (expand south into Low Countries, secure 2nd new center)
+- A LON → YOR (consolidate army position for future support)
+- F LVP → IRI (defend Irish Sea, maintain western coast presence)
+
+**Orders sealed & pushed.** Expected centers after: EDI, LON, LVP, BEL, NWY, HOL = 6 centers (if all succeed).
+
+## Diplomacy this phase
+- Messaged GERMANY: proposed Low Countries coordination + reaffirmed non-aggression
+- Messaged FRANCE: suggested informal anti-Russia coalition, maintained Channel DMZ
+- Goal: Position as western anchor against Russian expansion (5 centers is dangerous)
+
+## Trust & deals (updated)
+- FRANCE: Channel DMZ confirmed | building anti-Russia coalition
+- GERMANY: non-aggression pact reaffirmed, coordinating Low Countries strategy
+- RUSSIA: Now at 5 centers (threat level elevated) — must contain via coalition
+- ITALY: unknown | no contact yet
+- AUSTRIA: unknown | no contact yet
+- TURKEY: unknown | no contact yet
