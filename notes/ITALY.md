@@ -34,8 +34,22 @@
 - VEN reinforcement protects against any Austrian backslide and solidifies core Italian holdings
 - Current position: 4 centers, 4 units — sustainable; watching for when to pivot toward growth
 
+## F1903M orders submitted
+- **F ION - AEG** | Pivot toward Egyptian expansion, project power down Mediterranean
+- **F TUN H** | Hold Tunisia to secure it as supply center (4 centers stable)
+- **A PIE - MAR** | Opportunistic capture of France's empty supply center (aggressive pivot)
+- **A VEN H** | Hold Venice, respect Adriatic DMZ with Austria
+
+## F1903M rationale
+- Austria confirmed GRE capture; alliance holds. Respected DMZ by not contesting Adriatic.
+- France's A MAR → GAS left Marseilles empty—taking it breaks the "western Med division" deal but is too valuable to pass up strategically.
+- AEG move prepares for Egypt push if opportunities arise; projects force toward eastern Mediterranean.
+- This turn likely triggers France response—they may contest or retaliate. Watch for cooling of relations.
+- Current position: 4 centers, 4 units; after adjudication likely 5 if MAR capture succeeds.
+
 ## Next turn priorities
-- Confirm Austria took GRE; assess Russia's response
-- Monitor France for signs of western expansion toward Piedmont/Tuscany
-- If Austria honors DMZ and consolidates Balkans, consider strengthening south (Egypt)
-- Keep Russia containment as primary strategic focus through mid-game
+- Assess France's reaction to MAR capture; prepare for possible conflict
+- If MAR succeeds, adjust notes on France from "friendly" to "contested"
+- Monitor Austria for any Adriatic pushback; watch for signs of betrayal
+- Continue Russia containment focus; watch for UK-Russia coordination
+- If 5 centers, plan for adjustment (likely build 1 unit)
