@@ -1,54 +1,53 @@
 # ITALY — strategy notebook
 
 ## Standing plan
-- Expand east toward Smyrna and eastern Mediterranean control
-- F EAS positioned for Ottoman pressure; F ION for Aegean projection
-- Secure Adriatic from Austrian threat; Adriatic DMZ holds
-- Monitor French expansion — western Med division in place
-- PRIORITY: grow to 5 centers by capturing SMY this fall
+- Dominate eastern Mediterranean — CON is the next prize
+- F SMY → CON: capture Turkish capital (S1905M move submitted)
+- F ION → AEG: control Aegean, threaten GRE/EAS, cut Turkey off
+- A TUS → ROM: consolidate home territory, free VEN for future advance
+- A VEN H: guard Adriatic / Austrian border
+- F NAP H: defensive, can pivot to ION or TYS
 
 ## Trust & deals
-- **AUSTRIA**: CONFIRMED | Adriatic DMZ pact — they focus Balkans/Russia, we focus Mediterranean
-- **TURKEY**: NOMINAL | Aegean non-aggression stated but just violated — we grabbed SMY
-- **FRANCE**: CONFIRMED | Western Med division — I keep TYS/ION/NAP/TUN corridor, France keeps WES/LYO/MAR
-- ENGLAND: no active contact; monitoring
-- GERMANY: monitoring northern dynamics
-- RUSSIA: weakened — Turkey took SEV, Austria has BUD pressure. Likely not a threat to Italy directly
+- **AUSTRIA**: CONFIRMED | Adriatic DMZ holds; coordinating anti-Turkey push; A SER may push GRE
+- **TURKEY**: HOSTILE | We grabbed SMY last fall; now attacking CON this spring — all-out push to eliminate
+- **FRANCE**: CONFIRMED | Western Med division — I keep TYS/ION/NAP/TUN corridor, France keeps WES/LYO/MAR; France has F TYS now
+- ENGLAND: leader at 6 centers — will become the coalition target eventually; no direct contact
+- GERMANY: 4 centers, monitoring
+- RUSSIA: 5 centers, focused on northern front; not a direct threat to Italy
 
-## F1904M orders submitted
-- **F EAS - SMY** | Backstab Turkey — grab Smyrna, 5th supply center, +1 build in winter
-- **F TUN - ION** | Advance fleet to Ionian Sea — central Mediterranean control, support future AEG/GRE operations
-- **A VEN H** | Hold Venice, maintain Adriatic DMZ pressure on Austria
-- **A TUS H** | Hold Tuscany defensively
+## S1905M orders submitted
+- **F SMY - CON** | Attack Turkish capital — if A CON moves, we capture a 6th center
+- **F ION - AEG** | Aegean control — threatens GRE, supports eastern push, cuts Turkey's sea access
+- **A TUS - ROM** | Consolidate home; ROM was exposed without garrison
+- **A VEN H** | Hold Venice, Adriatic DMZ intact
+- **F NAP H** | Hold Naples, defensive
 
-## F1904M diplomatic messages sent
-- **AUSTRIA**: Reassured them our NAP holds; misdirected them about "Aegean pressure" focus
-- **TURKEY**: Sent friendly message about Aegean non-aggression (cover for SMY grab)
+## S1905M diplomatic messages sent
+- **TURKEY**: Demanded CON peacefully or we take it by force
+- **AUSTRIA**: Proposed coordinated strike — A SER → GRE while we take AEG/CON
+- **FRANCE**: Reaffirmed Med accord, noted we're pushing east not west
 
-## F1904M rationale
-- F EAS → SMY is the key move: SMY appears undefended (Turkey's A CON held, all fleet/armies in Black Sea/Balkans area)
-- If successful: Italy grows to 5 centers (NAP, ROM, VEN, TUN, SMY) and builds one unit in W1904A
-- Turkey will likely be enraged — need to prepare for Turkish counterattack on ION/AEG
-- F TUN → ION sets up defensive line and can support future operations
-- Austria still on side against Russia — important to maintain that relationship
-- France is holding western Med per agreement — no western threat
+## S1905M rationale
+- CON is undefended if Turkey's A CON moves out to counter Russia or support BUL
+- Even if A CON holds, F SMY - CON is a bounce that prevents Turkey building there
+- F ION - AEG: controls key sea zone, supports F SMY's retreat or follow-up, threatens GRE
+- Austria is a valuable ally while Turkey exists — maintain relationship through 1905
+- Once Turkey is eliminated (~6 centers each), the Italy-Austria alliance will need re-evaluation
+- England at 6 is the long-term threat; need to grow fast to match
 
-## W1904A — BUILD SUBMITTED
-- **BUILT: F NAP** | Third fleet for Mediterranean domination and eastern pressure
-- Rationale: F NAP projects into ION/AEG area, supports future push on CON/ANK
-- Italy now at 5 centers (NAP, ROM, VEN, TUN, SMY), 4 units + new F NAP = 5 units
-- Units after build: A VEN, A TUS, F ION, F SMY, F NAP
+## Looking ahead to F1905M
+- If CON captured: Italy at 6 centers! Equal to England — very strong position
+- F AEG can push to EAS or support ION into GRE next fall
+- Consider: A VEN - TRI if Austria overextended northward
+- Consider: A ROM - APU - ION convoy chain for further amphibious operations
+- Watch Russia-Austria dynamics: if Russia collapses, Austria might turn on Italy
 
-## S1905M priorities
-- Defend SMY if Turkey counterattacks (use F ION support chain)
-- Consider F ION - AEG to threaten GRE (Austria's center) for further expansion
-- A VEN → TRI if Austria distracted by Russia — very risky but achievable
-- Watch who grows fastest — whoever leads the board is the coalition target
-- If Austria grows significantly (vs Russia), may need to pivot anti-Austria eventually
-
-## Board context after F1904M
-- RUSSIA: Weakened — lost SEV to Turkey, Austria contesting BUD; expect to shrink
-- TURKEY: Just gained SEV; now I'm taking SMY — Turkey will lose 1 center net (was 4, gained SEV, lost SMY)
-- AUSTRIA: 5 centers, focused north on Russia — reliable partner for now
-- FRANCE/ENGLAND/GERMANY: western powers maneuvering among themselves
-- ITALY: Target 5 centers → build capacity → grow toward 6+ in 1905
+## Board context (S1905M)
+- ENGLAND: 6 centers (F NWY, A YOR, F MAO, F HOL, F IRI, F EDI) — western dominator
+- AUSTRIA: 5 centers (A SER, F GRE, A TRI, A VIE, A BUD) — key ally, holds GRE
+- FRANCE: 5 centers (A MAR, A SPA, A GAS, A PIC, F TYS) — western Med partner
+- GERMANY: 4 centers (A KIE, A RUH, F DEN, A BUR) — squeezed by England/France
+- ITALY: 5 centers (A VEN, A TUS, F ION, F SMY, F NAP) — pushing east aggressively
+- RUSSIA: 5 centers (A RUM, F BOT, A SWE, A MOS, A WAR) — northern power, not Italy's problem
+- TURKEY: 4 centers (F BLA, A BUL, A CON, A SEV) — our primary target, shrinking
