@@ -7,12 +7,12 @@
 - HOL and SWE are the key growth targets
 
 ## Trust & deals
-- FRANCE: Strong alliance — Channel DMZ confirmed through S1905M. Coordinating northern/southern squeeze on Germany.
-- GERMANY: UNTRUSTED. Multiple deceptions — promised HOL deal repeatedly, attacked BEL. Now at 4 centers and weakened. Squeeze with France.
-- RUSSIA: Taking SWE this phase — not hostile beyond that. Turkey attacked them (lost SEV), so they're distracted south. Monitor STP.
-- TURKEY: Growing in south — took Russian SEV. Not direct threat to England yet.
-- AUSTRIA: Consolidated Balkans (5 centers). No contact yet.
-- ITALY: 5 centers, Mediterranean focus. No contact yet.
+- FRANCE: Ally — Channel DMZ intact. France has A GAS, A SPA, A PIC, A MAR, F ION. No fleet blocking POR or SPA/NC. I took F MAO→POR this fall — bold move that will test alliance. Told France I'm not touching Atlantic; hopefully they don't notice POR missing until after adjudication.
+- GERMANY: UNTRUSTED — confirmed enemy. A BUR (from A RUH), A KIE, F DEN, A RUH. DEN is the target. Weakening: 4 centers.
+- RUSSIA: Hostile to SWE push but agreed to northern peace. F BOT supports A SWE — SWE unattackable 1v1. Told Russia I'm not contesting SWE in F1905M, redirecting to DEN. Russia has A GAL threatening Austria — useful distraction for eastern powers.
+- TURKEY: Austria dislodged A BUL in S1905M. Turkey at 4 centers but only 3 units — A ANK, A SEV, F BLA. Weakening rapidly.
+- AUSTRIA: Strong — 5 centers, 5 units, expanding into Balkans. Will be at 6 after fall (taking BUL likely). Italy also at 6. Need to watch Austria/Italy rivalry.
+- ITALY: Strong — 5 centers, F CON will capture Constantinople for 6th. F AEG + F CON is a powerful Mediterranean presence.
 
 ## S1905M orders submitted
 - F NWY → SWE (key attack — Russia holds, should be 1v1 win)
