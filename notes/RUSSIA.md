@@ -234,10 +234,43 @@ Rationale:
 - Turkey at 4 must not regain momentum — F1905 SEV recapture plan
 - Austria: potential truce if they respond; otherwise GAL→BUD in fall
 
+## F1905M (SUBMITTED)
+**Board state:** England 6 centers (growing to 7?), Austria 5→6, Italy 5→6, Russia 5, Germany 4, Turkey 3 units/4 centers.
+- My units: A RUM, F BOT, A SWE, A UKR, A GAL
+- Austria accepted truce — mutual hold, border stable at GAL/RUM line
+- Germany wants anti-England coalition, coordinating north Baltic wall
+- Turkey pleading ceasefire (Italy pressing them from south)
+- England threatening DEN and SWE
+
+**F1905M orders submitted:**
+- **A UKR - SEV** (probe/attack: 2-strength with support)
+- **A RUM S A UKR - SEV** (support SEV attack — 2v2 if Turkey supports back, 2v1 if F BLA moves)
+- **A SWE H** (defend critical center vs England)
+- **F BOT S A SWE** (2-strength defense of SWE)
+- **A GAL H** (honor Austria truce — no BUD/VIE attack this phase)
+
+**Diplomatic messages sent (F1905M):**
+- AUSTRIA: Accepted truce, A GAL holds, mutual focus on England
+- GERMANY: Confirmed anti-England wall (SWE + BOT holding), coordinate S1906M
+- TURKEY: SEV probe going in — ceasefire requires returning SEV, otherwise low-intensity war
+- ENGLAND: Deterrence — SWE is mine, don't overextend north
+
+**Expected outcome:**
+- Best: SEV captured (2v1 if F BLA moved), grow to 6 centers, build F SEV W1905A
+- Likely: SEV bounces 2v2, hold at 5 centers, no build
+- SWE should hold (F BOT support makes it 2v1 vs any England attack)
+
+**S1906M plan:**
+- If SEV taken: F SEV B, push into BLA, challenge Turkey further
+- If SEV bounced: Continue pressure — A UKR + A RUM still threaten Turkey
+- Austria border stays stable (truce in effect)
+- Germany coalition vs England: coordinate A SWE→NWY or support pressure on England
+- Watch Italy — they're growing (SMY, CON?) and could become runaway leader
+
 ## Trust & deals (updated)
-- TURKEY: ENEMY. Betrayed NAP, holds SEV. War. F1905 target = SEV recapture.
-- AUSTRIA: Hostile but open to truce (message sent). GAL move signals resolve.
-- GERMANY: NAP holding, northern border stable. Outreach for anti-England coordination.
-- ENGLAND: Targeting SWE (warned). Probed for anti-Turkey coordination. Defensive posture.
-- ITALY: No contact, watching Balkans from south.
-- FRANCE: No contact.
+- TURKEY: AT WAR. Holds SEV, my stolen center. Truce rejected unless they return SEV. Probe sent.
+- AUSTRIA: TRUCE ACCEPTED. Mutual hold: A GAL stays, Austria won't press RUM/WAR. Both focus on England.
+- GERMANY: COALITION PARTNER. Anti-England wall (north Baltic). Coordinate S1906M.
+- ENGLAND: COLD WAR. Deterred from SWE this phase (hopefully). Leader at 6 — biggest long-term threat.
+- ITALY: WATCH. Growing fast (pressing Turkey). No contact yet — may become biggest threat.
+- FRANCE: No contact. Under pressure from Germany/England.
