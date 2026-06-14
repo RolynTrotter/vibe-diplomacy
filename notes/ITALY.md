@@ -33,10 +33,11 @@
 - Austria still on side against Russia — important to maintain that relationship
 - France is holding western Med per agreement — no western threat
 
-## W1904A plans (if SMY capture succeeds)
-- Build F NAP or A ROM
-- F NAP would give third fleet for Mediterranean domination
-- A ROM would give more land-force flexibility if Austria turns hostile
+## W1904A — BUILD SUBMITTED
+- **BUILT: F NAP** | Third fleet for Mediterranean domination and eastern pressure
+- Rationale: F NAP projects into ION/AEG area, supports future push on CON/ANK
+- Italy now at 5 centers (NAP, ROM, VEN, TUN, SMY), 4 units + new F NAP = 5 units
+- Units after build: A VEN, A TUS, F ION, F SMY, F NAP
 
 ## S1905M priorities
 - Defend SMY if Turkey counterattacks (use F ION support chain)
