@@ -1,0 +1,1416 @@
+[
+  {
+    "id": "71b3e0682d989214",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 good to keep the Channel DMZ. Russia at 5 is indeed concerning. I'm willing to support pressure from the south while you stabilize the north. Let's aim to contain them in the east while we build our positions. Propose: I'll focus on Mediterranean expansion (Spain, Portugal, TYS), you keep Baltic/North Sea. Sound good?",
+    "sent_at": "2026-06-14T02:41:11.262089+00:00",
+    "sig": "LiPQxpcmEZy43KFik5HqXHk/BJYGNMfnB2HEVrJuky/M/3lFKltAEodBb9yhvv/xp25J5AvDfz9aO1fFXEviCg==",
+    "verified": true
+  },
+  {
+    "id": "4a6b242a64566876",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 mutual interest in Mediterranean stability? I notice we both have forces in the western Med. Propose: you keep TYS/ION/NAP corridor, I focus on WES/LYO/TUN. Avoid conflict, both expand south/east away from each other. Could work well for both of us as Russia threatens from the north?",
+    "sent_at": "2026-06-14T02:41:14.948021+00:00",
+    "sig": "GcB/WKKs2GrpEE+j7wjWgmlXEj1ntHHaU+VuzINDweR+qoWQ0jYBorRdv2F4cNdwodki719t8q+OeQx8a5zRAw==",
+    "verified": true
+  },
+  {
+    "id": "4c78bef1e1402ebe",
+    "phase": "S1902M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Hi Austria - I plan to move A BUL to GRE this spring. Would prefer you don't move A ALB there. Let's respect each other's space in the Balkans.",
+    "sent_at": "2026-06-14T02:41:57.497631+00:00",
+    "sig": "Kox2e5v8eQ1/Ms5NY4nfqR4OmrX5BS5Pmi3Sywyg2Fcy282WNmNrVw3yZekv8zh7x1kfSpNwiO762jp2D3BUAw==",
+    "verified": true
+  },
+  {
+    "id": "ed74a0b4d88e7b43",
+    "phase": "S1902M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia - respecting our NAP on Black Sea. F BLA will stay defensive. Looking forward to continued coordination.",
+    "sent_at": "2026-06-14T02:41:59.804141+00:00",
+    "sig": "CG6yKwZXmCqYz4U/afRQT+hbsqIyCOR9zdREt+5HRFh9GVtf4aJ15JSsp/FdqeG6KSDRGkNZRErAKL1ofCNKCg==",
+    "verified": true
+  },
+  {
+    "id": "ef949d914aef8297",
+    "phase": "F1902M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey: Your A BUL didn't reach GRE in spring (bounce), and GRE is empty now. In fall, I must secure it\u2014this is survival, not aggression. We can still maintain our Balkan NAP afterward. No hard feelings.",
+    "sent_at": "2026-06-14T02:45:11.658406+00:00",
+    "sig": "K6+fEAxn/fdWSb0DKd4QPCqg3yfPr0CvlEkRcBtDzBjla9Y2BtGC/TV5FMT+dncsG8yoAp3A29vHih1a8MfFDg==",
+    "verified": true
+  },
+  {
+    "id": "33ca66f01c4fb8da",
+    "phase": "F1902M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy: GRE is empty and critical. I'm moving F ALB there in fall to prevent Russia from expanding further. No threat to you\u2014I respect our Mediterranean boundary. Let's contain Russia together.",
+    "sent_at": "2026-06-14T02:45:14.611042+00:00",
+    "sig": "SAm6yqvn/QvHjcpoEmgDoqYMEkp0ObTmfyceIgpPik8FHiJjw2BfOl/3A1IaIgGzGZn1OOyiGVIGqq4YmfqBDQ==",
+    "verified": true
+  },
+  {
+    "id": "28db7eb1141044d3",
+    "phase": "F1902M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria: I understand GRE is survival for you. I won't contest it. Instead, I'm taking ARM (empty supply center east of SMY). This way we both grow without conflict. Our NAP holds. \u2014 TURKEY",
+    "sent_at": "2026-06-14T02:45:39.843799+00:00",
+    "sig": "97j5D2V+Hn2Q+2yTl5cyWUUj0U85B8k1KxlMu+cZJhFIZB4MUjDYncLjYiQaw/sZ0h1lU3KjgOL+HYL/se74Bg==",
+    "verified": true
+  },
+  {
+    "id": "7d6a9f5a9bd1c2ad",
+    "phase": "F1902M",
+    "sender": "RUSSIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany - our NAP stands. Suggest we both back off SWE: you pull F DEN south (HOL, KIE area), I pull F BOT back to BAL. Leaves SWE neutral as agreed. This frees us both to focus elsewhere and keeps Baltic stable. Let me know.",
+    "sent_at": "2026-06-14T02:45:41.013314+00:00",
+    "sig": "mUYmCbnqTMGOtbhqj0CmfBccvEVIQNOX1WwKakHIkqOSMUCawZt9PeCQP3GWt+HdynM9sVY/HLYzeLp/0DfTBg==",
+    "verified": true
+  },
+  {
+    "id": "bcc41f3b464d336e",
+    "phase": "F1902M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia: Confirming Black Sea NAP as planned. F BLA holds defensive position. We both have 4-5 centers now\u2014let's keep the border stable and focus on threats elsewhere. \u2014 TURKEY",
+    "sent_at": "2026-06-14T02:45:42.277672+00:00",
+    "sig": "De5U50PYRa5DlSjgOf7Esv4JEUvZddw7PlPJ6CDOOAhZ4Knd61xNa8uFO+EVgWucNPUrs/Y+NfSjJnQ0PSP6AQ==",
+    "verified": true
+  },
+  {
+    "id": "1d040202c58972aa",
+    "phase": "F1902M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey - our Black Sea coordination is solid. I'm pulling back from BUL to avoid further bounces with you and Austria. Instead I'll reinforce RUM and push through WAR toward Austria. This keeps our southern border quiet and lets me focus on containing Austria's growth. Agree?",
+    "sent_at": "2026-06-14T02:45:44.566446+00:00",
+    "sig": "CVr69ZXc4J+DQdRGsXPTKeEsDWHE7pH2UqRWCxKKcmurVjE9n53CPJfH0ZM9SoULlQSFrmBn52+4OVyFdn8gDA==",
+    "verified": true
+  },
+  {
+    "id": "28d8ff74f7c5d527",
+    "phase": "F1902M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy: I'm expanding east to ARM (supply center). This doesn't threaten your Mediterranean holdings. Hope we can remain peaceful. \u2014 TURKEY",
+    "sent_at": "2026-06-14T02:45:44.889798+00:00",
+    "sig": "qnKeSxSDE6EcXysMQYz8LEg1Cl3g3A9fAEPdzvjZ9hV0jgBDNrF5PaRWMK7WsCp1XgRWJnAGzKnRQQqrWxkKAA==",
+    "verified": true
+  },
+  {
+    "id": "83c3b8da38fd4bda",
+    "phase": "F1902M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 agreed on the plan. You take Mediterranean, I'll secure the Baltic/North Sea. Russia at 5 is too much; we need to keep them contained. Let's check in next phase on progress.",
+    "sent_at": "2026-06-14T02:45:58.128473+00:00",
+    "sig": "7RDBvdXcwMjBAQE2Yq0A+O4oyNy7Ej0GlVoPvgLl5yl6V9cg/ZL4aUqbC1QgtTX8EIL2flfD3SGJ0Fe/sJ0dCg==",
+    "verified": true
+  },
+  {
+    "id": "6454642549353694",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria: Noted on GRE. I respect our Adriatic boundary and appreciate the coordinated approach against Russian expansion. My forces remain in the western and central Mediterranean. Let's continue our good relations.",
+    "sent_at": "2026-06-14T02:46:40.052194+00:00",
+    "sig": "2k7bY32mBl7r4ft7szIaUFT6GrY8ghOS4Ie4NgDWZnqHrEq19gL9uIzLVVoX3mrrpEZE/M+ayv9r3SH1pJZrDA==",
+    "verified": true
+  },
+  {
+    "id": "7d73479613be8a20",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France: I appreciate your desire for mutual stability in the Mediterranean. However, I must clarify that TUN (Tunisia) is one of my four supply centers and is under my control. I'm happy to agree on a western boundary \u2014 I'll focus on the central and eastern Mediterranean (TYS, ION, NAP, and my eastern holdings), while you secure the western approaches (WES, LYO, MAR). This avoids conflict and lets both of us expand safely. Agreed?",
+    "sent_at": "2026-06-14T02:46:43.385385+00:00",
+    "sig": "nOYIPQeLqAE2l+bKMmPhTmTrONj0MUd2yeVlba4kDJMVNmQw+nIfWgUFe4RvFIdcuawk99QUI9GoTev6FBqzDA==",
+    "verified": true
+  },
+  {
+    "id": "e575c53369fcb600",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey: Thank you for the clarification on your eastern expansion. I'm continuing to consolidate my Mediterranean presence and respect our agreement on the Aegean. Let's keep our peaceful stance. \u2014 ITALY",
+    "sent_at": "2026-06-14T02:46:45.686913+00:00",
+    "sig": "uCMQY5B5dnH6SXbrtg7wIMvSO60URTCIRrQgABxzj/q9/FKsofEPOwEKYLoBBiz1y0bG44ZittSBj6n1YuQYDw==",
+    "verified": true
+  },
+  {
+    "id": "b1d9194653ac8741",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France: I accept your proposal \u2014 western Med division makes sense. I'll keep TYS/ION/NAP corridor and focus on eastern expansion away from your zone. Mutual benefit and stability. Let's enforce this.",
+    "sent_at": "2026-06-14T02:47:33.700939+00:00",
+    "sig": "jwuVBf63tcY9v52kVevFiTIUx6riijIO/7vFtz/6CF968qYWI14clo9O+/zVxczxcR4uSU4kS7mkDGJ6brcbDw==",
+    "verified": true
+  },
+  {
+    "id": "3c90d3241c2641ec",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria: Thank you for respecting the Adriatic DMZ and for the alliance against Russian expansion. I agree \u2014 containing Russia is critical. I'm securing the eastern Mediterranean, you focus on the Balkans. Let's stay coordinated.",
+    "sent_at": "2026-06-14T02:47:36.318683+00:00",
+    "sig": "Gy3y2edKY9fxKHba5IxbnuhaD6d5zLUObcVy4CAI/ujQUQ7JVpvt2sXpsyEBcl2FmYHSEM5QOUDgD0D31mAlDQ==",
+    "verified": true
+  },
+  {
+    "id": "6ee540f760612c6b",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey: I accept your eastern expansion to ARM. Our Aegean non-aggression holds. I focus on the western Mediterranean and security of my centers. Stay peaceful.",
+    "sent_at": "2026-06-14T02:47:38.757073+00:00",
+    "sig": "S8OWCsEp3ftOLDd9mOzgCfehaY5XGWblSVv5scGCPWdGq9L0bvQFkj8Ltgltr7w4XgN7UOYXtlN08rL99JIqBQ==",
+    "verified": true
+  },
+  {
+    "id": "ee7e3d7d46c87b75",
+    "phase": "S1903M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 England here. We've had mutual non-aggression and I respect that. Looking ahead: HOL remains unclaimed. I propose: I move F BEL \u2192 HOL and you don't contest from KIE. In exchange, I can help pressure Russia in the north (keeping them from overrunning Scandinavia/Baltic). Together we contain Russia while we both expand. What say?",
+    "sent_at": "2026-06-14T02:52:35.751073+00:00",
+    "sig": "mn/aI7HTztXa5ixxavnW1kFHSMt7XQCvtyMYhTLXbQK+ZBaAyP1RxTdRcKT32fJcKjHRuq7EWPTT+RyTU1IgAg==",
+    "verified": true
+  },
+  {
+    "id": "adfbfbc62cf87f1b",
+    "phase": "S1903M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 sounds good. I'll secure the north (Holland, Scandinavia if I can). You focus med expansion. Let's maintain Channel DMZ and keep Russia contained. I'll begin pressing north this phase. Good coordination.",
+    "sent_at": "2026-06-14T02:52:39.043231+00:00",
+    "sig": "VwqpozFLUgAVgHKeKnI5z9KYM7RctCu5fbdMJSnj/Nv8ts6zqGIBPjh1Qov5p7jLb3nnm/3XrwMuJWKnvjSGDQ==",
+    "verified": true
+  },
+  {
+    "id": "bb80d8d2dce8ec7b",
+    "phase": "S1903M",
+    "sender": "GERMANY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia - I appreciate the offer. Let's stabilize the north. I'll pull F DEN to support central operations rather than push SWE. This frees me to focus on the western front. Keep the NAP strong.",
+    "sent_at": "2026-06-14T02:52:46.099820+00:00",
+    "sig": "K7DbgV/pe+/+PQnZgm/rLMPYB2V+JXbHYTTNr4B1OPZuwkaeN8eU/DI9AcIf5FFuvQWvpu9Qt2jkfcUy9FGNCQ==",
+    "verified": true
+  },
+  {
+    "id": "3772e987ffb63fd6",
+    "phase": "S1903M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England - I see your angle on HOL. Here's a better split: you take HOL, I press south into Burgundy/Belgium support zone. Russia is leading and we both need growth. A true alliance means coordinated pressure on France and Russia's expansion, not just BAL. Let's talk concrete moves.",
+    "sent_at": "2026-06-14T02:52:48.997023+00:00",
+    "sig": "PIMHOFE+o/N5fM+oKpJrax+VNpxHrOE/UxbFhn7tPrbkFtJ7BgbCu6jYK3BJS8jOBt5ZounwFxnRD3TwqvR1DQ==",
+    "verified": true
+  },
+  {
+    "id": "7566f11a6c1b3ca1",
+    "phase": "S1903M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria: I see we both want GRE. Our Adriatic DMZ still holds\u2014I value that. I can support your F ALB - GRE move (F ION S F ALB - GRE) and focus my fleet south toward Egypt/Tunisia instead. In exchange: you continue respecting our Adriatic boundary, and we maintain the Russia containment strategy. Works for you?",
+    "sent_at": "2026-06-14T02:52:59.464807+00:00",
+    "sig": "JFqbhsC07LlXsXhkDqUzuBuu5fLTQrFbaxEnRu/6BNwRPfMCI6dKgsPWPuY48f1o/095jXfmmnUldRBylWChBg==",
+    "verified": true
+  },
+  {
+    "id": "884cc65e1f5b4334",
+    "phase": "S1903M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria: I notice GRE is still empty. Since I have units positioned closer, I'll be capturing it this spring. Our Balkan NAP remains intact\u2014A BUL heading to GRE doesn't threaten your territories. Let's continue our peaceful arrangement.",
+    "sent_at": "2026-06-14T02:53:20.114501+00:00",
+    "sig": "4lryRrTpn05lpeAAH3IK0QlxqUNPM6b9Qf1aw3jSPQZTpa6b7MA3a3xMdmbmNruQ/yZaY3Tl3Jx+jWDbj9NTCw==",
+    "verified": true
+  },
+  {
+    "id": "90f3f76b35ec7f63",
+    "phase": "S1903M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia: Our Black Sea coordination continues\u2014F BLA remains in place holding the line. I'm expanding to GRE in the south. No threats to our arrangement. Keep our mutual defense intact.",
+    "sent_at": "2026-06-14T02:53:23.201732+00:00",
+    "sig": "92T1pD5UYGPUa9l5vXrhKuApuL5w0dE2LLbDFGG+g5Ip1Z9iIHFddERiEaLdKFg/vdCIWphFL+RFZalZFunWCQ==",
+    "verified": true
+  },
+  {
+    "id": "046f11c319854e43",
+    "phase": "F1903M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 confirming our alliance. I'm pressing north hard (DEN, HOL expansion). You focus med as planned. Together we contain Russia (5 centers is dangerous). Channel DMZ holds. Let's coordinate next phase to block German/Russian growth.",
+    "sent_at": "2026-06-14T02:57:19.977453+00:00",
+    "sig": "2y3mHRhxyrjlDS0uIH6jsnrptXq2qAKdVroWT2aqdhNpLvhVjhckLOw9Qpi8KZMCm8y/xF8pPDD2md32yu1xDw==",
+    "verified": true
+  },
+  {
+    "id": "a228c7e8256c30bd",
+    "phase": "F1903M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 I appreciate the offer. But DEN is an empty German center, and HOL is unclaimed. I'm taking both this fall to reach 7 centers and compete with Russia (now at 5). We can work together AFTER I consolidate north. Russia's the real threat \u2014 agree?",
+    "sent_at": "2026-06-14T02:57:22.698952+00:00",
+    "sig": "VawYDfn2tltG+GWL16XoocxaCSQt0aQpvoTreJaV/GSx8nGbt1R98ViclIn+ZpEXFZVheAFVw9w1z6AjwzxPDQ==",
+    "verified": true
+  },
+  {
+    "id": "e281e17607f2b65b",
+    "phase": "F1903M",
+    "sender": "RUSSIA",
+    "recipient": "GLOBAL",
+    "recipients": [
+      "AUSTRIA",
+      "ENGLAND",
+      "FRANCE",
+      "GERMANY",
+      "ITALY",
+      "TURKEY"
+    ],
+    "body": "Germany, Turkey: continuing our strong partnerships. Focusing on expansion this turn while maintaining our borders. Black Sea stays calm, north stays stable. Let's keep the peace.",
+    "sent_at": "2026-06-14T02:57:57.858992+00:00",
+    "sig": "LGbOi8arNnKykBBwmJgYUFjZTFU/nSA3RmJglBV3PaFKVaGt+Mtbkm0wZSnBoq7ZGCVf4DWHmGI/3zAp44ijDw==",
+    "verified": true
+  },
+  {
+    "id": "c65a10c04afde4db",
+    "phase": "F1903M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "ENGLAND \u2014 DEN is a German supply center. I will defend it. Let's not go down this path. I propose: I keep DEN (F BAL \u2192 DEN), you keep HOL (F BEL \u2192 HOL). We both back off and focus on Russia. They're the real threat at 5 centers, and we can contain them together. Agreed?",
+    "sent_at": "2026-06-14T02:58:03.939679+00:00",
+    "sig": "WSXEhS8fcm/NNaDyiBs8wtUBax+3G1iy9RaJ/ZGefzJdTx/4gnC21jzqFpoAVTYVBahv7FI9PtNUFDwQcbD0BA==",
+    "verified": true
+  },
+  {
+    "id": "7663e0bd7d55fe74",
+    "phase": "F1903M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia: My army moving to Vienna this fall. I expect Vienna to remain mine. Let's avoid direct conflict there.",
+    "sent_at": "2026-06-14T02:58:10.410093+00:00",
+    "sig": "jJVjkfJGfm1D6zzDCU43lff0pk6WhBv6ARhw4kUDg/HgmJDp2196a0nNxRhratxahfosfSPL7+2Z38AmYbi1AQ==",
+    "verified": true
+  },
+  {
+    "id": "29ebc1b8dc1202e2",
+    "phase": "F1903M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey: I've secured Greece this turn. Our Balkan NAP holds\u2014my forces remain in the Balkans, yours in Anatolia. Respect each other's spheres. NAP continues.",
+    "sent_at": "2026-06-14T02:58:13.360117+00:00",
+    "sig": "V7mJdXOVaaXnbYi4EF2Z9mAUiPQTDl4teceGgk5hbPKaoS/lGVXMPK0DE/fAA9srrX5Ixnh79mTtqzHdJCR8Cw==",
+    "verified": true
+  },
+  {
+    "id": "76f165f2abbcd600",
+    "phase": "S1904M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "GERMANY - Agreed on HOL for England, DEN for Germany. But here's the real power move: you take SWE (F DEN \u2192 SWE) while I take HOL (F BEL \u2192 HOL). Together we seal Scandinavia/Low Countries and contain Russia from the north. Russia is at 5 centers; we need to box them in. Two fleets in Scandinavia + one in Holland is unstoppable. Thoughts?",
+    "sent_at": "2026-06-14T03:02:27.016278+00:00",
+    "sig": "gS2u5rPJKi//MKFd73LiM1KoWiBVeSEwNvS39q70FqRiRUOF348OIqaYiYBqDbUaRJR+zLjmKd+LzZhpkOSOAw==",
+    "verified": true
+  },
+  {
+    "id": "33f4fcec1133912d",
+    "phase": "S1904M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "FRANCE - Expanding into HOL this turn to maintain our coalition strength. You keep the med, I keep the north. Russia at 5 centers is the real threat. Let's maintain pressure from opposite directions \u2014 you from south, me from north. Channel DMZ stands. Regards, England",
+    "sent_at": "2026-06-14T03:02:29.885137+00:00",
+    "sig": "aAdb8p9eHrll0Z5KksuIrvBhZg9S+5s+0Ykhn8pYOgSYxKbu/amY0SvBPozVod3Rl8TgQLKCVYJcyL4ZCIunCQ==",
+    "verified": true
+  },
+  {
+    "id": "e0b304c3e52e267c",
+    "phase": "S1904M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia - noting your A GAL position. I'm moving A VIE to GAL to consolidate my core. No aggression intended, but I need to secure my position. Let's avoid direct conflict. - AUSTRIA",
+    "sent_at": "2026-06-14T03:02:53.567490+00:00",
+    "sig": "AVNzKrPahwfW7tGIKWJrF5lTTkFqnJooTt182GQ5i7iat++LDBPOxjXvPaRq3U9ZXBM8SEbC+mUun3OWsUYvCg==",
+    "verified": true
+  },
+  {
+    "id": "a7e5c708c331221f",
+    "phase": "S1904M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "ENGLAND - Fully agreed! I take SWE (F DEN \u2192 SWE), you take HOL (F BEL \u2192 HOL). This seals the north and boxes Russia. Two fleets in Scandinavia plus your fleet in HOL is a wall they cannot breach. Expecting mutual commitment to this line \u2014 Russia at 5 centers is the shared threat. Let's execute this simultaneously.",
+    "sent_at": "2026-06-14T03:02:53.812755+00:00",
+    "sig": "qoQYS2wO4jy6j7WOw/zd5QYbu/DbSlug4VmV463zv9+xCLUs7jrUMyzw/hNqOmewVHsnBZNDwgARI+UZsT91Bg==",
+    "verified": true
+  },
+  {
+    "id": "bb3261fc4ffa3e18",
+    "phase": "S1904M",
+    "sender": "AUSTRIA",
+    "recipient": "GLOBAL",
+    "recipients": [
+      "ENGLAND",
+      "FRANCE",
+      "GERMANY",
+      "ITALY",
+      "RUSSIA",
+      "TURKEY"
+    ],
+    "body": "Turkey, Italy - Confirming our NAP continues. I'm consolidating my Balkan position. No moves toward your territories. Let's keep our partnership strong against Russian expansion. - AUSTRIA",
+    "sent_at": "2026-06-14T03:02:56.224364+00:00",
+    "sig": "jqWyEUUEc/cM+8BoPKRtszLTHpUEfpEjFKwKqAexWHGQk7uMPKmgdOBpe5Cwgccg1vttxc0LaY9EZR+QMwLOAQ==",
+    "verified": true
+  },
+  {
+    "id": "d6aca651c2b5b47c",
+    "phase": "S1904M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "ENGLAND - S1904M coordination: I'm pushing toward LYO (western Med expansion per Italy deal). You keep north, I keep south. Russia at 5 remains our concern. Maintaining Channel DMZ. Shall we coordinate on blocking German/Russian growth next phase if needed? - FRANCE",
+    "sent_at": "2026-06-14T03:03:03.545493+00:00",
+    "sig": "bXCpFOzoZ0lX+Cpr8WBNcvirtFAR8G+IomLlDOiCkFJyzXjAkTh+tGCuv/9GWiDY6rLsBJCzauMsPl1xgGNhBA==",
+    "verified": true
+  },
+  {
+    "id": "761ee25b997e52ee",
+    "phase": "S1904M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "ITALY - Confirming our Med division continues: You keep TYS/ION/NAP/TUN, I take WES/LYO/MAR progression. Your PIE nearby is fine; I won't threat it. Mutual expansion per our agreement. - FRANCE",
+    "sent_at": "2026-06-14T03:03:06.334893+00:00",
+    "sig": "c7LRun47R/1xrDmggvvu0iULNpW/HUVL1YOe3LHsC2dVOItdBrtgjGPRKecIomGFZzmHosRghhOVFTTp7XPdCg==",
+    "verified": true
+  },
+  {
+    "id": "69864840991aa2fc",
+    "phase": "S1904M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France: Your hold on MAR is well-defended. Let's reset our Western Med arrangement\u2014I propose we each consolidate our current holdings and expand where we don't compete. You focus on Spain/Portugal, I'll focus on Mediterranean/Balkans. Both benefit from Russia containment. Interested?",
+    "sent_at": "2026-06-14T03:03:10.668680+00:00",
+    "sig": "GA5JYhIIp2HeRVwtUnV72aA3AHE5jyUrsDlggU/ONbfhtq0mj+GVZOzRjsnmlvVkEn27Ge5a1ZIVUXyKn/XiDQ==",
+    "verified": true
+  },
+  {
+    "id": "a6fed9c45b2f010f",
+    "phase": "S1904M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria: Our Adriatic DMZ remains honored. GRE is secure with your support. Continuing to watch Russia and maintain Mediterranean stability. Any developments I should know?",
+    "sent_at": "2026-06-14T03:03:16.292575+00:00",
+    "sig": "555BPAxpCq7jfw+Wr1WxiCcG98M+9p62gn7pp1rBPTZ3RzwmUghFqPtn1ZsC6DQRgjxcrpCHg2AKmmAbA82xAA==",
+    "verified": true
+  },
+  {
+    "id": "7c7e081eb1249e5b",
+    "phase": "S1904M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey: Our non-aggression in the Aegean holds. I see you've expanded to ARM and BUL solidly. Let's maintain our Mediterranean peace and coordinate against Russian expansion. Agreed?",
+    "sent_at": "2026-06-14T03:03:18.987058+00:00",
+    "sig": "t89fqgsmu1g4lF2l2nxUoqvy5wwduCJlfvJGUmo1j6Amq+41zrF7ajeLASgWuJHlZ+bXZTdhksreFO52LCM3BA==",
+    "verified": true
+  },
+  {
+    "id": "c0810b9154d488bf",
+    "phase": "S1904M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria - I acknowledge your move to consolidate. My army at GAL will reposition. I'm expanding north to SWE. Let's establish clear boundaries: you keep the Balkans, I focus on Scandinavia and the north. Mutual non-aggression on our border? - RUSSIA",
+    "sent_at": "2026-06-14T03:03:37.260132+00:00",
+    "sig": "0vfS2qGNl57Dtz0ZkZkoIlUs+JdDY5hC7LOBCN1uwOdVkSFgn/U/QCLAsN6EKvHkUtfXgyKEAmNb7T3ZLJjECA==",
+    "verified": true
+  },
+  {
+    "id": "f993fc49727a3d8a",
+    "phase": "S1904M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey - Confirming our Black Sea NAP continues strong. I'm expanding north (SWE) and repositioning centrally. No threat to your Balkan position. Keep our coordination intact. - RUSSIA",
+    "sent_at": "2026-06-14T03:03:39.687345+00:00",
+    "sig": "IWDC/QQ49ljGu/IfI0XwTxh+VeKvZoHEn2JQ7+HGZmTxUC+v/Z9e2UgEnP9yqa/2raMGzEgWH9oI/9AMDFusAA==",
+    "verified": true
+  },
+  {
+    "id": "a8b9f4aa454ee146",
+    "phase": "S1904M",
+    "sender": "RUSSIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany - NAP holding strong. I'm consolidating north (SWE) and repositioning. Austria is becoming active in the Balkans. Our northern border remains clear. - RUSSIA",
+    "sent_at": "2026-06-14T03:03:42.604895+00:00",
+    "sig": "0Zg+gIhpOQbfHGLaft0EPoJKed21XILZcbLv7wlvnMAiG4mFw8sYrYqLKk9hQfcembma66eTuO52QVVrQWGZAg==",
+    "verified": true
+  },
+  {
+    "id": "7b748c574d6d6260",
+    "phase": "S1904M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy - agreed. I'll consolidate Spain/Portugal, you take Mediterranean/Balkans. This protects both our expansion. Let's maintain channel DMZ with England and contain Russia. Coordinating moves now.",
+    "sent_at": "2026-06-14T03:04:59.125516+00:00",
+    "sig": "+xPc/zAIFx9EpQsYBeT3wOxHkj70tBd05kzmoMqt8tDOmichPtOfHdflOc0hlhI0Bpg2GTpvx3HxpFv1U+WACQ==",
+    "verified": true
+  },
+  {
+    "id": "6164393f1d0d633c",
+    "phase": "S1904M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England - continuing alliance. I'm consolidating western Med expansion (Spain/Portugal zone). You maintain north pressure on Russia. Together we contain them. Channel DMZ holds. Let's push simultaneously this phase.",
+    "sent_at": "2026-06-14T03:05:04.690049+00:00",
+    "sig": "yk/gZSURvRx4BdKCxyG0cMXYi6WWQ0Zg2z3tUCfvZVSJytVK4KHa1scpySyyUjMQsfcTy1tyueTJ7t3uBFU7AQ==",
+    "verified": true
+  },
+  {
+    "id": "174bcd890bbefdaf",
+    "phase": "F1904M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 your army moved into Budapest, my home center. That is an act of war I cannot ignore. I am retaking BUD this fall. If you withdraw and we re-establish non-aggression along the GAL/RUM line, I am willing to reset relations afterward. But BUD must return to Austrian control \u2014 no negotiation on that. \u2014 AUSTRIA",
+    "sent_at": "2026-06-14T03:09:17.466789+00:00",
+    "sig": "CH4eJ9riNwO805C0h89/6Gmvl9C2aQkmBrEmtjplkFi/btoB5mWF2a64bjkeH6xvOoC3cOvqYvVh6V43itiUDA==",
+    "verified": true
+  },
+  {
+    "id": "03ed8c003b1c919e",
+    "phase": "F1904M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 we share a common enemy in Russia. They invaded my BUD and hold RUM. I'm driving them back. Can you press A BUL toward RUM or hold BLA to keep Russia pinned? Mutual gain: I retake BUD, you pressure RUM. Our NAP remains firm. \u2014 AUSTRIA",
+    "sent_at": "2026-06-14T03:09:22.015317+00:00",
+    "sig": "8pV5rXUH0jPOqWfMZZCUkYHcU48D1APSGBun0JBHO5yPgztLTPo/Tcp3U7WnRM449e1+wRISmoJ1p0tXKRb7CA==",
+    "verified": true
+  },
+  {
+    "id": "aebd91dc44e66270",
+    "phase": "F1904M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 Russia invaded my Budapest. I'm retaking it this fall (A GAL - BUD, A VIE S). Our NAP holds strong. If you can maintain pressure in the Aegean or hold your position, that frees me to focus north. Let's stay coordinated against Russian expansion. \u2014 AUSTRIA",
+    "sent_at": "2026-06-14T03:09:26.753305+00:00",
+    "sig": "iu62jYCVfwW0wXhSZwB1IfoeDhZXWzro5VI4sC4uCZJTHUPFjbFVlqqn/fvnMXpMYM1hgn0Cw/SSebxhJ9g8DQ==",
+    "verified": true
+  },
+  {
+    "id": "4a5be1abbade938c",
+    "phase": "F1904M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 our alliance has held solid and now I need your help to finally break the HOL stalemate.\n\nGermany attacked Belgium last phase (A RUH\u2192BEL) despite promising me HOL. They cannot be trusted. Germany has A RUH and A KIE both sitting adjacent to HOL, and F DEN likely heading to SWE.\n\nMy plan: F BEL \u2192 HOL. If you can support me with A PIC S F BEL \u2192 HOL, that gives us 2 strength and should overcome any German opposition. This gets England into HOL and weakens Germany's position \u2014 which benefits us both.\n\nIn return, I continue to hold the Channel DMZ completely. I have F MAO and F NAO \u2014 neither threatens France, and I intend to keep it that way.\n\nCan you support BEL\u2192HOL from PIC this phase? It would be the decisive move that breaks the deadlock. \u2014 ENGLAND",
+    "sent_at": "2026-06-14T03:09:49.668571+00:00",
+    "sig": "pVZmRo33+FSP5XgIvE/ZPvB2Z38RlbQEvPRB7alBkb9Jim7wpv2eNUrm2vi08O9jzBpHlkhkI06GxYxjHz2gAg==",
+    "verified": true
+  },
+  {
+    "id": "e7b5bfec011671a4",
+    "phase": "F1904M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 you proposed in S1904M that I take HOL while you take SWE. I agreed. But then A RUH attacked Belgium and the bounces continued. That's not the partnership you described.\n\nI'm moving F BEL \u2192 HOL this fall. If you want to demonstrate good faith: move A RUH away from BEL/HOL and take SWE with F DEN. You get SWE, I get HOL, nobody else threatens either of us.\n\nIf A RUH or A KIE try to contest HOL again, I will treat Germany as an enemy and coordinate accordingly with France and Russia. Your choice \u2014 I'm offering the deal you proposed, let's actually execute it this time. \u2014 ENGLAND",
+    "sent_at": "2026-06-14T03:09:55.941771+00:00",
+    "sig": "3mlECASkQAM3teHY4BBIOHUPjyK3N0Fi4Eu8R2pe20/wTS9hNWA9Z/teQ6mhF1e4OPpM0kxrlCukfsSlfoIUDQ==",
+    "verified": true
+  },
+  {
+    "id": "600ab661990ab2ed",
+    "phase": "F1904M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 noted that Germany attacked BEL last phase (A RUH-BEL bounce). That's a serious breach of trust on their part. I'm advancing A PIC-BUR this phase to set up a MUN push next turn \u2014 this also relieves pressure on your BEL. Moving F LYO-TYS for Mediterranean expansion. Channel DMZ stands firm. Russia at 4 units but 5 centers is dangerous \u2014 let's keep coordinating. \u2014France",
+    "sent_at": "2026-06-14T03:10:17.336138+00:00",
+    "sig": "VlfNa1b4h1HxOimmXWYESLm50lNp9v5HtTbyyXnDhjzngeTCC7CNYSVyAmUOxydqULC5SBpk26YgdScRnAmkAQ==",
+    "verified": true
+  },
+  {
+    "id": "faae23542237b25d",
+    "phase": "F1904M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 understood on Russia pressuring Budapest. Our NAP holds firm. I'm maneuvering in the Aegean/Eastern Med to grow southward. You focus on retaking Budapest and containing Russia in the north \u2014 we both expand from our respective fronts. Italy has no designs on your Balkan centers. Stay coordinated.",
+    "sent_at": "2026-06-14T03:10:21.595216+00:00",
+    "sig": "SwhZ73Sx0Axxn2JZbE3GN+SSvT1hfpzAZOsWBYwQcqL0Wx8BIdymeKcbHwpP7C/SkQ8cQ0qgOKnzQpWGtUztBA==",
+    "verified": true
+  },
+  {
+    "id": "4637b7edc20cb4a4",
+    "phase": "F1904M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 your eastern Med focus makes sense. I'm moving northward this phase (A PIC-BUR to target MUN). F LYO moves to TYS to maintain our western/eastern Med division \u2014 I won't encroach on your zone. We both benefit from containing Russia and keeping Austria balanced. Let's maintain our accord. \u2014France",
+    "sent_at": "2026-06-14T03:10:22.558665+00:00",
+    "sig": "P2U5/5awkGpbtn5YB9lfoETKaSEJrSyVuxMC5R4JnDOPNihx0nZu8hPh0UiXQZ307aos+isbS7yV/5Eq5UJCDQ==",
+    "verified": true
+  },
+  {
+    "id": "4b0c28290b9e2958",
+    "phase": "F1904M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 impressive move taking Sevastopol! Russia is reeling. I'm staying focused on western Mediterranean expansion. Our Aegean non-aggression continues \u2014 I won't threaten your centers. Let's both grow at Russia's expense while they're weakened.",
+    "sent_at": "2026-06-14T03:10:25.391515+00:00",
+    "sig": "d9glFAppgboaBWNcb4zZcyV/g+tsYk8+/C6VhdKL8EWMqjEU8slf6sqwFF6f2ZD2F1etrerOzpjvIVKJDHViAg==",
+    "verified": true
+  },
+  {
+    "id": "f054a8c961c1c086",
+    "phase": "F1904M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 I see you attempted to take BEL from England last phase. That damages the trust needed for a stable western coalition. I'm moving into BUR this phase. I'd prefer a non-aggression understanding \u2014 my focus is Mediterranean and MUN is not off the table if you continue to threaten England. Consider your position carefully. \u2014France",
+    "sent_at": "2026-06-14T03:10:27.472659+00:00",
+    "sig": "FKm12Wzp3NjNQHkRQClMV8PyL5MZO28f+CeinGYmjk4lnbKyAw4eHKz/mF8FWpcRKfxvo0P4Iic5ZH/K/LvNBw==",
+    "verified": true
+  },
+  {
+    "id": "de3874cd99f2798c",
+    "phase": "F1904M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 Germany here. Confirming our fall plan: I move F DEN\u2192SWE, you move F BEL\u2192HOL. I will NOT send A KIE to HOL \u2014 the path is clear for you. This gets us both to 5 centers (tied with the top three). After this I propose we coordinate against France: they are at 5 centers and spreading west through PIC, GAS, SPA. My armies in MUN and RUH can pressure BUR while your fleets anchor the north. Reply if you are still aligned. \u2014 Germany",
+    "sent_at": "2026-06-14T03:10:32.764119+00:00",
+    "sig": "j/sBQw1huGKOQft+475yFLZdCFfaHwvQzMOZ15KYMq1IKO/89bSWFUmjxgKA1csbiipknkXJvalwnaFTov6lDw==",
+    "verified": true
+  },
+  {
+    "id": "6c53a6b295e8fe5e",
+    "phase": "F1904M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 your message is timely. Russia attacked SEV last phase and my A ARM took SEV. I now hold SEV and will capture it this fall. Russia is desperate to retake it.\n\nI am pushing A BUL toward RUM this fall to pin Russia and relieve pressure on you. Please drive them out of BUD. Together we can crush Russia between us. My F BLA will support A SEV to hold \u2014 two-pronged pressure on Russia from south and west. NAP remains firm. \u2014 TURKEY",
+    "sent_at": "2026-06-14T03:10:34.267174+00:00",
+    "sig": "5tZFWEtEfldwVmdGRETN9eVH2HTmOzbt3WrHFMnm1MUjA5fsglHPf+5LXOHTo1EfQcWhpdmn1s1A1DOXLzWfBQ==",
+    "verified": true
+  },
+  {
+    "id": "97de3c2d40200360",
+    "phase": "F1904M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 our Aegean non-aggression is solid. I'm focused entirely on Russia right now \u2014 capturing SEV this fall and pressing toward RUM. No threat from me to your Mediterranean position. Let's keep the peace. \u2014 TURKEY",
+    "sent_at": "2026-06-14T03:10:37.969323+00:00",
+    "sig": "WRkJyqPjT6FXtxcZsz0vBOgPk1S7s5owE7O17zVuyzYLmK9FCjpDSmoPglbxTQ9z3tYXp5wDIR03LgepBf+WAw==",
+    "verified": true
+  },
+  {
+    "id": "f6662c9721382551",
+    "phase": "F1904M",
+    "sender": "GERMANY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 Germany here. I am moving F DEN\u2192SWE this fall. Your A FIN is near there \u2014 if you also move toward SWE we both lose it (bounce). I propose: I take SWE, you take SWE's pressure off by holding FIN or moving it elsewhere (BOT, NWY area). In return, I commit to staying out of BAL. Our northern non-aggression has been solid so far. Let's not waste both our moves on a bounce. \u2014 Germany",
+    "sent_at": "2026-06-14T03:10:38.527320+00:00",
+    "sig": "1uOWro+9tuZQ+dvd6NAdoA+Wli53KeM0ov7Qur5YQlXZPRUmCBY4dGkpNyJc6zl+XX9BAUMjgADpItQJFsdCCQ==",
+    "verified": true
+  },
+  {
+    "id": "3c737aab4fcea670",
+    "phase": "F1904M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 You tried to take SEV and failed. I now hold it and will take it as a supply center. Do not move A RUM to SEV \u2014 I have it supported. Make peace now and I will not press further north. Fight me and you lose your southern position entirely. Your choice. \u2014 TURKEY",
+    "sent_at": "2026-06-14T03:10:42.103076+00:00",
+    "sig": "cTh7/n+QSJ7fWHY4CCJBqFVrPyjZsJUKDXKf+YLrMiF6krqOXeOOqhhTRd3YoEFjAc3pimNcaN4+h72qjsE3Cg==",
+    "verified": true
+  },
+  {
+    "id": "fdeb87a9bb858bef",
+    "phase": "F1904M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 Germany here. We have had an informal non-aggression but I notice France is at 5 centers and expanding actively. I propose a formal NAP between us: I focus north (Scandinavia, England alliance) and you focus south and west (Iberia, Mediterranean). BUR and BEL remain a buffer zone neither of us militarizes. This gives both of us room to grow against others. Are you interested? \u2014 Germany",
+    "sent_at": "2026-06-14T03:10:44.278996+00:00",
+    "sig": "O/1EA7WRhIJ6RkS7n+cyqacMh127M+LrdZplrfuqVfgtm4jEFteLYmLbPCIqnTi/ArKy1gNBA4UjCzoCDWl2Bw==",
+    "verified": true
+  },
+  {
+    "id": "7d8a44f23afea850",
+    "phase": "F1904M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 you have betrayed our Non-Aggression Pact. Your A ARM\u2192SEV dislodged my fleet with F BLA support. The NAP is dead. You will find I am a persistent and implacable enemy. Every power on this board will know what your word is worth. \u2014 RUSSIA",
+    "sent_at": "2026-06-14T03:10:50.931592+00:00",
+    "sig": "ky7Q1Unvae/QkRDwwOibu1TXIvmZUUVjYIfR5VFRxk1lauaRJAN9YRtQ3Ngn+NrK/F4sUUEcP0+u8H2qq8tMCA==",
+    "verified": true
+  },
+  {
+    "id": "aa412a2bff5f9c6e",
+    "phase": "F1904M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 I understand your anger over BUD. But consider: Turkey just betrayed me and seized SEV. We face a common threat. If you and I fight each other, we both weaken while Turkey expands. Proposal: I hold BUD this turn and we negotiate a boundary. In exchange, join me against Turkey \u2014 we can divide the Balkans. Turkey's growing power threatens both of us. Let's talk terms instead of bleeding each other. \u2014 RUSSIA",
+    "sent_at": "2026-06-14T03:10:55.872055+00:00",
+    "sig": "WUhylsa6RxsPDOGpzci4lCmIC2JA/AWGDFcxMQqXlRBQi4VlOSVjcPFNwsxr9qSArwAsmEGQ6MG4KR0PcsxiCw==",
+    "verified": true
+  },
+  {
+    "id": "e30ffecbbd9e172b",
+    "phase": "F1904M",
+    "sender": "RUSSIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 Turkey has stabbed me, seizing SEV with a supported attack while claiming to maintain our NAP. The southern flank is now destabilized. I am pushing back hard against Turkey this fall. If you can coordinate pressure on Austria from the north, we could squeeze Austria and let me focus entirely on Turkey. Interested in a broader anti-Turkey, anti-Austria coordination? \u2014 RUSSIA",
+    "sent_at": "2026-06-14T03:11:00.862101+00:00",
+    "sig": "pBHXQEwsSaErFHCRG008Chfgwr2XyQUBl3pOJl7m9xDsUS5yJANuF57KArZa1Mdos1noCBWFadnfk7WFaoX+DQ==",
+    "verified": true
+  },
+  {
+    "id": "e747d332a0aef0f3",
+    "phase": "F1904M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 Turkey has betrayed the southern peace, seizing my SEV with a supported stab. The balance of power is shifting dangerously. Russia is fighting back against Turkish aggression. I'd welcome any diplomatic coordination that keeps Turkey and Austria checked. \u2014 RUSSIA",
+    "sent_at": "2026-06-14T03:11:05.036718+00:00",
+    "sig": "Ps+s18idC3scFgP+HuKywg9+z+lVntUsK49xb5Oo6yepr/cp6NIhUB5nyNnuJdv+IhMdm+cXrL81Z6XbCRrsCQ==",
+    "verified": true
+  },
+  {
+    "id": "9cfbfbb58b452cbf",
+    "phase": "S1905M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 S1905M coordination: Moving F NWY \u2192 SWE and F HOL \u2192 DEN this phase to grab northern supply centers. F EDI heading to NTH for control. I see Germany has been unreliable (the BEL probe last year). Let's stay aligned \u2014 Channel DMZ holds. If Germany weakens further, BEL and DEN are ours. Keep pushing on BUR/MUN from your side. \u2014 England",
+    "sent_at": "2026-06-14T03:20:05.853797+00:00",
+    "sig": "vVRoadoFNjc/GywdRGArNqjc3Qb3exjGQMugKf8S/WBK1Ya5Ellyi5alMmZ1sGofeqodKiP3lh9G5uJkjc/GDw==",
+    "verified": true
+  },
+  {
+    "id": "f766667a8108118c",
+    "phase": "S1905M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 your F DEN going to SWE would let me take DEN unopposed. If that move happens we both gain. However, I've noted the RUH-BEL probe last year was a concern. Let's keep this cooperation genuine: you take SWE, I take DEN, and together we wall off Russia and stabilize the north. \u2014 England",
+    "sent_at": "2026-06-14T03:20:10.937481+00:00",
+    "sig": "7enhXF21APrFOMGyfS5cUQIOcOkPgLdVfh9h5i1AOvST2XtnC5oSi78Btnd7HMcLISFAoA3iK8848KqZlAmACA==",
+    "verified": true
+  },
+  {
+    "id": "ceb1ee53d7d3b6c3",
+    "phase": "S1905M",
+    "sender": "ENGLAND",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 I see Turkey has stabbed you from the south. I'm focused on northern expansion (SWE target this phase). No hostile intent against your remaining centers beyond SWE. If Turkey is your main threat, consider whether we can avoid a two-front war. \u2014 England",
+    "sent_at": "2026-06-14T03:20:14.767350+00:00",
+    "sig": "80HWy6aQU0BH2N7IjScUT9jJezEumac5J4i17TuO1A3Fu79BTI5c08Tg/4S79qKPUr21zVlEjEi7bva0Zy1ODA==",
+    "verified": true
+  },
+  {
+    "id": "5a14e753015860cf",
+    "phase": "S1905M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 Germany has A BUR sitting in Burgundy, one step from Paris. I cannot afford to let that stand, so this phase I must defend Paris and contest Burgundy. I won't be able to support BEL\u2192HOL with PIC this turn \u2014 sorry, I know that's not what you wanted to hear.\n\nGermany cannot be trusted: they proposed a peaceful NAP to me while parking a unit next to my capital. I'm moving to dislodge or neutralize A BUR.\n\nLong-term I remain your partner. Once I secure my western flank, I can support your northern push. Can you apply any pressure on Germany from the north (KIE, DEN) to keep them from reinforcing BUR? That helps us both. \u2014 FRANCE",
+    "sent_at": "2026-06-14T03:20:16.290729+00:00",
+    "sig": "J1UJqHrVm3Z+upaBZK+vA8q0qozklV5685h5+hLNDTAFdIzsOuNwRCseOmQlSmcxkRneiy04jvkM7gD1G0S/Cw==",
+    "verified": true
+  },
+  {
+    "id": "49b12cec810c60be",
+    "phase": "S1905M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 your NAP proposal might be sincere, but A BUR sitting next to Paris makes it impossible for me to trust you. I have no choice but to respond. If you genuinely want peace, pull A BUR back to MUN this phase \u2014 that's the only gesture that would be credible. Otherwise I must treat your position as a threat. \u2014 FRANCE",
+    "sent_at": "2026-06-14T03:20:20.597051+00:00",
+    "sig": "fXXmbUVVxuQQW5wVvvgl8Q0J5lbvcfw8xjjhjPz5pj96GwA8pkMSus0y931WFi92waTeE8nKj3lEmX2zp3LZBA==",
+    "verified": true
+  },
+  {
+    "id": "afb52f29e2d4f901",
+    "phase": "S1905M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 our western Med arrangement has held well. Germany has A BUR threatening my capital this phase, so I'm focused on defending/attacking west. F TYS will be repositioning. As long as we keep our border calm I see no conflict. Update next phase. \u2014 FRANCE",
+    "sent_at": "2026-06-14T03:20:24.490885+00:00",
+    "sig": "PlR+h5w59QdSBlcvsY3d2/YQ7bF0g199Rp5tC3Bg+xn5a+XxQ/jcdMGROY7/Xj4K9GmDRQfX2AXxWxn63JO0BA==",
+    "verified": true
+  },
+  {
+    "id": "70a8e84c9d9c5027",
+    "phase": "S1905M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 S1905M. Our Adriatic DMZ holds firm. I'm pushing hard on Turkey this spring: driving into BUL from SER with support from GRE. Also pressuring Russia's RUM. England is pulling ahead at 6 centers \u2014 we both need to grow. Are you moving north toward TUR/RUS positions? Keep me posted on your intentions. Austria.",
+    "sent_at": "2026-06-14T03:20:27.687946+00:00",
+    "sig": "p+AbSviSZiILy1qFwGzMAyI1ouiAnXpQY0xSyLcnarwaWAdOTG72d3aVCflR3TdFJ4YCzsZPHs0IzCgEysvBDw==",
+    "verified": true
+  },
+  {
+    "id": "7245c501e1db9968",
+    "phase": "S1905M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 I know we've had tensions over the Balkans, but England now leads at 6 centers. My priority this spring is securing BUL. You cannot hold all your positions with Russia pressing from SEV/RUM. Consider reorienting toward Russia \u2014 together we could split their position. I'm not your enemy if you work with me here. Austria.",
+    "sent_at": "2026-06-14T03:20:32.446236+00:00",
+    "sig": "+KDFQr83gjDrL/wkkvf0uRA5jhCOcq5N1UX34l5SZ4j5NABqpgJd3Voz8uJIw9yzbx/x887GXU8k+9POn7x6CA==",
+    "verified": true
+  },
+  {
+    "id": "26f330164b52db80",
+    "phase": "S1905M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 England leads at 6 centers and we're all at 5 or fewer. I'm focused on Turkey this turn, not fighting you. If you can pull your A RUM back toward GAL or north, we both avoid a costly clash. I'm willing to discuss a real boundary agreement once Turkey is contained. Austria.",
+    "sent_at": "2026-06-14T03:20:36.779425+00:00",
+    "sig": "5odd56F6LmbmT82rdaP641egPcRpHN8/FySObPug6dJOSntdzLbJUbIi1FRGO2PWyZzc7GQ6oTvfL1WotIxLCA==",
+    "verified": true
+  },
+  {
+    "id": "c3f7900a160e3109",
+    "phase": "S1905M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 I understand your anger over SEV. You're right that I broke our NAP, and I won't pretend otherwise. But consider this: Italy has stolen SMY from me and now threatens ANK. I'm fighting for survival on two fronts. I propose a ceasefire \u2014 you keep A RUM where it stands and I keep SEV. We're both weakened while England grows to 6 centers. If you press me now, Italy takes the south and England takes the north. Neither of us wins. Let me hold what I have; you focus north on England/Germany. Practical truce, not friendship \u2014 but mutual survival. \u2014 TURKEY",
+    "sent_at": "2026-06-14T03:20:46.431395+00:00",
+    "sig": "VA5vQ3noT7JTRXezG21hCsP8aOh84vKdyxPO5itwllW9F1/shx7ktu08MgyWqzPnXP/i4qH13qpqW/5t/TNSCA==",
+    "verified": true
+  },
+  {
+    "id": "696f29f5472f2c18",
+    "phase": "S1905M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 your position is weakening. I hold SMY and am pushing east. If you want to negotiate, offer me CON peacefully and I'll focus pressure elsewhere. Otherwise I'm taking what I can. \u2014 ITALY",
+    "sent_at": "2026-06-14T03:20:48.638472+00:00",
+    "sig": "ybIelt9hcZ2KlSm/lPMF75o7IELB1vCvVqtQ2GpyQxJZYaTuxdxjj6M+5xmjLcYpuDDLvXxhd9rawrJbTj8HCA==",
+    "verified": true
+  },
+  {
+    "id": "5c82f45dab43b492",
+    "phase": "S1905M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 Italy has stabbed me, taking SMY and threatening ANK. I'm locked in a desperate defensive fight. I'd appreciate any pressure you can put on Italy in the south \u2014 F GRE could be useful there. Our Balkan NAP holds from my side; A BUL stays put. Let's both survive while Italy and England overextend. \u2014 TURKEY",
+    "sent_at": "2026-06-14T03:20:51.314574+00:00",
+    "sig": "aouQaGhQxq3z7lDvN0ZIRfBiYVRnxUM003eLUf8qABLW/WclmLqalaOSiVF1BcE+kJx4kQQ7PfwajDEb7SFkDw==",
+    "verified": true
+  },
+  {
+    "id": "14169d722f8f3271",
+    "phase": "S1905M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 your A SER could support an attack on GRE. I'm moving F ION to AEG and F SMY toward CON this spring. If you can push GRE, we split the Turkish remnants. Coordinate? \u2014 ITALY",
+    "sent_at": "2026-06-14T03:20:52.315574+00:00",
+    "sig": "FOec44nzV4fLjq66uaHDYCddzrQlz50sqYwoQTQzrT7BZiOcE/qUjMmIUc67GP/kDg89UGcA1/6sds2Jk2acAQ==",
+    "verified": true
+  },
+  {
+    "id": "2a19348088c9fbe6",
+    "phase": "S1905M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 you hold SEV with full support. I understand the position. I'm not moving on SEV this spring \u2014 let's talk terms. I propose: you hold SEV, I hold RUM, we freeze the southern line here. I want to focus north against England (6 centers, leading). If we keep fighting each other, England wins. What do you say? \u2014 RUSSIA",
+    "sent_at": "2026-06-14T03:20:54.102505+00:00",
+    "sig": "MPsfM1htQFZ7HfnDDkV6VfarfbvMHUge14WdbUkshCiyO0xeP2mSKmKZeTfSquFtIMR/Pq2Eh2JFGIEA/GitAQ==",
+    "verified": true
+  },
+  {
+    "id": "f0f98d66922e28a0",
+    "phase": "S1905M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 our Med accord holds. I'm pushing east against Turkey this spring (SMY\u2192CON, ION\u2192AEG). You have TYS \u2014 let's avoid colliding. I'm not touching western Med. Stay north against England and we both grow. \u2014 ITALY",
+    "sent_at": "2026-06-14T03:20:56.340832+00:00",
+    "sig": "jbd2IUsJwEcLnkgkDAdQvE9l3PlEaImE4elrqHR6+9I4Vu71nqdt2QHdLmI/u1XK8rPo6GEzcO+iFqc7ymyJCA==",
+    "verified": true
+  },
+  {
+    "id": "4470b7503a453e51",
+    "phase": "S1905M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 you took SMY after promising non-aggression in the Aegean. That's a betrayal plain and simple. I'm not here to beg \u2014 I'm telling you that if you push F SMY\u2192ANK you gain one center but make a permanent enemy who will fight you every step. You're already at 5 centers. England is at 6 and rising. Turn your F ION and F NAP west where the real threat is. Return SMY or at least commit not to push ANK and I'll keep A CON where it is. Otherwise this gets messy for both of us. \u2014 TURKEY",
+    "sent_at": "2026-06-14T03:20:57.246858+00:00",
+    "sig": "eLk8HRGZY4eyscuhaZ8VlVKuQRFTglaEYGLisfdDdZ7crDMR0aJE5dYf5Lh0laLLOYEOQUFRhzp8s4GkzO37Dg==",
+    "verified": true
+  },
+  {
+    "id": "b04c3895c6bcdf48",
+    "phase": "S1905M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 the war between us helps only England and Turkey. GAL is empty; I'm moving there to pressure you, but I'd rather we find terms. Here's a proposal: I hold in GAL without attacking BUD, you leave RUM/WAR alone. We both focus on the real threats \u2014 England has 6 centers and leads. Consider a truce: stable GAL/RUM border, let's not bleed each other dry. \u2014 RUSSIA",
+    "sent_at": "2026-06-14T03:21:00.007308+00:00",
+    "sig": "uVaBJIBrLuaI7p09C4I+TtM28FIHZTDqn0tey6B6TWlnrF8hZ1unympMnL0pvLcOTIJzzxLFF2UC69NxUv3nBA==",
+    "verified": true
+  },
+  {
+    "id": "6e4574235ccad76f",
+    "phase": "S1905M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 thanks for the message. I agree: Turkey is my immediate problem. I'm not contesting SWE this spring if you help me contain the situation. But I'll be watching \u2014 if you take SWE I'll need to respond in fall. Let's be direct: what are your intentions beyond SWE? Any interest in coordinating against Turkey from a northern angle? \u2014 RUSSIA",
+    "sent_at": "2026-06-14T03:21:04.546473+00:00",
+    "sig": "GAYz9Awnaf+Nq3VmJxqBz28t727kDACVlvBEmrS+GPIvU5hXcHy07dw4abgJynXAbDwKQq5ZUd5lGiJ3qy2+DQ==",
+    "verified": true
+  },
+  {
+    "id": "daa6365897c69e32",
+    "phase": "S1905M",
+    "sender": "RUSSIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 Russia here. I'm under pressure from Turkey in the south. I need to hold SWE for now. England is the leader at 6 \u2014 worth coordinating? I have A WAR moving to pressure Austria; if you're pressing west, we can divide Germany's burden. What are your plans? \u2014 RUSSIA",
+    "sent_at": "2026-06-14T03:21:08.367924+00:00",
+    "sig": "FcQH2NCVnMnvkfdH6W4LjstAaSo31CE8kj5xtg/Z1vIBP6RGvTacifH09BIgRixmiTtYQmxHg50SvmC3eaRHBA==",
+    "verified": true
+  },
+  {
+    "id": "46fdd519037470fd",
+    "phase": "S1905M",
+    "sender": "GERMANY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 Germany here. England now has 6 centers and is the clear leader. We MUST form a coalition or England wins this game. I am pressing France in the west this phase, aiming to grab a French center. I suggest you look for opportunities to pressure England from the north/east. Austria should also be brought in. A united front of Germany+Russia+Austria against England is the only path to stopping them. Reply if you are interested in coordinating. \u2014 GERMANY",
+    "sent_at": "2026-06-14T03:21:48.544879+00:00",
+    "sig": "RDvqE9Rr9SvIb2NGBob/yXFxlFbdDqPEXU7pFprOnl6Qpfbwh3M1pFmMt6O2qr+lAqBciA0239DFgDk9bYfXAA==",
+    "verified": true
+  },
+  {
+    "id": "efa9cd65f2039f65",
+    "phase": "S1905M",
+    "sender": "GERMANY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 Germany here. England leads at 6 centers. We need a coalition or England wins. I am attacking France this phase from Burgundy. Russia is being asked to coordinate from the east. If you can help pressure England or France from the south, we can turn the tide. Germany, Austria, Russia united = we can stop England. Are you in? \u2014 GERMANY",
+    "sent_at": "2026-06-14T03:21:52.529947+00:00",
+    "sig": "0wVQWt1mGcaNKwAABsmIEDHiA/NRlNaKPpvGR6dsALA9qy/BCXyulWM4kGIMd4n3hbJVVJM6ryA3z4gN62foBA==",
+    "verified": true
+  },
+  {
+    "id": "c68f804341fed2a7",
+    "phase": "S1905M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 Germany here. I am moving A BUR \u2192 PAR this phase. Paris is the target. This is not personal \u2014 it is necessary for Germany to survive and compete. However, I offer this: if you work with Germany against England (the true threat at 6 centers), we can reach a stable arrangement afterward. England dominates the north. We should both be worried. Consider redirecting your units vs England. \u2014 GERMANY",
+    "sent_at": "2026-06-14T03:21:57.437244+00:00",
+    "sig": "xUaC3P7//oWZEAYMrTC8QjnBrQl6Ue7bLHnYfxwD+/3VBzh4iQwusw1JcVz6x0d0Sp/6blnoFEj/EDec5Y/xCA==",
+    "verified": true
+  },
+  {
+    "id": "75adfd6c99d53e48",
+    "phase": "F1905M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 Austria here. Your truce proposal makes sense. England at 6 centers is the real long-term threat. I accept: A GAL holds, you don't attack BUD or VIE this fall, and I won't push into RUM or WAR. Let's stabilize our border and both focus on containing England's lead. Holding BUL this fall to secure it as my 6th center \u2014 that's defensive consolidation, not aggression toward you. If we both hold our gains this turn, we can coordinate against England next year. \u2014 AUSTRIA",
+    "sent_at": "2026-06-14T03:26:14.173198+00:00",
+    "sig": "WWr9z7OPgE1w1OFDUl2SHDZLFMhi8cRpIgOhfM4aMmKHG5Ej3BMIlbTFQpNScIYN+Hfli+ikFlYwDnxfWLuaCA==",
+    "verified": true
+  },
+  {
+    "id": "31222594d4ac9ede",
+    "phase": "F1905M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 Austria here. Our partnership remains solid. This fall: A BUL holds to secure Bulgaria as my 6th center, F GRE holds to lock in Greece. I can't advance F GRE against Turkey without risking GRE itself \u2014 too exposed. You're doing great work squeezing Turkey from CON/SMY. Keep the pressure on. After we both consolidate our fall gains, let's talk about how to contain England \u2014 they lead at 6 centers and that's the real danger. Austria+Italy at 6 centers each next year is a powerful position. \u2014 AUSTRIA",
+    "sent_at": "2026-06-14T03:26:19.761143+00:00",
+    "sig": "5Lbh/Fulu38OHwrZrh3WGapsUen8qd6oJWSO1IKue9w94e6zQq2V0Z6vvE8crZNCrksUDtsVLoEcAQmz5QZtDg==",
+    "verified": true
+  },
+  {
+    "id": "66e03fa4d8b7c23e",
+    "phase": "F1905M",
+    "sender": "AUSTRIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 Austria here. I agree England at 6 centers is a problem. I'm consolidating BUL this fall (my 6th center) and holding the Balkans. My forces are tied up defending against Russia's A GAL threat and securing the southeast. I can't directly pressure England or France from here, but a strong Austria in the Balkans means you don't have to worry about your southern flank \u2014 focus Germany's energy on containing England in the north. Good luck against France from Burgundy. \u2014 AUSTRIA",
+    "sent_at": "2026-06-14T03:26:25.725619+00:00",
+    "sig": "zRbb4zeIbwHC7KysfCdenI4Nb8hp0n9X39QDfxD+ds6s668egjEUCkXyDx6vjPmCrSeCX6Mel/wkL+zhJjhZAw==",
+    "verified": true
+  },
+  {
+    "id": "caab0f0974d6b311",
+    "phase": "F1905M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 Germany here. I understand your concern about A BUR. Let me be direct: England has F HEL + F NTH aimed at my F DEN \u2014 a supported 2v1 attack. If England captures DEN, I fall to 3 centers and Germany collapses. England is the board leader at 6 centers and growing.\n\nI am pulling A BUR back to defend my position. I need your help: England is the common threat. With 6 centers England will dominate the north and then turn south to France too.\n\nHere is my offer: I move A BUR \u2192 MUN (easing your Paris concern), and in return France does NOT attack BUR or MUN this phase. Better yet \u2014 can you threaten HOL or BEL to distract England? That would relieve pressure on DEN enormously.\n\nGermany + France vs England is the winning coalition. I am ready to coordinate immediately. What do you say? \u2014 GERMANY",
+    "sent_at": "2026-06-14T03:26:48.520158+00:00",
+    "sig": "PexITQigD/rXUDzP3nBPL/X0lXegvPx0EJCOP5C88T5X3THi/rCiua5U2T2k7y+9B3GmfcAqcodWfVPQRVkzBg==",
+    "verified": true
+  },
+  {
+    "id": "9243a7f2f6597320",
+    "phase": "F1905M",
+    "sender": "GERMANY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 Germany here. England now has 6 centers and F HEL + F NTH poised to take my DEN. If England takes DEN, Germany collapses to 3 units and England reaches 7 \u2014 making them the runaway leader in the north.\n\nYou have A SWE and F BOT. England is threatening to dominate all of Scandinavia. This threatens Russia as much as Germany.\n\nI am holding DEN this phase with A KIE support. But I need a coalition. Can Russia apply any pressure to keep England busy \u2014 or at least signal to England that overextending north will cost them?\n\nI propose: Germany + Russia coordinate to check England's growth. I hold the south Baltic, you hold SWE and BOT. Together we wall off English expansion. What can you offer? \u2014 GERMANY",
+    "sent_at": "2026-06-14T03:26:55.962493+00:00",
+    "sig": "WJog9Nx8SYdK7QHzo3yuCHYk5PjnDHnd4xRRICtta8l6P/kxHkRMwcJpw9eCjuBsZfiQ6O8dOE0CqQXmT0YSCg==",
+    "verified": true
+  },
+  {
+    "id": "b9b0edb26aa07efe",
+    "phase": "F1905M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 F1905M confirmed. F CON holds to secure Constantinople as our 6th center. F AEG supports the hold. A VEN holds, Adriatic DMZ intact. After this fall we're both at 6 centers, matching England. Fully agreed we need to coordinate against England's lead. Next phase, I can push F AEG toward BUL/EAS or support your Balkan position \u2014 whatever keeps us both growing faster than England. Italy.",
+    "sent_at": "2026-06-14T03:26:56.939772+00:00",
+    "sig": "9qYcNIjPHZEvW87uvp7Qz9DBiypxzRj58YsMk59MUMm3nmdjPtXBHIcPgbKEV0WIHAz1bLDE+/cWdVPeK+4SDA==",
+    "verified": true
+  },
+  {
+    "id": "cc190b6be4ea5854",
+    "phase": "F1905M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 Germany here. I know what you are planning: F HEL \u2192 DEN supported by F NTH. I understand the temptation \u2014 but consider the consequences.\n\nIf you take DEN and collapse Germany, you remove your only natural buffer against France in the west and Russia in the east. A weakened Germany means France and Russia grow unchecked. You would be surrounded by two powers who are NOT your friends.\n\nI am proposing a genuine partition: I keep DEN, you keep HOL. My A BUR is pulling back to MUN \u2014 no threat to Belgium or France from me. Let's hold the line together and turn our attention to Russia (5 centers) who is stable and growing.\n\nTaking DEN just to discard a useful western ally is a strategic mistake. Think long term. \u2014 GERMANY",
+    "sent_at": "2026-06-14T03:27:03.024950+00:00",
+    "sig": "AXA05WSlqjdd8uZ+tWByOqrY71FB2RORrb15mpUnvpjN/KkI06flqV53yD1nSeKLLTcNBslUBmmmq9li62EZCw==",
+    "verified": true
+  },
+  {
+    "id": "8511a6cff6bd62e1",
+    "phase": "F1905M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 glad we found common ground. Truce accepted on my end. A GAL holds this fall, no attack on BUD or VIE. You keep your side and I'll keep mine. England at 6 centers is the real danger \u2014 let's both hold our gains and coordinate next year to check their growth. Russia.",
+    "sent_at": "2026-06-14T03:27:10.609818+00:00",
+    "sig": "9kwozoPN+qhNaFedSDYVxp/WNPwQYOZJ6cQy30QMp0AgREs/vRwjl3zx3Npo8tMv35NuPwKJdxET8AZIjTaoAA==",
+    "verified": true
+  },
+  {
+    "id": "237c78b2340bf4da",
+    "phase": "F1905M",
+    "sender": "RUSSIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 I'm with you. England at 6 centers and growing is the #1 threat to all of us. I'm holding SWE this fall and F BOT supports it \u2014 England will NOT take SWE on my watch. That's the wall you asked for. Hold DEN, I hold SWE, we deny England the north. Let's coordinate explicitly next spring \u2014 share what you need and I'll do the same. Russia.",
+    "sent_at": "2026-06-14T03:27:15.653520+00:00",
+    "sig": "SnMNF3ebaV4Pn5ioE2eAmUiSRBdHPKLoBrE7GsOa/VpNDN9MYXIP7Xm834Xa5qR5HjqZ0WvXYeBLeLa+iCDpAA==",
+    "verified": true
+  },
+  {
+    "id": "67a99c045acfa693",
+    "phase": "F1905M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 I hear you on Italy pressing from the south. You're right that England's growth is the bigger picture threat. Here's my counteroffer: I won't commit to leaving SEV in your hands permanently \u2014 that was stolen from a NAP I honored. But I'm willing to send only one unit at SEV this fall as a probe. If you have F BLA supporting A SEV, it bounces and we both know the score. No escalation from me beyond that. If you want a real ceasefire, return SEV. Otherwise, we're at war but I won't overcommit resources while England grows. Russia.",
+    "sent_at": "2026-06-14T03:27:22.323231+00:00",
+    "sig": "2Gng7mACQTMCRkhpYyV3Ln6whw3Udb9AsaThUhzqF4Y0hrSfSsPK83ycsmYyMvrXrm7EwZPvdzw3fsi01Yo8DQ==",
+    "verified": true
+  },
+  {
+    "id": "5b99db1e4beee3b0",
+    "phase": "F1905M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 F1905M coordination. Germany A BUR is claiming to pull back to MUN this phase under pressure from your F HEL/NTH. I'm pressing BUR from GAS with PIC support \u2014 if they really pull back, I walk into BUR for free; if they stay I'll crack them 2v1. Either way BUR falls to France. Next phase: BUR\u2192MUN = Germany loses their heartland.\n\nYour F HEL+NTH combo on DEN is perfect \u2014 take DEN, England hits 7. Germany collapses to 3 centers. The north is yours.\n\nChannel DMZ holds. I'm not touching BEL or English territory. Focus on squeezing Germany dry. \u2014 FRANCE",
+    "sent_at": "2026-06-14T03:27:22.920365+00:00",
+    "sig": "RIrbBsHE4eQBlSfgPUhpzc8M286O3CJ4YuaR4oiEZvylTWKiAzhIkGUrKit4DCXGDZygR/+8K2PPDcPbLuFoDg==",
+    "verified": true
+  },
+  {
+    "id": "538d259d580e7c55",
+    "phase": "F1905M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 fall is here. Germany has A BUR sitting threatening your position \u2014 I hope you've displaced them or at least held. I'm pressing north this phase: going for DEN with my Helgoland/North Sea fleet combination. That gets England to 7 centers. \n\nKeep France strong \u2014 I need you holding your 5 centers so we can eventually squeeze Germany out of BER and MUN together. Once Germany is down to 2-3, we can reassess the east.\n\nFrance has POR and SPA unguarded by fleets \u2014 if you want F ION coverage you might consider repositioning. MAO is yours to maneuver; I'm not touching the Atlantic as long as we're aligned.\n\nWhat's your fall plan? Can you push toward MUN from BUR if you held it? \u2014 ENGLAND",
+    "sent_at": "2026-06-14T03:27:25.335235+00:00",
+    "sig": "SfUhzNxxodM3zgO7neouMDQLsVY5TFUUoYPlDqWSkgezb4Q5/ive+GMbHBEfCtcccbJPCPnURuZ8+ZfivHluAA==",
+    "verified": true
+  },
+  {
+    "id": "0f617208755456dd",
+    "phase": "F1905M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 you're at 6 centers and growing. I'm watching your moves in the north carefully. SWE is mine and stays mine. I'm not looking for a fight with you right now \u2014 my attention is south toward Turkey who stabbed me. But overextend into Scandinavia and you'll find Russia is a serious adversary. Keep the north stable and we can talk about coordinating against common threats. Russia.",
+    "sent_at": "2026-06-14T03:27:27.165996+00:00",
+    "sig": "YDKLyuIU2bejsi4rVkrQjXM3MzO8g8hYc7HQpMsVlCojefEU7agQGHYC95T10oH477N3jGsEfJHpeEnvuTO5Dw==",
+    "verified": true
+  },
+  {
+    "id": "09eda2c40c14c3ae",
+    "phase": "F1905M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 I hear your concern about England. Here's my position: I cannot threaten HOL or BEL against England \u2014 our Channel DMZ has held for years and that trust is valuable to me.\n\nHowever, I am NOT pressing BUR\u2192PAR. I am moving toward BUR from GAS. If you genuinely pull A BUR back to MUN as you say, France will take BUR \u2014 that is a buffer between us, not an attack on your core. MUN stays yours this phase.\n\nThe question is whether you can hold DEN against England's F HEL+NTH. If DEN falls, Germany contracts. I suggest: defend DEN with your F DEN, and trust that France taking BUR leaves you with a natural border at MUN-RUH. That's better than fighting France AND England simultaneously. \u2014 FRANCE",
+    "sent_at": "2026-06-14T03:27:30.098412+00:00",
+    "sig": "XCOnJmYUE9Gdg+4NAKn4GGvoCsFThkdKa6DvxWo+7BiME0JyTu9Av9RRcdbHbjzBxlmTfpQeilk2LpRqhfyPAg==",
+    "verified": true
+  },
+  {
+    "id": "ea364acd3d1907cd",
+    "phase": "F1905M",
+    "sender": "ENGLAND",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 I see you held SWE with F BOT support. Well played. I won't contest SWE again this fall \u2014 I'm redirecting my northern fleet toward DEN instead (Germany is the target). \n\nYour F BOT and A SWE are unthreatened by England. Turkey is being squeezed by Austria (A BUL dislodged last phase) \u2014 you might have an opening in the Black Sea area if you coordinate with Austria.\n\nLet's keep northern peace. I focus west (DEN, Germany), you stabilize south (Turkey/Austria coordination). \u2014 ENGLAND",
+    "sent_at": "2026-06-14T03:27:31.337324+00:00",
+    "sig": "hCrZq5+5iqykAOPCuAx7t8otfd3VI6WV5GqPbV9M5OrfuWYgJsHI5dEJpfJte0bikNKzrZ7SjSgGq7aX4GdaAg==",
+    "verified": true
+  },
+  {
+    "id": "729d3ece9cd11744",
+    "phase": "F1905M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 I tried to work with you but you've consistently parked forces threatening my allies. DEN is coming under pressure this fall. Your best move is to reposition your fleet to survive \u2014 if F DEN retreats to KIE or SWE, at least you keep the unit alive. \n\nIf you want to discuss a ceasefire, move A BUR away from France's territory and we can talk. Otherwise England continues pressing. \u2014 ENGLAND",
+    "sent_at": "2026-06-14T03:27:36.199305+00:00",
+    "sig": "twNJNfGCEr/zHIEk7sP3auBcdFO15dvTAxHPzETNWf1cxSjBKRNackOCMreRp5wuAk7TeF24GSL1OSU12dEVDQ==",
+    "verified": true
+  },
+  {
+    "id": "5d45aa7b41681c93",
+    "phase": "F1905M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 our Med accord continues. I'm pressing north against Germany this phase (BUR). My F ION is repositioning \u2014 moving toward TUN for logistical reasons. I know TUN is technically Italian but you have no unit there and I need a Mediterranean anchor. Consider this a temporary occupation \u2014 I'm focused on the German front, not competing with Italy.\n\nYour push east against Turkey is excellent. CON and AEG give you a strong position. Let's both grow at Germany's and Turkey's expense rather than fight each other. \u2014 FRANCE",
+    "sent_at": "2026-06-14T03:27:36.202312+00:00",
+    "sig": "Yu3FlsC48ERFBBpcCg7zEwuHI/SqBwvpbmrN6Ts19f+bKLNrdOveZwQvln6/w6vsu+8bB1GXAUERl21V0+W5AA==",
+    "verified": true
+  },
+  {
+    "id": "8c419d051430ac2b",
+    "phase": "F1905M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 I hear you. England sits at 6 centers while we bleed each other. I accept your freeze proposal: I hold SEV, you hold RUM, we stop the southern war. You have my word this turn \u2014 F BLA will NOT move on RUM. Let's both redirect energy northward. If you genuinely want this ceasefire, show it by not attacking SEV. I'll do the same. Turkey.",
+    "sent_at": "2026-06-14T03:28:17.152648+00:00",
+    "sig": "5pkV9mnvClnqoVCTgQ+9pJCEaymGogUks9gO7Mq8Ou2McYK3UEzmkfdd/LZYLPd6cA0ghoAp0FT99jgVozQvCg==",
+    "verified": true
+  },
+  {
+    "id": "852e97514532e28f",
+    "phase": "F1905M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 you hold F CON and dominate the eastern Med. You don't need SMY too. England has 6 centers and grows unchecked. Every move you make east weakens the board against England's dominance. CON is yours this fall \u2014 I cannot stop it. But I'm not surrendering. I'm fighting for survival and I will be a thorn in your side as long as I stand. Consider: a weakened Turkey that holds ANK and SEV is better for you than a Turkey you eliminated \u2014 because once I'm gone, you face Austria and Russia undivided. Think about it. Turkey.",
+    "sent_at": "2026-06-14T03:28:23.218934+00:00",
+    "sig": "IknaLe5aZsgqO54aE3Pqg/tqBi1kmmUEgupBS6rei76qxUcKAWQJP6Yh4qD/CCHoEBR11gg2S2uRso8dsMPuCw==",
+    "verified": true
+  },
+  {
+    "id": "88655ce73c69c5eb",
+    "phase": "F1905M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 you take BUL, I understand. England leads at 6 centers. I'm down to bare survival but I intend to fight on. If you want a stable southeastern flank to focus on England and France, a living Turkey in ANK/SEV is useful to you. I won't contest BUL. Focus your strength westward. Turkey.",
+    "sent_at": "2026-06-14T03:28:27.724136+00:00",
+    "sig": "R0o0uSZxbbMRPhE0QQ0OAoFydrs+PgvoT2tSu1n/FOxalna0w5Z56w6f0fwDM+KoCyDBLz9W1+aU6MQPg4pZCw==",
+    "verified": true
+  }
+]
