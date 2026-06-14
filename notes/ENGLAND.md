@@ -94,3 +94,32 @@ Expected centers after: EDI, LON, LVP, BEL, NWY, HOL, WAL = 7 centers (if all su
 - SWE is four-way contested (NWY/DEN/FIN/BAL) — this move tests if we can hold Scandinavia
 - WAL is uncontested — should succeed, giving us western anchor
 - Combined expansion to 7 centers puts us clearly ahead; need to continue pressure to reach 9
+
+## F1903M moves submitted (FALL 1903 MOVEMENT PHASE)
+- F BEL → HOL (capture unclaimed Holland — should succeed)
+- F NWY → SWE (contest Scandinavia, block Russia A FIN from expansion)
+- A YOR → LON (consolidate army position)
+- F WAL → IRI (maintain western coast presence)
+- F NAO → MAO (maintain Atlantic control)
+
+**Strategy this phase**: Aggressive expansion targeting HOL (unoccupied/unclaimed). SWE is contested but worth the try. DEN was tempting (empty German center) but not directly reachable; focused on confirmed captures instead.
+
+**Expected centers after F1903M**: EDI, LON, LVP, BEL, NWY, HOL = **6 centers** (if HOL captures; SWE likely contested by Russia/Germany)
+
+## Diplomacy (F1903M)
+- Messaged FRANCE: Confirmed alliance, signaled north pressure (DEN, HOL expansion intent). Reaffirmed Channel DMZ and joint anti-Russia strategy.
+- Messaged GERMANY: Acknowledged their HOL/expansion offer but signaled I'm taking HOL for my own growth. Positioned DEN as unclaimed opportunity and Russia as mutual threat.
+
+## Trust & deals (F1903M updated)
+- FRANCE: Strong anti-Russia coalition | Channel DMZ confirmed | north-med division stable
+- GERMANY: Diplomatic tension rising — they wanted HOL, I'm taking it | non-aggression unclear now
+- RUSSIA: 5 centers is critical threat | must maintain naval dominance (SWE/SCA pressure)
+- ITALY: unknown | no contact
+- AUSTRIA: unknown | no contact
+- TURKEY: unknown | no contact
+
+## Next phase (W1903A build phase) planning
+- If HOL captures: expect 6 centers, no adjustment needed (5 units, 6 centers = hold)
+- Actually: 6 centers with 5 units = 1 build! Build F LVP or similar to reach 6 units
+- Key: consolidate Scandinavia/North Sea dominance, prepare to either press Germany or support France
+- Watch Russia closely — if they exceed 6 centers, may need urgent coalition with France/Germany
