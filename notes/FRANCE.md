@@ -64,12 +64,12 @@ A BUR H              # HOLD defensive position
 **Rationale**: Conservative hold to guarantee capture of SPA (from S1903M fleet move). POR remains unoccupied and stays ours. Expected outcome: **5 centers (BRE, MAR, PAR, POR, SPA)** — enables 1 build in W1903A.
 
 ## W1903A Build Plan
-- **Build 1 unit**: Will decide after adjudication
-  - Option 1: A BRE (north, pressure on England's Burgundy zone / support against potential German moves)
-  - Option 2: A MAR (strengthen southern flank for Mediterranean push toward LYO)
-  - Option 3: F BRE (expand western naval presence, secure Atlantic)
+- **Build 1 unit**: **A BRE B SUBMITTED**
+  - Rationale: Army at BRE strengthens north, supports England alliance, builds presence for future expansion while maintaining Channel DMZ and Mediterranean focus
+  - Units after build: A GAS, A MAR, A BUR, F SPA/SC, **A BRE (new)**
+  - Centers: BRE, MAR, PAR, POR, SPA (5 stable)
 
-## Post-F1903M Strategy (S1904M onward)
+## S1904M Strategy (onwards)
 1. **LYO is next priority**: With 5 centers + build, push toward LYO to consolidate Med dominance
    - Coordinate with Italy boundary (they take TYS/ION/NAP/TUN, we take WES/LYO/MAR)
    - Could move A MAR or fleet toward LYO area
