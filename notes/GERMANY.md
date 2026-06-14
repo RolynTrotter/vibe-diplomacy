@@ -8,11 +8,11 @@
 - Target growth toward Scandinavia or the Balkans as opportunities open
 
 ## Trust & deals
-- AUSTRIA: neighbor | **FORMAL NAP F1901** — coordinating vs Russian expansion in Central Europe
-- ENGLAND: distant | **FORMAL NAP F1901** — defensive alliance, monitoring RUSSIA (now 5 centers, leading)
-- FRANCE: neighbor to west | no deal yet | probing intentions (has 3 units: GAS, MAR, WES)
+- AUSTRIA: neighbor | **FORMAL NAP** — coordinating vs Russian expansion in Central Europe
+- ENGLAND: neighbor | **GROWTH ALLIANCE F1904M** — SWE/HOL split confirmed; Germany gets SWE, England gets HOL; both reach 5 centers; then coordinate against France
+- FRANCE: neighbor to west | **NAP proposed F1904M** — messaged about formal NAP; they focus south/west, Germany focuses north; BUR as buffer
 - ITALY: neighbor | no deal yet | watch carefully
-- RUSSIA: northern threat | **5 centers (LEADING!)** | peaceful opening holding; BOT neutral per agreement
+- RUSSIA: northern neighbor | **NAP holding** — messaged asking Russia not to contest SWE this fall; Germany commits to staying out of BAL
 - TURKEY: far away | no formal deal
 
 ## S1902M Orders submitted
@@ -81,26 +81,45 @@ Rationale: Need to reclaim MUN (empty!), retry HOL with support (breaking ENGLAN
 - **A RUH - BEL**: Maintain western pressure on FRANCE/ENGLAND border.
 - **A MUN - RUH**: Rear support as always.
 
-**Diplomatic breakthrough**:
-- ENGLAND (S1904M message): "You take SWE (F DEN → SWE) while I take HOL (F BEL → HOL). Together we seal Scandinavia/Low Countries and contain Russia from the north. Russia is at 5 centers; we need to box them in."
-- GERMANY accepted fully: "Agreed! Two fleets in Scandinavia plus your fleet in HOL is a wall Russia cannot breach."
-- This is a **formal growth alliance**: mutual expansion (ENGLAND 5→6 centers, GERMANY 4→5 centers) while containing RUSSIA (stuck at 5).
+**RESULT: ALL MOVES BOUNCED** - SWE, HOL, BEL all failed to capture. Back to 4 centers.
+- Russia's A FIN contested SWE (3-way bounce: DEN, FIN, NWY all tried)
+- England's F BEL bounced my A KIE on HOL
+- England took my A RUH→BEL bounce
 
-**Expected outcome**:
-- SWE capture likely succeeds (RUSSIA F BAL will stay at BAL per prior agreement; F DEN → SWE will win).
-- HOL will bounce (both F BEL and A KIE arrive simultaneously; neither takes it).
-- GERMANY reaches 5 centers (BER, KIE, MUN, DEN, SWE). Build 1 new unit in W1904A.
-- Next phase: SWE fleet allows full Scandinavia control. Can threaten RUSSIA BAL/BOT line or support ENGLAND in north.
+## F1904M Orders submitted — STRATEGIC PIVOT WEST
+- **F DEN - SWE**: Second attempt per England deal. England has F NWY (confirmed they want HOL not SWE). Russia has A FIN — messaged Russia to stand down. 2-way battle for SWE (Germany vs Russia).
+- **A MUN - BUR**: Push into Burgundy (France's interior buffer). BUR is empty and adjacent to PAR, MAR — excellent strategic position.
+- **A RUH S A MUN - BUR**: Support the BUR push to ensure it succeeds against any French resistance.
+- **A KIE H**: Hold home center. I told England A KIE won't go to HOL — honoring the deal.
 
-**Risk assessment**:
-- FRANCE is now at 5 centers (BRE, MAR, PAR, POR, SPA) — aggressive and expanding. Monitor for western threat.
-- AUSTRIA at 5 centers (BUD, TRI, VIE, SER, GRE) — neutral but gained GRE. Watch eastern front.
-- HOL remaining empty gives future contested center for late-game maneuver.
+**Diplomatic messages sent this phase**:
+- ENGLAND: Confirmed SWE/HOL split. Clear path for England to take HOL from BEL. Proposed post-expansion coordination against France.
+- RUSSIA: Asked them not to contest SWE. Offered to stay out of BAL in return.
+- FRANCE: Proposed formal NAP — Germany focuses north, France focuses south/west. BUR as buffer zone.
+
+**Expected outcome if orders work**:
+- SWE: Win if Russia holds FIN or moves elsewhere. If 2-way bounce, still no gain.
+- BUR: Should succeed with support from RUH (France's A GAS and A MAR are far away).
+- If SWE + BUR both work: Germany to 5 centers (SWE) + strong position in BUR threatening France.
+- If only BUR: Strong position but still 4 centers.
+
+**Board analysis**:
+- RUSSIA gained BUD (from A GAL→BUD this spring) — now 5 centers but with adjustment of +1 (will build 1 unit).
+- AUSTRIA lost BUD but has 5 centers still — likely regaining and expanding in Balkans.
+- ENGLAND and FRANCE at 5 centers each — key rivals for hegemony.
+- TURKEY at 4 centers with A SEV — threatening Russia's south.
 
 ## Tactical notes
 - RUH is not a supply center but controls key routes (BEL, BUR, HOL, KIE, MUN adjacencies).
 - HOL is critical: it threatens BEL (ENGLAND controls), and controls routes to NTH and RUH.
-- SWE gives access to BAL, BOT, NWY, SKA—control of northern trade (now solidly ENGLAND + GERMANY).
-- BAL provides northern fleet position without SWE conflict.
-- **Western pivot**: Moving A RUH→BEL establishes German presence in Belgium, threatening FRANCE and keeping ENGLAND honest about western expansion.
-- **DEN defense**: F DEN now moves to SWE; DEN held safely. Rear guard in place.
+- SWE gives access to BAL, BOT, NWY, SKA — control of northern trade (now solidly ENGLAND + GERMANY if both cooperate).
+- BUR is a premium strategic position: adjacent to PAR, MAR, PIC, GAS, RUH, BEL, MUN, SWI.
+- **Western pivot**: A MUN→BUR threatens France's heartland from the east; combined with England pressure from PIC in the west, France could be squeezed.
+- **Long-term vision**: If SWE secured, build F KIE or F DEN. Use England alliance to contain Russia in north, Germany controls central Europe and presses France.
+
+## Next phase priorities (W1904A / S1905M)
+- If SWE captured: Build unit (fleet in KIE or army in BER/MUN).
+- If in BUR: Stay for spring, threaten PAR or MAR.
+- Confirm England alliance holds (did they take HOL?).
+- If France rejects NAP, plan coordinated attack with England on France.
+- Watch Russia's build (they have +1 adjustment, will get stronger).
