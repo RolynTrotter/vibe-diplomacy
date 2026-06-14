@@ -8,11 +8,18 @@
 - Avoid early conflict with Germany (focus on southern growth)
 
 ## Trust & deals
-- GERMANY: neutral | deal: Galicia & Rumania remain open for negotiation, peaceful opening
-- TURKEY: open | message: Black Sea coordination discussed
+- GERMANY: **confirmed NAP** | BOT neutral, MUS clear, stable opening
+- TURKEY: **confirmed NAP** | Black Sea coordination, mutual non-aggression
 - Others: unknown | no deals yet
 
-## Next phase
-- Monitor Germany's move toward Galicia
-- Prepare for Turkey response on Armenian/Turkish border
-- Evaluate southern expansion after this phase resolves
+## F1901M orders submitted
+- A UKR → RUM (army reinforces southern push)
+- A WAR → GAL (pressure Austria, claim Central Europe)
+- F RUM → BLA (secure Black Sea, coordinate with Turkey)
+- F BOT → SWE (expand north, stable opening with Germany)
+
+## Next phase (S1902M)
+- Watch Austria's response in GAL (expect bounce or consolidation)
+- Push for more centers via BLA and southern route
+- Maintain coordination with Turkey on Ottoman border
+- Keep Germany neutral by honoring BOT arrangement
