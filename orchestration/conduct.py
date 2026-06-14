@@ -37,12 +37,16 @@ def roster(root) -> dict:
         powers[name] = {
             "type": p.get("type", "agent"),
             "claimed": name in claimed,
+            "needs_orders": p.get("needs_orders", True),
             "submitted": p.get("submitted", False),
         }
-    to_play = [n for n in POWERS
-               if powers[n]["type"] != "idle" and not powers[n]["submitted"]]
+    # to_play: live powers that actually have decisions to make this phase.
+    # Empty on trivial retreat phases (no dislodgements) and adjustment phases
+    # where every power has 0 adjustment — conductor can adjudicate immediately.
+    to_play = status["waiting_on"]
     return {
         "phase": status["phase"],
+        "phase_type": status["phase_type"],
         "press": state.load_config(root).get("press", "none"),
         "done": status["done"],
         "all_submitted": status["all_submitted"],

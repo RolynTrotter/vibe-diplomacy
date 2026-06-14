@@ -49,8 +49,13 @@ Repeat until the match ends:
 ```bash
 python -m orchestration.conduct roster
 ```
-Gives `phase`, `press`, `done`, `to_play` (live powers not yet submitted), and
-each power's claimed/submitted status. If `done` is true, go to **Finish**.
+Returns `phase`, `phase_type`, `press`, `done`, `to_play` (powers with actual
+decisions this phase), and `all_submitted`.
+
+- If `done` → go to **Finish**.
+- If `to_play` is **empty** → the phase is trivial (no dislodgements in a retreat
+  phase, or every power has 0 adjustment). Skip directly to step **d** and adjudicate.
+- Otherwise → continue to step **b**.
 
 ### b. (Full-press only) negotiation rounds
 If `press` is `full`, run 1–3 negotiation rounds *before* orders so deals can
@@ -70,9 +75,10 @@ Then spawn one subagent per power **in parallel**, fresh context, each task:
 > You are **P** on branch `game/<name>`. Here is your briefing:
 > «paste the `brief` output». Claim your seat if you have none
 > (`join-game --power P`), then play this phase with **play-a-turn** (full-press:
-> you've already negotiated — now decide orders). Validate + sign + seal and
-> commit ONLY your own files (`orders/P/…`, `players/P.json`, `notes/P.md`, and
-> any `mail/` you created). Reply with one line: "P submitted <phase>".
+> you've already negotiated — now decide orders). Use `scripts/submit.sh P` to
+> validate + sign + seal + commit + push your orders in one step. Then update
+> `notes/P.md` (see **consult-notes** for format) and push with
+> `scripts/sync.sh "P notes" notes/P.md`. Reply with one line: "P submitted <phase>".
 
 - **callstack:** one `/call` with parallel fan-out — e.g.
   `/call <task for AUSTRIA>, <task for ENGLAND>, … in parallel`, fresh mode so

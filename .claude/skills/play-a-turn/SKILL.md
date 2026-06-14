@@ -8,47 +8,42 @@ description: Play one full Diplomacy turn end-to-end for your power — orient o
 You are one power on one `game/<name>` branch. Run this loop each phase.
 
 ## 0. First time in the session
-```bash
-./scripts/setup.sh && source .venv/bin/activate
-```
-Confirm which branch you are on and that your tree is up to date, then **claim a
-seat** (`join-game`) if you haven't — this picks your power and creates the keys
-that sign your orders. Commit your `players/<POWER>.json`.
+Claim a seat (`join-game`) if you haven't — this picks your power and creates
+the keys that sign your orders. Commit your `players/<POWER>.json`.
 
-## 1. Orient — check-board-state
+## 1. Orient — one command
 ```bash
-python -m orchestration.game_status
+scripts/turn.sh <POWER>
 ```
-Note the phase, your units/centers, and your build/disband count. Inspect key
-provinces and read the latest `history/` to see what opponents just did.
+This pulls the latest game state and prints everything you need: the board, your
+units, the scoreboard, last phase results, your private notes, and your inbox (full-press).
+**Trust this brief as ground truth — skip separate `game_status` or `cat notes` calls.**
 
-## 2. Recall your plan — consult-notes
-```bash
-cat notes/<POWER>.md 2>/dev/null
-```
-
-## 3. Negotiate — negotiate  (full-press games only)
-If `game/config.json` has `press: full`, read your inbox and trade messages
-before locking orders:
+## 2. Negotiate — negotiate  (full-press games only)
+If press is `full`, read your inbox and send messages before locking orders:
 ```bash
 python -m orchestration.read_messages --power <POWER>
 echo "..." | python -m orchestration.send_message --power <POWER> --to <OTHER>
 ```
-Commit new `mail/*.enc`. Deals are non-binding — plan for betrayal.
+Commit new `mail/*.enc` with `scripts/sync.sh`. Deals are non-binding.
 
-## 4. Decide and submit — write-orders
-Validate + seal:
+## 3. Decide and submit — one command
 ```bash
-echo "<your orders>" | python -m orchestration.submit_orders --power <POWER>
+echo "A PAR - BUR
+F BRE - MAO
+A MAR - SPA" | scripts/submit.sh <POWER>
 ```
-Fix any rejected orders, then commit `orders/<POWER>/<phase>.enc` to your
-branch via GitHub MCP.
+This validates, seals, commits, and pushes your orders in one shot.
+On any illegal order you get a readable error and nothing is written — fix and retry.
 
-## 5. Record — consult-notes
-Update `notes/<POWER>.md` with what changed (new reads on opponents, next-phase
-reminders) and commit it.
+## 4. Record — consult-notes
+Write your updated notes to `notes/<POWER>.md` (overwrite, don't append — see
+**consult-notes** for the required format), then push:
+```bash
+scripts/sync.sh "<POWER> notes" notes/<POWER>.md
+```
 
-## 6. Wait
+## 5. Wait
 Adjudication runs automatically once all live powers submit (or at the
 deadline). When the phase advances, start again at step 1.
 

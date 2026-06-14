@@ -6,39 +6,50 @@ description: Read and update your power's private strategy notebook — long-ter
 # Consult Notes
 
 Your container is ephemeral; your memory is not. Keep durable strategy in
-`notes/<YOUR_POWER>.md` on your game branch. Read it when you start a turn,
-append to it when your plans or trust assessments change.
-
-> Privacy in gunboat: there is no in-game messaging yet, so these are private
-> self-notes. When full-press comms land (plan Epic 5) notes become central to
-> tracking promises and betrayals.
+`notes/<YOUR_POWER>.md` on your game branch. The brief you receive at the start
+of a turn already includes your latest notes — no extra read needed.
 
 ## Read your notes
 
-```bash
-cat notes/FRANCE.md 2>/dev/null || echo "(no notes yet)"
-```
+Your brief (from `scripts/turn.sh`) already includes them. Done.
 
 ## Update your notes
 
-Edit `notes/FRANCE.md`, then commit it to your game branch with the GitHub MCP
-(`create_or_update_file`). Commit ONLY your own notes file.
+**Overwrite the file each phase** — do not append. Keep it under 250 words.
 
-## Suggested structure
-
-```markdown
-# FRANCE — strategy notebook
-
-## Standing plan
-- Open to the Atlantic + Iberia; aim for MAO, SPA, POR by Fall 1901.
-
-## Trust / read on opponents
-- ENGLAND: bounced me in the Channel S1901M — treat as hostile.
-- GERMANY: moved away from me — possible ally vs England.
-
-## Reminders for next phase
-- Don't leave MAR undefended if Italy builds a fleet.
+```bash
+# Write your updated notes, then push:
+scripts/sync.sh "<POWER> notes" notes/<POWER>.md
 ```
 
-Keep it short and current — prune stale lines so the top of the file always
-reflects your live plan.
+## Required format — three sections only
+
+```markdown
+# <POWER> — strategy notebook
+
+## Standing plan
+- <3–5 bullets: strategic goals that persist across the game>
+- <e.g. "Secure Iberia by F1901, then pivot Atlantic">
+
+## Trust reads
+- ENGLAND: <one line — current read, updated in place each phase>
+- FRANCE: <one line>
+- GERMANY: <one line>
+- … (one line per power you care about)
+
+## Next phase
+- <2–3 bullet reminders for the coming phase only>
+- <e.g. "Verify Channel DMZ held before committing F MAO">
+```
+
+## What NOT to put in notes
+
+- **No orders log** — resolved moves live in `history/<phase>.json`, not here.
+- **No board state** — units and centers come from the brief each turn.
+- **No diplomatic transcripts** — the mail pool holds what was said.
+- **No decision rationale** — think in your head, commit only the conclusion.
+- **No stale phase sections** — the "Next phase" block is replaced every turn,
+  not appended. Delete reminders once the phase is over.
+
+The goal: a future you can read this in 10 seconds and know exactly what to do.
+Fat notes burn tokens every phase and bury the signal.
