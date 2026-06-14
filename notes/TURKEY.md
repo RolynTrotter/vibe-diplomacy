@@ -1,55 +1,57 @@
-# TURKEY — cloud-1 — F1904M (submitted)
+# TURKEY — cloud-1 — S1905M (submitted)
 
-## Strategic Assessment
-- **Position after F1904M**: If A SEV holds (it should — F BLA supports), TURKEY gains SEV as a supply center
-- Going from 4 → 5 centers (ANK, CON, SMY, BUL, SEV) ties the leaders in W1904A
-- Russia A RUM is the threat to A SEV — neutralized by F BLA S A SEV
-- A BUL → RUM: pressing Russia further, aligns with Austria's campaign to retake BUD
-- A CON → BUL: fills the gap left by BUL advancing, maintains depth
+## Crisis Assessment
+- **CRITICAL**: Italy stole SMY! Now holds F SMY, F ION, F NAP — massive Mediterranean fleet threatening ANK
+- **CRITICAL**: Russia turned enemy (declared war after I took SEV). A RUM threatens SEV from west.
+- Fighting TWO fronts simultaneously — England leads at 6 centers, everyone else at 4-5
 
-## F1904M Orders Submitted
-- **F BLA S A SEV** — Critical support to defend SEV capture; blocks Russia A RUM from retaking
-- **A SEV H** — Hold Sevastopol; capturing it as supply center (was taken in S1904M)
-- **A BUL → RUM** — Press Russia's Balkan flank, coordinate with Austria vs Russia
-- **A CON → BUL** — Advance forward; fills BUL vacancy, maintains chain of units
+## S1905M Orders Submitted
+- **A CON → ANK** — Move to protect ANK from Italian F SMY push. If Italy moves F SMY → ANK, A CON will bounce or defend.
+- **F BLA S A SEV** — Support A SEV to hold against Russia A RUM attack
+- **A SEV H** — Hold Sevastopol with F BLA support; Russia cannot break through
+- **A BUL H** — Hold Bulgaria; can't advance when defending on two fronts
 
 ## Diplomacy This Phase
-- **AUSTRIA**: Confirmed coordination — I push BUL→RUM, Austria pushes from BUD→RUM. Pinching Russia from south and west. NAP remains firm.
-- **ITALY**: Reassured non-aggression in Aegean. Italy F EAS is not threatening yet.
-- **RUSSIA**: Warned them off SEV. They have no support for A RUM to take SEV vs my F BLA support.
+- **RUSSIA**: Offered practical ceasefire — you keep A RUM where it stands, I keep SEV. Both of us must focus on England's 6-center lead. Framed as mutual survival, not forgiveness.
+- **AUSTRIA**: Asked them to pressure Italy (F GRE could help); confirmed Balkan NAP holds, A BUL stays put
+- **ITALY**: Confronted the betrayal directly — pointed out England is the real threat at 6 centers; demanded SMY return or at minimum ANK non-aggression pledge
 
 ## Trust & Standing
-- **AUSTRIA**: Strong NAP, now active coordination vs Russia. Valuable ally. Watch long term (both of us growing).
-- **RUSSIA**: ENEMY. Attacked me directly (F SEV → BLA bounced by my F BLA). Now I took their SEV.
-- **ITALY**: Cautious non-aggression. Italy F EAS is monitoring but not attacking. Keep them neutral.
-- **OTHERS**: England/France/Germany fighting in the west — not relevant to me yet.
+- **AUSTRIA**: Cautious ally. NAP holds. Could be useful if they pressure Italy from GRE. Long-term watch as they're at 5 centers.
+- **RUSSIA**: ENEMY. Declared war, A RUM threatens SEV. But may accept ceasefire if I frame it right — they should fear England too.
+- **ITALY**: ENEMY/BETRAYER. Took SMY despite multiple "non-aggression" pledges. F SMY threatens ANK. Don't trust a word they say.
+- **ENGLAND**: Distant leader at 6 centers, fighting in the west. Not directly threatening me yet.
+- **FRANCE/GERMANY**: Western theater, irrelevant to me for now.
 
-## Winter 1904 (W1904A) Plan
-- If SEV captured: BUILD 1 unit (A ANK or F SMY or A CON). TURKEY goes to 5 centers / 5 units.
-- Likely best build: **A ANK** (Ankara) to press into the Caucasus or support BUL front
-- Or **F SMY** to contest Aegean if Italy becomes aggressive
+## Board State (S1905M Start)
+- AUSTRIA: A SER, F GRE, A TRI, A VIE, A BUD — 5 centers
+- ENGLAND: F NWY, A YOR, F MAO, F HOL, F IRI, F EDI — 6 centers (LEADER)
+- FRANCE: A MAR, A SPA, A GAS, A PIC, F TYS — 5 centers
+- GERMANY: A KIE, A RUH, F DEN, A BUR — 4 centers
+- ITALY: A VEN, A TUS, F ION, F SMY, F NAP — 5 centers (SMY STOLEN FROM ME)
+- RUSSIA: A RUM, F BOT, A SWE, A MOS, A WAR — 5 centers
+- TURKEY: F BLA, A BUL, A CON, A SEV — 4 centers (tied last with Germany)
 
-## Next Phase (S1905M) Plan
-- Hold SEV firmly; consider A SEV → MOS (deep pressure on Russia) or STP
-- Push RUM if A BUL took it in fall
-- Consider A CON (now in BUL) → SER to help Austria OR → RUM if BUL left empty
-- Long term: Russia must be eliminated or vassalized before Austria grows too large
+## Analysis of My Orders
+- A CON → ANK: If Italy plays F SMY → ANK, my A CON blocks it (bounce). If Italy plays F SMY H, I now have ANK fortified.
+- F BLA S A SEV: Russia A RUM cannot dislodge A SEV if F BLA provides support. Critical hold.
+- A SEV H + F BLA support: This combo should be bulletproof vs A RUM alone.
+- A BUL H: Safe hold; no opportunity to advance without exposing the front.
+
+## Next Phase (F1905M) Plan
+- If ceasefire with Russia holds: A SEV → RUM (steal their supply center!)
+- If Italy pulls back from SMY: A ANK → SMY (recapture!) with CON support if needed
+- Long term goal: Retake SMY, hold ANK/CON/SEV/BUL, look for 5th center in RUM or GRE
+- Key diplomatic goal: Get Russia to stop attacking so I can focus on Italy
 
 ## Risk Assessment
-- Main risk: A BUL → RUM could bounce against Russia A RUM (they might hold). But F BLA secured SEV regardless.
-- If BUL→RUM bounces: CON is now in BUL as backup; next spring try again with 2-unit support
-- Italy remains a wildcard — F EAS could threaten SMY or AEG. Keep diplomatic channel warm.
-
-## Board State Summary (Start of F1904M)
-- AUSTRIA: 5 centers, 5 units (A VIE, A SER, A BUD, A TRI, F GRE) — ally vs Russia
-- ENGLAND: 5 centers, 5 units — fighting in the north (IRI/MAO/NWY/SWE contests)
-- FRANCE: 5 centers, 5 units — pushing through MAR/LYO area
-- RUSSIA: 5 centers, 4 units — WEAKENED (lost BLA bounce, F SEV dislodged; GAL→BUD + RUM→BUL bounced)
-- GERMANY: 4 centers, 4 units — fighting England/France for HOL/BEL/SWE
-- ITALY: 4 centers, 4 units (F EAS is notable) — neutral, watching
-- TURKEY: 4 centers, 4 units — **SEV occupied, about to capture it**
+- Main risk: Italy F SMY → ANK — defended by A CON if I moved there correctly
+- Secondary risk: Russia A RUM → SEV — defended by F BLA support
+- If Russia AND Italy coordinate against me simultaneously, could lose centers
+- Need at least one front to go quiet to rebuild momentum
 
 ## Historical Notes
-- S1904M: A ARM → SEV SUCCESS! F BLA S A ARM - SEV. Russia's F SEV was dislodged.
-- Russia had been posturing as an ally (Black Sea NAP) while preparing to push into BLA/BUL. NAP is dead.
-- TURKEY took the aggressive action at the right time — Russia was distracted going north toward SWE.
+- S1904M: A ARM → SEV success! F BLA support secured it.
+- F1904M: TURKEY expected to gain SEV as supply center. But Italy betrayed and took SMY.
+- The big mistake: trusted Italy's "non-aggression" pledges too long without securing SMY.
+- Current centers: ANK, CON, BUL, SEV (lost SMY to Italy)
