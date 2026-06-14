@@ -53,11 +53,27 @@ Expected result (S1904M positioning):
 - **A BUR**: Central support/reserves
 - **Centers after S1903M**: BRE, MAR, PAR, POR, **SPA** (5 total!)
 
-## Next Phase Strategy (F1903M)
-1. **Push for LYO**: Now at 5 centers with SPA. Next target is LYO for Mediterranean consolidation.
-   - A GAS could support westward expansion
-   - A MAR or fleet could move toward LYO
-2. **Monitor Russia/England**: At 5 centers each, they may become aggressive. Stay alert.
-3. **Italy coordination**: Confirm western/eastern boundary still holds. TYS/ION/NAP is theirs.
-4. **Germany NAP**: Continue respecting RUH/MUN/BEL. No conflict expected.
-5. **Build plan**: If supply centers continue, we'll build toward 6-7 centers by F1903A.
+## F1903M Orders Submitted (CRITICAL PHASE)
+```
+F SPA/SC H           # HOLD Spain — ensure capture of SPA supply center
+A GAS H              # HOLD defensive position
+A MAR H              # HOLD defensive position
+A BUR H              # HOLD defensive position
+```
+
+**Rationale**: Conservative hold to guarantee capture of SPA (from S1903M fleet move). POR remains unoccupied and stays ours. Expected outcome: **5 centers (BRE, MAR, PAR, POR, SPA)** — enables 1 build in W1903A.
+
+## W1903A Build Plan
+- **Build 1 unit**: Will decide after adjudication
+  - Option 1: A BRE (north, pressure on England's Burgundy zone / support against potential German moves)
+  - Option 2: A MAR (strengthen southern flank for Mediterranean push toward LYO)
+  - Option 3: F BRE (expand western naval presence, secure Atlantic)
+
+## Post-F1903M Strategy (S1904M onward)
+1. **LYO is next priority**: With 5 centers + build, push toward LYO to consolidate Med dominance
+   - Coordinate with Italy boundary (they take TYS/ION/NAP/TUN, we take WES/LYO/MAR)
+   - Could move A MAR or fleet toward LYO area
+2. **Monitor Russia/England**: Still at 5 centers each. They may clash or gang up. Stay ready.
+3. **Germany coordination**: NAP holds. They manage north, we handle south.
+4. **Build trajectory**: 5 → 6 → 7+ by F1904M if expansion continues
+5. **Watch Italy**: A PIE is adjacent to MAR — no threat yet but monitor if they pivot west
