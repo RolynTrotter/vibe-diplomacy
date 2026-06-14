@@ -1,24 +1,22 @@
 # FRANCE Strategy — cloud-1
 
-## S1901M Opening Moves
-- F BRE - MAO: Western flexibility, can support Med operations or defend Channel
-- A MAR - SPA: Claim Spain, move toward Italy/Mediterranean theater
-- A PAR - BUR: Central control, prepare for Germany/Austria conflicts
+## Standing Plan
+1. **Mediterranean dominance**: Control LYO, TYS, PIE corridor vs Italy
+2. **Respect Germany**: Non-aggression pact — avoid RUH, MUN, BEL
+3. **England alignment**: Channel DMZ confirmed — cooperative posture
+4. **Isolate Russia**: Support Austria/Germany checking Russian expansion
+5. **Flexible endgame**: Target 9+ centers, pivot toward whoever weakens early
 
-## Key Strategic Goals
-1. **Expand early**: Spain is a natural target; watch for Italy moving to LYO/TYH
-2. **Manage Germany**: BUR proximity means we'll be neighbors; watch MUN/BER
-3. **Flexibility**: MAO fleet can pivot north to GAS or south to MAO/GOB depending on allies
-4. **Watch alignments**: Monitor England (LVP→NAO or south), Russia (WAR east or south)
+## Trust & Deals
+- ENGLAND: trusted | DMZ: ENG + NTH mutual (confirmed F1901M)
+- GERMANY: non-aggression pact confirmed | watch MUN/RUH — no advance there
+- ITALY: unknown | watch LYO/TYS claims
+- AUSTRIA: unknown | potential ally vs Russia
+- RUSSIA: 4 centers, watch for overexpansion
+- TURKEY: unknown
 
-## Victory Conditions
-- Target: 9 supply centers
-- Don't get boxed in by Germany + Austria or Germany + England
-- Early alliances matter; avoid 2v1 early
-
-## Next Turn Adjustments
-- If MAR holds SPA: consider LYO next or push toward NAP
-- If units are contested: pivot flexibly
-
----
-Session: cloud-1 | Started: S1901M
+## Next Phase (S1901F)
+- If WES holds: pivot F toward TYS or MAR support; consider TUN as 4th center
+- Watch Italy toward LYO — conflict likely by Fall 1901
+- Maintain England alliance; don't probe North Sea/Channel
+- A GAS can move toward LYO/PIE or stay central
