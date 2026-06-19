@@ -43,3 +43,20 @@ Expected gains: SPA (1 new center). BEL is the target in F1901M.
 - Germany at 6 is the main long-term rival. BUR move is a probe — if Germany reacts, it signals tension.
 - England at 4 may feel squeezed; keep them reassured or they could flip against France.
 - F1902M: Consider A BUR→MUN if Germany weakens or A MAR→PIE if Italy falters. F BRE→MAO for Atlantic/Iberian control remains an option.
+
+## F1902M Orders (submitted)
+- A BEL H (held — unsupported BEL→HOL would bounce 1v1 against German A HOL; England committed to SWE support, not HOL)
+- A PAR - BUR (advance into Burgundy for strong central position)
+- F BRE - MAO (Atlantic reach, sets up Portugal/Spain convoy options and Iberian security)
+- A MAR H, A SPA H, F POR H (Iberian units hold)
+- Rationale: England is taking SWE (with F NTH support), so no F NTH support available for HOL. Bouncing HOL wastes BEL's action. BUR is more valuable — threatens MUN and gives positional leverage.
+
+## Alliances Update (after F1902M)
+- **England**: Coordinated — England takes SWE, France took BUR. HOL remains German for now. Watch if England grows uncomfortable with France's central position.
+- **Germany**: A HOL untouched; A BUR is now France's move into Germany's sphere. Germany may react strongly — prepare for tension in 1903.
+- **Russia**: Coordinated (defend WAR, France presses HOL/BUR). Russia is useful eastern pressure on Germany.
+
+## Next Phase Plan (W1902A if centers change / S1903M)
+- If BUR holds: consider A BUR→MUN (grab German home center) with support from A BEL or A MAR.
+- F MAO useful for English Channel threats or Iberian reinforcement.
+- Keep England placated — France at 6 is already strong; avoid triggering anti-France coalition.
