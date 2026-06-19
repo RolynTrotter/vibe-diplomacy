@@ -30,3 +30,25 @@ Orders: F CON - AEG, A BUL H, A SMY - CON
 - Build recommendation: F SMY (or F ANK) to reinforce eastern Med against Lepanto.
 - 1902 goal: Hold AEG, press toward EAS or GRE depending on Italy/Austria positioning.
 - Keep Russia neutral/friendly; no reason to contest RUM.
+
+## Position (S1902M)
+Units: A BUL, A CON, F AEG, F ANK
+Orders submitted: A CON S A BUL, A BUL H, F AEG H, F ANK - BLA
+
+### Decision rationale
+- Austria attacking with A SER→BUL; supported BUL hold with A CON (2 strength vs Austria's 1).
+- Russia offered truce: pressing Austria in GAL instead of BUL. Accepted — taking BLA while Russia's distracted.
+- F AEG holds defensively — Italy moving to TUN this spring, not eastern Med. Keeps ION path blocked.
+- BLA grab: Russia confirmed they won't contest per truce agreement.
+
+## Alliances (updated S1902M)
+- **Russia**: Active truce. Russia pressures Austria in GAL; Turkey takes BLA. High trust — both confirmed alignment.
+- **Austria**: Hostile — A SER→BUL this spring. Austria taking SER→BUL signals Balkans contest. Watch for follow-up in F1902.
+- **Italy**: Moving F ION→TUN (needs 4th center). Not immediately threatening eastern Med. Door open for Fall 1902 accommodation.
+
+## Next Phase Plan (F1902M)
+- If BLA secured: strong position to threaten RUM or push AEG→GRE.
+- Coordinate with Russia vs Austria: Turkey from south, Russia from north (GAL pressure).
+- Watch Italy after TUN — could redirect east in fall.
+- Consider A BUL→SER or A BUL→RUM if Russia has RUM vulnerable.
+- Build goal if center gained: another fleet to reinforce eastern Med.
