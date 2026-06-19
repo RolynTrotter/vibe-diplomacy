@@ -12,9 +12,19 @@ Expected gains: SPA (1 new center). BEL is the target in F1901M.
 - **Germany**: BUR non-aggression — honored this phase (PAR went to PIC, not BUR). Relationship is stable but Germany will also want BEL/HOL.
 - **Italy**: PIE non-aggression confirmed. Southern flank secure for now.
 
-## Next Phase Plan (F1901M)
-- A PIC - BEL (grab Belgium; may need to race England)
-- A SPA - POR or A SPA H (secure Portugal for second build)
-- F MAO - SPA/SC or support SPA hold
-- Expect 2 builds if BEL and POR both fall. Build F BRE and A PAR or A MAR.
-- Reassess England relationship — if they threaten BEL, consider diplomatic pressure or a counter alliance with Germany.
+## F1901M Orders (submitted)
+- A PIC - BEL (Belgium claimed; Germany confirmed they take HOL, not BEL)
+- F MAO - POR (Portugal secured)
+- A SPA H (holds Spain)
+- Expected centers end of fall: SPA, BEL, POR = 5 total, 2 builds due
+- Build plan: F BRE and A PAR or A MAR
+
+## Alliances Update (after F1901M)
+- **England**: Reaffirmed channel peace; they move toward NWY. Stable.
+- **Germany**: Deal confirmed — Germany takes HOL + SWE, France takes BEL. Strong foundation for 1902 cooperation.
+- **Italy**: PIE non-aggression holds; Italy focused east toward Tunis/Balkans.
+
+## 1902 Plan
+- With 2 builds, consider F BRE and A MAR or A PAR.
+- Continue Franco-German cooperation; potential Anglo-French entente if Germany overreaches.
+- Eyes on MUN/HOL if Germany weakens later; for now, maintain western peace.
