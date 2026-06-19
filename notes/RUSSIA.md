@@ -1,21 +1,29 @@
-# RUSSIA Notes — S1901M
+# RUSSIA Notes — F1901M
 
-## Position
-4 units: A WAR, A MOS, F SEV, F STP/SC.
-Orders submitted: F STP/SC→BOT, A WAR→UKR, A MOS→SEV, F SEV→ARM.
-Targeting FIN (via BOT), and positioning for eventual RUM or southern push.
+## Position after S1901M
+4 units: A MOS, F SEV, A UKR, F BOT.
+
+## F1901M Orders Submitted
+- F BOT → FIN (claim Finland — agreed with England)
+- F SEV → RUM (grab Romania — only Russia moving there, Turkey not contesting per agreement)
+- A UKR H (hold — respect Austria NAP in GAL)
+- A MOS → SEV (fill vacated Sevastopol for defense depth)
 
 ## Alliances
-- **Turkey**: Black Sea DMZ agreed — F SEV stayed out of BLA, moved to ARM instead. Cautious trust.
-- **Germany**: Eastern border non-aggression confirmed — WAR moved south not west.
-- **Austria**: Acknowledged A VIE→GAL as anti-Serbia staging. Non-hostile for now, watch GAL carefully.
-- **England**: Tacit agreement: Norway for England, Finland for Russia, Sweden left open. F BOT positions for FIN next phase.
-- **Italy**: Lepanto interest noted — no commitment yet. Could be useful against Turkey.
+- **England**: Confirmed — NWY to England, FIN to Russia. Sweden goes to Germany (F DEN→SWE). Northern peace holds.
+- **Turkey**: Uneasy. DMZ held in S1901M. Turkey wants Russia to avoid BLA and RUM to give them breathing room vs Lepanto. Russia taking RUM may strain this, but Turkey said it won't contest RUM if DMZ holds. Watch carefully in 1902.
+- **Austria**: NAP in GAL confirmed both ways — A UKR not entering GAL, A GAL not threatening Russia. Good. Austria coordinating with Italy vs Turkey (Lepanto). Austria takes GRE this fall.
+- **Germany**: Eastern border NAP holds. Germany gets SWE.
+- **Italy**: Lepanto underway. Italy pressing Turkey from south, wants Russia to press from north. No commitment made yet but aligns with interests.
 
-## Next Phase Plan
-- F BOT → FIN (claim Finland, build toward SWE if England holds off)
-- A SEV → RUM or hold depending on Austria/Turkey moves
-- A UKR → RUM or WAR depending on board developments
-- F ARM → ANK if Turkey gets aggressive, or hold as deterrent
-- Watch if Austria enters GAL — that would break trust. Consider A UKR as counter.
-- Assess if England takes NWY cleanly — if so, SWE may be open for Russia.
+## Expected Builds (Winter 1901)
+- FIN captured → +1 build
+- RUM captured → +1 build
+- 2 builds likely: A STP and something southern or A WAR
+
+## 1902 Strategic Plan
+- Builds: A STP (defend north, threaten SWE long-term), A WAR or F SEV (reposition)
+- Turkey is being squeezed — don't get into war with Turkey yet, let Italy/Austria do the work, then move in 1902
+- Watch BUL — if Turkey loses it, Russia may be able to grab it with Austria coordination
+- Keep NAP with Germany and Austria firm through 1902
+- England is reliable northern partner; no need to push into SWE aggressively
