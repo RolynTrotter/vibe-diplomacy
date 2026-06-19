@@ -56,3 +56,28 @@ Diplomatic summary:
 - F KIE→BAL gives Baltic dominance and positions for future support of SWE or eastern moves.
 - A MUN→BUR is a calculated probe; if France objects strongly, that reveals their intentions.
 - Watch England — at 4 SCs they are desperate and may flip against Germany.
+
+## F1902M Orders Submitted
+
+- F BAL S F SWE (support-hold SWE; ties England's 2-unit attack = SWE holds!)
+- A SIL - WAR (probe east; WAR may be vacated with Russia's A UKR moving in)
+- F SWE H
+- A HOL H (France's A BEL→HOL is unsupported = bounce, HOL safe)
+- A MUN - BUR (contest France's advance; head-on bounce expected)
+- A DEN H
+
+Note: F BAL cannot reach WAR (not adjacent), so "Option B" support was illegal.
+Hybrid play: defend SWE with BAL support AND probe WAR with solo SIL. If WAR is contested (UKR→WAR also moves in), we may get a 3-way bounce or luck into WAR if Russia fumbles.
+
+## F1902M Diplomatic Summary
+
+- **England**: Confirmed attacking SWE with F NWY + F NTH support (2 units). Germany defended with F BAL S F SWE = tie = hold. Anglo-German alliance is BROKEN. England is now an enemy.
+- **France**: Threatening HOL with A BEL→HOL (unsupported). HOL holds. A MUN→BUR contests BUR. France is an active rival. Trust: low.
+- **Russia**: A UKR moving to WAR. Germany probing WAR with A SIL. Outcome TBD.
+
+## W1902A Plan
+
+- If SWE holds and WAR taken: 7 SCs → 1 build. Build A BER or F KIE.
+- If SWE holds, WAR not taken: 6 SCs, no build.
+- Priority: contain England in north, push east into Russia, keep France tied down in west.
+- Consider diplomatic overture to Russia to coordinate against England if Russia fears German eastern pressure.
