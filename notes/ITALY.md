@@ -38,3 +38,24 @@ IMPORTANT: Review adjudication result — if APU failed to reach TUN, plan a ret
 - Austria should have GRE; coordinate BUL split for 1902.
 - Turkey at AEG — expect a fight for AEG/EAS in 1902. Need F ION free to advance.
 - Watch Russia; if they press BUL, coordinate with Austria on response.
+
+## S1902M Orders (submitted)
+
+- F ION - TUN (priority: take the 4th center — directly adjacent, no convoy needed)
+- A APU H (hold, protect southern Italy)
+- A VEN H (hold, maintain northern buffer)
+
+Austria confirmed F ION→AEG not needed this phase; told us to go get Tunis. Austria plans
+F GRE S A SER→BUL directly. This frees Italy to secure TUN cleanly.
+
+Key diplomatic status:
+- **Austria**: Solid. Acknowledged Tunis priority; Lepanto continues Fall 1902.
+- **France**: PIE non-aggression holds. France cautiously flagging Austria/Germany growth at 6 centers each.
+- **Turkey**: Persistent lobbying to redirect Italy west — ignore. TUN is both western AND eastern value.
+- **Russia**: Non-committal but watching Turkey's flank.
+
+## Next Phase Plan (F1902M)
+
+- If TUN secured: Italy at 4 centers — build F NAP in W1902A. Position for AEG/EAS in 1902.
+- Coordinate with Austria on BUL; Italy fleet in TUN can move to WES or EAS depending on board.
+- France concern about Austria/Germany balance is noted — do not dismiss, but keep Lepanto on track for now.
