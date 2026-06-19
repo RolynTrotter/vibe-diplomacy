@@ -33,3 +33,26 @@ Diplomatic summary:
 - Consider F KIE to contest or support Baltic plays vs Russia if trust erodes.
 - Monitor France in BEL — useful buffer but watch if they look east.
 - Maintain England alliance; coordinate 1902 strategy toward Russia or Turkey.
+
+## S1902M Orders Submitted
+
+- F SWE H (hold, defend against possible Russian F FIN → SWE)
+- A DEN H
+- A HOL H
+- F KIE - BAL (Baltic control, supports eastern push)
+- A BER - SIL (pushing toward Warsaw/Russia)
+- A MUN - BUR (probe France / pressure western sphere)
+
+## S1902M Diplomatic Summary
+
+- **England**: Pressing for BEL against France, wants German support F NTH→BEL. Also hinting at SWE as a target if Germany doesn't help them grow. Alliance strained — England at 4 is looking for growth. Trust level: medium-low (watch carefully).
+- **France**: Offering mutual non-aggression, proposing BUR stays demilitarized, eyes south/west. Suggesting info-sharing about England's overtures. A MUN→BUR is a probe — if France has good intentions, they'll hold. Trust level: medium.
+- **Russia**: Reaffirmed eastern non-aggression. Claims focus is Balkans and Scandinavia. Watch F FIN which could threaten SWE. Trust level: medium.
+
+## Strategic Outlook
+
+- Germany at 6 (tied with France) is a strong position. Push east via SIL→WAR to grow.
+- Keep England and France passive by not overtly threatening either; play them off each other.
+- F KIE→BAL gives Baltic dominance and positions for future support of SWE or eastern moves.
+- A MUN→BUR is a calculated probe; if France objects strongly, that reveals their intentions.
+- Watch England — at 4 SCs they are desperate and may flip against Germany.
