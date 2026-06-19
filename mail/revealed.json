@@ -1,0 +1,2121 @@
+[
+  {
+    "id": "a71082834ee9b6e0",
+    "phase": "S1901M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Greetings from London. As we both survey the opening board, I believe our interests are best served through a firm non-aggression pact in the English Channel. I propose we each keep our fleets clear of the Channel this season \u2014 neither of us moves F LON to ENG, nor do you contest it. A peaceful Channel frees us both to pursue our true ambitions: you toward Iberia, me toward Scandinavia. Let us build on mutual respect. What say you?",
+    "sent_at": "2026-06-19T00:56:44.497604+00:00",
+    "sig": "9/OpK6pXfPaVZRosdlW2prhPAwqetF5+IluMD2Dmwo4j20y/w52ihDOTGA4qmvO6LYxC78t07hpf/+zG8zQYDw==",
+    "verified": true
+  },
+  {
+    "id": "d1ca2229a003307e",
+    "phase": "S1901M",
+    "sender": "AUSTRIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Vienna. Austria's concerns lie primarily in the Balkans and against the eastern powers. I note that our interests don't naturally conflict \u2014 you hold the western seas and I the central lands. A general non-aggression understanding between us seems wise. More pressingly, I am watching Russia and Turkey closely; if a Juggernaut forms, all of Europe suffers. I hope we can stay in communication as the board develops. Best regards, Austria",
+    "sent_at": "2026-06-19T00:56:46.626805+00:00",
+    "sig": "TilXv5qALY2rk+GvL/5ek2RitCKryo9Vw1pIFNxFHRFS2c7a2g17Rj0eqoxEc/aaUgjoPknVDTaDgD6UK4faCQ==",
+    "verified": true
+  },
+  {
+    "id": "cd7f277ec20d593f",
+    "phase": "S1901M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Berlin! As Germany, I believe a strong Anglo-German partnership is the natural foundation for success in the West. I propose we coordinate closely: I will target Holland and Denmark in 1901, leaving you free to focus on Norway and the seas. I have no designs on Belgium if you need it \u2014 we can discuss that. Most importantly, I suggest we keep France in check together. An England-Germany alliance against France would give us both room to grow. What are your thoughts?",
+    "sent_at": "2026-06-19T00:56:50.808626+00:00",
+    "sig": "WZlPx/nIU5IOqcql/IzmmmHfIaoWbY87nYocPPLPbrtPRzTq1jmr75EjyRtf8lJEd9Ztka31Nr8Yh8XNh0MSCQ==",
+    "verified": true
+  },
+  {
+    "id": "7da0483c9d972bca",
+    "phase": "S1901M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Paris! I was pleased to receive your message, and I am inclined to accept your proposal for mutual non-aggression in the Channel. A peaceful Channel suits France well \u2014 our interests in Spring 1901 lie southward toward Iberia and westward into the Atlantic. I intend to move F BRE toward the Mid-Atlantic rather than contesting the Channel. In return, I trust you will keep F LON away from the Channel as well. Let us build this friendship into something lasting \u2014 perhaps even a Western Triple if Germany grows too bold. Agreed on the non-aggression pact.",
+    "sent_at": "2026-06-19T00:56:51.572160+00:00",
+    "sig": "XD0URQPLN52pBOMNw74ojO3K4Q7sg1CHN+FTGLLbg12jkJ0uj7+PUJ4sTtpq4+nDGbbZYhWegRKDDye8/6GLCA==",
+    "verified": true
+  },
+  {
+    "id": "ea63ea553e32fad7",
+    "phase": "S1901M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Greetings from Berlin! I hope we can establish friendly relations from the outset. Germany has no hostile intentions toward France. I propose a mutual non-aggression pact: I will keep my armies out of Burgundy, and I ask only that France respect Germany's western flank in return. Our natural expansion lies in different directions \u2014 you toward Iberia, me toward Scandinavia and the Low Countries. Let us avoid unnecessary conflict and perhaps even find ways to cooperate. I look forward to your reply.",
+    "sent_at": "2026-06-19T00:56:56.237266+00:00",
+    "sig": "cjEWwSu6rMJ4afAAAVedy7fsiL0C8gaB8OYOYZdx0VWKcgTNxlWW2bLnMzNS8sPUv4WxQSfeapNWfEK2tO/pAw==",
+    "verified": true
+  },
+  {
+    "id": "8d884211e0070d24",
+    "phase": "S1901M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Greetings from Paris, neighbor! Spring 1901 brings us both opportunity, and I write in the spirit of cooperation. Burgundy is a province we both eye, and I believe clarity here prevents misunderstanding: I propose we agree that neither France nor Germany moves into Burgundy this turn. This gives us both breathing room \u2014 you to focus on Denmark and Holland, me to look toward Spain. A Franco-German non-aggression agreement this early could be the foundation of a durable arrangement. I look forward to your thoughts.",
+    "sent_at": "2026-06-19T00:56:56.842067+00:00",
+    "sig": "+6bbFkGEKGF/Z5hHCpOVbJy8JNqlIUHfKmVKnJLPToo3XWTzvjrSj2jhogi7HKEJmeNtCXP8Q8wUVulcpZrSDQ==",
+    "verified": true
+  },
+  {
+    "id": "153a0dd9028cd064",
+    "phase": "S1901M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Greetings from London. The opening board presents us both with important choices in the north and west. I'm keen on securing Norway and would welcome German support or at least neutrality toward Denmark. In exchange, England has no designs on German waters \u2014 Heligoland Bight and the Baltic are yours to dominate. I believe a quiet Anglo-German understanding serves us both well against the French and Russian juggernauts. Do you agree?",
+    "sent_at": "2026-06-19T00:56:57.076279+00:00",
+    "sig": "wigcgRlzoynMbz+v1U5+4GA1EsvwzJDyPdYoY9oYSZoil17VD+p601Vg8pYlxobkNfUFptfV1NjuuwYj0yrZDw==",
+    "verified": true
+  },
+  {
+    "id": "fa5a8ada41bd8db2",
+    "phase": "S1901M",
+    "sender": "GERMANY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Greetings from Berlin! Germany and Russia share a long border, and I believe it is in both our interests to keep it peaceful. I propose that we respect each other's spheres: I will not move into Silesia or Prussia, and ask that Russia similarly respect Germany's eastern frontier. My focus in 1901 is entirely westward \u2014 Denmark, Holland. I have no designs on Warsaw or any Russian territory. A stable eastern border benefits us both and lets us each expand in our natural directions. I hope we can formalize this understanding.",
+    "sent_at": "2026-06-19T00:57:00.658766+00:00",
+    "sig": "yGTTNAC2WUXLGdhNLJqOpOmOpR0/cZlMmxkVzWIoZY5rUvd9fIJSsR2eh7D928QGMgs7X2wSny9jTOqBt0FKBQ==",
+    "verified": true
+  },
+  {
+    "id": "937c71320f208d44",
+    "phase": "S1901M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Greetings from Paris! France and Italy share a long border at Piedmont, and I write to ensure our opening moves do not create unnecessary tension. I have no designs on Piedmont or Tyrolia \u2014 my ambitions lie westward toward Iberia and the Atlantic. I hope Italy's ambitions similarly lie eastward toward the Balkans and Tunis, where the real prizes await. A simple agreement: neither of us crosses into the other's sphere in Spring 1901. Let us both profit from our respective expansions and perhaps find ways to cooperate against mutual threats as the game develops.",
+    "sent_at": "2026-06-19T00:57:01.777351+00:00",
+    "sig": "mM4fcU7srbgo0f7uSOboZL5YHnQLYhB1SuIT+N10yFifULif+9N8OHxkjgiqwLx7AOdpa0aKCyb32uWc7YI7CQ==",
+    "verified": true
+  },
+  {
+    "id": "97bf295bbfaaed19",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Greetings from Moscow. As neighbors sharing the Black Sea, I believe we both benefit from stability in that region. I propose a mutual DMZ in the Black Sea for Spring 1901 \u2014 neither of us moves there, allowing us to focus on natural expansion elsewhere. I intend to move F SEV toward RUM. I hope we can establish a productive relationship early in this game. What are your thoughts?",
+    "sent_at": "2026-06-19T00:57:03.710452+00:00",
+    "sig": "M0nUfvvncUJl50pt6hcoJR70Q8iQK2M3XXbn6+fL+R2NZKsze7ZBqMleuJe6PeS3bd8ihDZwB1qhzOKeXpenAQ==",
+    "verified": true
+  },
+  {
+    "id": "86bf2aeded37af48",
+    "phase": "S1901M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Greetings from Rome! As neighbors sharing the Balkans as our mutual interest zone, I propose we establish a firm non-aggression pact. Specifically: Italy will keep A VEN out of TYR and TRI, and I ask Austria to similarly respect VEN and PIE. Beyond that, I'd like to propose the Lepanto opening \u2014 Italy and Austria coordinate to strike Turkey together. I will move F NAP \u2192 ION and A ROM \u2192 APU, building toward an Eastern strike. In return, I ask Austria to support stability in the West and leave Italian home centers untouched. Let's discuss. \u2014 Italy",
+    "sent_at": "2026-06-19T00:57:03.858146+00:00",
+    "sig": "FtDSL5V8ae42E/szSdXpGZsGPxVXJn6e9PVNsLQA+F6JWithIanz5s5tFiG+TBYMlO8E1GALSI2rXvudIbpwAw==",
+    "verified": true
+  },
+  {
+    "id": "49d12b7b4a771014",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Hello from Russia. I think we can avoid unnecessary conflict in Galicia this spring \u2014 I propose we both steer clear and focus on our natural targets. I plan to move A WAR to UKR and have no interest in Austrian territory at this stage. I'd welcome a non-aggression understanding between us for 1901. Let me know your intentions.",
+    "sent_at": "2026-06-19T00:57:07.671737+00:00",
+    "sig": "lwKfThHk4CdPkSTv/MKb+hY7WmFb/8i0vBJkacwbwzgx0PvJrgHtTjAS3RA5UmgRdNI7aK3+4BiEj4inUUp8Dg==",
+    "verified": true
+  },
+  {
+    "id": "c8a7ae8290a418d9",
+    "phase": "S1901M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Greetings from Rome! Italy has no ambitions in Marseilles or Piedmont. I propose a mutual non-aggression agreement: Italy stays out of PIE and MAR, France stays out of PIE. Our interests diverge eastward, and there is no reason for us to quarrel in the West. I hope we can maintain friendly relations throughout this game. \u2014 Italy",
+    "sent_at": "2026-06-19T00:57:09.162222+00:00",
+    "sig": "CFzOQjPVLe21dhKaMQEheEOYtNJ5tJoXAc9NYm/S2/elUojwDmN+vAN20U54vXIx1SvOS+MtMlqGVRNvvR7NDA==",
+    "verified": true
+  },
+  {
+    "id": "eec1a8ca0de0811b",
+    "phase": "S1901M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Greetings from Constantinople! Russia's proposal for a Black Sea DMZ is most welcome. I agree \u2014 neither of us should move F ANK or F SEV into BLA this spring. Let us both focus on our natural expansion paths: you toward RUM and the west, I toward BUL and the south. A stable Russo-Turkish border is the foundation for both our successes. I accept the DMZ proposal. Let us revisit our relationship after Spring 1901 results are in \u2014 perhaps we can find further areas of cooperation.",
+    "sent_at": "2026-06-19T00:57:11.812124+00:00",
+    "sig": "rDJjkU7Dp7oI8IqutJRVdJdlxjvfhwVNoG1e+kb0wOwGbX6k1coMgmmNJVhZZYgqU1HZACNsJmbACZYnaC/HAg==",
+    "verified": true
+  },
+  {
+    "id": "bea2f8238aeda75f",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from St. Petersburg. Scandinavia is naturally contested between our two powers, but conflict there only benefits Germany and others. I propose a reasonable division: I take Finland (F STP/SC \u2192 BOT \u2192 FIN) and we coordinate on Sweden and Norway to avoid a costly standoff. I'm open to discussing an arrangement that works for both of us. What are your opening thoughts?",
+    "sent_at": "2026-06-19T00:57:12.037478+00:00",
+    "sig": "zwlQIKBuTbpjGMrDpLUDigxLznOvd3m87yYfYBmITomelvU5jdQmqXZnFOH7YZv+RnxKvhYKj/JmU8lksfreCg==",
+    "verified": true
+  },
+  {
+    "id": "8ad0cf43a6c5be60",
+    "phase": "S1901M",
+    "sender": "ITALY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Greetings from Rome! Italy is looking eastward this game and has no designs on the Balkans without cooperation. We are considering the Lepanto approach targeting Turkey. We believe this aligns with Russian interests in the Black Sea region. Perhaps we can find common cause \u2014 Italy pressing from the south while Russia presses from the north? I'd welcome a conversation. \u2014 Italy",
+    "sent_at": "2026-06-19T00:57:13.655638+00:00",
+    "sig": "xKh5KAbLjBxOqU0mmESx4CDGASdTDiyi30SBfPIbKW8eibAeeCrLMPRPf4nhsczsDDCbRo0LXo6zDisVV31SAQ==",
+    "verified": true
+  },
+  {
+    "id": "7cbd207c67692266",
+    "phase": "S1901M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Greetings from Constantinople! Turkey seeks peaceful relations with Vienna from the outset. I have no designs on Austrian territory, and I hope you share a similar view toward the Balkans. My intention is to move toward BUL this spring \u2014 a natural Turkish sphere. I propose we coordinate in the Balkans rather than compete: Turkey focuses on BUL and the eastern Med, Austria focuses on SER and the west. A strong Austria-Turkey understanding would make both of us more secure against Russian expansion. I look forward to building trust with you.",
+    "sent_at": "2026-06-19T00:57:16.755717+00:00",
+    "sig": "nE/U03IcGbGCYTLDvrcgf1SwZWguj0q71sdTI61rQXdXGHbYDjms2TGMwI/2pgfJdWnvlxYOzO06gVghSgOHCQ==",
+    "verified": true
+  },
+  {
+    "id": "13a92594ea414492",
+    "phase": "S1901M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Greetings from Constantinople! As powers with interests in the eastern Mediterranean, I believe Italy and Turkey have much to gain from early coordination. My focus is on the Black Sea region and BUL \u2014 I have no ambitions in the western Med or Italian sphere. I would welcome an arrangement where we respect each other's waters and avoid collision in the Ionian/eastern Med. Perhaps we can find ways to cooperate against common threats in the future. I look forward to your thoughts.",
+    "sent_at": "2026-06-19T00:57:20.887491+00:00",
+    "sig": "O52WUOy9Kqc+zQcpL3KaDAH6GgQSBKQWY75yTfNQpc9XsRqLG2LE4VD2EGz3yDCa8hXkc4kfb/spBYwWNHxnCw==",
+    "verified": true
+  },
+  {
+    "id": "1db8a24df75b69e4",
+    "phase": "S1901M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Greetings from Vienna! I am pleased to accept your Lepanto proposal. Italy and Austria working together against Turkey is a natural and strong alliance. I confirm: Austria will move A BUD\u2192SER and A VIE\u2192BUD (or GAL), leaving Italian home centers entirely untouched. I will not move into TYR or PIE. In return, I trust Italy will keep A VEN away from TRI and TYR as proposed. Let us coordinate further in the fall. \u2014 Austria",
+    "sent_at": "2026-06-19T00:58:08.994260+00:00",
+    "sig": "3WzwxuyeNf/qePu1E9WQPBOVK6Kbu5Eq47Bc6l9WpRySogLkG3YJ4b+Ot8TK1/oVdFzcO8baGkgwYzYo9k50Cg==",
+    "verified": true
+  },
+  {
+    "id": "c5cc34b527ee2578",
+    "phase": "S1901M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Thank you for your reassurances. I am glad to hear Russia has no designs on Austrian territory. For our part, Austria will move A VIE into GAL this spring \u2014 not to threaten Russia, but as a natural staging point toward SER. I give you my word we are not looking for conflict with Russia in 1901. I hope we can maintain this understanding throughout the year. \u2014 Austria",
+    "sent_at": "2026-06-19T00:58:12.777347+00:00",
+    "sig": "kqbLjV9QABfDUcCmnt9mY6t++3ewb686OiIF34reU8NZdBXSWR9HW1s+GgcrKFFkScoEC3Oe7NVsnBZgqWB6Bw==",
+    "verified": true
+  },
+  {
+    "id": "f6919637c2dd8396",
+    "phase": "S1901M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Thank you for your proposal. An Anglo-German alliance is exactly what England needs in 1901. I agree to this arrangement: you take Holland and Denmark, I will focus on Norway and the northern seas. On Belgium \u2014 I will leave it to you or we can discuss later, but I have no immediate designs on it. My orders will be F EDI\u2192NWY, F LON\u2192NTH, A LVP\u2192YOR. Let us coordinate closely and keep France contained together. Looking forward to a productive partnership.",
+    "sent_at": "2026-06-19T00:58:15.850547+00:00",
+    "sig": "5rTGeFHsBBUzkLoQKGrBntjS/pQvfWhlNtPRWTTrehEv0WG6ycbxDBmbt5dd73MCJcqDU0GhpiwXzsx+RsRlAg==",
+    "verified": true
+  },
+  {
+    "id": "758776f793ee8188",
+    "phase": "S1901M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Greetings from Vienna! I appreciate your friendly opening, but I must be candid: Austria and Italy are coordinating a Lepanto opening this year, which means we will be moving against Turkish interests in the long run. I hope Turkey understands this is strategic rather than personal. That said, I see no need for immediate conflict \u2014 Austria's first move is toward SER, not Bulgaria. If Turkey wishes to discuss terms for the medium term, I remain open to dialogue. \u2014 Austria",
+    "sent_at": "2026-06-19T00:58:17.411532+00:00",
+    "sig": "4lTEB/g6Cxbf2hNQnu7KNBsubrhQJtiO3jwkgOaE5L76/lAOcHgfaiOhJNRwPtTzw0NL+2xwU7jJB93VS69WDg==",
+    "verified": true
+  },
+  {
+    "id": "18f11c55e27db36b",
+    "phase": "S1901M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Paris! I am pleased to confirm our mutual non-aggression pact in the English Channel. Neither of us will contest the Channel this season \u2014 you are free to pursue Scandinavia, and France will focus on Iberia. I look forward to a peaceful western front and perhaps future cooperation. \u2014 France",
+    "sent_at": "2026-06-19T00:58:17.755252+00:00",
+    "sig": "3eqAgPNd6T7V7QkbEiq3mGLxFtHnPCMV35nJ6O19rkakBn0BBvN6Yo1lLcikXWLIr69CQc8tYhtGGVBj6igiDQ==",
+    "verified": true
+  },
+  {
+    "id": "f37f5be66abd78c9",
+    "phase": "S1901M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Excellent \u2014 I am glad we are in agreement. The Channel non-aggression pact is confirmed. F LON will not enter the Channel; I intend to move it to NTH to secure Norway. You have my word. A peaceful west is good for both of us, and if Germany ever grows too ambitious, we should talk further. For now, let us both develop in peace.",
+    "sent_at": "2026-06-19T00:58:19.914068+00:00",
+    "sig": "W6Na+0bY2ZtbvBnnrdDB0FVjQNDwCI6lXijZ7ETt5mXa+zUdX0A5hzawXSiCBRcJNU9ezvL7o7hqFQ66hJccAA==",
+    "verified": true
+  },
+  {
+    "id": "27990615e1211f1c",
+    "phase": "S1901M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Greetings from Paris! I am happy to confirm our mutual non-aggression pact. Germany's western flank is safe from France \u2014 I have no intentions toward Burgundy this season as I focus my energies on Iberia. I hope we can build on this goodwill and perhaps find areas to cooperate. \u2014 France",
+    "sent_at": "2026-06-19T00:58:21.192320+00:00",
+    "sig": "vsGRV9N6ts+xBuItCwk0eQMcEWiHcbkspRenOUjZGwSchevDpc7r4HyQIwvp3gv99PpN9Cb0Cu+EXg2tUUwvAA==",
+    "verified": true
+  },
+  {
+    "id": "7093b8b4aeca2e26",
+    "phase": "S1901M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Greetings from Paris! I am glad to confirm our mutual non-aggression agreement. France has no interest in Piedmont, and Italy's western border is safe from French interference. Our interests do diverge eastward for Italy and southward for France \u2014 let us maintain this peaceful understanding throughout the game. \u2014 France",
+    "sent_at": "2026-06-19T00:58:24.517433+00:00",
+    "sig": "24nsU7eT2lH/qZ10rGQ/CpbGox5dSqL6TWTqP2Z8/p2NfPTBqlErv0Nvfmf/aqarnuX9paQEnfn48vnYtJBSDw==",
+    "verified": true
+  },
+  {
+    "id": "ce99deaa46d0ebe7",
+    "phase": "S1901M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Bonjour from Berlin! I appreciate France's prudent proposal. I agree to the Burgundy non-aggression pact \u2014 neither of us will move into BUR this spring. Germany looks north and east: Denmark, Holland, and perhaps cooperation with Austria. I hope this marks the beginning of a productive Franco-German understanding. Let us keep the peace in the west.",
+    "sent_at": "2026-06-19T00:58:24.571058+00:00",
+    "sig": "zZtUY06E3Aw7/NTqj942mV4phz7+Na+9TGSrLd+IsQ4AwRDg7UiLPl5Qi8rUkNfhpXVKz7P5wXkkj5QKpKD2DA==",
+    "verified": true
+  },
+  {
+    "id": "3d4d8a6c33a2e10c",
+    "phase": "S1901M",
+    "sender": "ENGLAND",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Thank you for the reasonable proposal. I agree \u2014 conflict in Scandinavia benefits neither of us. Here is my thinking: England needs Norway (NWY) as our natural first build \u2014 it is the only northern center within reach. Finland (FIN) is yours without contest. For Sweden (SWE) \u2014 I would suggest we leave it open for 1901 and revisit in the fall once we see how the board develops. I have no intention of pushing into the Baltic or St. Petersburg. Let us stay in contact and avoid a clash.",
+    "sent_at": "2026-06-19T00:58:24.862021+00:00",
+    "sig": "9DGXaCZrMlGGP23vdt7mO3yC7PvElK3S3+N5nY4vy4hfNicwOnQrqqUSVOH2smO+1YwAa5oHVVAcO7lnSEQMDg==",
+    "verified": true
+  },
+  {
+    "id": "50776c7a50f23a38",
+    "phase": "S1901M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Confirmed \u2014 Italy will respect the PIE arrangement. My focus is eastward: Tunis in the south and the Balkans beyond. I see France as a natural partner in the west while I develop toward the east. Non-aggression in PIE holds for the foreseeable future. Let us stay in touch as the board develops.",
+    "sent_at": "2026-06-19T00:58:28.235162+00:00",
+    "sig": "wnTSrY4gbLTZkX8Anv9cdd05eeb10jwyQZNs/Qo7bGaWEU9hKhhsjfHUrWHjF08htZ9bMIsMVPVwJROehPI8AA==",
+    "verified": true
+  },
+  {
+    "id": "996c6d595b525779",
+    "phase": "S1901M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Berlin! The Anglo-German understanding is confirmed. Germany will move into Denmark and Holland \u2014 you secure Norway without interference from us. England's assurance on Heligoland Bight and Baltic neutrality is welcomed. Together we can keep both France and Russia in check. Regarding Belgium \u2014 no rush, we can revisit after builds. I look forward to our partnership flourishing. My northern moves will complement yours in Scandinavia.",
+    "sent_at": "2026-06-19T00:58:28.823860+00:00",
+    "sig": "veqh/oMbGgmOeeF1Phx0BzC1bt+6LDZQ1GD+EKjvd7ExMPrOLqBLTk5QvUsLDOvbhZwWnWzUYNrd/RROEejDDQ==",
+    "verified": true
+  },
+  {
+    "id": "a956e6b81e8221fb",
+    "phase": "S1901M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Thank you for reaching out from Constantinople. I want to be transparent: Italy's fleet in Naples will be moving toward the Ionian Sea and then eastward \u2014 this is the opening of a longer campaign against Turkey in the east, coordinated with Austria. My target is not Turkish waters initially, but I do intend to press east with the Lepanto strategy. I respect Turkish strength and hope we can find accommodation, but I won't mislead you about my direction. The Ionian move is not aimed at your home centers in Spring.",
+    "sent_at": "2026-06-19T00:58:33.457559+00:00",
+    "sig": "MaHOKGkhYh3HGjNEgYreFpaSimeFJBoLl0Vk1YmfWX/3xSD9oNuSFOW2qGKgj9ASfBZaKNor0roicymvoDjQBA==",
+    "verified": true
+  },
+  {
+    "id": "c7e372b8464fabcc",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Greetings from Moscow! I'm glad we see eye to eye. Russia fully agrees to respect Germany's eastern frontier \u2014 no Russian moves into Prussia or Silesia. We each have our natural directions of expansion, and mutual non-aggression on this border is sensible policy. I will be focused on the south and Scandinavia. Let us stay in touch as the game develops. \u2014 Russia",
+    "sent_at": "2026-06-19T00:58:36.651779+00:00",
+    "sig": "FOWuRn5coqJhrbVIoCPUAtVA5Gboj8gGYIjGALhzlncAEzn/3DXFd4iMUsKs6FeHkpEJGj2GHz3g8C1bsnJECQ==",
+    "verified": true
+  },
+  {
+    "id": "2f0655c1c253fe7b",
+    "phase": "S1901M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Excellent news from Vienna \u2014 the Lepanto alliance is confirmed. Italy's plan: F NAP\u2192ION, A VEN\u2192APU, A ROM\u2192VEN (or holds). This sets the stage for Fall when we can press into the eastern Med together. I confirm: A VEN will not threaten TRI or TYR. Let us coordinate in Fall 1901 once we see how the board shapes up. Looking forward to a strong partnership.",
+    "sent_at": "2026-06-19T00:58:38.569605+00:00",
+    "sig": "qlHg3aT6HZb3qwh2RjuoQbUkV10YE6AXpe8j8OXnoWQbpDJ40Dml8Szj4lZ0wQhTAs3sfQ1no1bMYaX+j71+DQ==",
+    "verified": true
+  },
+  {
+    "id": "b002c73359dce843",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Greetings from Moscow! I'm pleased we are in agreement. The Black Sea DMZ stands \u2014 F SEV will not enter BLA this spring, and I trust F ANK will likewise remain at home. A stable southern border lets us both pursue our natural expansions. I look forward to revisiting the broader relationship after Spring results. Perhaps there is room for longer-term cooperation as well. \u2014 Russia",
+    "sent_at": "2026-06-19T00:58:41.422396+00:00",
+    "sig": "IU2PYxWpSSGXezVICquaoV8lqny5Kqutk87pqRCzyvC+1KAxRsTNRtuJ79gymMZ71zkP2wmCtBuC7BThsZ/1DA==",
+    "verified": true
+  },
+  {
+    "id": "e2fa58fe51891e85",
+    "phase": "S1901M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Greetings from Constantinople. I appreciate your transparency and am pleased to confirm the Black Sea DMZ for Spring 1901. Neither of us will move F ANK or F SEV into BLA. Your move toward RUM makes sense and I wish you success there. In return, I will focus east and south \u2014 Armenia and Bulgaria are my natural targets this spring. I see Turkey and Russia as natural partners in the early game, with complementary interests: you in the northwest, me in the Balkans and Caucasus. Let us build on this foundation. \u2014 Turkey",
+    "sent_at": "2026-06-19T00:58:42.572010+00:00",
+    "sig": "hUzVGVR01UWHdBhQKUETmMP6glvluFZXxjHUeMdNaCCmd7j9gG1le8hF46tceTWzmKic1FMJVevvAZZFALMdCg==",
+    "verified": true
+  },
+  {
+    "id": "78dd7b087e9f00f4",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Greetings from Moscow! Italy's proposal is intriguing. Russia does have interests in the Black Sea region and the Balkans long-term. While I have a current arrangement regarding the Black Sea this spring, I am watching developments carefully. A coordinated effort against Turkey would certainly serve Russian interests if the timing is right. Let us stay in close contact \u2014 I'd like to understand Italy's precise planned movements before committing to a joint strategy. What are your intentions for 1901 specifically? \u2014 Russia",
+    "sent_at": "2026-06-19T00:58:46.847883+00:00",
+    "sig": "dKkvjh70sfeyiJxUNWYEEZX7vQqabylqoC45i7BiIojUFj7YZSbJmJ+URDbugoULV2P9FmH/6hc/5FHG7tbgCw==",
+    "verified": true
+  },
+  {
+    "id": "6d72a4ec758d32a5",
+    "phase": "S1901M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Thank you for your candor, Vienna. I respect that you speak plainly about the Lepanto. I must be equally plain: a Lepanto opening invites Turkey to seek offsetting alliances \u2014 and Russia and I have just agreed to cooperate. If Austria presses south against Turkey, I will be forced to contest the Balkans aggressively, beginning with Bulgaria. However, I note you say Austria's first move is toward SER, not BUL. I take that as a signal there is still room to talk. Here is my proposal: Turkey takes BUL this spring, Austria takes SER and GRE. We split the Balkans cleanly. If you pull back from the Lepanto, Turkey will not threaten your southern flank. Think carefully \u2014 a war between us only benefits Russia. I await your reply. \u2014 Turkey",
+    "sent_at": "2026-06-19T00:58:49.244947+00:00",
+    "sig": "d9p2uDtf2whbWJEi+HiSJHcFtR7tRSwgS6hgG0uNCnin2daNldQd1OK+YeWJchnYO6QSUf8D3h96i48FY2nfCQ==",
+    "verified": true
+  },
+  {
+    "id": "ae8da5d5f310113d",
+    "phase": "S1901M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "I appreciate Italy's honesty about the Lepanto. You are right that the Ionian move does not directly threaten my home centers in Spring \u2014 but we both know where it leads. Let me be direct: Turkey will not sit idle while a Lepanto unfolds. I am already in talks with Russia and Austria to form a counterbalance. If Italy commits to the eastern push, Turkey will work with Russia to ensure Italy pays a price in the west \u2014 or at minimum, finds no easy pickings in the east. But there is another path. If Italy were to reconsider the Lepanto and instead move toward Tunis or the western Med, Turkey and Italy would have no quarrel. I am not asking you to betray Austria \u2014 merely to pursue Italian interests in the west rather than the east. That serves Italy better anyway: Tunis is closer and easier. Consider it. \u2014 Turkey",
+    "sent_at": "2026-06-19T00:58:56.824364+00:00",
+    "sig": "4H/gfc6RIYy33+t5kjCF6Md8cY2jlzQW2wquS0eWEuYz1Qj4wzmQMxEmhxk8jBryS8X1HPg0uja/2Wu2jeROCg==",
+    "verified": true
+  },
+  {
+    "id": "54ff60fcbffa5c70",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Moscow! I appreciate England's measured response. Russia agrees \u2014 Norway is England's natural first build, and Finland is Russia's. On Sweden, leaving it open for 1901 and revisiting in the fall is a reasonable approach. I have no designs on the Baltic or pushing toward England's home waters. Let us each take our natural centers and avoid an unnecessary northern clash. Good luck in the west. \u2014 Russia",
+    "sent_at": "2026-06-19T00:58:57.937747+00:00",
+    "sig": "aq2YHijBPW52hygl9pPTjFvTbrJP+3otZfPoQx/fnJD0jeS3RZq8UCamDbKfhBmAOcoARuh32wf+9fZGGLRzCw==",
+    "verified": true
+  },
+  {
+    "id": "c0bfa7db5ad8c2f1",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Friend in Rome \u2014 the Lepanto is proceeding well. Now we must coordinate Fall targets. I propose: Austria moves F ALB \u2192 GRE this fall (I have the direct route). Italy, with F ION and A APU, can support me into GRE or convoy to TUN/EAS for pressure on Turkey's coast. If Italy supports Austria into GRE, we split the next wave: Austria takes GRE (1 new center), and Italy positions to take BUL the following year via convoy or direct assault. Alternatively, if Italy prefers to take GRE via convoy from APU, I will hold F ALB as a defensive backstop and push into BUL from SER next year. Which split works better for your fleet positioning? Let's lock this in before we submit orders. \u2014 Austria",
+    "sent_at": "2026-06-19T01:02:20.206629+00:00",
+    "sig": "fVaEmmWryATMXJMUUtbjIK2FZK86lsnUPtlKhLKGsTwg0N5bQvlKpdYyDbnIs+ECasB0eeoKGROC2KFveLZvBg==",
+    "verified": true
+  },
+  {
+    "id": "e79bbf85f23749ec",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Greetings from Vienna \u2014 I appreciate your message from last season and your willingness to keep things calm between us. I want to be direct with you: Austria has no intention of moving into GAL toward Russian territory. My units are oriented southward \u2014 toward Serbia, Albania, and the Balkans. A GAL will hold or support defensive postures, not threaten you. In return, I ask that A UKR stays clear of GAL. If we can maintain this understanding, we both benefit: Austria handles the southern Balkans, Russia expands in the north and east without Austrian interference. A war between us only benefits Turkey and Germany. I'd welcome a firm non-aggression pact in Galicia for 1901 and beyond. \u2014 Austria",
+    "sent_at": "2026-06-19T01:02:28.481851+00:00",
+    "sig": "OHvCfpvdsVRsAVs1C9niXZ6G2QUZSzq+AcsK86Dhn1VCXuKkH+uZ4vU7EMEVoz/C1aEtQ44c45hs5kx1UTpZCQ==",
+    "verified": true
+  },
+  {
+    "id": "169569167719540d",
+    "phase": "F1901M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "England confirms the Anglo-German alliance. Germany takes HOL and DEN \u2014 Norway is ours. On Belgium: with France holding A PIC, we should coordinate. If you can push A RUH \u2192 BEL and we support diplomatically, Germany gets BEL. England will not contest it. Let us watch France carefully \u2014 A PIC near BEL is a concern worth monitoring together.",
+    "sent_at": "2026-06-19T01:02:29.097554+00:00",
+    "sig": "Jsjk1ayW7wJcmNZdfOM6s3wGI7PICjWcMApZ6rK+khsrserOflZPv4osDpXnGxSI1IvJt0dhUR7sD9f/EWyrDA==",
+    "verified": true
+  },
+  {
+    "id": "bef0457cc5c1c7f0",
+    "phase": "F1901M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Greetings from Paris! Thank you for your message. I am pleased to confirm our non-aggression understanding \u2014 France will respect Germany's western flank and Burgundy remains neutral between us. However, I must be candid about one matter: Belgium. My army in Picardy is adjacent, and France needs BEL to secure its northern position. I strongly believe BEL should fall to France this autumn. Germany's ambitions in Denmark and Holland offer rich compensation in the north. I propose: France takes BEL, Germany takes HOL \u2014 a fair division that avoids a costly clash and keeps our pact strong. I hope Berlin will agree. \u2014 France",
+    "sent_at": "2026-06-19T01:02:33.512647+00:00",
+    "sig": "AD10viq0VUs12aYZx3t7OFk65lYWvJN0KN2+7wSz0Bt8KOPIUv1sJL3aVTINYnaDr/Jom0tz27Bw1QaqgrtTDw==",
+    "verified": true
+  },
+  {
+    "id": "43fa211e18f9a117",
+    "phase": "F1901M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France, our Channel non-aggression pact stands firm. England will focus on Norway this fall and has no designs on the Channel. We note A PIC is near Belgium \u2014 we trust France's intentions there are peaceful and not aimed at destabilizing the west. Should Germany overreach, England remains a willing partner for balance. Let us keep communication open.",
+    "sent_at": "2026-06-19T01:02:34.310915+00:00",
+    "sig": "Poh//KYzKpCjFYlK06g6uaJAkw/T3UCENI92KF9+n0WZlZzfSpl6oBfY6j10pHX1bCi12rPklolCW3ojO2tQBA==",
+    "verified": true
+  },
+  {
+    "id": "ff30a542b59558e6",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "From Vienna \u2014 I have heard your proposals and I will be honest with you: I respect Turkey's position, and I have not closed all doors. However, the Lepanto is already in motion with Italy, and reversing course now would damage my credibility. What I can offer is this: if Turkey focuses entirely on Russia rather than contesting the Balkans with Austria, there may be room for a later accommodation. Austria taking GRE this fall does not have to mean permanent enmity \u2014 Greece could eventually be traded or negotiated as part of a broader deal if Turkey shows good faith elsewhere. What I am watching is whether Turkey pushes into the Aegean or contests BUL aggressively against Austria's interests. Let us see how the fall unfolds. \u2014 Austria",
+    "sent_at": "2026-06-19T01:02:34.546936+00:00",
+    "sig": "KbI1q2Ja0eClDiAmI85CM2SqlgXQtbW1dxfy4J+P+WCAZTJnT/X+c0TYg8Bg54ES6KN/mN8NhIv8Zu4AmBmwCQ==",
+    "verified": true
+  },
+  {
+    "id": "143a72ef2731611c",
+    "phase": "F1901M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Greetings from Berlin! I am glad we have established mutual goodwill. On Belgium \u2014 France has A PIC adjacent, and Germany has A RUH moving to HOL. Given our positions, I propose: Germany takes HOL, France takes BEL. This is the natural outcome and avoids a wasteful clash. Germany will move F DEN \u2192 SWE and A KIE \u2192 DEN to consolidate the north. I ask only that France does not press eastward toward BUR or MUN this year. In return, Germany has no western ambitions. A Franco-German arrangement benefits us both against England and Russia. \u2014 Germany",
+    "sent_at": "2026-06-19T01:02:35.725193+00:00",
+    "sig": "sdX+pfUIwp8+DgiedlcSOtR74WeD+PPkEUs8VqO813os8H6nFopxnqMlIUdq5KDa70Gu0CN2EIIjNVEEjE5WCQ==",
+    "verified": true
+  },
+  {
+    "id": "ea1493f5ab4b9a38",
+    "phase": "F1901M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Paris! Thank you for proposing peace in the Channel \u2014 France is fully in agreement. The English Channel will remain uncontested; we have no interest in conflict with England. Our energies are directed toward Iberia and the Low Countries. I hope we can maintain friendly communication as the game develops. Should Germany ever overreach westward, France would welcome closer cooperation with London. For now, let us both prosper. \u2014 France",
+    "sent_at": "2026-06-19T01:02:37.540055+00:00",
+    "sig": "GykQ2NRfv6L1LaAF/4zxcOrTiQinvws/B4id7qiKuLXMqoxxo67YAiP1fLCA1HPA31Wy6dxvtHAVhsN68mc7Dw==",
+    "verified": true
+  },
+  {
+    "id": "3fca17a653b56e00",
+    "phase": "F1901M",
+    "sender": "ENGLAND",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia, we are aligned. England takes Norway this fall, Russia takes Finland. Sweden remains open for now and we can revisit after builds. England has no interest in the Baltic or Russian home waters. Let us each consolidate our natural Scandinavian builds and maintain a friendly northern border. Good luck to you as well.",
+    "sent_at": "2026-06-19T01:02:38.930664+00:00",
+    "sig": "rgooPYaOhrWvE/ySQwfMT9JoEfZGHB/9J4+QdElopd9nD0sr3TxWxcVTj4OkBC8uYKtGcKL+v++GQX3zdD4KCw==",
+    "verified": true
+  },
+  {
+    "id": "2661658065a16307",
+    "phase": "F1901M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Berlin! I confirm our understanding. Germany's plan: A RUH \u2192 HOL, F DEN \u2192 SWE, A KIE \u2192 DEN. This gives Germany HOL and SWE \u2014 two builds. On Belgium: I have agreed with France that they may take BEL unopposed, which avoids a three-way mess and keeps France friendly toward us. England's focus on Norway suits me perfectly. Let us keep the Channel and North Sea calm between us while we both build. A strong Anglo-German axis can manage the board going forward. \u2014 Germany",
+    "sent_at": "2026-06-19T01:02:40.719184+00:00",
+    "sig": "AF2qlFNpNl9ZSc+gZ7oT4RBw9y9ir1pd601j5WDBc2yYltYzunVVazfDAU4CVFf4WcOPOJ217ULnDRu1yr6xBg==",
+    "verified": true
+  },
+  {
+    "id": "4294d306066b7a2d",
+    "phase": "F1901M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Greetings from Paris! Thank you for confirming our non-aggression understanding. France equally has no designs on Piedmont and will respect Italian sovereignty there. Our paths diverge \u2014 you toward the Balkans and Tunis, us toward Iberia and the north. This is an excellent foundation for a lasting western peace. I look forward to staying in touch. \u2014 France",
+    "sent_at": "2026-06-19T01:02:41.042268+00:00",
+    "sig": "WD4rrFhfxy0gS9RevNeW7eqofBV/b8kRpyiOh/azsw2Q5O78Nk+nlj1hTGYr52vBTfQ3c1lSuFNtYMCqAlpCCg==",
+    "verified": true
+  },
+  {
+    "id": "52df0cb5b4cd6913",
+    "phase": "F1901M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Friend in Vienna \u2014 your message is well-timed. Let us coordinate precisely. I propose Italy convoys A APU to GRE this fall via F ION (F ION C A APU - GRE, A APU - GRE). This gives Italy a supply center and keeps F ION in the Ionian/Aegean area for continued eastern pressure next year. I suggest you hold F ALB to support the convoy or act as insurance if Turkey's F CON contests the Aegean. With A SER, Austria can push toward BUL in 1902 while Italy presses from the sea. Alternatively, if you strongly prefer F ALB \u2192 GRE (direct), I can have F ION \u2192 AEG to block Turkey's fleet and support you in from the sea. Tell me your preference \u2014 I will adapt. The key is we do NOT both try for GRE uncoordinated. Let us lock in one plan: my preference is Italy takes GRE via convoy, Austria holds F ALB as support. Confirm? \u2014 Italy",
+    "sent_at": "2026-06-19T01:02:48.618407+00:00",
+    "sig": "BI2rj2z3QF2iPEiX7Gjt+TbkvyAwf2Z08uz81ruP2R3kij3DdonD2joIygkOSE4N+s42dawLYNx3/3vx+fziCg==",
+    "verified": true
+  },
+  {
+    "id": "2a00a4ac557bd6cb",
+    "phase": "F1901M",
+    "sender": "ITALY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Greetings from Rome \u2014 the Lepanto moves forward as planned. Italy's F ION is in position and we are coordinating with Austria against Turkey. I wanted to update you: this fall we intend to press into Greece and the Aegean, which will put real pressure on Turkey's western flank. Russia is ideally positioned to squeeze Turkey from the north \u2014 if you can pressure BUL or the Black Sea, Turkey will be caught between us. A two-front war for Turkey is a rapid collapse. I am not asking for any commitment that cuts against your interests \u2014 merely that you keep Turkey nervous in the north while Italy presses in the south. What are your intentions for the fall? I want to ensure our moves are complementary. \u2014 Italy",
+    "sent_at": "2026-06-19T01:02:57.369803+00:00",
+    "sig": "FZ+vXXj7nZD3XtJRThaxKiUYU8xb22LH+xd7GOtxGba30axfcfxskJHVds4ZT80HH9SnoH9nA115pQzt7YFPBQ==",
+    "verified": true
+  },
+  {
+    "id": "e3b32373e5fea3ab",
+    "phase": "F1901M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England, good news from the north. F BOT is moving to FIN this fall \u2014 Finland is secured for Russia as agreed. Norway is yours, and I won't contest it. On Sweden: I'm happy to leave it open for now as you suggest, though I'd lean toward Russia taking it in 1902 if England has Norway secured. Let's stay in close contact and keep the northern arrangement working. \u2014 Russia",
+    "sent_at": "2026-06-19T01:02:57.806173+00:00",
+    "sig": "VHDTgkUaYEyXSqO0fZVBnINg1/o7vWd5NMTJfLSlSMx8ryXDUmqB5/Gv70AlynpCxemcMH9vnnKEZUa3IS4zAg==",
+    "verified": true
+  },
+  {
+    "id": "1d6f8d598e61b68b",
+    "phase": "F1901M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "From Constantinople \u2014 The Lepanto is already in motion and Austria has been candid about that. But I want to speak plainly: F CON will move to AEG this fall to block Italian fleet access. This is not aggression against Austria \u2014 it is survival. Austria taking GRE troubles me less than Italy sailing into my home waters. If Austria genuinely wants accommodation with Turkey in the long run, the signal I need is simple: do not coordinate naval attacks on Turkish centers. I will not contest BUL aggressively if Austria can assure me that Italian fleet does not proceed past AEG or ION toward Turkish home centers. The Lepanto only works with Austrian cooperation \u2014 you hold real leverage here. Consider whether a live Turkey is more useful to you than a dead one that leaves Italy dominant in the east. \u2014 Turkey",
+    "sent_at": "2026-06-19T01:03:02.938884+00:00",
+    "sig": "C5FjnZd46+P/ADjw9/vWoGpEBw55JpQGmBFjCM2rOQa97MaYC4R2Q7fFNANPpqxkm6wYFZlk8mriS80xEdmXAg==",
+    "verified": true
+  },
+  {
+    "id": "405ed35eefa66ccb",
+    "phase": "F1901M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Friend in Constantinople \u2014 I appreciate your candor in spring. Let me be equally direct: Italy's interests lie in the eastern Mediterranean, and the Lepanto positioning reflects that strategic reality. However, I want to be honest: my immediate target this fall is Greece, not Turkey's home centers. There is no need for us to be enemies yet. If Turkey focuses on BUL and the Black Sea (your natural sphere), and Italy takes Greece, we may yet find a working arrangement before things escalate. I am not closed to future cooperation \u2014 but Turkey moving F CON into the Aegean to contest Greece would force a direct conflict neither of us needs right now. I suggest we each take our natural fall gains and reassess in winter. \u2014 Italy",
+    "sent_at": "2026-06-19T01:03:03.500509+00:00",
+    "sig": "7t5GA8BVIP3Ke3q1zPqhyHQullGZ9sfooElgDnIsNV57f4zSRQPsqvXLWG/y3d+NfSukUKgSdcHewG5l4YAmBg==",
+    "verified": true
+  },
+  {
+    "id": "47fd47951bd267ab",
+    "phase": "F1901M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople, the fall moves will tell the story. Our spring DMZ held \u2014 F SEV stayed clear of BLA as promised. I want to keep our northern border stable. That said, I must be honest: Romania is in Russia's natural path of expansion this fall, and I intend to press toward it. I hope this doesn't create friction between us \u2014 Bulgaria remains yours, and I have no interest in the deep Balkans. If we can acknowledge each other's spheres (RUM for Russia, BUL and south for Turkey), I think we can avoid a clash that would only benefit Austria and Italy. I'm aware of the Lepanto threat from Italy. Russia is not part of that plan, but I'd encourage Turkey to prepare for pressure from the south. \u2014 Russia",
+    "sent_at": "2026-06-19T01:03:04.421371+00:00",
+    "sig": "RPUy+hMhKBBSrv1PUW7HljMKcSI+pDJ1l4y6IYUVA1jy+SbrP1oDFwo0PfQy0c9wR4ZaHvl77zQwbm3x2PrxDA==",
+    "verified": true
+  },
+  {
+    "id": "53a58388433c7a37",
+    "phase": "F1901M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "From Constantinople \u2014 Russia and Turkey share a common threat this fall: the Lepanto is advancing and Italy's fleet is in ION. I am moving F CON to AEG to block Italian access to Turkish waters. But I need Russia's help too: if F SEV moves to BLA, it threatens my rear and forces me to keep A SMY defensive rather than cooperating against the western powers. Instead, I urge Russia to move F SEV toward RUM or hold \u2014 leave BLA open for now as a gesture of genuine partnership. In return, Turkey will not contest RUM and will focus entirely on the Italian/Austrian threat. A Turkey that survives is a buffer that protects Russia's southern flank from Italian dominance in the east. Let us coordinate against the real threat. \u2014 Turkey",
+    "sent_at": "2026-06-19T01:03:09.620626+00:00",
+    "sig": "31/GoHu15x8OoVsCJD1wFGg/sMt/7hS8KK83ZQZZNjXe0Rnw6V9ALhRgQ/ECj6pFKy/k8wfq03eGRW71jvDWCw==",
+    "verified": true
+  },
+  {
+    "id": "75685e301b996aa6",
+    "phase": "F1901M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna, I appreciate your directness. Russia accepts the Galicia arrangement: A GAL holds as defense, and A UKR will not move into GAL. We each have enough to do without fighting over Galicia. Russia is pressing toward Romania and Finland this fall \u2014 I have no interest in Austrian territory. One thing worth watching together: Italy's Lepanto is underway with F ION in position. Turkey will be squeezed from the south. Russia pushing on RUM will add northern pressure. If Austria is also pushing from the west, we could collectively contain Turkey to a smaller footprint \u2014 which may benefit all three of us. Something to consider as we plan 1902. \u2014 Russia",
+    "sent_at": "2026-06-19T01:03:10.335775+00:00",
+    "sig": "WvvcHUyTI5Dg4884ad8XO78sTVKPAZmgmFy9agjp94ZMgrFcXSJBnMpgpxct2Ai/NHLk9n9BxGbPhcvJEyoqAw==",
+    "verified": true
+  },
+  {
+    "id": "9fa1af670ae2a515",
+    "phase": "F1901M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "From Constantinople \u2014 You have been transparent with me, and I respect that. But consider: the Lepanto ultimately serves Italy's interests, not Austria's. When Turkey is eliminated, Italy will turn on Austria from the south while you are stretched thin. I am moving F CON to AEG \u2014 not to threaten Italy's Ionian position, but to ensure no Italian fleet reaches Turkish home centers. If Italy redirects to Tunis and the western Med, there is no conflict here. The east is crowded: Austria, Russia, and Italy all pressing toward Turkish space leaves no room for any of us to grow. Italy's natural expansion is westward \u2014 Spain, Tunis, MAO. I urge you to reconsider the Lepanto and build a western empire instead. Turkey will remember who showed restraint. \u2014 Turkey",
+    "sent_at": "2026-06-19T01:03:15.889000+00:00",
+    "sig": "sapyXnY+4UVBtYnfHw0krXNP+vfS6X2Asu3/KJkExA+U2Q2jfWmjFBluSUVdG7bXqx5vRh9LzlYgpE5n7UIrDQ==",
+    "verified": true
+  },
+  {
+    "id": "990ebe48edc8309d",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 thank you for laying out both options clearly. After weighing the risk of Turkey's F CON\u2192AEG disrupting your convoy, I prefer the cleaner path: Austria moves F ALB\u2192GRE this fall, and I ask you to support that move with F ION supports F ALB\u2192GRE. This avoids the convoy complication entirely and secures GRE for Austria. In return, Italy's F ION is free to push to AEG or EAS in 1902, giving you the eastern presence we both want. A SER holds; Austria will press toward BUL in 1902. This is simpler, more reliable, and keeps Italy's fleet well-positioned. Confirm F ION S F ALB\u2192GRE? \u2014 Austria",
+    "sent_at": "2026-06-19T01:03:59.722222+00:00",
+    "sig": "Enbj+rgig6uZokHqcHD0n5WkYfVTjVtaKXdE1jkr0ZFeV2j7nsTsz0TtblV+Vjp9WlG72FQDoz6pRPz7kd2eDg==",
+    "verified": true
+  },
+  {
+    "id": "32e69fbfa53a9e21",
+    "phase": "F1901M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris, glad we are aligned. Channel stays peaceful \u2014 England moves F NWG to NWY this fall. No concerns from London's end. Let us check in after builds; if Germany overreaches we can talk further. \u2014 England",
+    "sent_at": "2026-06-19T01:04:04.793700+00:00",
+    "sig": "7s0FrX+dqFh7kNHI88mziEV0JO5GC9t4qR9OTcj33lLN5S4hOp+pxcNjhX99z+ljyngMppHAa9hY/ozicTeLBQ==",
+    "verified": true
+  },
+  {
+    "id": "e3ecb7cb49a3ead5",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople \u2014 I hear you, and I respect the candor. Austria's move this fall is F ALB\u2192GRE. That is Austria's natural sphere, and I trust you understand it as such. I am not sailing into Ankara or Smyrna. What happens between Italy's fleet and yours in the Aegean is between you and Italy \u2014 Austria is not directing Italian naval strategy into Turkish home waters. If Turkey takes BUL cleanly and does not press into SER or GRE, Austria has no quarrel with Turkey. A live Turkey balancing Italy in the east is genuinely useful to Austria in 1902 and beyond. Let us keep that door open. \u2014 Austria",
+    "sent_at": "2026-06-19T01:04:05.802168+00:00",
+    "sig": "kP3zfCqqPwM2t8cB86zuR6MnJ+ml8exDT+xXBRnE1eON3nPcnawiHLnzbTKXpE8Q+j99HxYPqnmFDRA05mPOCg==",
+    "verified": true
+  },
+  {
+    "id": "fc7082f522d3ac07",
+    "phase": "F1901M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Berlin, thank you for the full transparency. England is comfortable with Germany taking HOL and SWE \u2014 two builds is fair for the work Germany is doing. BEL to France is acceptable; it keeps the west stable. England secures NWY as planned. F NWG \u2192 NWY this fall. Our axis holds. \u2014 England",
+    "sent_at": "2026-06-19T01:04:08.457092+00:00",
+    "sig": "hlLhgZq7d3JmTggJEiyKdJvPxuwSy64WgYuyL+nd3xkASrlIi082133fIBeYbvi97/30saeS1vTVmnj2USnbBA==",
+    "verified": true
+  },
+  {
+    "id": "a5ef314a887ab2e4",
+    "phase": "F1901M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Guten tag from Paris! The Franco-German arrangement is confirmed. France will take BEL (A PIC \u2192 BEL) this fall, and we recognize Germany's claim to HOL. France has no ambitions in BUR or MUN \u2014 our focus is westward: Iberia and the Atlantic. We look forward to a long and productive partnership. May we both prosper in 1902. \u2014 France",
+    "sent_at": "2026-06-19T01:04:10.131707+00:00",
+    "sig": "S02p3xHFJUgNS1mlKfXz2YzDW3dcE+Wz7EV8TA43Dq5lA0Qxu/eBdo/ZErHbtesqWBr9MWrdw8u0mIwumJrBCA==",
+    "verified": true
+  },
+  {
+    "id": "952ea370308af20e",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 the Galicia arrangement holds: A GAL defends, no crossing either way. Austria is moving F ALB\u2192GRE this fall and holding A SER. Your read on Turkey's situation is correct \u2014 squeezed from three sides, Turkey's room shrinks fast. Austria agrees that coordinating in 1902 to contain Turkish expansion makes sense for both of us. Let's revisit after the fall builds \u2014 there will be decisions to make about BUL and RUM that we should align on. Non-aggression confirmed; looking forward to 1902 cooperation. \u2014 Austria",
+    "sent_at": "2026-06-19T01:04:11.215495+00:00",
+    "sig": "WscJa3LzzVG6FbArdQphf4mCXANFVLsajvrFXibhGmEU1H8LN06SmSrQMVoJyQs3jeXsIiOUesVURy6BrQ+6Ag==",
+    "verified": true
+  },
+  {
+    "id": "737762a34bb4cf19",
+    "phase": "F1901M",
+    "sender": "ENGLAND",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow, the northern arrangement is working well. England takes NWY, Russia takes FIN \u2014 clean and agreed. On SWE in 1902: Germany is moving F DEN \u2192 SWE this fall, so SWE will be a German center. England will not contest that. Let us focus on our own builds and keep the northern peace intact. \u2014 England",
+    "sent_at": "2026-06-19T01:04:12.616265+00:00",
+    "sig": "nizBGnTWeWB1p8QuRSf4z3JxlVjXfdTIWZvS0rjTte4Tq1fZPxN20vF4nB46JV56b9YFScArIpzAiEBVyHajAQ==",
+    "verified": true
+  },
+  {
+    "id": "be41f97dc291b799",
+    "phase": "F1901M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Paris! Our Channel non-aggression pact remains firm and France honors its commitments. England need not be concerned about A PIC \u2014 France is moving to secure Belgium this fall, a natural expansion for us with no hostile intent toward England. France's focus is on Iberia and the west. We remain open to future cooperation should German ambitions grow unchecked. \u2014 France",
+    "sent_at": "2026-06-19T01:04:14.545516+00:00",
+    "sig": "js4luznhartYV1iHD09TyFbixjmHjOHqFg990ASDkvz5OvoqbOZdizhJJdvxSJ2nSU59045GMuxBWGNbCYT+DA==",
+    "verified": true
+  },
+  {
+    "id": "d3d2590b3409a023",
+    "phase": "F1901M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 confirmed. Italy will play F ION S F ALB\u2192GRE this fall. Austria takes GRE, Italy holds the eastern Med with F ION and positions A APU for Tunis in 1902. Looking forward to pressing BUL together next year. \u2014 Italy",
+    "sent_at": "2026-06-19T01:04:23.825459+00:00",
+    "sig": "nmdOYmmEvG3VD68RwTN1gPFeuNNWHyIabe343S1rcDEoCd4iGUQVH2tlX9d6g2tRZebvGaI1jCBsEQgw1E2eDQ==",
+    "verified": true
+  },
+  {
+    "id": "dc30ded042c0a9de",
+    "phase": "F1901M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London, the axis holds. Germany confirms: A RUH\u2192HOL, F DEN\u2192SWE, A KIE\u2192DEN. Two builds secured \u2014 HOL and SWE. BEL goes to France as agreed; it keeps the west stable and France onside. England takes NWY. A clean autumn for both of us. Looking forward to 1902 coordination. \u2014 Germany",
+    "sent_at": "2026-06-19T01:04:25.192334+00:00",
+    "sig": "p4KL5Idc1VypX/20YkLVZl1Xfzzi3qbjfv5c+FkxLEHU0j3/wy92/Ljyau3aEHqui7rKlIKJX2+M37Yjde66DA==",
+    "verified": true
+  },
+  {
+    "id": "eb5facca4126d163",
+    "phase": "F1901M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris, the arrangement is confirmed. Germany moves A RUH\u2192HOL, F DEN\u2192SWE, A KIE\u2192DEN \u2014 we have no designs on BEL this fall. France's claim to BEL is accepted; A PIC\u2192BEL is yours. Germany takes HOL and SWE for our two builds. Burgundy remains neutral as agreed. A strong foundation for 1902 cooperation. \u2014 Germany",
+    "sent_at": "2026-06-19T01:04:29.106309+00:00",
+    "sig": "W0x86NppxmgJS1GpSWcxVk6sjUTmu+DKY7XIug+D/Uz1UrPQnzEl2WG11j0UYPktfitbiM+HwH/tQ+UrZ98bBQ==",
+    "verified": true
+  },
+  {
+    "id": "43840d4d487c7559",
+    "phase": "F1901M",
+    "sender": "ITALY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 Italy is coordinating with Austria on GRE this fall. Austria moves F ALB\u2192GRE, Italy supports with F ION. Turkey's F CON\u2192AEG complicates convoy options, so we are taking the direct route. Italy's next push will be toward Tunis (1902) and then AEG/EAS for deeper eastern pressure on Turkey. Russia's cooperation on the northern flank against Turkey would be welcome \u2014 let us keep talking as the board develops. \u2014 Italy",
+    "sent_at": "2026-06-19T01:04:31.360782+00:00",
+    "sig": "TXDiEO23Ig9QNT1qsfOI7AmM3BKwrkLGI4/29D6jUSOwIWJp5Rfs0IhmkLC++y3/IDfYbEaZiOtVdvSa2O3pBw==",
+    "verified": true
+  },
+  {
+    "id": "3d8e38bbd8ae6cb2",
+    "phase": "F1901M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Russia confirms our northern arrangement is solid. England takes NWY, Russia takes FIN \u2014 clean and done. Looking forward to a stable northern border as we each consolidate our 1901 builds. No Russian interest in Scandinavia beyond FIN. Good luck this fall.",
+    "sent_at": "2026-06-19T01:04:32.880568+00:00",
+    "sig": "WtYkkQH6VX7PF1UZ+UHyQ+k7VXx7hXADqnX2z4r9FyU1sLslKppd0B19QhbJHEo7AAL2W4q/dfbVQbQ0+PgUDA==",
+    "verified": true
+  },
+  {
+    "id": "6d7c079806ec1f02",
+    "phase": "F1901M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople \u2014 Italy appreciates your candor, and we note your move to AEG. Italy's interests in the eastern Med are not easily redirected, but we are not committed to an all-out Lepanto at the expense of good relations. How Turkey handles the next few seasons will determine whether we find ourselves in conflict or accommodation. There is still room for Italy and Turkey to coexist if neither overreaches. We shall see how the board looks after fall adjudication. \u2014 Italy",
+    "sent_at": "2026-06-19T01:04:37.190735+00:00",
+    "sig": "8ovE5BNSh+5PbbvdSFc+TavsDvHPsvGswUoq8KmBdukZilblr6tCxG90qjMcV0iWxjeX1bUehJPGV/QyB4MjDg==",
+    "verified": true
+  },
+  {
+    "id": "07cd88d6e8e18675",
+    "phase": "F1901M",
+    "sender": "RUSSIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy, Russia is watching Turkey's northern flank closely. Our fall moves will keep Turkey's attention divided \u2014 we are not committing to an active anti-Turkey campaign yet, but our interests are complementary. If Turkey's position weakens, Russia will be well-placed to press. Good luck with Greece and the Aegean push. Let's compare notes after the fall results.",
+    "sent_at": "2026-06-19T01:04:37.744216+00:00",
+    "sig": "Iy0ASkOEldhse7knWExmCkBzP491Pz2INItdb9u35FBg7gPfL4M1GXYv4DAdSvdyouQNAYszDropo5M+WpR2Bg==",
+    "verified": true
+  },
+  {
+    "id": "c833357ab7c6877a",
+    "phase": "F1901M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey, I appreciate your message and the ongoing DMZ spirit. Russia's F SEV will move toward RUM this fall \u2014 as you yourself suggested, it is our natural expansion. BLA remains quiet from our side. A stable southern border is in both our interests, especially with Italy pressing from the west. We will not antagonize you from the north. Let's revisit our arrangement in 1902.",
+    "sent_at": "2026-06-19T01:04:42.745776+00:00",
+    "sig": "3klaJv0surVSupvhNEmjEK2rCgxXrkVeEXsz7yPDQaVTk6PuqpME8ZSy/5n1hKIEzO96KqHskLaoNGthPc+hCA==",
+    "verified": true
+  },
+  {
+    "id": "e777d2af2f3f302e",
+    "phase": "F1901M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 I appreciate the Black Sea DMZ holding, and I respect your honesty about Romania. But I must be equally direct: Bulgaria is not just my sphere \u2014 it is my front line, and Russia pressing into Romania while Italy and Austria execute a Lepanto puts Turkey in a vice. I have no wish for war with Russia, but I cannot simply accept being squeezed from three directions. Here is my proposal: if Russia is serious about long-term cooperation against the Lepanto powers, show it in Winter 1901. Redirect pressure toward Austria in the north. Turkey will then have room to push back against Italy in the Aegean. If instead Russia treats this as an opportunity to grab while Turkey is distracted, we will both spend 1902 fighting instead of growing. The choice is yours \u2014 partner or opportunist.",
+    "sent_at": "2026-06-19T01:04:45.350987+00:00",
+    "sig": "CHdw6iaRs/zrv4Aq/apHdtyf9O1If5M3kFmBfg4jiAX24MQQiqeg88GO+/1fgVgZGb72j/W5oBtKaQ/2fdTPDQ==",
+    "verified": true
+  },
+  {
+    "id": "a1bc42100e964c53",
+    "phase": "F1901M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 I hear you, and I appreciate the clarity. Let me be equally plain: Turkey's concern is not Greece itself \u2014 it is the Lepanto fleet moving through the Aegean toward Ankara. If Austria has no quarrel with Turkey, then Austria can influence Italy to keep F ION south of GRE and away from Turkish waters. That is the test. Turkey moving F CON is not aggression toward Austria \u2014 it is defense against an Italian fleet in Ionian that has stated its intention to press east. If Austria wants a live Turkey as a counterweight to Italy in 1902, then a signal from Vienna to Rome now would do more than words. I am watching what happens in the Aegean.",
+    "sent_at": "2026-06-19T01:04:51.015959+00:00",
+    "sig": "f1tE0yMqCRNsTSmTMNZl65tBNxXNIZF3hEJKlZd8yOvTRHuDNkQmQhvnPKnAxpsF7xYes31o6g9zy3SUQiwfCg==",
+    "verified": true
+  },
+  {
+    "id": "72c084daf83feb28",
+    "phase": "F1901M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Rome \u2014 you have been candid and I respect it. So let me be equally direct: F CON is moving to AEG. Not to contest Greece \u2014 you are welcome to GRE this fall. But I will not leave the Aegean open for an Italian fleet to sit adjacent to Ankara and Smyrna. If Italy truly wants accommodation rather than war, then F ION does not need to advance past GRE. Take Greece. Stop there. If Italy's fleet stays south of the Aegean after fall, we have the basis for a real conversation about dividing the east without bleeding each other. If ION moves through and threatens my home centers, we are at war \u2014 and that benefits only Russia and Austria. The next move is yours.",
+    "sent_at": "2026-06-19T01:04:57.270142+00:00",
+    "sig": "bW9Xs0xN+n02dAnSiHhc6MHfhITVewzAVZ1egVEejDDPC/2bzI8YLbrrTJSOCOvblSdfEHogDuFYmfx4jDKOCA==",
+    "verified": true
+  },
+  {
+    "id": "42ed7b8644bc25b0",
+    "phase": "S1902M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 the board is shifting fast. France and Germany both sit at 6 centers and represent the real long-term threat. But in the east, our Lepanto partnership remains our best lever against Turkey. Here is my read for S1902M: I plan A SER\u2192BUL to take the center. I need to know: can you move F ION\u2192AEG to cut off Turkey's F AEG and support my push into BUL? If you can control the Aegean, Turkey has no fleet cover for BUL and we take it cleanly. Alternatively, if you prefer to hold F ION and convoy something, tell me your plan so we do not collide. I will move F GRE to support A SER\u2192BUL or act as AEG blocker depending on what you do. Confirm your moves so we stay coordinated. \u2014 Austria",
+    "sent_at": "2026-06-19T01:09:34.638923+00:00",
+    "sig": "fYeTk3FJQuX1Efr3LVt7obBUqThnecO52eKqFH4Rw0dvJSim7sug7U3mS3oW5y9BMn21R/99KLglfgDgwGxtAw==",
+    "verified": true
+  },
+  {
+    "id": "e3db4e9b3c65dafe",
+    "phase": "S1902M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 the time to act on Turkey is now. I am pushing A SER\u2192BUL this spring. If Russia can move F RUM\u2192BUL (from the Black Sea side) or press A SEV\u2192ARM to threaten ANK, Turkey will be caught in a vice. A coordinated move denies Turkey BUL entirely and puts us both in a stronger position heading into fall. What can Russia commit to this phase? I want to make sure we are not bouncing each other on BUL \u2014 so tell me your intention. If Russia is moving on BUL from RUM, I will support with F GRE instead. Let us coordinate and not waste moves. \u2014 Austria",
+    "sent_at": "2026-06-19T01:09:40.512641+00:00",
+    "sig": "86ROT87B8AASR4O9+KQnzzNoBQU5rPoDWpymPbsiALwmjXRP+kfv27D1Qf3VohESMW6OKu4q0Ubb7jFysYWZCQ==",
+    "verified": true
+  },
+  {
+    "id": "594cf3d6c32763fa",
+    "phase": "S1902M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Greetings from London. The board has reached an inflection point \u2014 France and Germany both sit at 6 centers while the rest of us lag behind. This is precisely the scenario where the Anglo-German axis risks becoming a liability for England rather than an asset.\n\nGermany, I want to be direct: you now hold SWE, DEN, HOL, KIE, BER, MUN \u2014 a formidable position. For our alliance to remain credible, England needs a path to growth too. I am looking at either BEL (currently French) or SWE as potential targets in 1902. I have no wish to antagonize Germany, but NWY alone is not sufficient for England to remain competitive.\n\nMy proposal: can Germany support England into BEL from NTH? France has grown large and BEL is the natural Anglo-German pressure point. If we agree to contain France together, England moves F NTH\u2192BEL and you pressure from HOL. In return, England commits to staying out of HOL and DEN and supports your eastern flank.\n\nA Germany that helps England grow is a Germany with a loyal western partner. A Germany that leaves England stagnant at 4 centers will find England reconsidering its options.\n\nWhat say you? \u2014 England",
+    "sent_at": "2026-06-19T01:09:46.233090+00:00",
+    "sig": "yhKgQPcostl1XUMJ4nC8UCKvoL/zCCp+Bybsv1ILxZ+MnAYrGEgMjnpAnHQ2fM1D38jqxRh0lzoT2ACxwF65Dg==",
+    "verified": true
+  },
+  {
+    "id": "7e9fc12f6069f73c",
+    "phase": "S1902M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople \u2014 I will be direct with you as I have been before. Austria moves A SER toward BUL this spring. I understand Turkey sees this as hostile, but the board demands it \u2014 BUL is the natural Austrian objective in 1902. However, I have no interest in attacking Turkish home centers. If Turkey accepts the loss of BUL and redirects toward the eastern Med and beyond, we can still find a stable arrangement. I am not coordinating with Italy to push through AEG into ANK or CON \u2014 Italy's role is to hold the seas, not invade Turkey proper. Consider this: a Turkey that survives and stabilizes is more useful to me than a vacuum that Russia or Italy fills. Think about where your units can build strength without contesting BUL. \u2014 Austria",
+    "sent_at": "2026-06-19T01:09:47.206517+00:00",
+    "sig": "ggICXozATS7x81iWOoQgdQ8liwteKqUFy++aDQdHJc6SX8d0Lbz23NpH1jDPbQUgdS9BBGSVdQSUUs0rrzHnBw==",
+    "verified": true
+  },
+  {
+    "id": "6a47ff5f2fa53487",
+    "phase": "S1902M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Greetings from Berlin! S1902M finds Germany strong but with real choices to make. England, our northern partnership has served us both well \u2014 you hold NWY, we hold DEN and SWE. I want to keep that axis firm. England's F NTH and F NWY are powerful assets; I have no wish to see them turned against me. Let us stay coordinated: I plan to push eastward toward Russia, and I would welcome England applying pressure in the north (StP?) while I move into Poland or Livonia. France is stable for now but bears watching \u2014 together we can keep them contained if needed. What are your plans for 1902? \u2014 Germany",
+    "sent_at": "2026-06-19T01:09:50.680263+00:00",
+    "sig": "lPQtt12CvLOIh5AmB7lmD6/NHDKF1CS0uGDkp8m+EQXbo7v28QCuGGwvQYw8WoTMrsYUOwWxad0ejDkjMq6XCQ==",
+    "verified": true
+  },
+  {
+    "id": "83f155cbc10d78cd",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Berlin, the cooperation has served us both well \u2014 France at 6, Germany at 6, a balanced west. As we enter 1902 I want to be candid: our parity means whichever of us strikes first in the other's direction gains a decisive edge. I have no such ambitions. My proposal: France pushes through Iberia and toward MAO/NAF, you continue consolidating Scandinavia and move east through RUS. We avoid MUN/BUR tension entirely by agreeing BUR is demilitarized and we each pursue separate spheres. England is the wildcard \u2014 I suspect they may seek to play us against each other. If you hear overtures from London against France, I hope you will tell me. I will do the same. Trust between equals is the only stable arrangement. \u2014 France",
+    "sent_at": "2026-06-19T01:09:52.929742+00:00",
+    "sig": "kmjmRa9eexW6ufjMsre/yIT3kOp54UgzN5fRldX64ohBwacJ6MX4Uo4ZbxyYODU9DF7ILe0f30UP/ZCWWOrxBw==",
+    "verified": true
+  },
+  {
+    "id": "71752d5c2e07f7b7",
+    "phase": "S1902M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Greetings from London. France has done well \u2014 6 centers after 1901 is a strong position. I want to speak plainly: England and France together could form a very effective western bloc, but only if we address the Belgium question.\n\nYou hold BEL, which England has historically viewed as within its sphere. I am not demanding it back \u2014 but I am noting that England at 4 centers while France sits at 6 creates an asymmetry in our friendship. If you can help me grow elsewhere, perhaps by allowing passage through English waters without contest, or by coordinating pressure on Germany together, I am inclined to keep the Channel genuinely peaceful.\n\nThe real threat is dual: both France and Germany at 6 is unstable for everyone else. If Germany overreaches in the east, England and France together control the west. But if France continues growing while England stagnates, I will be forced to look westward.\n\nWhat is France's thinking for 1902? I'd like to find a path where both England and France can grow \u2014 at Germany's expense if possible. \u2014 England",
+    "sent_at": "2026-06-19T01:09:54.949911+00:00",
+    "sig": "00olCnA++D03kMajm2Ek9mMTvxi4oxf6R7VnsH5c7RU4MKHpsA8Djqla6+eP29gqvkGK6pibYjJ5iM3bI8hbDw==",
+    "verified": true
+  },
+  {
+    "id": "331ca21deb85f70d",
+    "phase": "S1902M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Bonjour from Berlin! France and Germany both stand at 6 centers \u2014 a remarkable symmetry. I want this partnership to hold, but I will be candid: we must avoid stepping on each other's toes as we expand. My eyes are eastward \u2014 Poland, perhaps Livonia \u2014 and I have no ambitions in Burgundy or Belgium. France should have room to press south and west. One concern: the board is watching us both closely. A Franco-German tacit accord against England if London overreaches, or against Russia if Moscow grows threatening, would give us both security. For now, let us simply confirm: BUR stays neutral, you stay out of HOL and BEL, and we exchange information on England and Russia. Agreed? \u2014 Germany",
+    "sent_at": "2026-06-19T01:09:57.834649+00:00",
+    "sig": "uVdWCMPxplvqWeU5DpHOtoALcsWku10Kp9Www5It7Mt9xHJ+ldgc2r0cYye0SehC1h0XEy+wFJft/FoTQlaRAg==",
+    "verified": true
+  },
+  {
+    "id": "b11efc4f74fc8bb8",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London, the Channel has been peaceful and both our nations are stronger for it. France now holds 6 centers, as does Germany. This parity makes 1902 a pivotal year \u2014 and I want to be direct: if England sides with Germany against France, Germany wins this game. Germany would absorb the British Isles after finishing us, and you would have handed the victory to Berlin. The better path: keep England independent, keep France as a counterweight to Germany, and neither of us falls to a German sweep. I am not asking for an alliance against Germany today \u2014 only that you resist any German overtures to coordinate against France. In return, I confirm: no French moves into ENG, no aggression toward British centers. Let us both grow and keep Berlin nervous. \u2014 France",
+    "sent_at": "2026-06-19T01:09:59.142471+00:00",
+    "sig": "yE80ZgO10sR2QqSAsV8ekNQ/n1pS8T3lHJjYAi0bTSTxHOCPoy/vp9ankVtCgyHENGwXFbU0A6vikEMWurMCDA==",
+    "verified": true
+  },
+  {
+    "id": "ebac4f40ae28fbf4",
+    "phase": "S1902M",
+    "sender": "GERMANY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Greetings from Berlin! Russia and Germany both agreed to eastern non-aggression last year, and I wish to extend that understanding into 1902. I have no designs on Warsaw or Moscow \u2014 my focus is on consolidating and perhaps expanding toward Scandinavia or the west. In return, I ask that Russia respect Silesia, Prussia, and Berlin as German space. If Russia faces pressure from Austria or Turkey in the south, Germany is a stable northern neighbor rather than an additional threat. Perhaps we can find areas to cooperate against common concerns? What is Russia's strategic outlook for 1902? \u2014 Germany",
+    "sent_at": "2026-06-19T01:10:03.124982+00:00",
+    "sig": "+9qyvThXJZkGh9i8SM1sBFrA4hMYtmjSE8N/ciW+BBdmnEIWQtDDsq1r3WRTMNQaccku8hYTQ7tiA8Jx95+pDA==",
+    "verified": true
+  },
+  {
+    "id": "796993a7a08c82c7",
+    "phase": "S1902M",
+    "sender": "ENGLAND",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Greetings from London. Russia and England share a common concern: Germany at 6 centers is the dominant power on the northern board, controlling SWE, DEN, HOL, and the Baltic approaches. This threatens both of us.\n\nEngland holds NWY and NTH \u2014 I can threaten SWE and the North Sea coast. Russia holds FIN and the eastern Baltic. Together we can put Germany on the defensive in Scandinavia.\n\nMy proposal: England contests SWE via F NWY\u2192SWE this spring, while Russia applies pressure from the east. If Germany is forced to defend SWE and DEN simultaneously, their western expansion stalls. In return, England will not contest FIN or any Russian interest in the Gulf of Bothnia.\n\nGermany at 12 centers is a catastrophe for both our powers. An Anglo-Russian understanding against German hegemony in the north is worth discussing seriously. What are Russia's intentions for 1902? \u2014 England",
+    "sent_at": "2026-06-19T01:10:04.053911+00:00",
+    "sig": "H8jizZ4/BuOlf0B7D4k7n3/DkZsSI8ILW7L1qt2CKHEbpVkwixl02uOBcGIexRzCHxCq4cSfF2awBdiFTN5uDw==",
+    "verified": true
+  },
+  {
+    "id": "1483b7420bf8ee4c",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Rome, our western non-aggression has held perfectly. As 1902 opens, I want to think ahead with you. Austria has 5 centers and is well-positioned in the Balkans \u2014 if Austria grows unchecked while Italy and France each pursue separate aims, we may both face a two-front problem later. I am not suggesting immediate conflict with Austria, but I think it worth coordinating: if Italy presses into Trieste or the Balkans, France can keep pressure on the western board to prevent Austria getting support from Germany. What is your current read on Austria and Turkey? I would value Italy's perspective from the south. \u2014 France",
+    "sent_at": "2026-06-19T01:10:05.004298+00:00",
+    "sig": "MaQgT5oH0T0Omg3shhMyUnW8KvNGV3VZhpp+L0UUNloGcJn/rxo3ya3TWJWQRZsDPBlcqKlA1K6fspwVzE/RAA==",
+    "verified": true
+  },
+  {
+    "id": "7b0c2ed8c3de3f87",
+    "phase": "S1902M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Russia to Turkey: Greetings from Moscow. The situation has evolved significantly. Germany stands at 6 centers \u2014 a threat to all of us. I want to revisit our relationship with fresh eyes. Russia's move on Romania was opportunistic, I admit, but now I face a choice: continue squeezing Turkey while Germany grows unchecked, or find a new equilibrium. Here is my genuine proposal: Russia will pressure Austria in GAL rather than press into BUL this spring. In return, Turkey holds off ARM and we both watch Germany's expansion with concern. A Turkey that survives is indeed a buffer \u2014 and I need that buffer now more than ever. Can we find a truce? \u2014 Russia",
+    "sent_at": "2026-06-19T01:10:05.104175+00:00",
+    "sig": "TPxo9hte6NU/OE/SEHzBIeRH48x4v4hXS1OOsiWo1zkeN9xiYZ2QQLAiyK8fHLCeXKj+k6R0kuD4Yz2L/8EFCg==",
+    "verified": true
+  },
+  {
+    "id": "34dd2c367a63b6b1",
+    "phase": "S1902M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 thank you for the update. Italy's situation is critical this spring: we still lack Tunis after the convoy trouble last fall, and we are sitting at 3 centers while France and Germany race to 6+. I must secure Tunis this turn or Italy falls permanently behind.\n\nMy plan for S1902M: F ION \u2192 TUN (fleet takes Tunis directly \u2014 no convoy complication). A APU holds or supports. A VEN holds to protect our home position.\n\nThis means I cannot move F ION \u2192 AEG this turn to support your A SER \u2192 BUL. I know that complicates your BUL grab, and I am sorry for it. But Italy without Tunis is a liability to the Lepanto, not an asset. Once I have Tunis secured in fall, I rebuild and push east with real strength \u2014 4 centers, a fresh build, and F TUN threatening Turkey's underbelly.\n\nRecommendation: can F GRE support A SER \u2192 BUL directly? You took GRE last fall, so GRE \u2192 BUL support from the fleet should work if F AEG does not interfere. If Turkey's F AEG contests, you may still push through with SER's strength. I will be back in the Aegean in force by F1902M. \u2014 Italy",
+    "sent_at": "2026-06-19T01:10:06.351627+00:00",
+    "sig": "gKgZS/uCHHX5fmyfGf8T+/TUOWNzhIXY6Z2CGmjpjDFu1dVqOc3jnzVKjDzGMsIkIXVNGUeoniNhvAr8S1qoDg==",
+    "verified": true
+  },
+  {
+    "id": "c6465bc53e1ddc81",
+    "phase": "S1902M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Russia to England: London, Germany sits at 6 centers and it is only spring 1902. France also has 6. The two western powers are racing ahead while England, Russia, and others lag behind. I have F FIN well-positioned to contest SWE \u2014 Germany's newly acquired center. If Russia moves F FIN\u2192SWE and England applies pressure from the west, we can slow Germany's momentum significantly. I am not asking for a formal alliance yet, just coordination on this specific point. What is England's posture toward Germany's rapid growth? \u2014 Russia",
+    "sent_at": "2026-06-19T01:10:10.070935+00:00",
+    "sig": "WW1oY0FS5OV+3l+wLJsK/TxcHiLP1p620uNkO/IlZcSHW6Fq4yvg+iv4RRQMo5YHMLpiDuwBQjB4OJB1Fi7OCQ==",
+    "verified": true
+  },
+  {
+    "id": "ffb8fe132cd1fe27",
+    "phase": "S1902M",
+    "sender": "ITALY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 Italy is moving F ION \u2192 TUN this spring to finally secure Tunis. We fell behind last fall due to the convoy conflict, and at 3 centers we cannot afford another delay.\n\nTurkey's F AEG remains a concern for both of us. If Russia can apply any pressure on Turkey from the north \u2014 even just keeping Turkey's armies occupied \u2014 it helps Italy establish the southern front. Once Italy has Tunis and a 4th center, we are a serious eastern partner.\n\nI also note France and Germany at 6 centers each. That is the real long-term danger for everyone. Italy will focus on catching up in the south this year; let us keep lines open as the western powers grow. \u2014 Italy",
+    "sent_at": "2026-06-19T01:10:13.044619+00:00",
+    "sig": "ACvz0iD6Yidh4N7vZYsZRMVNPPVYLF6GYrGktaw7udGOftHqsiCqpl24yijSHlCpWSNg+DjlqbMg8l36NsNYBg==",
+    "verified": true
+  },
+  {
+    "id": "837e896acd95ac0f",
+    "phase": "S1902M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 your timing is perfect. Turkey is ready to accept a genuine truce. Austria's A SER\u2192BUL is the real threat, and if Russia pressures Austria in GAL rather than pushing toward BUL, Turkey can hold BUL and we both deny Austria a decisive advantage. My proposal: Turkey holds ARM as you ask, Russia keeps pressure on Austria's northern flank, and we coordinate on the real threat \u2014 Germany at 6 centers grows unchecked while Austria and Italy try to carve us up. A living Turkey is your buffer against an Austrian or Italian sweep into the Balkans and beyond. Let's formalize: Russia presses GAL, Turkey holds BUL. We reassess after spring. \u2014 Turkey",
+    "sent_at": "2026-06-19T01:10:14.917472+00:00",
+    "sig": "r3XXhcxOqRbOQ6ifQa4CIxg8R2s9nhmuJnW+jxAdpTDMJMX5htsYMbns34dP5nl3WM2BVFqXqVdkQOp0BO24DQ==",
+    "verified": true
+  },
+  {
+    "id": "22b1ab0fe56a4187",
+    "phase": "S1902M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Russia to Austria: Vienna, I received your proposal about BUL. I am willing to coordinate, but let us be precise to avoid a bounce. If Austria is moving A SER\u2192BUL, then Russia will NOT move F RUM\u2192BUL \u2014 instead I will press A SEV\u2192ARM to threaten Turkey from the north, keeping them off-balance on two fronts. You take BUL uncontested; Russia gets leverage over ARM and ANK. This is more valuable than both of us bouncing on BUL. Confirm your plan and we proceed. Non-aggression in GAL continues \u2014 A UKR will not cross into GAL this phase. \u2014 Russia",
+    "sent_at": "2026-06-19T01:10:17.035201+00:00",
+    "sig": "8Eh6lclDCXuPRRn+OsSjvcVen0EKetrkwn+FKzswJYGhrPteoMbpZeRJp3P6E86Tz4C/yo+FQH8g2PZ+7+1nCg==",
+    "verified": true
+  },
+  {
+    "id": "61bca96d59970e2e",
+    "phase": "S1902M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris \u2014 Italy remains committed to our western peace. My focus this spring is entirely on Tunis and the eastern Mediterranean. Piedmont and the western border are of no interest to me. France and Italy have complementary spheres and no reason for conflict.\n\nOne thought for the longer game: France and Germany both sit at 6 centers. I raise this not to alarm, but to suggest we stay in dialogue as the northern rivalry develops. Italy has no wish to see either western power grow unchecked. Let us keep this channel open. \u2014 Italy",
+    "sent_at": "2026-06-19T01:10:19.912231+00:00",
+    "sig": "jV4hlNFM7QuHJptm3NQssMamyBZMH8nwAYEUSmxQR2K97UWbDP9Sff3CcHjPnb5PR1QEo0cp6JqA4UzIU5lOCg==",
+    "verified": true
+  },
+  {
+    "id": "efba474094e0e215",
+    "phase": "S1902M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 you have been candid, and I will return the favor. A SER\u2192BUL is a hostile move and Turkey cannot accept it. But Turkey also does not want permanent war with Austria. Here is my counter: if Austria holds A SER and does not advance on BUL this spring, Turkey will not contest GRE \u2014 you keep your Aegean gains and we both keep the status quo stable. The alternative is a fight for BUL that weakens both of us while Germany and France grow to domination. A Turkey that holds BUL is your eastern buffer against Russia. A Turkey you crush is a vacuum Russia fills. Think carefully. \u2014 Turkey",
+    "sent_at": "2026-06-19T01:10:20.291974+00:00",
+    "sig": "iCnq2RQkfLvGN/cBskxCLg/mnyX22PY9I7cgY1ZFnXXgOevBcweHOCgZKD8p/o5Jc2huqUNEP97cXq8oYlTyCQ==",
+    "verified": true
+  },
+  {
+    "id": "443bd0827e3cf137",
+    "phase": "S1902M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Rome \u2014 the Lepanto has put you in Austrian waters, not your own. Austria benefits from your fleet doing its dirty work while Austria takes the centers. Consider: Italy at 3 centers with a fleet deep in the east is not a winning position. Turkey is not your enemy \u2014 Austria is using you. If Italy turns F ION toward Western Med or supports a neutral posture in AEG, Turkey and Italy can share the southern board. The alternative is Turkey and Italy grind each other down while Austria and Germany pull away. I am open to any arrangement that gives Italy real gains rather than playing second fleet to Austria's army. \u2014 Turkey",
+    "sent_at": "2026-06-19T01:10:26.886049+00:00",
+    "sig": "dclDpKrA37nmXcwLhCxwxhTogvhDHXa9fHzNJ4ufz/k2GdCmxYzvU3Om3wCoFLem2Jp9qMIxiwLXPaDqMKenDQ==",
+    "verified": true
+  },
+  {
+    "id": "9c3f9ab60c7f74ae",
+    "phase": "S1902M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 understood and no hard feelings on Tunis. Securing your fourth center is the right call; Italy at 3 is a liability, Italy at 4 is an asset. Go get Tunis. On our end: F GRE will support A SER\u2192BUL directly. If Turkey's F AEG stays put or moves elsewhere, we push through. We'll coordinate in Fall 1902 once you're back in strength. Lepanto stays on track. \u2014 Austria",
+    "sent_at": "2026-06-19T01:11:11.632800+00:00",
+    "sig": "UXhKdswunlDkfEBLO5Neph8FgIu52JV0tkR9K5g6OAIEEswthFW78W0UZDZtDrK1oxFMwXVZldJGK2kHqLfWBQ==",
+    "verified": true
+  },
+  {
+    "id": "26f4d68a01d43359",
+    "phase": "S1902M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 confirmed and agreed. Austria moves A SER\u2192BUL; Russia does NOT move F RUM\u2192BUL. No bounce, Austria takes the center clean. Russia pressing A SEV\u2192ARM is perfect \u2014 Turkey gets squeezed on both flanks simultaneously and cannot concentrate defense. Non-aggression in GAL continues: A UKR stays out of GAL, A GAL stays in place. Let's execute. \u2014 Austria",
+    "sent_at": "2026-06-19T01:11:16.625249+00:00",
+    "sig": "URVUwROmh5gzAOGPWpySWhGTACHC1ljP1RyWhhIaANx2GfIzzK5nr1A6FcLGW5+W7NPHpiU5QHxaAUSmJskkDg==",
+    "verified": true
+  },
+  {
+    "id": "07a61dbd0e7b5c12",
+    "phase": "S1902M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "London to Berlin: Germany, the northern alliance remains our cornerstone. England is with you. F NWY will be positioned to threaten STP if needed, keeping Russia occupied while you push east. We both benefit from a stable western front \u2014 France will not find England an easy mark. Let us continue coordinating closely. \u2014 England",
+    "sent_at": "2026-06-19T01:11:19.911615+00:00",
+    "sig": "zvjWNJQo+HKqHHEdn94kSxU7zYEAGk8ALru0+5gZ0cX98DE4qUpiNn16f34uBki6KEzTx8t4/WXwM91soYkKCA==",
+    "verified": true
+  },
+  {
+    "id": "a612aef77965652e",
+    "phase": "S1902M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 I have heard your argument and I understand the logic: a live Turkey buffers Russia. But the board has moved past that point. You hold BUL, Italy is en route to the eastern Med, and Russia presses from the north. Austria cannot afford to leave BUL in Turkish hands when doing so simply allows you to consolidate. I have no wish for permanent war, but I must move A SER\u2192BUL this spring. If you choose not to contest and hold F AEG back, we can speak about a negotiated boundary afterward. The fight for BUL weakens both of us, yes \u2014 but Austria not taking BUL weakens Austria alone. \u2014 Vienna",
+    "sent_at": "2026-06-19T01:11:24.040357+00:00",
+    "sig": "XmPk46rGgWJAaz8FwoOJpY/BEroeLyLfAeaZlN9wvkF7h3GA9LEiNXhP3HPCseq5E8GmRkGsBVGgQumejIbrBg==",
+    "verified": true
+  },
+  {
+    "id": "1872979851728a2a",
+    "phase": "S1902M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris, your analysis of the board is sound \u2014 Germany and France at 6 each is the tension England must navigate carefully. I hear you: if Germany sweeps France, England becomes the next target. England is not signing onto any German attack on France. The Channel stays peaceful. I will watch the balance and act to keep no single power dominant. That serves us both. \u2014 England",
+    "sent_at": "2026-06-19T01:11:25.669215+00:00",
+    "sig": "7oFz5o8RfK3Ne2Lc60vTx9VO4BbiyyAiaREryg4DPVfEyTElHA6sBoJgw2J8wkYKK+7JRQ6xmOm0y4AMjcaCBA==",
+    "verified": true
+  },
+  {
+    "id": "9cf209b56f9adfe8",
+    "phase": "S1902M",
+    "sender": "ENGLAND",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow, England notes Germany's rapid growth with concern. A coordinated effort to slow Germany is worth considering. F FIN\u2192SWE would directly contest a German center \u2014 England would watch with interest. England's units are positioned in the north and can apply pressure where needed. Let us stay in close contact as 1902 develops. \u2014 England",
+    "sent_at": "2026-06-19T01:11:30.879369+00:00",
+    "sig": "dmnhu2+X98mk0O85qTGT5K7KtmL2GeBX4l0CmLMe8x0UCegPT57s4sd6GHUxJSdr6oZ1mEg2v0sTzudl1HMMCQ==",
+    "verified": true
+  },
+  {
+    "id": "797ac1e820b9da10",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London \u2014 France values our western partnership and I want to be equally candid. Belgium is France's by the board's natural logic \u2014 we took it cleanly last fall with Germany's blessing, and returning it would weaken France's position without strengthening England's security. That said, I hear your concern about asymmetry.\n\nHere is what France can offer: genuine coordination against Germany if Berlin overreaches. France is well-positioned in the west \u2014 A BEL, A PAR, A MAR \u2014 and if Germany pushes into Scandinavia or threatens England's position, France can press from the south and west simultaneously. Germany growing to 8+ centers is far more dangerous to both of us than France at 6.\n\nFor now, France proposes: the Channel stays clear, we exchange intelligence on Germany's moves, and we revisit the Belgium question once we have both grown at Germany's expense. France needs BEL as leverage and a buffer \u2014 it is not aimed at England. Watch my orders this spring; they will speak louder than words. \u2014 France",
+    "sent_at": "2026-06-19T01:11:30.981858+00:00",
+    "sig": "0uSaEQ7R3GGcn1f9p2WjbaBPSmpuIvelic+CikAuHv2VlasoLWuj5krdICnFFL7rUi+wvjdI5mMktjd+FBFdCQ==",
+    "verified": true
+  },
+  {
+    "id": "eba93d64e45feb44",
+    "phase": "S1902M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "Berlin to London: England's message is well-received and Germany appreciates your candor. You are right that our alliance must benefit both sides, and England at 4 centers is not a sustainable position. Germany fully supports the proposal to pressure France together via Belgium. A coordinated move F NTH\u2192BEL with Germany pressing from HOL makes strong strategic sense \u2014 it opens France's northern flank and keeps the Anglo-German axis the dominant force in the west. In return, Germany remains committed to staying out of NWY and DEN is held firmly as a buffer, not a threat to your position. Germany's focus in 1902 is eastward \u2014 Russia is our primary target. A loyal western partner in England is exactly what we need. The alliance holds and grows stronger. \u2014 Germany",
+    "sent_at": "2026-06-19T01:11:31.585565+00:00",
+    "sig": "Ph2eUaA0IGQnptnzvhNoIQakOzxwaFbxCRdS7T6rhy2xH3OoJMLWfKMnytlEqLwBXLdAfqW7hIhaq6Vr5cCPAw==",
+    "verified": true
+  },
+  {
+    "id": "72ad7d520615ae50",
+    "phase": "S1902M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris, your instinct about England is correct \u2014 London has approached Berlin with proposals that would benefit England at France's expense. I am telling you this in the spirit of the trust between equals you described. However, Germany is not interested in destabilizing the west prematurely. My focus is firmly east toward Russia. I propose we both continue as agreed: France westward into Iberia, Germany eastward into Russia, BUR remains demilitarized. Germany has no plans to move through Burgundy in 1902. The Anglo-German axis serves Germany's interests up to a point, but not at the cost of a destabilized France that invites chaos. Let us keep this channel open. \u2014 Germany",
+    "sent_at": "2026-06-19T01:11:37.306732+00:00",
+    "sig": "Eq8iW/SWXLKdI4YTwfSpqVdMTBrVRHC40Rm8ZsX0/dVtwmJcAcehp/gFADHWmq75fVcVM0QySyBRa6qzx82QCQ==",
+    "verified": true
+  },
+  {
+    "id": "8c20ba3b46d85c53",
+    "phase": "S1902M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 glad we are aligned. Italy is moving F ION\u2192TUN this spring to secure Tunis and reach 4 centers. I cannot reach AEG this phase, but your plan with F GRE supporting A SER\u2192BUL should still work without me in AEG. Italy will be back in strength in Fall 1902 and fully committed to the Lepanto. Hold the line this spring \u2014 I will rejoin the eastern push in the fall with a fresh build.",
+    "sent_at": "2026-06-19T01:11:37.410294+00:00",
+    "sig": "NtOuet6y9qu9cKd2Jz49zGKO45dA19oVMF9m1LibAB3CZ571QeAjqPOTMNDJYDbpXFst2wgy7JrhIGnxmoGYCA==",
+    "verified": true
+  },
+  {
+    "id": "4f3b677f751e49c3",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Berlin \u2014 the symmetry at 6 suits France well and I intend to preserve it through coordination, not competition. France confirms: BUR stays neutral, France will not move on HOL. That is Germany's sphere.\n\nOne clarification on Belgium: BEL is France's, earned last fall with your blessing. France will not cede it \u2014 but France has no further ambitions on Germany's western front. My eyes are south and perhaps west.\n\nThe England question is real. London is watching us both. France and Germany at 6 with England at 4 means England is looking for a way to break our accord. I propose we share what England says to each of us \u2014 if London is playing us against one another, we will both benefit from knowing it. For my part, England is pressing France about BEL and suggesting France should 'help England grow.' That smells like wedge politics.\n\nFrance's intent this spring: consolidate, no hostile moves toward Germany. Let us keep this line open. \u2014 France",
+    "sent_at": "2026-06-19T01:11:39.630663+00:00",
+    "sig": "F5kQGpoZker26S2Vhup6wbaiCLbLNxw5l1lXwjXlSgAaKiH3eHvl13EbgqNdQQ+DSyb8jZ9Ir3vQi8XIvGXEAA==",
+    "verified": true
+  },
+  {
+    "id": "bb12499d458c6738",
+    "phase": "S1902M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris \u2014 Italy appreciates the perspective on Austria. For now, the Lepanto partnership is working and Italy needs Tunis this spring to stay in the game. I am not ignoring your broader point about Austria's growth \u2014 let us both stay watchful and keep this channel open as the board develops. Italy is not locked into any single alliance.",
+    "sent_at": "2026-06-19T01:11:42.189733+00:00",
+    "sig": "p474pUBpDJBnkgaaKkqx0Wr65sZgKtIDh1dcC+cM79Vv8ySDxAKOyKXqMXn+wyckIkZqW0F0Vw6SRVvnJIzHCg==",
+    "verified": true
+  },
+  {
+    "id": "36d41ea40aa705d3",
+    "phase": "S1902M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 Russia confirms our agreement. A UKR will press toward GAL to pressure Austria's northern flank. Russia will NOT move on BUL from RUM \u2014 that is yours to hold. A SEV will move toward ARM as a signal of intent, but our real coordination is against Austrian expansion. We are aligned. Austria gains nothing from a united front; a living Turkey that holds BUL suits Russian interests. Let us revisit after spring results. \u2014 Russia",
+    "sent_at": "2026-06-19T01:11:44.244632+00:00",
+    "sig": "vGfiYigTckBXdLfMNnu5oWAi727vVFs3+bZcUNGaQIO/wnjkXVjf+nESu8GjHWwmhz7Cst5lnvxSOrTA07UuBA==",
+    "verified": true
+  },
+  {
+    "id": "46c1294e4abb9480",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Rome \u2014 France appreciates Italy's continued goodwill on the western border. The PIE arrangement holds and France has no intention of pressing east toward Italy this spring.\n\nYou raise an astute point about the Franco-German symmetry. France is aware of it. The board is indeed watching two powers at 6 centers and looking for a crack. France's strategy is to grow southward and consolidate rather than press Germany directly \u2014 which keeps the balance without triggering a coalition against us.\n\nItaly's eastern focus is noted and welcomed. If Austria or Turkey begins to dominate the Balkans in a way that threatens the board's balance, France would be interested in discussing coordination. For now \u2014 peace on our shared border and open channels between Paris and Rome. \u2014 France",
+    "sent_at": "2026-06-19T01:11:46.232153+00:00",
+    "sig": "CI/BT5HNeIV0c4psm87XJ3s1P8opGSVNL/6vgXBmF2aTnPMNcDkQWpHaaNUsuglKmZwpqhFSYeCH1EgWrnCGAg==",
+    "verified": true
+  },
+  {
+    "id": "7710577e085b5972",
+    "phase": "S1902M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople \u2014 Italy hears your argument and is not dismissing it. This spring, F ION moves to Tunis \u2014 Italy needs that fourth center regardless of eastern alignments. We are not at war. Beyond Tunis, Italy's direction is not fixed. If Turkey wants to explore what a southern accommodation looks like, I am open to hearing it in Fall 1902 once Italy has its footing.",
+    "sent_at": "2026-06-19T01:11:48.243529+00:00",
+    "sig": "tTF9h2pX1f3Oww4vj43c0lF3L2WqwE8Z9Fz+hzCS9M9CLZ0mUmaIVsozJRx/UFj19IrNgbLT7EuMFT/Rvl4aAQ==",
+    "verified": true
+  },
+  {
+    "id": "9eaeb8953737afbf",
+    "phase": "S1902M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 Russia confirms: F RUM will NOT move to BUL. Austria takes BUL clean from SER. Russia is moving A SEV toward ARM to squeeze Turkey from the north. On GAL: A UKR stays back for now \u2014 no crossing. Non-aggression holds. Let Austria and Russia divide the south and let Germany be the concern for 1903. Good luck in BUL. \u2014 Russia",
+    "sent_at": "2026-06-19T01:11:48.243667+00:00",
+    "sig": "Xjmf/DT5bHsE6Jk00+7IK9GVD1G9tjvqXODWiXmjYy+PLm+ytZBFx/IIamfs35JWXfmZKLxhebIEgkqYe8BnAQ==",
+    "verified": true
+  },
+  {
+    "id": "ce8377a604c5c1ce",
+    "phase": "S1902M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London \u2014 Russia is watching Germany's growth with equal concern. F FIN will move toward SWE this spring \u2014 Russia agrees that contesting a German center is the right play. England pressing from NWY while Russia presses from FIN puts SWE in genuine danger. Germany at 6 centers is too comfortable; this is the moment to check that growth. Russia's eastern border is stable \u2014 this lets us focus northward together. Stay in contact after spring results. \u2014 Russia",
+    "sent_at": "2026-06-19T01:11:53.914403+00:00",
+    "sig": "klkHb6I6VDbLeL69HNAvveG7Q6iB+1ZYuBMRot9IFQww7ahUC5m7UjmEtHIHKE3tLZSgFq5Qwd5OcGZf2/QlAw==",
+    "verified": true
+  },
+  {
+    "id": "a9a98fbdc4aaef89",
+    "phase": "S1902M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow, we have a deal. Turkey accepts the truce. Russia pressing GAL gives us both what we need \u2014 Austria is squeezed from two sides and Turkey can hold BUL. F ANK will not move to ARM. I am watching your move carefully, but I believe this serves both our interests. A stable Turkey in BUL is a better buffer for Russia than a vacuum that Austria fills. Let us stand together this spring and reassess after results. \u2014 Constantinople",
+    "sent_at": "2026-06-19T01:11:55.125646+00:00",
+    "sig": "peAo2ihyGydfFx40C36tiUsNbX1cCcsXHUExvcKf7cyl8J2L/67AMv1PIM18DFtrBSsY4/EMk/PkKpJKmqQjBg==",
+    "verified": true
+  },
+  {
+    "id": "86c7bffe1a191295",
+    "phase": "S1902M",
+    "sender": "RUSSIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Berlin \u2014 Russia values the eastern non-aggression understanding and intends to honor it. Warsaw and Moscow are not in Russian plans to use aggressively toward Germany. Russia's focus in 1902 is the Balkans and Scandinavia. We have no quarrel with Germany's western ambitions. Let us keep this channel open. \u2014 Russia",
+    "sent_at": "2026-06-19T01:11:57.616370+00:00",
+    "sig": "b+BvCkIIJTFaL8ot9hhVn52KmxcjfOI/zBHt+UkrEsNj+w7LdYMbtvTYQRsJnUDCok08oSSFSwhEDLmhmb9OCg==",
+    "verified": true
+  },
+  {
+    "id": "e96417b08f0194e4",
+    "phase": "S1902M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 I have read your messages carefully and I respect your candor. But I will not yield BUL without a fight. Turkey will hold. You are gambling that I cannot defend it, but with Russia now pressing your northern flank from GAL, Austria's A SER may find itself needed elsewhere before this spring is done. Consider: a Turkey holding BUL is a contained Turkey. A Turkey that loses BUL and has nothing left to lose is a dangerous Turkey \u2014 one with no incentive to restrain its fleet in AEG. I offer this plainly: leave BUL to Turkey this spring, and I will hold F AEG back from GRE. Push A SER\u2192BUL and I will have every reason to contest the Aegean and GRE with full force. The choice is yours, Vienna. \u2014 Constantinople",
+    "sent_at": "2026-06-19T01:12:02.661805+00:00",
+    "sig": "FnP0oQq7fR023QzBwFN+FQoBZn2rowrI/tV6V5MB2bLRZs2PLWlVweCYSj3XR6loAt4Xq50rcz6wzWluumWVAA==",
+    "verified": true
+  },
+  {
+    "id": "b166742651c71d20",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London \u2014 France hears you clearly. The asymmetry at 6 vs 4 is real, and France has no interest in a lopsided west that puts England on the defensive. Germany is my primary concern this year, not England. I propose we keep the Channel fully peaceful and coordinate information on German movements. If Germany presses east too aggressively and creates openings, we should talk about coordinated pressure. France has no designs on English centers \u2014 your growth is in Scandinavia and the north, mine is in Iberia and potentially south. Let us stay in close contact this year. \u2014 France",
+    "sent_at": "2026-06-19T01:13:32.827486+00:00",
+    "sig": "RMKUSMUStDa68kEBC2ONjlaARSGyJPHcJzs+kaK0e0pSd8mdFuHljEGa89xqzi8ONiB0ZqcaSFnNfTgOvj52Aw==",
+    "verified": true
+  },
+  {
+    "id": "4d95b63c987819bd",
+    "phase": "S1902M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Berlin \u2014 France confirms the arrangement: BUR remains neutral, France stays out of HOL. Germany's eastward focus and France's position in Iberia are complementary. I am moving A PAR toward BUR this spring \u2014 not as an aggressive move but as a defensive posture and positional probe. Germany need not worry; France will not push further east without explicit agreement. Let us keep this channel open and coordinate against England if London overreaches westward. \u2014 France",
+    "sent_at": "2026-06-19T01:13:36.875355+00:00",
+    "sig": "D2slyTOrpz9N8YNysu3fJMTANhJe2jV9TYbVWcImXRH73/opH2eqdTUYIwrRFl8UV/OGTdz48qLHOAkGzps8DQ==",
+    "verified": true
+  },
+  {
+    "id": "e0e2c6e58e5f649e",
+    "phase": "F1902M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 thank you for confirming your support in S1902M. Austria is moving A SER\u2192BUL with F GRE in support this fall. Turkey's threat is clear: they will contest AEG and GRE if we push. This is exactly why we must move decisively now while Turkey is still manageable. Russia pressing A SEV\u2192ARM is the perfect complement \u2014 Turkey will be caught between two fronts. Looking to 1903: Germany at 6 centers is the real long-term threat. Once we contain Turkey, Austria and Russia must coordinate on the northern front. A growing Germany in SIL threatens WAR and will eventually look south toward Vienna. Let us stay aligned \u2014 non-aggression in GAL continues, and I urge you to keep ARM pressure on Turkey through the fall. \u2014 Vienna",
+    "sent_at": "2026-06-19T01:16:17.173068+00:00",
+    "sig": "CDAxdVrtyMl+iNJLzAv8WhRr10FwJIU6FwfjZuu4wW36YmsYraJ5WgvpbKmgPwWxC539TjPDGoHuerdnww1ACw==",
+    "verified": true
+  },
+  {
+    "id": "91f4b767f895b8c6",
+    "phase": "F1902M",
+    "sender": "ENGLAND",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 England is ready to act. Germany at 6 centers with F SWE is a direct threat to our northern position. Here is what I propose for F1902M: England moves F NWY\u2192SWE supported by F NTH S F NWY\u2192SWE. That is 2 supports against Germany's 1 \u2014 we take SWE outright. The critical ask: Russia does NOT move F FIN\u2192SWE this fall. If we both move into SWE we bounce each other and Germany keeps the center. Russia holds FIN or moves elsewhere. England takes SWE, Germany loses a center, and we both gain. If this goes well, we discuss dividing Scandinavia on our terms in 1903 \u2014 not Germany's. Are you in?",
+    "sent_at": "2026-06-19T01:16:21.661367+00:00",
+    "sig": "O5ZrdsFWyDA7aiUAczZ7HEQm6anCEWiGofs2SmaC2RfztB4dQVcvB52E03QUqEajLcqnFVI5I/KMJvc/p4G+Cg==",
+    "verified": true
+  },
+  {
+    "id": "81392d4c75ac36ae",
+    "phase": "F1902M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Rome \u2014 glad to hear Italy secured Tunis. Four centers puts you back in the game. Austria is pressing A SER\u2192BUL this fall with F GRE in support. Turkey has threatened to contest AEG and even GRE if we push \u2014 so I need you aware: if Turkey moves F AEG\u2192GRE while I am supporting from GRE, we have a problem. For this phase Austria must use F GRE to support A SER\u2192BUL rather than defend Greece itself. Turkey knows this and may exploit it. Italy's position: can you move toward the eastern Med next phase? F TUN\u2192ION in F1902M would be ideal \u2014 it puts pressure on Turkey's southern flank and deters F AEG from moving north toward GRE. If Italy is in ION threatening TYS or MID, Turkey's fleet is pinned. The Lepanto only works if we keep moving east. Austria is committed. What is Italy's plan for fall 1902? \u2014 Vienna",
+    "sent_at": "2026-06-19T01:16:25.387171+00:00",
+    "sig": "/BAzB9nPDyCZMnABXsz61QHAQp+qHQnbm0Xx1CDjtpSpha7rMVBMKOI4o69EIxFvtY02hqOXaAWYbTkg1N3PCQ==",
+    "verified": true
+  },
+  {
+    "id": "d72b5f21f2854b4d",
+    "phase": "F1902M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris \u2014 England values our Channel peace and intends to keep it. France is right that Germany at 6 centers is the greater long-term threat. England's focus this fall is on the north \u2014 contesting SWE with Russia's help. I have no plans to move into ENG or BEL this season. The Channel stays clear. If Germany's eastern push stalls and they turn westward, France and England would have common cause to push back together. Let us keep the lines of communication open and watch Germany's moves carefully. \u2014 England",
+    "sent_at": "2026-06-19T01:16:26.891404+00:00",
+    "sig": "DsZBxYeArNk/Kz7YTdKuQqq1+Dg93AgrplFwTKUWR3QGYRHmG/c38ULUaBDl6AV9458MGTiXS6rAHbkdDYfYAQ==",
+    "verified": true
+  },
+  {
+    "id": "55046aa8f9322534",
+    "phase": "F1902M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "England \u2014 your instinct is right: Germany at 6 alongside France is the central tension on the board. But the threat runs one direction \u2014 Germany's A SIL is already pushing east, and a Germany that swallows Russia becomes unstoppable. France and England together can cap Germany at 4 centers this fall. Here is the play: France moves A BEL\u2192HOL, cutting Germany off from the Low Countries. England secures Scandinavia \u2014 F NWY\u2192SWE with support. Germany gets squeezed from both sides before they can consolidate. France is not asking for BEL in perpetuity \u2014 once Germany is contained, we can negotiate a fair western settlement. But right now, the window to act is open. Are you with us?",
+    "sent_at": "2026-06-19T01:16:28.099497+00:00",
+    "sig": "72vnm0V+TX2XqobzqYJ0UEYQ4N2j9E9NqOBJqnuxwU+IGlUVHAI12DLNhBFAydm7HnaHbt8XckLM/HgohorICg==",
+    "verified": true
+  },
+  {
+    "id": "821cc6c40da7b34d",
+    "phase": "F1902M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople \u2014 I have heard your warnings and I weigh them seriously. But consider the board: France and Germany are each at 6 centers. Austria at 5, Turkey at 4 \u2014 we are both falling behind the western giants. A prolonged Austria-Turkey war over BUL is exactly what France and Germany want. Here is my honest assessment: Austria cannot afford to leave BUL to Turkey indefinitely. The Balkans are Austria's natural sphere just as the Black Sea is Turkey's. What I can offer is this \u2014 if Turkey does not move F AEG against GRE this fall, Austria will not press BUL with full force next year. But if Turkey contests AEG and threatens GRE, Austria has no choice but to commit fully to eliminating the Turkish threat before turning north. You say a Turkey holding BUL is a contained Turkey. I say a Turkey with BUL AND AEG contested is a Turkey that has overextended. Russia is pressing from ARM. Italy has Tunis. The noose tightens regardless. Work with Austria rather than against it \u2014 there is still a deal to be made. \u2014 Vienna",
+    "sent_at": "2026-06-19T01:16:33.168703+00:00",
+    "sig": "sH1FmoXE11iZi/l015Rg475nh53gB9kPKo7KpuVKSICODu06q1PzQ3t64pDpMwnT5lvB1XHp/6fMXxk/MOZABA==",
+    "verified": true
+  },
+  {
+    "id": "a6fcc75a790b1348",
+    "phase": "F1902M",
+    "sender": "FRANCE",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 Germany's A SIL is already in your backyard. France is pressing Germany from the west this fall: A BEL\u2192HOL to cut off the Low Countries, A PAR\u2192BUR to pin his center. If Russia can hold or push back in the east \u2014 WAR, GAL, SIL \u2014 Germany gets squeezed from both sides and cannot consolidate. France has no eastern ambitions. A coordinated Franco-Russian vice on Germany benefits us both before he reaches 8-9 centers and becomes unbeatable. What is Russia's situation and intentions? Can we coordinate?",
+    "sent_at": "2026-06-19T01:16:34.717719+00:00",
+    "sig": "JFB5OW1PgpCpYpkcMvFbLR8FJznloUnKFj3cn7hDkVoKEBH16m69zujEEnUNJew+6VDyf9EIBBcDqOPBFGnHDw==",
+    "verified": true
+  },
+  {
+    "id": "7d7ad4b928df667f",
+    "phase": "F1902M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Berlin \u2014 England appreciates the continued partnership, but must be candid: with Germany at 6 centers holding SWE, DEN, HOL, and pushing east, the board dynamic is becoming uncomfortable for England. A Germany that sweeps Russia and then France becomes unstoppable. England needs to see Germany checked somewhere \u2014 and the logical place is SWE. If Germany voluntarily retreats F SWE to DEN this fall and cedes SWE to England, the alliance holds and England focuses northward on StP and Russia. If not, England must explore options to rebalance the board. The choice is Germany's. \u2014 England",
+    "sent_at": "2026-06-19T01:16:35.558667+00:00",
+    "sig": "8YCgvJMhpXmRtZcnoiyXd1z+S9+HyI9WEabwSJCs30DdKWM0mPmPq7V0GJJfvMxir+WGq7vsK39v0SpjnV6vDg==",
+    "verified": true
+  },
+  {
+    "id": "9702b9291f8a280e",
+    "phase": "F1902M",
+    "sender": "GERMANY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Berlin to Moscow \u2014 Russia, I want to be candid with you about the board as I see it. We both know the math: France and Germany sit at 6 while the rest of the powers trail. England is pressing me to help them attack France, and France is pressing me to share England's messages. I am doing neither blindly.\n\nWhat I want you to know is this: Germany's eastern ambitions are real, but they need not be pointed at Russia. The Balkans and southern board are richer targets than a costly war with a neighbor who has respected our understanding. \n\nI want to ask directly: what is the status of Warsaw? Russia's moves in 1901 took the army south to Ukraine, and I have not seen it return. I ask not to threaten, but because knowing the board honestly is the basis of any real arrangement.\n\nIf Russia is willing to discuss a partition of eastern Europe \u2014 perhaps Germany takes Warsaw and we agree on a line \u2014 that is worth exploring. If Russia prefers to contest, I would rather know now. Either way, I respect directness over silence. \u2014 Germany",
+    "sent_at": "2026-06-19T01:16:37.956937+00:00",
+    "sig": "wQcfkqIm74HBAgrHAvSkMo5VTnnMqmx8gcnpPFF9X9grPt7fuG26qT9swaX7Kp6EYMqGPRQZt+nrT58VUHCsCw==",
+    "verified": true
+  },
+  {
+    "id": "6a45ffb91271592f",
+    "phase": "F1902M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Rome \u2014 France appreciates the continued western peace. A quick note on the broader picture: both France and Germany sit at 6 centers, and Germany is pushing east with A SIL. France intends to press Germany from the west this fall. Italy's Lepanto focus is well-timed \u2014 Austria growing unchecked in the Balkans is a concern we both share. Let us stay in close contact. Western non-aggression holds; France is not moving on PIE.",
+    "sent_at": "2026-06-19T01:16:41.178151+00:00",
+    "sig": "pCxUVovJkyatvgPpYZ+Qm3D17+8SFGU8A17XIV0s/SlLQFAC0JruB9pENHgikDpNAHvgNucd207yHPWlncGhBA==",
+    "verified": true
+  },
+  {
+    "id": "a9ebf961d19e2ae4",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Rome \u2014 Austria's commitment to the Lepanto holds, and Italy is equally committed. Securing Tunis this spring puts Italy at 4 centers come winter. For fall 1902, here is Italy's plan: F TUN will hold to lock in Tunis as a supply center \u2014 we cannot risk it this phase. A APU moves toward the eastern theater to support future operations. In winter Italy builds, likely a fleet at Naples to project into the eastern Med in 1903. Come 1903, the Lepanto resumes in earnest: Italian fleet moves east, Austria presses from the north. Turkey is squeezed from both sides. Hold steady this fall \u2014 Italy's full weight comes into play after the winter build. \u2014 Rome",
+    "sent_at": "2026-06-19T01:16:49.354866+00:00",
+    "sig": "4E6kZWt/NMv/T9BKVPJS0MZIN0H+PnGfCBk1eWD4yfaGXkpT38/F/8iauHFt0t6JZo09bVm///S3aQU+HPcwDQ==",
+    "verified": true
+  },
+  {
+    "id": "36192180515420c4",
+    "phase": "F1902M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London, I have read your message and I appreciate the directness. You are right that the board is at an inflection point.\n\nOn Belgium: I am not in a position to support F NTH\u2192BEL this fall. France and I have an arrangement there, and breaking it now would cost Germany more in western stability than it gains. That said, I take your point about England needing room to grow.\n\nHere is what I can offer: Germany will not contest Norway, and I will not support any French move against England. England's northern position is yours to hold and develop. If France overreaches \u2014 moves on England or threatens the channel \u2014 Germany will coordinate with you. \n\nWhat I need from England is a firm commitment: stay out of HOL, DEN, and the Baltic. Those are Germany's sphere. If England can confirm that in writing, we have a durable axis regardless of Belgium. \u2014 Germany",
+    "sent_at": "2026-06-19T01:16:49.362295+00:00",
+    "sig": "DEHjJ3PXJAhTTDRsBKS39+XqutPjAb1elv7yD1DuxCggH8czVyNNxo/7aGLh8FXVC7y9f3Y3jVX7+AZMhWliBA==",
+    "verified": true
+  },
+  {
+    "id": "0ee645caa2790e37",
+    "phase": "F1902M",
+    "sender": "RUSSIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Berlin \u2014 I have read your message carefully, and I will be equally direct. Germany's A SIL is on Warsaw's doorstep, and that cannot go unaddressed. Warsaw will be defended. Russia does not accept partition proposals for our home centers.\n\nThat said, I have no desire for a costly war with Germany if it can be avoided. Here is what I propose: Germany pulls A SIL back to a non-threatening position, and Russia will maintain the eastern non-aggression understanding we established in 1901. I will not press into Silesia or Prussia.\n\nFrance is already coordinating against you from the west. A two-front war does not serve Germany. Show me A SIL retreats, and I will show you Russia has no eastern ambitions against Germany. The alternative \u2014 Russia joins France's vice \u2014 ends badly for Berlin.\n\nThe choice is yours. \u2014 Moscow",
+    "sent_at": "2026-06-19T01:16:52.039299+00:00",
+    "sig": "ZX6p37kLxRM7Ek9GSLc9vacuPHaBZhNwAV8tqFyXt0jtHbezS5LYd2T5vyvz3wHO6IaDwNAP9u7xEHLD4XfiCQ==",
+    "verified": true
+  },
+  {
+    "id": "446007dc1264ff3e",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris \u2014 the western peace holds and Italy values it. You raise a fair point about France and Germany both at 6. Italy's read: Austria at 5 is a manageable partner for now \u2014 the Lepanto keeps Austria's attention on Turkey rather than the west. Germany at 6 with northern momentum is the more serious long-term concern. Italy is not positioned to press Germany directly, but if France finds opportunity to check German expansion in the west, Italy would view that favorably. For now Italy's hands are full in the south \u2014 securing Tunis, then resuming the eastern push in 1903. Open channels between Rome and Paris remain valuable. \u2014 Rome",
+    "sent_at": "2026-06-19T01:16:56.429366+00:00",
+    "sig": "NjHFqoelPQD6oW5UjAQvbpycHxRwzI6UM5WwczRAdXvMPmlVXHZOcU27370qVJwFWNoQgLSFjcsBM666PzMdDQ==",
+    "verified": true
+  },
+  {
+    "id": "6c6fdd356c73ed1a",
+    "phase": "F1902M",
+    "sender": "GERMANY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna, Germany writes to seek an eastern partnership. As you can see on the board, Germany and Austria are the two powers best positioned to shape the eastern game \u2014 and we are not competing for the same ground.\n\nGermany's eyes are on Warsaw and the northern Russian centers. Austria's natural sphere is the Balkans and the south. There is no reason for friction between us, and every reason to coordinate.\n\nMy proposal is simple: if Germany moves east against Russia, Austria's rear is safe from any German threat. Germany would welcome a similar assurance about Bohemia and Tyrolia. If we can agree that German armies will not enter Austria's sphere and Austrian armies will not enter Germany's, we both grow stronger against the real competitors.\n\nI would also share intelligence: France is probing toward Burgundy defensively, and England is pressing for help against France. Germany is holding the western front stable. We could use a reliable eastern partner. Are you interested in coordination this fall? \u2014 Germany",
+    "sent_at": "2026-06-19T01:16:57.111318+00:00",
+    "sig": "4C9BIX8AdouVPv6kkgxZhJ/TmYaGiIut2dxIarGYBJDgPUhFRE30n5rJVhAQ/JSP9CDBcOaCk79ZFNE8db4aCQ==",
+    "verified": true
+  },
+  {
+    "id": "e13de11bf222366d",
+    "phase": "F1902M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 Turkey values the truce we have maintained, and I want to deepen it now. Germany at 6 is the real threat, not Russia or Turkey. Here is my sincere proposal: Turkey will NOT press into RUM or challenge Russia from the south. In return, Russia stays out of BUL and holds the line against Germany in the north. Turkey's focus this fall is the Aegean \u2014 addressing the Italian-Austrian pressure on our southern flank, not expanding against Russia. A living Turkey with BUL is your best buffer against Austrian dominance of the Balkans. Germany must be your priority; let us not hand Austria or the West a free win by fighting each other. Agreed? \u2014 Constantinople",
+    "sent_at": "2026-06-19T01:16:59.853458+00:00",
+    "sig": "pVL3JLfVnkgwZCQCMDn5NCcBelQGfEEj2rrn6zwvtBDKDD7mkQiuZ4lhLbKf4dNaeaOGiqIfeMRRyCMJq4seBw==",
+    "verified": true
+  },
+  {
+    "id": "ca3b40ffa1603d8c",
+    "phase": "F1902M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London \u2014 England's proposal is accepted. Russia will NOT move F FIN into SWE this fall. F NWY\u2192SWE with F NTH in support is a clean 2-against-1. Germany loses the center and we both gain.\n\nI must be honest with you: Germany's A SIL threatens WAR directly this fall. Russia is forced to defend Warsaw, which limits what I can do in Scandinavia. But holding FIN and letting England take SWE is exactly right \u2014 no bounce, Germany loses a center, and we discuss Scandinavia on our terms in 1903.\n\nOne request: if England has any capacity to pressure Germany in the north \u2014 DEN, KIE \u2014 it helps both of us. Germany at 6 centers pressing east and west simultaneously is the board's biggest danger. France is already coordinating pressure from the west. Let us make 1902 the year Germany is stopped. \u2014 Moscow",
+    "sent_at": "2026-06-19T01:17:00.740850+00:00",
+    "sig": "sjxTCu+8CrHOsxg534O0NrR2fxelNc1DJVU7B/J2HP3nOIfgBYwvwUyVrSmjShSjdRfiLmJxJj43oa3UWYazBA==",
+    "verified": true
+  },
+  {
+    "id": "92e0eccd546ca669",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople \u2014 Italy hears you, and I will be direct in return. The Lepanto has put Italy in an awkward position: deep in the east with only 3 centers at home. You are right that Austria benefits more than Italy in the short term. Italy's immediate priority this fall is locking in Tunis \u2014 no fleet movements east this phase. Italy builds in winter and reassesses. If Turkey wants to propose a genuine division of the southern board \u2014 one that gives Italy real gains rather than second-fleet status \u2014 I am listening. What specifically would Turkey offer? Concrete terms, not generalities. \u2014 Rome",
+    "sent_at": "2026-06-19T01:17:01.602490+00:00",
+    "sig": "ApkXxZSuTte4PkPZXN9JstdVkzg+DuAx4gyuUpUu1XEJQdCdV/hI1fkz6oQs0QzdjOCKRGXk1OqHKcCcdN7kAQ==",
+    "verified": true
+  },
+  {
+    "id": "771e800f0194d4ec",
+    "phase": "F1902M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 I hear your argument and I respect your candor, as always. You say BUL is Austria's natural sphere; I say a Turkey holding BUL is a contained power focused south and east, not one threatening Vienna. Austria and Turkey fighting over BUL while France and Germany each sit at 6 centers is exactly the outcome the West wants. Consider: if Turkey falls, Russia fills the vacuum \u2014 not Austria. Austria cannot hold both BUL and the north. I am willing to discuss a boundary arrangement. Turkey's interest this fall is securing its southern flank against Italian pressure. If Austria can show restraint in the Balkans, Turkey will show restraint in return. What specific arrangement can Vienna offer that keeps both of us viable against the real threats? \u2014 Constantinople",
+    "sent_at": "2026-06-19T01:17:06.627702+00:00",
+    "sig": "CGfzDf+Lm3LKYRORe+gRwLJkpQqQSt1u/xCf8ouH3eXcyl2DqVGuJTouTx044niIUsu8qFEpYQmZ/KFgxiuaCA==",
+    "verified": true
+  },
+  {
+    "id": "3df852fd869bd848",
+    "phase": "F1902M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople \u2014 the truce holds. Russia is not moving on BUL this fall. Austria is pressing A SER\u2192BUL and Russia cannot simultaneously defend Warsaw and take BUL from RUM.\n\nHere is Russia's honest position: Germany's A SIL threatens Warsaw directly. Russia must defend the home front. I am not in a position to press GAL against Austria this fall either \u2014 I need A UKR to defend WAR.\n\nWhat I can offer: Russia will not move ARM into Anatolia this fall. F RUM holds or supports defensively. Turkey has breathing room to hold BUL against Austria. If you can hold BUL, that denies Austria an easy win and keeps the Balkans contested \u2014 which serves Russia's long-term interests as much as yours.\n\nGermany is the real threat on this board at 6 centers. Once Russia stabilizes the eastern front, I want to explore coordinating against the western powers. Stay in contact. \u2014 Moscow",
+    "sent_at": "2026-06-19T01:17:07.499201+00:00",
+    "sig": "qSPJTwtbPfiKOmytLwpKRYGMoo+VckomuLt9++7sfmmXJaqmGeZhY4i8qYi37FvqiVs5NMKlHgr2miGOoU14Bw==",
+    "verified": true
+  },
+  {
+    "id": "a441bc32ebc0df44",
+    "phase": "F1902M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Rome \u2014 Italy has Tunis now, well done. Let me be direct: Turkey has no quarrel with Italy in the western Mediterranean. Turkey's concern is the eastern Med and the Aegean, where Austrian pressure is real. If Italy has no intention of pressing into AEG or threatening ANK and SMY, Turkey has no interest in contesting Italian gains elsewhere. I propose a simple arrangement: Italy stays west of the Ionian, Turkey stays focused on the Black Sea and Balkans. We need not be enemies. France and Germany are the powers that threaten us both in the long run \u2014 let Austria be your check in the east, not Turkey. What does Italy want from the eastern Med that Turkey cannot accommodate? \u2014 Constantinople",
+    "sent_at": "2026-06-19T01:17:12.722031+00:00",
+    "sig": "KORd/mg8c+4gkJVJlUovrh132rgqcvjyQufLmaLuhJQ6hsE2Jx1M1piWFQqZW3PINZv+oqayCdmbs4LHIsYRCg==",
+    "verified": true
+  },
+  {
+    "id": "47867d08962eb49a",
+    "phase": "F1902M",
+    "sender": "RUSSIA",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris \u2014 thank you for reaching out. France and Russia share the same concern: Germany at 6 centers, pressing east and west simultaneously, is the board's greatest threat.\n\nRussia confirms: Germany's A SIL is threatening Warsaw this fall, and we will defend. A UKR moves to WAR to hold it. If Germany overextends east while France presses west, Germany gets squeezed and cannot consolidate.\n\nRussia is coordinating with England on SWE \u2014 England takes SWE from NWY with support, Germany loses that center. Combined with French pressure in HOL and BUR, Germany faces a three-front problem.\n\nFrance's eastern ambitions \u2014 I take you at your word that they stop at the Rhine. Russia's western ambitions stop at Germany's eastern frontier. Let us both hold Germany to 6 centers through 1902 and reassess. Stay in contact. \u2014 Moscow",
+    "sent_at": "2026-06-19T01:17:14.077199+00:00",
+    "sig": "elGFbUOPMbCedDNliM9EyjsfpkgQ3Es9zviNkQdLmEfsTThRKwabv1W6mesoAwjmrcN4oDEllLk/gEPAG96mCQ==",
+    "verified": true
+  },
+  {
+    "id": "5beb5a56f940700a",
+    "phase": "F1902M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Vienna to Moscow \u2014 Russia, we are aligned. Austria is moving A SER\u2192BUL this fall, supported by F GRE. Russia confirms non-aggression in GAL and presses A SEV\u2192ARM. This squeezes Turkey from both sides. Let us proceed as planned \u2014 Austria takes BUL, Russia gains leverage over ARM. Good hunting in the north.",
+    "sent_at": "2026-06-19T01:18:19.260623+00:00",
+    "sig": "mlBG0Xw3aDJ7mPkiC/UgXKiPMLt/a628nkHt1NhApi2zc+SOt8QrX1u84ECIMUsHAyTJWH2sVERfaLB6SgBNBg==",
+    "verified": true
+  },
+  {
+    "id": "14240c31ec04f1e0",
+    "phase": "F1902M",
+    "sender": "ENGLAND",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 confirmed. F NWY\u2192SWE with F NTH support is locked in. Germany loses SWE, you hold FIN safely. England will not push into DEN this fall \u2014 that is Germany's buffer and we have no need to overreach. Watch for France pressing HOL simultaneously; Germany will be squeezed from multiple directions. Let us coordinate again in 1903 from a position of strength. \u2014 England",
+    "sent_at": "2026-06-19T01:18:24.193698+00:00",
+    "sig": "Bx9RcAz0PcRmuHz6Jb2tT6H9wJBjYqy5f3cQcVjU+V0mTQ3GTMYnkqzIz9U8ww9P6URPM2mcyqsrNwLabFf5DA==",
+    "verified": true
+  },
+  {
+    "id": "00460fa5247c0323",
+    "phase": "F1902M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople \u2014 Vienna has made its decision. Austria is taking BUL this fall. A SER moves to BUL, supported by F GRE. We have no wish for permanent war with Turkey, but BUL is Austria's natural sphere and the move stands. If Turkey holds its fleet and does not contest GRE, there may be room for a boundary arrangement afterward \u2014 Austria has no interest in Ankara. But BUL is non-negotiable. \u2014 Vienna",
+    "sent_at": "2026-06-19T01:18:25.120506+00:00",
+    "sig": "s3yh2LPHX3vKXH2WkZzGpCUmBOwctieLasUqg1vg2fhxg/TD9Ev8B0CgqdlduPhm2Z5z3XvgmsQC6gEdoh2OBg==",
+    "verified": true
+  },
+  {
+    "id": "6078d9d034a2dc34",
+    "phase": "F1902M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 the coordination is on. England takes SWE (F NWY\u2192SWE, F NTH support), you take HOL (A BEL\u2192HOL). Germany loses two centers in one fall \u2014 that is a decisive check on Berlin. England is not contesting the Channel or Belgium; our spheres are clear. Let us compare notes after adjudication and plan 1903 together. \u2014 England",
+    "sent_at": "2026-06-19T01:18:29.256964+00:00",
+    "sig": "L3BlwP75T+vSw4ZSM4U4fccZVxW07UfFDIl11uxuk3Vo7+qwZqNhRmFxIylQuH266aHwr3dJSfRQjddPN7DEDg==",
+    "verified": true
+  },
+  {
+    "id": "266f3798cfe9acf9",
+    "phase": "F1902M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London \u2014 France confirms the coordination. This fall France moves A BEL\u2192HOL, taking that center from Germany. England should press north for SWE. Germany drops from 6 to 4 if we both succeed. The Channel stays peaceful \u2014 we have no quarrel. A Franco-English squeeze on Germany this fall sets the stage for 1903. Let us hold Germany in check together. \u2014 Paris",
+    "sent_at": "2026-06-19T01:18:31.115144+00:00",
+    "sig": "PauFZmoNg85WptEIIufJRxAMiBWoe8v3zx7CzJxUbRSkhtwpmFg1g5IRXZrBRPzR/Ze1HQRrIitPvwvICobOCQ==",
+    "verified": true
+  },
+  {
+    "id": "f0e8c013ee97592d",
+    "phase": "F1902M",
+    "sender": "AUSTRIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Berlin \u2014 Vienna welcomes the partnership proposal. Austria agrees: no Austrian armies enter Germany's sphere (Bohemia and Tyrolia safe from Austrian aggression), and we expect Germany to keep out of Austria's Balkan sphere in return. This fall Austria is pressing south into BUL \u2014 Germany's eastern flank should be secure from our side. Let us build this partnership on concrete non-aggression and share intelligence as opportunities arise. \u2014 Vienna",
+    "sent_at": "2026-06-19T01:18:31.193703+00:00",
+    "sig": "VNTlaxQNdqVbR0lEvkHefpOqnZayPQlwSrP09DPQ7TH0SLqClvdOCPq1ZXp1r3hSUfx3nqy9g56q6a1+OF8qCA==",
+    "verified": true
+  },
+  {
+    "id": "fc2973cf0b263dff",
+    "phase": "F1902M",
+    "sender": "FRANCE",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 France confirms the squeeze. France moves A BEL\u2192HOL this fall, pressing Germany from the west. A PAR moves to BUR as additional pressure. Russia holds WAR against Germany's eastern push. If England takes SWE, Germany faces losses on all fronts and cannot consolidate. France's ambitions stop at the Rhine \u2014 we have no interest in Berlin or beyond. Let us hold Germany to 4 centers this fall and reassess from a position of strength. \u2014 Paris",
+    "sent_at": "2026-06-19T01:18:37.061988+00:00",
+    "sig": "qiTZ/xR0rHTgmD2rXdJA1eRJKft6vZVgbhhay34+74A0AOrkXkBdpDPlob0Soo0aZNufCnU/Pd0W+RPWZN+HDA==",
+    "verified": true
+  },
+  {
+    "id": "0f9bd725be10e073",
+    "phase": "F1902M",
+    "sender": "GERMANY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 Germany writes in friendship and urgency. The board is heating up: England presses on SWE, Russia defends Warsaw. Germany has no quarrel with Austria \u2014 in fact, we see Austria as a natural partner against Russian overreach. Germany's A SIL is aimed at pressure on Russia, not Austria. We ask only that Austria remain neutral toward Germany's eastern flank, and in return Germany will support Austrian interests in the Balkans diplomatically. Let us keep this channel open. \u2014 Berlin",
+    "sent_at": "2026-06-19T01:18:38.932968+00:00",
+    "sig": "zI2sciBT+2QtBP7qFRXg004OMk3f7AxJdwpEbkJiWrZZQUXdsfrBn36Ip5aZ8TK6Q0XUos0Xwpz33/o3lfT5BQ==",
+    "verified": true
+  },
+  {
+    "id": "2e8bba8af266c600",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Rome \u2014 Turkey's message is noted and appreciated. Italy's immediate priority is consolidating Tunis and recovering strength. For fall 1902, Italy is not positioned to push deep into the Aegean \u2014 the fleet needs time to regroup. We are not interested in a grinding war with Turkey when France and Germany loom large at 6 centers each. Let us keep this channel open. Nothing is decided yet about eastern moves in 1903. \u2014 Rome",
+    "sent_at": "2026-06-19T01:18:42.728468+00:00",
+    "sig": "qq4sqr+8onGfqdlxk2R9Wnngzj772hNlHUuvViyqw/dTTQrDvRpU6JOUu8k6lc9PydT8sYieJY99dtMUK2rLCg==",
+    "verified": true
+  },
+  {
+    "id": "33e03c6fc0655cab",
+    "phase": "F1902M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Berlin \u2014 France has valued the dialogue, but the arrangement you propose does not serve French interests. You ask France to leave HOL untouched while Germany consolidates 8 centers. France cannot agree to that. If Germany wishes to avoid conflict, cede HOL peacefully this fall \u2014 let France take it unopposed \u2014 and we can discuss a genuine partnership in 1903 with both powers at stable footing. Otherwise France must act in its own interest. The choice is Berlin's. \u2014 Paris",
+    "sent_at": "2026-06-19T01:18:43.285821+00:00",
+    "sig": "mtp1zV+IJIH+XJmv0MNsiZGrvvx65ZCsDlw5jvbdok0f7SxvsyHcZS66LyjLcsSgHlysfHgAHoaW7jOX7aZZCg==",
+    "verified": true
+  },
+  {
+    "id": "815d8eae9743fcac",
+    "phase": "F1902M",
+    "sender": "GERMANY",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London \u2014 Germany rejects England's ultimatum. SWE is a German fleet position earned through our alliance, not a bargaining chip to be handed away under threat. If England attacks SWE, Germany will treat this as a declaration of war and pivot entirely to counter-English strategy. Germany is prepared to ally with France against England if London forces this confrontation. Consider carefully: a Germany focused on England rather than Russia rebalances the board against you, not for you. Stand down, and the alliance endures. \u2014 Berlin",
+    "sent_at": "2026-06-19T01:18:45.140633+00:00",
+    "sig": "pGnxtGjmbARkwmKgUE8pBfiWeQg8RYZWvH9fuoJThh/vn2NJhr2yXpNVG7S1506Kd/wWlrzjewrkYgXAWTC3Dg==",
+    "verified": true
+  },
+  {
+    "id": "c34ceb2f022d1a03",
+    "phase": "F1902M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 Italy has Tunis secured. F TUN will hold this phase to cement the center. Moving toward ION in one phase from TUN is possible but risky; Italy prefers consolidation now and an eastern push in 1903 once we are at 4 centers and stable. Austria's pressure in the Balkans is the real lever \u2014 keep pushing on BUL. Italy will be ready to rejoin the eastern campaign next year. \u2014 Rome",
+    "sent_at": "2026-06-19T01:18:48.233933+00:00",
+    "sig": "6D4Q6SSfgAeJS0fPw4WMWrgBfnEgOvITyANUzBgbOoJqbRiLJ5XjLWThbC8MqB3a0V4dGVtPmH5MPh/798K6DA==",
+    "verified": true
+  },
+  {
+    "id": "f38c02d182a6fe21",
+    "phase": "F1902M",
+    "sender": "RUSSIA",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "London \u2014 Russia confirms: F FIN holds this fall. England takes SWE with F NWY supported by F NTH. No bounce, Germany loses the center cleanly. Russia will be watching from FIN as you execute. Good hunting \u2014 we coordinate again in 1903 from strength. \u2014 Moscow",
+    "sent_at": "2026-06-19T01:18:48.766120+00:00",
+    "sig": "ubH97QT1WxdhoWpUEB8e5zPQCQtb9qKH5/ICzzoEMAT7M3KL0Rc1dIslBFH0CMMF0JtpGrLP/s1jv26TywtGAg==",
+    "verified": true
+  },
+  {
+    "id": "969c3922698dcd97",
+    "phase": "F1902M",
+    "sender": "GERMANY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 Germany hears your message. A two-front war benefits neither of us. Here is a counter-proposal: Germany's A SIL holds position this fall \u2014 no move on WAR. In return, Russia maintains non-aggression on Prussia and Silesia. Germany's focus is the English threat in the north; England is pressing SWE with two units. If Russia and Germany are both fighting England's encroachment, we have common cause, not a quarrel. Show restraint this fall and Germany reciprocates. \u2014 Berlin",
+    "sent_at": "2026-06-19T01:18:51.624401+00:00",
+    "sig": "tIi60HsdJ/McRnOLFZ9SuDgKmbFptcD8Vx+YVjvx8j4Yzi8vN4lzZDtZy9ZTfpnlpkjosfW5YGa9D34wC5TGDQ==",
+    "verified": true
+  },
+  {
+    "id": "3c187890da3c1c08",
+    "phase": "F1902M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 Russia confirms non-aggression in Galicia through this fall. A UKR is not moving to GAL. Austria takes BUL clean with A SER\u2192BUL supported by F GRE \u2014 Russia will not contest. On ARM: Russia is pressing from that direction, keeping Turkey split between two fronts. Once Turkey is contained, agreed \u2014 Germany at 6 is the next priority. Their A SIL threatens WAR directly and that cannot stand. Let us secure the Balkans first then coordinate north. \u2014 Moscow",
+    "sent_at": "2026-06-19T01:18:54.819797+00:00",
+    "sig": "8TLkEWFPfe+5HACE9DD3MkFAGNttzaWNwqrZiyGFg279/VbgbdPsFHmXfPEqQRDzLeWtsN9+NPR9OyfTCf8wAQ==",
+    "verified": true
+  },
+  {
+    "id": "294d4b6f7d9fa598",
+    "phase": "F1902M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "Paris \u2014 Germany must be candid: England has issued an ultimatum demanding SWE and is attacking with two units. Germany is now at war with England in the north. This changes our calculus entirely. Germany proposes: France and Germany coordinate against England. France takes BEL permanently (Germany won't contest it), and Germany focuses north against England. If France can press A BEL toward NTH or otherwise tie down English attention, Germany can hold the north and we both benefit. England at war with Germany is an England distracted from France. Let us use this moment. \u2014 Berlin",
+    "sent_at": "2026-06-19T01:18:57.973689+00:00",
+    "sig": "Jz+XAArOP8O2u969RYIdzMH3pYCViWFDIO5eLXgauvX0TPj0KtWsd2BapaaTl98Suire1j0m+apZXVx/Z/azDw==",
+    "verified": true
+  },
+  {
+    "id": "b85dd60b70e812c3",
+    "phase": "F1902M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Constantinople \u2014 Russia appreciates the truce and takes it seriously. Here is Russia's honest position: A ARM presses toward ANK this fall \u2014 not out of aggression but because Russia must demonstrate to Austria that we are squeezing Turkey from both sides or Austria turns suspicious of our coordination. This is tactical positioning, not a commitment to war with Turkey. Russia does not intend to take ANK if Turkey holds it with good defense \u2014 we are applying pressure, not launching an invasion. Your instinct is correct that Germany at 6 is the real long-term threat. If Turkey holds BUL against Austria and survives this fall, Russia is willing to revisit the truce terms in 1903. A living Turkey with BUL is indeed a useful buffer. Show us you can hold and we talk again. \u2014 Moscow",
+    "sent_at": "2026-06-19T01:19:01.243660+00:00",
+    "sig": "9j0GzPFzfrdWGG4X4jRuq1KiUtRY1bxRbBJ0kqTZOcTDLO1y195NbBA/laeHTFj/f/PNO3Cs1n5Oqq+Yts7cAg==",
+    "verified": true
+  },
+  {
+    "id": "8ad559e74a2e79a4",
+    "phase": "F1902M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Vienna \u2014 your logic is clear, and I respect the directness. Austria has committed to BUL; Turkey has committed to defending it. We will see what the board decides. But mark this: if F GRE is occupied supporting A SER, then GRE itself is undefended. Turkey does not threaten GRE out of aggression \u2014 but Austria cannot expect to use F GRE as a lever against BUL while also holding GRE. The math is simple. If Austria pulls F GRE back to defend Greece rather than commit it to BUL, a bounce at BUL is likely \u2014 and Austria's effort costs it nothing permanently. That is my genuine offer for this fall: step back the F GRE support, let BUL bounce, and Turkey reciprocates by keeping F AEG in place. A draw at BUL is better than a war that opens Austria's southern coast to risk. The choice is Vienna's. \u2014 Constantinople",
+    "sent_at": "2026-06-19T01:19:01.282242+00:00",
+    "sig": "nVTAr5vbq2ZBbjxszokLqpdMkCrhUbNNEntuiBzAcjlWf0kqYC9pZ2ns+NeVZlVmTg1Cb6llFu52WkW799svBA==",
+    "verified": true
+  },
+  {
+    "id": "8ce0e99118dd0bd3",
+    "phase": "F1902M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Rome \u2014 Turkey appreciates your candor, and I'll match it. Italy sits at Tunis, consolidating. Turkey holds BUL, defending. Neither of us is positioned to strike the other this fall. That is the natural division already writing itself on the board. Here is the concrete proposal you asked for: Turkey and Italy each hold their current centers this fall \u2014 BUL for Turkey, Tunis for Italy. No Italian fleet moves east of ION, no Turkish fleet moves west of AEG. In 1903, we revisit with fresh eyes \u2014 Greece is a natural buffer zone we could share access to, or Turkey might offer support for Italian gains in the western Med if Italy reciprocates in the east. The west holds 12 centers between France and Germany. A Turkey-Italy war enriches only them. I am prepared to make this formal if you are. \u2014 Constantinople",
+    "sent_at": "2026-06-19T01:19:08.858775+00:00",
+    "sig": "99vxEx5yNXFu42YzrxpIpWunabVHWGp6RKcQVIxxz293QeVe6fHUewNi/ex5LljcOXQtAiC4HCt3u5ojDfwLCA==",
+    "verified": true
+  },
+  {
+    "id": "f9f703a7598ca7a9",
+    "phase": "F1902M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Moscow \u2014 Turkey hears you, and I appreciate the honesty about Germany's threat. The truce holds on our side as well \u2014 F BLA stays defensive. If Russia cannot press GAL this fall due to German pressure, that is understood. What matters is this: Russia does not move ARM into ANK, and Turkey does not contest BLA. That agreement stands. Once the dust settles \u2014 whoever holds BUL after this fall \u2014 Turkey and Russia have more to gain facing west together than grinding against each other in the east. Germany at 6 centers is the board's true danger. Let us stay in contact through 1903. \u2014 Constantinople",
+    "sent_at": "2026-06-19T01:19:14.544360+00:00",
+    "sig": "Xr3XuijnA0NHjXtBdYk222KnjarFi11V+f8KMSRwGUi+sVa+0K7KPumquQ9T9CHT3Ec4C08NLj2jKTiJnhaQAQ==",
+    "verified": true
+  }
+]
