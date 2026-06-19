@@ -46,9 +46,24 @@ Orders submitted: A CON S A BUL, A BUL H, F AEG H, F ANK - BLA
 - **Austria**: Hostile — A SER→BUL this spring. Austria taking SER→BUL signals Balkans contest. Watch for follow-up in F1902.
 - **Italy**: Moving F ION→TUN (needs 4th center). Not immediately threatening eastern Med. Door open for Fall 1902 accommodation.
 
-## Next Phase Plan (F1902M)
-- If BLA secured: strong position to threaten RUM or push AEG→GRE.
-- Coordinate with Russia vs Austria: Turkey from south, Russia from north (GAL pressure).
-- Watch Italy after TUN — could redirect east in fall.
-- Consider A BUL→SER or A BUL→RUM if Russia has RUM vulnerable.
-- Build goal if center gained: another fleet to reinforce eastern Med.
+## Position (F1902M)
+Units: A BUL, A CON, F AEG, F BLA
+Centers: ANK, CON, SMY, BUL (4)
+Orders submitted: A BUL H, A CON - ANK, F AEG - GRE, F BLA H
+
+### Decision rationale
+- Austria committed F GRE to support A SER→BUL. F AEG→GRE cuts that support, making A SER→BUL (1) bounce against A BUL H (1). BUL defended without needing A CON support.
+- A CON→ANK defends against Russia's potential A ARM→ANK walk-in. Even if Russia plays A ARM→ANK, they bounce each other and ANK stays Turkish (empty centers don't transfer if no foreign unit is standing there at end of fall).
+- F AEG→GRE bounces against F GRE (1 vs 1) but successfully cuts F GRE's support — the key objective.
+- Net result: expect to hold BUL and ANK, neither side gains or loses centers.
+
+## Alliances (updated F1902M)
+- **Russia**: A ARM posed threat to empty ANK. A CON→ANK neutralizes this. Truce strained — need to re-evaluate relationship heading into 1903.
+- **Austria**: Direct confrontation. Austria's BUL push failed; Austria drops nothing (GRE still theirs). But Austria knows Turkey is actively countering. Expect continued hostility.
+- **Italy**: Still west-focused (TUN secured). No immediate eastern threat. Maintain non-aggression.
+
+## Next Phase Plan (W1902A / S1903M)
+- No center changes expected — hold 4 centers, 4 units, no builds/disbands.
+- 1903 priority: Push AEG→GRE when Austria's F GRE is less well-supported. OR coordinate with Russia to squeeze Austria in Balkans.
+- Re-engage Russia diplomatically: clarify ARM situation, propose active anti-Austria coordination.
+- Long-term: GRE is the next natural gain. Need either Austrian weakness or Italian distraction.
