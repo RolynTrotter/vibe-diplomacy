@@ -1,0 +1,64 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A VIE B",
+      "A BUD B"
+    ],
+    "ENGLAND": [
+      "F LON B"
+    ],
+    "FRANCE": [
+      "F BRE B",
+      "A PAR B",
+      "A MAR B"
+    ],
+    "GERMANY": [
+      "F KIE B",
+      "A BER B",
+      "A MUN B"
+    ],
+    "ITALY": [],
+    "RUSSIA": [
+      "A MOS B"
+    ],
+    "TURKEY": [
+      "F ANK B"
+    ]
+  },
+  "phase": "W1901A",
+  "results": {
+    "A BER": [
+      ""
+    ],
+    "A BUD": [
+      ""
+    ],
+    "A MAR": [
+      ""
+    ],
+    "A MOS": [
+      ""
+    ],
+    "A MUN": [
+      ""
+    ],
+    "A PAR": [
+      ""
+    ],
+    "A VIE": [
+      ""
+    ],
+    "F ANK": [
+      ""
+    ],
+    "F BRE": [
+      ""
+    ],
+    "F KIE": [
+      ""
+    ],
+    "F LON": [
+      ""
+    ]
+  }
+}
