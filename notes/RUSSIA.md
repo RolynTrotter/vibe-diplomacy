@@ -1,33 +1,26 @@
-# RUSSIA Notes — S1902M
+# RUSSIA Notes — F1902M
 
-## Position after W1901A
-5 units: A UKR, A SEV, F RUM, F FIN, A MOS
+## Current Position
+5 units: A UKR, F RUM, F FIN, A ARM, A STP
 5 centers: MOS, SEV, STP, WAR, RUM
 
-## S1902M Orders Submitted
-- F FIN → SWE (contest Germany's hold — signals anti-German stance to England; likely bounces but applies pressure)
-- F RUM H (hold Romania; honor Turkey truce, don't push BUL)
-- A SEV → ARM (pressure Turkey's eastern flank; shows Austria some action vs Turkey)
-- A UKR → GAL (honor Turkey truce offer — pressures Austria; risky if A GAL holds we bounce)
-- A MOS → STP (reinforce north for continued SWE pressure next turn)
+## F1902M Orders Submitted
+- A UKR - WAR (defend Warsaw; Germany A SIL threatens — must hold)
+- F FIN H (as agreed with England; don't contest SWE)
+- A ARM - ANK (pressure Turkey from east; "tactical" not a war declaration)
+- F RUM H (honor Austria truce; don't contest BUL)
+- A STP H (consolidate; STP safe)
 
-## Diplomatic Situation S1902M
-- **England**: Allied against Germany. England contests SWE from NWY. Russia presses from FIN→SWE. Coordinated northern pressure on Germany.
-- **Germany**: At 6 centers — biggest long-term threat. Russia pressing SWE. No formal break in NAP but interests diverge.
-- **Austria**: Wanted Russia to join squeeze on Turkey (A SER→BUL + A SEV→ARM). Russia partially cooperated (A SEV→ARM) but broke GAL NAP (A UKR→GAL). Austria may be angered.
-- **Turkey**: Accepted truce — Turkey holds ARM, Russia presses GAL instead of BUL. Turkey trying to survive vs Lepanto. Russia's move A UKR→GAL honors this deal.
-- **Italy**: At 3 centers, pressing toward Tunis. Wants Russia to pressure Turkey from north. F ION→TUN this spring.
+## Alliances
+- **England**: Solid. Confirmed F FIN holds while England takes SWE (F NWY + F NTH support). Northern partnership intact.
+- **France**: Coordinating. France attacks HOL; Russia defends WAR. Shared interest vs Germany.
+- **Germany**: HOSTILE. A SIL threatening WAR. Offered to "both hold" but cannot be trusted — may be stalling while positioning. Watch for F BAL S A SIL→WAR (2 vs 1 would lose WAR).
+- **Austria**: Non-aggression in GAL confirmed. Austria takes BUL (A SER→BUL + F GRE support). Russia not contesting.
+- **Turkey**: Truce holds. F BLA defensive. Russia moving ARM→ANK is "tactical pressure" not war — but Turkey may view it differently.
 
-## Key Tensions / Watch Points
-- A UKR→GAL breaks the Austria NAP in Galicia. If Austria's A GAL moved out, Russia gains GAL — a real center grab. If Austria held, it's a bounce and Austria will be angry.
-- A SEV→ARM may anger Turkey despite the truce — they wanted Russia to NOT press ARM. However Turkey said they'd hold ARM so it may just bounce harmlessly.
-- F FIN→SWE likely bounces Germany's F SWE hold, but establishes pressure. If Germany moved F SWE out, Russia takes it!
-- France + Germany both at 6 centers = real long-term threat. Russia must slow Germany.
-
-## 1902 Strategic Plan (Fall 1902 outlook)
-- If F FIN→SWE bounces: retry in F1902 with A STP support
-- If A UKR→GAL bounces: reassess Austria relationship — may need to apologize or double down
-- If A UKR→GAL succeeds: Russia gains GAL, strong position vs Austria and Turkey
-- Turkey: keep as informal buffer against Austrian/Italian sweep into Balkans
-- England: maintain northern partnership against Germany
-- Long term: Russia needs to manage 3-front pressure (Germany north, Austria west, Turkey south)
+## Next Phase Plan (W1902A / S1903M)
+- If WAR holds: Russia stable at 5 centers. Reassess Germany threat.
+- If ARM takes ANK: +1 center, but triggers Turkey war — need Austria/Italy support.
+- Priority: hold the western line (WAR), consolidate, then plan S1903 push.
+- Watch Germany's response — if they push WAR hard, escalate anti-German posture with England and France.
+- Long term: Russia needs to choose between eastern (Turkey) or western (Germany) expansion — currently trying both, which is risky.
