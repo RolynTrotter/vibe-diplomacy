@@ -1,5 +1,20 @@
 # ENGLAND — Strategy Notes
 
+## Position (F1901M — orders submitted)
+
+Units: F NWG → NWY, F NTH H, A YOR H
+
+NWY taken uncontested per Russia agreement. One build incoming (NWY). Germany takes HOL + SWE (two builds). France takes BEL. Channel peace holds.
+
+## 1902 Plan
+
+- Build: F EDI (or F LON) — expand fleet presence
+- Consider pushing toward SWE in 1902 (coordinate with or around Russia)
+- Keep NTH dominant — convoy threat keeps France/Germany honest
+- Watch Germany's growth with HOL+SWE builds; two builds in 1901 makes them a mid-game rival to monitor
+
+---
+
 ## Position (S1901M)
 
 Units: F EDI → NWG, F LON → NTH, A LVP → YOR
