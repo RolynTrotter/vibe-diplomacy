@@ -59,3 +59,22 @@ Key diplomatic status:
 - If TUN secured: Italy at 4 centers — build F NAP in W1902A. Position for AEG/EAS in 1902.
 - Coordinate with Austria on BUL; Italy fleet in TUN can move to WES or EAS depending on board.
 - France concern about Austria/Germany balance is noted — do not dismiss, but keep Lepanto on track for now.
+
+## F1902M Orders (submitted)
+
+- F TUN H (CRITICAL — holds Tunis to claim it as a supply center this fall)
+- A APU H (consolidate, protect southern Italy)
+- A VEN H (hold northern buffer)
+
+Diplomatic posture this phase:
+- **Austria**: Requested F TUN→ION to pressure Turkey's AEG. Declined — TUN must hold to secure center.
+- **Turkey**: Offered non-aggression (Italy stays west of ION, Turkey stays in AEG). Noted but not formally agreed.
+- **France**: Western non-aggression holds. No western moves.
+
+## Next Phase Plan (W1902A / S1903M)
+
+- W1902A: Build F NAP (4th center from TUN). Italy has 3 units + 1 build = F NAP added.
+- S1903M: Two-fleet Lepanto push. F TUN→ION, F NAP→TYS or hold. Army APU ready to convoy.
+- Coordinate with Austria on BUL campaign; Italy joins AEG pressure in 1903.
+- Turkey non-aggression proposal: accept de facto but keep fleet mobile — do not formally constrain Italy east of ION.
+- France watch: note their concern about Austria/Germany at 6 centers each. Keep France friendly but focused east.
