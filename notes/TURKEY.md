@@ -10,8 +10,23 @@ Expected: take BUL (supply center), threaten Caucasus with ARM, consolidate flee
 - **Austria**: Warned of Lepanto. Taking SER. Neutral-cautious relationship; watch for stabs westward into BUL.
 - **Italy**: Confirmed Lepanto with fleet heading to ION. A real threat long-term; need to be ready to redirect SMY/CON toward defense if Lepanto materializes F1901.
 
-## Next Phase Plan (F1901M)
-- If BUL taken: build F ANK or A SMY (back from ARM). ARM can threaten SEV or move to support BUL defense.
-- Watch Italy's fleet position after S1901 — if ION confirmed, must prepare anti-Lepanto (F CON to AEG, hold SMY).
-- Keep Russia friendly; explore joint pressure with Russia on Austria if Lepanto threat grows.
-- Target: BUL (done), then RUM or GRE in F1901 or 1902.
+## Position (F1901M)
+Units: F CON, A BUL, A SMY
+Orders: F CON - AEG, A BUL H, A SMY - CON
+
+### Decision rationale
+- Chose counter-Lepanto defense over RUM contest. Russia gets RUM unchallenged — not worth the conflict given their kept DMZ.
+- AEG blocks Italy/Austria approach to GRE and Turkish home centers. Critical defensive move.
+- BUL holds to secure the supply center already taken.
+- SMY consolidates to CON (fills gap left by fleet).
+
+## Alliances (updated F1901M)
+- **Russia**: Cooperative. Taking RUM (their natural sphere). DMZ held — no BLA incursions either side. Trust remains high; explore 1902 coordination vs Austria/Italy.
+- **Austria**: Taking GRE via F ALB - GRE. Not directly hostile to Turkey yet; open to accommodation if Turkey doesn't press SER/GRE. Keep door open.
+- **Italy**: Lepanto in motion, fleet now ION. Not threatening home centers immediately, but F CON→AEG sends clear defensive signal. Will reassess after fall adjudication.
+
+## Next Phase Plan (W1901A / S1902M)
+- Expect 1 build (BUL gained in S1901, ARM retreated or held — check results).
+- Build recommendation: F SMY (or F ANK) to reinforce eastern Med against Lepanto.
+- 1902 goal: Hold AEG, press toward EAS or GRE depending on Italy/Austria positioning.
+- Keep Russia neutral/friendly; no reason to contest RUM.
