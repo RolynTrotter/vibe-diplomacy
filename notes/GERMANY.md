@@ -14,10 +14,22 @@ A MUN → RUH positions for a push into HOL or BEL next phase.
 - **Russia**: Eastern border non-aggression confirmed. No Russian units threatening German territory. Trust level: medium.
 - **Austria**: No direct agreement; not a threat in S1901.
 
-## Next Phase Plan (F1901M)
+## F1901M Orders Submitted
 
-- If DEN taken: Build F KIE (second fleet). A KIE can move to DEN or support.
-- A RUH → HOL (grab second SC this phase if feasible).
-- Coordinate with England to maintain North Sea dominance.
-- Monitor France — if they push east, be ready to contest BUR.
-- Keep Russia friendly; no moves toward SIL or PRU yet.
+- A RUH → HOL (taking Holland)
+- F DEN → SWE (taking Sweden)
+- A KIE → DEN (holding Denmark)
+
+Expected result: DEN + HOL + SWE = 5 SCs, 2 builds. Planning F KIE and F KIE→BAL or A MUN builds.
+
+Diplomatic summary:
+- France takes BEL (A PIC → BEL) as agreed; England concurs.
+- England confirmed NWY grab (F NWG → NWY). Anglo-German axis solid.
+- Russia non-aggression on eastern border holding.
+
+## W1901A Plan
+
+- 2 builds available. Likely: F KIE + A BER or F KIE + F KIE (second fleet).
+- Consider F KIE to contest or support Baltic plays vs Russia if trust erodes.
+- Monitor France in BEL — useful buffer but watch if they look east.
+- Maintain England alliance; coordinate 1902 strategy toward Russia or Turkey.
