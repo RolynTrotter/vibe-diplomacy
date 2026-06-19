@@ -1,5 +1,32 @@
 # ENGLAND — Strategy Notes
 
+## Position (F1902M — orders submitted)
+
+Units: F NWY→SWE, F NTH→DEN, A YOR H, F LON H
+
+Key decision: NWY attacks SWE solo — NTH cannot support (not adjacent to SWE). Instead F NTH→DEN adds pressure on Germany's second northern center. Russia confirmed F FIN holds, so no bounce on SWE. Germany bluffed about France alliance — not credible. France coordinating by attacking HOL.
+
+### Orders submitted: F1902M
+- F NWY - SWE
+- F NTH - DEN
+- A YOR H
+- F LON H
+
+## Alliances (F1902M)
+
+- **Germany**: Growing threat at 6 centers. Refused to cede SWE, threatened France alliance — calling the bluff. Contesting SWE + DEN pressure signals England will not defer. Trust: LOW.
+- **France**: Confirmed coordination — France hits HOL while England hits SWE. Channel clean. Trust: MEDIUM-HIGH.
+- **Russia**: F FIN holds, no SWE bounce. Coordination worked. Trust: MEDIUM-HIGH.
+
+## Next Phase Plan (W1902A)
+
+- If SWE succeeds + NTH→DEN succeeds: England at 6! Build aggressively — F EDI + A LVP.
+- If SWE succeeds only: England at 5. Build F EDI or F LON. DEN as next target.
+- Maintain France entente — joint pressure on Germany is the right long-game.
+- Watch Germany's response — if they retaliate toward NTH, reinforce. If they collapse west, push east.
+
+---
+
 ## Position (S1902M — orders submitted)
 
 Units: F NTH H, A YOR H, F NWY → SWE, F LON H
