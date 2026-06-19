@@ -1,31 +1,31 @@
-# AUSTRIA Notes — S1902M
+# AUSTRIA Notes — F1902M
 
 ## Current Position
 
-Units: A SER, A GAL, F GRE, A VIE, A BUD. Centers: BUD, VIE, TRI, SER, GRE (5 centers, took GRE in F1901M; BUL was bounced or held by Turkey in F1901M).
+Units: A SER, A GAL, F GRE, A BUD, A TRI. Centers: BUD, TRI, VIE, GRE, SER (5 centers). No change this fall — held all positions defensively.
 
-## Orders Submitted S1902M
+## Orders Submitted F1902M
 
-- A SER - BUL (push for Bulgaria with 2-unit support)
-- F GRE S A SER - BUL (fleet supports the BUL grab)
-- A GAL H (defensive hold vs Russia)
-- A VIE - TRI (consolidate Trieste, secure home center)
+- A SER H (hold; BUL push abandoned due to Turkey's F AEG threat)
+- F GRE H (defend GRE against potential F AEG→GRE attack)
+- A GAL H (non-aggression with Russia)
 - A BUD H (defensive anchor)
+- A TRI H (hold home center)
 
-## Diplomatic Summary S1902M
+## Diplomatic Summary F1902M
 
-- **Italy (firm):** Italy confirmed F ION→TUN this spring — cannot reach AEG. Italy will be back in F1902M with 4 centers. Lepanto alliance holds.
-- **Russia (coordinating):** Russia confirmed NOT moving F RUM→BUL and pressing A SEV→ARM instead. Clear lane for Austria to take BUL. Non-aggression in GAL holds (A UKR stays back).
-- **Turkey (hostile):** Turkey threatened to contest AEG/GRE if Austria pushes BUL. Warned it would "hold" BUL. Turkey under pressure from Russia (north) and Italy (south). Austria pushing SER→BUL with F GRE support = 2 strength.
+- **Russia:** A UKR→WAR (defending vs Germany). Non-aggression in GAL confirmed. Trustworthy partner for now.
+- **Turkey:** Explicitly threatened F AEG→GRE multiple times. Claimed it would "hold" BUL while also threatening to take GRE — a dual trap. If Turkey attacked GRE while we supported SER→BUL, support would be cut and we'd lose GRE AND fail BUL. Chose to defend.
+- **Italy:** F TUN holds, not pressing east this fall. Lepanto cooperation fading.
+- **Germany:** Seeking partnership; focused on Russia/WAR threat.
 
 ## Assessment
 
-The BUL push is well-supported: Russia is holding F RUM away from BUL, Italy confirmed no AEG interference this phase, and we have 2-unit support (SER + GRE). Turkey can only match with A CON S A BUL (if Turkey held A CON back). If Turkey moved F AEG aggressively, GRE is defended by holding back there — we chose to commit F GRE to support rather than defend, calculating Turkey's F AEG threat is lower than the BUL opportunity.
+Turkey's dual threat (hold BUL + attack GRE) forced a fully defensive posture. Rather than risk losing GRE to a cut-support trap, all units held. This is a missed opportunity but preserves 5 centers intact. Turkey has revealed hostile intentions — treat as adversary going forward.
 
-## Next Phase Plan (F1902M)
+## Next Phase Plan (W1902A)
 
-- If BUL taken: Austria at 6 centers, strong Balkans position. Build army for continued pressure.
-- If BUL bounced: reassess — consider F GRE→AEG or other flanking moves.
-- Italy returns to eastern Med in F1902M — coordinate targets (CON vs SMY vs eastern Med).
-- Russia non-aggression: watch for drift; don't let Russia fill Turkey's vacuum faster than Austria.
-- Turkey: if BUL falls, Turkey may collapse rapidly — ensure Austria captures centers before Russia or Italy does.
+- No builds/disbands (5 units = 5 centers).
+- Next spring: reassess BUL with a stronger tactical setup. Consider F GRE→AEG to threaten Turkey's flank, or coordinate with Italy against CON.
+- Watch Turkey's actual moves this fall — if F AEG→GRE materializes, it confirms hostility and justifies direct counter-campaign.
+- Russia remains non-aggressive; Germany may be useful coalition partner vs shared threats.
