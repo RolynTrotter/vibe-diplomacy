@@ -28,3 +28,18 @@ Expected gains: SPA (1 new center). BEL is the target in F1901M.
 - With 2 builds, consider F BRE and A MAR or A PAR.
 - Continue Franco-German cooperation; potential Anglo-French entente if Germany overreaches.
 - Eyes on MUN/HOL if Germany weakens later; for now, maintain western peace.
+
+## S1902M Orders (submitted)
+- A PAR - BUR (positional probe; told Germany this is defensive, not aggressive)
+- A BEL H, F BRE H, A SPA H, F POR H, A MAR H (hold everything else)
+- Rationale: Conservative spring — move into BUR to gain position without overcommitting.
+
+## Diplomacy S1902M
+- **England**: Messaged to reassure about BEL asymmetry; proposed info-sharing on Germany, confirmed Channel peace. England hinting westward pressure if France keeps growing unchecked.
+- **Germany**: Warned them A PAR→BUR is defensive only; confirmed BUR non-aggression and staying out of HOL. Germany says England has approached them — watching this.
+- **Italy**: Acknowledged their update; Italy focused east on Tunis.
+
+## Watch Points
+- Germany at 6 is the main long-term rival. BUR move is a probe — if Germany reacts, it signals tension.
+- England at 4 may feel squeezed; keep them reassured or they could flip against France.
+- F1902M: Consider A BUR→MUN if Germany weakens or A MAR→PIE if Italy falters. F BRE→MAO for Atlantic/Iberian control remains an option.
