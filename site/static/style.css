@@ -129,11 +129,39 @@ select:focus-visible {
   font-weight: 600;
 }
 
-/* ─── Main ─────────────────────────────────────────────────────────────────── */
+/* ─── Main & viewer grid ───────────────────────────────────────────────────── */
 main {
   padding: 14px 14px 0;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
+}
+
+.viewer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.detail-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .viewer.has-detail {
+    grid-template-columns: 3fr 2fr;
+    align-items: start;
+    gap: 16px;
+  }
+
+  .viewer.has-detail .detail-panel {
+    position: sticky;
+    top: 70px;
+    max-height: calc(100svh - 90px);
+    overflow-y: auto;
+  }
 }
 
 /* ─── Board — vellum texture ───────────────────────────────────────────────── */
@@ -169,7 +197,7 @@ main {
 
 #text-view h2 {
   font-family: 'IM Fell English', Georgia, serif;
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 400;
   font-style: italic;
   margin: 0 0 14px;
@@ -260,10 +288,10 @@ main {
   align-self: center;
   margin: 8px 0 2px;
   font-family: 'IM Fell English', Georgia, serif;
-  font-size: 0.72rem;
+  font-size: 0.9rem;
   font-style: italic;
   color: var(--muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .bubble {
@@ -418,7 +446,7 @@ main {
 .phase-label {
   text-align: center;
   font-family: 'IM Fell English', Georgia, serif;
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-style: italic;
   color: var(--muted);
   margin-top: 4px;

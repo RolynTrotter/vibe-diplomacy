@@ -102,12 +102,15 @@ def normalize_messages(raw: list | None, phase: str) -> list[dict]:
         body = m.get("message") or m.get("body") or ""
         if not body:
             continue
-        out.append({
+        entry = {
             "phase": m.get("phase", phase),
             "sender": (m.get("sender") or "").upper(),
             "recipient": (m.get("recipient") or "GLOBAL").upper(),
             "body": body,
-        })
+        }
+        if m.get("sent_at"):
+            entry["sent_at"] = m["sent_at"]
+        out.append(entry)
     return out
 
 
