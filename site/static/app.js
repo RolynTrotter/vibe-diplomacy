@@ -31,6 +31,8 @@ let index = 0;          // current phase index
 let mode = "map";       // "map" | "text" | "talk" | "notes"
 let pair = [];          // selected powers for the talk view (max 2)
 let notePower = null;   // selected power for the notes view
+let lastTalkPair = "";
+let lastTalkMsgCount = -1;
 const preloaded = new Set();
 
 function setStatus(msg) {
@@ -71,6 +73,8 @@ async function loadGame(name) {
   preloaded.clear();
   pair = [];
   notePower = null;
+  lastTalkPair = "";
+  lastTalkMsgCount = -1;
   range.max = String(meta.phases.length - 1);
   index = meta.phases.length - 1; // open on the latest phase
   range.value = String(index);
@@ -127,6 +131,7 @@ function buildPowerPicker() {
     btn.type = "button";
     btn.className = "power-btn";
     btn.dataset.power = power;
+    btn.setAttribute("aria-label", power.charAt(0) + power.slice(1).toLowerCase());
     btn.innerHTML =
       `<span class="dot" style="background:${POWER_COLORS[power]}"></span>` +
       `<span>${power.slice(0, 3)}</span>`;
@@ -203,6 +208,11 @@ function renderTalk() {
     return;
   }
 
+  const pairKey = pair.join("|");
+  if (pairKey === lastTalkPair && meta.messages.length === lastTalkMsgCount) return;
+  lastTalkPair = pairKey;
+  lastTalkMsgCount = meta.messages.length;
+
   const anchor = pair[0];
   const sorted = [...msgs].sort((a, b) => {
     const pd = phaseOrdinal(a.phase) - phaseOrdinal(b.phase);
@@ -234,6 +244,7 @@ function buildNotePicker() {
     btn.type = "button";
     btn.className = "power-btn";
     btn.dataset.power = power;
+    btn.setAttribute("aria-label", power.charAt(0) + power.slice(1).toLowerCase());
     btn.innerHTML =
       `<span class="dot" style="background:${POWER_COLORS[power]}"></span>` +
       `<span>${power.slice(0, 3)}</span>`;
@@ -327,6 +338,7 @@ function render() {
 
   // Map, scoreboard, and phase bar are always visible.
   mapImg.src = ph.svg;
+  mapImg.alt = "Board map — " + ph.label;
   preload(index + 1);
   preload(index - 1);
   renderScoreboard(ph);
