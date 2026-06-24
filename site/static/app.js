@@ -203,7 +203,11 @@ function renderTalk() {
   }
 
   const anchor = pair[0];
-  const sorted = [...msgs].sort((a, b) => phaseOrdinal(a.phase) - phaseOrdinal(b.phase));
+  const sorted = [...msgs].sort((a, b) => {
+    const pd = phaseOrdinal(a.phase) - phaseOrdinal(b.phase);
+    if (pd !== 0) return pd;
+    return (a.sent_at || "") < (b.sent_at || "") ? -1 : (a.sent_at || "") > (b.sent_at || "") ? 1 : 0;
+  });
   let html = "";
   let lastPhase = null;
   for (const m of sorted) {
