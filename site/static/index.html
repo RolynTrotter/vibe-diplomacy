@@ -28,31 +28,38 @@
   </header>
 
   <main>
-    <div id="board">
-      <img id="map-img" alt="Board map" />
-      <section id="text-view" hidden></section>
-      <section id="talk-view" hidden>
-        <p class="talk-hint">Tap two powers to read their messages.</p>
-        <div id="power-picker" class="power-picker"></div>
-        <div id="thread" class="thread"></div>
-      </section>
-      <section id="notes-view" hidden>
-        <p class="talk-hint">Pick a power to read their private notebook.</p>
-        <div id="note-picker" class="power-picker"></div>
-        <div id="notebook" class="notebook"></div>
-      </section>
-      <p id="status" class="status">Loading…</p>
-    </div>
+    <div class="viewer" id="viewer">
 
-    <div id="scoreboard" class="scoreboard"></div>
-
-    <div class="phase-bar">
-      <button id="prev" class="step" type="button" aria-label="Previous phase">‹</button>
-      <div class="phase-slider">
-        <input id="phase-range" type="range" min="0" max="0" value="0" step="1" />
-        <div id="phase-label" class="phase-label">—</div>
+      <div class="map-panel">
+        <div id="board">
+          <img id="map-img" alt="Board map" />
+          <p id="status" class="status">Loading…</p>
+        </div>
+        <div id="scoreboard" class="scoreboard"></div>
+        <div class="phase-bar">
+          <button id="prev" class="step" type="button" aria-label="Previous phase">‹</button>
+          <div class="phase-slider">
+            <input id="phase-range" type="range" min="0" max="0" value="0" step="1" />
+            <div id="phase-label" class="phase-label">—</div>
+          </div>
+          <button id="next" class="step" type="button" aria-label="Next phase">›</button>
+        </div>
       </div>
-      <button id="next" class="step" type="button" aria-label="Next phase">›</button>
+
+      <div class="detail-panel" id="detail-panel" hidden>
+        <section id="text-view" hidden></section>
+        <section id="talk-view" hidden>
+          <p class="talk-hint">Tap two powers to read their messages.</p>
+          <div id="power-picker" class="power-picker"></div>
+          <div id="thread" class="thread"></div>
+        </section>
+        <section id="notes-view" hidden>
+          <p class="talk-hint">Pick a power to read their private notebook.</p>
+          <div id="note-picker" class="power-picker"></div>
+          <div id="notebook" class="notebook"></div>
+        </section>
+      </div>
+
     </div>
   </main>
 

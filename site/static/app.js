@@ -14,7 +14,6 @@ const textView = el("text-view");
 const talkView = el("talk-view");
 const statusEl = el("status");
 const scoreboard = el("scoreboard");
-const phaseBar = document.querySelector(".phase-bar");
 const range = el("phase-range");
 const phaseLabel = el("phase-label");
 const prevBtn = el("prev");
@@ -24,6 +23,8 @@ const thread = el("thread");
 const notesView = el("notes-view");
 const notePicker = el("note-picker");
 const notebook = el("notebook");
+const viewer = el("viewer");
+const detailPanel = el("detail-panel");
 
 let meta = null;        // current game's meta.json
 let index = 0;          // current phase index
@@ -324,28 +325,25 @@ function render() {
   prevBtn.disabled = index === 0;
   nextBtn.disabled = index === meta.phases.length - 1;
 
-  const boardMode = mode === "map" || mode === "text";
-  scoreboard.hidden = !boardMode;
-  phaseBar.style.display = boardMode ? "" : "none";
-  mapImg.hidden = mode !== "map";
+  // Map, scoreboard, and phase bar are always visible.
+  mapImg.src = ph.svg;
+  preload(index + 1);
+  preload(index - 1);
+  renderScoreboard(ph);
+  setStatus("");
+
+  // Detail panel shows alongside the map for non-map modes.
+  const hasDetail = mode !== "map";
+  detailPanel.hidden = !hasDetail;
+  viewer.classList.toggle("has-detail", hasDetail);
+
   textView.hidden = mode !== "text";
   talkView.hidden = mode !== "talk";
   notesView.hidden = mode !== "notes";
-  setStatus("");
 
-  if (mode === "map") {
-    renderScoreboard(ph);
-    mapImg.src = ph.svg;
-    preload(index + 1);
-    preload(index - 1);
-  } else if (mode === "text") {
-    renderScoreboard(ph);
-    renderText(ph);
-  } else if (mode === "talk") {
-    renderTalk();
-  } else {
-    renderNotes();
-  }
+  if (mode === "text") renderText(ph);
+  else if (mode === "talk") renderTalk();
+  else if (mode === "notes") renderNotes();
 }
 
 function setMode(next) {
