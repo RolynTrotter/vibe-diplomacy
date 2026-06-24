@@ -141,6 +141,18 @@ function togglePower(power) {
   renderTalk();
 }
 
+// "S1901M" → 0, "F1901M" → 1, "S1902M" → 2, etc.
+function phaseOrdinal(p) {
+  const year = parseInt(p.slice(1, 5), 10);
+  const half = p[0] === 'S' ? 0 : 1;
+  return year * 2 + half;
+}
+
+// "S1901M" → "Spring 1901", "F1903M" → "Fall 1903"
+function phaseDisplay(p) {
+  return (p[0] === 'S' ? 'Spring' : 'Fall') + ' ' + p.slice(1, 5);
+}
+
 function escapeHtml(s) {
   return s.replace(/[&<>"]/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -191,11 +203,12 @@ function renderTalk() {
   }
 
   const anchor = pair[0];
+  const sorted = [...msgs].sort((a, b) => phaseOrdinal(a.phase) - phaseOrdinal(b.phase));
   let html = "";
   let lastPhase = null;
-  for (const m of msgs) {
+  for (const m of sorted) {
     if (m.phase !== lastPhase) {
-      html += `<div class="phase-sep">${m.phase}</div>`;
+      html += `<div class="phase-sep">${phaseDisplay(m.phase)}</div>`;
       lastPhase = m.phase;
     }
     if (m.recipient === "GLOBAL") {
