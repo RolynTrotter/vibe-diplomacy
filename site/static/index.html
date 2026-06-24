@@ -39,14 +39,14 @@
         <div class="phase-bar">
           <button id="prev" class="step" type="button" aria-label="Previous phase">‹</button>
           <div class="phase-slider">
-            <input id="phase-range" type="range" min="0" max="0" value="0" step="1" />
+            <input id="phase-range" type="range" min="0" max="0" value="0" step="1" aria-label="Game phase" />
             <div id="phase-label" class="phase-label">—</div>
           </div>
           <button id="next" class="step" type="button" aria-label="Next phase">›</button>
         </div>
       </div>
 
-      <div class="detail-panel" id="detail-panel" hidden>
+      <div class="detail-panel" id="detail-panel" hidden aria-live="polite">
         <section id="text-view" hidden></section>
         <section id="talk-view" hidden>
           <p class="talk-hint">Tap two powers to read their messages.</p>

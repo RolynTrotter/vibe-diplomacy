@@ -9,8 +9,13 @@
   --accent-fg: oklch(0.12 0.010 54);
   --line:      oklch(0.28 0.016 50);
 
-  --z-sticky: 10;
-  --z-grain:  9000;
+  --z-sticky:       10;
+  --z-grain:        9000;
+
+  --header-height:  124px;
+  --accent-glow:    oklch(0.70 0.082 60 / 0.22);
+  --bubble-sent:    oklch(0.20 0.035 58);
+  --bubble-sent-bd: oklch(0.30 0.030 58);
 }
 
 /* ─── Full-page grain — study atmosphere ───────────────────────────────────── */
@@ -80,11 +85,14 @@ h1 {
 
 select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px 32px 12px 12px;
   font-size: 0.95rem;
   font-family: inherit;
   color: var(--ink);
-  background: var(--bg);
+  background:
+    var(--bg)
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'><path d='M0 0l5 6 5-6z' fill='%239a8e7c'/></svg>")
+    no-repeat right 12px center / 10px 6px;
   border: 1px solid var(--line);
   border-radius: 8px;
   appearance: none;
@@ -95,7 +103,7 @@ select {
 
 select:focus-visible {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px oklch(0.70 0.082 60 / 0.22);
+  box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
 /* ─── View toggle ──────────────────────────────────────────────────────────── */
@@ -107,7 +115,7 @@ select:focus-visible {
 }
 
 .view-toggle button {
-  padding: 10px 13px;
+  padding: 12px 13px;
   font-size: 0.875rem;
   font-family: inherit;
   letter-spacing: 0.01em;
@@ -158,8 +166,8 @@ main {
 
   .viewer.has-detail .detail-panel {
     position: sticky;
-    top: 70px;
-    max-height: calc(100svh - 90px);
+    top: var(--header-height);
+    max-height: calc(100svh - var(--header-height) - 20px);
     overflow-y: auto;
   }
 }
@@ -248,7 +256,7 @@ main {
 }
 
 .power-btn {
-  padding: 10px 4px;
+  padding: 12px 4px;
   font-size: 0.825rem;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -317,8 +325,8 @@ main {
 .bubble.right {
   align-self: flex-end;
   border-bottom-right-radius: 4px;
-  background: oklch(0.24 0.022 54);
-  border-color: oklch(0.32 0.020 54);
+  background: var(--bubble-sent);
+  border-color: var(--bubble-sent-bd);
 }
 
 .bubble.cast {
@@ -521,6 +529,37 @@ footer a:hover { text-decoration: underline; }
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Mobile tab bar (view toggle moves to thumb-reachable bottom) ─────────── */
+@media (max-width: 639px) {
+  .view-toggle {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid var(--line);
+    background: var(--surface);
+    z-index: var(--z-sticky);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .view-toggle button {
+    flex: 1;
+    padding: 14px 4px;
+    font-size: 0.78rem;
+    letter-spacing: 0;
+  }
+
+  main {
+    padding-bottom: calc(54px + env(safe-area-inset-bottom));
+  }
+
+  footer {
+    padding-bottom: calc(54px + env(safe-area-inset-bottom) + 16px);
   }
 }
 
