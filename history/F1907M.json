@@ -1,0 +1,128 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A PIE S A APU - VEN"
+    ],
+    "ENGLAND": [
+      "F NWG S A STP - NWY",
+      "A YOR - LVP"
+    ],
+    "FRANCE": [
+      "A BER S A DEN - KIE",
+      "A GAS - BRE VIA",
+      "F HOL S A BER - KIE",
+      "A KIE - DEN",
+      "F LVP S F MAO - IRI",
+      "F MAO C A SPA - BRE",
+      "A MAR S A GAS - BUR",
+      "A SPA - BRE VIA"
+    ],
+    "GERMANY": [
+      "A RUH - HOL"
+    ],
+    "ITALY": [
+      "A APU - VEN",
+      "F BRE - MAO",
+      "A ROM S A VEN - APU",
+      "A SER S F BLA - BUL/EC",
+      "A VEN S A ROM - TUS",
+      "A VIE S A SIL - GAL"
+    ],
+    "RUSSIA": [
+      "F BLA S F ARM - SEV",
+      "A DEN - KIE",
+      "A GRE - SER",
+      "A SEV - RUM VIA",
+      "A STP - MOS",
+      "A WAR S A STP - MOS"
+    ],
+    "TURKEY": [
+      "F ANK S F ARM - BLA",
+      "F ARM S F ANK - BLA",
+      "A BUD S A GRE - SER",
+      "A CON S A SEV - BUL",
+      "A SIL S A BER - MUN",
+      "A SMY S F BLA - ARM"
+    ]
+  },
+  "phase": "F1907M",
+  "results": {
+    "A APU": [
+      "bounce"
+    ],
+    "A BER": [
+      "void"
+    ],
+    "A BUD": [],
+    "A CON": [
+      "void"
+    ],
+    "A DEN": [
+      "bounce"
+    ],
+    "A GAS": [
+      "bounce"
+    ],
+    "A GRE": [],
+    "A KIE": [
+      "bounce"
+    ],
+    "A MAR": [
+      "void"
+    ],
+    "A PIE": [],
+    "A ROM": [
+      "void"
+    ],
+    "A RUH": [
+      "bounce"
+    ],
+    "A SER": [
+      "void",
+      "dislodged"
+    ],
+    "A SEV": [],
+    "A SIL": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A SPA": [
+      "bounce"
+    ],
+    "A STP": [],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "A WAR": [],
+    "A YOR": [
+      "bounce"
+    ],
+    "F ANK": [
+      "void"
+    ],
+    "F ARM": [
+      "void"
+    ],
+    "F BLA": [
+      "void"
+    ],
+    "F BRE": [
+      "bounce"
+    ],
+    "F HOL": [
+      "void"
+    ],
+    "F LVP": [
+      "void"
+    ],
+    "F MAO": [],
+    "F NWG": [
+      "void"
+    ]
+  }
+}
