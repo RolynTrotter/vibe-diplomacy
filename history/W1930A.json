@@ -1,0 +1,23 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A MOS B"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1930A",
+  "results": {
+    "A MOS": [
+      ""
+    ],
+    "WAIVE": [
+      "void",
+      "void"
+    ]
+  }
+}
