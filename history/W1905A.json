@@ -1,0 +1,35 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F BAL D",
+      "F BLA D",
+      "A BUL D",
+      "A SWE D",
+      "A UKR D"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1905A",
+  "results": {
+    "A BUL": [
+      "void"
+    ],
+    "A SWE": [
+      "void"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "F BAL": [
+      ""
+    ],
+    "F BLA": [
+      "void"
+    ]
+  }
+}
