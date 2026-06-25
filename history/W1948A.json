@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1948A",
+  "results": {
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
