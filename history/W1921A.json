@@ -1,0 +1,27 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "F NAP B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": [
+      "A SMY B"
+    ]
+  },
+  "phase": "W1921A",
+  "results": {
+    "A SMY": [
+      ""
+    ],
+    "F NAP": [
+      ""
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
