@@ -1,0 +1,35 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A GAS D",
+      "A KIE D",
+      "F NTH D"
+    ],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A STP B"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1920A",
+  "results": {
+    "A GAS": [
+      ""
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A STP": [
+      ""
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
