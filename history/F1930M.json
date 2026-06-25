@@ -1,0 +1,132 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - STP VIA",
+      "A WAL - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU - VEN",
+      "A GAS S F MAR - SPA",
+      "F GRE S F AEG - BUL",
+      "F MAR S A GAS - SPA",
+      "A MUN S F BAL - KIE",
+      "A NAP S A ROM - APU",
+      "A PIE S A VEN - TYR",
+      "A ROM - TUS",
+      "A RUM S F GRE - BUL/SC",
+      "A TRI S A RUM - BUD",
+      "A VEN S A ROM - APU"
+    ],
+    "RUSSIA": [
+      "F BAL S A PRU - LVN",
+      "F BAR S A FIN - STP",
+      "F LVN S A FIN - STP",
+      "F NWG C A EDI - STP",
+      "A NWY S F BAR - STP/NC",
+      "A PAR S A GAS - BRE",
+      "A PRU S A WAR - SIL",
+      "A SPA - POR",
+      "A STP - EDI VIA",
+      "A WAR S A BUD - GAL"
+    ],
+    "TURKEY": [
+      "F AEG C A BUL - GRE",
+      "A BUD S A BUL - SER",
+      "A BUL - RUM",
+      "A FIN S F NWG - NWY",
+      "A SEV S A BUL - RUM",
+      "A SMY - GRE VIA"
+    ]
+  },
+  "phase": "F1930M",
+  "results": {
+    "A APU": [
+      "bounce"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A FIN": [
+      "void"
+    ],
+    "A GAS": [
+      "void"
+    ],
+    "A MUN": [
+      "void"
+    ],
+    "A NAP": [
+      "void"
+    ],
+    "A NWY": [
+      "void"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A PIE": [
+      "void"
+    ],
+    "A PRU": [
+      "void"
+    ],
+    "A ROM": [],
+    "A RUM": [
+      "void",
+      "dislodged"
+    ],
+    "A SEV": [],
+    "A SMY": [
+      "no convoy"
+    ],
+    "A SPA": [],
+    "A STP": [
+      "no convoy"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A WAL": [
+      "bounce"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "bounce"
+    ],
+    "F AEG": [
+      "void"
+    ],
+    "F BAL": [
+      "void"
+    ],
+    "F BAR": [
+      "void"
+    ],
+    "F GRE": [
+      "void"
+    ],
+    "F LVN": [
+      "void"
+    ],
+    "F MAR": [
+      "void"
+    ],
+    "F NWG": [
+      "no convoy",
+      "void"
+    ]
+  }
+}
