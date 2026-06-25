@@ -1,0 +1,129 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - NWY VIA",
+      "A WAL S A EDI - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU - VEN",
+      "A BUD S A VIE - TRI",
+      "F GRE S A SER - BUL",
+      "F LYO - PIE",
+      "A NAP - APU",
+      "A PIC - PAR",
+      "A SER S A RUM - BUL",
+      "A TUS S A VEN - PIE",
+      "A VEN - TRI"
+    ],
+    "RUSSIA": [
+      "F BAL C A BER - PRU",
+      "F BAR - NWG",
+      "A BER S F BAL - PRU",
+      "A BRE - GAS",
+      "A BUR S A TUS - MAR",
+      "A GAL - WAR",
+      "F NWG S A YOR - EDI",
+      "A NWY - EDI VIA",
+      "A PRU S A GAL - WAR",
+      "A SEV S A GAL - RUM",
+      "F STP/SC S F BAL - LVN",
+      "A VIE S A VEN - TRI"
+    ],
+    "TURKEY": [
+      "F ANK - ARM",
+      "A ARM S A RUM - SEV",
+      "A BUL S A RUM - SER",
+      "A CON - BUL",
+      "A MOS S F BAR - STP",
+      "A RUM S A VIE - BUD",
+      "A SYR - ARM",
+      "A TRI S A BUL - SER"
+    ]
+  },
+  "phase": "S1927M",
+  "results": {
+    "A APU": [],
+    "A ARM": [
+      "void"
+    ],
+    "A BER": [
+      "void"
+    ],
+    "A BRE": [],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A BUR": [
+      "void"
+    ],
+    "A CON": [
+      "bounce"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [],
+    "A MOS": [
+      "void"
+    ],
+    "A NAP": [],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PIC": [],
+    "A PRU": [],
+    "A RUM": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SYR": [
+      "bounce"
+    ],
+    "A TRI": [
+      "void",
+      "dislodged"
+    ],
+    "A TUS": [
+      "void"
+    ],
+    "A VEN": [],
+    "A VIE": [],
+    "A WAL": [
+      "void"
+    ],
+    "A YOR": [
+      "bounce"
+    ],
+    "F ANK": [
+      "bounce"
+    ],
+    "F BAL": [
+      "void"
+    ],
+    "F BAR": [
+      "bounce"
+    ],
+    "F GRE": [
+      "void"
+    ],
+    "F LYO": [],
+    "F NWG": [
+      "void"
+    ],
+    "F STP/SC": [
+      "void"
+    ]
+  }
+}
