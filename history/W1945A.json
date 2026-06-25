@@ -1,0 +1,28 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "F ROM B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": [
+      "A ANK B",
+      "A CON B"
+    ]
+  },
+  "phase": "W1945A",
+  "results": {
+    "A ANK": [
+      ""
+    ],
+    "A CON": [
+      "void"
+    ],
+    "F ROM": [
+      ""
+    ]
+  }
+}
