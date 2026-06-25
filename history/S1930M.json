@@ -1,0 +1,127 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - STP VIA",
+      "A WAL S A EDI - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU S A VEN - ROM",
+      "A GAS S F MAR - SPA",
+      "F GRE S A CON - BUL",
+      "F MAR S A GAS - SPA",
+      "A NAP - APU",
+      "A PIE S A ROM - TUS",
+      "A ROM - APU",
+      "A RUM - SEV",
+      "A TRI - BUD",
+      "A TYR - MUN",
+      "A VEN S A PIE - TUS"
+    ],
+    "RUSSIA": [
+      "F BAL S A MOS - LVN",
+      "F BAR C A NWY - STP",
+      "A BUR - PAR",
+      "F LVN S A MOS - STP",
+      "A MOS - STP",
+      "F NWG - EDI",
+      "A NWY S F LVN - STP/SC",
+      "A PRU S A MOS - LVN",
+      "A SPA S A PIE - MAR",
+      "A WAR - LVN"
+    ],
+    "TURKEY": [
+      "A BUD S A TRI - VIE",
+      "A BUL S A TRI - SER",
+      "A CON - SMY",
+      "A SEV S A BUD - RUM",
+      "F SMY - AEG",
+      "A STP S A EDI - NWY"
+    ]
+  },
+  "phase": "S1930M",
+  "results": {
+    "A APU": [
+      "void"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A BUR": [],
+    "A CON": [],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAS": [
+      "void"
+    ],
+    "A MOS": [],
+    "A NAP": [
+      "bounce"
+    ],
+    "A NWY": [
+      "void"
+    ],
+    "A PIE": [
+      "void"
+    ],
+    "A PRU": [
+      "void"
+    ],
+    "A ROM": [
+      "bounce"
+    ],
+    "A RUM": [
+      "bounce"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SPA": [
+      "void"
+    ],
+    "A STP": [
+      "void",
+      "dislodged"
+    ],
+    "A TRI": [
+      "bounce"
+    ],
+    "A TYR": [],
+    "A VEN": [
+      "void"
+    ],
+    "A WAL": [
+      "void"
+    ],
+    "A WAR": [
+      "bounce"
+    ],
+    "A YOR": [
+      "bounce"
+    ],
+    "F BAL": [
+      "void"
+    ],
+    "F BAR": [
+      "void"
+    ],
+    "F GRE": [
+      "void"
+    ],
+    "F LVN": [],
+    "F MAR": [
+      "void"
+    ],
+    "F NWG": [
+      "bounce"
+    ],
+    "F SMY": []
+  }
+}
