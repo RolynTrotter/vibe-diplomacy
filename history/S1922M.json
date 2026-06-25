@@ -1,0 +1,143 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - DEN VIA",
+      "A LON - HOL VIA",
+      "A YOR - DEN VIA"
+    ],
+    "FRANCE": [
+      "A BER - MUN",
+      "F NTH C A DEN - NWY"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A ALB S A TRI - SER",
+      "A APU S A TYR - VEN",
+      "F LYO S A ROM - TUS",
+      "A MAR S A BEL - BUR",
+      "F NAP - APU",
+      "A ROM - APU",
+      "A TRI S A ALB - SER",
+      "A TUS - PIE",
+      "A UKR S A SEV - RUM"
+    ],
+    "RUSSIA": [
+      "A BEL - LON VIA",
+      "A BOH S A BUD - GAL",
+      "F BOT S A NWY - FIN",
+      "A BUD S A TYR - TRI",
+      "A DEN - KIE",
+      "A GAL S A BOH - SIL",
+      "A LVN - FIN VIA",
+      "F NWG S A NWY - EDI",
+      "A NWY - EDI VIA",
+      "A PRU - BER",
+      "A SEV S A ANK - ARM",
+      "A STP S A LVN - FIN",
+      "A TYR S A TRI - VEN"
+    ],
+    "TURKEY": [
+      "A ANK S A SEV - ARM",
+      "A ARM S A UKR - SEV",
+      "A BUL S A BUD - RUM",
+      "A CON - ANK",
+      "A SER S A UKR - RUM",
+      "A SMY S A ARM - SYR"
+    ]
+  },
+  "phase": "S1922M",
+  "results": {
+    "A ALB": [
+      "void"
+    ],
+    "A ANK": [
+      "void"
+    ],
+    "A APU": [
+      "void"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BEL": [
+      "no convoy"
+    ],
+    "A BER": [],
+    "A BOH": [
+      "void"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A CON": [
+      "bounce"
+    ],
+    "A DEN": [],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [
+      "void"
+    ],
+    "A LON": [
+      "no convoy"
+    ],
+    "A LVN": [
+      "no convoy"
+    ],
+    "A MAR": [
+      "void"
+    ],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PRU": [],
+    "A ROM": [
+      "bounce"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A STP": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A TUS": [],
+    "A TYR": [
+      "void"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F BOT": [
+      "void"
+    ],
+    "F LYO": [
+      "void"
+    ],
+    "F NAP": [
+      "bounce"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "F NWG": [
+      "void"
+    ]
+  }
+}
