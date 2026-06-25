@@ -1,0 +1,126 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "F BAR S A MOS - STP",
+      "A EDI - HOL VIA",
+      "A LON - DEN VIA",
+      "A LVP - YOR"
+    ],
+    "FRANCE": [
+      "A BRE - PIC",
+      "F MAR S A TUS - PIE",
+      "F NTH C A LON - EDI",
+      "A RUH - KIE"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "F LYO C A TUS - SPA",
+      "A NAP S A ROM - APU",
+      "A ROM S A SPA - TUS",
+      "A SPA S A BRE - GAS",
+      "A TUS - SPA VIA",
+      "A UKR S A SEV - MOS",
+      "A VEN S A VIE - TRI",
+      "A VIE S A GAL - BUD"
+    ],
+    "RUSSIA": [
+      "A BUL - CON",
+      "A DEN - EDI VIA",
+      "A GAL S A TYR - VIE",
+      "A HOL S A RUH - BEL",
+      "A MOS - LVN",
+      "A SEV - UKR",
+      "A STP - NWY VIA",
+      "F SWE S A STP - NWY",
+      "A TRI - BUD",
+      "A TYR - VIE"
+    ],
+    "TURKEY": [
+      "A ANK S A SEV - ARM",
+      "A ARM S A UKR - SEV",
+      "A CON S A GRE - BUL",
+      "A GRE - SER",
+      "A SER S A SEV - RUM",
+      "F SMY - AEG"
+    ]
+  },
+  "phase": "F1919M",
+  "results": {
+    "A ANK": [
+      "void"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BRE": [],
+    "A BUL": [
+      "bounce"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A DEN": [
+      "no convoy"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [],
+    "A GRE": [
+      "bounce"
+    ],
+    "A HOL": [
+      "void"
+    ],
+    "A LON": [
+      "no convoy"
+    ],
+    "A LVP": [],
+    "A MOS": [],
+    "A NAP": [
+      "void"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A RUH": [],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "bounce"
+    ],
+    "A SPA": [
+      "void"
+    ],
+    "A STP": [],
+    "A TRI": [],
+    "A TUS": [
+      "bounce"
+    ],
+    "A TYR": [],
+    "A UKR": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void",
+      "dislodged"
+    ],
+    "F BAR": [
+      "void"
+    ],
+    "F LYO": [],
+    "F MAR": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "F SMY": [],
+    "F SWE": []
+  }
+}
