@@ -1,0 +1,128 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - STP VIA",
+      "A WAL S A EDI - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU S A PIE - VEN",
+      "A BOH S A PRU - SIL",
+      "A BUD S A SEV - RUM",
+      "F BUL/SC S F AEG - GRE",
+      "A GAS S A BRE - PAR",
+      "A MUN - BER",
+      "A NAP S A VEN - APU",
+      "A PIE - TUS",
+      "F SPA/SC - POR",
+      "A VEN - TYR"
+    ],
+    "RUSSIA": [
+      "F BAL - BOT",
+      "F BAR C A STP - EDI",
+      "F BOT S A NWY - FIN",
+      "A BRE - GAS",
+      "A MOS S A RUM - SEV",
+      "F NWG - EDI",
+      "A NWY - EDI VIA",
+      "A POR S A GAS - SPA",
+      "A PRU - LVN",
+      "A STP - EDI VIA",
+      "A WAR S A BOH - GAL"
+    ],
+    "TURKEY": [
+      "F AEG S A GRE - BUL",
+      "A ANK S A SEV - ARM",
+      "A FIN S F NWG - NWY",
+      "A GRE - BUL",
+      "A RUM S A GRE - BUL",
+      "A SER - TRI",
+      "A SEV - MOS"
+    ]
+  },
+  "phase": "S1932M",
+  "results": {
+    "A ANK": [
+      "void"
+    ],
+    "A APU": [
+      "void"
+    ],
+    "A BOH": [
+      "void"
+    ],
+    "A BRE": [
+      "bounce"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A FIN": [
+      "void"
+    ],
+    "A GAS": [
+      "void"
+    ],
+    "A GRE": [],
+    "A MOS": [
+      "void"
+    ],
+    "A MUN": [],
+    "A NAP": [
+      "void"
+    ],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PIE": [],
+    "A POR": [
+      "void"
+    ],
+    "A PRU": [],
+    "A RUM": [],
+    "A SER": [],
+    "A SEV": [
+      "bounce"
+    ],
+    "A STP": [
+      "no convoy"
+    ],
+    "A VEN": [],
+    "A WAL": [
+      "void"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "bounce"
+    ],
+    "F AEG": [],
+    "F BAL": [
+      "bounce"
+    ],
+    "F BAR": [
+      "no convoy",
+      "void"
+    ],
+    "F BOT": [
+      "void"
+    ],
+    "F BUL/SC": [
+      "void",
+      "dislodged"
+    ],
+    "F NWG": [
+      "bounce"
+    ],
+    "F SPA/SC": [
+      "bounce"
+    ]
+  }
+}
