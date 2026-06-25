@@ -1,0 +1,64 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A PIE D"
+    ],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A PAR B"
+    ],
+    "GERMANY": [
+      "A RUH D"
+    ],
+    "ITALY": [
+      "A NAP B"
+    ],
+    "RUSSIA": [
+      "F STP/SC B"
+    ],
+    "TURKEY": [
+      "F ANK D",
+      "F ARM D",
+      "A BUD D",
+      "A CON D",
+      "A SIL D",
+      "A SMY D"
+    ]
+  },
+  "phase": "W1907A",
+  "results": {
+    "A BUD": [
+      "void"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A NAP": [
+      ""
+    ],
+    "A PAR": [
+      ""
+    ],
+    "A PIE": [
+      ""
+    ],
+    "A RUH": [
+      ""
+    ],
+    "A SIL": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "F ANK": [
+      ""
+    ],
+    "F ARM": [
+      "void"
+    ],
+    "F STP/SC": [
+      ""
+    ]
+  }
+}
