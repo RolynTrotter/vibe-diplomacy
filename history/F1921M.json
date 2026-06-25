@@ -1,0 +1,127 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - BEL VIA",
+      "A LON - BEL VIA",
+      "A YOR - BEL VIA"
+    ],
+    "FRANCE": [
+      "A KIE - BER",
+      "F NTH - EDI"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A ALB S A SER - GRE",
+      "A APU S A ROM - NAP",
+      "F LYO C A MAR - PIE",
+      "A MAR S A TUS - PIE",
+      "A ROM - TUS",
+      "A TRI S A ALB - SER",
+      "A TUS S F LYO - PIE",
+      "A UKR S A SER - RUM"
+    ],
+    "RUSSIA": [
+      "A BEL - LON VIA",
+      "A BUD - SER",
+      "A DEN - EDI VIA",
+      "A GAL - BOH",
+      "A MOS - LVN",
+      "F NWG C A NWY - EDI",
+      "A NWY - EDI VIA",
+      "A PRU S A MOS - LVN",
+      "A SEV - ARM",
+      "A SIL - GAL",
+      "A STP S A NWY - FIN",
+      "F SWE - BOT",
+      "A VIE - TYR"
+    ],
+    "TURKEY": [
+      "A ANK - ARM",
+      "A ARM S A UKR - SEV",
+      "A BUL S A BUD - RUM",
+      "A CON - BUL",
+      "A SER S A BUD - RUM"
+    ]
+  },
+  "phase": "F1921M",
+  "results": {
+    "A ALB": [
+      "void"
+    ],
+    "A ANK": [
+      "bounce"
+    ],
+    "A APU": [
+      "void"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BEL": [
+      "no convoy"
+    ],
+    "A BUD": [
+      "bounce"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A CON": [
+      "bounce"
+    ],
+    "A DEN": [
+      "no convoy"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [],
+    "A KIE": [],
+    "A LON": [
+      "no convoy"
+    ],
+    "A MAR": [
+      "void"
+    ],
+    "A MOS": [],
+    "A NWY": [
+      "bounce"
+    ],
+    "A PRU": [],
+    "A ROM": [
+      "bounce"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "bounce"
+    ],
+    "A SIL": [],
+    "A STP": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A TUS": [
+      "void"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A VIE": [],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F LYO": [
+      "void"
+    ],
+    "F NTH": [
+      "bounce"
+    ],
+    "F NWG": [],
+    "F SWE": []
+  }
+}
