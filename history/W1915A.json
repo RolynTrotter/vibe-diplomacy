@@ -1,0 +1,63 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F AEG D",
+      "F BLA D",
+      "F BOT D",
+      "A DEN D",
+      "A GAL D",
+      "A LVN D",
+      "A MUN D",
+      "A PRU D",
+      "A SER D",
+      "A UKR D"
+    ],
+    "TURKEY": [
+      "A ANK B"
+    ]
+  },
+  "phase": "W1915A",
+  "results": {
+    "A ANK": [
+      ""
+    ],
+    "A DEN": [
+      "void"
+    ],
+    "A GAL": [
+      "void"
+    ],
+    "A LVN": [
+      "void"
+    ],
+    "A MUN": [
+      "void"
+    ],
+    "A PRU": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "F AEG": [
+      ""
+    ],
+    "F BLA": [
+      ""
+    ],
+    "F BOT": [
+      "void"
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
