@@ -1,0 +1,55 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F BAL D",
+      "F BAR D",
+      "A BRE D",
+      "A DEN D",
+      "A MOS D",
+      "F NWG D",
+      "A NWY D",
+      "A PRU D",
+      "A STP D",
+      "F SWE D"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1938A",
+  "results": {
+    "A BRE": [
+      "void"
+    ],
+    "A DEN": [
+      "void"
+    ],
+    "A MOS": [
+      "void"
+    ],
+    "A NWY": [
+      "void"
+    ],
+    "A PRU": [
+      "void"
+    ],
+    "A STP": [
+      "void"
+    ],
+    "F BAL": [
+      ""
+    ],
+    "F BAR": [
+      "void"
+    ],
+    "F NWG": [
+      "void"
+    ],
+    "F SWE": [
+      "void"
+    ]
+  }
+}
