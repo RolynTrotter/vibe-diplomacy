@@ -1,0 +1,119 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BOH S A BUR - MUN",
+      "A TRI - VEN"
+    ],
+    "ENGLAND": [
+      "F NTH C A YOR - HOL",
+      "F NWG S F NTH - NWY",
+      "A YOR - BEL VIA"
+    ],
+    "FRANCE": [
+      "A BER S A RUH - KIE",
+      "A BUR S A RUH - BEL",
+      "F MAO - NAO",
+      "F MAR - LYO",
+      "A PAR S A BUR - GAS",
+      "F PIC - BEL",
+      "A POR - GAS VIA"
+    ],
+    "GERMANY": [
+      "A KIE S A RUH - MUN",
+      "A RUH S A YOR - BEL"
+    ],
+    "ITALY": [
+      "A APU S A TYR - VEN",
+      "A BUD S A RUM - SER",
+      "F NAF - MAO",
+      "A ROM - TUS",
+      "A TYR - MUN"
+    ],
+    "RUSSIA": [
+      "F BLA S A UKR - SEV",
+      "F BOT - LVN",
+      "A RUM S A CON - BUL",
+      "A SWE S F NTH - DEN",
+      "A UKR S F BLA - SEV"
+    ],
+    "TURKEY": [
+      "F ANK - ARM",
+      "A CON - RUM VIA",
+      "A SER S A CON - RUM",
+      "A SEV - RUM VIA",
+      "A SMY S A RUM - ARM"
+    ]
+  },
+  "phase": "S1904M",
+  "results": {
+    "A APU": [
+      "void"
+    ],
+    "A BER": [
+      "void"
+    ],
+    "A BOH": [
+      "void"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A BUR": [
+      "void"
+    ],
+    "A CON": [
+      "no convoy"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A POR": [
+      "no convoy"
+    ],
+    "A ROM": [],
+    "A RUH": [
+      "void"
+    ],
+    "A RUM": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "bounce"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A SWE": [
+      "void"
+    ],
+    "A TRI": [],
+    "A TYR": [],
+    "A UKR": [
+      "void"
+    ],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F ANK": [],
+    "F BLA": [
+      "void"
+    ],
+    "F BOT": [],
+    "F MAO": [],
+    "F MAR": [],
+    "F NAF": [],
+    "F NTH": [
+      "void"
+    ],
+    "F NWG": [
+      "void"
+    ],
+    "F PIC": []
+  }
+}
