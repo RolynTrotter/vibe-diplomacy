@@ -1,0 +1,130 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - BEL VIA",
+      "A LON - DEN VIA",
+      "A YOR - HOL VIA"
+    ],
+    "FRANCE": [
+      "A MUN - KIE",
+      "F NTH - BEL"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A ALB - SER",
+      "A GAS - PAR",
+      "F LYO C A PIE - TUS",
+      "F NAP S F LYO - TYS",
+      "A PIE - TUS VIA",
+      "A ROM S F LYO - TUS",
+      "A UKR S A ARM - SEV",
+      "A VEN - APU",
+      "A VIE S A SER - BUD"
+    ],
+    "RUSSIA": [
+      "A BEL - LON VIA",
+      "A BER S A KIE - MUN",
+      "A BOH S A TYR - MUN",
+      "F BOT - LVN",
+      "A BUD S A ALB - SER",
+      "A FIN - LVN VIA",
+      "A GAL - VIE",
+      "A KIE S A BER - MUN",
+      "A LVN S A BER - PRU",
+      "F NWG S A NWY - EDI",
+      "A NWY - EDI VIA",
+      "A SEV S A ANK - ARM",
+      "A TYR S A SER - TRI"
+    ],
+    "TURKEY": [
+      "A ANK S A SEV - ARM",
+      "A ARM - SEV",
+      "A BUL - RUM",
+      "A CON S A SMY - ANK",
+      "A SER - TRI",
+      "A SMY S A ANK - ARM"
+    ]
+  },
+  "phase": "S1923M",
+  "results": {
+    "A ALB": [],
+    "A ANK": [
+      "void"
+    ],
+    "A ARM": [],
+    "A BEL": [
+      "no convoy"
+    ],
+    "A BER": [
+      "void"
+    ],
+    "A BOH": [
+      "void"
+    ],
+    "A BUD": [],
+    "A BUL": [],
+    "A CON": [
+      "void"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A FIN": [
+      "no convoy"
+    ],
+    "A GAL": [
+      "bounce"
+    ],
+    "A GAS": [],
+    "A KIE": [
+      "void"
+    ],
+    "A LON": [
+      "no convoy"
+    ],
+    "A LVN": [
+      "void"
+    ],
+    "A MUN": [
+      "bounce"
+    ],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PIE": [],
+    "A ROM": [
+      "void"
+    ],
+    "A SER": [],
+    "A SEV": [
+      "void",
+      "dislodged"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A TYR": [],
+    "A UKR": [],
+    "A VEN": [],
+    "A VIE": [
+      "void"
+    ],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F BOT": [
+      "bounce"
+    ],
+    "F LYO": [],
+    "F NAP": [
+      "void"
+    ],
+    "F NTH": [
+      "bounce"
+    ],
+    "F NWG": [
+      "void"
+    ]
+  }
+}
