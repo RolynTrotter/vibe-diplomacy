@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A RUM D"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "F1930R",
+  "results": {
+    "A RUM": []
+  }
+}
