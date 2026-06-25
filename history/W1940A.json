@@ -1,0 +1,52 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A ROM B"
+    ],
+    "RUSSIA": [
+      "F BAR D",
+      "A BRE D",
+      "A FIN D",
+      "A LVN D",
+      "A MOS D",
+      "F NWG D",
+      "A NWY D",
+      "A STP D"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1940A",
+  "results": {
+    "A BRE": [
+      ""
+    ],
+    "A FIN": [
+      "void"
+    ],
+    "A LVN": [
+      "void"
+    ],
+    "A MOS": [
+      "void"
+    ],
+    "A NWY": [
+      "void"
+    ],
+    "A ROM": [
+      ""
+    ],
+    "A STP": [
+      "void"
+    ],
+    "F BAR": [
+      ""
+    ],
+    "F NWG": [
+      "void"
+    ]
+  }
+}
