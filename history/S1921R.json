@@ -1,0 +1,19 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A BUL D",
+      "A TRI R VIE"
+    ],
+    "TURKEY": []
+  },
+  "phase": "S1921R",
+  "results": {
+    "A BUL": [],
+    "A TRI": []
+  }
+}
