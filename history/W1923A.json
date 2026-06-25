@@ -1,0 +1,27 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [
+      "F NTH D",
+      "A SIL D"
+    ],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1923A",
+  "results": {
+    "A SIL": [
+      ""
+    ],
+    "F NTH": [
+      ""
+    ],
+    "WAIVE": [
+      "void",
+      "void"
+    ]
+  }
+}
