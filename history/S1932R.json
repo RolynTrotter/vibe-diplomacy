@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "F BUL/SC D"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "S1932R",
+  "results": {
+    "F BUL/SC": []
+  }
+}
