@@ -1,0 +1,39 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F BAR D",
+      "F NWG D",
+      "A NWY D",
+      "A SER D",
+      "A SWE D",
+      "A UKR D"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1946A",
+  "results": {
+    "A NWY": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SWE": [
+      "void"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "F BAR": [
+      ""
+    ],
+    "F NWG": [
+      "void"
+    ]
+  }
+}
