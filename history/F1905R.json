@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A MUN R TYR"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "F1905R",
+  "results": {
+    "A MUN": []
+  }
+}
