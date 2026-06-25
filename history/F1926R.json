@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A SEV D"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "F1926R",
+  "results": {
+    "A SEV": []
+  }
+}
