@@ -1,0 +1,68 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU D",
+      "F ENG D",
+      "A NAP D",
+      "F PIE D",
+      "A POR D",
+      "A ROM D",
+      "A TUS D",
+      "A UKR D",
+      "A VEN D",
+      "A VIE D"
+    ],
+    "RUSSIA": [
+      "A MOS B"
+    ],
+    "TURKEY": [
+      "F SMY B"
+    ]
+  },
+  "phase": "W1918A",
+  "results": {
+    "A APU": [
+      ""
+    ],
+    "A MOS": [
+      ""
+    ],
+    "A NAP": [
+      "void"
+    ],
+    "A POR": [
+      "void"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A TUS": [
+      "void"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "F ENG": [
+      ""
+    ],
+    "F PIE": [
+      "void"
+    ],
+    "F SMY": [
+      ""
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}

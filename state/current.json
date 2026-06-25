@@ -23543,11 +23543,66 @@
         "ENGLAND": [],
         "FRANCE": [],
         "GERMANY": [],
-        "ITALY": null,
-        "RUSSIA": null,
-        "TURKEY": null
+        "ITALY": [
+          "A APU D",
+          "F ENG D",
+          "A NAP D",
+          "F PIE D",
+          "A POR D",
+          "A ROM D",
+          "A TUS D",
+          "A UKR D",
+          "A VEN D",
+          "A VIE D"
+        ],
+        "RUSSIA": [
+          "A MOS B"
+        ],
+        "TURKEY": [
+          "F SMY B"
+        ]
       },
-      "results": {},
+      "results": {
+        "A APU": [
+          ""
+        ],
+        "A MOS": [
+          ""
+        ],
+        "A NAP": [
+          "void"
+        ],
+        "A POR": [
+          "void"
+        ],
+        "A ROM": [
+          "void"
+        ],
+        "A TUS": [
+          "void"
+        ],
+        "A UKR": [
+          "void"
+        ],
+        "A VEN": [
+          "void"
+        ],
+        "A VIE": [
+          "void"
+        ],
+        "F ENG": [
+          ""
+        ],
+        "F PIE": [
+          "void"
+        ],
+        "F SMY": [
+          ""
+        ],
+        "WAIVE": [
+          "void"
+        ]
+      },
       "state": {
         "builds": {
           "AUSTRIA": {
@@ -23777,7 +23832,7 @@
           "NO_PRESS",
           "POWER_CHOICE"
         ],
-        "timestamp": 1782335145610939,
+        "timestamp": 1782335148618554,
         "units": {
           "AUSTRIA": [],
           "ENGLAND": [
@@ -23825,6 +23880,293 @@
           ]
         },
         "zobrist_hash": "1677117513378027173"
+      }
+    },
+    {
+      "messages": [],
+      "name": "S1919M",
+      "orders": {
+        "AUSTRIA": [],
+        "ENGLAND": null,
+        "FRANCE": null,
+        "GERMANY": [],
+        "ITALY": null,
+        "RUSSIA": null,
+        "TURKEY": null
+      },
+      "results": {},
+      "state": {
+        "builds": {
+          "AUSTRIA": {
+            "count": 0,
+            "homes": []
+          },
+          "ENGLAND": {
+            "count": 0,
+            "homes": []
+          },
+          "FRANCE": {
+            "count": 0,
+            "homes": []
+          },
+          "GERMANY": {
+            "count": 0,
+            "homes": []
+          },
+          "ITALY": {
+            "count": 0,
+            "homes": []
+          },
+          "RUSSIA": {
+            "count": 0,
+            "homes": []
+          },
+          "TURKEY": {
+            "count": 0,
+            "homes": []
+          }
+        },
+        "centers": {
+          "AUSTRIA": [],
+          "ENGLAND": [
+            "EDI",
+            "LON",
+            "NWY",
+            "LVP"
+          ],
+          "FRANCE": [
+            "PAR",
+            "BEL",
+            "HOL",
+            "SPA"
+          ],
+          "GERMANY": [],
+          "ITALY": [
+            "NAP",
+            "TUN",
+            "ROM",
+            "VEN",
+            "VIE",
+            "MAR",
+            "BRE",
+            "POR"
+          ],
+          "RUSSIA": [
+            "WAR",
+            "DEN",
+            "MOS",
+            "SER",
+            "MUN",
+            "STP",
+            "BER",
+            "RUM",
+            "SWE",
+            "KIE",
+            "SEV",
+            "TRI"
+          ],
+          "TURKEY": [
+            "SMY",
+            "BUL",
+            "ANK",
+            "CON",
+            "BUD",
+            "GRE"
+          ]
+        },
+        "civil_disorder": {
+          "AUSTRIA": 0,
+          "ENGLAND": 0,
+          "FRANCE": 0,
+          "GERMANY": 0,
+          "ITALY": 0,
+          "RUSSIA": 0,
+          "TURKEY": 0
+        },
+        "game_id": "unAreuIde1fSGaBs",
+        "homes": {
+          "AUSTRIA": [
+            "BUD",
+            "TRI",
+            "VIE"
+          ],
+          "ENGLAND": [
+            "EDI",
+            "LON",
+            "LVP"
+          ],
+          "FRANCE": [
+            "BRE",
+            "MAR",
+            "PAR"
+          ],
+          "GERMANY": [
+            "BER",
+            "KIE",
+            "MUN"
+          ],
+          "ITALY": [
+            "NAP",
+            "ROM",
+            "VEN"
+          ],
+          "RUSSIA": [
+            "MOS",
+            "SEV",
+            "STP",
+            "WAR"
+          ],
+          "TURKEY": [
+            "ANK",
+            "CON",
+            "SMY"
+          ]
+        },
+        "influence": {
+          "AUSTRIA": [
+            "BOH"
+          ],
+          "ENGLAND": [
+            "EDI",
+            "LON",
+            "YOR",
+            "NWY",
+            "BAR",
+            "LVP",
+            "NWG"
+          ],
+          "FRANCE": [
+            "PAR",
+            "NAO",
+            "BEL",
+            "LYO",
+            "HOL",
+            "MAO",
+            "GAS",
+            "NTH",
+            "CLY",
+            "SIL",
+            "BUR",
+            "RUH",
+            "PIC",
+            "SPA"
+          ],
+          "GERMANY": [],
+          "ITALY": [
+            "ION",
+            "TUN",
+            "NAF",
+            "TYR",
+            "VEN",
+            "VIE",
+            "ROM",
+            "MAR",
+            "PIE",
+            "NAP",
+            "TUS",
+            "APU",
+            "BRE",
+            "POR",
+            "ENG",
+            "UKR"
+          ],
+          "RUSSIA": [
+            "BAL",
+            "DEN",
+            "MOS",
+            "BOT",
+            "GAL",
+            "BLA",
+            "MUN",
+            "PRU",
+            "LVN",
+            "AEG",
+            "STP",
+            "BER",
+            "RUM",
+            "TRI",
+            "SWE",
+            "KIE",
+            "SEV"
+          ],
+          "TURKEY": [
+            "SMY",
+            "WAR",
+            "ALB",
+            "BUL",
+            "ANK",
+            "CON",
+            "SYR",
+            "ARM",
+            "SER",
+            "BUD",
+            "GRE"
+          ]
+        },
+        "map": "standard",
+        "name": "S1919M",
+        "note": "lm-studio-game",
+        "retreats": {
+          "AUSTRIA": {},
+          "ENGLAND": {},
+          "FRANCE": {},
+          "GERMANY": {},
+          "ITALY": {},
+          "RUSSIA": {},
+          "TURKEY": {}
+        },
+        "rules": [
+          "NO_PRESS",
+          "POWER_CHOICE"
+        ],
+        "timestamp": 1782335148620977,
+        "units": {
+          "AUSTRIA": [],
+          "ENGLAND": [
+            "A EDI",
+            "A LON",
+            "A LVP",
+            "F NWG"
+          ],
+          "FRANCE": [
+            "F NTH",
+            "A RUH",
+            "A PIC",
+            "F SPA/SC"
+          ],
+          "GERMANY": [],
+          "ITALY": [
+            "A VEN",
+            "A VIE",
+            "F PIE",
+            "A TUS",
+            "A NAP",
+            "A ROM",
+            "A POR",
+            "A UKR"
+          ],
+          "RUSSIA": [
+            "A DEN",
+            "A GAL",
+            "A MUN",
+            "A STP",
+            "A RUM",
+            "A TRI",
+            "F SWE",
+            "A KIE",
+            "A SEV",
+            "A MOS"
+          ],
+          "TURKEY": [
+            "A CON",
+            "A ANK",
+            "A ARM",
+            "A BUD",
+            "A GRE",
+            "F SMY"
+          ]
+        },
+        "zobrist_hash": "2390140940283756418"
       }
     }
   ],
