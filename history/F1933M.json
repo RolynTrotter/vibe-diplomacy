@@ -1,0 +1,136 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - STP VIA",
+      "A WAL S A EDI - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU - GRE VIA",
+      "A KIE - DEN",
+      "A NAP - GRE VIA",
+      "A PAR S A GAS - BRE",
+      "A PIE S A VEN - TUS",
+      "A ROM S A VEN - APU",
+      "F SPA/SC - POR",
+      "A TUS S A VEN - PIE",
+      "A VEN S A ROM - APU",
+      "A VIE - GAL"
+    ],
+    "RUSSIA": [
+      "F BAL C A LVN - BER",
+      "F BAR C A STP - EDI",
+      "F BOT C A FIN - BER",
+      "A GAS - MAR",
+      "A LVN - BER VIA",
+      "A MOS - SEV",
+      "F NWG - EDI",
+      "A NWY - EDI VIA",
+      "A POR S A GAS - SPA",
+      "A STP - BER VIA",
+      "A WAR S A LVN - PRU"
+    ],
+    "TURKEY": [
+      "A ANK - ARM",
+      "A BUD S A VIE - TRI",
+      "A BUL S A ANK - CON",
+      "A CON - BUL",
+      "A FIN - SWE VIA",
+      "F ION S A ROM - NAP",
+      "A RUM - BUD",
+      "A SEV - MOS",
+      "A SYR S A SEV - ARM"
+    ]
+  },
+  "phase": "F1933M",
+  "results": {
+    "A ANK": [],
+    "A APU": [
+      "no convoy"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A CON": [
+      "bounce"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A FIN": [],
+    "A GAS": [],
+    "A KIE": [],
+    "A LVN": [],
+    "A MOS": [
+      "bounce"
+    ],
+    "A NAP": [
+      "no convoy"
+    ],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A PIE": [
+      "void"
+    ],
+    "A POR": [
+      "void"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A RUM": [
+      "bounce"
+    ],
+    "A SEV": [
+      "bounce"
+    ],
+    "A STP": [
+      "no convoy"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "A TUS": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [],
+    "A WAL": [
+      "void"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "bounce"
+    ],
+    "F BAL": [],
+    "F BAR": [
+      "void"
+    ],
+    "F BOT": [
+      "void"
+    ],
+    "F ION": [
+      "void"
+    ],
+    "F NWG": [
+      "bounce"
+    ],
+    "F SPA/SC": [
+      "bounce"
+    ]
+  }
+}
