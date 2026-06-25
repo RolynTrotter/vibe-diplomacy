@@ -1,0 +1,22 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": [
+      "F SMY B"
+    ]
+  },
+  "phase": "W1935A",
+  "results": {
+    "F SMY": [
+      ""
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
