@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A SWE D"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "S1938R",
+  "results": {
+    "A SWE": []
+  }
+}
