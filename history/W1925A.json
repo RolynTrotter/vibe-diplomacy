@@ -1,0 +1,19 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F STP/NC B"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1925A",
+  "results": {
+    "F STP/NC": [
+      ""
+    ]
+  }
+}
