@@ -1,0 +1,48 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A GAS D",
+      "A KIE D",
+      "F MAO D",
+      "F NTH D",
+      "A PIC D",
+      "A RUH D"
+    ],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A MOS B",
+      "A WAR B"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1917A",
+  "results": {
+    "A GAS": [
+      ""
+    ],
+    "A KIE": [
+      ""
+    ],
+    "A MOS": [
+      ""
+    ],
+    "A PIC": [
+      "void"
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ]
+  }
+}
