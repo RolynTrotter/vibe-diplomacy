@@ -1,0 +1,141 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - LVP",
+      "F SWE S F NTH - DEN",
+      "A YOR - POR VIA"
+    ],
+    "FRANCE": [
+      "A BRE - EDI VIA",
+      "A GAS - EDI VIA",
+      "A KIE S A EDI - DEN",
+      "F LVP S A EDI - WAL",
+      "F MAO C A GAS - DEN",
+      "A MUN S A KIE - BER",
+      "F NTH C A EDI - LON",
+      "A PAR S A MUN - BUR"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU S A TRI - VEN",
+      "F ENG S A YOR - LON",
+      "A SER S A CON - RUM",
+      "A TUS S A VEN - PIE",
+      "A VEN S A SER - TRI",
+      "A VIE - TRI"
+    ],
+    "RUSSIA": [
+      "F BLA - ANK",
+      "A BUL S F BLA - CON",
+      "A DEN - BRE VIA",
+      "A LVN - PRU",
+      "A PRU S A MUN - BER",
+      "A SEV - CON VIA",
+      "F STP/SC S F SWE - BOT",
+      "A TRI S A SER - BUD",
+      "A WAR S A PRU - SIL"
+    ],
+    "TURKEY": [
+      "F ARM S F BLA - SEV",
+      "A BER S A DEN - KIE",
+      "A BUD - VIE",
+      "A CON - BUL VIA",
+      "A SYR S A CON - ARM"
+    ]
+  },
+  "phase": "S1911M",
+  "results": {
+    "A APU": [
+      "void"
+    ],
+    "A BER": [
+      "void"
+    ],
+    "A BRE": [
+      "no convoy"
+    ],
+    "A BUD": [
+      "bounce"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A CON": [
+      "bounce"
+    ],
+    "A DEN": [
+      "no convoy"
+    ],
+    "A EDI": [
+      "bounce"
+    ],
+    "A GAS": [
+      "no convoy"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A LVN": [
+      "bounce"
+    ],
+    "A MUN": [
+      "void"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A PRU": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "no convoy"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A TUS": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "bounce"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F ARM": [
+      "void"
+    ],
+    "F BLA": [],
+    "F ENG": [
+      "void"
+    ],
+    "F LVP": [
+      "void"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "F STP/SC": [
+      "void"
+    ],
+    "F SWE": [
+      "void"
+    ]
+  }
+}
