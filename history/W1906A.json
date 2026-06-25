@@ -1,0 +1,63 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BOH D",
+      "A PIE D"
+    ],
+    "ENGLAND": [
+      "F NTH D",
+      "F NWG D",
+      "A YOR D"
+    ],
+    "FRANCE": [
+      "A MAR B"
+    ],
+    "GERMANY": [
+      "A KIE D",
+      "A RUH D"
+    ],
+    "ITALY": [],
+    "RUSSIA": [
+      "A STP B",
+      "A WAR B"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1906A",
+  "results": {
+    "A BOH": [
+      ""
+    ],
+    "A KIE": [
+      ""
+    ],
+    "A MAR": [
+      ""
+    ],
+    "A PIE": [
+      "void"
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A STP": [
+      ""
+    ],
+    "A WAR": [
+      ""
+    ],
+    "A YOR": [
+      "void"
+    ],
+    "F NTH": [
+      ""
+    ],
+    "F NWG": [
+      "void"
+    ],
+    "WAIVE": [
+      "void",
+      "void"
+    ]
+  }
+}
