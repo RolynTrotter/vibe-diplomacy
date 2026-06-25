@@ -1,0 +1,20 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A GAS R BUR"
+    ],
+    "TURKEY": [
+      "A SWE D"
+    ]
+  },
+  "phase": "F1934R",
+  "results": {
+    "A GAS": [],
+    "A SWE": []
+  }
+}
