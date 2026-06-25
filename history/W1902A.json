@@ -1,0 +1,54 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "F ALB D",
+      "A BOH D",
+      "A TRI D"
+    ],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A PAR B"
+    ],
+    "GERMANY": [
+      "F DEN D",
+      "A KIE D",
+      "A RUH D"
+    ],
+    "ITALY": [
+      "A NAP B",
+      "F VEN B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1902A",
+  "results": {
+    "A BOH": [
+      "void"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A NAP": [
+      ""
+    ],
+    "A PAR": [
+      ""
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "F ALB": [
+      ""
+    ],
+    "F DEN": [
+      ""
+    ],
+    "F VEN": [
+      "void"
+    ]
+  }
+}
