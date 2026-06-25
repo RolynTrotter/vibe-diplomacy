@@ -1,0 +1,27 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F STP/SC B"
+    ],
+    "TURKEY": [
+      "F ANK B"
+    ]
+  },
+  "phase": "W1926A",
+  "results": {
+    "F ANK": [
+      ""
+    ],
+    "F STP/SC": [
+      ""
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
