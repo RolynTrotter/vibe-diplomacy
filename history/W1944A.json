@@ -1,0 +1,61 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A VEN B"
+    ],
+    "RUSSIA": [
+      "F STP/NC B"
+    ],
+    "TURKEY": [
+      "A ANK D",
+      "A ARM D",
+      "A BUL D",
+      "A GAL D",
+      "F NAF D",
+      "A SER D",
+      "A SEV D",
+      "A SMY D",
+      "A SYR D"
+    ]
+  },
+  "phase": "W1944A",
+  "results": {
+    "A ANK": [
+      ""
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A GAL": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "A VEN": [
+      ""
+    ],
+    "F NAF": [
+      "void"
+    ],
+    "F STP/NC": [
+      ""
+    ]
+  }
+}
