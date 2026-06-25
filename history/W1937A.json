@@ -1,0 +1,64 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A NAP B",
+      "A ROM B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": [
+      "F AEG D",
+      "A ALB D",
+      "A ANK D",
+      "A ARM D",
+      "A BUD D",
+      "A CON D",
+      "F ION D",
+      "A RUM D",
+      "A SEV D",
+      "A SYR D"
+    ]
+  },
+  "phase": "W1937A",
+  "results": {
+    "A ALB": [
+      "void"
+    ],
+    "A ANK": [
+      "void"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A NAP": [
+      ""
+    ],
+    "A ROM": [
+      ""
+    ],
+    "A RUM": [
+      "void"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "F AEG": [
+      ""
+    ],
+    "F ION": [
+      "void"
+    ]
+  }
+}
