@@ -1,0 +1,138 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - HOL VIA",
+      "A LON - BEL VIA",
+      "A LVP S F NTH - YOR",
+      "F NWG C A EDI - CLY"
+    ],
+    "FRANCE": [
+      "F NTH - DEN",
+      "A PIC - NWY VIA",
+      "A RUH S A BER - MUN",
+      "F SPA/SC - POR"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU S A NAP - ROM",
+      "F ENG - LON",
+      "A NAP S A VEN - APU",
+      "F PIE S A ROM - TUS",
+      "A POR - SPA",
+      "A ROM - TUS",
+      "A SEV S A STP - MOS",
+      "A TUS - PIE",
+      "A VEN S A VIE - TRI",
+      "A VIE S A BUD - TRI"
+    ],
+    "RUSSIA": [
+      "A BER - KIE",
+      "F BOT - SWE",
+      "A DEN - HOL VIA",
+      "A GAL - BUD",
+      "A MOS - SEV",
+      "A MUN S A DEN - KIE",
+      "A RUM S A ARM - SEV",
+      "A STP - SWE VIA",
+      "A TRI S A BUD - VIE"
+    ],
+    "TURKEY": [
+      "A ANK - ARM",
+      "A ARM S A MOS - SEV",
+      "A BUD - RUM",
+      "A CON S A SER - BUL",
+      "A SER - GRE"
+    ]
+  },
+  "phase": "F1918M",
+  "results": {
+    "A ANK": [
+      "bounce"
+    ],
+    "A APU": [
+      "void"
+    ],
+    "A ARM": [],
+    "A BER": [],
+    "A BUD": [
+      "bounce"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A DEN": [
+      "no convoy"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [
+      "bounce"
+    ],
+    "A LON": [
+      "no convoy"
+    ],
+    "A LVP": [
+      "void"
+    ],
+    "A MOS": [],
+    "A MUN": [
+      "void"
+    ],
+    "A NAP": [
+      "void"
+    ],
+    "A PIC": [
+      "no convoy"
+    ],
+    "A POR": [
+      "bounce"
+    ],
+    "A ROM": [
+      "bounce"
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A RUM": [
+      "void"
+    ],
+    "A SER": [],
+    "A SEV": [
+      "void",
+      "dislodged"
+    ],
+    "A STP": [
+      "no convoy"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A TUS": [
+      "bounce"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "F BOT": [],
+    "F ENG": [
+      "bounce"
+    ],
+    "F NTH": [
+      "bounce"
+    ],
+    "F NWG": [
+      "void"
+    ],
+    "F PIE": [
+      "void"
+    ],
+    "F SPA/SC": [
+      "bounce"
+    ]
+  }
+}
