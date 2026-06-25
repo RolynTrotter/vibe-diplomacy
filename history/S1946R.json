@@ -1,0 +1,20 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A WAR R UKR"
+    ],
+    "TURKEY": [
+      "A SER R RUM"
+    ]
+  },
+  "phase": "S1946R",
+  "results": {
+    "A SER": [],
+    "A WAR": []
+  }
+}
