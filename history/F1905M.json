@@ -1,0 +1,142 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BOH S A BUR - MUN",
+      "A VEN S A SER - TRI"
+    ],
+    "ENGLAND": [
+      "F NTH S A SWE - DEN",
+      "F NWG S A YOR - NWY",
+      "A YOR - BEL VIA"
+    ],
+    "FRANCE": [
+      "F BEL - HOL",
+      "A BER S A KIE - MUN",
+      "A BUR - MUN",
+      "F LYO S A VEN - PIE",
+      "F NAO S A YOR - LVP",
+      "A PAR S A MUN - BUR",
+      "A POR - SPA"
+    ],
+    "GERMANY": [
+      "A KIE S F BAL - BER",
+      "A RUH - HOL"
+    ],
+    "ITALY": [
+      "A APU - ROM",
+      "A MUN S A KIE - BER",
+      "A NAP S A APU - ROM",
+      "A ROM S A VEN - TUS",
+      "A SER S A UKR - RUM",
+      "F SPA/NC - POR"
+    ],
+    "RUSSIA": [
+      "F BAL S F NTH - DEN",
+      "F BLA C A CON - ANK",
+      "A BUL S A RUM - SER",
+      "A SWE S A BER - DEN",
+      "A UKR S A CON - RUM"
+    ],
+    "TURKEY": [
+      "F ANK S A CON - ARM",
+      "F ARM S F ANK - BLA",
+      "A CON S F BLA - BUL",
+      "A MOS S A UKR - WAR",
+      "A RUM - BUL VIA",
+      "A SMY S A RUM - ARM"
+    ]
+  },
+  "phase": "F1905M",
+  "results": {
+    "A APU": [
+      "bounce"
+    ],
+    "A BER": [
+      "void"
+    ],
+    "A BOH": [],
+    "A BUL": [
+      "void"
+    ],
+    "A BUR": [],
+    "A CON": [
+      "void"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A MOS": [
+      "void"
+    ],
+    "A MUN": [
+      "void",
+      "dislodged"
+    ],
+    "A NAP": [
+      "void"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A POR": [
+      "bounce"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A RUH": [
+      "bounce"
+    ],
+    "A RUM": [
+      "bounce"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A SWE": [
+      "void"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F ANK": [
+      "void"
+    ],
+    "F ARM": [
+      "void"
+    ],
+    "F BAL": [
+      "void"
+    ],
+    "F BEL": [
+      "bounce"
+    ],
+    "F BLA": [
+      "void"
+    ],
+    "F LYO": [
+      "void"
+    ],
+    "F NAO": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "F NWG": [
+      "void"
+    ],
+    "F SPA/NC": [
+      "bounce"
+    ]
+  }
+}
