@@ -1,0 +1,144 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - NWY VIA",
+      "A WAL S A EDI - YOR",
+      "A YOR S F LVP - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU S A TUS - ROM",
+      "A BRE - SPA VIA",
+      "A DEN S A NWY - SWE",
+      "F LVP S A YOR - WAL",
+      "F LYO S F MAO - SPA",
+      "A NAP S A VEN - APU",
+      "A ROM S F LYO - TUS",
+      "A SER - GRE",
+      "A SIL - PRU",
+      "A STP - MOS",
+      "A TRI S A GRE - SER",
+      "A TUN S A BRE - NAF",
+      "A TUS - SPA VIA",
+      "A UKR S A MOS - SEV",
+      "A VEN S A ROM - TUS"
+    ],
+    "RUSSIA": [
+      "A GRE S A RUM - SER",
+      "F NWG C A NWY - EDI",
+      "A NWY - EDI VIA",
+      "A SEV S A UKR - MOS",
+      "A SWE - DEN"
+    ],
+    "TURKEY": [
+      "A ALB - GRE",
+      "A ANK S A SMY - ARM",
+      "A ARM S A UKR - SEV",
+      "A BUD S A ALB - TRI",
+      "A CON S A SMY - ANK",
+      "F MAO - ENG",
+      "A MOS S A ARM - SEV",
+      "A RUM S A MOS - SEV",
+      "A SMY S A ANK - ARM",
+      "A SYR S A SEV - ARM"
+    ]
+  },
+  "phase": "F1950M",
+  "results": {
+    "A ALB": [
+      "bounce"
+    ],
+    "A ANK": [
+      "void"
+    ],
+    "A APU": [
+      "void"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BRE": [
+      "no convoy"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A DEN": [
+      "void"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GRE": [
+      "void"
+    ],
+    "A MOS": [
+      "void"
+    ],
+    "A NAP": [
+      "void"
+    ],
+    "A NWY": [
+      "bounce"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A RUM": [
+      "void"
+    ],
+    "A SER": [
+      "bounce"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SIL": [],
+    "A SMY": [
+      "void"
+    ],
+    "A STP": [
+      "bounce"
+    ],
+    "A SWE": [
+      "bounce"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A TUN": [
+      "void"
+    ],
+    "A TUS": [
+      "no convoy"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A WAL": [
+      "void"
+    ],
+    "A YOR": [
+      "void"
+    ],
+    "F LVP": [
+      "void"
+    ],
+    "F LYO": [
+      "void"
+    ],
+    "F MAO": [],
+    "F NWG": []
+  }
+}
