@@ -1,0 +1,139 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - SPA VIA",
+      "F SWE - NWY",
+      "A YOR - POR VIA"
+    ],
+    "FRANCE": [
+      "A BRE - EDI VIA",
+      "F CLY S A GAS - EDI",
+      "A GAS - NWY VIA",
+      "A KIE S A YOR - DEN",
+      "F MAO C A GAS - DEN",
+      "F NTH S A BRE - LON",
+      "A PAR S A YOR - GAS",
+      "A RUH S A GAS - BUR",
+      "A SIL S A KIE - BER"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A BUD - SER",
+      "F ENG S A EDI - BEL",
+      "A MAR S A DEN - SPA",
+      "A NAP - APU",
+      "F ROM - TUS",
+      "A VEN S A BUD - TRI",
+      "A VIE - TRI"
+    ],
+    "RUSSIA": [
+      "A BER - MUN",
+      "F BOT S A DEN - SWE",
+      "F CON S A SER - BUL",
+      "A DEN - NWY VIA",
+      "A GAL S A BUD - VIE",
+      "A MOS - UKR",
+      "A PRU S A MOS - LVN",
+      "A SER - TRI",
+      "F SEV - BLA",
+      "A WAR S A SIL - GAL"
+    ],
+    "TURKEY": [
+      "A ANK S A SMY - CON",
+      "A BUL - CON",
+      "A SMY S A ANK - CON",
+      "A TRI - BUD"
+    ]
+  },
+  "phase": "S1914M",
+  "results": {
+    "A ANK": [
+      "void"
+    ],
+    "A BER": [],
+    "A BRE": [
+      "no convoy"
+    ],
+    "A BUD": [
+      "bounce"
+    ],
+    "A BUL": [
+      "bounce"
+    ],
+    "A DEN": [
+      "no convoy"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [
+      "void"
+    ],
+    "A GAS": [
+      "no convoy"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A MAR": [
+      "void"
+    ],
+    "A MOS": [],
+    "A NAP": [],
+    "A PAR": [
+      "void"
+    ],
+    "A PRU": [
+      "void"
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A SER": [
+      "bounce"
+    ],
+    "A SIL": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A TRI": [
+      "bounce"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "bounce"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F BOT": [
+      "void"
+    ],
+    "F CLY": [
+      "void"
+    ],
+    "F CON": [
+      "void"
+    ],
+    "F ENG": [
+      "void"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "F ROM": [],
+    "F SEV": [],
+    "F SWE": []
+  }
+}
