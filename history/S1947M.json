@@ -1,0 +1,124 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - NWY VIA",
+      "A WAL - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A BOH S A VIE - GAL",
+      "A DEN S A NWY - SWE",
+      "F IRI S A EDI - LVP",
+      "A NAP S A ROM - APU",
+      "A PIE S A TRI - TYR",
+      "A PRU S A GAL - SIL",
+      "A ROM S A NAP - APU",
+      "A RUH - BUR",
+      "A TRI S A SER - BUD",
+      "A TUN - NAF",
+      "F TYS S A PIE - TUS",
+      "A VEN S F TYS - TUS",
+      "A VIE - BUD",
+      "A WAR - UKR"
+    ],
+    "RUSSIA": [
+      "F NWG S A YOR - EDI",
+      "A NWY - EDI VIA",
+      "A SER S A VIE - TRI",
+      "A SWE - DEN",
+      "A UKR - SEV"
+    ],
+    "TURKEY": [
+      "A ANK S A SEV - ARM",
+      "A ARM S A SMY - SYR",
+      "A BUL S A RUM - SER",
+      "A GAL S A VIE - BUD",
+      "A RUM S A VIE - BUD",
+      "A SEV - MOS",
+      "A SMY S A SYR - ARM",
+      "F SPA/NC - POR",
+      "A SYR S A SEV - ARM"
+    ]
+  },
+  "phase": "S1947M",
+  "results": {
+    "A ANK": [
+      "void"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BOH": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A DEN": [
+      "void"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [],
+    "A NAP": [
+      "void"
+    ],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PIE": [
+      "void"
+    ],
+    "A PRU": [
+      "void"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A RUH": [],
+    "A RUM": [],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [],
+    "A SMY": [
+      "void"
+    ],
+    "A SWE": [
+      "bounce"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A TUN": [],
+    "A UKR": [],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [],
+    "A WAL": [
+      "bounce"
+    ],
+    "A WAR": [],
+    "A YOR": [
+      "bounce"
+    ],
+    "F IRI": [
+      "void"
+    ],
+    "F NWG": [
+      "void"
+    ],
+    "F SPA/NC": [],
+    "F TYS": [
+      "void"
+    ]
+  }
+}
