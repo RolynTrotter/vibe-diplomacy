@@ -1,0 +1,137 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - HOL VIA",
+      "A LON - SPA VIA",
+      "F STP/NC - BAR",
+      "A YOR - POR VIA"
+    ],
+    "FRANCE": [
+      "A BER S A KIE - MUN",
+      "A GAS S A EDI - SPA",
+      "A KIE S A YOR - DEN",
+      "F MAO C A YOR - SPA",
+      "F NTH C A YOR - NWY",
+      "A PAR S A GAS - PIC",
+      "A RUH S A BER - MUN"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A BUD - RUM",
+      "F ENG C A LON - POR",
+      "A NAP - APU",
+      "F PIE - TUS",
+      "A SPA - BEL VIA",
+      "A TUS S A VEN - PIE",
+      "A VEN S A VIE - TRI",
+      "A VIE S A VEN - TRI"
+    ],
+    "RUSSIA": [
+      "F BOT C A LVN - STP",
+      "A DEN - NWY VIA",
+      "A GAL S A TRI - VIE",
+      "A LVN - STP VIA",
+      "A MUN - BER",
+      "A PRU - BER",
+      "A SER - BUD",
+      "A UKR - GAL"
+    ],
+    "TURKEY": [
+      "A ANK - ARM",
+      "A BUL S A SER - RUM",
+      "A CON S A SMY - ANK",
+      "A SMY - ARM",
+      "A TRI - BUD"
+    ]
+  },
+  "phase": "S1916M",
+  "results": {
+    "A ANK": [
+      "bounce"
+    ],
+    "A BER": [
+      "void"
+    ],
+    "A BUD": [],
+    "A BUL": [
+      "void"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A DEN": [
+      "no convoy"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [
+      "void"
+    ],
+    "A GAS": [
+      "void"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A LON": [
+      "no convoy"
+    ],
+    "A LVN": [],
+    "A MUN": [
+      "bounce"
+    ],
+    "A NAP": [],
+    "A PAR": [
+      "void"
+    ],
+    "A PRU": [
+      "bounce"
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A SER": [
+      "bounce"
+    ],
+    "A SMY": [
+      "bounce"
+    ],
+    "A SPA": [
+      "no convoy"
+    ],
+    "A TRI": [
+      "bounce"
+    ],
+    "A TUS": [
+      "void"
+    ],
+    "A UKR": [
+      "bounce"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F BOT": [],
+    "F ENG": [
+      "void"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "F PIE": [
+      "bounce"
+    ],
+    "F STP/NC": []
+  }
+}
