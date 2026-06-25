@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [
+      "F MAR D"
+    ],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "F1920R",
+  "results": {
+    "F MAR": []
+  }
+}
