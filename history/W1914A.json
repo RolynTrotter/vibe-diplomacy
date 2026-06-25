@@ -1,0 +1,64 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A LON B"
+    ],
+    "FRANCE": [
+      "A BRE D",
+      "F CLY D",
+      "A GAS D",
+      "A KIE D",
+      "F MAO D",
+      "F NTH D",
+      "A PAR D",
+      "A RUH D",
+      "A SIL D"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A ROM B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1914A",
+  "results": {
+    "A BRE": [
+      ""
+    ],
+    "A GAS": [
+      "void"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A LON": [
+      ""
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A ROM": [
+      ""
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A SIL": [
+      "void"
+    ],
+    "F CLY": [
+      ""
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
