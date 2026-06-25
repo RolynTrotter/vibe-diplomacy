@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F CON R AEG"
+    ],
+    "TURKEY": []
+  },
+  "phase": "F1915R",
+  "results": {
+    "F CON": []
+  }
+}
