@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": [
+      "A BUD R GAL"
+    ]
+  },
+  "phase": "S1944R",
+  "results": {
+    "A BUD": []
+  }
+}
