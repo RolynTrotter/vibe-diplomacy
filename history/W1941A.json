@@ -1,0 +1,19 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [],
+    "TURKEY": [
+      "A SMY B"
+    ]
+  },
+  "phase": "W1941A",
+  "results": {
+    "A SMY": [
+      ""
+    ]
+  }
+}
