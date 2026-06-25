@@ -1,0 +1,142 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - BEL VIA",
+      "A LON - BEL VIA",
+      "A YOR - DEN VIA"
+    ],
+    "FRANCE": [
+      "A BRE - GAS",
+      "A KIE S A LON - HOL",
+      "F MAR S A TUS - SPA",
+      "F NTH - LON"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A ALB - GRE",
+      "F LYO S A SPA - MAR",
+      "A NAP - APU",
+      "A ROM S F LYO - TUS",
+      "A SPA - MAR",
+      "A TUS - MAR VIA",
+      "A UKR S A SER - RUM",
+      "A VEN S A SPA - TUS"
+    ],
+    "RUSSIA": [
+      "F BAR - NWG",
+      "A BEL - EDI VIA",
+      "A BUD S A ALB - SER",
+      "A BUL S A BUD - SER",
+      "A DEN - KIE",
+      "A GAL S A PRU - SIL",
+      "A MOS S A SEV - UKR",
+      "A NWY - LON VIA",
+      "A PRU - SIL",
+      "A SEV S A MOS - UKR",
+      "A SIL S A UKR - GAL",
+      "F SWE S A NWY - FIN",
+      "A TRI S A ROM - VEN"
+    ],
+    "TURKEY": [
+      "A ANK - ARM",
+      "A ARM S A UKR - SEV",
+      "A CON - BUL",
+      "A GRE - BUL",
+      "A SER - BUD"
+    ]
+  },
+  "phase": "F1920M",
+  "results": {
+    "A ALB": [
+      "bounce"
+    ],
+    "A ANK": [
+      "bounce"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BEL": [
+      "no convoy"
+    ],
+    "A BRE": [],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A CON": [
+      "bounce"
+    ],
+    "A DEN": [
+      "bounce"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [
+      "void"
+    ],
+    "A GRE": [
+      "bounce"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A LON": [
+      "no convoy"
+    ],
+    "A MOS": [
+      "void"
+    ],
+    "A NAP": [],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PRU": [
+      "bounce"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A SER": [
+      "bounce"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SIL": [
+      "void"
+    ],
+    "A SPA": [],
+    "A TRI": [
+      "void"
+    ],
+    "A TUS": [
+      "no convoy"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F BAR": [],
+    "F LYO": [],
+    "F MAR": [
+      "void",
+      "dislodged"
+    ],
+    "F NTH": [
+      "bounce"
+    ],
+    "F SWE": [
+      "void"
+    ]
+  }
+}
