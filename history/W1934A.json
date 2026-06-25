@@ -1,0 +1,19 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A VEN B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1934A",
+  "results": {
+    "A VEN": [
+      ""
+    ]
+  }
+}
