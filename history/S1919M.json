@@ -1,0 +1,127 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - HOL VIA",
+      "A LON - BEL VIA",
+      "A LVP S F NTH - YOR",
+      "F NWG - BAR"
+    ],
+    "FRANCE": [
+      "F NTH S A KIE - DEN",
+      "A PIC - BRE",
+      "A RUH S A DEN - KIE",
+      "F SPA/SC - MAR"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A NAP S A ROM - APU",
+      "F PIE - LYO",
+      "A POR - SPA",
+      "A ROM - TUS",
+      "A TUS S A VEN - PIE",
+      "A UKR S A BUD - RUM",
+      "A VEN S A BUD - TRI",
+      "A VIE S A BUD - TRI"
+    ],
+    "RUSSIA": [
+      "A DEN - LON VIA",
+      "A GAL - VIE",
+      "A KIE - HOL",
+      "A MOS S A GAL - UKR",
+      "A MUN - TYR",
+      "A RUM - BUL",
+      "A SEV - UKR",
+      "A STP S F SWE - NWY",
+      "F SWE S A EDI - NWY",
+      "A TRI S A ROM - VEN"
+    ],
+    "TURKEY": [
+      "A ANK - ARM",
+      "A ARM - SEV",
+      "A BUD - SER",
+      "A CON S A ARM - SMY",
+      "A GRE S A BUD - SER",
+      "F SMY S A ARM - SYR"
+    ]
+  },
+  "phase": "S1919M",
+  "results": {
+    "A ANK": [
+      "bounce"
+    ],
+    "A ARM": [
+      "bounce"
+    ],
+    "A BUD": [],
+    "A CON": [
+      "void"
+    ],
+    "A DEN": [
+      "no convoy"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [
+      "bounce"
+    ],
+    "A GRE": [],
+    "A KIE": [],
+    "A LON": [
+      "no convoy"
+    ],
+    "A LVP": [
+      "void"
+    ],
+    "A MOS": [
+      "void"
+    ],
+    "A MUN": [],
+    "A NAP": [
+      "void"
+    ],
+    "A PIC": [],
+    "A POR": [],
+    "A ROM": [
+      "bounce"
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A RUM": [],
+    "A SEV": [
+      "bounce"
+    ],
+    "A STP": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A TUS": [
+      "void"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "F NWG": [],
+    "F PIE": [],
+    "F SMY": [
+      "void"
+    ],
+    "F SPA/SC": [],
+    "F SWE": [
+      "void"
+    ]
+  }
+}
