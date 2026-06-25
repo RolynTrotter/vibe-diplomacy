@@ -1,0 +1,127 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "F NWG - NWY",
+      "A YOR - LVP"
+    ],
+    "FRANCE": [
+      "A BER S A WAR - PRU",
+      "A GAS S F MAO - BRE",
+      "F HOL - NTH",
+      "A KIE - DEN",
+      "F LVP S F MAO - IRI",
+      "F MAO S A GAS - BRE",
+      "A MAR - BUR",
+      "A PAR S A GAS - BRE",
+      "A SPA - BRE VIA"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU S A ROM - VEN",
+      "F BRE S A MAR - GAS",
+      "A BUL S A BUD - SER",
+      "A NAP S A VEN - APU",
+      "A ROM S A VEN - APU",
+      "A VEN S A ROM - TUS",
+      "A VIE S A RUM - BUD"
+    ],
+    "RUSSIA": [
+      "F BLA C A RUM - ANK",
+      "A DEN - KIE",
+      "A MOS S A BUL - SEV",
+      "A RUM - CON VIA",
+      "A SER S A RUM - BUL",
+      "F STP/SC S A WAR - LVN",
+      "A WAR - PRU"
+    ],
+    "TURKEY": [
+      "F ARM - BLA",
+      "A BUD S A VIE - TRI",
+      "A CON S F BLA - BUL",
+      "A SIL - MUN",
+      "A SMY S A CON - ARM"
+    ]
+  },
+  "phase": "S1908M",
+  "results": {
+    "A APU": [
+      "void"
+    ],
+    "A BER": [],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A DEN": [
+      "bounce"
+    ],
+    "A GAS": [
+      "void"
+    ],
+    "A KIE": [
+      "bounce"
+    ],
+    "A MAR": [],
+    "A MOS": [
+      "void"
+    ],
+    "A NAP": [
+      "void"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A RUM": [
+      "no convoy"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SIL": [],
+    "A SMY": [
+      "void"
+    ],
+    "A SPA": [
+      "no convoy"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "A WAR": [],
+    "A YOR": [
+      "bounce"
+    ],
+    "F ARM": [
+      "bounce"
+    ],
+    "F BLA": [
+      "void"
+    ],
+    "F BRE": [
+      "void"
+    ],
+    "F HOL": [],
+    "F LVP": [
+      "void"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NWG": [],
+    "F STP/SC": [
+      "void"
+    ]
+  }
+}
