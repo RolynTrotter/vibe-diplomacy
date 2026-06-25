@@ -1,0 +1,125 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BOH S A RUH - MUN",
+      "A VEN - ROM"
+    ],
+    "ENGLAND": [
+      "F NTH C A YOR - BRE",
+      "F NWG C A POR - BEL",
+      "A YOR - HOL VIA"
+    ],
+    "FRANCE": [
+      "F BEL S A KIE - HOL",
+      "A BER S A RUH - KIE",
+      "A BUR S A YOR - BEL",
+      "F LYO - TUS",
+      "F NAO C A POR - LVP",
+      "A PAR S F MAO - GAS",
+      "A POR - NWY VIA"
+    ],
+    "GERMANY": [
+      "A KIE S A POR - HOL",
+      "A RUH S A BUR - BEL"
+    ],
+    "ITALY": [
+      "A APU S A VEN - ROM",
+      "A BUD - TRI",
+      "F MAO C A POR - EDI",
+      "A MUN S A BER - KIE",
+      "A TUS - SPA VIA"
+    ],
+    "RUSSIA": [
+      "F BLA S A SER - BUL",
+      "F LVN - BAL",
+      "A RUM - BUL",
+      "A SWE S A YOR - NWY",
+      "A UKR S F ARM - SEV"
+    ],
+    "TURKEY": [
+      "F ARM - BLA",
+      "A CON - RUM VIA",
+      "A SER - RUM",
+      "A SEV S A CON - RUM",
+      "A SMY - ARM"
+    ]
+  },
+  "phase": "F1904M",
+  "results": {
+    "A APU": [],
+    "A BER": [
+      "void"
+    ],
+    "A BOH": [
+      "void"
+    ],
+    "A BUD": [],
+    "A BUR": [
+      "void"
+    ],
+    "A CON": [
+      "no convoy"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A MUN": [
+      "void"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A POR": [
+      "no convoy"
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A RUM": [],
+    "A SER": [],
+    "A SEV": [
+      "void"
+    ],
+    "A SMY": [
+      "bounce"
+    ],
+    "A SWE": [
+      "void"
+    ],
+    "A TUS": [
+      "no convoy"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A VEN": [],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F ARM": [
+      "bounce"
+    ],
+    "F BEL": [
+      "void"
+    ],
+    "F BLA": [
+      "void"
+    ],
+    "F LVN": [],
+    "F LYO": [
+      "bounce"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NAO": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "F NWG": [
+      "void"
+    ]
+  }
+}
