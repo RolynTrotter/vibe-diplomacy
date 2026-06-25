@@ -1,0 +1,69 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "F BAR D",
+      "A EDI D",
+      "A LON D",
+      "A YOR D"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A MOS B",
+      "F STP/NC B",
+      "A WAR B"
+    ],
+    "TURKEY": [
+      "F AEG D",
+      "A ANK D",
+      "A ARM D",
+      "A CON D",
+      "A GRE D",
+      "A SER D"
+    ]
+  },
+  "phase": "W1919A",
+  "results": {
+    "A ANK": [
+      "void"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A EDI": [
+      "void"
+    ],
+    "A GRE": [
+      "void"
+    ],
+    "A LON": [
+      "void"
+    ],
+    "A MOS": [
+      ""
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A WAR": [
+      ""
+    ],
+    "A YOR": [
+      "void"
+    ],
+    "F AEG": [
+      ""
+    ],
+    "F BAR": [
+      ""
+    ],
+    "F STP/NC": [
+      ""
+    ]
+  }
+}
