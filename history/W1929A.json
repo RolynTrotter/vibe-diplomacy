@@ -1,0 +1,31 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A ROM B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": [
+      "A CON B",
+      "F SMY B"
+    ]
+  },
+  "phase": "W1929A",
+  "results": {
+    "A CON": [
+      ""
+    ],
+    "A ROM": [
+      ""
+    ],
+    "F SMY": [
+      ""
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
