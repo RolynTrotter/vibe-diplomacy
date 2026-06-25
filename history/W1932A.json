@@ -1,0 +1,36 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A ROM B",
+      "A VEN B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": [
+      "A ANK B",
+      "A CON B",
+      "F SMY B"
+    ]
+  },
+  "phase": "W1932A",
+  "results": {
+    "A ANK": [
+      ""
+    ],
+    "A CON": [
+      ""
+    ],
+    "A ROM": [
+      ""
+    ],
+    "A VEN": [
+      ""
+    ],
+    "F SMY": [
+      "void"
+    ]
+  }
+}
