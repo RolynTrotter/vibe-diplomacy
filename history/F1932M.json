@@ -1,0 +1,122 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - NWY VIA",
+      "A WAL - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU - NAP",
+      "A BER S A STP - KIE",
+      "A BOH S A BUD - GAL",
+      "A BUD - RUM",
+      "A GAS - PAR",
+      "A NAP - APU",
+      "F SPA/SC - POR",
+      "A TUS S A TYR - PIE",
+      "A TYR - PIE"
+    ],
+    "RUSSIA": [
+      "F BAL C A BER - FIN",
+      "F BAR C A STP - EDI",
+      "F BOT C A LVN - FIN",
+      "A BRE - GAS",
+      "A LVN S A BER - PRU",
+      "A MOS S A RUM - SEV",
+      "F NWG C A STP - EDI",
+      "A NWY - EDI VIA",
+      "A POR - SPA",
+      "A STP - EDI VIA",
+      "A WAR S A STP - PRU"
+    ],
+    "TURKEY": [
+      "F AEG - BUL/SC",
+      "A ANK - ARM",
+      "A BUL S F AEG - GRE",
+      "A FIN - STP",
+      "A RUM - BUL",
+      "A SEV S A WAR - MOS",
+      "A TRI - VIE"
+    ]
+  },
+  "phase": "F1932M",
+  "results": {
+    "A ANK": [],
+    "A APU": [
+      "bounce"
+    ],
+    "A BER": [
+      "void"
+    ],
+    "A BOH": [
+      "void"
+    ],
+    "A BRE": [],
+    "A BUD": [
+      "bounce"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A FIN": [
+      "bounce"
+    ],
+    "A GAS": [],
+    "A LVN": [
+      "void"
+    ],
+    "A MOS": [
+      "void"
+    ],
+    "A NAP": [
+      "bounce"
+    ],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A POR": [
+      "bounce"
+    ],
+    "A RUM": [
+      "bounce"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A STP": [
+      "bounce"
+    ],
+    "A TRI": [],
+    "A TUS": [],
+    "A TYR": [],
+    "A WAL": [
+      "bounce"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "bounce"
+    ],
+    "F AEG": [
+      "bounce"
+    ],
+    "F BAL": [
+      "void"
+    ],
+    "F BAR": [],
+    "F BOT": [
+      "void"
+    ],
+    "F NWG": [],
+    "F SPA/SC": [
+      "bounce"
+    ]
+  }
+}
