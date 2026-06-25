@@ -1,0 +1,125 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BOH S A KIE - MUN",
+      "A VEN S A TYR - TRI"
+    ],
+    "ENGLAND": [
+      "F NTH C A YOR - BEL",
+      "F NWG S F NTH - NWY",
+      "A YOR - NWY VIA"
+    ],
+    "FRANCE": [
+      "F BEL S F NTH - HOL",
+      "A BER S A MUN - KIE",
+      "F LYO - SPA/SC",
+      "A MUN S A BER - KIE",
+      "F NAO - LVP",
+      "A PAR - BUR",
+      "A POR S F LYO - SPA"
+    ],
+    "GERMANY": [
+      "A KIE S F BEL - HOL",
+      "A RUH S A YOR - BEL"
+    ],
+    "ITALY": [
+      "A APU - VEN",
+      "A NAP - APU",
+      "A ROM S A APU - VEN",
+      "A SER S F BLA - BUL/EC",
+      "F SPA/NC - POR",
+      "A TYR - MUN"
+    ],
+    "RUSSIA": [
+      "F BLA C A BUL - SEV",
+      "A BUL - GRE",
+      "A SWE S A YOR - NWY",
+      "A UKR S A SER - RUM"
+    ],
+    "TURKEY": [
+      "F ANK S F ARM - BLA",
+      "F ARM S F ANK - BLA",
+      "A CON S A SER - BUL",
+      "A MOS - WAR",
+      "A RUM S A SER - BUD",
+      "A SMY S A CON - ARM"
+    ]
+  },
+  "phase": "S1906M",
+  "results": {
+    "A APU": [],
+    "A BER": [
+      "void"
+    ],
+    "A BOH": [
+      "void"
+    ],
+    "A BUL": [],
+    "A CON": [
+      "void"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A MOS": [],
+    "A MUN": [
+      "void"
+    ],
+    "A NAP": [],
+    "A PAR": [],
+    "A POR": [],
+    "A ROM": [],
+    "A RUH": [
+      "void"
+    ],
+    "A RUM": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A SWE": [
+      "void"
+    ],
+    "A TYR": [
+      "bounce"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A VEN": [
+      "void",
+      "dislodged"
+    ],
+    "A YOR": [
+      "no convoy"
+    ],
+    "F ANK": [
+      "void"
+    ],
+    "F ARM": [
+      "void"
+    ],
+    "F BEL": [
+      "void"
+    ],
+    "F BLA": [
+      "void"
+    ],
+    "F LYO": [],
+    "F NAO": [],
+    "F NTH": [
+      "void"
+    ],
+    "F NWG": [
+      "void"
+    ],
+    "F SPA/NC": [
+      "bounce",
+      "dislodged"
+    ]
+  }
+}
