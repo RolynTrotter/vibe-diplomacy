@@ -1,0 +1,35 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI B",
+      "A LON B"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A MOS B",
+      "A WAR B"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1908A",
+  "results": {
+    "A EDI": [
+      ""
+    ],
+    "A LON": [
+      "void"
+    ],
+    "A MOS": [
+      ""
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
