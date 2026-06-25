@@ -1,0 +1,46 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F BOT D",
+      "A MOS D",
+      "F NWG D",
+      "A NWY D",
+      "A RUM D",
+      "A STP D",
+      "A SWE D"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1943A",
+  "results": {
+    "A MOS": [
+      ""
+    ],
+    "A NWY": [
+      "void"
+    ],
+    "A RUM": [
+      "void"
+    ],
+    "A STP": [
+      "void"
+    ],
+    "A SWE": [
+      "void"
+    ],
+    "F BOT": [
+      ""
+    ],
+    "F NWG": [
+      "void"
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
