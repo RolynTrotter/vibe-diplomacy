@@ -1,0 +1,132 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - NWY VIA",
+      "A WAL S A EDI - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU - ROM",
+      "A BRE - GAS",
+      "A DEN - SWE",
+      "F IRI S A YOR - LVP",
+      "A NAP S A ROM - APU",
+      "A PIE S A ROM - TUS",
+      "A ROM S A NAP - APU",
+      "A SIL S A VIE - GAL",
+      "A TRI S A VIE - BUD",
+      "A TYR S A SIL - BOH",
+      "A VIE S A GAL - BUD",
+      "A WAR S A SEV - MOS"
+    ],
+    "RUSSIA": [
+      "A BUD S A TYR - VIE",
+      "A LVN S A SIL - WAR",
+      "F NWG - EDI",
+      "A NWY - EDI VIA",
+      "A SWE - DEN"
+    ],
+    "TURKEY": [
+      "A ANK S A SMY - ARM",
+      "A ARM S A SMY - SYR",
+      "A BUL S A SER - RUM",
+      "A GAL - WAR",
+      "F NAF S F IRI - MAO",
+      "A SER S A TYR - TRI",
+      "A SEV S A GAL - RUM",
+      "A SMY S A ANK - ARM",
+      "A SYR S A SEV - ARM"
+    ]
+  },
+  "phase": "F1944M",
+  "results": {
+    "A ANK": [
+      "void"
+    ],
+    "A APU": [
+      "bounce"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BRE": [],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A DEN": [
+      "bounce"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A GAL": [
+      "bounce"
+    ],
+    "A LVN": [
+      "void"
+    ],
+    "A NAP": [
+      "void"
+    ],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PIE": [
+      "void"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SIL": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A SWE": [
+      "bounce"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A TYR": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "A WAL": [
+      "void"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "bounce"
+    ],
+    "F IRI": [
+      "void"
+    ],
+    "F NAF": [
+      "void"
+    ],
+    "F NWG": [
+      "bounce"
+    ]
+  }
+}
