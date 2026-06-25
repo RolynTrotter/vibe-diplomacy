@@ -1,0 +1,55 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A ROM B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": [
+      "F ANK D",
+      "A ARM D",
+      "A BUL D",
+      "A CON D",
+      "A MOS D",
+      "A RUM D",
+      "A SYR D",
+      "A TYR D"
+    ]
+  },
+  "phase": "W1927A",
+  "results": {
+    "A ARM": [
+      ""
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A MOS": [
+      "void"
+    ],
+    "A ROM": [
+      ""
+    ],
+    "A RUM": [
+      "void"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "A TYR": [
+      "void"
+    ],
+    "F ANK": [
+      ""
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
