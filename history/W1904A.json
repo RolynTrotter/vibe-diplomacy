@@ -1,0 +1,28 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A NAP B",
+      "A VEN B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": [
+      "F ANK B"
+    ]
+  },
+  "phase": "W1904A",
+  "results": {
+    "A NAP": [
+      ""
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "F ANK": [
+      ""
+    ]
+  }
+}
