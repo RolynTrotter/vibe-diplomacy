@@ -1,0 +1,147 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI S A YOR - LVP",
+      "F NWY S F BOT - STP/SC",
+      "A YOR S F CLY - LVP"
+    ],
+    "FRANCE": [
+      "A BRE - DEN VIA",
+      "F CLY S A GAS - EDI",
+      "A GAS - EDI VIA",
+      "A KIE S A SIL - BER",
+      "F MAO C A GAS - NWY",
+      "F NTH S F CLY - EDI",
+      "A PAR S A GAS - PIC",
+      "A RUH S A PAR - BUR",
+      "A SIL S A UKR - WAR"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU S A VEN - ROM",
+      "A BUD S A VIE - TRI",
+      "F ENG C A GAS - BEL",
+      "A MAR - SPA",
+      "F TUS - PIE",
+      "A VEN - TRI",
+      "A VIE S A BUD - TRI"
+    ],
+    "RUSSIA": [
+      "F BLA S F CON - BUL",
+      "F BOT S A DEN - SWE",
+      "F CON S F BLA - BUL/EC",
+      "A DEN - EDI VIA",
+      "A GAL - BUD",
+      "A MUN - KIE",
+      "A PRU S A MUN - SIL",
+      "A SER S F BLA - BUL/EC",
+      "A UKR S A VIE - GAL",
+      "A WAR S A BUD - GAL"
+    ],
+    "TURKEY": [
+      "A ANK S F BLA - CON",
+      "A BUL S A GAL - RUM",
+      "A SMY S F BLA - CON",
+      "A TRI S A SER - BUD"
+    ]
+  },
+  "phase": "F1914M",
+  "results": {
+    "A ANK": [
+      "void"
+    ],
+    "A APU": [
+      "void"
+    ],
+    "A BRE": [
+      "no convoy"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A DEN": [
+      "no convoy"
+    ],
+    "A EDI": [
+      "void"
+    ],
+    "A GAL": [
+      "bounce"
+    ],
+    "A GAS": [
+      "no convoy"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A MAR": [],
+    "A MUN": [
+      "bounce"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A PRU": [
+      "void"
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SIL": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A UKR": [
+      "void"
+    ],
+    "A VEN": [
+      "bounce"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "void"
+    ],
+    "F BLA": [
+      "void"
+    ],
+    "F BOT": [
+      "void"
+    ],
+    "F CLY": [
+      "void"
+    ],
+    "F CON": [
+      "void"
+    ],
+    "F ENG": [
+      "void"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ],
+    "F NWY": [
+      "void"
+    ],
+    "F TUS": []
+  }
+}
