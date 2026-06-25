@@ -1,0 +1,64 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "F STP/SC B",
+      "A WAR B"
+    ],
+    "TURKEY": [
+      "A ALB D",
+      "A ANK D",
+      "A ARM D",
+      "A BUD D",
+      "A BUL D",
+      "F NAF D",
+      "A SER D",
+      "A SEV D",
+      "A SMY D",
+      "A SYR D"
+    ]
+  },
+  "phase": "W1942A",
+  "results": {
+    "A ALB": [
+      ""
+    ],
+    "A ANK": [
+      "void"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SMY": [
+      "void"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "F NAF": [
+      "void"
+    ],
+    "F STP/SC": [
+      ""
+    ]
+  }
+}
