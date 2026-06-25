@@ -1,0 +1,17 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A MAR R GAS"
+    ],
+    "TURKEY": []
+  },
+  "phase": "S1934R",
+  "results": {
+    "A MAR": []
+  }
+}
