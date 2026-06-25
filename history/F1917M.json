@@ -1,0 +1,144 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - DEN VIA",
+      "A LON - HOL VIA",
+      "A LVP S A LON - WAL",
+      "F NWG C A LON - CLY"
+    ],
+    "FRANCE": [
+      "A GAS S F MAO - SPA/SC",
+      "A KIE S F NTH - DEN",
+      "F MAO S A GAS - SPA",
+      "F NTH C A EDI - DEN",
+      "A PIC - BRE",
+      "A RUH - MUN"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU S A ROM - VEN",
+      "F BRE S A SPA - GAS",
+      "A NAP - APU",
+      "F PIE S A VEN - TUS",
+      "A ROM - TUS",
+      "A RUM S A TRI - SER",
+      "A SPA - POR",
+      "A TUS - PIE",
+      "A VEN S A SER - TRI",
+      "A VIE S A SER - TRI"
+    ],
+    "RUSSIA": [
+      "A BER - KIE",
+      "F BOT C A STP - SWE",
+      "A DEN - HOL VIA",
+      "A GAL S A UKR - RUM",
+      "A MUN S A KIE - BER",
+      "A SER S A VIE - TRI",
+      "A STP S F NTH - NWY",
+      "A UKR - RUM"
+    ],
+    "TURKEY": [
+      "A ANK - ARM",
+      "A ARM S A UKR - SEV",
+      "A BUL - SER",
+      "A CON S A ARM - ANK",
+      "A TRI S A SER - BUD"
+    ]
+  },
+  "phase": "F1917M",
+  "results": {
+    "A ANK": [
+      "bounce"
+    ],
+    "A APU": [
+      "void"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BER": [
+      "bounce"
+    ],
+    "A BUL": [
+      "bounce"
+    ],
+    "A CON": [
+      "void"
+    ],
+    "A DEN": [
+      "no convoy"
+    ],
+    "A EDI": [
+      "bounce"
+    ],
+    "A GAL": [],
+    "A GAS": [
+      "void"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A LON": [
+      "no convoy"
+    ],
+    "A LVP": [
+      "void"
+    ],
+    "A MUN": [
+      "void"
+    ],
+    "A NAP": [
+      "bounce"
+    ],
+    "A PIC": [
+      "bounce"
+    ],
+    "A ROM": [
+      "bounce"
+    ],
+    "A RUH": [
+      "bounce"
+    ],
+    "A RUM": [
+      "void",
+      "dislodged"
+    ],
+    "A SER": [
+      "void"
+    ],
+    "A SPA": [],
+    "A STP": [
+      "void"
+    ],
+    "A TRI": [
+      "void"
+    ],
+    "A TUS": [
+      "bounce"
+    ],
+    "A UKR": [],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "F BOT": [
+      "void"
+    ],
+    "F BRE": [
+      "void"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NTH": [],
+    "F NWG": [
+      "void"
+    ],
+    "F PIE": [
+      "void"
+    ]
+  }
+}
