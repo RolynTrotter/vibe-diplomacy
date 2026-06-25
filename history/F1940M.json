@@ -1,0 +1,137 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - STP VIA",
+      "A WAL - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU - GRE VIA",
+      "A KIE S A SIL - BER",
+      "F MAO S A PAR - BRE",
+      "A NAP - GRE VIA",
+      "A PAR S F MAO - BRE",
+      "A ROM - TUS",
+      "A SIL - BER",
+      "A TRI - BUD",
+      "A VEN S A VIE - TYR",
+      "A VIE S A SER - BUD",
+      "A WAR S A LVN - MOS"
+    ],
+    "RUSSIA": [
+      "F BAR C A STP - EDI",
+      "A BRE - SPA VIA",
+      "A FIN S A NWY - SWE",
+      "A LVN S A MOS - WAR",
+      "A MOS S A SIL - WAR",
+      "F NWG S A YOR - EDI",
+      "A NWY - EDI VIA",
+      "A STP - EDI VIA"
+    ],
+    "TURKEY": [
+      "A ALB S A VIE - TRI",
+      "A ANK S A SYR - ARM",
+      "A ARM - SYR",
+      "A BUD S A SER - TRI",
+      "A BUL S A NAP - GRE",
+      "F ION - NAP",
+      "A SER S A VEN - TRI",
+      "A SEV - MOS",
+      "A SYR S A ANK - ARM"
+    ]
+  },
+  "phase": "F1940M",
+  "results": {
+    "A ALB": [
+      "void"
+    ],
+    "A ANK": [
+      "void"
+    ],
+    "A APU": [
+      "no convoy"
+    ],
+    "A ARM": [
+      "bounce"
+    ],
+    "A BRE": [
+      "no convoy"
+    ],
+    "A BUD": [
+      "void"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A FIN": [
+      "void"
+    ],
+    "A KIE": [],
+    "A LVN": [
+      "void"
+    ],
+    "A MOS": [
+      "void"
+    ],
+    "A NAP": [
+      "no convoy"
+    ],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PAR": [
+      "void"
+    ],
+    "A ROM": [],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "bounce"
+    ],
+    "A SIL": [],
+    "A STP": [
+      "no convoy"
+    ],
+    "A SYR": [
+      "void"
+    ],
+    "A TRI": [
+      "bounce"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "A WAL": [
+      "bounce"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "bounce"
+    ],
+    "F BAR": [
+      "no convoy",
+      "void"
+    ],
+    "F ION": [
+      "bounce"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NWG": [
+      "void"
+    ]
+  }
+}
