@@ -1,0 +1,52 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A BER D",
+      "A GAS D",
+      "A KIE D",
+      "F MAO D",
+      "F NTH D",
+      "A PIC D",
+      "A RUH D"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "A NAP B",
+      "A ROM B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": []
+  },
+  "phase": "W1916A",
+  "results": {
+    "A BER": [
+      ""
+    ],
+    "A GAS": [
+      "void"
+    ],
+    "A KIE": [
+      "void"
+    ],
+    "A NAP": [
+      ""
+    ],
+    "A PIC": [
+      "void"
+    ],
+    "A ROM": [
+      ""
+    ],
+    "A RUH": [
+      "void"
+    ],
+    "F MAO": [
+      "void"
+    ],
+    "F NTH": [
+      "void"
+    ]
+  }
+}
