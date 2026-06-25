@@ -1,0 +1,24 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "F ROM B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": [
+      "A SMY B"
+    ]
+  },
+  "phase": "W1913A",
+  "results": {
+    "A SMY": [
+      ""
+    ],
+    "F ROM": [
+      ""
+    ]
+  }
+}
