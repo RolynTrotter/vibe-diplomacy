@@ -1,0 +1,51 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU D",
+      "A BUL D",
+      "F ENG D",
+      "A ROM D",
+      "A TUS D",
+      "A VEN D",
+      "A VIE D"
+    ],
+    "RUSSIA": [
+      "A WAR B"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1909A",
+  "results": {
+    "A APU": [
+      ""
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A ROM": [
+      "void"
+    ],
+    "A TUS": [
+      "void"
+    ],
+    "A VEN": [
+      "void"
+    ],
+    "A VIE": [
+      "void"
+    ],
+    "A WAR": [
+      ""
+    ],
+    "F ENG": [
+      "void"
+    ],
+    "WAIVE": [
+      "void"
+    ]
+  }
+}
