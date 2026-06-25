@@ -1,0 +1,123 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "A EDI - NWY VIA",
+      "A WAL S A EDI - YOR",
+      "A YOR - WAL"
+    ],
+    "FRANCE": [],
+    "GERMANY": [],
+    "ITALY": [
+      "A APU - NAP",
+      "A BRE - NAF VIA",
+      "A DEN - SWE",
+      "F MAO - IRI",
+      "A NAP S A ROM - APU",
+      "A PIE - TYR",
+      "A ROM - APU",
+      "A SIL S A VIE - GAL",
+      "A TRI S A RUM - BUD",
+      "A TUS - PIE",
+      "A VIE - BUD",
+      "A WAR S A SEV - MOS"
+    ],
+    "RUSSIA": [
+      "F NWG - EDI",
+      "A NWY - EDI VIA",
+      "A RUM - BUD",
+      "A STP - LVN",
+      "A SWE - DEN"
+    ],
+    "TURKEY": [
+      "A ANK - ARM",
+      "A ARM S A SMY - SYR",
+      "A BUD S A TRI - VIE",
+      "A BUL S A BUD - RUM",
+      "F NAF S F MAO - WES",
+      "A SER S A BUD - TRI",
+      "A SEV S A SER - RUM",
+      "A SMY - SYR",
+      "A SYR - ARM"
+    ]
+  },
+  "phase": "S1944M",
+  "results": {
+    "A ANK": [
+      "bounce"
+    ],
+    "A APU": [
+      "bounce"
+    ],
+    "A ARM": [
+      "void"
+    ],
+    "A BRE": [
+      "no convoy"
+    ],
+    "A BUD": [
+      "void",
+      "dislodged"
+    ],
+    "A BUL": [
+      "void"
+    ],
+    "A DEN": [
+      "bounce"
+    ],
+    "A EDI": [
+      "no convoy"
+    ],
+    "A NAP": [
+      "void"
+    ],
+    "A NWY": [
+      "no convoy"
+    ],
+    "A PIE": [],
+    "A ROM": [
+      "bounce"
+    ],
+    "A RUM": [],
+    "A SER": [
+      "void"
+    ],
+    "A SEV": [
+      "void"
+    ],
+    "A SIL": [
+      "void"
+    ],
+    "A SMY": [
+      "bounce"
+    ],
+    "A STP": [],
+    "A SWE": [
+      "bounce"
+    ],
+    "A SYR": [
+      "bounce"
+    ],
+    "A TRI": [],
+    "A TUS": [],
+    "A VIE": [
+      "bounce"
+    ],
+    "A WAL": [
+      "void"
+    ],
+    "A WAR": [
+      "void"
+    ],
+    "A YOR": [
+      "bounce"
+    ],
+    "F MAO": [],
+    "F NAF": [
+      "void"
+    ],
+    "F NWG": [
+      "bounce"
+    ]
+  }
+}
