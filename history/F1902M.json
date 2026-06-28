@@ -1,0 +1,89 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BUD - VIE",
+      "F ADR - ALB",
+      "A SER - BUL",
+      "F GRE - AEG",
+      "A BUL - RUM"
+    ],
+    "ENGLAND": [
+      "F NWG - EDI",
+      "F NTH - SKA",
+      "A EDI H"
+    ],
+    "FRANCE": [
+      "A POR - SPA",
+      "A BEL - PIC VIA",
+      "F SPA/NC - GAS",
+      "F ENG - MAO"
+    ],
+    "GERMANY": [
+      "A BOH - SIL",
+      "A PRU - SIL",
+      "F HOL - BEL"
+    ],
+    "ITALY": [
+      "F TYS - NAP",
+      "A TUS - ROM",
+      "A TYR - VEN"
+    ],
+    "RUSSIA": [
+      "A WAR - GAL",
+      "A FIN - LVN VIA",
+      "F BOT - BAL",
+      "F BLA - SEV"
+    ],
+    "TURKEY": [
+      "F AEG - EAS",
+      "A RUM - GAL",
+      "A SYR - ARM",
+      "F CON H"
+    ]
+  },
+  "phase": "F1902M",
+  "results": {
+    "A BEL": [],
+    "A BOH": [
+      "bounce"
+    ],
+    "A BUD": [],
+    "A BUL": [
+      "bounce"
+    ],
+    "A EDI": [],
+    "A FIN": [
+      "no convoy"
+    ],
+    "A POR": [],
+    "A PRU": [
+      "bounce"
+    ],
+    "A RUM": [
+      "bounce"
+    ],
+    "A SER": [
+      "bounce"
+    ],
+    "A SYR": [],
+    "A TUS": [],
+    "A TYR": [],
+    "A WAR": [
+      "bounce"
+    ],
+    "F ADR": [],
+    "F AEG": [],
+    "F BLA": [],
+    "F BOT": [],
+    "F CON": [],
+    "F ENG": [],
+    "F GRE": [],
+    "F HOL": [],
+    "F NTH": [],
+    "F NWG": [
+      "bounce"
+    ],
+    "F SPA/NC": [],
+    "F TYS": []
+  }
+}
