@@ -1,5 +1,5 @@
 {
-  "id": "AxSJttYzyDkv6SgO",
+  "id": "DJC3THZiSFW9YrPg",
   "map": "standard",
   "phases": [
     {
@@ -93,7 +93,7 @@
           "RUSSIA": 0,
           "TURKEY": 0
         },
-        "game_id": "AxSJttYzyDkv6SgO",
+        "game_id": "DJC3THZiSFW9YrPg",
         "homes": {
           "AUSTRIA": [
             "BUD",
@@ -186,7 +186,7 @@
           "NO_PRESS",
           "POWER_CHOICE"
         ],
-        "timestamp": 1782659153540352,
+        "timestamp": 1782659253036918,
         "units": {
           "AUSTRIA": [
             "A BUD",
