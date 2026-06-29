@@ -36,6 +36,11 @@ from orchestration.player_agent import AgentResult, make_agent
 from engine import context, state
 
 
+def _phase_year(phase: str) -> int:
+    """Year encoded in a diplomacy phase string, e.g. 'S1902M' -> 1902."""
+    return int(phase[1:5])
+
+
 class Conductor:
     def __init__(self, spec: MatchSpec, repo_root: Path, game_root: Path | None = None,
                  backend: str = "headless", adjudicator_key: str | None = None):
@@ -129,6 +134,9 @@ class Conductor:
                 break
 
             phase = rs["phase"]
+            if self.spec.end_year is not None and _phase_year(phase) > self.spec.end_year:
+                self._log(f"Reached {phase}; stopping after year {self.spec.end_year}.")
+                break
             self._log(f"\n=== {phase} ({rs['phase_type']}) ===")
             to_play = [p for p in rs["to_play"] if self.spec.seats[p].enabled]
 
@@ -335,6 +343,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--session-mode", dest="session_mode", choices=["oneshot", "persistent"])
     p.add_argument("--max-concurrency", dest="max_concurrency", type=int)
     p.add_argument("--max-phases", dest="max_phases", type=int)
+    p.add_argument("--end-year", dest="end_year", type=int,
+                   help="Stop once the board passes this year (e.g. 1902).")
     p.add_argument("--adjudication", choices=["local", "ci"])
     p.add_argument("--deadline", choices=["wait", "force"])
     p.add_argument("--per-call-timeout", dest="per_call_timeout_s", type=float)
@@ -354,7 +364,7 @@ def main(argv: list[str] | None = None) -> int:
         k: getattr(args, k) for k in (
             "name", "press", "idle", "human", "model", "endpoint",
             "negotiation_rounds", "session_mode", "max_concurrency", "max_phases",
-            "adjudication", "deadline", "per_call_timeout_s",
+            "end_year", "adjudication", "deadline", "per_call_timeout_s",
             "retries", "runs_dir", "verbosity", "dry_run",
         )
     }
