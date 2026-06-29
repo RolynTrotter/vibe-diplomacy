@@ -2,4 +2,5 @@
 # Pinned to the engine version verified to run on Python 3.11.
 diplomacy==1.1.2
 PyNaCl>=1.5.0
+PyYAML>=6.0
 pytest>=7.0

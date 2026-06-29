@@ -9,7 +9,7 @@ import pytest
 
 from diplomacy import Game
 
-from engine import adjudicate, crypto, query, state, suggest, validate
+from engine import adjudicate, crypto, query, state, validate
 from orchestration.game_status import _needs_orders
 
 
@@ -159,7 +159,7 @@ def test_needs_orders_retreat_phase_with_dislodgement():
 
 
 # --------------------------------------------------------------------------- #
-# Queries & suggestions
+# Queries
 # --------------------------------------------------------------------------- #
 def test_board_summary_opening():
     game = state.new_game("q")
@@ -188,14 +188,6 @@ def test_full_graph_covers_board():
     assert graph["PAR"]["units"] == ["FRANCE: A PAR"]
     assert "BUR" in graph["PAR"]["adjacent"]
     assert graph["BUR"]["units"] == []
-
-
-def test_heuristic_suggestions_are_legal():
-    game = state.new_game("s")
-    result = suggest.suggest(game, "FRANCE")
-    assert len(result.orders) == 3  # France has 3 units at opening
-    check = validate.validate_orders(game, "FRANCE", result.orders)
-    assert check.ok, check.errors
 
 
 # --------------------------------------------------------------------------- #
