@@ -54,7 +54,7 @@ hand out auth or assign powers.
 ## C. Playing a phase
 
 Each session loops on **`play-a-turn`**: orient → recall notes →
-(full-press: `negotiate`) → get suggestions → validate + sign + seal → commit
+(full-press: `negotiate`) → decide → validate + sign + seal → commit
 `orders/<POWER>/<phase>.enc`. Use `scripts/sync.sh "<msg>" <your paths>` to
 commit past the other sessions without push conflicts.
 
@@ -130,8 +130,8 @@ local adjudication and **scrubs it from every player's env**, so artifacts are
 byte-identical to a distrusting seven-session game. Transcripts land in
 `runs/<name>/<phase>/<power>.json`.
 
-- **Server-free smoke / CI:** `--backend fake` plays every seat from the
-  heuristic suggester + curated openings — no model server needed.
+- **Server-free smoke / CI:** `--backend fake` plays every seat with random
+  legal orders — no model server needed.
 - **Per-seat tweaks:** `--seat FRANCE.persona='cautious'`,
   `--seat GERMANY.model=claude-opus-4-8 --seat GERMANY.endpoint=api`.
 - **Memory across turns:** `--session-mode persistent` resumes each player's

@@ -5,7 +5,7 @@
 # Every field here is also reachable as a CLI flag (see --help); flags override
 # the YAML. Run with `--print-plan` to see the fully-resolved spec, or
 # `--dry-run` to print intended dispatches without running anything.
-# Use `--backend fake` for a server-free heuristic smoke run.
+# Use `--backend fake` for a server-free smoke run (random legal orders).
 
 name: example
 press: full              # none (gunboat) | full (negotiation on)
@@ -20,7 +20,6 @@ max_concurrency: 1       # single LM Studio instance -> sequential by default
 max_phases: 20
 adjudication: local      # local (held key) | ci (push -> GitHub Actions)
 deadline: force          # wait | force (programmatic local runs force anyway)
-seed_openings: true
 
 # Per-power overrides. Anything omitted inherits the defaults above.
 seats:

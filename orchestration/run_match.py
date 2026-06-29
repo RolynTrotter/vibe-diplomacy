@@ -190,10 +190,6 @@ class Conductor:
                 "`send_message`, then `scripts/sync.sh` any mail you create.\n\n"
             )
         else:
-            seed = ""
-            if (self.spec.seed_openings and phase == "S1901M"):
-                seed = ("This is the opening; you may follow a standard, sound "
-                        "opening for your power if unsure.\n")
             steps = ["1. `scripts/turn.sh {p}` — pull state and read your full brief."]
             if full:
                 steps.append("2. (Optional) negotiate first — see the `negotiate` skill.")
@@ -202,8 +198,7 @@ class Conductor:
             steps.append("4. Update notes/{p}.md with your plan, then `scripts/sync.sh`.")
             body = (
                 f"You are {power} in a Diplomacy match. {persona}"
-                f"It is {phase}. Play this turn end-to-end acting ONLY as {power}. "
-                f"{seed}\n"
+                f"It is {phase}. Play this turn end-to-end acting ONLY as {power}.\n\n"
                 + "\n".join(s.format(p=power) for s in steps)
                 + "\n\n"
             )
@@ -325,7 +320,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--spec", help="Path to a match YAML spec.")
     p.add_argument("--root", help="Game root (default: cwd).")
     p.add_argument("--backend", default="headless", choices=["headless", "fake"],
-                   help="Player backend (fake = server-free heuristic).")
+                   help="Player backend (fake = server-free, random legal orders).")
     p.add_argument("--print-plan", action="store_true",
                    help="Resolve the spec and print it, then exit (run nothing).")
 
@@ -342,8 +337,6 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--max-phases", dest="max_phases", type=int)
     p.add_argument("--adjudication", choices=["local", "ci"])
     p.add_argument("--deadline", choices=["wait", "force"])
-    p.add_argument("--seed-openings", dest="seed_openings", action="store_true", default=None)
-    p.add_argument("--no-seed-openings", dest="seed_openings", action="store_false", default=None)
     p.add_argument("--per-call-timeout", dest="per_call_timeout_s", type=float)
     p.add_argument("--retries", type=int)
     p.add_argument("--runs-dir", dest="runs_dir")
@@ -361,7 +354,7 @@ def main(argv: list[str] | None = None) -> int:
         k: getattr(args, k) for k in (
             "name", "press", "idle", "human", "model", "endpoint",
             "negotiation_rounds", "session_mode", "max_concurrency", "max_phases",
-            "adjudication", "deadline", "seed_openings", "per_call_timeout_s",
+            "adjudication", "deadline", "per_call_timeout_s",
             "retries", "runs_dir", "verbosity", "dry_run",
         )
     }

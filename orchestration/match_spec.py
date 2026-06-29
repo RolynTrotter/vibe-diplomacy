@@ -89,7 +89,6 @@ class MatchSpec:
     max_phases: int = 20
     adjudication: str = "local"             # local (held key) | ci (push -> Actions)
     deadline: str = "wait"                  # wait | force
-    seed_openings: bool = True
 
     per_call_timeout_s: float = 600.0
     retries: int = 1

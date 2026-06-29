@@ -1,9 +1,9 @@
 """Programmatic conductor (Epic: run_match).
 
 All tests run WITHOUT LM Studio or any model server: the `fake` backend submits
-heuristic/curated orders through the real CLIs, so the whole conductor loop is
-deterministic and CI-safe. We assert the produced artifacts are the same shape a
-distrusting seven-session game (or scripts/self_play.py) yields.
+random legal orders through the real CLIs, so the whole conductor loop is
+runnable and CI-safe. We assert the produced artifacts are the same shape a
+distrusting seven-session game yields.
 """
 import json
 import os
@@ -110,7 +110,7 @@ def test_dry_run_dispatches_nothing(tmp_path):
 # --------------------------------------------------------------------------- #
 def test_full_fake_match_produces_valid_artifacts(tmp_path):
     spec = MatchSpec.load(None, name="proving", press="none", max_phases=4,
-                          verbosity=0, seed_openings=True)
+                          verbosity=0)
     conductor = Conductor(spec, REPO, game_root=tmp_path, backend="fake")
     summary = conductor.run()
 

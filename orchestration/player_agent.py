@@ -11,14 +11,16 @@ Two properties this module guarantees:
 * **Secrets isolation.** A player process NEVER receives
   `ADJUDICATOR_PRIVATE_KEY`. `_player_env` scrubs it and routes `local` seats to
   LM Studio / `api` seats to the ambient Anthropic credentials.
-* **Pluggability.** `FakeAgent` ignores the prompt and submits heuristic orders
-  through the real CLIs, making the whole conductor loop runnable in CI with no
-  model server. A future raw `/v1/messages` backend can slot in the same way.
+* **Pluggability.** `FakeAgent` ignores the prompt and submits random legal
+  orders through the real CLIs, making the whole conductor loop runnable in CI
+  with no model server. A future raw `/v1/messages` backend can slot in the same
+  way.
 """
 from __future__ import annotations
 
 import json
 import os
+import random
 import subprocess
 import time
 from dataclasses import dataclass, field
@@ -26,20 +28,6 @@ from pathlib import Path
 
 from orchestration._common import POWERS  # noqa: F401  (re-exported convenience)
 from orchestration.match_spec import MatchSpec, SeatSpec
-
-# Curated 1901 openings (mirrors scripts/self_play.py) so the heuristic-backed
-# FakeAgent produces a realistic history when `seed_openings` is on.
-OPENINGS = {
-    "S1901M": {
-        "AUSTRIA": ["A VIE - GAL", "A BUD - SER", "F TRI - ALB"],
-        "ENGLAND": ["F LON - NTH", "F EDI - NWG", "A LVP - YOR"],
-        "FRANCE":  ["F BRE - MAO", "A PAR - BUR", "A MAR - SPA"],
-        "GERMANY": ["A BER - KIE", "A MUN - RUH", "F KIE - DEN"],
-        "ITALY":   ["A VEN - TYR", "A ROM - VEN", "F NAP - ION"],
-        "RUSSIA":  ["A MOS - UKR", "A WAR - GAL", "F SEV - BLA", "F STP/SC - BOT"],
-        "TURKEY":  ["A CON - BUL", "A SMY - CON", "F ANK - BLA"],
-    },
-}
 
 
 @dataclass
@@ -180,7 +168,7 @@ class FakeAgent(PlayerAgent):
 
     It ignores the natural-language task entirely and instead does what a real
     player would do through the same CLIs: claim its seat, then (on an orders
-    task) submit curated/heuristic orders. Negotiation tasks are a no-op.
+    task) submit a random pick of legal orders. Negotiation tasks are a no-op.
     """
 
     def dispatch(self, task: str, kind: str = "orders") -> AgentResult:
@@ -211,18 +199,23 @@ class FakeAgent(PlayerAgent):
         self._run_cli("orchestration.join_game", ["--power", self.power])
 
     def _orders(self) -> list[str]:
+        """One random legal order per orderable location.
+
+        No strategy whatsoever — this exists only to drive real sealed/signed
+        orders through the pipeline in tests. The RNG is seeded from the phase
+        and power so a run is reproducible.
+        """
         from engine import state
-        phase = state.load_game(self.game_root).get_current_phase()
-        if self.spec.seed_openings and phase in OPENINGS and self.power in OPENINGS[phase]:
-            return OPENINGS[phase][self.power]
-        proc = self._run_cli("orchestration.suggest_orders",
-                             ["--power", self.power, "--json"])
-        if proc.returncode != 0:
-            return []
-        try:
-            return json.loads(proc.stdout).get("orders", [])
-        except json.JSONDecodeError:
-            return []
+        game = state.load_game(self.game_root)
+        phase = game.get_current_phase()
+        possible = game.get_all_possible_orders()
+        rng = random.Random(f"{phase}:{self.power}")
+        orders = []
+        for loc in game.get_orderable_locations(self.power):
+            choices = possible.get(loc) or []
+            if choices:
+                orders.append(rng.choice(choices))
+        return orders
 
 
 def make_agent(backend: str, power: str, seat: SeatSpec, repo_root: Path,
@@ -236,5 +229,5 @@ def make_agent(backend: str, power: str, seat: SeatSpec, repo_root: Path,
 
 __all__ = [
     "AgentResult", "PlayerAgent", "HeadlessClaudeAgent", "FakeAgent",
-    "make_agent", "_player_env", "OPENINGS",
+    "make_agent", "_player_env",
 ]
