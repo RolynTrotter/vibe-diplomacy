@@ -107,3 +107,33 @@ no state.
   subagents, some as independent sessions).
 - For a fast local run, export `ADJUDICATOR_PRIVATE_KEY` so the conductor
   adjudicates in-session; push the game branch periodically for the visualizer.
+
+## H. Programmatic conductor (one command, independent player sessions)
+
+When you want each power to run as its **own headless Claude Code process** (the
+only way to give each seat a real per-power model, e.g. a local Qwen via LM
+Studio), use `run_match` instead of opening seven terminals:
+
+```bash
+# whole 7-way game from a spec, no extra terminals
+python -m orchestration.run_match --spec matches/example.yaml
+
+# or with inline overrides (flags beat the YAML)
+python -m orchestration.run_match --name frostbite --press full \
+    --model qwen/qwen3.6-35b-a3b --rounds 2 --max-phases 20
+```
+
+Each lever lives in `matches/*.yaml` (see `matches/example.yaml`) and has a
+matching flag — `--print-plan` dumps the fully-resolved spec, `--dry-run` prints
+intended dispatches without running. The conductor holds the adjudicator key for
+local adjudication and **scrubs it from every player's env**, so artifacts are
+byte-identical to a distrusting seven-session game. Transcripts land in
+`runs/<name>/<phase>/<power>.json`.
+
+- **Server-free smoke / CI:** `--backend fake` plays every seat from the
+  heuristic suggester + curated openings — no model server needed.
+- **Per-seat tweaks:** `--seat FRANCE.persona='cautious'`,
+  `--seat GERMANY.model=claude-opus-4-8 --seat GERMANY.endpoint=api`.
+- **Memory across turns:** `--session-mode persistent` resumes each player's
+  session every turn. **Parallel seats:** `--max-concurrency 2` (also raise LM
+  Studio's max concurrent requests).

@@ -1,0 +1,33 @@
+# Example match spec for the programmatic conductor.
+#
+#   python -m orchestration.run_match --spec matches/example.yaml
+#
+# Every field here is also reachable as a CLI flag (see --help); flags override
+# the YAML. Run with `--print-plan` to see the fully-resolved spec, or
+# `--dry-run` to print intended dispatches without running anything.
+# Use `--backend fake` for a server-free heuristic smoke run.
+
+name: example
+press: full              # none (gunboat) | full (negotiation on)
+
+# Default model/endpoint for every seat (per-seat overrides below win).
+model: qwen/qwen3.6-35b-a3b
+endpoint: local          # local -> LM Studio | api -> Anthropic/subscription
+
+negotiation_rounds: 2    # talk rounds before orders (full-press movement phases)
+session_mode: oneshot    # oneshot | persistent (agents keep their own memory)
+max_concurrency: 1       # single LM Studio instance -> sequential by default
+max_phases: 20
+adjudication: local      # local (held key) | ci (push -> GitHub Actions)
+deadline: force          # wait | force (programmatic local runs force anyway)
+seed_openings: true
+
+# Per-power overrides. Anything omitted inherits the defaults above.
+seats:
+  FRANCE:
+    persona: Cautious and defensive; prefers stable alliances over early gambles.
+  GERMANY:
+    model: claude-opus-4-8     # play this seat on Opus instead of Qwen
+    endpoint: api
+  ITALY:
+    enabled: false             # sit Italy out (treated as idle)
