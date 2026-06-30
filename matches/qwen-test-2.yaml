@@ -1,0 +1,27 @@
+# Match spec: qwen-test-2
+#
+#   python -m orchestration.run_match --spec matches/qwen-test-2.yaml
+#
+# Full-press 7-way game. Six seats on a local Qwen (LM Studio); Germany on
+# Sonnet via the Anthropic API. Stops once the board passes 1905 (effectively a
+# draw at end of 1905 — the players are NOT told the game has a fixed end).
+
+name: qwen-test-2
+press: full
+
+# Default seat: local Qwen in LM Studio.
+model: qwen/qwen3.6-35b-a3b
+endpoint: local
+
+negotiation_rounds: 2      # two signed-message exchanges per movement phase
+session_mode: oneshot      # fresh context each call; coherence carried by notes/
+max_concurrency: 1         # single LM Studio instance -> sequential
+end_year: 1905             # stop once the board passes 1905
+max_phases: 30             # safety cap (never relied on; end_year ends it first)
+adjudication: local        # conductor holds the per-game key
+deadline: force
+
+seats:
+  GERMANY:
+    model: claude-sonnet-4-6   # Germany plays on Sonnet instead of Qwen
+    endpoint: api              # use ambient Anthropic credentials, no base-url
