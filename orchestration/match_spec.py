@@ -87,6 +87,7 @@ class MatchSpec:
     session_mode: str = "oneshot"           # oneshot | persistent
     max_concurrency: int = 1
     max_phases: int = 20
+    end_year: int | None = None             # stop once the board passes this year
     adjudication: str = "local"             # local (held key) | ci (push -> Actions)
     deadline: str = "wait"                  # wait | force
 

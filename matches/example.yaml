@@ -17,7 +17,8 @@ endpoint: local          # local -> LM Studio | api -> Anthropic/subscription
 negotiation_rounds: 2    # talk rounds before orders (full-press movement phases)
 session_mode: oneshot    # oneshot | persistent (agents keep their own memory)
 max_concurrency: 1       # single LM Studio instance -> sequential by default
-max_phases: 20
+end_year: 1902           # stop once the board passes this year (the usual lever)
+max_phases: 20           # safety cap on phase count if end_year is unset
 adjudication: local      # local (held key) | ci (push -> GitHub Actions)
 deadline: force          # wait | force (programmatic local runs force anyway)
 
