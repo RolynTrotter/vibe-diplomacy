@@ -19,14 +19,24 @@
 - A VEN → ROM (capture Italian SC, centralize)
 - A ROM → TUS (push west toward French border, pressure PIE)
 
+## F1901M orders (submitted)
+- F TYS → TUN (capture Tunis — primary expansion goal achieved!)
+- A TUS → PIE (push into Piedmont — French border play, France deal allows this)
+- A ROM H (hold Rome, maintain 3 centers, no adjustment due)
+
 ## Next phase plan
-- F TYS → TUN (capture Tunis — primary expansion goal)
-- A ROM: support TUN or hold, watch GAS from France
-- A TUS: push to PIE (France agreed to stay out, but PIE is the natural expansion)
-- Monitor Austria's BUD/VIE moves — hold VEN if needed
+- After F1901M adjudication: check if TUN and PIE secured
+- F TUN: hold or push ADR/ION for Greek expansion
+- A PIE: hold or push MAR/LYO, watch France's GAS position
+- A ROM: support TUN or hold, monitor ADR from Austria
+- Watch Austria's BUD (to SER) and Turkey's CON (to BUL) — Balkans developing
+- Consider W1901 builds: likely 2 units given 3 centers
 
 ## Key observations
-- Naples fleet cannot reach TUN directly — must route through TYS (Tyrrhenian)
-- Venice connects directly to ROM (adjacent) — useful for centralization
-- Tuscany connects to PIE — future French border play
+- Naples fleet cannot reach TUN directly — must route through TYS (Tyrrhenian) ✓ done
+- Venice connects directly to ROM (adjacent) — useful for centralization ✓ done
+- Tuscany connects to PIE — future French border play ✓ executing F1901M
 - France confirmed deal: A MAR → GAS, stays out of PIE/VEN
+- Austria's F TRI → ADR this season — respect the border, no ADR push from Italy
+- German F KIE → HOL, A BER → KIE, A MUN → RUH — Germany expanding north/west, not our concern
+- Russia taking FIN, UKR — eastern focus, no Mediterranean interest
