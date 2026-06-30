@@ -1,19 +1,19 @@
 # TURKEY — strategy notebook
 
 ## Standing plan
-- Expand to 5+ centers: take BLA, ARM, SYR this season
-- Keep Black Sea open — no blocking Russia's F SEV
-- SER is a secondary target (via BLA→GAL or BLA→SER when board opens)
+- Expand to 5+ centers: take ARM, BUL, SYR this season
+- Avoid Black Sea collision — Russia's F SEV→BLA means F ANK→BLA bounces
+- ANK (fleet) can move directly to ARM — use that, don't route through BLA
+- SER is a secondary target (via BUL→SER when board opens)
 - Never push ALB (Italy's water — respect the border)
 
 ## Trust & deals
-- RUSSIA: trusted — ARM/UKR split. They get UKR, I get ARM. They won't push RUM/BUD, I won't push BUD. F ANK holds BLA — Black Sea divided but open.
-- AUSTRIA: reliable — ceded SER, won't push ALB (Italy's water). No Balkan conflict.
+- RUSSIA: trusted — ARM/UKR split honored. Russia gets UKR, I get ARM (direct). F SEV→BLA means F ANK→BLA would collide, so I route F ANK→ARM instead.
+- AUSTRIA: reliable — ceded SER, won't push ALB. No Balkan conflict.
 - ITALY: reliable — west of Ionian, I take Aegean/Syria. No Adriatic disputes.
 - GERMANY: confirmed no overlap — moving north/west, no Balkan interest this season.
 
 ## Next phase
-- Orders: F ANK→BLA, A CON→ARM, A SMY→SYR
-- Do NOT move A CON into BLA — collision risk with F SEV
-- Do NOT push ALB — Italian fleet controls that water
-- After orders resolve: assess BLA stability, then plan SER push
+- Orders submitted: F ANK→ARM, A CON→BUL, A SMY→SYR
+- After adjudication: assess if BLA is free, then plan F ARM→BLA next turn
+- BUL→SER is the natural SER push next season
