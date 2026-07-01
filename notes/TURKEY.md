@@ -21,10 +21,17 @@
 - **W1901A**: A ANK B (army built)
   - 4 centers (ANK, CON, SMY, RUM), 4 units: A ANK, F ARM, A RUM, A SMY
   - No builds due next phase (4 centers = 4 units)
+- **S1902M**: bounced — A CON bounced in BUL (Austria held), A ANK bounced in BLA (Russia's F SEV→BLA)
+  - Result: A RUM (bounced from BUL), F ARM (bounced from BLA), A SMY, A ANK
+  - 4 centers (ANK, CON, SMY, RUM), 4 units: A ANK, F ARM, A RUM, A SMY
+  - No builds due (4 centers = 4 units)
 
-## Next phase (W1901A → S1902M)
+## S1902M diplomatic actions
+- To AUSTRIA: Confirmed cannot hold BUL (bounced to RUM). Cannot renew SER/BUL partition. No interest in GAL — let Austria fight over the Balkans.
+- To RUSSIA: Confirmed ARM/BLA bounce mutual (both fleets bounced). No push toward Russian border this season. Holding flank stable.
+
+## Next phase (S1902M → A1902)
 - Board: 4 centers, 4 units (no builds due)
-- Russia holds BLA — cannot push there this season
-- Focus: Hold all 4 centers, maintain ARM/UKR and Ionian/Aegean borders
-- Monitor: Russia's BLA fleet — status of BLA after adjudication
-- BUL→SER is the natural SER push when board opens (Austria holds SER)
+- Bounced units: A RUM, F ARM — both bounced in S1902M
+- Focus: Hold all 4 centers, push SYR from SMY, hold ANK/CON/RUM/ARM
+- Monitor: Russia's BLA fleet status, Austria's Balkan moves
