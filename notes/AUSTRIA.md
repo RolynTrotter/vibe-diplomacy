@@ -14,8 +14,14 @@
 - FRANCE: neutral | Holding 4 units, no Balkan push. Russia-focused.
 - ENGLAND: neutral | NWY expansion, no Balkan threat.
 
+## F1902M orders
+- A GAL - BUD (unit bounced back from BUD→GAL last phase, now tracked at GAL)
+- A SER - BUL (intentional bounce vs Turkey's A RUM→BUL — restores SER/BUL partition)
+- F ALB H (hold — secures Adriatic, honors Italy pact)
+
 ## Next phase (F1902A)
 - 6 centers, 4 units → 2 builds expected
 - Build A VIE (pressures SER/BUD) or F ALB (Adriatic control)
 - Watch TURKEY for autumn BUL recovery push (RUM→BUL)
 - Confirm RUSSIA holds GAL — no eastern pressure
+- Turkey's A RUM→BUL will bounce my A SER→BUL — BUL goes to Turkey, SER stays mine — partition restored naturally
