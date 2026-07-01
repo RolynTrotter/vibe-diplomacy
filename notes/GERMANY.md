@@ -86,3 +86,43 @@
 - Does Russia hold at 5 or start pushing PRU/SIL? Red line is SIL entry.
 - France in MAO — Atlantic fleet. Where does it go in autumn?
 - Austria at 5 (if SER taken) + Russia at 5 = two mid-board powers to manage.
+
+---
+
+## F1902M — Fall 1902
+
+### Orders submitted
+- A BEL H (hold Belgium — lock in 5th SC)
+- A DEN H (hold Denmark — lock in 6th SC)
+- A RUH S A BEL (support BEL defensively; France has BUR+PIC attack vector)
+- F NTH H (maintain North Sea control)
+
+### Rationale
+- BEL and DEN must hold to capture as new centers. France has A BUR and A PIC adjacent to BEL — a 2-unit attack could dislodge me. France promised not to attack but A RUH support covers against bad faith.
+- F NTH holds to keep sea control; no opportunity worth breaking deals over (NWY would anger England, SWE would break Russia non-aggression).
+- After W1902A: Germany at 6 centers (BER, KIE, MUN, HOL, BEL, DEN), 2 builds. Build 2 armies — likely A BER and A KIE for eastern depth.
+
+### Board developments this phase
+- **RUSSIA**: F BLA→CON (Turkey's center!), A UKR→RUM bounce. Russia at 5 centers, breaking the ARM/UKR deal with Turkey. Eastern coalition against Russia now forming.
+- **AUSTRIA**: A BUD→GAL (succeeded), A SER→BUL (bounced vs Turkey). Austria in GAL threatens Russia's UKR and potentially SIL. Double-edged: good if it distracts Russia, bad if Austria grows too strong.
+- **TURKEY**: A RUM→BUL (bounced vs Austria), A SMY→SYR. Turkey furious at Russia. May seek alliance with western powers.
+- **ENGLAND**: F NWY→SKA (success), F EDI→CLY (bounced vs A CLY). England slower to expand than expected — CLY self-bounce is odd. Trust: medium.
+- **FRANCE**: A PAR→BUR, A BRE→PIC. France pushing Low Countries approach. PIC explicitly told me is staging, not attack on BEL. Trust: high but watch it.
+- **ITALY**: F TUN→ION, A ROM→VEN. Italy consolidating in Mediterranean and northern Italy.
+
+### Diplomatic messages sent
+- **ENGLAND**: Confirmed BEL/DEN/NTH mine, SKA/NWY theirs. Warned France has 2-unit BEL vector.
+- **FRANCE**: Accepted explicit BEL=Germany, PIC=France agreement. Noted Russia CON grab.
+- **RUSSIA**: Re-confirmed non-aggression. Noted the CON grab is making Russia the board's target.
+
+### Deals in effect
+- **RUSSIA**: Non-aggression. PRU/SIL quiet. Trust: medium (CON grab against Turkey shows willingness to break deals when convenient).
+- **FRANCE**: BEL=Germany, PIC=France, BUR stays French. Trust: high.
+- **ENGLAND**: Distinct lanes — DEN/BEL/NTH vs SKA/NWY. Trust: medium.
+
+### S1903M watch items
+- Does France move A PIC→BEL or A BUR→BEL in spring? If so, it's war.
+- Does England push SKA→DEN or SKA→SWE? Watch their northern fleet.
+- Does Russia push A GAL opponent (Austria) spill into SIL? Red line.
+- Turkey-Russia war in the east: good for Germany if it drains both.
+- Build 2 units in W1902A — armies BER and KIE for central strength.
