@@ -15,10 +15,13 @@
 - RUSSIA: hostile, 4 centers | primary threat — stretched across east, but dangerous. Broadcast acknowledged my expansion as "fine — not my sphere." No deal.
 - TURKEY: unknown | no deal — expanding east into BLA/ARM/SYR, not in my sphere
 
-## S1901M orders submitted
+## W1901M orders submitted
 - A PAR → BUR (pressure on Germany, secure northern flank)
 - F BRE → ENG (take center + open coast)
 - A MAR → GAS (southern expansion, uncontested)
+
+## W1901A build
+- A BRE B (army in Brittany — supports northern strategy, controls Bay of Biscay)
 
 ## Negotiation summary S1901M
 - Sent to ALL (broadcast): balance-of-power, Russia is the threat
@@ -28,9 +31,10 @@
 - Received: ENGLAND (2x), GERMANY (2x), ITALY (2x), AUSTRIA (broadcast), RUSSIA (broadcast), TURKEY (broadcast)
 - Germany called out inconsistency between broadcast (BEL) and DM (BUR) — corrected
 
-## Next phase (S1901F)
-- Check adjudication: did F BRE→ENG succeed? (ENG may be convoyed from LON)
-- A PAR→BUR needs to be checked — GERMANY may push MUN or KIE
-- A MAR→GAS should be uncontested — confirm
-- If successful, I'll have 6 centers and 3 adjustments for S1901F
+## S1901F plan
+- Build adjudication confirmed: A BRE B submitted
+- Spring 1901 moves — expected board after builds: F MAO, A PAR, A SPA, A BRE
+- A PAR → BUR (honors Germany deal, pressures MUN)
+- F BRE → ENG (take center + open coast)
+- A SPA → GAS (southern expansion, uncontested per Italy deal)
 - Watch: England fleet into BEL? Germany MUN/KIE moves? Russia response?
