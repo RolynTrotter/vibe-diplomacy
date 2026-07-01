@@ -13,7 +13,18 @@
 - ITALY: reliable — west of Ionian, I take Aegean/Syria. No Adriatic disputes.
 - GERMANY: confirmed no overlap — moving north/west, no Balkan interest this season.
 
-## Next phase
-- Orders submitted: F ANK→ARM, A CON→BUL, A SMY→SYR
-- After adjudication: assess if BLA is free, then plan F ARM→BLA next turn
-- BUL→SER is the natural SER push next season
+## Turn log
+- **S1901**: F ANK - ARM, A CON - BUL, A SMY - SYR (all successful)
+- **F1901**: F ARM H, A BUL - RUM, A SYR - SMY (all successful)
+  - Russia F SEV→BLA succeeded — BLA now has Russian fleet
+  - Gained RUM and SMY centers (now 4: ANK, CON, SMY, RUM)
+- **W1901A**: A ANK B (army built)
+  - 4 centers (ANK, CON, SMY, RUM), 4 units: A ANK, F ARM, A RUM, A SMY
+  - No builds due next phase (4 centers = 4 units)
+
+## Next phase (W1901A → S1902M)
+- Board: 4 centers, 4 units (no builds due)
+- Russia holds BLA — cannot push there this season
+- Focus: Hold all 4 centers, maintain ARM/UKR and Ionian/Aegean borders
+- Monitor: Russia's BLA fleet — status of BLA after adjudication
+- BUL→SER is the natural SER push when board opens (Austria holds SER)
