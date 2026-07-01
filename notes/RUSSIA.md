@@ -42,7 +42,7 @@
 - A MOS B (build army in Moscow — core defense, bring units to 5 to match 5 centers)
 - All 4 units hold (A LVN, A UKR, F BLA, F SWE)
 
-## S1902M Orders submitted
+## S1902M Orders (SUBMITTED)
 - A LVN H — hold position, monitoring Germany's westward push
 - A UKR → RUM — **PUSH**: Turkey's A CON bounced into RUM, province empty. Take it.
 - F BLA → CON — **PUSH**: Turkey's F ANK bounced in BLA, BLA now empty, CON open. Take it.
