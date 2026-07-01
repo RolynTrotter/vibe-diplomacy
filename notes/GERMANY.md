@@ -51,21 +51,38 @@
 
 ---
 
-## S1902M — Plan
+## S1902M — Orders Submitted
 
-### Intended orders
-- A RUH → BEL (5th SC — top priority)
-- A KIE → DEN (6th SC — Russia okayed this)
-- F HOL → support A RUH if needed, or NTH for naval presence
-- A MUN → RUH (repositions army to support future western push)
+### Orders locked
+- A RUH → BEL (5th SC — uncontested; France holding PAR, BUR empty)
+- A KIE → DEN (6th SC — Russia holding SWE, England confirmed SKA not DEN)
+- F HOL → NTH (naval presence, positions for future North Sea control)
+- A MUN → RUH (reposition west for F1902M flexibility)
 
-### Key watch items
-- Does Russia build armies west or east? A Warsaw/Silesia build is a red flag.
-- Does France move BUR east or toward BEL? If France takes BEL before me, replan.
-- Does England contest DEN? Confirm coordination before locking orders.
-- Turkey/Austria Balkan escalation could distract Russia — good for us.
+### Diplomatic messages sent
+- **ENGLAND**: Confirmed BEL+DEN for Germany, SKA+CLY for England — both end at 5.
+- **FRANCE**: Confirmed BUR stays French, no eastern push from Germany.
+- **RUSSIA**: Confirmed non-aggression, flagged England's SKA move as worth watching.
+
+### Board situation at orders
+- FRANCE holding all 4 units — BUR still empty. Deal intact.
+- RUSSIA holding all 5 units — no eastern pressure this turn.
+- ENGLAND moving NWY→SKA, holding EDI/CLY/LON — clear of DEN.
+- AUSTRIA taking SER (Turkey's army bounced to RUM).
+- TURKEY holding most units, pushing only SMY→SYR.
+
+### Expected outcome
+- If BEL and DEN go through: Germany at 6 centers heading into F1902M.
+- No bounces expected: BEL uncontested, DEN uncontested.
+- F NTH gives leverage over the North Sea next season.
 
 ### Deals in effect
-- **RUSSIA**: Non-aggression. No fleet in BAL, no army in PRU/SIL. Russia stays out of PRU/SIL/PRA.
-- **FRANCE**: BUR/HOL DMZ — BUR stays French, I don't push east of RUH.
-- **ENGLAND**: Parallel interests; coordinate DEN/BEL timing.
+- **RUSSIA**: Non-aggression. No fleet in BAL, no army in PRU/SIL. Russia stays out of PRU/SIL/PRA. Trust: medium-high.
+- **FRANCE**: BUR/HOL DMZ holds. BUR stays French, Germany doesn't push east of RUH. Trust: high.
+- **ENGLAND**: Coordinate on western expansion. Both targeting 5 centers this turn. Trust: medium-high.
+
+### F1902M watch items
+- Does England push BAL next season? If so, both Germany and Russia react.
+- Does Russia hold at 5 or start pushing PRU/SIL? Red line is SIL entry.
+- France in MAO — Atlantic fleet. Where does it go in autumn?
+- Austria at 5 (if SER taken) + Russia at 5 = two mid-board powers to manage.
