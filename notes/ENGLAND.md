@@ -113,3 +113,50 @@ Expected result: F LON lands in NTH (one step from BEL), A LVP lands in CLY (cen
 - France heading west (MAO, SPA) — honoring Channel deal
 - Germany consolidated (HOL, KIE, RUH) — no threat to my flank
 - No power contesting NWY or CLY this turn
+
+---
+
+# ENGLAND S1902M Plans
+
+## Position
+- 4 centers (EDI, LON, LVP, NWY), 4 units (F EDI, A CLY, F NWY, A LON)
+- Tied at 4 centers with 5 other powers; Russia leads at 5
+
+## Orders S1902M
+- **F NWY → SKA** — Center grab (Skagerrak). NWY connects to SKA. Baltic positioning for future STP access.
+- **F EDI → CLY** — Center grab (Clyde). Irish Sea route. Russia holding all units, no contest expected.
+- **A LON → WAL** — Reposition. LON connects to WAL and YOR. WAL is a defensive fallback position.
+- **A CLY H** — Hold. CLY is landlocked, limited options (EDI, LVP, hold). Both centers already held.
+
+## Map corrections (from adjudicator)
+- A LON connects to: WAL, YOR, or hold (NOT CLY — that's F EDI's route)
+- F EDI connects to: CLY, NTH, NWG, YOR (and supports various moves)
+- A CLY connects to: EDI, LVP, or hold (landlocked)
+- F NWY connects to: SKA, STP/BS, NWG (Baltic routes)
+
+## Strategic assessment
+- Grabbing 2 centers this turn (CLY + SKA) = 6 centers if both land
+- A LON → WAL is conservative reposition (WAL is not a center but provides defensive depth)
+- A CLY hold maintains board control
+- Germany taking BEL + DEN = 5-6 centers; France holding 4; Russia holding 5
+- No power contesting CLY or SKA this turn
+
+## Diplomatic status
+- **Germany**: Pushing BEL + DEN. Our NWY→SKA doesn't conflict. Good.
+- **Russia**: Holding all units. CLY is safe. Their sphere is east (SWE, BAL, FIN).
+- **France**: Holding all 4. Channel deal intact.
+- **Italy**: Holding all 4. Mediterranean sphere respected.
+- **Turkey**: Bounced in S1901M, consolidating. No threat to our flank.
+
+## Next turn (autumn 1901) priorities
+1. If CLY lands: F EDI can support further Baltic pushes or hold
+2. If SKA lands: F NWY can push toward STP/BS next turn
+3. A LON in WAL can push to YOR next turn for another center
+4. Watch Germany's BEL/DEN outcome — could create 5-6 center western bloc
+5. Consider F EDI → NTH route if BEL opens up
+
+## Key concerns
+- Russia at 5 centers and not expanding — could be setting up a big autumn push
+- Germany taking BEL + DEN = 5-6 centers; western bloc forming
+- France holding 4 — could push east in autumn
+- Need to expand to 6+ centers to stay competitive
