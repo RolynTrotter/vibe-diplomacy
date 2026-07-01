@@ -46,6 +46,18 @@
 - To RUSSIA (S1902M): Austria's GAL and BUL both bounced — now empty. Taking BUL (supply center). Hold UKR, don't push RUM. ARM/UKR split + BUL in my sphere. BLA shared.
 - To AUSTRIA (S1902M): Your GAL/BUL bounced — I'm taking BUL. SER/BUL partition restored: you hold SER, I hold BUL. No ALB push. Russia at 5 is the structural issue.
 
+## F1902M diplomatic actions
+- To RUSSIA (private): Called out breach of ARM/UKR split — F BLA→CON takes MY center. Proposed: BLA stays shared, CON is mine, don't take it. If Russia takes CON, they're the aggressor and the Black Sea arrangement is void.
+- To AUSTRIA (private): Called out BUL/GAL takeover as breach of SER/BUL partition. Proposed restoring original partition: Austria holds SER, I hold BUL, no ALB/GAL push. Russia at 5 is still the structural problem.
+- To ITALY (private): Accepted Aegean/Ionian split. I hold SMY/CON (east of straits), you keep ION/TUN (west). No Aegean push from Italy, no Ionian push from Turkey.
+- To ALL (broadcast): Announced A RUM→BUL, A SMY→SYR. Called out Russia publicly for breaking ARM/UKR deal by taking CON. Russia at 5 pushing into MY centers is the structural imbalance. Confirmed SER/BUL with Austria, Ionian/Aegean with Italy.
+
+## Trust & deals (F1902M update)
+- RUSSIA: DEAL BROKEN — F BLA→CON takes CON, violating ARM/UKR split. Russia now at 5+ centers pushing into my centers. BLA shared arrangement may need renegotiation. CON is no longer available to me.
+- AUSTRIA: STRAINED — taking BUL+GAL breaks SER/BUL partition. Proposing restoration but trust eroded. If they accept, we're fine. If not, Turkey takes BUL by force.
+- ITALY: HOLDING — accepted Aegean/Ionian split. No disputes expected.
+- GERMANY: NO CHANGE — holding, no Balkan interest.
+
 ## Next phase (S1902M → A1902)
 - Board: 4 centers, 4 units (no builds due)
 - Bounced units: A RUM, F ARM — both bounced in S1902M
