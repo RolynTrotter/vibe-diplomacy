@@ -31,3 +31,22 @@
 - France holding all 4 units — cautious, watching Russia
 - England pushing NWY→SKA, not our sphere
 - F TUN → ION puts pressure on ALB/GRE after Turkey's bounce
+
+## F1902M orders
+- F ION → GRE (grab supply center, reach 5 centers matching Russia)
+- A PIE H (maintain French border pressure)
+- A VEN H (hold, border with Austria)
+- A NAP H (defend Naples, 5th unit)
+
+## F1902M decisions
+- Moved F ION → GRE instead of holding. GRE is open and a supply center.
+- Did NOT move to ALB — Austria's F ALB holds, would bounce pointlessly.
+- Did NOT push A VEN → ADR — respects Adriatic pact with Austria.
+- Goal: reach 5 centers (matching Russia) by securing Greece.
+- Autumn plan: evaluate if AUSTRIA's F ALB moves — if so, F GRE → ALB for 2nd center.
+  If AUSTRIA holds ALB, consider F GRE → AEG → Smyrna coordination with Turkey.
+
+## F1902M diplomacy
+- No new messages sent this turn. Board state is clear enough to commit.
+- AUSTRIA's F ALB holds — watching if they push NAP in autumn (they hinted at it).
+- TURKEY's channel remains open — Ionian/Aegean border respected.
