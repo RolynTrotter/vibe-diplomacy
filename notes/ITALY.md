@@ -50,3 +50,24 @@
 - No new messages sent this turn. Board state is clear enough to commit.
 - AUSTRIA's F ALB holds — watching if they push NAP in autumn (they hinted at it).
 - TURKEY's channel remains open — Ionian/Aegean border respected.
+
+## W1902A orders
+- A ROM B (build 1 army in Rome — 5 centers = 5 units after build)
+
+## W1902A decisions
+- Build-only turn: 1 army to place in ROM.
+- Existing units (A PIE, A VEN, A NAP, F GRE) do NOT move this phase — engine separates build from move phases.
+- Sent private messages to AUSTRIA and TURKEY:
+  - Austria: Holding GRE, respecting TRI-VEN border. Russia at 6 = structural imbalance.
+  - Turkey: Holding GRE, respecting Ionian/Aegean border. Russia took CON = broken ARM/UKR split.
+- Strategy: After build, Italy will have 5 centers + 5 units = matching Russia's position.
+- Autumn plan: Evaluate board after adjudication. F GRE may push AEG or hold.
+
+## Key observations
+- Austria's F TRI → ADR + A BUD → SER — Austria strong in Balkans
+- Turkey bounced in BLA and RUM — consolidated, exposed
+- France holding all 4 units — cautious, watching Russia
+- England pushing NWY→SKA, not our sphere
+- F TUN → ION puts pressure on ALB/GRE after Turkey's bounce
+- Russia at 6 centers with 5 units — the structural imbalance on the board
+- Turkey's ARM/UKR split broken by Russia taking CON
