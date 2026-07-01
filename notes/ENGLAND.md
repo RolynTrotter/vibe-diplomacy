@@ -160,3 +160,60 @@ Expected result: F LON lands in NTH (one step from BEL), A LVP lands in CLY (cen
 - Germany taking BEL + DEN = 5-6 centers; western bloc forming
 - France holding 4 — could push east in autumn
 - Need to expand to 6+ centers to stay competitive
+
+---
+
+# ENGLAND F1902M Plans
+
+## Position
+- 4 centers (EDI, LON, LVP, NWY), 4 units (F EDI, A CLY, F SKA, A WAL)
+- Tied at 4 centers with 5 other powers; Russia leads at 5
+
+## Orders F1902M
+- **F EDI → CLY** — Center grab (Clyde). Russia holding, no contest expected.
+- **A CLY → LVP** — Center grab (Liverpool). LVP is a home center.
+- **F SKA → NTH** — Positioning move. DEN held by Germany, so SKA→DEN would bounce. NTH opens access to BEL, HOL, YOR, HEL.
+- **A WAL → LON** — Center grab (London). LON connects directly to WAL.
+
+## Strategic assessment
+- 3 center grabs this turn (CLY + LVP + LON) = 7 centers if all land
+- F SKA → NTH is the best reposition given Germany holds DEN
+- Russia holding all units in east — no threat to my flank
+- Germany consolidating west (BEL + DEN), France holding, Italy holding
+- No power contesting CLY, LVP, or LON this turn expected
+- F SKA → NTH gives Baltic/Channel positioning for future pushes
+
+## Diplomatic status
+- **Germany**: Holding BEL + DEN. Our F SKA→NTH doesn't contest DEN. Clean lanes.
+- **Russia**: Holding all 5 units. Their sphere is east (SWE, BAL, FIN). No fleet toward North Sea.
+- **France**: Holding all 4. Channel deal intact.
+- **Italy**: Holding 4, consolidating Mediterranean. Respects our Atlantic sphere.
+- **Turkey**: Bounced in S1901M, pushing BUL and SYR. No threat to our flank.
+
+## Key concerns
+- Russia at 5 centers and consolidating — could push big in S1903
+- Germany at 5-6 centers after builds — western bloc forming
+- Need to expand to 7+ centers to stay competitive
+- If 3 center grabs land, I'll be at 7 — competitive with Russia
+
+## Next turn (S1903M) priorities
+1. If CLY lands: F EDI can support further Baltic pushes
+2. If LVP lands: A CLY can reposition to EDI or hold
+3. If LON lands: A WAL can push to YOR for another center
+4. F SKA in NTH: can support into BEL, push to HOL, or hold
+5. Watch Germany's consolidation — BEL+DEN = strong western position
+6. Monitor Russia — holding 5 units is unusual, could signal big push
+
+## Map corrections (from prior turns)
+- F EDI connects to: CLY, NTH, NWG, YOR
+- A CLY connects to: EDI, LVP (landlocked — no Baltic access)
+- F SKA connects to: DEN, HEL, NTH, NWG, SKG, STP/BS, SWED, SWC, YOR
+- A WAL connects to: LON, YOR (or hold)
+- F NTH connects to: BEL, DEN, EDI, ENG, HEL, HOL, LON, NWG, NWY, SKA, YOR
+
+## Key learnings
+- F EDI bounced in S1902M (tried CLY but was contested)
+- F NWY→SKA landed successfully — fleet is now in SKA
+- A LON→WAL landed successfully — army is now in WAL
+- Germany took BEL + DEN in F1901M — strong position
+- France took ENG in F1901M — honors our Channel deal
