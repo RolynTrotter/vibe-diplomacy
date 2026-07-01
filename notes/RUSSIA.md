@@ -1,4 +1,4 @@
-# RUSSIA — strategy notebook (updated S1902M)
+# RUSSIA — strategy notebook (updated F1902M)
 
 ## Standing plan
 - Secure Stockholm (SWE) as 5th center — **EXECUTED**: SWE confirmed as center after F FIN→SWE
@@ -73,3 +73,32 @@
 - LVN: hold. Monitor Germany's westward push.
 - SWE: hold. If England pushes SKA→SWE, contest.
 - Diplomatic: Check if France/Austria coordinate after this turn. Keep Germany close.
+
+## F1902M Orders (SUBMITTED)
+- A UKR → RUM — **PUSH**: Turkey's A RUM is on their own center. Both their S1902M moves bounced (A RUM→BUL, F ANK↔F SEV in BLA), no builds. Capitalizing on temporary weakness. Even a bounce is acceptable; success gives 6 centers.
+- F CON H — **HOLD**: Keep Constantinople defended. Turkey's F ARM is adjacent — they may attack. Holding maintains Black Sea control.
+- F SWE H — **HOLD**: Stockholm secured. No Baltic provocation.
+- A MOS H — **HOLD**: Core center. Germany going west, no pressure.
+- A LVN H — **HOLD**: Germany's western focus (BEL, DEN) clear of my border.
+
+## F1902M Board state
+- RUSSIA: 5 centers (MOS, SEV, STP, WAR, SWE), 5 units (A LVN, A UKR, F CON, F SWE, A MOS)
+- Note: F BLA moved to CON in S1902M. Current fleet is F CON, not F BLA.
+- Turkey: 4 centers (ANK, CON, SMY, RUM), 4 units (F ARM, A RUM, A ANK, A SYR) — both S1902M moves bounced, no builds. Furious about CON but tied up.
+- AUSTRIA: 4 centers (BUD, TRI, VIE, SER), 4 units (A SER, F ALB, A TRI, A GAL)
+- GERMANY: 4 centers (BER, KIE, MUN, HOL), 4 units (F NTH, A DEN, A BEL, A RUH)
+- ENGLAND: 4 centers (EDI, LON, LVP, NWY), 4 units (F EDI, A CLY, F SKA, A WAL)
+- FRANCE: 4 centers (BRE, MAR, PAR, SPA), 4 units (F MAO, A SPA, A BUR, A PIC)
+- ITALY: 4 centers (NAP, ROM, VEN, TUN), 4 units (A PIE, A NAP, A VEN, F ION)
+
+## F1902M Strategic assessment
+- Turkey bounced both S1902M pushes — temporarily weak but furious about CON.
+- Pushing UKR→RUM is a calculated risk: Turkey's A RUM will likely contest, but they have no builds and both moves bounced.
+- If UKR→RUM bounces: I still hold 5 centers, all other units hold. No loss.
+- If UKR→RUM succeeds: I lead at 6 centers. Turkey's A RUM will contest next turn.
+- F CON hold maintains Black Sea control. Turkey's F ARM may attack — if so, F CON may need to retreat to SEV.
+- Diplomatic: Turkey publicly furious, Germany/England/England all called out CON grab. But Turkey is tied up — no immediate military threat.
+- Key: Keep Germany's non-aggression. If Germany is neutral, France cannot push from west.
+
+## F1902M Diplomatic messages sent
+- **To GERMANY (private)**: Reaffirmed non-aggression. Holding all 5 units. Turkey tied up, no threat to German border. Austria's GAL is Germany's concern.
