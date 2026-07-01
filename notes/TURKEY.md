@@ -54,9 +54,21 @@
 
 ## Trust & deals (F1902M update)
 - RUSSIA: DEAL BROKEN — F BLA→CON takes CON, violating ARM/UKR split. Russia now at 5+ centers pushing into my centers. BLA shared arrangement may need renegotiation. CON is no longer available to me.
+  - F1902M update: Pushed back hard — Russia took CON and RUM, calling it 'open space.' Told them CON was under my sphere per ARM/UKR split. If they hold CON, Black Sea arrangement void. ARM stays mine, UKR stays theirs. Black Sea contested unless they stop pushing.
 - AUSTRIA: STRAINED — taking BUL+GAL breaks SER/BUL partition. Proposing restoration but trust eroded. If they accept, we're fine. If not, Turkey takes BUL by force.
+  - F1902M update: Called out that taking BUL+GAL is expansion, not restoration. Told Austria to hold SER only, let my army take BUL back (bounce). GAL is open — I won't push there but won't accept them taking it.
 - ITALY: HOLDING — accepted Aegean/Ionian split. No disputes expected.
+  - F1902M update: Confirmed Ionian/Aegean split. Italy is opportunistic but not hostile. Their F TUN→ION is fine as long as they stay west of straits.
 - GERMANY: NO CHANGE — holding, no Balkan interest.
+- ENGLAND: POSITIVE — agreed Russia broke the ARM/UKR split. Proposed mutual non-interference. England stays west/north, I stay southeast. Both benefit from Russia overextended.
+- FRANCE: POSITIVE — no interest in Black Sea/Balkans. Confirmed no reason to clash. Russia is creating problems on my flanks.
+
+## F1902M diplomatic actions (sent)
+- To RUSSIA (private): Called out CON/RUM as deal-breaking, not 'open space.' ARM stays mine, UKR stays theirs. If Russia holds CON, Black Sea arrangement void — treat as contested. Expect F BLA to stay put. Discuss autumn.
+- To ENGLAND (private): Thanked for alignment on Russia. Proposed mutual non-interference. England west/north, Turkey southeast. Both benefit from Russia overextended. Flanks clean.
+- To FRANCE (private): Confirmed no Black Sea/Balkans interest from France. Russia broke the ARM/UKR split. Flanks clean. If Russia pushes further, Turkey responds — prefer France not caught in crossfire.
+- To AUSTRIA (private): Called out BUL+GAL as expansion beyond SER/BUL partition. Taking BUL back (will bounce Austria). Offer fresh partition: Austria holds SER, Turkey holds BUL, no GAL from Austria, no ALB from either.
+- To ALL (broadcast): Announced orders (A RUM→BUL, A SMY→SYR, A ANK H, F ARM H). Called out Russia's CON grab as deal-breaking, not Diplomacy. Thanked England/France. Confirmed Italy/Germany borders. Russia: keep CON if you want Black Sea contested — your choice.
 
 ## Next phase (S1902M → A1902)
 - Board: 4 centers, 4 units (no builds due)
