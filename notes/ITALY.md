@@ -24,13 +24,16 @@
 - A TUS → PIE (push into Piedmont — French border play, France deal allows this)
 - A ROM H (hold Rome, maintain 3 centers, no adjustment due)
 
+## W1901A (submitted)
+- A NAP B (army build in Naples — reinforces southern flank, 5th unit total)
+
 ## Next phase plan
 - After F1901M adjudication: check if TUN and PIE secured
 - F TUN: hold or push ADR/ION for Greek expansion
 - A PIE: hold or push MAR/LYO, watch France's GAS position
 - A ROM: support TUN or hold, monitor ADR from Austria
+- New A NAP: defend Naples, connect to ADR if opportunity arises
 - Watch Austria's BUD (to SER) and Turkey's CON (to BUL) — Balkans developing
-- Consider W1901 builds: likely 2 units given 3 centers
 
 ## Key observations
 - Naples fleet cannot reach TUN directly — must route through TYS (Tyrrhenian) ✓ done
