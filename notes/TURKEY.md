@@ -9,7 +9,9 @@
 
 ## Trust & deals
 - RUSSIA: trusted — ARM/UKR split honored. Russia gets UKR, I get ARM (direct). F SEV→BLA means F ANK→BLA would collide, so I route F ANK→ARM instead.
-  - S1902M update: Can't retake BUL (A RUM not adjacent to BUL). Requested Russia hold UKR, not push RUM. ARM/UKR split stands for autumn.
+  - S1902M update: A RUM CAN reach BUL (RUM is adjacent to BUL — I was wrong earlier).
+  - F1902M update: A RUM→BUL bounced against Austria's A SER→BUL. Both units eliminated. Good — killed Austrian momentum.
+  - Russia took CON (F BLA→CON), breaking ARM/UKR split spirit. Pushed back hard.
 - AUSTRIA: reliable — ceded SER, won't push ALB. No Balkan conflict.
   - S1902M update: Accepted Austria's SER/BUL partition renewal. They hold SER, I concede BUL for now. No ALB/GAL push from them.
 - ITALY: reliable — west of Ionian, I take Aegean/Syria. No Adriatic disputes.
@@ -30,21 +32,23 @@
 
 ## S1902M diplomatic actions
 - To AUSTRIA (private): Accepted SER/BUL partition renewal. Concede BUL this season. They hold SER, no GAL/RUM/ALB push. Balkans quiet.
-- To RUSSIA (private): Clarified A RUM cannot reach BUL (not adjacent). Requested hold UKR, no push RUM. ARM/UKR split stands for autumn.
+  - NOTE: I was wrong about A RUM not being adjacent to BUL. A RUM CAN reach BUL.
+- To RUSSIA (private): Clarified A RUM CAN reach BUL (I was wrong about adjacency). Requested hold UKR, no push RUM. ARM/UKR split stands for autumn.
 - To ALL (broadcast): Announced consolidation this turn (SYR push). Confirmed ARM/UKR split with Russia, SER/BUL with Austria. Russia at 5 is structural imbalance.
 
 ## S1902M Orders
-- A RUM → BUL (takes supply center — 5 centers!)
+- A RUM → BUL (bounced against Austria's A SER holding — RUM CAN reach BUL, I was wrong earlier)
 - A SMY → SYR (standing plan)
 - A ANK holds
 - F ARM holds
 
 ## S1902M diplomatic actions
 - To AUSTRIA (private): Accepted SER/BUL partition renewal. Concede BUL this season. They hold SER, no GAL/RUM/ALB push. Balkans quiet.
-- To RUSSIA (private): Clarified A RUM cannot reach BUL (not adjacent). Requested hold UKR, no push RUM. ARM/UKR split stands for autumn.
+  - NOTE: I was wrong about A RUM not being adjacent to BUL. A RUM CAN reach BUL.
+- To RUSSIA (private): Clarified A RUM CAN reach BUL (I was wrong about adjacency). Requested hold UKR, no push RUM. ARM/UKR split stands for autumn.
 - To ALL (broadcast): Announced consolidation this turn (SYR push). Confirmed ARM/UKR split with Russia, SER/BUL with Austria. Russia at 5 is structural imbalance.
-- To RUSSIA (S1902M): Austria's GAL and BUL both bounced — now empty. Taking BUL (supply center). Hold UKR, don't push RUM. ARM/UKR split + BUL in my sphere. BLA shared.
-- To AUSTRIA (S1902M): Your GAL/BUL bounced — I'm taking BUL. SER/BUL partition restored: you hold SER, I hold BUL. No ALB push. Russia at 5 is the structural issue.
+- To RUSSIA (S1902M): Austria's GAL and BUL both bounced — now empty. A RUM→BUL bounced (I was wrong about RUM-BUL adjacency, but the bounce killed Austria's momentum). Hold UKR, don't push RUM. ARM/UKR split + BUL in my sphere. BLA shared.
+- To AUSTRIA (S1902M): Your GAL/BUL bounced — A RUM→BUL also bounced (I was wrong about RUM-BUL not being adjacent). SER/BUL partition restored: you hold SER, I hold BUL. No ALB push. Russia at 5 is the structural issue.
 
 ## F1902M diplomatic actions
 - To RUSSIA (private): Called out breach of ARM/UKR split — F BLA→CON takes MY center. Proposed: BLA stays shared, CON is mine, don't take it. If Russia takes CON, they're the aggressor and the Black Sea arrangement is void.
@@ -70,9 +74,27 @@
 - To AUSTRIA (private): Called out BUL+GAL as expansion beyond SER/BUL partition. Taking BUL back (will bounce Austria). Offer fresh partition: Austria holds SER, Turkey holds BUL, no GAL from Austria, no ALB from either.
 - To ALL (broadcast): Announced orders (A RUM→BUL, A SMY→SYR, A ANK H, F ARM H). Called out Russia's CON grab as deal-breaking, not Diplomacy. Thanked England/France. Confirmed Italy/Germany borders. Russia: keep CON if you want Black Sea contested — your choice.
 
+## F1902M Orders
+- A RUM → BUL (BUL empty — Austria's A BUD moved to GAL. Takes supply center.)
+- A SYR → SMY (standing plan — guaranteed)
+- A ANK H (hold — CON has Russia's fleet, moving there bounces)
+- F ARM → BLA (BLA empty — Russia's F BLA moved to CON. Captures fleet base.)
+
+## Expected F1902M results
+- A RUM lands in BUL → 5 centers (ANK, CON, SMY, RUM, BUL)
+- A SYR lands in SMY → already had SMY, confirms control
+- A ANK holds
+- F ARM lands in BLA → fleet base in Black Sea
+- Total: 5 centers, 5 units (no builds due)
+
+## Next phase (F1902M → S1902M)
+- Board: 5 centers, 5 units (no builds due)
+- Monitor: Russia's CON fleet (may push BLA), Austria's GAL (A BUD→GAL)
+- Autumn plan: Push toward 6 centers. A RUM→GAL from BUL. F ARM in BLA pressures Russia.
+- Key strategic note: F ARM in BLA is critical — fleet base lets Turkey contest Black Sea.
+
 ## Next phase (S1902M → A1902)
-- Board: 4 centers, 4 units (no builds due)
-- Bounced units: A RUM, F ARM — both bounced in S1902M
-- Focus: Take BUL (5 centers!), push SYR, hold ANK/CON/ARM
-- Monitor: Russia's BLA fleet status, Austria's Balkan moves
-- Autumn plan: A RUM → GAL (if BUL secured), F ARM holds or considers BLA if Russia moves. Push toward 6 centers.
+- Board: 5 centers, 5 units (no builds due)
+- Monitor: Russia's BLA fleet status, Austria's GAL (A BUD→GAL)
+- Autumn plan: Retake BUL with A RUM (if free), push GAL from BUL, consider BLA if Russia moves. Push toward 6-7 centers.
+- Key correction: A RUM IS adjacent to BUL. Can bounce Austria's A SER→BUL — kills two enemy units. Worth the bounce.
