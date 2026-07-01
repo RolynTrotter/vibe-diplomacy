@@ -126,3 +126,46 @@
 - Does Russia push A GAL opponent (Austria) spill into SIL? Red line.
 - Turkey-Russia war in the east: good for Germany if it drains both.
 - Build 2 units in W1902A — armies BER and KIE for central strength.
+
+---
+
+## W1902A — Winter Builds
+
+### Orders submitted
+- **A BER B** (eastern depth — covers PRU/SIL)
+- **A KIE B** (northern depth — supports DEN, BAL access if needed)
+
+### Rationale
+- BER: adjacent to PRU and SIL — primary eastern defense if Russia or Austria push westward. Can pivot toward MUN or support A RUH.
+- KIE: adjacent to DEN (our northernmost SC), covers HOL, provides BAL access without committing a fleet.
+- No fleet build: BAL fleet would alarm Russia and violate non-aggression signaling. Stay army-heavy.
+- Post-build unit stack: F NTH, A DEN, A BEL, A RUH, A BER, A KIE — 6 units = 6 centers.
+
+### Board state entering 1903
+- **GERMANY**: 6 centers, 6 units (after builds). Strong central position.
+- **RUSSIA**: 6 centers, building 1 (location unknown). Tied with Germany. Broke deal with Turkey (CON grab). Trust: medium-low.
+- **ITALY**: 5 centers, building 1. Mediterranean sphere, no direct conflict.
+- **AUSTRIA**: 4 centers, 4 units. In GAL — potential SIL threat if they grow.
+- **ENGLAND**: 4 centers, no build. F SKA contested NTH. Trust: medium.
+- **FRANCE**: 4 centers, no build. A BUR + A PIC staged near BEL. Deal holds but watch spring moves.
+- **TURKEY**: 3 centers, disbanding 1. Furious at Russia. Potential anti-Russia ally.
+
+### Diplomatic messages sent
+- **FRANCE**: Confirmed builds are armies, not fleet. Reasserted BEL=Germany, PIC=France. Asked spring intentions.
+- **ENGLAND**: Flagged F SKA vs F NTH no-hostility. Asked about spring plan for SKA/SWE/BAL.
+- **RUSSIA**: Noted we're tied at 6. Demanded PRU/SIL clean in S1903M as condition of non-aggression. Asked where Russia's build goes.
+- **TURKEY**: Opened channel. Noted shared anti-Russia interest without committing to coalition. Asked about disband unit.
+
+### Deals in effect
+- **RUSSIA**: Non-aggression. PRU/SIL quiet. Trust: medium-low (CON grab precedent).
+- **FRANCE**: BEL=Germany, PIC=France, BUR=France. Trust: high.
+- **ENGLAND**: Distinct lanes — NTH/BEL/DEN vs SKA/NWY. Trust: medium.
+- **TURKEY**: No deal yet — channel open.
+
+### S1903M watch items
+- Where does Russia build? A WAR would threaten PRU; F STP/NC would threaten BAL.
+- Does France move A PIC→BEL or A BUR→BEL? Red line = war.
+- Does England move F SKA→NTH (again) or F SKA→SWE? Former is conflict, latter is Russia's problem.
+- Austria in GAL: good if it pins Russia east, bad if Austria grows toward SIL.
+- Turkey disbanding: which unit goes? F ARM disbanding = Turkey's Black Sea options collapse.
+- S1903M plan: A BER→PRU (probe east), A KIE→DEN (hold), F NTH H (sea anchor), A RUH S A BEL, A DEN H. Adjust based on Russia build location.
