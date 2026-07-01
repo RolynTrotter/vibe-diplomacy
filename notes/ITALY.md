@@ -35,6 +35,24 @@
 - New A NAP: defend Naples, connect to ADR if opportunity arises
 - Watch Austria's BUD (to SER) and Turkey's CON (to BUL) — Balkans developing
 
+## S1902M orders (submitted)
+- F TUN - ION  (fleet to Ionian — pressure GRE/ALB, position for Balkan expansion)
+- A PIE H     (hold Piedmont — maintain French border pressure)
+- A ROM - VEN (move to Venice — centralize northern Italy, border with Austria)
+- A NAP H     (hold Naples — defensive, 5th unit reinforcement from W1901A)
+
+## S1902M Diplomacy
+- To AUSTRIA (private): Proposed Balkan coordination — you take SER, I get ALB first dibs via ION fleet. Tri-Ven border stays fixed.
+- To TURKEY (private): Reinforced Ionian/Aegean border. They're exposed after RUM bounce — respect the line.
+- Broadcast to ALL: Stated holding (no pushes), 4 centers/units, Mediterranean sphere, Russia is the threat.
+
+## Strategic notes
+- F TUN → ION is aggressive — positions for GRE/ALB next year
+- If Austria takes SER and holds ADR, ALB may still be reachable from ION
+- PIE hold maintains pressure on France's GAS push
+- ROM → VEN centralizes — Venice controls ADR border with Austria
+- Turkey's RUM bounce created Balkan opportunity — my messages to Austria/Turkey position Italy for ALB/GRE
+
 ## Key observations
 - Naples fleet cannot reach TUN directly — must route through TYS (Tyrrhenian) ✓ done
 - Venice connects directly to ROM (adjacent) — useful for centralization ✓ done
