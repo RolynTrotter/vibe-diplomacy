@@ -1,9 +1,9 @@
-# RUSSIA — strategy notebook (updated F1901M)
+# RUSSIA — strategy notebook (updated W1901A)
 
 ## Standing plan
-- Secure Stockholm (SWE) as 5th center — executing F STP/SC→FIN→SWE (F1901M: F FIN→SWE submitted)
-- Control the Black Sea via F SEV→BLA (F1901M: submitted)
-- Defend core 4 centers (MOS, SEV, STP, WAR) — never over-extend
+- Secure Stockholm (SWE) as 5th center — **EXECUTED**: SWE confirmed as center after F FIN→SWE
+- Control the Black Sea via F SEV→BLA — **EXECUTED**, Turkey routed F ANK→ARM (not BLA)
+- Defend core centers (MOS, SEV, STP, WAR, SWE) — now 5 centers, MOS reinforced with build
 - Keep diplomatic channels open with GERMANY and ENGLAND for flank security
 - Watch TURKEY closely — SEV is the weak point, CON is the flashpoint
 
@@ -24,7 +24,7 @@
 - England respecting Stockholm as my sphere — they take CLY instead. This is a win.
 - France is the most suspicious player: publicly anti-Russia, privately offering non-aggression, making bilateral deals with every power. Their orders confirm western/southern expansion (ENG, GAS, possibly BEL). Not a threat to my borders this turn.
 - Austria accepted mutual non-aggression — they take SER, I take UKR/FIN. Center-of-board quiet.
-- All 7 powers submitted — F1901M orders sealed and submitted (F SEV→BLA, A LVN H, A UKR H, F FIN→SWE).
+- All 7 powers submitted — F1901M orders sealed and submitted.
 
 ## F1901M Orders submitted
 - F SEV → BLA (control the Black Sea — Turkey's fleet went to ARM, leaving BLA open)
@@ -32,16 +32,25 @@
 - A UKR holds (hold position. Austria moves to SER, not toward UKR)
 - F FIN → SWE (executing the Stockholm grab!)
 
-## S1901A Plan (to-do after adjudication)
-- Assess: Did F FIN→SWE succeed? Did F SEV→BLA succeed?
-- If SWE secured: F FIN→SWE next would be a build (if SWE becomes a center)
-- If BLA secured: F SEV holds BLA, monitor Turkey's F ARM→BLA possibility
-- A LVN: hold or push toward MOS/PRU depending on board state
-- A UKR: hold, watch for Austria push from SER/VIE
-- Monitor France's private channel — test if their non-aggression holds in practice
+## W1901A Orders submitted
+- A MOS B (build army in Moscow — core defense, bring units to 5 to match 5 centers)
+- All 4 units hold (A LVN, A UKR, F BLA, F SWE) — no pressure on any border
+  - Germany going west (HOL, DEN, BEL), no Baltic fleet, no army toward PRU/SIL
+  - Austria on SER/VIE, not toward UKR
+  - Turkey on ARM/RUM, not toward UKR/SEV
+  - England on NWY/CLY, not toward SWE/BAL
 
-## Post-build priorities
-- After S1901 builds, reassess France's credibility
-- Germany channel: check if both have 5+ centers, maintain non-aggression
-- Turkey: confirm BLA routing for F ARM next turn (they asked for blessing)
-- England: Stockholm contested? If they push NTH→NOR, that changes the calculus
+## Board state after W1901A
+- RUSSIA: 5 centers (MOS, SEV, STP, WAR, SWE), 4 units (A LVN, A UKR, F BLA, F SWE) + 1 new A MOS = 5 units
+- All 7 powers at 4-5 centers. Russia leads but not by much — transparent expansion.
+- Both strategic goals achieved: Stockholm secured, Black Sea controlled.
+
+## S1901F Plan (next turn)
+- Assess board after adjudication — where are all 7 powers' units?
+- MOS army: hold or push to PRU (check if Germany's A BER→KIE opens PRU)
+- LVN army: hold, monitoring Germany's westward push. If PRU opens, consider A LVN→PRU.
+- UKR army: hold. Turkey's A BUL→RUM could open SEV pressure. Watch.
+- BLA fleet: hold. Turkey's F ARM→BLA possible? If so, need to decide whether to contest or share.
+- SWE fleet: hold. Stockholm secured. England's F NWY could push toward SWE — monitor.
+- Germany channel: confirm non-aggression holds, discuss S1902 plans
+- Consider: Should I push F SWE→BAL to pressure Germany's fleet in HOL? Risky — could break Germany's trust.
