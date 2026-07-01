@@ -89,3 +89,27 @@ Expected result: F LON lands in NTH (one step from BEL), A LVP lands in CLY (cen
 - France taking 3 centers (ENG, BUR, GAS) = 6 centers after builds
 - I need to expand to stay competitive
 - CLY army is landlocked and limited — need to find creative expansion routes
+
+---
+
+# ENGLAND W1901A — Build Phase
+
+## Decision
+- **Build A LON** — Army at London. This positions for CLY expansion next turn.
+- Existing units (F EDI, A CLY, F NWY) do not move in build phase.
+
+## Board state after builds
+- 5 centers (EDI, LON, LVP, NWY), 4 units (F EDI, A CLY, F NWY, A LON)
+- Russia still leads at 5 centers with 4 units
+- All other powers at 4 centers
+
+## Plan for S1901M
+1. **A LON → CLY** (supported by F EDI) — Grab 2nd center, push to 6 centers
+2. **F NWY H** — Secure NWY center
+3. Target: 6 centers, 2 builds in S1901M
+
+## Key observations
+- Russia's 5 centers are all eastern (MOS, SEV, STP, WAR, SWE) — CLY is safe
+- France heading west (MAO, SPA) — honoring Channel deal
+- Germany consolidated (HOL, KIE, RUH) — no threat to my flank
+- No power contesting NWY or CLY this turn
