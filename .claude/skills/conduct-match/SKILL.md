@@ -60,13 +60,16 @@ Build a fresh brief per power (captures inbox after negotiation), then fan out `
 git add -A && git commit -m "Players submitted <phase>" || true
 python -m orchestration.conduct roster          # confirm all_submitted
 python -m orchestration.run_adjudication        # or --force for deadline
-git add -A && git commit -m "Adjudicate <phase>" || true
+# Commit the shared board (state/ history/ game/), not just orders.
+git add -A state history game orders mail && git commit -m "Adjudicate <phase>" || true
 ```
 
-### e. Publish (optional)
+### e. Publish (push so the Pages visualizer can render the board)
 ```bash
 git push origin game/<name>
 ```
+Adjudication runs locally (`adjudicate.yml` is manual-only), so push every phase
+to keep origin and the browser UI in sync.
 
 Loop back to **a**.
 
