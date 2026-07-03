@@ -1,0 +1,60 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A VIE - BUD",
+      "A SER H",
+      "F ADR - ALB"
+    ],
+    "ENGLAND": [
+      "F NTH - NWY",
+      "A CLY H"
+    ],
+    "FRANCE": [
+      "F ENG - MAO",
+      "A BUR - PAR",
+      "A GAS - SPA"
+    ],
+    "GERMANY": [],
+    "ITALY": [
+      "F TYS - TUN",
+      "A TUS - PIE",
+      "A ROM H"
+    ],
+    "RUSSIA": [
+      "F SEV - BLA",
+      "A LVN H",
+      "A UKR H",
+      "F FIN - SWE"
+    ],
+    "TURKEY": [
+      "F ARM H",
+      "A BUL - RUM",
+      "A SYR - SMY"
+    ]
+  },
+  "phase": "F1901M",
+  "results": {
+    "A BUL": [],
+    "A BUR": [],
+    "A CLY": [],
+    "A GAS": [],
+    "A KIE": [],
+    "A LVN": [],
+    "A ROM": [],
+    "A RUH": [],
+    "A SER": [],
+    "A SYR": [],
+    "A TUS": [],
+    "A UKR": [],
+    "A VIE": [],
+    "F ADR": [],
+    "F ARM": [],
+    "F EDI": [],
+    "F ENG": [],
+    "F FIN": [],
+    "F HOL": [],
+    "F NTH": [],
+    "F SEV": [],
+    "F TYS": []
+  }
+}
