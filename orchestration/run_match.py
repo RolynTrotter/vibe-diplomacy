@@ -124,6 +124,8 @@ class Conductor:
             return self._dry_run()
 
         self.init_game()
+        # Agents only commit their own files, so publish the shared board here.
+        self._publish_board(f"Set up {self.spec.name} board")
         summary = {"name": self.spec.name, "press": self.spec.press,
                    "backend": self.backend, "phases": []}
 
@@ -229,6 +231,44 @@ class Conductor:
         self._log(proc.stdout.strip(), level=2)
         if proc.returncode != 0:
             raise RuntimeError(f"adjudication failed:\n{proc.stderr}")
+        # Publish the advanced board so origin and the Pages viewer stay in sync.
+        self._publish_board(f"Adjudicate {rs['phase']}")
+
+    def _current_branch(self) -> str:
+        return subprocess.run(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            cwd=self.game_root, text=True, capture_output=True).stdout.strip()
+
+    def _has_origin(self) -> bool:
+        r = subprocess.run(["git", "remote"], cwd=self.game_root,
+                           text=True, capture_output=True)
+        return "origin" in r.stdout.split()
+
+    def _publish_board(self, message: str) -> None:
+        """Commit the shared board (state/history/game) and push to origin.
+
+        Best-effort: commits locally even without a remote, and pushes only when
+        an `origin` exists. Failures are logged, never fatal. CI mode does its
+        own commit/push; this covers the local path and initial setup.
+        """
+        paths = [d for d in ("state", "history", "game", "orders", "mail",
+                             "players", "notes")
+                 if (self.game_root / d).exists()]
+        if not paths:
+            return
+        subprocess.run(["git", "add", "-A", *paths],
+                       cwd=self.game_root, capture_output=True)
+        commit = subprocess.run(["git", "commit", "-m", message],
+                                cwd=self.game_root, capture_output=True, text=True)
+        if commit.returncode != 0 and "nothing to commit" not in (
+                commit.stdout + commit.stderr):
+            self._log(f"  (publish: nothing new to commit for '{message}')", level=2)
+        if self._has_origin():
+            push = subprocess.run(
+                ["git", "push", "origin", self._current_branch()],
+                cwd=self.game_root, capture_output=True, text=True)
+            if push.returncode != 0:
+                self._log(f"  (publish: push failed: {push.stderr.strip()})")
 
     def _adjudicate_ci(self, rs: dict) -> None:
         """Push the branch and let GitHub Actions adjudicate.

@@ -2,22 +2,16 @@ name: adjudicate
 
 # The "server": the only place the adjudicator private key exists.
 #
-#   * On push to a game branch (orders/** changed): adjudicate as soon as every
-#     live power has submitted ("advance when all submitted").
-#   * On schedule: sweep all game branches and force any whose phase clock has
-#     passed its deadline ("timed deadline").
-#   * Manually (workflow_dispatch): force a specific branch (a phone-friendly
-#     way for the GM to end a phase early).
+# Adjudication is driven locally by the conductor / run_match, so this workflow
+# is manual-only (workflow_dispatch) — it forces a specific branch, a
+# phone-friendly way for the GM to end a phase early. To move adjudication back
+# into CI, re-add `push`/`schedule` triggers here and ensure the board is always
+# published to the branch first.
 #
 # Game state lives ONLY on game/* branches; main is infra-only and is never
 # adjudicated.
 
 on:
-  push:
-    branches: ["game/**"]
-    paths: ["orders/**"]
-  schedule:
-    - cron: "0 * * * *"   # hourly deadline sweep
   workflow_dispatch:
     inputs:
       branch:
