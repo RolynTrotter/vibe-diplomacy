@@ -21,6 +21,10 @@ DEAL: TURKEY — Serbia mine, Bulgaria/Black Sea theirs — 1901, revisit after
 DEAL: GERMANY — Bohemia/Tyrolia DMZ mutual — standing
 
 ## Next phase
-- All four DMZ/split deals confirmed this round — orders should honor them.
+- S1901M submitted: A BUD-SER, A VIE-TRI, F TRI-ALB. Honors all four deals:
+  Galicia untouched (Russia), Adriatic untouched (fleet to ALB not sea),
+  Serbia taken (Turkey ceded), Bohemia/Tyrolia untouched (Germany).
+- VIE backfills TRI so home coverage holds while BUD/TRI push into Balkans.
 - Send fall-1901 check-ins to Italy/Russia/Turkey before next negotiation round.
 - Watch Turkey's actual Black Sea/Bulgaria moves as the signal Russia/Germany asked about.
+- Confirm Italy's actual Adriatic/TRI-VEN moves once results are in — first real test of trust.
