@@ -21,3 +21,8 @@
 - Sent follow-ups: France (confirmed Tunis push F ION-TUN, reaffirmed no PIE/Marseille moves), Austria (reaffirmed TRI/VEN/ADR DMZ holding, asked for Serbia update).
 - Orders: F ION-TUN (take Tunis, uncontested per France's confirmation), A VEN H (DMZ respected), A APU H (no useful support/convoy role available for APU->TUN since ION itself is moving, not convoying; first attempt A APU-VEN was a self-bounce mistake, corrected to hold).
 - Next: watch for Austria's Serbia outcome and Turkey signals; decide APU's real job (PIE watch via VEN, or Balkans via ALB) once Tunis is secure and DMZ status is reconfirmed by Austria's reply.
+
+## W1901A
+- Tunis secured (4 centers: NAP, ROM, VEN, TUN), 1 build owed.
+- Built F NAP: doubles down on the Mediterranean fleet strategy alongside F TUN, keeping the Adriatic DMZ with Austria intact (no army build needed there) and giving options for further NAF/WES/ION expansion or a future Lepanto pivot if Austria overreaches.
+- Next: decide F NAP's opening move (support TUN, push toward WES/NAF, or hold) once F1902-style negotiations open; keep APU's role (PIE watch vs ALB/Balkans) under review.
