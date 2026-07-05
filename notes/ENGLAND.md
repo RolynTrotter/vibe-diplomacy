@@ -32,3 +32,12 @@ LON, convoy toward Scandinavia, or pivot toward Belgium/Holland later.
 - Germany's "Denmark/Kiel-area" claim didn't explicitly mention Holland or
   Belgium — worth clarifying next round now that Belgium is ours, to avoid
   future friction over Holland.
+- W1901A build: F LON B. Turns out the Belgium convoy bounced/failed — centers
+  are still just EDI/LON/LVP/NWY (1 build owed), so building a second fleet
+  in London rather than an army. F LON adds Channel/NTH naval depth for
+  another run at the Low Countries next spring and hedges the France Channel
+  DMZ in case it ever breaks, without disturbing the secured Norway front
+  (F NWY) or the flexible A YOR.
+- game_status shows Russia now the clear leader (6 centers, +2 builds this
+  phase) — the anti-Russia axis with Germany matters more than ever; keep
+  pushing it once Low Countries moves settle.
