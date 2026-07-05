@@ -18,9 +18,17 @@ LON, convoy toward Scandinavia, or pivot toward Belgium/Holland later.
 - ITALY/AUSTRIA/TURKEY: no contact yet.
 
 ## Reminders
-- F1901M: expect F NWG-NWY (take Norway) if Russia/Germany hold to the deal;
-  watch for any Russian fleet contesting Norway or Germany going for
-  Denmark+more.
-- Keep pushing Germany on the anti-Russia axis once Norway is secure.
+- F1901M submitted: F NWG-NWY (take Norway, confirmed clear by both Russia
+  and Germany), F NTH convoys A YOR-BEL (Belgium was empty/neutral and France
+  said Iberia-only, so grabbed it opportunistically — nets 2 new centers this
+  Fall if it holds). Sent quick confirmations to Germany and Russia that the
+  Norway move is happening per the S1901 deals.
+- Watch F1901 results: does Belgium hold uncontested? If someone else moves
+  into Belgium too, the convoyed A YOR-BEL bounces/fails and the army stays
+  in YOR.
+- Keep pushing Germany on the anti-Russia axis once Norway/Belgium are secure.
 - Reassess Channel DMZ with France if France shows signs of moving north
-  instead of toward Iberia.
+  instead of toward Iberia, or reacts badly to the Belgium grab.
+- Germany's "Denmark/Kiel-area" claim didn't explicitly mention Holland or
+  Belgium — worth clarifying next round now that Belgium is ours, to avoid
+  future friction over Holland.
