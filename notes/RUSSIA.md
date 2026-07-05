@@ -16,7 +16,9 @@
 - ITALY: not yet contacted.
 
 ## Next phase
-- All three fronts (Austria, Turkey, England) have workable deals for S1901M — safe to finalize orders.
-- Rumania is open: Black Sea DMZ with Turkey doesn't block F Sevastopol-Rumania (direct adjacency, not via BLA) — consistent with the classic strong opening and doesn't break either deal.
-- Decide MOS: UKR (support Rumania grab) vs staying central; WAR stays home per Galicia DMZ.
-- Watch for Turkey moving into Bulgaria fast, or Austria reneging on Galicia — treat as signal to reassess.
+Submitted S1901M: A WAR-UKR, A MOS-SEV, F SEV-RUM, F STP/SC-BOT.
+- F SEV-RUM: direct adjacency grab, doesn't touch BLA — compatible with Turkey DMZ.
+- A WAR-UKR: respects Galicia DMZ (didn't enter GAL), positions to support/hold Rumania next turn (UKR is adjacent to RUM).
+- A MOS-SEV: backfills vacated Sevastopol so the south stays covered while F SEV pushes to RUM.
+- F STP/SC-BOT: first leg toward Sweden per England deal.
+- Watch F1901M: confirm Austria didn't sneak into GAL, Turkey didn't push into BLA/RUM contest, England's fleet actually clears the way to Sweden rather than beating me there.
