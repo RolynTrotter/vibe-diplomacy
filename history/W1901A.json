@@ -1,0 +1,37 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BUD B",
+      "F TRI B"
+    ],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A PAR B",
+      "A MAR B"
+    ],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A SEV B"
+    ],
+    "TURKEY": []
+  },
+  "phase": "W1901A",
+  "results": {
+    "A BUD": [
+      ""
+    ],
+    "A MAR": [
+      ""
+    ],
+    "A PAR": [
+      ""
+    ],
+    "A SEV": [
+      ""
+    ],
+    "F TRI": [
+      ""
+    ]
+  }
+}

@@ -1,0 +1,340 @@
+[
+  {
+    "id": "c083e23ad006eed5",
+    "phase": "S1901M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 Austria here. I want a quiet border so we can both grow: full DMZ in Tyrolia, and I keep my fleet OUT of the Adriatic \u2014 F TRI goes to Albania (Balkans, away from you). In return, no A VEN - TRI or TYR moves. Long term I would rather see you strong in the western Med than fight over an alpine wall. Deal?",
+    "sent_at": "2026-07-05T04:51:15.897663+00:00",
+    "sig": "0gvE97UF7BQqPFvIYEDfp6LcvJXU50sCmQ4VkT9ElBRbKiuIdQ4Wl82YGq7l2MpmQt/60Nr+6wwBsCSyo8cMBg==",
+    "verified": true
+  },
+  {
+    "id": "5b51d4f2d7a7eac9",
+    "phase": "S1901M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 Austria. Opening intentions, plainly: I am going for SER/GRE, I will NOT enter Rumania this year, and I have no designs on your south \u2014 but I will be covering Galicia as insurance, nothing more. If your armies stay out of GAL we will have zero friction and I can point everything at Turkey later. Interested in coordinating against Turkey in 1902?",
+    "sent_at": "2026-07-05T04:51:16.278225+00:00",
+    "sig": "pHm5hqq3NR5ScQS/CYqb7Ter4ZAsfpq8JelvrH64ZJI5oiW86ijvH/RwmUw/zPGPc1hYeoUvpuvMSEIqRU/XAg==",
+    "verified": true
+  },
+  {
+    "id": "c970b3c6e64d7f1b",
+    "phase": "S1901M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 Austria. Proposal: the Balkans split cleanly \u2014 Greece and Serbia my side, Bulgaria yours, and neither of us crosses that line. Russia is the real threat to you (Black Sea, ARM); if you push F ANK - BLA I will keep Russia busy in the north. A working A-T understanding beats the usual knife-fight over BUL. Thoughts?",
+    "sent_at": "2026-07-05T04:51:16.770641+00:00",
+    "sig": "TWvXTJ3/Rmeu1VYTlE+dkBUE67e5fuAhYWeattCiWGvXwgmTPgLVjzyN/3L+gnmTpNfAUrP9MgoV/fdveRUoAA==",
+    "verified": true
+  },
+  {
+    "id": "b21a22096ec34b64",
+    "phase": "S1901M",
+    "sender": "AUSTRIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 Austria. No shared border worth fighting over, and a common neighbor in Russia. I will keep the south stable; if Russia overcommits toward you (SIL/PRU) or me (GAL), let's compare notes. Good luck in the west.",
+    "sent_at": "2026-07-05T04:51:17.119631+00:00",
+    "sig": "tBoGh3js5G6pvuKEI339PnVsxHqsqodQQmL8HNgVVjk9hKrfnrID//mlXpQgZsRoFhVtYGB8E4gdrDV8M5iaBg==",
+    "verified": true
+  },
+  {
+    "id": "d019867d47750b83",
+    "phase": "S1901M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "FRANCE: Let's establish a Channel DMZ this year\u2014no fleet in ENG from either of us. Gives us both breathing room in 1901. I'll support your Italian/German strategy if we're coordinated. Open to discussing anti-German defense if Germany gets aggressive on your border.",
+    "sent_at": "2026-07-05T04:51:51.201460+00:00",
+    "sig": "Nd/dXEWtimT6HNvw0UcMGax/sS3nLop5PVGkdjFmVwcXCUMh+7IWs5ozyAJ6+XnDCGq8otrufF9Q1g2SQw/dAw==",
+    "verified": true
+  },
+  {
+    "id": "230e38ff4d30dd74",
+    "phase": "S1901M",
+    "sender": "FRANCE",
+    "recipient": "ENGLAND",
+    "recipients": [
+      "ENGLAND"
+    ],
+    "body": "ENGLAND: I propose a Channel DMZ for the opening year. I'll move F BRE \u2192 PIC (not ENG), and you don't enter ENG/IRI. This leaves both our fleets free to pursue continental ambitions. Interested?",
+    "sent_at": "2026-07-05T04:51:53.373473+00:00",
+    "sig": "3gGbMrBvbX8gLH7XA0crr1aK60dp6XxOtrwM2XzhwnZQMDa3tBDIKxtwekAc19Tt3S7amZup6uu4CX5SS/SxCg==",
+    "verified": true
+  },
+  {
+    "id": "1761182afb857bd4",
+    "phase": "S1901M",
+    "sender": "GERMANY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "AUSTRIA \u2014 thanks for the opening. Russia is indeed the concern. I'll keep the east secure and support stability in the south. Let's stay in touch as they move.",
+    "sent_at": "2026-07-05T04:51:53.850202+00:00",
+    "sig": "QUE+i8kUPPdtL45I+hK3dp1LIXgRUX1+J90NGVaBSvFkWx9nbwKZqcBXtLnhUqVVjxwhoiASISd+ioj0eVcfAQ==",
+    "verified": true
+  },
+  {
+    "id": "199926e72938bf3a",
+    "phase": "S1901M",
+    "sender": "ENGLAND",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "GERMANY: ENGLAND here. Early in the game and making contact. I'm building north (Scandinavia, North Sea play). Your eastern neighbors will keep you busy. Happy to establish non-aggression if you're not aiming at the Channel/Atlantic. What's your opening posture?",
+    "sent_at": "2026-07-05T04:51:55.553080+00:00",
+    "sig": "fMVnFGSIgWQUoCH1UtgnIbJvb4lLVggobsHoLyzUjQBg/lH2i2utK166aN3bjnlRtPqWuGRUhJbHIY2PUIgZAg==",
+    "verified": true
+  },
+  {
+    "id": "d2765c980f647567",
+    "phase": "S1901M",
+    "sender": "FRANCE",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "GERMANY: France here. What's your opening vision for the 1901? I'm interested in coordinating or at least avoiding Burgundy bloodshed. Let me know if you see room for a limited non-aggression arrangement (say, no armies into BUR/RUH this year).",
+    "sent_at": "2026-07-05T04:51:56.493056+00:00",
+    "sig": "4GxhCnQxOwc8kdvVkJO6OCcfFq/UfNuZet9RYObNJcLS/6QGYRjH6NYoLUZfOwL2micsqKc+/nIn5t9hFHrxCQ==",
+    "verified": true
+  },
+  {
+    "id": "afac91c92f7c5b39",
+    "phase": "S1901M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "FRANCE \u2014 GERMANY here. In 1901 we're both well-positioned in the center. Suggest we establish a no-fleet DMZ in the Channel and coordinate if Russia or Italy move aggressively. Fair start?",
+    "sent_at": "2026-07-05T04:51:57.538204+00:00",
+    "sig": "ahrJzragMF23xDlHpQruybivg9oN9ck1CrSBYni/E8/TQmzMqOHGujGbIigzJufO6Xx6KiMZ3jsau8QCDnonDg==",
+    "verified": true
+  },
+  {
+    "id": "19279320f647f2ec",
+    "phase": "S1901M",
+    "sender": "ITALY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 your offer works perfectly. Tyrol DMZ, your fleet to Albania, I keep A VEN north of the coast. Long view: we both gain from mutual growth. I'm moving east and south, you build toward the Balkans. Let's make this pact: full border peace through 1902, coordinate when convenient. Sealed.",
+    "sent_at": "2026-07-05T04:51:59.222332+00:00",
+    "sig": "FV+VH/4/o2brXqMuqG7fcwdT9c0UukWPOEsgyfLVMqEKmKbjCCfzMZC5HfU7WJuoAT8tAQQ/lhl0cZBoGHOuAg==",
+    "verified": true
+  },
+  {
+    "id": "1cd7c50eb797a494",
+    "phase": "S1901M",
+    "sender": "FRANCE",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "ITALY: France opening. I'm moving A MAR north for Burgundy/Gascony expansion. A PAR will support those moves. I'm not threatening Piedmont this year \u2014 does that work for you? And on Spain: I can let you have it if you don't contest my Gascony move.",
+    "sent_at": "2026-07-05T04:51:59.430877+00:00",
+    "sig": "BwKyhzklcLjl5o4H6fH5Tm4WavsG8b1kde0sYXVN1IP0OxlLFoBUlIlFpLmhWq0VnczAZUJ1rNDyINVscchbDA==",
+    "verified": true
+  },
+  {
+    "id": "1ae0a1c3e9baf5e8",
+    "phase": "S1901M",
+    "sender": "GERMANY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "RUSSIA \u2014 GERMANY here. You're ahead on centers (4). I respect strong play. This year: I'll respect your sphere in Poland and Scandinavia if you don't push hard into Silesia. Sound reasonable?",
+    "sent_at": "2026-07-05T04:52:00.777510+00:00",
+    "sig": "c6Y7QeUqVwsfrzjJdUR3wbqcIpL3qrH0xkDMU1xYym9BIh/Id0cEphAGa29gyPLV3Yt2g9arfynRSXF0ngo2Dw==",
+    "verified": true
+  },
+  {
+    "id": "dc0c97279ebf68d4",
+    "phase": "S1901M",
+    "sender": "ITALY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "France \u2014 Italy here. The western Med is big enough for both of us. I propose: you keep Spain/Portugal, I take Tunis/Sicily and work the Ionian. Channel stays neutral ground. What boundaries work for your 1901 build? Early alliance of non-aggression keeps both of us safe while we grow.",
+    "sent_at": "2026-07-05T04:52:03.894795+00:00",
+    "sig": "DvMxAOVI8VhuWZUbl4fWZrpitvrO0ypIiNAsLtWBrViFIQ2pBIBDFLdAGgVdkAgYvBVpkLnm3uZd1+yihB7CAw==",
+    "verified": true
+  },
+  {
+    "id": "93ef7f84eb131601",
+    "phase": "S1901M",
+    "sender": "TURKEY",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria \u2014 your Balkans proposal makes sense. Bulgaria to Turkey, Serbia/Greece to Austria, clean line. Yes, I'll push F ANK - BLA and focus on Russia. We have a deal.",
+    "sent_at": "2026-07-05T04:52:07.383728+00:00",
+    "sig": "XCkH4b5vjtQJK07rk/hzS69Trign0VOhG3L95vnBKeHZmVph2aIlSNgZ/jyKcdvB069roaTYSiGAnPNnzHxBAQ==",
+    "verified": true
+  },
+  {
+    "id": "0584704e30d04e5f",
+    "phase": "S1901M",
+    "sender": "TURKEY",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 Turkey reaches out. The Black Sea is natural pressure point between us. Suggest we respect each other's core: you keep ARM and AST, I keep ANK and BLA. No early knife-fight over the straits. Room for both of us to expand elsewhere? Thoughts?",
+    "sent_at": "2026-07-05T04:52:10.804284+00:00",
+    "sig": "IBfnvBrc2w8mo38SDBnELZhtCWGKtR59QCHgW1lhZxnMmhpzPGw2BsXaW2g2W4ol14DKxYbEq1hMp+oRi1GtCw==",
+    "verified": true
+  },
+  {
+    "id": "f39557b5445f4f47",
+    "phase": "S1901M",
+    "sender": "TURKEY",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 Turkey suggests we avoid any Mediterranean tension this year. You move west/north toward France, I focus east/north toward Russia and the Balkans. No reason for Italian and Turkish units to clash in 1901. Agree?",
+    "sent_at": "2026-07-05T04:52:14.131595+00:00",
+    "sig": "SAWUdymat5Ujz4gkaMxOZK7/+RS9kghkMKEBqieFZ8taAAZqcd3XjvCmjZvYb3V3Ep25pL0vi4VkbxCipj8oDg==",
+    "verified": true
+  },
+  {
+    "id": "e1d6ae5fbd34e16c",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "AUSTRIA",
+    "recipients": [
+      "AUSTRIA"
+    ],
+    "body": "Austria, Russia accepts your proposal entirely. We will not enter Rumania, you secure Galicia as needed, and we coordinate the Turkish problem from 1902 onward. This clears our border for both of us to move freely. Agreed?",
+    "sent_at": "2026-07-05T04:52:20.001678+00:00",
+    "sig": "VQSZZHePPNtdujo4teI4Hnq0DCOYWZqL3YWSO17ldy2FyGFOINC7QosFA8uUiu0i7AEMXBt8YPMbX1FJ1xpTAA==",
+    "verified": true
+  },
+  {
+    "id": "be74d0614dcfdc18",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey, Russia speaks. Spring 1901 need not be a season of conflict between our nations. We propose a non-aggression understanding \u2014 no units attacking each other this phase. Let us observe the board and see where stability lies. Interested?",
+    "sent_at": "2026-07-05T04:52:23.478746+00:00",
+    "sig": "W/AK5vDu1jmz2CABZdibvygqwnZD182dDqouE2JPaRV6v7duy63fdMqV0Ou+xajS/8NKUvCu5V4mcryK3e6PCQ==",
+    "verified": true
+  },
+  {
+    "id": "ae7d6ee298713bfa",
+    "phase": "S1901M",
+    "sender": "RUSSIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany, Russia here. Standard opening courtesy: we have no designs on Prussia or Silesia this year. We are focused on the south and maintaining our borders. If you aim north toward Scandinavia, we have no objection. Mutual non-interference in our spheres \u2014 does that suit you?",
+    "sent_at": "2026-07-05T04:52:26.870269+00:00",
+    "sig": "PSGPHdorateqIhcEp06XBbylW3ps9ItVF7tUx3ISa47FJKGSBj5KiYDkZjB+Mt7PtgPvaHXMsmETTiEXvm0YBA==",
+    "verified": true
+  },
+  {
+    "id": "2a02f957194ee77a",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "GERMANY",
+    "recipients": [
+      "GERMANY"
+    ],
+    "body": "Germany \u2014 Austria. Two things. Russia told me flatly they would stay out of Rumania; their fleet now sits in it \u2014 remember that when they make you promises. Second: your army in Bohemia. If it is aimed at containing Russia (GAL next spring), you have my blessing and my support. If it enters Vienna, our understanding dies on the spot and the only winner is the liar in Rumania. I would rather we stay friends.",
+    "sent_at": "2026-07-05T04:56:30.599227+00:00",
+    "sig": "AW8zTfQgapXARB3PQCoGQKNja2doMl2PNM+2SHz6Ab/Z70mbzhQNpqWiz9z4zhx87fcfTeSi4HdebSoIrpw7CA==",
+    "verified": true
+  },
+  {
+    "id": "60960c694e32dbd7",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "RUSSIA",
+    "recipients": [
+      "RUSSIA"
+    ],
+    "body": "Russia \u2014 Austria. You wrote, and I quote, 'We will not enter Rumania.' Your fleet is in Rumania. I have kept my side to the letter \u2014 no RUM, GAL only covered. I will not pretend I did not notice, but I am offering an off-ramp: keep the fleet in RUM and go no further, and we can still talk 1902. One step toward BUD, SER, or GAL and you are at war with Austria, Turkey (already in BLA and ARM), and a Germany that now knows exactly what your word is worth.",
+    "sent_at": "2026-07-05T04:56:30.954006+00:00",
+    "sig": "laL24w0huG9W0VC+qg/7iNVMJGefIzoZMONAsoKPr0IpAo2kCX2QgnePJI7jSduw95da31dEpY2GPGUXZHELCA==",
+    "verified": true
+  },
+  {
+    "id": "d94d86de670ed6bb",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "TURKEY",
+    "recipients": [
+      "TURKEY"
+    ],
+    "body": "Turkey \u2014 Austria. Our deal held perfectly: BUL is yours, I take Greece this fall, clean line. Note that Russia promised me in writing to stay out of Rumania and then sailed into it \u2014 you allied with the right neighbor. For 1902 I propose we squeeze RUM together: you press from the Black Sea and Armenia, I press from the north. One caution: Italy's fleet in the Ionian may sniff at Greece \u2014 it is covered, do not be alarmed by any noise there.",
+    "sent_at": "2026-07-05T04:56:31.307431+00:00",
+    "sig": "ShLRHXNhQrK5swU3kbPkpw10x4K5sFaanKAMvPvuA5nt3beObxZvL3TKtdeX3ljs5B8YL1HFmQv4c5Fl15f/CA==",
+    "verified": true
+  },
+  {
+    "id": "e44c81d8a9075185",
+    "phase": "F1901M",
+    "sender": "AUSTRIA",
+    "recipient": "ITALY",
+    "recipients": [
+      "ITALY"
+    ],
+    "body": "Italy \u2014 Austria. The border peace is holding nicely and I intend to keep it. Your Ionian fleet: I assume Tunis-bound, which is smart \u2014 Tunis is free money and nobody contests it. To be explicit: Greece is mine under my arrangement with Turkey, and it will be defended this fall; contesting it would burn your fleet's year and only help Russia, who is already lying to all of us. Take Tunis, and 1902 opens well for both of us.",
+    "sent_at": "2026-07-05T04:56:31.656588+00:00",
+    "sig": "U+wKm7QyByitvJUP+eDggShwfBBSTkDcfx1PVBY+hRv5sjWNGUZobpLyfqknMUcsGGY5iCsSGqzN7jsmZviwCA==",
+    "verified": true
+  },
+  {
+    "id": "3b194094f8b5bd52",
+    "phase": "F1901M",
+    "sender": "ENGLAND",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "FRANCE: Confirming our Channel DMZ \u2014 I will not enter ENG or IRI. You move BRE to PIC; we stay clear of each other. Good luck.",
+    "sent_at": "2026-07-05T04:57:16.784959+00:00",
+    "sig": "DPtXAszFd8BuuPurMW6V+IMwh+CNdganhvxm238Tue8E6y0zLXq07wU4yRJcX/xUDJGvN7auopJkMmSgEv6EBA==",
+    "verified": true
+  },
+  {
+    "id": "f4f742b8ca24154b",
+    "phase": "F1901M",
+    "sender": "GERMANY",
+    "recipient": "FRANCE",
+    "recipients": [
+      "FRANCE"
+    ],
+    "body": "FRANCE: We agreed 'no armies in BUR/RUH this year'. Your army is now in Burgundy. Does this mean the deal is off, or do you intend BUR as a temporary position? Asking before I finalize my orders.",
+    "sent_at": "2026-07-05T04:58:03.731571+00:00",
+    "sig": "wjYl5xKo4+18UctPc7omiaZ4RWuh/oT6vMDGILmTyP/YPuVzlhdb2HcbAfH4fXCYNUqHLSxwhecHUT9hTvihDQ==",
+    "verified": true
+  }
+]
