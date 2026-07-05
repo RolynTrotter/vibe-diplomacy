@@ -10,16 +10,23 @@
   no direct contact yet, stay wary long-term.
 
 ## Trust & deals
-- ENGLAND: unknown yet — first contact this round, proposing Channel DMZ.
-- GERMANY: unknown yet — first contact this round, floating Burgundy peace.
-- ITALY: unknown yet — first contact this round, floating Piedmont/Spain
-  non-interference.
+- ENGLAND: DEAL: mutual Channel DMZ S1901 — no French fleet into ENG, no
+  English designs on Brest. Confirmed round 2. England knows I'm headed
+  for Iberia.
+- GERMANY: DEAL: Burgundy neutral S1901 — Germany keeps A Munich pointed
+  at Kiel/Ruhr/Bohemia (Denmark/Holland focus), I keep my opening away
+  from the Rhine. Confirmed round 2.
+- ITALY: DEAL: mutual Piedmont/Tunis non-interference S1901 — Italy leaves
+  Piedmont/Marseilles alone, I leave Tunis to Italy. Confirmed round 2.
 - RUSSIA: no contact — 4 centers is odd for opening standings, monitor.
 - AUSTRIA: no contact yet.
 - TURKEY: no contact yet.
 
 ## Next phase
-- Read replies from ENGLAND/GERMANY/ITALY before finalizing S1901M orders.
-- Likely orders lean: A MAR-SPA, F BRE-MAO (or ENG if England deal firms up
-  a Channel DMZ making ENG safe to pass through), A PAR-BUR or PAR-PIC
-  depending on Germany's tone.
+- All three deals (ENGLAND Channel DMZ, GERMANY Burgundy neutral, ITALY
+  Piedmont/Tunis restraint) confirmed round 2 — footing is settled, no
+  contradictions between them.
+- Likely orders lean: A MAR-SPA, F BRE-MAO (Iberia push), A PAR-PIC or
+  PAR-BUR held back/garrison per Germany deal (avoid BUR), F BRE could
+  also consider ENG now that Channel DMZ holds, but Iberia is priority.
+- Still no contact with RUSSIA/AUSTRIA/TURKEY — low priority for now.
