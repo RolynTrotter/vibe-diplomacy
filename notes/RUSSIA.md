@@ -25,3 +25,8 @@ Submitted F1901M: F BOT-SWE, F RUM H, A UKR H, A SEV H.
 - F RUM H: consolidate the Rumania center, no reason to push into BUL (Turkey's) or BLA (DMZ).
 - A UKR H / A SEV H: hold posture — Galicia and Black Sea DMZs both in place, no need to provoke Austria or Turkey.
 - Watch: confirm SWE actually falls (no last-minute English fleet contesting it), and that Austria/Turkey held their DMZs again this turn.
+
+## W1901A build
+F1901M resolved cleanly — SWE secured, DMZs held with both Austria and Turkey. Ended at 6 centers (biggest power): MOS, SEV, STP, WAR, RUM, SWE. Owed +2 builds.
+
+Built A MOS, A WAR — chose armies over a third fleet since F RUM + F SWE already cover the sea fronts (Black Sea DMZ with Turkey, Baltic/Scandinavia settled with England). Two central armies give flexible defense in any direction (west toward Germany if needed, south to backstop Ukraine/Galicia/Sevastopol) without looking like a naval buildup aimed at England or Turkey — stays consistent with the "don't advertise the lead" posture at 6 centers.
