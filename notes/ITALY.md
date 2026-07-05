@@ -1,28 +1,17 @@
 # ITALY — strategy notebook
 
 ## Plan
-- Submitted S1901M: F NAP-ION (opening toward Tunis, TYS/ION route), A ROM-APU (flexible support/positioning), A VEN H (respects Austrian DMZ, no provocation).
-- Went classic, not Lepanto: no ally lined up for a unilateral Trieste strike, and Austria's DMZ offer was concrete and paired with real info. Next: push F ION-TUN (or via TYS) in fall; watch Austria's actual Balkans moves to see if DMZ holds and whether Lepanto becomes viable later.
-- Long game: stay flexible on VEN (PIE vs France, or TRI vs Austria later) depending on how Turkey/Austria/Russia shake out. Keep an eye on Russia's suspiciously high supply-center count from the brief.
+- 4 centers (NAP, ROM, VEN, TUN), tied smallest. Boxed in by deals: Austria DMZ (TRI/VEN/ADR), France peace (Tunis mine, Piedmont/Ionian theirs). No open neutral SCs nearby (Serbia/Belgium are the only unclaimed ones, both far away). Growth this year is positional, not territorial: stage fleets west (NAF) and east (ION) to keep future options (Iberia if France falters, Aegean if Austria/Turkey clash) without breaking either deal.
+- S1902M: F TUN-NAF (forward Western Med staging, no deal broken), F NAP-ION (forward Eastern Med staging), A VEN H + A APU H (respect Austria DMZ, no productive alternative this turn).
 
 ## Trust
-- AUSTRIA: DMZ deal on TRI/VEN/ADR held for S1901M by mutual agreement — respected (VEN holds). Revisit if they overreach into Balkans/get bogged down with Turkey/Russia.
-- FRANCE: mutual hands-off confirmed — Tunis mine, Piedmont/western Med theirs. Respected (no PIE move). Open channel on England later.
-- TURKEY: friendly, no firm deal yet; floated loose anti-Austria/Russia coordination for later, too early to commit. Orders don't touch Bulgaria/Black Sea as promised.
-- ENGLAND/GERMANY: no contact yet.
-- RUSSIA: unknown, flagged anomaly (4 centers listed pre-S1901M) — watch closely, could be a briefing artifact.
+- AUSTRIA: DMZ holding both sides, reconfirmed through F1901M and again this turn. They took Greece (via SER-GRE, so Serbia is open/neutral again). Watch for further Balkans expansion — could strain things with Turkey.
+- FRANCE: mutual hands-off confirmed and respected (no PIE probe, they stayed off Tunis/Ionian). Stable ally for now.
+- TURKEY: friendly, no firm deal. Floated conditional lean-Turkey-if-Austria-overreaches this turn, given Austria's Greece grab. No commitment made either way.
+- ENGLAND/GERMANY: no contact yet — should open a channel.
+- RUSSIA: 6 centers, largest power — worth flagging as a long-term threat to watch.
 
 ## Reminders
-- Next turn: push F ION-TUN toward Tunis; decide A ROM's follow-up (support Tunis push via convoy assist, or reposition).
-- Re-confirm Austria DMZ is holding before any VEN move north; don't unilaterally break it.
-- Start a channel with England before F1901 if time allows — currently zero info there.
-
-## F1901M
-- Sent follow-ups: France (confirmed Tunis push F ION-TUN, reaffirmed no PIE/Marseille moves), Austria (reaffirmed TRI/VEN/ADR DMZ holding, asked for Serbia update).
-- Orders: F ION-TUN (take Tunis, uncontested per France's confirmation), A VEN H (DMZ respected), A APU H (no useful support/convoy role available for APU->TUN since ION itself is moving, not convoying; first attempt A APU-VEN was a self-bounce mistake, corrected to hold).
-- Next: watch for Austria's Serbia outcome and Turkey signals; decide APU's real job (PIE watch via VEN, or Balkans via ALB) once Tunis is secure and DMZ status is reconfirmed by Austria's reply.
-
-## W1901A
-- Tunis secured (4 centers: NAP, ROM, VEN, TUN), 1 build owed.
-- Built F NAP: doubles down on the Mediterranean fleet strategy alongside F TUN, keeping the Adriatic DMZ with Austria intact (no army build needed there) and giving options for further NAF/WES/ION expansion or a future Lepanto pivot if Austria overreaches.
-- Next: decide F NAP's opening move (support TUN, push toward WES/NAF, or hold) once F1902-style negotiations open; keep APU's role (PIE watch vs ALB/Balkans) under review.
+- Next turn: watch Austria/Turkey replies re: Balkans tension; decide whether NAF/ION fleets push further (WES/TYS or AEG) or hold as flexible staging.
+- Don't unilaterally break Austria DMZ; don't probe Piedmont/Marseille.
+- Open a channel with England/Germany when time allows.
