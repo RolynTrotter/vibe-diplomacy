@@ -8,14 +8,14 @@
 - Keep A VEN flexible — could go PIE (vs France), TRI (vs Austria, risky "Lepanto"), or hold for defense.
 
 ## Trust & deals
-- AUSTRIA: proposed first — wants TRI/VEN/ADR DMZ, pushing into Serbia, asked about my Tyrolia/Piedmont plans. I accepted, said no interest in north, going west. Tentatively cooperative — watch if Lepanto still tempting later if Austria overextends into Balkans.
+- DEAL: AUSTRIA — explicit DMZ on TRI/VEN/ADR for S1901M, confirmed both sides. I stay out of Tyrolia/north, they push Serbia/Balkans instead. Standing as long as it holds; revisit if Austria overreaches into the Balkans and gets bogged down (Lepanto stays a later option, not now).
+- DEAL: FRANCE — mutual hands-off: Tunis is mine, Piedmont/western Med are theirs (they're headed to Iberia). Both sides confirmed round 2. Open channel on England later.
 - ENGLAND: unknown — no contact yet
-- FRANCE: contacted — proposed mutual hands-off (Tunis mine, PIE/MAR theirs), awaiting reply
 - GERMANY: unknown — no contact yet
 - RUSSIA: unknown — has 4 centers already per public standings (odd for S1901M start — flag as possible brief anomaly, watch closely)
-- TURKEY: contacted — opened channel, floated shared wariness of a too-strong Austria
+- TURKEY: friendly, no firm deal — floated loose future coordination against Austria or Russia if either overreaches; too early for commitments. Confirmed my opening doesn't touch Bulgaria/Black Sea.
 
-## Next phase
-- Read replies from Austria/France/Turkey before finalizing S1901M orders.
-- Decide: classic opening (F NAP-ION, A VEN hold, A ROM-APU) vs aggressive Lepanto (A VEN-TRI) if Austria's reply feels hollow.
-- Lock in any DMZ deals as DEAL: lines once confirmed.
+## Next phase — S1901M orders direction (decided)
+- Going with the CLASSIC opening, not Lepanto: Austria's DMZ offer was proactive, specific (TRI/VEN/ADR), and paired with real info (Serbia move telegraphed). France also locked down and Turkey isn't ready to commit to anti-Austria coordination this turn, so a unilateral Trieste strike now would be isolated and reckless — no allies lined up to exploit it.
+- Plan: F NAP -> ION (opening toward Tunis via sea over the next turns), A VEN holds/defensive (respects DMZ), A ROM -> APU (support/flexibility south). Keep Lepanto on the shelf for later if Austria gets overextended vs Turkey/Russia and Turkey firms up an alliance.
+- Still need to write actual orders — do that in the orders phase, not here.
