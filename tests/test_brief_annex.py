@@ -58,6 +58,85 @@ def test_center_digest_shows_yearly_changes(tmp_path):
     assert "FRANCE +BEL" in brief
 
 
+def test_outcome_feedback_explains_void_support(tmp_path):
+    game = _game(tmp_path)
+    game.set_orders("FRANCE", ["A PAR S A MAR - BUR", "A MAR - SPA",
+                               "F BRE - MAO"])
+    game.process()
+    state.save_game(game, tmp_path)
+    brief = context.power_brief(tmp_path, "FRANCE")
+    assert "what happened and why" in brief
+    assert "VOID — your own unit was actually ordered 'A MAR - SPA'" in brief
+    assert "2 other order(s) succeeded" in brief
+
+
+def test_outcome_feedback_explains_foreign_void(tmp_path):
+    game = _game(tmp_path)
+    game.set_orders("FRANCE", ["A PAR S A MUN - BUR"])   # Germany goes elsewhere
+    game.set_orders("GERMANY", ["A MUN - RUH"])
+    game.process()
+    state.save_game(game, tmp_path)
+    brief = context.power_brief(tmp_path, "FRANCE")
+    assert "VOID — GERMANY's unit was actually ordered 'A MUN - RUH'" in brief
+
+
+def test_commitments_ledger_survives_notes_truncation(tmp_path):
+    _game(tmp_path, press="full")
+    notes = tmp_path / "notes"
+    notes.mkdir()
+    bloat = "\n".join(f"- filler {i}" for i in range(400))
+    (notes / "FRANCE.md").write_text(
+        "# FRANCE\n" + bloat +
+        "\nDEAL: ENGLAND — Channel DMZ — until end 1903\n",
+        encoding="utf-8")
+    brief = context.power_brief(tmp_path, "FRANCE")
+    assert "Your commitments" in brief
+    assert "ENGLAND — Channel DMZ — until end 1903" in brief   # past the cap
+    assert "notes truncated" in brief
+
+
+def test_commitments_hint_only_in_full_press(tmp_path):
+    _game(tmp_path, press="full")
+    brief = context.power_brief(tmp_path, "FRANCE")
+    assert "log agreements in your notes as lines like" in brief
+
+
+def test_inbox_digests_older_phases(tmp_path):
+    _game(tmp_path, press="full")
+    pub = state.pubkey_file(tmp_path).read_text(encoding="utf-8")
+    comms.claim_power(tmp_path, "FRANCE")
+    comms.claim_power(tmp_path, "ENGLAND")
+    sign = comms.load_keys(tmp_path, "ENGLAND")["sign"]
+    for phase, body in [("S1901M", "ancient history"),
+                        ("F1901M", "still old"),
+                        ("S1902M", "recent one"),
+                        ("F1902M", "current one")]:
+        comms.send_message(tmp_path, "ENGLAND", ["FRANCE"], body, phase, pub,
+                           sign_priv=sign)
+    brief = context.power_brief(tmp_path, "FRANCE")
+    assert "recent one" in brief and "current one" in brief    # last two phases
+    assert "ancient history" not in brief                      # digested away
+    assert "ENGLAND ×2 (last F1901M)" in brief                 # the digest line
+
+
+def test_brief_toggles_disable_sections(tmp_path):
+    game = _game(tmp_path)
+    game.set_orders("FRANCE", ["A PAR S A MAR - BUR", "A MAR - SPA"])
+    game.process()
+    state.save_game(game, tmp_path)
+    config = state.load_config(tmp_path)
+    config["brief"] = {"annex": False, "outcomes": False, "digest": False,
+                       "commitments": False}
+    state.save_config(config, tmp_path)
+    brief = context.power_brief(tmp_path, "FRANCE")
+    assert "Tactical annex" not in brief
+    assert "Rules reminders" not in brief
+    assert "what happened and why" not in brief
+    assert "Your commitments" not in brief
+    # The always-on core is untouched.
+    assert "Supply-center standings" in brief
+
+
 def test_notes_are_capped_in_brief(tmp_path):
     _game(tmp_path)
     notes = tmp_path / "notes"

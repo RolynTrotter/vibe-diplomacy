@@ -35,6 +35,21 @@ scripts/sync.sh "<POWER> notes" notes/<POWER>.md
 
 The `|` separates your read (left) from active treaty terms (right). **Check deals before submitting orders** — if a move would violate one, either honor it or note the betrayal explicitly.
 
+## The DEAL: ledger
+
+Record every standing agreement as its own line starting with `DEAL:` —
+anywhere in the file:
+
+```markdown
+DEAL: ENGLAND — Channel DMZ, no fleets in ENG either side — until end 1903
+DEAL: GERMANY — BUR is mine, BEL is theirs — standing
+```
+
+These lines are extracted from the RAW file and surfaced in your brief in a
+dedicated "Your commitments" section right before you write orders — they
+survive even if the rest of your notes get truncated. Delete a DEAL line when
+the deal dies (or when you decide to break it — deliberately).
+
 ## What NOT to write
 - Resolved orders — already in `history/`
 - Board state — comes from the brief

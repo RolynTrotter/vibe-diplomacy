@@ -70,6 +70,8 @@ class Conductor:
 
         args = ["--name", self.spec.name, "--press", self.spec.press,
                 "--deadline-hours", str(self.spec.deadline_hours)]
+        if self.spec.brief:
+            args += ["--brief-json", json.dumps(self.spec.brief)]
         idle = self.spec.idle_powers()
         if idle:
             args += ["--idle", *idle]

@@ -38,6 +38,12 @@ def main() -> int:
         help="'full' enables negotiation/messaging; 'none' is gunboat.",
     )
     parser.add_argument(
+        "--brief-json", default=None,
+        help='Brief-section toggles as JSON, e.g. \'{"outcomes": false}\'. '
+             "Keys: outcomes, digest, annex, commitments, inbox_recent_only "
+             "(all default true). Stored in game/config.json under 'brief'.",
+    )
+    parser.add_argument(
         "--adjudicator-pubkey",
         help="Reuse an existing adjudicator public key (base64) instead of "
              "generating one. Use this when ADJUDICATOR_PRIVATE_KEY is already "
@@ -75,6 +81,9 @@ def main() -> int:
         "deadline_hours": args.deadline_hours,
         "powers": {p: {"type": player_type(p)} for p in POWERS},
     }
+    if args.brief_json:
+        import json
+        config["brief"] = json.loads(args.brief_json)
     state.save_config(config, root)
 
     # Initial board + empty dirs.

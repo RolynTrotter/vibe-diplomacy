@@ -10,9 +10,31 @@ either public (board/history) or belongs to `power`.
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from engine import comms, query, state
+from engine.coherence import parse_order as _parse
+
+# Player-facing brief sections are individually toggleable so verbose ones can
+# be turned off per match: set a `brief` mapping in game/config.json (written
+# by `new_game --brief-json` / the match spec's `brief:` key).
+DEFAULT_BRIEF_OPTIONS = {
+    "outcomes": True,           # per-order feedback on your last resolved phase
+    "digest": True,             # yearly center-change digest
+    "annex": True,              # tactical annex + rules crib
+    "commitments": True,        # DEAL: ledger surfaced from your notes
+    "inbox_recent_only": True,  # raw mail from the last two phases; older mail
+                                # collapses to per-partner counts
+}
+
+
+def brief_options(config: dict) -> dict:
+    opts = dict(DEFAULT_BRIEF_OPTIONS)
+    for key, value in (config.get("brief") or {}).items():
+        if key in opts:
+            opts[key] = bool(value)
+    return opts
 
 
 def _last_phase_recap(game) -> str:
@@ -56,20 +78,135 @@ def _my_notes(root: Path, power: str) -> str:
     return text
 
 
-def _my_inbox(root: Path, power: str) -> str:
+def _format_msg(m: dict) -> str:
+    tag = "broadcast" if m.get("recipient") == comms.GLOBAL else "to you"
+    verified = "" if m.get("verified", True) else " ⚠unverified"
+    return (f"- [{m.get('phase')}] **{m.get('sender')}** ({tag}{verified}): "
+            f"{m.get('body')}")
+
+
+def _my_inbox(root: Path, power: str, recent_only: bool = True) -> str:
     privkey = comms.load_privkey(root, power)
     if not privkey:
         return "_(no key yet — you haven't claimed your seat.)_"
     msgs = comms.read_inbox(root, power, privkey)
     if not msgs:
         return "_(empty.)_"
+    if not recent_only:
+        return "\n".join(_format_msg(m) for m in msgs[-30:])
+
+    # Raw mail only from the last two phases that produced any; everything
+    # older collapses to a per-partner digest so long games stop paying for
+    # their whole comms history in every brief.
+    phases_seen: list[str] = []
+    for m in msgs:
+        if m.get("phase") not in phases_seen:
+            phases_seen.append(m.get("phase"))
+    recent_phases = set(phases_seen[-2:])
+    recent = [m for m in msgs if m.get("phase") in recent_phases]
+    older = [m for m in msgs if m.get("phase") not in recent_phases]
+
     out = []
-    for m in msgs[-30:]:  # most recent
-        tag = "broadcast" if m.get("recipient") == comms.GLOBAL else f"to you"
-        verified = "" if m.get("verified", True) else " ⚠unverified"
-        out.append(f"- [{m.get('phase')}] **{m.get('sender')}** ({tag}{verified}): "
-                   f"{m.get('body')}")
+    if older:
+        counts: dict[str, list] = {}
+        for m in older:
+            c = counts.setdefault(m.get("sender", "?"), [0, ""])
+            c[0] += 1
+            c[1] = m.get("phase", "")
+        digest = "; ".join(f"{s} ×{n} (last {ph})"
+                           for s, (n, ph) in sorted(counts.items()))
+        out.append(f"_Older mail (digest): {digest}. Standing agreements "
+                   f"belong in your notes as DEAL: lines; reread a thread "
+                   f"with `read_messages --with <POWER>` if you must._")
+    out += [_format_msg(m) for m in recent[-30:]]
     return "\n".join(out)
+
+
+def _my_last_outcomes(game, power: str) -> str:
+    """What actually happened to YOUR orders last phase, with the why.
+
+    Weak models never close this loop themselves — a support that was void
+    three phases running stays void forever unless someone says why.
+
+    Looks back to your most recent MOVEMENT phase (retreat/adjustment orders
+    carry no learning signal), so the feedback survives an intervening winter.
+    """
+    try:
+        pairs = list(game.order_history.reversed_items())
+    except (AttributeError, TypeError):
+        return ""
+    phase_key, orders, mine = None, None, []
+    for key, value in pairs:
+        if str(key).endswith("M") and (value or {}).get(power):
+            phase_key, orders, mine = key, value, value[power]
+            break
+    if not mine:
+        return ""
+    results = game.result_history.get(phase_key) or {}
+
+    by_loc: dict[str, tuple[str, object]] = {}
+    for pw, olist in orders.items():
+        for o in olist or []:
+            p = _parse(o)
+            if p.loc:
+                by_loc[p.loc] = (pw, p)
+
+    lines, ok = [], 0
+    for o in mine:
+        p = _parse(o)
+        unit = " ".join(o.split()[:2])
+        tags = [str(t) for t in (results or {}).get(unit, []) if str(t)]
+        if not tags:
+            ok += 1
+            continue
+        if "void" in tags and p.kind in ("SUP_M", "SUP_H", "CONVOY"):
+            actual = by_loc.get(p.target)
+            if actual is None:
+                why = f"VOID — nothing at {p.target} was ordered at all"
+            else:
+                pw, ap = actual
+                whose = "your own" if pw == power else f"{pw}'s"
+                why = f"VOID — {whose} unit was actually ordered {ap.raw!r}"
+        elif "no convoy" in tags:
+            why = "NO CONVOY — no fleet carried this move"
+        elif "cut" in tags:
+            why = "support CUT — the supporting unit was attacked"
+        elif "bounce" in tags:
+            why = "bounced (met equal or greater force)"
+            if "dislodged" in tags:
+                why += " and the unit was DISLODGED"
+        elif "dislodged" in tags:
+            why = "the unit was DISLODGED"
+        else:
+            why = ", ".join(tags)
+        lines.append(f"- {o} → {why}")
+    if not lines:
+        return f"_All {ok} of your orders in {phase_key} succeeded._"
+    if ok:
+        lines.append(f"- ({ok} other order(s) succeeded.)")
+    return f"_{phase_key}:_\n" + "\n".join(lines)
+
+
+DEAL_RE = re.compile(r"^\s*(?:[-*]\s*)?DEAL:\s*(.+?)\s*$", re.MULTILINE)
+
+
+def _commitments(root: Path, power: str, full_press: bool) -> str:
+    """The DEAL: ledger — standing agreements pulled from your own notes.
+
+    Read from the RAW notes file (not the truncated brief copy) so a bloated
+    notebook can never silently drop a treaty.
+    """
+    path = Path(root) / "notes" / f"{power.upper()}.md"
+    deals = DEAL_RE.findall(path.read_text(encoding="utf-8")) if path.exists() else []
+    if deals:
+        body = "\n".join(f"- {d}" for d in deals)
+        return (body + "\nCheck your orders against these before submitting — "
+                "breaking one should be a decision, not an accident.")
+    if full_press:
+        return ("_(none recorded — log agreements in your notes as lines like "
+                "`DEAL: ENGLAND — Channel DMZ, no fleets in ENG — until end "
+                "1903` and they will be surfaced here.)_")
+    return ""
 
 
 def _phase_year(phase: str) -> str:
@@ -187,6 +324,7 @@ def power_brief(root: Path, power: str) -> str:
     power = power.upper()
     game = state.load_game(root)
     config = state.load_config(root)
+    opts = brief_options(config)
     phase = game.get_current_phase()
     summary = query.board_summary(game)
     me = summary["powers"].get(power, {})
@@ -216,20 +354,33 @@ def power_brief(root: Path, power: str) -> str:
         "",
         "## Last phase (public)\n" + _last_phase_recap(game),
     ]
-    digest = _center_digest(game)
-    if digest:
-        sections += ["", "## Center changes so far (public)\n" + digest]
-    sections += [
-        "",
-        "## Tactical annex (engine-verified, private)\n"
-        + _tactical_annex(game, power),
-        "",
-        "## Rules reminders\n" + RULES_CRIB,
-        "",
-        "## Your private notes\n" + _my_notes(root, power),
-    ]
+    if opts["outcomes"]:
+        outcomes = _my_last_outcomes(game, power)
+        if outcomes:
+            sections += ["", "## Your last orders — what happened and why\n"
+                             + outcomes]
+    if opts["digest"]:
+        digest = _center_digest(game)
+        if digest:
+            sections += ["", "## Center changes so far (public)\n" + digest]
+    if opts["annex"]:
+        sections += [
+            "",
+            "## Tactical annex (engine-verified, private)\n"
+            + _tactical_annex(game, power),
+            "",
+            "## Rules reminders\n" + RULES_CRIB,
+        ]
+    sections += ["", "## Your private notes\n" + _my_notes(root, power)]
+    if opts["commitments"]:
+        ledger = _commitments(root, power, full_press)
+        if ledger:
+            sections += ["", "## Your commitments (DEAL: lines from your notes)\n"
+                             + ledger]
     if full_press:
-        sections += ["", "## Your inbox (private to you)\n" + _my_inbox(root, power)]
+        sections += ["", "## Your inbox (private to you)\n"
+                         + _my_inbox(root, power,
+                                     recent_only=opts["inbox_recent_only"])]
 
     sections += [
         "",

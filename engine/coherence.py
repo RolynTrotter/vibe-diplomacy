@@ -197,4 +197,8 @@ def format_issues(issues: list[Issue]) -> str:
     return "\n".join(lines)
 
 
-__all__ = ["Issue", "check_orders", "format_issues"]
+# Public alias: the order parser is also what context.py and the tournament
+# scorer use to explain outcomes / classify order quality.
+parse_order = _parse
+
+__all__ = ["Issue", "check_orders", "format_issues", "parse_order"]

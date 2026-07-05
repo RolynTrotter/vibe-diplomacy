@@ -83,6 +83,10 @@ class MatchSpec:
     endpoint: str = "local"
     lm_studio_env: str | None = None
 
+    # Brief-section toggles written into game/config.json (see
+    # engine.context.DEFAULT_BRIEF_OPTIONS); empty = all defaults.
+    brief: dict = field(default_factory=dict)
+
     negotiation_rounds: int = 0             # full-press, movement phases only
     session_mode: str = "oneshot"           # oneshot | persistent
     max_concurrency: int = 1
