@@ -16,3 +16,8 @@
 - Next turn: push F ION-TUN toward Tunis; decide A ROM's follow-up (support Tunis push via convoy assist, or reposition).
 - Re-confirm Austria DMZ is holding before any VEN move north; don't unilaterally break it.
 - Start a channel with England before F1901 if time allows — currently zero info there.
+
+## F1901M
+- Sent follow-ups: France (confirmed Tunis push F ION-TUN, reaffirmed no PIE/Marseille moves), Austria (reaffirmed TRI/VEN/ADR DMZ holding, asked for Serbia update).
+- Orders: F ION-TUN (take Tunis, uncontested per France's confirmation), A VEN H (DMZ respected), A APU H (no useful support/convoy role available for APU->TUN since ION itself is moving, not convoying; first attempt A APU-VEN was a self-bounce mistake, corrected to hold).
+- Next: watch for Austria's Serbia outcome and Turkey signals; decide APU's real job (PIE watch via VEN, or Balkans via ALB) once Tunis is secure and DMZ status is reconfirmed by Austria's reply.
