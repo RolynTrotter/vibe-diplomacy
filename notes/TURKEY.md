@@ -17,6 +17,7 @@ DEAL: AUSTRIA — Serbia is theirs, Bulgaria is mine, mutual non-aggression in t
 DEAL: RUSSIA — Black Sea DMZ (no fleets either side) through 1901/1902, contingent on Russia leaving Bulgaria to me
 
 ## Next phase
-- Confirm Russia accepts the Bulgaria condition before treating BLA DMZ as fully locked.
-- Finalize S1901M orders: grab Bulgaria, keep Black Sea quiet per the deal, start eyeing Aegean/Greece.
-- Watch for any Russian move toward Rumania or Bulgaria that would break the deal.
+- S1901M submitted: A CON-BUL, F ANK-ARM, A SMY-CON. Grabbed Bulgaria per Austria deal, kept F ANK out of BLA per Russia deal, backfilled CON with SMY.
+- Watch F1901M results for Russia honoring the BLA DMZ and staying off Bulgaria; also confirm Austria goes for Serbia, not Bulgaria.
+- If deals hold, pivot toward Aegean/Greece expansion next.
+- If Russia breaks DMZ or Austria contests Bulgaria, reassess trust and consider defensive posture or Juggernaut with Austria.
