@@ -16,9 +16,12 @@
 - ITALY: not yet contacted.
 
 ## Next phase
-Submitted S1901M: A WAR-UKR, A MOS-SEV, F SEV-RUM, F STP/SC-BOT.
-- F SEV-RUM: direct adjacency grab, doesn't touch BLA — compatible with Turkey DMZ.
-- A WAR-UKR: respects Galicia DMZ (didn't enter GAL), positions to support/hold Rumania next turn (UKR is adjacent to RUM).
-- A MOS-SEV: backfills vacated Sevastopol so the south stays covered while F SEV pushes to RUM.
-- F STP/SC-BOT: first leg toward Sweden per England deal.
-- Watch F1901M: confirm Austria didn't sneak into GAL, Turkey didn't push into BLA/RUM contest, England's fleet actually clears the way to Sweden rather than beating me there.
+S1901M resolved cleanly — all deals held (Austria stayed out of GAL, Turkey stayed out of BLA/RUM, England ceded the Sweden approach). Ended S1901M at 4 centers: UKR, SEV, RUM, BOT.
+
+Sent F1901M follow-ups: confirmed to England I'm taking Sweden now (Norway theirs); reconfirmed Galicia DMZ with Austria through 1902; reconfirmed Black Sea DMZ with Turkey, Bulgaria left to them.
+
+Submitted F1901M: F BOT-SWE, F RUM H, A UKR H, A SEV H.
+- F BOT-SWE: claims Sweden per the England deal — England said they wouldn't contest it.
+- F RUM H: consolidate the Rumania center, no reason to push into BUL (Turkey's) or BLA (DMZ).
+- A UKR H / A SEV H: hold posture — Galicia and Black Sea DMZs both in place, no need to provoke Austria or Turkey.
+- Watch: confirm SWE actually falls (no last-minute English fleet contesting it), and that Austria/Turkey held their DMZs again this turn.
