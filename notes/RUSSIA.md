@@ -30,3 +30,12 @@ Submitted F1901M: F BOT-SWE, F RUM H, A UKR H, A SEV H.
 F1901M resolved cleanly — SWE secured, DMZs held with both Austria and Turkey. Ended at 6 centers (biggest power): MOS, SEV, STP, WAR, RUM, SWE. Owed +2 builds.
 
 Built A MOS, A WAR — chose armies over a third fleet since F RUM + F SWE already cover the sea fronts (Black Sea DMZ with Turkey, Baltic/Scandinavia settled with England). Two central armies give flexible defense in any direction (west toward Germany if needed, south to backstop Ukraine/Galicia/Sevastopol) without looking like a naval buildup aimed at England or Turkey — stays consistent with the "don't advertise the lead" posture at 6 centers.
+
+## S1902M — consolidation turn
+At 6 centers I'm the clear leader (next closest FRA/GER at 5) — England flagged this explicitly. Priority this turn: reassure, not expand. Sent check-ins to Austria (Galicia DMZ holding, staying out of Bulgaria), Turkey (Black Sea DMZ holding, Bulgaria theirs), and England (explicit reassurance re: center lead, confirmed Sweden/Norway split + Baltic/StP peace stand, framed the MOS move as defensive not offensive).
+
+Submitted S1902M: A MOS-STP, A WAR H, A UKR H, A SEV H, F RUM H, F SWE H.
+- A MOS-STP: garrisons the empty St. Petersburg center (owned but unguarded since the Bothnia move) — pure defense, not a build-up.
+- Everyone else holds: Galicia DMZ (through 1902) and Black Sea DMZ both still active and worth respecting one more turn given how well they've held; no reason to provoke Austria or Turkey while managing the "biggest power" optics with England/others.
+- Bulgaria: leaving it to Turkey/Austria per standing deals rather than grabbing it myself — don't want a three-front reputation this early.
+- Watch next: does England actually stop at Norway (no further Baltic/StP moves), do Austria/Turkey hold Galicia/BLA again, and is there an opening in Galicia once the 1902 DMZ term lapses.
