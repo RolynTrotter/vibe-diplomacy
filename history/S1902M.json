@@ -1,0 +1,85 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A GRE - SER",
+      "A BUD S A GRE - SER",
+      "F ALB - GRE",
+      "A TRI H"
+    ],
+    "ENGLAND": [
+      "F NTH S F NWY",
+      "F NWY H",
+      "A YOR H",
+      "F LON H"
+    ],
+    "FRANCE": [
+      "A SPA H",
+      "F POR - MAO",
+      "F BRE H",
+      "A PIC - BEL",
+      "A PAR - PIC"
+    ],
+    "GERMANY": [
+      "F DEN H",
+      "A KIE H",
+      "A HOL H",
+      "A BER - PRU",
+      "A MUN - SIL"
+    ],
+    "ITALY": [
+      "A VEN H",
+      "A APU H",
+      "F TUN - NAF",
+      "F NAP - ION"
+    ],
+    "RUSSIA": [
+      "A MOS - STP",
+      "A WAR H",
+      "A UKR H",
+      "A SEV H",
+      "F RUM H",
+      "F SWE H"
+    ],
+    "TURKEY": [
+      "A BUL H",
+      "A CON H",
+      "F ANK H",
+      "F SMY - AEG"
+    ]
+  },
+  "phase": "S1902M",
+  "results": {
+    "A APU": [],
+    "A BER": [],
+    "A BUD": [],
+    "A BUL": [],
+    "A CON": [],
+    "A GRE": [],
+    "A HOL": [],
+    "A KIE": [],
+    "A MOS": [],
+    "A MUN": [],
+    "A PAR": [],
+    "A PIC": [],
+    "A SEV": [],
+    "A SPA": [],
+    "A TRI": [],
+    "A UKR": [],
+    "A VEN": [],
+    "A WAR": [],
+    "A YOR": [],
+    "F ALB": [],
+    "F ANK": [],
+    "F BRE": [],
+    "F DEN": [],
+    "F LON": [],
+    "F NAP": [],
+    "F NTH": [],
+    "F NWY": [],
+    "F POR": [],
+    "F RUM": [],
+    "F SMY": [],
+    "F SWE": [],
+    "F TUN": []
+  }
+}
