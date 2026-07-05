@@ -39,3 +39,25 @@ DEAL: GERMANY — Bohemia/Tyrolia DMZ mutual — standing
   occupied at home). Built A BUD — keeps flexibility to reinforce the Balkans
   push (Serbia/Rumania/Galicia) rather than tying the new unit down west in
   VIE. Order: A BUD B.
+- S1902M: realized Serbia never actually changed hands — my unit only passed
+  through SER en route to GRE in fall, so it sat empty the whole time (board
+  confirms AUSTRIA still at 4 centers, SER unowned by anyone). Still open.
+  Turkey's F1901M message had asked me to leave Greece to them, but that
+  crossed with my already-locked supported SER-GRE order — flagged this
+  directly to Turkey this phase so it doesn't fester, reaffirmed Bulgaria/
+  Black Sea are still fully theirs.
+  Orders: A GRE-SER (grab it properly this time), A BUD S A GRE-SER (guards
+  against Turkey's A BUL also having a go at it — a solo Turkish move would
+  bounce against my supported one), F ALB-GRE (garrison Greece so it isn't
+  left empty while the army is in transit — ownership is only assessed at
+  Fall, but an undefended GRE all summer invites Turkey to walk in), A TRI H
+  (Italy DMZ untouched).
+  Messaged Turkey: explained the Greece timing, reaffirmed the Bulgaria deal,
+  asked their read on Russia (now 6 centers, biggest power on the board).
+  Messaged Italy: reconfirmed Adriatic/TRI/VEN DMZ solid, flagged the Serbia
+  move as pure Balkans/Turkey business not touching them, asked for their
+  Russia read too.
+  If it holds, Fall 1902 puts AUSTRIA at 5 centers (BUD, TRI, VIE, GRE, SER)
+  with no deal broken. Next: watch Turkey's reply on Serbia/BUL-SER risk, and
+  start thinking about whether Russia's lead needs a coordinated response
+  with Germany/Italy/Turkey down the line.
