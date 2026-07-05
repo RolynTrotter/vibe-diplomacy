@@ -8,14 +8,14 @@
 - Watch Russia (starts with 4 centers, likely Sevastopol grab) — don't let them also dominate the north unchecked.
 
 ## Trust & deals
-- FRANCE: unknown yet — proposing ENG DMZ
-- GERMANY: unknown yet — proposing Scandinavia/North Sea cooperation
-- RUSSIA: unknown yet, has 4 centers — wary, no deal
+- FRANCE: DEAL: S1901M Channel DMZ (no ENG fleet into ENG, France keeps Brest fleet south toward Iberia) — confirmed both sides round 2. France gets free hand in Spain/Portugal; I get free hand in Norway/Scandinavia.
+- GERMANY: DEAL: S1901M Norway (me) / Denmark (Germany) split, North Sea (NTH) stays clear, no convoy incursions either way — confirmed both sides round 2. Long-term axis floated against Russia (squeeze St. Petersburg once Norway/Denmark settled) — tentative, not locked in yet.
+- RUSSIA: DEAL: S1901M Norway is mine, Sweden (via Bothnia) is theirs, mutual non-aggression in the north/StP approach — confirmed both sides round 2. Still wary long-term (4 centers), but quiet for this turn.
 - ITALY: no contact yet
 - AUSTRIA: no contact yet
 - TURKEY: no contact yet
 
 ## Next phase
-- Await replies from FRANCE and GERMANY before finalizing S1901M orders.
-- Decide EDI->NTH vs EDI->NWG based on Germany's stance on Scandinavia.
-- Confirm LON's move (ENG DMZ implies NTH or hold, not ENG).
+- All three deals (France Channel DMZ, Germany Norway/Denmark split + clear NTH, Russia Norway/Sweden split) confirmed round 2 — safe to finalize S1901M orders around a Norway push via NWG, LON not into ENG.
+- Decide EDI->NWG (convoy/support toward Norway) now that Germany has confirmed clear North Sea.
+- Revisit Germany's anti-Russia axis proposal once Scandinavia settles — nothing committed beyond mutual non-aggression yet.
