@@ -70,6 +70,8 @@ class Conductor:
 
         args = ["--name", self.spec.name, "--press", self.spec.press,
                 "--deadline-hours", str(self.spec.deadline_hours)]
+        if self.spec.brief:
+            args += ["--brief-json", json.dumps(self.spec.brief)]
         idle = self.spec.idle_powers()
         if idle:
             args += ["--idle", *idle]
@@ -189,6 +191,10 @@ class Conductor:
         persona = f"Persona: {seat.persona}\n\n" if seat.persona else ""
         brief = context.power_brief(self.game_root, power)
         full = self.spec.press == "full"
+        # raw seats get a fill-in-the-form prompt (no tools, no scripts);
+        # agentic seats get the skill walkthrough.
+        chat = self.backend == "raw"
+        trivial = phase.endswith(("R", "A"))  # retreat/adjustment: one decision
 
         if kind == "negotiation":
             body = (
@@ -196,19 +202,37 @@ class Conductor:
                 f"It is {phase} and the negotiation window is open. Acting ONLY as "
                 f"{power}, read your inbox and send any messages you want before "
                 "orders lock. Do NOT submit orders yet.\n\n"
-                "Use the `negotiate` skill: read with `read_messages`, send with "
-                "`send_message`, then `scripts/sync.sh` any mail you create.\n\n"
             )
-        else:
-            steps = ["1. `scripts/turn.sh {p}` — pull state and read your full brief."]
-            if full:
-                steps.append("2. (Optional) negotiate first — see the `negotiate` skill.")
-            steps.append("3. Decide your moves, then submit them in one shot:\n"
-                         "     echo \"A PAR - BUR\\nF BRE - MAO\" | scripts/submit.sh {p}")
-            steps.append("4. Update notes/{p}.md with your plan, then `scripts/sync.sh`.")
+            if not chat:
+                body += (
+                    "Use the `negotiate` skill: read with `read_messages`, send with "
+                    "`send_message`, then `scripts/sync.sh` any mail you create.\n\n"
+                )
+        elif chat or trivial:
+            what = ("your retreats/disbands" if phase.endswith("R")
+                    else "your builds/disbands" if phase.endswith("A")
+                    else "your orders")
             body = (
                 f"You are {power} in a Diplomacy match. {persona}"
-                f"It is {phase}. Play this turn end-to-end acting ONLY as {power}.\n\n"
+                f"It is {phase}. Decide {what} for this phase acting ONLY as "
+                f"{power}. Your options are listed in the brief's tactical annex.\n\n"
+            )
+            if not chat:
+                body += ("Submit in one shot:\n"
+                         f"  echo \"<orders>\" | scripts/submit.sh {power}\n"
+                         "No negotiation or notes update needed this phase.\n\n")
+        else:
+            steps = []
+            if full:
+                steps.append("1. (Optional) negotiate first — see the `negotiate` skill.")
+            steps.append("2. Decide your moves, then submit them in one shot:\n"
+                         "     echo \"A PAR - BUR\\nF BRE - MAO\" | scripts/submit.sh {p}")
+            steps.append("3. Update notes/{p}.md with your plan, then `scripts/sync.sh`.")
+            body = (
+                f"You are {power} in a Diplomacy match. {persona}"
+                f"It is {phase}. Play this turn end-to-end acting ONLY as {power}. "
+                "Your full brief is below — do NOT re-run `scripts/turn.sh` "
+                "(that only regenerates what you already have).\n\n"
                 + "\n".join(s.format(p=power) for s in steps)
                 + "\n\n"
             )
@@ -367,8 +391,11 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Run a whole Diplomacy match programmatically.")
     p.add_argument("--spec", help="Path to a match YAML spec.")
     p.add_argument("--root", help="Game root (default: cwd).")
-    p.add_argument("--backend", default="headless", choices=["headless", "fake"],
-                   help="Player backend (fake = server-free, random legal orders).")
+    p.add_argument("--backend", default="headless",
+                   choices=["headless", "raw", "fake"],
+                   help="Player backend: headless = full Claude Code session; "
+                        "raw = one direct chat completion per turn (cheap, no "
+                        "tools); fake = server-free random legal orders.")
     p.add_argument("--print-plan", action="store_true",
                    help="Resolve the spec and print it, then exit (run nothing).")
 

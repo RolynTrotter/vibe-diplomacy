@@ -18,7 +18,7 @@ import sys
 
 from orchestration._common import canonical_order_payload, parse_orders, repo_root
 
-from engine import comms, crypto, state, validate
+from engine import coherence, comms, crypto, state, validate
 
 
 def main() -> int:
@@ -29,6 +29,10 @@ def main() -> int:
     parser.add_argument(
         "--dry-run", action="store_true",
         help="Validate only; do not encrypt or write the .enc file.",
+    )
+    parser.add_argument(
+        "--no-coherence", action="store_true",
+        help="Skip the order-set coherence check (accept provably void orders).",
     )
     args = parser.parse_args()
 
@@ -52,9 +56,25 @@ def main() -> int:
             print(f"  - {err}", file=sys.stderr)
         return 1
 
+    # Each order is legal; now check they make sense TOGETHER (a support for
+    # a move you didn't order is legal but provably void — see engine/coherence).
+    issues = coherence.check_orders(game, power, result.accepted)
+    errors = [i for i in issues if i.severity == "error"]
+    warnings = [i for i in issues if i.severity == "warning"]
+    if errors and not args.no_coherence:
+        print(f"Rejected order set for {power} in {phase} — "
+              f"{len(errors)} provably wasted order(s):", file=sys.stderr)
+        print(coherence.format_issues(errors), file=sys.stderr)
+        print("Fix the orders above and resubmit "
+              "(or pass --no-coherence to submit anyway).", file=sys.stderr)
+        return 1
+
     print(f"All {len(result.accepted)} order(s) legal for {power} in {phase}:")
     for order in result.accepted:
         print(f"  {order}")
+    if warnings or (errors and args.no_coherence):
+        print("Coherence notes (accepted anyway):")
+        print(coherence.format_issues(warnings + (errors if args.no_coherence else [])))
 
     if args.dry_run:
         print("(dry run — nothing written)")

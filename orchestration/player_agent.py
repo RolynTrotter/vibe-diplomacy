@@ -163,6 +163,164 @@ class HeadlessClaudeAgent(PlayerAgent):
         return text, None, payload
 
 
+ORDERS_FORMAT = (
+    "Reply with your FINAL orders in one fenced code block (```), one order "
+    "per line, engine syntax (e.g. `A PAR - BUR`, `F BRE S A PAR - PIC`). "
+    "Only the fenced block is read — no commands, no tools, no prose inside it."
+)
+MESSAGES_FORMAT = (
+    "Reply with the messages you want to send (at most 4), one per line, as\n"
+    "`TO <POWER>: <message>` or `TO ALL: <message>`.\n"
+    "Lines in any other format are ignored. Reply `TO NOBODY: pass` to stay "
+    "silent."
+)
+
+
+def extract_orders(reply: str) -> list[str]:
+    """Orders from the last fenced code block (or bare `A/F ...` lines)."""
+    import re
+    blocks = re.findall(r"```[a-zA-Z]*\n(.*?)```", reply, flags=re.DOTALL)
+    text = blocks[-1] if blocks else reply
+    orders = []
+    for line in text.splitlines():
+        line = line.split("#")[0].strip().strip("`")
+        if re.match(r"^[AF] [A-Z]{3}", line.upper()):
+            orders.append(line)
+    return orders
+
+
+def extract_messages(reply: str) -> list[tuple[str, str]]:
+    """(recipient, body) pairs from `TO <POWER>: ...` lines."""
+    import re
+    out = []
+    for line in reply.splitlines():
+        m = re.match(r"^\s*TO\s+([A-Za-z]+)\s*:\s*(.+)$", line.strip())
+        if not m:
+            continue
+        recipient, body = m.group(1).upper(), m.group(2).strip()
+        if recipient in POWERS or recipient == "ALL":
+            out.append((recipient, body))
+    return out[:4]
+
+
+def _default_transport(url: str, headers: dict, payload: dict,
+                       timeout: float) -> dict:
+    """POST JSON, return parsed JSON. Kept tiny + injectable for tests."""
+    import urllib.request
+    req = urllib.request.Request(
+        url, data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json", **headers}, method="POST")
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+class RawChatAgent(PlayerAgent):
+    """One direct chat-completion call per turn — no agentic loop, no tools.
+
+    This is the cheap seat for weak local models: the task (which embeds the
+    full brief plus the engine-verified tactical annex) goes up as a single
+    user message; the reply is parsed for a fenced orders block (or `TO X:`
+    message lines) and driven through the SAME join/submit/send CLIs the
+    skills use, so the artifacts stay byte-identical to a distrusting game.
+
+    `local` seats hit the OpenAI-compatible `/v1/chat/completions` (LM Studio);
+    `api` seats hit Anthropic `/v1/messages` with the ambient `ANTHROPIC_API_KEY`.
+    On a validation/coherence rejection the model gets ONE retry with the
+    error text appended.
+    """
+
+    max_tokens = 2000
+
+    def __init__(self, power, seat, repo_root, game_root, spec, transport=None):
+        super().__init__(power, seat, repo_root, game_root, spec)
+        self.transport = transport or _default_transport
+
+    # ------------------------------------------------------------------ #
+    # Model call
+    # ------------------------------------------------------------------ #
+    def _complete(self, prompt: str) -> str:
+        if self.seat.endpoint == "local":
+            url = f"{(self.seat.base_url or '').rstrip('/')}/v1/chat/completions"
+            headers = {"Authorization": f"Bearer {self.seat.token or ''}"}
+            payload = {"model": self.seat.model,
+                       "messages": [{"role": "user", "content": prompt}],
+                       "max_tokens": self.max_tokens}
+            data = self.transport(url, headers, payload,
+                                  self.spec.per_call_timeout_s)
+            return data["choices"][0]["message"]["content"]
+        url = "https://api.anthropic.com/v1/messages"
+        headers = {"x-api-key": os.environ.get("ANTHROPIC_API_KEY", ""),
+                   "anthropic-version": "2023-06-01"}
+        payload = {"model": self.seat.model, "max_tokens": self.max_tokens,
+                   "messages": [{"role": "user", "content": prompt}]}
+        data = self.transport(url, headers, payload,
+                              self.spec.per_call_timeout_s)
+        return "".join(b.get("text", "") for b in data.get("content", []))
+
+    # ------------------------------------------------------------------ #
+    # Turn logic
+    # ------------------------------------------------------------------ #
+    def dispatch(self, task: str, kind: str = "orders") -> AgentResult:
+        start = time.monotonic()
+        try:
+            self._ensure_seat()
+            if kind == "negotiation":
+                result = self._negotiate(task)
+            else:
+                result = self._orders(task)
+        except Exception as exc:  # transport/HTTP/parse failures
+            result = AgentResult(ok=False, error=f"{type(exc).__name__}: {exc}")
+        result.duration = time.monotonic() - start
+        return result
+
+    def _ensure_seat(self) -> None:
+        from engine import comms
+        if self.power not in comms.list_players(self.game_root):
+            self._run_cli("orchestration.join_game", ["--power", self.power])
+
+    def _orders(self, task: str) -> AgentResult:
+        prompt = f"{task}\n\n{ORDERS_FORMAT}"
+        transcript = []
+        for attempt in range(2):
+            reply = self._complete(prompt)
+            transcript.append(reply)
+            orders = extract_orders(reply)
+            if not orders:
+                error = "reply contained no parseable orders"
+            else:
+                proc = self._run_cli("orchestration.submit_orders",
+                                     ["--power", self.power],
+                                     stdin="\n".join(orders))
+                if proc.returncode == 0:
+                    return AgentResult(reply=reply, ok=True,
+                                       transcript={"attempts": transcript,
+                                                   "orders": orders,
+                                                   "stdout": proc.stdout})
+                error = proc.stderr.strip()
+            if attempt == 0:
+                prompt += (f"\n\nYour previous reply was rejected:\n{error}\n"
+                           f"Fix the problem and reply again — same format.")
+        return AgentResult(reply=transcript[-1], ok=False, error=error[:500],
+                           transcript={"attempts": transcript})
+
+    def _negotiate(self, task: str) -> AgentResult:
+        prompt = f"{task}\n\n{MESSAGES_FORMAT}"
+        reply = self._complete(prompt)
+        sent, errors = [], []
+        for recipient, body in extract_messages(reply):
+            if recipient == "NOBODY":
+                continue
+            proc = self._run_cli("orchestration.send_message",
+                                 ["--power", self.power, "--to", recipient],
+                                 stdin=body)
+            (sent if proc.returncode == 0 else errors).append(
+                f"{recipient}: {body[:80]}")
+        return AgentResult(
+            reply=reply, ok=not errors,
+            error="; ".join(errors)[:500] or None,
+            transcript={"reply": reply, "sent": sent, "failed": errors})
+
+
 class FakeAgent(PlayerAgent):
     """Deterministic, server-free backend used in tests and `--dry-run` smoke.
 
@@ -181,7 +339,11 @@ class FakeAgent(PlayerAgent):
         if not orders:
             return AgentResult(reply="(fake: no orders this phase)", ok=True,
                                duration=time.monotonic() - start)
-        proc = self._run_cli("orchestration.submit_orders", ["--power", self.power],
+        # Random per-location picks are naturally incoherent (void supports,
+        # unmatched convoys) — that's fine here, the point is exercising the
+        # sealed/signed pipeline, so skip the coherence gate.
+        proc = self._run_cli("orchestration.submit_orders",
+                             ["--power", self.power, "--no-coherence"],
                              stdin="\n".join(orders))
         ok = proc.returncode == 0
         return AgentResult(
@@ -220,14 +382,16 @@ class FakeAgent(PlayerAgent):
 
 def make_agent(backend: str, power: str, seat: SeatSpec, repo_root: Path,
                game_root: Path, spec: MatchSpec) -> PlayerAgent:
-    """Factory: `headless` (default) or `fake`."""
-    cls = {"headless": HeadlessClaudeAgent, "fake": FakeAgent}.get(backend)
+    """Factory: `headless` (default), `raw` (one completion, no tools), `fake`."""
+    cls = {"headless": HeadlessClaudeAgent, "raw": RawChatAgent,
+           "fake": FakeAgent}.get(backend)
     if cls is None:
         raise ValueError(f"Unknown player backend: {backend!r}")
     return cls(power, seat, repo_root, game_root, spec)
 
 
 __all__ = [
-    "AgentResult", "PlayerAgent", "HeadlessClaudeAgent", "FakeAgent",
-    "make_agent", "_player_env",
+    "AgentResult", "PlayerAgent", "HeadlessClaudeAgent", "RawChatAgent",
+    "FakeAgent", "make_agent", "_player_env",
+    "extract_orders", "extract_messages",
 ]

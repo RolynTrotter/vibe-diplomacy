@@ -14,6 +14,16 @@ press: full              # none (gunboat) | full (negotiation on)
 model: qwen/qwen3.6-35b-a3b
 endpoint: local          # local -> LM Studio | api -> Anthropic/subscription
 
+# Brief-section toggles (all default true). Turn verbose player-facing
+# sections off per match if weak models drown in them:
+#   outcomes           per-order feedback on your last resolved phase
+#   digest             yearly center-change digest
+#   annex              tactical annex (legal moves, threats) + rules crib
+#   commitments        DEAL: ledger surfaced from notes
+#   inbox_recent_only  raw mail from last two phases only; older = digest
+# brief:
+#   outcomes: false
+
 negotiation_rounds: 2    # talk rounds before orders (full-press movement phases)
 session_mode: oneshot    # oneshot | persistent (agents keep their own memory)
 max_concurrency: 1       # single LM Studio instance -> sequential by default
