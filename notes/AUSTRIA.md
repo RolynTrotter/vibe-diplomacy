@@ -1,19 +1,19 @@
 # AUSTRIA — strategy notebook
 
 ## Standing plan
-- Balkan gambit: SER + GRE by end of 1901 → 2 builds
-- Keep Italy friendly until the Balkans are secure; Tyrolia/Adriatic quiet
-- Deter Russia from GAL by covering it; do not commit to war with Russia yet
-- Point Turkey at Russia (BLA), keep BUL/GRE line as the A-T border
-- Long-term: pick the weaker of Russia/Turkey to dismember with the other
+- Balkan gambit: SER now, GRE in fall (F ALB - GRE, A SER S if contested) → 2 builds
+- 1902: RUM (Russia has renounced it!) with Turkey distracted in BLA
+- Keep Italy sweet through 1902, then reassess; never leave TRI/VIE both open
+- Play Russia and Turkey against each other; join the winner's side late
 
 ## Trust & deals
-- ITALY: unknown | proposed: TYR + VEN/TRI border DMZ
-- RUSSIA: unknown | told them: I stay out of RUM, but I will cover GAL
-- TURKEY: unknown | proposed: GRE mine / BUL yours, they push Russia in BLA
-- GERMANY: unknown | friendly hello, hinted anti-Russia alignment
-- ENGLAND/FRANCE: no contact — irrelevant until midgame
+DEAL: ITALY — Tyrolia DMZ + full border peace through 1902; my fleet stays out of Adriatic
+DEAL: TURKEY — BUL is Turkey's, SER+GRE are mine; Turkey pushes F ANK - BLA at Russia
+DEAL: RUSSIA — Russia stays OUT of RUM; I may cover GAL; joint anti-Turkey talk for 1902
+- GERMANY: warm, anti-Russia leaning | no terms yet
+- Italy said "moving east and south" — watch for a Balkan/Adriatic surprise despite pact
 
 ## Next phase
-- S1901M orders: A VIE - GAL (cover), A BUD - SER, F TRI - ALB
-- Fall: F ALB - GRE with A SER support if contested; SER holds if quiet
+- S1901M submitted: A VIE - GAL, A BUD - SER, F TRI - ALB
+- F1901M: F ALB - GRE (+ A SER S F ALB - GRE if Turkey contests), GAL holds or covers VIE/BUD
+- Winter: build A VIE + A BUD if 2 centers land
