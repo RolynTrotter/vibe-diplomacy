@@ -1,9 +1,8 @@
 ## Standing plan
-Secure three growth centers (Bulgaria, Armenia, Syria) in first years. Build toward Mediterranean and Black Sea presence. Avoid early commitment to either Austria or Russia; play them against each other.
+Secure growth centers (Bulgaria ✓, Syria, Sevastopol) in early years. Build Black Sea and Mediterranean presence. Austria is reliable ally; Russia broke spring pact with Austria by taking Rumania—watch for opportunism. Target 5+ centers by 1902 end.
 
 ## Trust & deals
-DEAL: AUSTRIA — offered Bulgaria to me; rejected implicitly by contesting it. Play neutral.
-DEAL: RUSSIA — non-aggression pact S1901M; willing to honor if reciprocated.
+DEAL: AUSTRIA — Balkans split confirmed. I own BUL, Austria owns GRE/SER, clear boundary. Strong working relationship for 1902—coordinate pressure on Rumania together.
 
 ## Next phase
-Monitor who takes what in Fall 1901. If I've won Bulgaria and Armenia, consolidate and expand toward Syria. Reassess alliances once winter adjustments complete. Watch Russia's moves on Austrian/German borders for alignment signals.
+W1901: Gain SYR and SEV from F1901M orders. Build 1 unit (4 centers, 3 units → need 4). In S1902, prepare to press RUM with Austria from Black Sea + Armenia fronts. Monitor Italy's growth in Mediterranean; may need to defend Greece. Russia weakening but unpredictable.
