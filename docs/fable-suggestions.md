@@ -145,28 +145,64 @@ prompt, no notes-update step, just "here are your options, submit". (The
 roster already skips powers with nothing to decide; this covers the ones with
 exactly one decision.)
 
+### 6. ✅ Order-outcome feedback in the brief
+
+The last-phase recap only listed orders + raw result tags; weak models never
+close the loop on *why* their order failed (the same support stayed void for
+ten straight phases in lm-studio-1). The brief now explains each of your
+failed orders: "VOID — your own unit was actually ordered 'A MAR - SPA'",
+"support CUT — the supporting unit was attacked", "NO CONVOY — no fleet
+carried this move", reusing the coherence parser against `order_history`.
+
+### 7. ✅ Negotiation digest (constant-cost inbox)
+
+In long full-press games the inbox (last 30 messages, re-injected every
+round) dominates the brief. Raw mail is now shown only for the last two
+phases that produced any; everything older collapses to a per-partner count
+("GERMANY ×7 (last F1903M)") with a pointer to `read_messages --with` for
+re-reading a thread and to the DEAL ledger for anything worth keeping.
+
+### 8. ✅ Commitments ledger
+
+Lines starting `DEAL:` in `notes/<POWER>.md` are extracted from the *raw*
+file (so notes truncation can never eat a treaty) and surfaced in their own
+"Your commitments" brief section next to the orders prompt — cheap insurance
+against the "agreed a DMZ, then absent-mindedly moved in" pattern visible in
+several games. Full-press briefs with no deals recorded show the syntax hint.
+
+### 9. ✅ Brief-section toggles
+
+All the player-facing additions (outcomes, digest, annex+crib, commitments,
+inbox digesting) can be switched off per match: a `brief:` mapping in the
+match YAML / `new_game --brief-json` lands in `game/config.json` and
+`context.brief_options` applies it. Defaults: everything on.
+
+### 10. ✅ Tournament harness with quality metrics
+
+`python -m orchestration.run_tournament --spec … --games 7 --backend raw`
+runs N games through the ordinary `Conductor` (own directory + own
+adjudicator key each), rotating seat assignments one power per game so no
+model is stuck opening as Austria. Scoring reads each game's revealed
+`history/` and aggregates per power *and* per seat (model+persona):
+
+- classic outcome: avg centers, survival rate, topped-the-board, solo wins;
+- **void_rate** — provably wasted orders (the metric that separated weak
+  from capable models 51% vs 0.7% in past games; the table at the top of
+  this doc is now a first-class artifact);
+- **warning_rate** — self-bounces + orders depending on another power's
+  simultaneous order (the coherence warning class; high isn't bad per se —
+  deliberate self-bounces are a real tactic — but high *with* high
+  void_rate means flailing, and rising cross-power dependency with *low*
+  void_rate usually means actual coordination);
+- bounce_rate.
+
+One `<name>-tournament.json` plus a printed table per tournament.
+
 ## Not built here — recommended next, in order
 
 1. **Per-seat `backend`** in `SeatSpec`, so one match mixes raw-local seats
    with headless-Claude seats. Small change; the factory signature already
    fits.
-2. **Order-outcome feedback in the brief.** The last-phase recap lists
-   orders + raw result tags; a one-liner per *your* failed order ("your
-   support was void because MAO was ordered to POR") would close the
-   learning loop weak models never close themselves. The coherence module's
-   explain-strings could be reused against `result_history`.
-3. **Negotiation digests.** In long full-press games the inbox (last 30
-   messages) dominates the brief. A per-partner running summary — two lines
-   per power, updated by the player itself as part of notes — plus only the
-   *current phase's* raw messages would cap comms tokens at a constant.
-4. **A "commitments" ledger.** Deals recorded in a tiny structured block in
-   notes (`DEAL: ENG channel DMZ until 1903`) that the brief surfaces next
-   to the orders prompt — cheap insurance against the "agreed DMZ, then
-   absent-mindedly moved in" pattern visible in several games.
-5. **Tournament harness on top of `run_match`**: N games with seat/model
-   rotation, aggregate scoring (centers, survival, void-order rate as a
-   *quality* metric), one summary JSON per tournament. The void-rate table
-   at the top of this doc was hand-counted; make it a first-class metric.
-6. **Cheaper adjudication cadence for CI mode** — batch `mail/` pushes per
+2. **Cheaper adjudication cadence for CI mode** — batch `mail/` pushes per
    negotiation round rather than per message to cut Actions minutes (only
    relevant when going back to `adjudication: ci`).
