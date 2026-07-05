@@ -9,11 +9,11 @@
 ## Trust & deals
 DEAL: ITALY — Tyrolia DMZ + full border peace through 1902; my fleet stays out of Adriatic
 DEAL: TURKEY — BUL is Turkey's, SER+GRE are mine; Turkey pushes F ANK - BLA at Russia
-DEAL: RUSSIA — Russia stays OUT of RUM; I may cover GAL; joint anti-Turkey talk for 1902
+- RUSSIA: LIAR — promised no RUM in writing, took it S1901. Deterrence sent; treat as hostile-in-waiting
 - GERMANY: warm, anti-Russia leaning | no terms yet
 - Italy said "moving east and south" — watch for a Balkan/Adriatic surprise despite pact
 
 ## Next phase
-- S1901M submitted: A VIE - GAL, A BUD - SER, F TRI - ALB
-- F1901M: F ALB - GRE (+ A SER S F ALB - GRE if Turkey contests), GAL holds or covers VIE/BUD
-- Winter: build A VIE + A BUD if 2 centers land
+- F1901M submitted: F ALB - GRE, A SER S F ALB - GRE (uncuttable: no fleet reaches SER), A GAL - VIE (cover vs GER A BOH)
+- Winter: expect +SER +GRE = 2 builds -> A BUD + A TRI (or F TRI if Italy sours)
+- 1902: RUM squeeze with Turkey; watch GER BOH and ITA ION
