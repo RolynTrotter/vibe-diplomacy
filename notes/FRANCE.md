@@ -1,32 +1,25 @@
 # FRANCE — strategy notebook
 
-## Standing plan
-- Secure Iberia early (SPA, POR) via MAR/BRE — uncontested growth.
-- Seek a Channel DMZ / non-aggression with ENGLAND to avoid a two-front war.
-- Keep GERMANY calm over Burgundy — avoid provoking early, watch for BUR grab.
-- Feel out ITALY re: Piedmont — propose mutual restraint (PIE/mutual DMZ) so
-  neither of us opens a western Med front while dealing with Austria/Turkey.
-- Watch RUSSIA (starts with 4 centers, likely from a variant/scenario) —
-  no direct contact yet, stay wary long-term.
+## Plan
+- S1901M submitted: F BRE-MAO, A MAR-SPA, A PAR-PIC.
+- Iberia push underway (MAR-SPA now, POR next via MAO). PAR-PIC keeps a
+  unit forward without touching Burgundy, sets up BRE support or a later
+  Belgium/Channel play once ENGLAND relationship is tested further.
+- Avoided BUR (Germany deal) and ENG (England Channel DMZ deal); MAO is
+  safe open water toward Iberia/Portugal.
 
-## Trust & deals
-- ENGLAND: DEAL: mutual Channel DMZ S1901 — no French fleet into ENG, no
-  English designs on Brest. Confirmed round 2. England knows I'm headed
-  for Iberia.
-- GERMANY: DEAL: Burgundy neutral S1901 — Germany keeps A Munich pointed
-  at Kiel/Ruhr/Bohemia (Denmark/Holland focus), I keep my opening away
-  from the Rhine. Confirmed round 2.
-- ITALY: DEAL: mutual Piedmont/Tunis non-interference S1901 — Italy leaves
-  Piedmont/Marseilles alone, I leave Tunis to Italy. Confirmed round 2.
-- RUSSIA: no contact — 4 centers is odd for opening standings, monitor.
-- AUSTRIA: no contact yet.
-- TURKEY: no contact yet.
+## Trust
+- ENGLAND: DEAL Channel DMZ confirmed — respected, no fleet into ENG.
+- GERMANY: DEAL Burgundy neutral confirmed — respected, no MAR/PAR into BUR.
+- ITALY: DEAL Piedmont/Tunis non-interference confirmed — respected, MAR
+  went to SPA not PIE.
+- RUSSIA/AUSTRIA/TURKEY: no contact yet, monitor.
 
-## Next phase
-- All three deals (ENGLAND Channel DMZ, GERMANY Burgundy neutral, ITALY
-  Piedmont/Tunis restraint) confirmed round 2 — footing is settled, no
-  contradictions between them.
-- Likely orders lean: A MAR-SPA, F BRE-MAO (Iberia push), A PAR-PIC or
-  PAR-BUR held back/garrison per Germany deal (avoid BUR), F BRE could
-  also consider ENG now that Channel DMZ holds, but Iberia is priority.
-- Still no contact with RUSSIA/AUSTRIA/TURKEY — low priority for now.
+## Reminders
+- Next turn: expect A MAR SPA to take Spain (uncontested); F BRE MAO
+  positions for POR or WES support. A PAR PIC could support a Channel
+  move or push BEL if England opens the door — reassess after England's
+  actual moves resolve.
+- Watch for any BUR incursion by Germany despite the deal, and confirm
+  Italy honored PIE restraint.
+- Re-open contact with AUSTRIA/RUSSIA/TURKEY next round for wider intel.
