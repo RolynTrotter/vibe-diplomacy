@@ -33,8 +33,26 @@
   ENG/Channel approach to BEL) and A PAR (land reserve to push PIC/BUR
   front). Kept builds conventional/central rather than Mediterranean,
   since the live contest is Belgium, not WES/NAF.
-- Next turn: coordinate with England on a real plan for BEL (support each
-  other or split the difference) rather than a repeat silent bounce —
-  message them before S1902M. Keep an eye on Germany's HOL foothold and
-  whether they angle for BEL next too.
-- Re-open contact with AUSTRIA/RUSSIA/TURKEY next round for wider intel.
+
+## S1902M
+- Messaged ENGLAND: asked them to let France take BEL this spring in
+  exchange for permanent Channel DMZ + staying fully out of the North
+  Sea/Norway theatre; offered to redirect PIC toward Burgundy instead if
+  they'd rather have it or split differently. Awaiting reply.
+- Messaged GERMANY: flagged the repeat A PIC-BEL push as aimed at
+  England/the coast, not at Ruhr/Munich, since their RUH-HOL now borders
+  BEL too — asked them to speak up now rather than a three-way bounce.
+  Burgundy neutrality reaffirmed both ways.
+- No self-support possible into BEL this turn — only PIC is adjacent to
+  it among my units, so it's a bare unsupported push again, gambling on
+  the diplomacy landing rather than force.
+- Orders: A SPA H (hold Spain), F POR-MAO (open a Mediterranean/NAF axis
+  now that Iberia is secure — Tunis is Italy's, NAF still looks open),
+  F BRE H (guard Brest, respect Channel DMZ), A PIC-BEL (push again,
+  banking on England standing down), A PAR-PIC (backfill the frontier
+  so PIC isn't left empty regardless of BEL's outcome).
+- Next turn: read England/Germany replies before deciding whether to
+  keep pressing BEL or pivot A PAR toward Burgundy if England/Germany
+  want to trade. Watch whether F POR-MAO draws any Italian reaction on
+  NAF. Still haven't reopened AUSTRIA/RUSSIA/TURKEY contact — do it next
+  round.
