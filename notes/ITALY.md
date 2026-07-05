@@ -8,14 +8,14 @@
 - Keep A VEN flexible — could go PIE (vs France), TRI (vs Austria, risky "Lepanto"), or hold for defense.
 
 ## Trust & deals
-- AUSTRIA: unknown — proposing PIE/TRI DMZ or Trieste non-aggression this round
+- AUSTRIA: proposed first — wants TRI/VEN/ADR DMZ, pushing into Serbia, asked about my Tyrolia/Piedmont plans. I accepted, said no interest in north, going west. Tentatively cooperative — watch if Lepanto still tempting later if Austria overextends into Balkans.
 - ENGLAND: unknown — no contact yet
-- FRANCE: unknown — will discuss Tunis, propose mutual restraint in western Med
+- FRANCE: contacted — proposed mutual hands-off (Tunis mine, PIE/MAR theirs), awaiting reply
 - GERMANY: unknown — no contact yet
-- RUSSIA: unknown — has 4 centers already (odd for S1901M start, watch closely)
-- TURKEY: unknown — no contact yet, natural long-term rival/ally depending on Austria's fate
+- RUSSIA: unknown — has 4 centers already per public standings (odd for S1901M start — flag as possible brief anomaly, watch closely)
+- TURKEY: contacted — opened channel, floated shared wariness of a too-strong Austria
 
 ## Next phase
-- Read replies from Austria and France before finalizing S1901M orders.
-- Decide: classic opening (F NAP-ION, A VEN hold/PIE, A ROM-APU or NAP) vs aggressive Lepanto (A VEN-TRI).
+- Read replies from Austria/France/Turkey before finalizing S1901M orders.
+- Decide: classic opening (F NAP-ION, A VEN hold, A ROM-APU) vs aggressive Lepanto (A VEN-TRI) if Austria's reply feels hollow.
 - Lock in any DMZ deals as DEAL: lines once confirmed.
