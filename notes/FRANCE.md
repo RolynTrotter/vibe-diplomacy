@@ -22,11 +22,19 @@
 - RUSSIA/AUSTRIA/TURKEY: no contact yet, monitor.
 
 ## Reminders
-- Next turn: expect POR to fall (uncontested), SPA held, BEL taken if
-  England/Germany didn't quietly contest it — check F1901M results first.
-- Watch for any BUR incursion by Germany despite the deal, and confirm
-  Italy honored PIE restraint.
-- If BEL lands safely, France holds SPA+POR+BEL+home centers — start
-  planning builds and where the next push goes (WES/NAF vs supporting
-  England into Low Countries/Germany).
+- F1901M resolved: POR taken clean, SPA held. BEL move (A PIC-BEL) bounced
+  — England also went for it (A YOR-BEL VIA convoy through F NTH), so
+  neither side got it; BEL is empty/contested. Germany took HOL (A
+  RUH-HOL succeeded) and now borders BEL too — three-way scramble likely
+  next spring.
+- No BUR incursion by Germany, deal holding. Italy honored PIE restraint
+  (MAR stayed put in S1901M); Italy took TUN instead (F ION-TUN).
+- W1901A builds (5 centers, 3 units, +2): built F BRE (naval reach toward
+  ENG/Channel approach to BEL) and A PAR (land reserve to push PIC/BUR
+  front). Kept builds conventional/central rather than Mediterranean,
+  since the live contest is Belgium, not WES/NAF.
+- Next turn: coordinate with England on a real plan for BEL (support each
+  other or split the difference) rather than a repeat silent bounce —
+  message them before S1902M. Keep an eye on Germany's HOL foothold and
+  whether they angle for BEL next too.
 - Re-open contact with AUSTRIA/RUSSIA/TURKEY next round for wider intel.
