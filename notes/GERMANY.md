@@ -16,7 +16,9 @@
 - TURKEY: unknown — no contact yet
 
 ## Next phase
-- SUBMITTED S1901M: F KIE-DEN, A BER-KIE, A MUN-RUH.
-- Rationale: Denmark per ENGLAND deal; BER backfills KIE for next-turn Holland push; MUN to RUH (not BUR) keeps FRANCE DMZ intact while staging toward Belgium/Ruhr flexibly.
-- Watch for: France's actual BUR order (verify DMZ held), England's fleet move (verify no NTH incursion), Russia's true center count.
-- F1901M plan: push toward Holland (KIE fleet), consider RUH-BEL or RUH-HOL if open. Revisit England's anti-Russia pitch once Denmark/Holland secured.
+- S1901M resolved cleanly, all deals held (Denmark secured, Burgundy quiet, no NTH incursion).
+- SUBMITTED F1901M: A RUH-HOL, F DEN H, A KIE H.
+- Rationale: grab Holland now that Denmark is safe; F DEN holds to keep the "north stays calm" promise to England legible; A KIE holds as backfill/reserve (RUH is vacating).
+- Sent follow-ups: ENGLAND (confirmed deal held, told them F DEN holds/consolidates, floated concrete anti-Russia/StP talk next); FRANCE (confirmed Burgundy DMZ holding, flagged the Holland move isn't a Belgium play, offered to divide Belgium/Channel coast so we don't collide there).
+- Watch for: France's response on Belgium (did they claim it or leave it open?), England's Norway/NWG move confirmed, Russia's actual center count and Baltic fleet.
+- Next turn: with Holland likely secured, look at Belgium (race vs France) or start pivoting east per the standing plan.

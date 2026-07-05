@@ -21,10 +21,17 @@ DEAL: TURKEY — Serbia mine, Bulgaria/Black Sea theirs — 1901, revisit after
 DEAL: GERMANY — Bohemia/Tyrolia DMZ mutual — standing
 
 ## Next phase
-- S1901M submitted: A BUD-SER, A VIE-TRI, F TRI-ALB. Honors all four deals:
-  Galicia untouched (Russia), Adriatic untouched (fleet to ALB not sea),
-  Serbia taken (Turkey ceded), Bohemia/Tyrolia untouched (Germany).
-- VIE backfills TRI so home coverage holds while BUD/TRI push into Balkans.
-- Send fall-1901 check-ins to Italy/Russia/Turkey before next negotiation round.
-- Watch Turkey's actual Black Sea/Bulgaria moves as the signal Russia/Germany asked about.
-- Confirm Italy's actual Adriatic/TRI-VEN moves once results are in — first real test of trust.
+- S1901M resolved cleanly, all deals held: Turkey took BUL, Russia took RUM,
+  Italy stayed put in VEN, no DMZ violations anywhere.
+- F1901M submitted: A TRI H, A SER-GRE, F ALB S A SER-GRE. Greece was sitting
+  neutral/empty (nobody claimed it in talks) — grabbing it as a genuine 4th
+  center, with ALB supporting in case Turkey's A BUL also eyes GRE this fall.
+  Pinged Turkey directly to flag the move and avoid a bounce; pinged Italy to
+  reconfirm the TRI/VEN/ADR DMZ still holds (unaffected either way).
+- TRI holds rather than pushing, keeping the Italy DMZ airtight and garrisoning
+  against Italy's A VEN.
+- Watch for Turkey's reply — if they also want GRE this could still bounce;
+  supported move should win it regardless since Turkey has no second unit
+  adjacent to support BUL-GRE.
+- Next: see if Turkey/Russia start showing hands on Bulgaria/Black Sea signal;
+  keep Italy warm since Adriatic trust is now proven through one full turn.
