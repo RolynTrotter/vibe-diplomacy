@@ -15,6 +15,8 @@ F BRE - MAO" | scripts/submit.sh <POWER>
 ```
 Illegal orders print a readable error and write nothing — fix and retry. Use `--dry-run` with `submit_orders` directly to validate without writing.
 
+The submitter also **coherence-checks the set**: a support for one of your own moves you didn't actually order, a support-hold for a unit you ordered to move, or a convoy with no matching move is *provably void* and gets rejected with a fix-it message (override with `--no-coherence` if you truly mean it). Supports/convoys that depend on **another power's** order are accepted with a printed warning — make sure that power actually agreed.
+
 ## Order syntax
 
 | Intent | Syntax | Example |
