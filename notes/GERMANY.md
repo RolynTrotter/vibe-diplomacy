@@ -16,6 +16,7 @@
 - TURKEY: unknown — no contact yet
 
 ## Next phase
-- All three (ENGLAND, FRANCE, AUSTRIA) confirmed for S1901M — no early friction expected on any front.
-- Proceed with KIE toward Denmark (England ceded it), A MUN holds/stays clear of Burgundy.
-- Revisit England's long-term anti-Russia pitch once Denmark/Holland are secured.
+- SUBMITTED S1901M: F KIE-DEN, A BER-KIE, A MUN-RUH.
+- Rationale: Denmark per ENGLAND deal; BER backfills KIE for next-turn Holland push; MUN to RUH (not BUR) keeps FRANCE DMZ intact while staging toward Belgium/Ruhr flexibly.
+- Watch for: France's actual BUR order (verify DMZ held), England's fleet move (verify no NTH incursion), Russia's true center count.
+- F1901M plan: push toward Holland (KIE fleet), consider RUH-BEL or RUH-HOL if open. Revisit England's anti-Russia pitch once Denmark/Holland secured.
