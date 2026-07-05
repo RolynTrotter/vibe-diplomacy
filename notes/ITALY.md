@@ -8,9 +8,14 @@ DEAL: FRANCE — Piedmont uncontested. France expands north (Burgundy/Gascony); 
 
 DEAL: TURKEY — Mediterranean peace 1901. Turkey focuses east/north (Russia/Balkans), Italy moves west/north (France direction). No unit clashes in opening.
 
-## Next phase
-- F ION provides naval backbone for future Mediterranean expansion
-- A APU controls southern gateway; can support A ROM northward or reinforce naval moves
-- A PIE positions for second-year movement into France or consolidation
-- Monitor Austria's Albania move; ensure they honor Adriatic DMZ
-- Watch France's Gascony move; prepare for potential tension if they expand too aggressively south
+## F1901M result (end of Fall 1901)
+Submitted: A APU - TUN VIA, A PIE - TUS, F ION H
+Expected result: capture Tunis + Tuscany (5 centers total) → winter builds: 2 new units
+
+## Winter 1901 build plan
+- Build 2 units (likely F APU or A VEN + 1 other to grow land/naval capacity)
+- Refresh on France's Spring moves before committing 1902 growth direction
+- Maintain Austria border; consolidate Mediterranean dominance
+
+## S1902M outlook
+5 units, 5 centers. France threat grows as they expand north — monitor closely. Austria honoring DMZ. Turkey still peaceful. Prepare for escalation in Spring 1902 or early Fall.

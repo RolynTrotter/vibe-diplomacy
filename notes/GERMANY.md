@@ -1,14 +1,13 @@
-# GERMANY — S1901M
+# GERMANY — F1901M (4 centers)
 
 ## Standing plan
-Secure northern expansion via Denmark. Build coalition with Austria against Russian overreach. Respect France/Burgundy boundary. Maintain English neutrality in north. Target 5-6 centers by F1901.
+Expanded to 4 centers (BER, KIE, MUN, SIL). Austria stable; Russia still 4. FRANCE violated Burgundy deal (moved A into BUR despite agreement). Pivot to defending MUN. Build fleet in DEN in W1901; pivot northward.
 
 ## Trust & deals
-DEAL: AUSTRIA — non-aggression south, mutual defense vs. Russian expansion
-DEAL: RUSSIA — mutual non-interference in border provinces (SIL/PRU)
-DEAL: FRANCE — no armies in BUR/RUH this year; Burgundy demilitarized
-DEAL: ENGLAND — northern cooperation, no Atlantic channel conflict
+DEAL: AUSTRIA — holding (non-aggression south, mutual defense vs. Russian expansion)
+DEAL: RUSSIA — holding (mutual non-interference; SIL is unowned, not violation)
+DEAL: FRANCE — **BROKEN** (army in BUR despite demilitarization agreement; threatened MUN)
+DEAL: ENGLAND — holding (northern cooperation)
 
-## Next phase
-Orders: F KIE - DEN (take 4th center), A BER - PRU (north support), A MUN - BOH (central).
-Fall 1901: Build fleet in DEN, assess Russia/Austria moves. Watch for Ottoman/Italian instability.
+## Next phase (W1901)
+Adjustment: +1 build (5 centers, 3 units). Build fleet in DEN. Reposition PRU army to support SIL or VIE approach. Watch for FRANCE escalation toward MUN. Prepare for spring 1902 if FRANCE continues aggression.
