@@ -1,27 +1,33 @@
 # TURKEY — strategy notebook
 
 ## Standing plan
-- Secure the Black Sea / Balkans corner: take BUL this year, keep ARM/SYR safe from Russia.
-- Prefer the Juggernaut (AUS+TUR vs RUS) over Russo-Turkish peace only if Russia turns expansionist south; for now both AUS and RUS are cooperative, so lean toward a quiet opening and eye GRE/Aegean expansion instead.
-- Keep the Austrian border quiet — Serbia/Balkans-west is theirs, Bulgaria is mine, confirmed both directions.
-- Black Sea DMZ with Russia proposed both ways for 1901/1902, conditioned on Russia also staying off Bulgaria — don't fully trust it long-term, revisit each phase.
-- Build toward GRE via Aegean once Balkans posture is locked in.
+- Secure Black Sea/Balkans corner; Bulgaria held. Austria took Greece (F1901)
+  despite my ask, so pivoting build toward Aegean naval presence instead of
+  a land contest for GRE right now.
+- Keep BLA DMZ with Russia alive; keep Ankara/Con garrisoned at home.
+- Serbia is now vacant (Austria moved A SER-GRE) — told Austria I'll leave it
+  alone for now rather than grab it unannounced; watching their reply/moves
+  before deciding whether to contest it later.
+- Longer-term: use F SMY via Aegean to threaten/support into GRE or push
+  toward Eastern Med/Ionian if Austria stays cordial and Italy stays distant.
 
 ## Trust & deals
-- AUSTRIA: cooperative, first contact reciprocated — no Juggernaut signaled, wants quiet border
-- RUSSIA: cooperative, proposed BLA DMZ first — awaiting confirmation Bulgaria is off-limits to them too
-- ITALY: friendly, distant — floated coordinating vs an aggressive Austria later, no immediate ask
-- ENGLAND/FRANCE/GERMANY: no contact, distant, low priority this phase
+- AUSTRIA: mild deal-break signal (took GRE after I flagged it as mine) but
+  no aggression toward Bulgaria/Con — still nominally cooperative, watch closely.
+- RUSSIA: cooperative, BLA DMZ held both turns, Bulgaria respected.
+- ITALY: friendly, distant, floated future anti-Austria coordination if needed.
+- ENGLAND/FRANCE/GERMANY: no contact, distant, low priority.
 
-DEAL: AUSTRIA — Serbia is theirs, Bulgaria is mine, mutual non-aggression in the Balkans this year
-DEAL: RUSSIA — Black Sea DMZ (no fleets either side) through 1901/1902, contingent on Russia leaving Bulgaria to me
+DEAL: AUSTRIA — Serbia is theirs, Bulgaria is mine, mutual non-aggression in the Balkans (Austria vacated Serbia this Fall; I've told them I won't grab it without a heads-up).
+DEAL: RUSSIA — Black Sea DMZ (no fleets either side), Bulgaria off-limits to Russia — held through F1901.
 
 ## Next phase
-- S1901M submitted: A CON-BUL, F ANK-ARM, A SMY-CON. Grabbed Bulgaria per Austria deal, kept F ANK out of BLA per Russia deal, backfilled CON with SMY.
-- S1901M resolved cleanly, all deals held: Russia stayed off BLA/BUL, Austria confirmed Serbia-mine/Bulgaria-yours.
-- F1901M: reconfirmed BLA DMZ + Bulgaria-mine with Russia (extends toward 1902). Told Austria I'm pushing A BUL-GRE for the open Greek center and asked them to leave it to me / focus Serbia-Trieste; no reply yet before deadline so there's bounce risk if their A SER also went for GRE.
-- F1901M submitted: F ARM-ANK (reoccupy home center, left empty after S1901 move), A BUL-GRE (grab open Greece), A CON-BUL (backfill Bulgaria).
-- Watch F1901M results: did GRE bounce with Austria? Did Russia/Austria hold their word? If Greece falls, retry next turn or trade for it diplomatically.
-- If deals keep holding, keep pivoting toward Aegean/Greece expansion; if Russia breaks DMZ or Austria contests Bulgaria/Greece aggressively, reassess trust and consider defensive posture or Juggernaut with Austria.
-- F1901M resolved: Greece bounce went to Austria (A GRE), not me — Austria took it despite my ask, and now holds TRI/F ALB/A GRE, pressing into the Aegean corner. Bulgaria held (A BUL still mine), Russia kept the BLA DMZ (F RUM, no BLA entry) and took RUM instead of contesting me directly.
-- W1901A: +1 build, only open home center is SMY (ANK/CON both occupied by my own units). Built F SMY — need naval strength in the Aegean/Eastern Med now that Austria owns Greece and has a fleet in ALB; a lone army at Bulgaria won't contest that corner. Reassess trust in Austria: taking GRE after I flagged it as mine is a mild deal-break signal, watch their next moves closely before assuming continued goodwill.
+- S1902M: sent AUSTRIA (ack Greece grab, noted Serbia now open but I'm
+  leaving it alone for now, flagged Aegean fleet interest) and RUSSIA
+  (reconfirmed BLA DMZ + Bulgaria, flagged Aegean not Rumania/BLA).
+- S1902M submitted: A BUL H, A CON H, F ANK H, F SMY-AEG. Consolidating
+  position, moving F SMY to AEG to build toward Greece/Eastern Med options
+  next turn without breaking any current deal.
+- Watch: Austria's reply on Serbia and their Aegean/ALB fleet moves; Russia's
+  reply and any Rumania buildup; consider A BUL-GRE with F AEG support later
+  if Austria overextends or relations sour.
