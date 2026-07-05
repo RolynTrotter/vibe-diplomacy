@@ -1,0 +1,61 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BUD B"
+    ],
+    "ENGLAND": [
+      "F LON B"
+    ],
+    "FRANCE": [
+      "F BRE B",
+      "A PAR B"
+    ],
+    "GERMANY": [
+      "A BER B",
+      "A MUN B"
+    ],
+    "ITALY": [
+      "F NAP B"
+    ],
+    "RUSSIA": [
+      "A MOS B",
+      "A WAR B"
+    ],
+    "TURKEY": [
+      "F SMY B"
+    ]
+  },
+  "phase": "W1901A",
+  "results": {
+    "A BER": [
+      ""
+    ],
+    "A BUD": [
+      ""
+    ],
+    "A MOS": [
+      ""
+    ],
+    "A MUN": [
+      ""
+    ],
+    "A PAR": [
+      ""
+    ],
+    "A WAR": [
+      ""
+    ],
+    "F BRE": [
+      ""
+    ],
+    "F LON": [
+      ""
+    ],
+    "F NAP": [
+      ""
+    ],
+    "F SMY": [
+      ""
+    ]
+  }
+}
