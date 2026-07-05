@@ -8,7 +8,7 @@ description: Read and update your power's private strategy notebook — long-ter
 Your brief (from `scripts/turn.sh`) already includes your latest notes. No extra read needed.
 
 ## Update
-Overwrite `notes/<POWER>.md` each phase — never append. Target: under 250 words.
+Overwrite `notes/<POWER>.md` each phase — never append. Target: under 250 words — **the brief truncates anything past ~2,500 characters**, so bloated notes silently lose their tail.
 ```bash
 scripts/sync.sh "<POWER> notes" notes/<POWER>.md
 ```

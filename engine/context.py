@@ -39,11 +39,21 @@ def _last_phase_recap(game) -> str:
     return recap
 
 
+NOTES_CHAR_CAP = 2500  # ~250 words with markdown overhead; keeps briefs bounded
+
+
 def _my_notes(root: Path, power: str) -> str:
     path = Path(root) / "notes" / f"{power.upper()}.md"
-    if path.exists():
-        return path.read_text(encoding="utf-8").strip() or "_(empty)_"
-    return "_(no notes yet — start your plan with consult-notes.)_"
+    if not path.exists():
+        return "_(no notes yet — start your plan with consult-notes.)_"
+    text = path.read_text(encoding="utf-8").strip()
+    if not text:
+        return "_(empty)_"
+    if len(text) > NOTES_CHAR_CAP:
+        text = (text[:NOTES_CHAR_CAP].rsplit("\n", 1)[0]
+                + "\n\n_(notes truncated — keep them under 250 words; "
+                  "overwrite, don't append.)_")
+    return text
 
 
 def _my_inbox(root: Path, power: str) -> str:
@@ -60,6 +70,116 @@ def _my_inbox(root: Path, power: str) -> str:
         out.append(f"- [{m.get('phase')}] **{m.get('sender')}** ({tag}{verified}): "
                    f"{m.get('body')}")
     return "\n".join(out)
+
+
+def _phase_year(phase: str) -> str:
+    return phase[1:5] if len(phase) >= 5 else phase
+
+
+def _center_digest(game) -> str:
+    """One line per year of supply-center changes — the arc of the game.
+
+    Ephemeral agents otherwise only see the last phase; this is the cheapest
+    possible long-horizon memory (who is snowballing, which alliance fired).
+    """
+    snaps: list[tuple[str, dict[str, set]]] = []
+    try:
+        for phase, st in game.state_history.items():
+            centers = st.get("centers") if isinstance(st, dict) else None
+            if centers:
+                snaps.append((str(phase),
+                              {p: set(c) for p, c in centers.items()}))
+    except AttributeError:
+        pass
+    snaps.append((game.get_current_phase(),
+                  {n: set(p.centers) for n, p in game.powers.items()}))
+    if len(snaps) < 2:
+        return ""
+
+    by_year: dict[str, dict[str, list[str]]] = {}
+    for (_, prev), (phase, cur) in zip(snaps, snaps[1:]):
+        year = _phase_year(phase)
+        for name in cur:
+            gained = sorted(cur[name] - prev.get(name, set()))
+            lost = sorted(prev.get(name, set()) - cur[name])
+            if gained or lost:
+                deltas = by_year.setdefault(year, {}).setdefault(name, [])
+                deltas += [f"+{c}" for c in gained] + [f"−{c}" for c in lost]
+    if not by_year:
+        return ""
+    lines = []
+    for year in sorted(by_year):
+        parts = [f"{name} {' '.join(d)}"
+                 for name, d in sorted(by_year[year].items())]
+        lines.append(f"- {year}: " + "; ".join(parts))
+    return "\n".join(lines)
+
+
+def _occupant_tag(game, prov: str, me: str) -> str:
+    """' (GERMANY A)' if a unit stands in prov, '' if empty."""
+    hits = query.units_at(game, prov)
+    if not hits:
+        return ""
+    owner, unit = hits[0].split(": ", 1)
+    who = "your" if owner == me else owner
+    return f" ({who} {unit.split()[0]})"
+
+
+def _tactical_annex(game, power: str) -> str:
+    """Engine-derived geometry so agents stop hallucinating (or re-querying) it:
+    legal destinations per unit, threats to your centers, retreat/build options.
+    """
+    possible = game.get_all_possible_orders()
+    locs = game.get_orderable_locations(power)
+    ptype = game.phase_type
+
+    if ptype == "M":
+        me = game.powers[power]
+        lines = []
+        for loc in locs:
+            opts = possible.get(loc) or []
+            dests = sorted({o.split(" - ")[1].replace(" VIA", "")
+                            for o in opts if " - " in o and " S " not in o
+                            and " C " not in o})
+            unit = next((u for u in me.units
+                         if u.split()[1].split("/")[0] == loc.split("/")[0]), loc)
+            shown = [d + _occupant_tag(game, d.split("/")[0], power)
+                     for d in dests]
+            lines.append(f"- {unit} can move to: {', '.join(shown) or '(nowhere)'}")
+
+        threats = []
+        for center in sorted(me.centers):
+            for hit in {h for adj in query.adjacencies(game, center)
+                        for h in query.units_at(game, adj)}:
+                owner, unit = hit.split(": ", 1)
+                if owner != power:
+                    threats.append(f"- {center}: {owner} {unit} is adjacent")
+        out = "Legal moves for your units (engine-verified — do not invent "\
+              "others):\n" + "\n".join(lines)
+        if threats:
+            out += "\n\nEnemy units adjacent to your centers:\n" + \
+                   "\n".join(sorted(threats))
+        return out
+
+    # Retreat / adjustment phases: just enumerate the choices.
+    lines = []
+    for loc in locs:
+        opts = possible.get(loc) or []
+        if opts:
+            lines.append(f"- {loc}: {', '.join(sorted(opts))}")
+    label = ("Retreat options" if ptype == "R"
+             else "Build/disband options (one per adjustment owed)")
+    return f"{label}:\n" + ("\n".join(lines) or "- none")
+
+
+RULES_CRIB = (
+    "- A center changes hands only when a unit occupies it at the END of a "
+    "Fall move/retreat; vacating a center does NOT lose it.\n"
+    "- A support is cut if the supporting unit is attacked from any province "
+    "(except the one it is supporting into).\n"
+    "- 'A X S A Y - Z' only works if Y - Z is actually ordered this phase — "
+    "coordinate it, don't assume it."
+)
 
 
 def power_brief(root: Path, power: str) -> str:
@@ -95,6 +215,16 @@ def power_brief(root: Path, power: str) -> str:
         "## Supply-center standings (public)\n" + "\n".join(board),
         "",
         "## Last phase (public)\n" + _last_phase_recap(game),
+    ]
+    digest = _center_digest(game)
+    if digest:
+        sections += ["", "## Center changes so far (public)\n" + digest]
+    sections += [
+        "",
+        "## Tactical annex (engine-verified, private)\n"
+        + _tactical_annex(game, power),
+        "",
+        "## Rules reminders\n" + RULES_CRIB,
         "",
         "## Your private notes\n" + _my_notes(root, power),
     ]
