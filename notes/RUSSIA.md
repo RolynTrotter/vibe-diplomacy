@@ -8,14 +8,15 @@
 - 4 centers is a lead — don't advertise it as a threat; play reassuring, not obviously expansionist, in early messages.
 
 ## Trust & deals
-- AUSTRIA: opened contact, proposed Galicia DMZ + Balkan division (they take Serbia, offered me Rumania approach, punt Bulgaria). I accepted DMZ, tentatively welcomed Rumania framing. | DEAL: AUSTRIA — Galicia DMZ (no GAL entry either side) through 1902
-- TURKEY: no reply yet. Proposed Black Sea DMZ through 1901/1902, probing their Balkan plans. | no deal yet
-- ENGLAND: no reply yet. Signaled no interest in North Sea/Channel, floated Sweden-for-me/Norway-for-them split. | no deal yet
+- AUSTRIA: Galicia DMZ confirmed both ways; reconfirmed round 2. Balkan split reaffirmed — Serbia theirs, Rumania mine, Bulgaria deferred. Nudged them to talk Bulgaria timing directly with Turkey (keeps those two focused on each other, not me). | DEAL: AUSTRIA — Galicia DMZ (no GAL entry either side) through 1902 | DEAL: AUSTRIA — Balkan split: Serbia to Austria, Rumania (approaches) to Russia, Bulgaria TBD later
+- TURKEY: accepted their Black Sea DMZ proposal round 2 — no Russian fleet into BLA, no Turkish fleet north of it, through 1901. Gave them a neutral read on Austria, pointed them to talk Bulgaria directly with Vienna. Note: BLA DMZ does not block F Sevastopol-Rumania (direct move, no BLA transit needed) — still fully compatible with a Rumania grab this turn. | DEAL: TURKEY — Black Sea DMZ (no RUS fleet into BLA, no TUR fleet north of it) through 1901
+- ENGLAND: confirmed round 2 — Sweden via Bothnia is mine, Norway is theirs, mutual hands-off on St. Petersburg/Baltic and Channel/North Sea. | DEAL: ENGLAND — Sweden(via Bothnia)/Norway split + mutual Baltic/StP and Channel/North Sea peace, 1901
 - GERMANY: not yet contacted.
 - FRANCE: not yet contacted.
 - ITALY: not yet contacted.
 
 ## Next phase
-- Await replies from Austria/Turkey/England before finalizing S1901M orders.
-- Decide MOS: UKR (toward Rumania support) vs staying central; decide WAR: GAL stays home if DMZ holds, else UKR/PRU option.
-- Watch for Turkey moving into Black Sea or Bulgaria fast — treat as hostile signal per Austria conversation.
+- All three fronts (Austria, Turkey, England) have workable deals for S1901M — safe to finalize orders.
+- Rumania is open: Black Sea DMZ with Turkey doesn't block F Sevastopol-Rumania (direct adjacency, not via BLA) — consistent with the classic strong opening and doesn't break either deal.
+- Decide MOS: UKR (support Rumania grab) vs staying central; WAR stays home per Galicia DMZ.
+- Watch for Turkey moving into Bulgaria fast, or Austria reneging on Galicia — treat as signal to reassess.
