@@ -15,6 +15,11 @@
 - RUSSIA: unknown, currently 4 centers (likely a report quirk this early) — watch closely. Both England and Austria independently flagged this — common ground for future coordination.
 - TURKEY: unknown — no contact yet
 
+## W1901A builds
+- Owed 2 builds; BER and MUN unoccupied (KIE holds an army). SUBMITTED: A BER B, A MUN B.
+- Rationale: fleet needs (North Sea/Baltic) are already covered by F DEN plus the England deal (they take Norway, we hold Denmark/Kiel-area, NTH stays uncontested), so no need for a second fleet yet. Two armies keep flexibility for the standing plan's eventual eastward pivot toward Russia (Prussia/Silesia) once Holland/Denmark are consolidated, and add central reserves in case the France/Burgundy DMZ ever breaks down.
+- Units after build: F DEN, A KIE, A HOL, A BER, A MUN (5 centers, 5 units — even).
+
 ## Next phase
 - S1901M resolved cleanly, all deals held (Denmark secured, Burgundy quiet, no NTH incursion).
 - SUBMITTED F1901M: A RUH-HOL, F DEN H, A KIE H.
