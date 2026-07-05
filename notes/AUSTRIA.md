@@ -35,3 +35,7 @@ DEAL: GERMANY — Bohemia/Tyrolia DMZ mutual — standing
   adjacent to support BUL-GRE.
 - Next: see if Turkey/Russia start showing hands on Bulgaria/Black Sea signal;
   keep Italy warm since Adriatic trust is now proven through one full turn.
+- W1901A: owed +1 build (4 centers, 3 units). BUD and VIE both open (only TRI
+  occupied at home). Built A BUD — keeps flexibility to reinforce the Balkans
+  push (Serbia/Rumania/Galicia) rather than tying the new unit down west in
+  VIE. Order: A BUD B.
