@@ -45,9 +45,10 @@ Run 1–3 rounds **before** orders. Build a brief per power, then fan out all li
 Commit between rounds: `git add -A && git commit -m "<phase> press round <n>"`.
 
 ### c. Orders round
-Build a fresh brief per power (captures inbox after negotiation), then fan out `to_play` in parallel:
+Build a fresh brief per power (captures inbox after negotiation), then fan out `to_play` in parallel. The brief names a labelled board image (`.board/<phase>.png`) — tell each subagent to read it, since a pasted brief carries the path but not the picture:
 
 > You are **P** on `game/<name>`. Brief: «paste brief output».
+> Read the board image named in the brief before deciding.
 > Claim your seat if you haven't: `python -m orchestration.join_game --power P && scripts/sync.sh "P claims seat" players/P.json`
 > Negotiation is complete. Submit your orders:
 > `echo "your orders here" | scripts/submit.sh P`

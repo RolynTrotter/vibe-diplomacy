@@ -62,6 +62,9 @@ class SeatSpec:
     base_url: str | None = None      # resolved for local seats
     token: str | None = None         # resolved for local seats
     persona: str | None = None       # free-text system flavor for this seat
+    vision: bool = True              # attach the board picture to this seat's
+                                     # turn prompt (raw backend; harmless to
+                                     # disable for a text-only model)
     enabled: bool = True
 
     @property
@@ -165,6 +168,7 @@ class MatchSpec:
                 base_url=cfg.get("base_url"),
                 token=cfg.get("token"),
                 persona=cfg.get("persona"),
+                vision=cfg.get("vision", True),
                 enabled=cfg.get("enabled", True),
             )
 

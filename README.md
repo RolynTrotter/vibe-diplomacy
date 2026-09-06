@@ -39,6 +39,7 @@ engine/         thin wrapper around the diplomacy engine
   crypto.py       SealedBox order secrecy + Ed25519 signing
   comms.py        full-press messaging (claims, sealed mail pool, reveal)
   context.py      per-power selective brief (conductor mode)
+  mapviz.py       labelled board picture (SVG/PNG) per phase
 orchestration/  CLIs the skills + workflow call
   new_game.py        initialize a match (--press, adjudicator key reuse)
   join_game.py       claim a free seat (self-serve identity + keys)

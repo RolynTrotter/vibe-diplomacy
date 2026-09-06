@@ -15,3 +15,6 @@ secrets.local
 
 # Built Pages output
 _site/
+
+# Rendered board pictures (derived from state/, regenerated per phase)
+.board/

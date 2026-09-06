@@ -238,12 +238,65 @@ class RawChatAgent(PlayerAgent):
     # ------------------------------------------------------------------ #
     # Model call
     # ------------------------------------------------------------------ #
+    def _board_image(self):
+        """The current phase's board picture, or None if there isn't one.
+
+        The brief already rendered and cached it, so this is a lookup in the
+        common case. Seats can opt out with `vision: false` (a text-only
+        model would just reject the content block).
+        """
+        if not self.seat.vision:
+            return None
+        try:
+            from engine import mapviz, state
+            return mapviz.phase_image(self.game_root,
+                                      state.load_game(self.game_root))
+        except Exception:
+            return None
+
+    def _content(self, prompt: str, image) -> object:
+        """The user message body: plain text, or text plus the board image.
+
+        The two endpoints spell an inline image differently — OpenAI-compatible
+        servers (LM Studio) take a data URI in an `image_url` part, Anthropic
+        takes base64 in an `image` block. Image first in both: a model reads
+        the instructions better with the picture already in view.
+        """
+        if image is None:
+            return prompt
+        from engine import mapviz
+        if self.seat.endpoint == "local":
+            return [{"type": "image_url",
+                     "image_url": {"url": mapviz.image_data_uri(image)}},
+                    {"type": "text", "text": prompt}]
+        import base64
+        return [{"type": "image",
+                 "source": {"type": "base64", "media_type": "image/png",
+                            "data": base64.b64encode(
+                                Path(image).read_bytes()).decode("ascii")}},
+                {"type": "text", "text": prompt}]
+
     def _complete(self, prompt: str) -> str:
+        """One completion, with the board picture attached when we have one.
+
+        A model that can't take images fails the whole call, so a request that
+        carried one is retried as plain text before giving up — losing the
+        picture beats losing the turn.
+        """
+        image = self._board_image()
+        try:
+            return self._post(self._content(prompt, image))
+        except Exception:
+            if image is None:
+                raise
+            return self._post(prompt)
+
+    def _post(self, content: object) -> str:
         if self.seat.endpoint == "local":
             url = f"{(self.seat.base_url or '').rstrip('/')}/v1/chat/completions"
             headers = {"Authorization": f"Bearer {self.seat.token or ''}"}
             payload = {"model": self.seat.model,
-                       "messages": [{"role": "user", "content": prompt}],
+                       "messages": [{"role": "user", "content": content}],
                        "max_tokens": self.max_tokens}
             data = self.transport(url, headers, payload,
                                   self.spec.per_call_timeout_s)
@@ -252,7 +305,7 @@ class RawChatAgent(PlayerAgent):
         headers = {"x-api-key": os.environ.get("ANTHROPIC_API_KEY", ""),
                    "anthropic-version": "2023-06-01"}
         payload = {"model": self.seat.model, "max_tokens": self.max_tokens,
-                   "messages": [{"role": "user", "content": prompt}]}
+                   "messages": [{"role": "user", "content": content}]}
         data = self.transport(url, headers, payload,
                               self.spec.per_call_timeout_s)
         return "".join(b.get("text", "") for b in data.get("content", []))
