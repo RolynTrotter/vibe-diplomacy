@@ -48,10 +48,12 @@ Python 3.11.
 ## Layout (see README for detail)
 
 - `engine/` — thin wrapper: `state`, `adjudicate`, `validate`, `query`,
-  `crypto` (seal + sign), `comms` (full-press), `context` (per-power brief).
+  `crypto` (seal + sign), `comms` (full-press), `context` (per-power brief),
+  `mapviz` (labelled board picture per phase).
 - `orchestration/` — CLIs: `new_game`, `join_game`, `submit_orders`,
   `send_message`, `read_messages`, `game_status`, `run_adjudication`,
-  `conduct` (conductor roster/brief), `run_match` (programmatic conductor).
+  `conduct` (roster/brief/tasks/collect/advance), `tasks` (shared task text),
+  `run_match` (programmatic conductor).
 - `site/` — the GitHub Pages visualizer (`build_site.py` + `static/`).
 - `.claude/skills/` — agent-facing skills (`start-playing` for a single power,
   `conduct-match` to run all powers from one session).

@@ -117,6 +117,25 @@ what, which is the question a plan is built from. Two additions close that:
   Centers you already stand on are called out separately, since holding one
   through Fall is what actually converts it.
 
+### 2c. ✅ Halve the model calls, and take the bookkeeping off the model
+
+Two costs had nothing to do with playing well:
+
+- **A full-press movement phase cost two calls per power** — a final
+  negotiation round, then an orders round. `combined` merges them: one reply
+  carries `TO X:` lines *and* a fenced order block, which parse without
+  colliding. A power's last word is now said against orders it writes in the
+  same breath, which is also better diplomacy. `combined_final_round: false`
+  restores the split. With `--rounds 2` a phase went from 21 calls to 14.
+- **The conduct-match skill was an LLM doing clerical work**: composing seven
+  near-identical prompts, remembering which CLI each subagent should run, and
+  committing after every power. `conduct tasks` builds every task for the
+  phase, `conduct collect` turns one subagent's plain-text reply into sealed
+  mail and sealed orders, `conduct advance` commits, adjudicates, commits and
+  pushes. Subagents now need **no tools at all**, and a phase costs **two
+  commits** instead of one per power per round. `orchestration/tasks.py` holds
+  the wording so the skill and `run_match` cannot drift apart.
+
 ### 3. ✅ Cross-game memory: center-change digest + notes cap
 
 - The brief now includes a **year-by-year digest of supply-center changes**

@@ -91,6 +91,9 @@ class MatchSpec:
     brief: dict = field(default_factory=dict)
 
     negotiation_rounds: int = 0             # full-press, movement phases only
+    combined_final_round: bool = True       # fold the last negotiation round
+                                            # into the orders call (one model
+                                            # call per power instead of two)
     session_mode: str = "oneshot"           # oneshot | persistent
     max_concurrency: int = 1
     max_phases: int = 20

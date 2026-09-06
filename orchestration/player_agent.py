@@ -174,6 +174,18 @@ MESSAGES_FORMAT = (
     "Lines in any other format are ignored. Reply `TO NOBODY: pass` to stay "
     "silent."
 )
+# Messages and orders in one reply. The two formats do not collide — a `TO X:`
+# line is never an order, and only the fenced block is read for orders — so one
+# call can carry both, halving the model calls a full-press movement phase costs.
+COMBINED_FORMAT = (
+    "Reply with BOTH, in this order:\n"
+    "1. Your messages (at most 4), one per line, as `TO <POWER>: <message>` or "
+    "`TO ALL: <message>`. Write `TO NOBODY: pass` to send none.\n"
+    "2. Then your FINAL orders in one fenced code block (```), one order per "
+    "line, engine syntax (e.g. `A PAR - BUR`, `F BRE S A PAR - PIC`).\n"
+    "Only `TO ...` lines and the fenced block are read; prose between them is "
+    "ignored. The orders are binding — there is no later round."
+)
 
 
 def extract_orders(reply: str) -> list[str]:
@@ -319,6 +331,8 @@ class RawChatAgent(PlayerAgent):
             self._ensure_seat()
             if kind == "negotiation":
                 result = self._negotiate(task)
+            elif kind == "combined":
+                result = self._combined(task)
             else:
                 result = self._orders(task)
         except Exception as exc:  # transport/HTTP/parse failures
@@ -356,11 +370,45 @@ class RawChatAgent(PlayerAgent):
         return AgentResult(reply=transcript[-1], ok=False, error=error[:500],
                            transcript={"attempts": transcript})
 
-    def _negotiate(self, task: str) -> AgentResult:
-        prompt = f"{task}\n\n{MESSAGES_FORMAT}"
+    def _combined(self, task: str) -> AgentResult:
+        """One call that both sends this phase's mail and submits its orders.
+
+        The messages go out first — they are what the orders were agreed
+        against — and a rejected order set still gets its single corrective
+        retry, asking only for the orders back so the mail is never sent twice.
+        """
+        prompt = f"{task}\n\n{COMBINED_FORMAT}"
         reply = self._complete(prompt)
+        sent, errors = self._send_all(extract_messages(reply))
+
+        orders = extract_orders(reply)
+        error = None
+        for attempt in range(2):
+            if orders:
+                proc = self._run_cli("orchestration.submit_orders",
+                                     ["--power", self.power],
+                                     stdin="\n".join(orders))
+                if proc.returncode == 0:
+                    return AgentResult(reply=reply, ok=not errors,
+                                       error="; ".join(errors)[:500] or None,
+                                       transcript={"reply": reply, "sent": sent,
+                                                   "orders": orders,
+                                                   "stdout": proc.stdout})
+                error = proc.stderr.strip()
+            else:
+                error = "reply contained no parseable orders"
+            if attempt == 0:
+                retry = (f"{prompt}\n\nYour messages were sent. Your ORDERS were "
+                         f"rejected:\n{error}\nReply with corrected orders only, "
+                         "in one fenced block.")
+                orders = extract_orders(self._complete(retry))
+        return AgentResult(reply=reply, ok=False, error=(error or "")[:500],
+                           transcript={"reply": reply, "sent": sent})
+
+    def _send_all(self, messages) -> tuple[list, list]:
+        """Drive parsed `TO X: ...` pairs through the real send CLI."""
         sent, errors = [], []
-        for recipient, body in extract_messages(reply):
+        for recipient, body in messages:
             if recipient == "NOBODY":
                 continue
             proc = self._run_cli("orchestration.send_message",
@@ -368,6 +416,12 @@ class RawChatAgent(PlayerAgent):
                                  stdin=body)
             (sent if proc.returncode == 0 else errors).append(
                 f"{recipient}: {body[:80]}")
+        return sent, errors
+
+    def _negotiate(self, task: str) -> AgentResult:
+        prompt = f"{task}\n\n{MESSAGES_FORMAT}"
+        reply = self._complete(prompt)
+        sent, errors = self._send_all(extract_messages(reply))
         return AgentResult(
             reply=reply, ok=not errors,
             error="; ".join(errors)[:500] or None,
@@ -445,6 +499,7 @@ def make_agent(backend: str, power: str, seat: SeatSpec, repo_root: Path,
 
 __all__ = [
     "AgentResult", "PlayerAgent", "HeadlessClaudeAgent", "RawChatAgent",
+    "COMBINED_FORMAT", "MESSAGES_FORMAT", "ORDERS_FORMAT",
     "FakeAgent", "make_agent", "_player_env",
     "extract_orders", "extract_messages",
 ]

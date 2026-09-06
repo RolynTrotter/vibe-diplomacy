@@ -5,9 +5,11 @@ description: Run a whole Diplomacy match from ONE session by spawning each power
 
 # Conduct a Match
 
-One session, seven subagents. You slice context and adjudicate; subagents execute specific tasks. Isolation is by context boundary (not crypto) — right for self-play/eval, not distrusting play.
+One session, seven subagents. **Three commands per phase do all the bookkeeping** — you spend your judgement on nothing but reading replies, because there is no judgement in composing prompts or remembering which CLI to run.
 
-> **Note on `play-a-turn`**: that skill is for single-power 7-session play where each power manages its own full turn. In conductor mode, you orchestrate the steps directly — subagents get targeted tasks, not `play-a-turn`.
+Isolation is by context boundary (not crypto) — right for self-play/eval, not distrusting play.
+
+> **Note on `play-a-turn`**: that skill is for single-power 7-session play. In conductor mode subagents get targeted tasks and reply with **text only** — they need no tools and no CLI knowledge.
 
 ## 0. Setup (once)
 ```bash
@@ -22,57 +24,48 @@ Fall back to **`native`** if unavailable or if `CONDUCTOR_METHOD=native`.
 
 ## 1. Phase loop
 
-### a. Check roster
+### a. Get this phase's tasks
 ```bash
-python -m orchestration.conduct roster
+python -m orchestration.conduct tasks --format text
 ```
-- `done: true` → go to **Finish**
-- `to_play: []` → trivial phase (no dislodgements / all-zero adjustment) → skip to **d**
-- otherwise → continue
+One self-contained task per power that still has to act — brief, board picture path, and the exact reply format, already written. The header line tells you the phase and the `kind`:
 
-### b. Negotiation rounds (full-press + movement phases only)
-Skip entirely if `phase_type` is `R` or `A` — negotiation only happens in movement phases.
+- **`combined`** (default on full-press movement phases) — messages *and* orders in one reply. This is the whole point: one model call per power per phase instead of two.
+- **`orders`** — gunboat, retreats, adjustments.
+- Prints `0 power(s) to play` on a trivial phase → skip straight to **c**.
+- Want an extra talking round first? Run `--kind negotiation` once, collect those replies, then run `tasks` again for the `combined` round (the fresh brief includes the mail that just arrived).
 
-Run 1–3 rounds **before** orders. Build a brief per power, then fan out all live powers in parallel with this task:
+If `done: true` in `conduct roster`, go to **Finish**.
 
-> You are **P** on `game/<name>`. Brief: «paste brief output».
-> This is a **negotiation round only** — do not write orders yet.
-> Read your inbox: `python -m orchestration.read_messages --power P`
-> Send messages: `echo "..." | python -m orchestration.send_message --power P --to OTHER`
-> Commit new mail: `scripts/sync.sh "P <phase> messages" mail/`
-> Reply with one line: "P negotiated <phase> round <n>".
+### b. Fan out, then collect each reply
+Spawn all listed powers **in parallel**, one subagent each, passing its task verbatim. Tell each to read the board image the brief names (`.board/<phase>.png`) — a pasted brief carries the path, not the picture — and to reply in the given format and nothing else. Subagents run **no commands**.
 
-Commit between rounds: `git add -A && git commit -m "<phase> press round <n>"`.
-
-### c. Orders round
-Build a fresh brief per power (captures inbox after negotiation), then fan out `to_play` in parallel. The brief names a labelled board image (`.board/<phase>.png`) — tell each subagent to read it, since a pasted brief carries the path but not the picture:
-
-> You are **P** on `game/<name>`. Brief: «paste brief output».
-> Read the board image named in the brief before deciding.
-> Claim your seat if you haven't: `python -m orchestration.join_game --power P && scripts/sync.sh "P claims seat" players/P.json`
-> Negotiation is complete. Submit your orders:
-> `echo "your orders here" | scripts/submit.sh P`
-> Update your notes (`notes/P.md`, 3-section format, ≤250 words) then:
-> `scripts/sync.sh "P notes" notes/P.md`
-> Reply with one line: "P submitted <phase>".
-
-### d. Adjudicate
+Pipe each reply straight back:
 ```bash
-git add -A && git commit -m "Players submitted <phase>" || true
-python -m orchestration.conduct roster          # confirm all_submitted
-python -m orchestration.run_adjudication        # or --force for deadline
-# Commit the shared board (state/ history/ game/), not just orders.
-git add -A state history game orders mail && git commit -m "Adjudicate <phase>" || true
+echo "<subagent reply>" | python -m orchestration.conduct collect --power FRANCE
 ```
+This claims the seat if needed, seals and signs the mail, validates and seals the orders — the same artifacts a distrusting session produces. It prints JSON:
 
-### e. Publish (push so the Pages visualizer can render the board)
+- `"ok": true` → done with that power.
+- `"ok": false` → `error` is the validation or coherence message. Hand that text back to the same subagent once and collect its corrected reply. Do not fix a power's orders yourself.
+
+### c. Advance
 ```bash
-git push origin game/<name>
+python -m orchestration.conduct advance
 ```
-Adjudication runs locally (`adjudicate.yml` is manual-only), so push every phase
-to keep origin and the browser UI in sync.
+Commits what the powers produced, adjudicates locally, commits the new board, and pushes — **two commits per phase**, not one per power per round. Prints `next_phase` and `done`.
+
+- `--no-push` to stay local; `--wait` to refuse to force-adjudicate stragglers (default forces, so one stuck power can't hang the match).
+- Needs `ADJUDICATOR_PRIVATE_KEY` exported; it says so plainly if it is missing.
 
 Loop back to **a**.
 
 ## Finish
-When `done: true`, push and report the result. Full-press: `mail/revealed.json` has the message transcript for the visualizer post-mortem.
+When `done: true`, report the result. Full-press: `mail/revealed.json` holds the message transcript for the visualizer post-mortem.
+
+## Prefer the fully programmatic runner
+If nobody needs to watch the game turn by turn, don't conduct it by hand at all:
+```bash
+python -m orchestration.run_match --name <name> --press full --backend raw
+```
+Same pipeline, no conductor in the loop. Conduct by hand when you want to read the replies as they come, or to mix in seats a script can't drive.

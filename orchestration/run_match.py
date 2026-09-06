@@ -31,6 +31,7 @@ from pathlib import Path
 from orchestration._common import POWERS, repo_root
 from orchestration.conduct import roster as conduct_roster
 from orchestration.match_spec import MatchSpec, SeatSpec
+from orchestration import tasks
 from orchestration.player_agent import AgentResult, make_agent
 
 from engine import context, state
@@ -148,14 +149,20 @@ class Conductor:
                          "to_play": to_play, "dispatches": []}
 
             if to_play:
-                if (self.spec.press == "full" and rs["phase_type"] == "M"
-                        and self.spec.negotiation_rounds > 0):
-                    for rnd in range(self.spec.negotiation_rounds):
+                talking = (self.spec.press == "full" and rs["phase_type"] == "M"
+                           and self.spec.negotiation_rounds > 0)
+                # Folding the final round into the orders call costs one model
+                # call per power per phase instead of two, and loses nothing:
+                # the last thing a power says is said against orders it is
+                # writing in the same breath.
+                fold = talking and self.spec.combined_final_round
+                if talking:
+                    for rnd in range(self.spec.negotiation_rounds - (1 if fold else 0)):
                         self._log(f"  -- negotiation round {rnd + 1} --")
                         phase_rec["dispatches"] += self._dispatch_round(
                             to_play, "negotiation", phase, rnd)
                 phase_rec["dispatches"] += self._dispatch_round(
-                    to_play, "orders", phase)
+                    to_play, "combined" if fold else "orders", phase)
 
             self._adjudicate(rs)
             summary["phases"].append(phase_rec)
@@ -187,56 +194,16 @@ class Conductor:
     # Task text (what a real headless session receives)
     # ------------------------------------------------------------------ #
     def _build_task(self, power: str, kind: str, phase: str) -> str:
-        seat = self.spec.seats[power]
-        persona = f"Persona: {seat.persona}\n\n" if seat.persona else ""
-        brief = context.power_brief(self.game_root, power)
-        full = self.spec.press == "full"
-        # raw seats get a fill-in-the-form prompt (no tools, no scripts);
-        # agentic seats get the skill walkthrough.
-        chat = self.backend == "raw"
-        trivial = phase.endswith(("R", "A"))  # retreat/adjustment: one decision
+        """Delegate to the shared builder so every front end sends one wording.
 
-        if kind == "negotiation":
-            body = (
-                f"You are {power} in a Diplomacy match. {persona}"
-                f"It is {phase} and the negotiation window is open. Acting ONLY as "
-                f"{power}, read your inbox and send any messages you want before "
-                "orders lock. Do NOT submit orders yet.\n\n"
-            )
-            if not chat:
-                body += (
-                    "Use the `negotiate` skill: read with `read_messages`, send with "
-                    "`send_message`, then `scripts/sync.sh` any mail you create.\n\n"
-                )
-        elif chat or trivial:
-            what = ("your retreats/disbands" if phase.endswith("R")
-                    else "your builds/disbands" if phase.endswith("A")
-                    else "your orders")
-            body = (
-                f"You are {power} in a Diplomacy match. {persona}"
-                f"It is {phase}. Decide {what} for this phase acting ONLY as "
-                f"{power}. Your options are listed in the brief's tactical annex.\n\n"
-            )
-            if not chat:
-                body += ("Submit in one shot:\n"
-                         f"  echo \"<orders>\" | scripts/submit.sh {power}\n"
-                         "No negotiation or notes update needed this phase.\n\n")
-        else:
-            steps = []
-            if full:
-                steps.append("1. (Optional) negotiate first — see the `negotiate` skill.")
-            steps.append("2. Decide your moves, then submit them in one shot:\n"
-                         "     echo \"A PAR - BUR\\nF BRE - MAO\" | scripts/submit.sh {p}")
-            steps.append("3. Update notes/{p}.md with your plan, then `scripts/sync.sh`.")
-            body = (
-                f"You are {power} in a Diplomacy match. {persona}"
-                f"It is {phase}. Play this turn end-to-end acting ONLY as {power}. "
-                "Your full brief is below — do NOT re-run `scripts/turn.sh` "
-                "(that only regenerates what you already have).\n\n"
-                + "\n".join(s.format(p=power) for s in steps)
-                + "\n\n"
-            )
-        return body + "Your current brief:\n\n" + brief
+        Raw seats have no tools and answer in a single message; headless
+        sessions run the CLIs themselves.
+        """
+        seat = self.spec.seats[power]
+        return tasks.build(
+            power, kind, phase, context.power_brief(self.game_root, power),
+            press=self.spec.press, persona=seat.persona,
+            style="reply" if self.backend == "raw" else "agentic")
 
     # ------------------------------------------------------------------ #
     # Adjudication
