@@ -61,9 +61,19 @@ def _game_root(tmp_path):
     return tmp_path
 
 
-def _agent(tmp_path, replies):
+def prompt_text(content) -> str:
+    """The text of a user message, whether or not a board image rode along."""
+    if isinstance(content, str):
+        return content
+    return "\n".join(part.get("text", "") for part in content
+                      if part.get("type") == "text")
+
+
+def _agent(tmp_path, replies, **seat_overrides):
     """RawChatAgent whose 'model' pops canned replies; records prompts."""
     spec = MatchSpec.load(None, name="raw-test")
+    for key, value in seat_overrides.items():
+        setattr(spec.seats["FRANCE"], key, value)
     prompts = []
 
     def transport(url, headers, payload, timeout):
@@ -81,7 +91,7 @@ def test_orders_turn_produces_sealed_artifact(tmp_path):
     result = agent.dispatch("You are FRANCE. It is S1901M.", kind="orders")
     assert result.ok, result.error
     assert state.power_orders_file(root, "FRANCE", "S1901M").exists()
-    assert "FINAL orders" in prompts[0]          # format instruction attached
+    assert "FINAL orders" in prompt_text(prompts[0])   # format instruction attached
 
 
 def test_incoherent_orders_get_one_corrective_retry(tmp_path):
@@ -93,7 +103,7 @@ def test_incoherent_orders_get_one_corrective_retry(tmp_path):
     result = agent.dispatch("You are FRANCE. It is S1901M.", kind="orders")
     assert result.ok, result.error
     assert len(prompts) == 2
-    assert "void support" in prompts[1]          # the error came back verbatim
+    assert "void support" in prompt_text(prompts[1])   # error came back verbatim
     assert state.power_orders_file(root, "FRANCE", "S1901M").exists()
 
 

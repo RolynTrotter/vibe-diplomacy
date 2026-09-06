@@ -39,6 +39,7 @@ engine/         thin wrapper around the diplomacy engine
   crypto.py       SealedBox order secrecy + Ed25519 signing
   comms.py        full-press messaging (claims, sealed mail pool, reveal)
   context.py      per-power selective brief (conductor mode)
+  mapviz.py       labelled board picture (SVG/PNG) per phase
 orchestration/  CLIs the skills + workflow call
   new_game.py        initialize a match (--press, adjudicator key reuse)
   join_game.py       claim a free seat (self-serve identity + keys)
@@ -47,7 +48,8 @@ orchestration/  CLIs the skills + workflow call
   read_messages.py   trial-decrypt your inbox
   game_status.py     phone-friendly status (no decryption)
   run_adjudication.py the adjudicator (CI only; holds the private key)
-  conduct.py         conductor helpers (roster + per-power brief)
+  conduct.py         conductor seam (roster, brief, tasks, collect, advance)
+  tasks.py           the task text a power gets — one wording, every caller
   run_match.py       programmatic conductor (one command, per-power sessions)
 site/           static GitHub Pages visualizer
   build_site.py     bake SVG board + JSON manifest from every game/* branch

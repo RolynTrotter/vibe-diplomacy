@@ -34,6 +34,8 @@ STATIC = Path(__file__).resolve().parent / "static"
 sys.path.insert(0, str(ROOT))
 
 from diplomacy import Game  # noqa: E402
+
+from engine import mapviz  # noqa: E402
 from diplomacy.utils.export import from_saved_game_format  # noqa: E402
 
 SEASONS = {"S": "Spring", "F": "Fall", "W": "Winter"}
@@ -159,7 +161,9 @@ def build_game(name: str, ref: str, out: Path) -> dict | None:
         for power, power_orders in orders.items():
             game.set_orders(power, power_orders)
 
-        svg = game.render(incl_orders=True)
+        # Labelled: the stock render hides province names (see engine/mapviz).
+        # No legend — the page draws its own scoreboard.
+        svg = mapviz.board_svg(game, legend=False)
         (game_dir / f"{code}.svg").write_text(svg, encoding="utf-8")
 
         centers = {p: len(c) for p, c in ph["state"].get("centers", {}).items()}

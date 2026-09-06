@@ -62,6 +62,9 @@ class SeatSpec:
     base_url: str | None = None      # resolved for local seats
     token: str | None = None         # resolved for local seats
     persona: str | None = None       # free-text system flavor for this seat
+    vision: bool = True              # attach the board picture to this seat's
+                                     # turn prompt (raw backend; harmless to
+                                     # disable for a text-only model)
     enabled: bool = True
 
     @property
@@ -88,6 +91,9 @@ class MatchSpec:
     brief: dict = field(default_factory=dict)
 
     negotiation_rounds: int = 0             # full-press, movement phases only
+    combined_final_round: bool = True       # fold the last negotiation round
+                                            # into the orders call (one model
+                                            # call per power instead of two)
     session_mode: str = "oneshot"           # oneshot | persistent
     max_concurrency: int = 1
     max_phases: int = 20
@@ -165,6 +171,7 @@ class MatchSpec:
                 base_url=cfg.get("base_url"),
                 token=cfg.get("token"),
                 persona=cfg.get("persona"),
+                vision=cfg.get("vision", True),
                 enabled=cfg.get("enabled", True),
             )
 

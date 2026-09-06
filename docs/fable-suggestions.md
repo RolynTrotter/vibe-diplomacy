@@ -97,6 +97,45 @@ models were burning tool calls (or guessing) to get:
 This is ~25 lines of brief for 7 units, all deterministic, and it makes the
 "no tools, one completion" backend (suggestion 4) viable.
 
+### 2b. ✅ A picture of the board, and topology in words
+
+The annex says what each unit may do this turn; it never said what is *near*
+what, which is the question a plan is built from. Two additions close that:
+
+- **A labelled PNG per phase** (`engine/mapviz.py`, cached at
+  `.board/<phase>.png`, gitignored). Two upstream obstacles had to go: the
+  `diplomacy` renderer hides province names unless `incl_abbrev=True`, and the
+  label layer's CSS class makes cairosvg paint the whole canvas black, so the
+  labels are re-emitted with inline styles. A legend is drawn on top, since
+  nothing on the stock map says which colour is which power. Raw seats get the
+  image inline (data URI for LM Studio, base64 block for Anthropic) and fall
+  back to text if the model rejects it; `vision: false` opts a seat out.
+- **A topology section in text**, for seats that can't see and as the
+  fallback for those that can: the powers whose units touch your ground
+  (province–province), and every supply center you don't own within 3 moves,
+  nearest first, with the route in (`BER (GERMANY) — 2 moves via BUR`).
+  Centers you already stand on are called out separately, since holding one
+  through Fall is what actually converts it.
+
+### 2c. ✅ Halve the model calls, and take the bookkeeping off the model
+
+Two costs had nothing to do with playing well:
+
+- **A full-press movement phase cost two calls per power** — a final
+  negotiation round, then an orders round. `combined` merges them: one reply
+  carries `TO X:` lines *and* a fenced order block, which parse without
+  colliding. A power's last word is now said against orders it writes in the
+  same breath, which is also better diplomacy. `combined_final_round: false`
+  restores the split. With `--rounds 2` a phase went from 21 calls to 14.
+- **The conduct-match skill was an LLM doing clerical work**: composing seven
+  near-identical prompts, remembering which CLI each subagent should run, and
+  committing after every power. `conduct tasks` builds every task for the
+  phase, `conduct collect` turns one subagent's plain-text reply into sealed
+  mail and sealed orders, `conduct advance` commits, adjudicates, commits and
+  pushes. Subagents now need **no tools at all**, and a phase costs **two
+  commits** instead of one per power per round. `orchestration/tasks.py` holds
+  the wording so the skill and `run_match` cannot drift apart.
+
 ### 3. ✅ Cross-game memory: center-change digest + notes cap
 
 - The brief now includes a **year-by-year digest of supply-center changes**
@@ -104,6 +143,9 @@ This is ~25 lines of brief for 7 units, all deterministic, and it makes the
   engine's state history. One line per year buys an ephemeral agent the whole
   arc of the game — who is snowballing, which alliance actually fired —
   without re-reading `history/*.json`.
+- Older mail is **threaded per partner** rather than counted: the last few
+  messages from each power survive as one-line gists, so a deal struck three
+  phases back stays visible instead of collapsing to "GERMANY ×6".
 - Notes are **truncated at ~2,500 characters** when injected into the brief,
   with a visible "(truncated — keep notes under 250 words)" marker, so a
   bloated notebook costs the power that wrote it a nudge instead of costing

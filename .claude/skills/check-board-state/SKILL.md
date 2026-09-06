@@ -5,7 +5,7 @@ description: Answer questions about the current Diplomacy board — what units a
 
 # Check Board State
 
-Your brief (from `scripts/turn.sh`) already contains a board snapshot. Only query directly if you need something the brief doesn't cover.
+Your brief (from `scripts/turn.sh`) already contains a board snapshot, a **labelled picture** of the position (`.board/<phase>.png` — read it), a **topology** section (powers you border, unowned centers within 3 moves and the route in), and a **tactical annex** (every legal move for each of your units). Only query directly if you need something those don't cover.
 
 ## Full snapshot
 ```bash

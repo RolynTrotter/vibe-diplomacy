@@ -13,7 +13,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from engine import comms, query, state
+from engine import comms, mapviz, query, state
 from engine.coherence import parse_order as _parse
 
 # Player-facing brief sections are individually toggleable so verbose ones can
@@ -25,7 +25,10 @@ DEFAULT_BRIEF_OPTIONS = {
     "annex": True,              # tactical annex + rules crib
     "commitments": True,        # DEAL: ledger surfaced from your notes
     "inbox_recent_only": True,  # raw mail from the last two phases; older mail
-                                # collapses to per-partner counts
+                                # collapses to a threaded per-partner summary
+    "topology": True,           # engine-derived map geometry: who you border,
+                                # which centers are near and through where
+    "image": True,              # a labelled PNG of the board, per phase
 }
 
 
@@ -108,18 +111,49 @@ def _my_inbox(root: Path, power: str, recent_only: bool = True) -> str:
 
     out = []
     if older:
-        counts: dict[str, list] = {}
-        for m in older:
-            c = counts.setdefault(m.get("sender", "?"), [0, ""])
-            c[0] += 1
-            c[1] = m.get("phase", "")
-        digest = "; ".join(f"{s} ×{n} (last {ph})"
-                           for s, (n, ph) in sorted(counts.items()))
-        out.append(f"_Older mail (digest): {digest}. Standing agreements "
-                   f"belong in your notes as DEAL: lines; reread a thread "
-                   f"with `read_messages --with <POWER>` if you must._")
+        out.append(_older_threads(older))
     out += [_format_msg(m) for m in recent[-30:]]
     return "\n".join(out)
+
+
+GIST_CHARS = 110        # enough for the substance of a line, not the pleasantries
+THREAD_DEPTH = 3        # older messages kept per partner, most recent last
+
+
+def _gist(body: str) -> str:
+    """One line of a message — collapsed whitespace, trimmed to its substance."""
+    text = " ".join((body or "").split())
+    if len(text) <= GIST_CHARS:
+        return text
+    return text[:GIST_CHARS].rsplit(" ", 1)[0] + "…"
+
+
+def _older_threads(older: list[dict]) -> str:
+    """Mail older than the raw window, grouped into a thread per partner.
+
+    A pure count ("GERMANY ×6") tells you a relationship exists but not what
+    was agreed in it, so a deal struck three phases back goes invisible right
+    when it matters. Keeping the last few lines per partner costs a fraction
+    of the full transcript and keeps the relationship legible.
+    """
+    threads: dict[str, list[dict]] = {}
+    for m in older:
+        threads.setdefault(m.get("sender", "?"), []).append(m)
+
+    lines = ["_Older mail, threaded by partner "
+             "(full text: `read_messages --with <POWER>`):_"]
+    for sender, msgs in sorted(threads.items()):
+        kept = msgs[-THREAD_DEPTH:]
+        span = (msgs[0].get("phase", "?") if len(msgs) == 1
+                else f"{msgs[0].get('phase', '?')}–{msgs[-1].get('phase', '?')}")
+        head = f"- **{sender}** ×{len(msgs)} ({span})"
+        if len(msgs) > len(kept):
+            head += f", last {len(kept)}"
+        lines.append(head + ":")
+        lines += [f"  - [{m.get('phase')}] {_gist(m.get('body', ''))}"
+                  for m in kept]
+    lines.append("_Standing agreements belong in your notes as DEAL: lines._")
+    return "\n".join(lines)
 
 
 def _my_last_outcomes(game, power: str) -> str:
@@ -319,6 +353,143 @@ RULES_CRIB = (
 )
 
 
+TOPOLOGY_HOPS = 3        # far enough to plan an approach, near enough to matter
+TOPOLOGY_TARGETS = 10    # centers listed before the section stops earning tokens
+
+
+def _base(prov: str) -> str:
+    """Province code without its coast suffix: 'SPA/SC' -> 'SPA'."""
+    return prov.upper().split("/")[0]
+
+
+def _my_ground(game, power: str) -> set[str]:
+    """Provinces you stand in or own a center in — your side of the map."""
+    me = game.powers[power]
+    return ({_base(u.split()[1]) for u in me.units}
+            | {_base(c) for c in me.centers})
+
+
+def _neighbours(game, prov: str) -> set[str]:
+    return {_base(a) for a in query.adjacencies(game, prov)} - {_base(prov)}
+
+
+def _spread(game, start: set[str]) -> dict[str, tuple[int, set[str]]]:
+    """Breadth-first hops outward from `start`.
+
+    Returns {province: (hops, doors)}, where a "door" is the province you
+    would move into FIRST on a shortest path there — the actionable half of
+    the route, and the square someone else can shut. Adjacency here is the raw
+    map graph: it ignores unit type, so a listed route may be army-only or
+    fleet-only. The tactical annex says which moves are actually legal; this
+    says which parts of the map are near each other.
+    """
+    seen: dict[str, tuple[int, set[str]]] = {p: (0, set()) for p in start}
+    frontier = set(start)
+    for hop in range(1, TOPOLOGY_HOPS + 1):
+        nxt: dict[str, set[str]] = {}
+        for prov in frontier:
+            for neighbour in _neighbours(game, prov):
+                if neighbour not in seen:
+                    # One step off your own ground IS its own door; deeper
+                    # provinces inherit the door their predecessor came through.
+                    door = {neighbour} if hop == 1 else seen[prov][1]
+                    nxt.setdefault(neighbour, set()).update(door)
+        if not nxt:
+            break
+        for prov, vias in nxt.items():
+            seen[prov] = (hop, vias)
+        frontier = set(nxt)
+    return seen
+
+
+def _borders(game, power: str, mine: set[str]) -> str:
+    """Which powers you actually touch, and at which provinces."""
+    contacts: dict[str, set[str]] = {}
+    for prov in mine:
+        for neighbour in _neighbours(game, prov):
+            for hit in query.units_at(game, neighbour):
+                owner = hit.split(":", 1)[0]
+                if owner != power:
+                    contacts.setdefault(owner, set()).add(f"{prov}–{neighbour}")
+    if not contacts:
+        return "- You touch no other power's units right now."
+    lines = []
+    for owner, pairs in sorted(contacts.items()):
+        shown = sorted(pairs)[:4]
+        more = f" (+{len(pairs) - len(shown)} more)" if len(pairs) > len(shown) else ""
+        lines.append(f"- **{owner}**: {', '.join(shown)}{more}")
+    return "\n".join(lines)
+
+
+def _nearby_centers(game, power: str, reach: dict[str, tuple[int, set[str]]]) -> str:
+    """Supply centers you don't own, nearest first, and the way in."""
+    mine = set(game.powers[power].centers)
+    owners = {_base(c): name for name, p in game.powers.items() for c in p.centers}
+
+    rows = []
+    for prov, (hops, doors) in reach.items():
+        if prov not in game.map.scs or prov in mine:
+            continue
+        owner = owners.get(prov)
+        rows.append((hops, prov, owner or "neutral", sorted(doors)[:3]))
+    if not rows:
+        return ""
+    rows.sort(key=lambda r: (r[0], r[1]))
+
+    lines = []
+    for hops, prov, owner, doors in rows[:TOPOLOGY_TARGETS]:
+        if hops == 0:
+            # You are standing on a center you don't own yet: holding it
+            # through the Fall retreat is what actually converts it.
+            where = "you occupy it — hold it through Fall to take it"
+        else:
+            step = "move" if hops == 1 else "moves"
+            route = f" in through {' or '.join(doors)}" if hops > 1 else ""
+            where = f"{hops} {step}{route}"
+        lines.append(f"- **{prov}** ({owner}) — {where}")
+    return "\n".join(lines)
+
+
+def _topology(game, power: str) -> str:
+    """The shape of the map around you — the part agents keep hallucinating.
+
+    The tactical annex answers "what may this unit do this turn"; this answers
+    "what is near what", which is the question a plan is built from. Both are
+    engine-derived, so neither can drift from the real board.
+    """
+    mine = _my_ground(game, power)
+    if not mine:
+        return ""
+    reach = _spread(game, mine)
+    out = ["Powers whose units touch your ground "
+           "(your province–their province):",
+           _borders(game, power, mine)]
+    centers = _nearby_centers(game, power, reach)
+    if centers:
+        out += ["",
+                f"Supply centers you don't own, within {TOPOLOGY_HOPS} moves "
+                "(hops ignore unit type — the annex has the legal moves):",
+                centers]
+    return "\n".join(out)
+
+
+def _board_picture(root: Path, game, power: str) -> str:
+    """Point the agent at the rendered board, if one could be drawn."""
+    path = mapviz.phase_image(root, game)
+    if path is None:
+        ok, why = mapviz.available()
+        if ok:
+            return ""
+        return (f"_(no board image — install `cairosvg` and a system cairo to "
+                f"get one: {why})_")
+    color = mapviz.POWER_COLORS.get(power, "your colour")
+    return (f"A labelled picture of the current board is at `{path}` — every "
+            f"province named, units drawn in their power's colour ({power} is "
+            f"**{color}**), legend top-left. **Look at it before you plan.** "
+            "If you cannot view images, the sections above carry the same "
+            "facts in text.")
+
+
 def power_brief(root: Path, power: str) -> str:
     """A markdown briefing containing only what `power` is allowed to see."""
     power = power.upper()
@@ -363,6 +534,10 @@ def power_brief(root: Path, power: str) -> str:
         digest = _center_digest(game)
         if digest:
             sections += ["", "## Center changes so far (public)\n" + digest]
+    if opts["topology"]:
+        topology = _topology(game, power)
+        if topology:
+            sections += ["", "## Board topology (engine-derived)\n" + topology]
     if opts["annex"]:
         sections += [
             "",
@@ -371,6 +546,10 @@ def power_brief(root: Path, power: str) -> str:
             "",
             "## Rules reminders\n" + RULES_CRIB,
         ]
+    if opts["image"]:
+        picture = _board_picture(root, game, power)
+        if picture:
+            sections += ["", "## The board, drawn\n" + picture]
     sections += ["", "## Your private notes\n" + _my_notes(root, power)]
     if opts["commitments"]:
         ledger = _commitments(root, power, full_press)
@@ -387,7 +566,7 @@ def power_brief(root: Path, power: str) -> str:
         "## Do now",
         "1. If you have no seat yet, claim it (`join-game --power " + power + "`).",
         "2. Run **play-a-turn** for " + power + " this phase"
-        + (" — negotiate first (**negotiate**), then" if full_press else ",")
+        + (" — negotiate first (**negotiate**)," if full_press else ",")
         + " then validate + sign + seal your orders and commit only your own files.",
         "Use the live board (`game_status`, check-board-state) as ground truth; "
         "this brief is a snapshot.",

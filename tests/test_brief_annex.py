@@ -101,22 +101,48 @@ def test_commitments_hint_only_in_full_press(tmp_path):
     assert "log agreements in your notes as lines like" in brief
 
 
-def test_inbox_digests_older_phases(tmp_path):
+def test_inbox_threads_older_phases(tmp_path):
+    """Older mail collapses to a per-partner thread that keeps the substance.
+
+    A bare count told a power a relationship existed but not what was agreed
+    in it, so a deal struck three phases back went invisible.
+    """
     _game(tmp_path, press="full")
     pub = state.pubkey_file(tmp_path).read_text(encoding="utf-8")
     comms.claim_power(tmp_path, "FRANCE")
     comms.claim_power(tmp_path, "ENGLAND")
     sign = comms.load_keys(tmp_path, "ENGLAND")["sign"]
     for phase, body in [("S1901M", "ancient history"),
-                        ("F1901M", "still old"),
+                        ("F1901M", "Belgium is yours if Burgundy is mine"),
                         ("S1902M", "recent one"),
                         ("F1902M", "current one")]:
         comms.send_message(tmp_path, "ENGLAND", ["FRANCE"], body, phase, pub,
                            sign_priv=sign)
     brief = context.power_brief(tmp_path, "FRANCE")
-    assert "recent one" in brief and "current one" in brief    # last two phases
-    assert "ancient history" not in brief                      # digested away
-    assert "ENGLAND ×2 (last F1901M)" in brief                 # the digest line
+    assert "recent one" in brief and "current one" in brief    # last two, raw
+    assert "**ENGLAND** ×2 (S1901M–F1901M)" in brief            # thread header
+    # The old terms stay legible instead of collapsing to a count.
+    assert "Belgium is yours if Burgundy is mine" in brief
+
+
+def test_older_thread_trims_long_bodies_and_deep_threads(tmp_path):
+    _game(tmp_path, press="full")
+    pub = state.pubkey_file(tmp_path).read_text(encoding="utf-8")
+    comms.claim_power(tmp_path, "FRANCE")
+    comms.claim_power(tmp_path, "ENGLAND")
+    sign = comms.load_keys(tmp_path, "ENGLAND")["sign"]
+    for i in range(6):
+        comms.send_message(tmp_path, "ENGLAND", ["FRANCE"],
+                           f"msg{i} " + "filler words " * 30, f"S190{i}M", pub,
+                           sign_priv=sign)
+    brief = context.power_brief(tmp_path, "FRANCE")
+    # Older = msg0..msg3; only the last three of them survive, each as a gist.
+    assert "msg0" not in brief                          # beyond thread depth
+    assert "msg2" in brief
+    assert "msg2 " + "filler words " * 30 not in brief  # trimmed
+    assert "…" in brief
+    # The two most recent phases are still quoted in full.
+    assert "msg5 " + "filler words " * 30 in brief
 
 
 def test_brief_toggles_disable_sections(tmp_path):
