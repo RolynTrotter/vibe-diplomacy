@@ -7,3 +7,6 @@ PyYAML>=6.0
 # degrades to 'no picture' when that is missing, so it is effectively optional.
 cairosvg>=2.7
 pytest>=7.0
+# Jev (TypeSafe System One) order writing — engine/orders_jev.py.
+# Optional: engine/jev.py degrades to "unavailable" when it is missing.
+typesafe-sdk>=0.7
