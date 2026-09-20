@@ -92,7 +92,8 @@ def _adjacent_scs(game: Game, prov: str, impassable: set[str],
 
 def gloss(game: Game, order: str, names: dict[str, str],
           owners: dict[str, tuple[str, str]], me: str,
-          impassable: set[str] | None = None) -> str:
+          impassable: set[str] | None = None,
+          values: dict[str, float] | None = None) -> str:
     """One line describing what an order does, in board terms.
 
     Option descriptions are what separate the options from each other, so these
@@ -104,6 +105,8 @@ def gloss(game: Game, order: str, names: dict[str, str],
     if p.kind == "MOVE":
         dest = _place(game, p.dest, names, owners, me)
         opens = _adjacent_scs(game, p.dest, impassable, me)
+        if values is not None:
+            opens += f". Priority {values.get(p.dest, 0):g}/100"
         if p.via:
             return (f"Move to {dest} by sea. Requires a fleet chain ordered to "
                     f"convoy it this same turn; the move fails outright if any "
@@ -126,12 +129,19 @@ def gloss(game: Game, order: str, names: dict[str, str],
         return (f"Convoy {whose} army from {names.get(p.target, p.target)} to "
                 f"{names.get(p.dest, p.dest)}.")
     if p.kind == "H":
-        return (f"Stay in {_place(game, p.loc, names, owners, me)}, taking no "
-                f"new ground this turn.")
+        # Hold is scored on exactly the axis the moves are scored on. Left
+        # unmeasured it is the only option that never has to justify itself,
+        # and measurement shows it wins on that alone: annotating every move
+        # while leaving hold as prose doubles the hold rate.
+        text = (f"Stay in {_place(game, p.loc, names, owners, me)}, taking no new "
+                f"ground. {_adjacent_scs(game, p.loc, impassable, me)}")
+        if values is not None:
+            text += f". Priority {values.get(p.loc, 0):g}/100"
+        return text
     return f"{order}."
 
 
-def unit_questions(game: Game, power: str):
+def unit_questions(game: Game, power: str, values: dict[str, float] | None = None):
     """One Choice per orderable location, options grouped move/support/convoy/hold."""
     from typesafe_sdk import Choice
 
@@ -150,7 +160,7 @@ def unit_questions(game: Game, power: str):
                            if coherence.parse_order(o).kind in KIND_ORDER
                            else len(KIND_ORDER), o),
         )
-        criteria = {o: gloss(game, o, names, owners, power, impassable)
+        criteria = {o: gloss(game, o, names, owners, power, impassable, values)
                     for o in ranked}
         unit = unit_by_loc.get(loc, loc)
         questions[loc] = Choice(
@@ -289,14 +299,16 @@ class JevOrders:
 
 def choose_orders(game: Game, power: str, *, root: Path | None = None,
                   extra: dict | None = None, model: str = jev.DEFAULT_MODEL,
-                  ask=None) -> JevOrders:
+                  ask=None, values: dict[str, float] | None = None) -> JevOrders:
     """Ask Jev for this power's whole order set in one request.
 
-    `ask` is injectable so the assembly logic can be tested without a network
-    call; it defaults to `engine.jev.ask`.
+    `values` is an optional province -> priority map from
+    `engine.valuation.province_values`; when given, each move option carries its
+    destination's priority. `ask` is injectable so the assembly logic can be
+    tested without a network call; it defaults to `engine.jev.ask`.
     """
     power = power.upper()
-    questions = unit_questions(game, power)
+    questions = unit_questions(game, power, values)
     result = JevOrders(power=power, phase=game.get_current_phase())
     if not questions:
         return result

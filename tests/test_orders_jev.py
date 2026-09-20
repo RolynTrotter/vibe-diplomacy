@@ -65,7 +65,8 @@ def test_every_option_has_a_gloss_naming_the_board():
     criteria = orders_jev.unit_questions(game, "FRANCE")["PAR"].criteria
     assert all(text and text[0].isupper() for text in criteria.values())
     assert "Burgundy" in criteria["A PAR - BUR"], "codes are expanded to real names"
-    assert criteria["A PAR H"].endswith("."), "prose glosses stay sentences"
+    assert criteria["A PAR S F BRE"].endswith("."), "prose glosses stay sentences"
+    assert criteria["A PAR H"].endswith(")"), "hold ends on its own tally"
 
 
 def test_convoy_gloss_warns_that_it_needs_an_escort():
@@ -248,3 +249,45 @@ def test_spend_accumulates_across_requests():
     spend.add(_Response({}))
     assert spend.requests == 2 and spend.input_tokens == 2468
     assert spend.usd == pytest.approx(2468 / 1e6 * 0.042)
+
+
+# --- province valuation ----------------------------------------------------
+
+def test_province_values_are_percent_of_attention():
+    """Probabilities sum to 1, so each province's share is a percent directly."""
+    from engine import valuation
+    game = Game()
+    captured = {}
+
+    def ask(state, questions):
+        captured["q"] = questions
+        return _Response({"most_important": _Answer(
+            "BUL", probabilities={"BUL": 0.53, "BLA": 0.16, "CON": 0.14, "CLY": 0.0})})
+
+    values = valuation.province_values(game, "TURKEY", state={"board_graph":
+        orders_jev.board_graph(game)}, ask=ask)
+    assert values["BUL"] == 53.0 and values["CLY"] == 0.0
+    assert sum(values.values()) == pytest.approx(83.0)
+    question = captured["q"]["most_important"]
+    assert len(question.criteria) == 75, "one option per province, asked once"
+    assert "TURKEY" in question.instructions
+
+
+def test_hold_is_scored_on_the_same_axis_as_moves():
+    """Left unmeasured, hold is the only option that never has to justify itself.
+
+    Annotating every move while leaving hold as prose measurably doubled the
+    hold rate, so hold carries the same two fields.
+    """
+    game = Game()
+    criteria = orders_jev.unit_questions(game, "ENGLAND", {"NTH": 51.0})["LON"].criteria
+    for order in ("F LON - NTH", "F LON H"):
+        assert "Adjacent SCs" in criteria[order]
+        assert "Priority" in criteria[order]
+    assert criteria["F LON - NTH"].endswith("Priority 51/100")
+    assert criteria["F LON H"].endswith("Priority 0/100")
+
+
+def test_priorities_are_omitted_entirely_when_no_values_given():
+    criteria = orders_jev.unit_questions(Game(), "ENGLAND")["LON"].criteria
+    assert not any("Priority" in text for text in criteria.values())
