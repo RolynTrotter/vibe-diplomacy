@@ -291,3 +291,49 @@ def test_hold_is_scored_on_the_same_axis_as_moves():
 def test_priorities_are_omitted_entirely_when_no_values_given():
     criteria = orders_jev.unit_questions(Game(), "ENGLAND")["LON"].criteria
     assert not any("Priority" in text for text in criteria.values())
+
+
+# --- selection policy ------------------------------------------------------
+
+def test_aggregate_beats_argmax_at_vote_splitting():
+    """Hold is one option; "move somewhere" is split across every destination.
+
+    Argmax therefore hands the win to hold on a near-tie it should lose.
+    """
+    probs = {"A PAR H": 0.29, "A PAR - BUR": 0.16, "A PAR - PIC": 0.14,
+             "A PAR - GAS": 0.10, "A PAR S F BRE": 0.31}
+    assert max(probs, key=probs.get) == "A PAR S F BRE"
+    # move mass 0.40 > support 0.31 > hold 0.29
+    assert orders_jev._aggregate_pick(probs) == "A PAR - BUR"
+
+
+def test_aggregate_reduces_to_argmax_when_one_class():
+    """Builds, disbands and retreats are all one class — no special case."""
+    probs = {"A CON B": 0.6, "F CON B": 0.3, "WAIVE": 0.1}
+    assert orders_jev._aggregate_pick(probs) == "A CON B"
+
+
+def test_choose_orders_uses_aggregation_by_default():
+    game = Game()
+    probs = {"A PAR H": 0.4, "A PAR - BUR": 0.25, "A PAR - PIC": 0.24,
+             "A PAR - GAS": 0.11}
+
+    def ask(state, questions):
+        return _Response({"PAR": _Answer("A PAR H", probabilities=probs)})
+
+    aggregated = orders_jev.choose_orders(game, "FRANCE", ask=ask)
+    assert aggregated.orders == ["A PAR - BUR"], "move mass 0.60 outweighs hold 0.40"
+    raw = orders_jev.choose_orders(game, "FRANCE", ask=ask, select="argmax")
+    assert raw.orders == ["A PAR H"]
+
+
+def test_builds_are_capped_at_what_the_power_is_owed():
+    """Every open home centre is offered a build; only so many are allowed."""
+    from orchestration.jev_match import _capped_adjustments
+    game = Game()
+    game.set_orders("TURKEY", ["A CON - BUL", "F ANK - BLA", "A SMY - ARM"])
+    game.process(); game.process()          # through F1901M into W1901A
+    owed = len(game.powers["TURKEY"].centers) - len(game.powers["TURKEY"].units)
+    greedy = ["A CON B", "A SMY B", "F ANK B"][:max(owed + 1, 1)]
+    capped = _capped_adjustments(game, "TURKEY", greedy)
+    assert sum(o.endswith(" B") for o in capped) <= max(owed, 0)

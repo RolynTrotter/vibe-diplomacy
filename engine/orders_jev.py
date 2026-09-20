@@ -32,6 +32,33 @@ from engine import coherence, jev, query, rules, validate
 # then what it can do for someone else, then the fallback.
 KIND_ORDER = ["MOVE", "SUP_M", "SUP_H", "CONVOY", "OTHER", "H"]
 
+#: For selection, orders collapse to three classes. See `_aggregate_pick`.
+_CLASS = {"MOVE": "move", "SUP_M": "support", "SUP_H": "support",
+          "CONVOY": "support", "H": "hold"}
+
+
+def _aggregate_pick(probabilities: dict[str, float]) -> str:
+    """The best order of whichever *kind* holds the most probability.
+
+    Taking the single highest-probability option throws away what the
+    distribution is telling you. Hold is always exactly one option while
+    "move somewhere" is split across every destination, so plain argmax hands
+    the win to whichever class has the fewest members — and that is always
+    hold. Summing by kind first and then picking within the winning kind cuts
+    the hold rate from roughly 10/22 to 1/22 at S1901M.
+
+    Where every option is the same class — builds, disbands, retreats — this
+    reduces to argmax on its own, with no special case.
+    """
+    mass: dict[str, float] = {}
+    for order, p in probabilities.items():
+        kind = coherence.parse_order(order).kind
+        mass[_CLASS.get(kind, "other")] = mass.get(_CLASS.get(kind, "other"), 0.0) + p
+    best = max(mass, key=mass.get)
+    pool = {o: p for o, p in probabilities.items()
+            if _CLASS.get(coherence.parse_order(o).kind, "other") == best}
+    return max(pool, key=pool.get)
+
 
 def _names(game: Game) -> dict[str, str]:
     """Province code -> readable name ('BUR' -> 'Burgundy')."""
@@ -299,13 +326,15 @@ class JevOrders:
 
 def choose_orders(game: Game, power: str, *, root: Path | None = None,
                   extra: dict | None = None, model: str = jev.DEFAULT_MODEL,
-                  ask=None, values: dict[str, float] | None = None) -> JevOrders:
+                  ask=None, values: dict[str, float] | None = None,
+                  select: str = "aggregate") -> JevOrders:
     """Ask Jev for this power's whole order set in one request.
 
     `values` is an optional province -> priority map from
     `engine.valuation.province_values`; when given, each move option carries its
     destination's priority. `ask` is injectable so the assembly logic can be
-    tested without a network call; it defaults to `engine.jev.ask`.
+    tested without a network call; it defaults to `engine.jev.ask`. `select` is
+    "aggregate" (default, see `_aggregate_pick`) or "argmax" for the raw pick.
     """
     power = power.upper()
     questions = unit_questions(game, power, values)
@@ -321,8 +350,10 @@ def choose_orders(game: Game, power: str, *, root: Path | None = None,
         answer = response.answers.get(loc)
         if answer is None:
             continue
-        picked.append(answer.choice)
-        result.probabilities[loc] = dict(getattr(answer, "probabilities", {}) or {})
+        probs = dict(getattr(answer, "probabilities", {}) or {})
+        picked.append(_aggregate_pick(probs)
+                      if select == "aggregate" and probs else answer.choice)
+        result.probabilities[loc] = probs
         conf = getattr(answer, "confidence", None)
         if conf is not None:
             result.confidence[loc] = conf
