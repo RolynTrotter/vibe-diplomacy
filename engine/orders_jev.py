@@ -70,8 +70,36 @@ def _place(game: Game, prov: str, names: dict[str, str],
     return f"{label} ({', '.join(bits)})"
 
 
+def _opens_on(game: Game, prov: str, names: dict[str, str], me: str,
+              impassable: set[str]) -> str:
+    """Which contested centres a province puts you next to.
+
+    The destination's own neighbourhood, joined against centre ownership. Jev
+    answers in one pass rather than chaining lookups, so a fact two hops away in
+    `board_graph` is a fact it will not find; this brings it into the option.
+    Computed, never authored — it holds for any province on any board.
+    """
+    neutral, foreign = [], []
+    for nb in query.adjacencies(game, prov):
+        base = nb.split("/")[0]
+        if base in impassable or base not in game.map.scs:
+            continue
+        owner = query.owner_of_center(game, base)
+        if owner is None:
+            neutral.append(names.get(base, base))
+        elif owner != me:
+            foreign.append(f"{names.get(base, base)} ({owner})")
+    bits = []
+    if neutral:
+        bits.append("unclaimed centres " + ", ".join(sorted(neutral)))
+    if foreign:
+        bits.append("rival centres " + ", ".join(sorted(foreign)))
+    return "; from there you border " + " and ".join(bits) if bits else ""
+
+
 def gloss(game: Game, order: str, names: dict[str, str],
-          owners: dict[str, tuple[str, str]], me: str) -> str:
+          owners: dict[str, tuple[str, str]], me: str,
+          impassable: set[str] | None = None) -> str:
     """One line describing what an order does, in board terms.
 
     Option descriptions are what separate the options from each other, so these
@@ -79,13 +107,15 @@ def gloss(game: Game, order: str, names: dict[str, str],
     and whether the order depends on another unit cooperating.
     """
     p = coherence.parse_order(order)
+    impassable = impassable or set()
     if p.kind == "MOVE":
         dest = _place(game, p.dest, names, owners, me)
+        opens = _opens_on(game, p.dest, names, me, impassable)
         if p.via:
             return (f"Move to {dest} by sea. Requires a fleet chain ordered to "
                     f"convoy it this same turn; the move fails outright if any "
-                    f"link is missing.")
-        return f"Move to {dest}."
+                    f"link is missing.{opens}")
+        return f"Move to {dest}{opens}."
     if p.kind == "SUP_M":
         who = owners.get(p.target, ("", ""))[0]
         whose = "your" if who == me else (f"{who}'s" if who else "the")
@@ -103,7 +133,8 @@ def gloss(game: Game, order: str, names: dict[str, str],
         return (f"Convoy {whose} army from {names.get(p.target, p.target)} to "
                 f"{names.get(p.dest, p.dest)}.")
     if p.kind == "H":
-        return f"Hold in {_place(game, p.loc, names, owners, me)}."
+        return (f"Stay in {_place(game, p.loc, names, owners, me)}, taking no "
+                f"new ground this turn.")
     return f"{order}."
 
 
@@ -113,6 +144,8 @@ def unit_questions(game: Game, power: str):
 
     power = power.upper()
     names, owners = _names(game), _unit_owners(game)
+    impassable = {l.upper().split("/")[0] for l in game.map.locs
+                  if game.map.area_type(l.upper().split("/")[0]) == "SHUT"}
     legal = validate.legal_orders(game, power)
     unit_by_loc = {loc: unit for loc, (who, unit) in owners.items() if who == power}
 
@@ -124,7 +157,8 @@ def unit_questions(game: Game, power: str):
                            if coherence.parse_order(o).kind in KIND_ORDER
                            else len(KIND_ORDER), o),
         )
-        criteria = {o: gloss(game, o, names, owners, power) for o in ranked}
+        criteria = {o: gloss(game, o, names, owners, power, impassable)
+                    for o in ranked}
         unit = unit_by_loc.get(loc, loc)
         questions[loc] = Choice(
             instructions=(

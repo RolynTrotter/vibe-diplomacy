@@ -181,3 +181,25 @@ def test_key_falls_back_to_this_checkout(tmp_path, monkeypatch):
     monkeypatch.setattr(jev, "_key_from_file",
                         lambda path: "repo-key" if path == repo else None)
     assert jev.resolve_api_key(tmp_path) == "repo-key"
+
+
+def test_move_options_are_distinguishable_by_what_they_reach():
+    """The failure this fixes: every empty destination read identically.
+
+    F LON's moves were all '(empty)' — nothing separated the North Sea, which
+    borders four unclaimed centres, from Yorkshire, which borders none.
+    """
+    criteria = orders_jev.unit_questions(Game(), "ENGLAND")["LON"].criteria
+    assert "Norway" in criteria["F LON - NTH"]
+    assert "Denmark" in criteria["F LON - NTH"]
+    assert "Belgium" in criteria["F LON - ENG"]
+    assert "Brest (FRANCE)" in criteria["F LON - ENG"], "rival centres named too"
+    assert criteria["F LON - YOR"] == "Move to Yorkshire (empty)."
+
+
+def test_impassable_provinces_never_appear_as_reachable():
+    """Switzerland sits in the raw adjacency table but cannot be entered."""
+    game = Game()
+    graph = orders_jev.board_graph(game)
+    assert not any("SWI" in entry["adjacent"] for entry in graph.values())
+    assert "SWI" not in graph
