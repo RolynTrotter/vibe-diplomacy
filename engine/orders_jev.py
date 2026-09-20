@@ -70,7 +70,8 @@ def _place(game: Game, prov: str, names: dict[str, str],
     return f"{label} ({', '.join(bits)})"
 
 
-def _adjacent_scs(game: Game, prov: str, impassable: set[str]) -> str:
+def _adjacent_scs(game: Game, prov: str, impassable: set[str],
+                  me: str = "") -> str:
     """The supply centres bordering a province, named and counted.
 
     Something for the model to index on. Jev answers in one pass and the
@@ -82,7 +83,11 @@ def _adjacent_scs(game: Game, prov: str, impassable: set[str]) -> str:
                  & set(game.map.scs) - impassable)
     if not scs:
         return "Adjacent SCs none (0)"
-    return f"Adjacent SCs {', '.join(c.title() for c in scs)} ({len(scs)})"
+    # A bare count reads the same for three of your own centres and three you
+    # could take, so the gettable share is counted separately.
+    theirs = sum(query.owner_of_center(game, c) != me for c in scs)
+    return (f"Adjacent SCs {', '.join(c.title() for c in scs)} "
+            f"({len(scs)}; {theirs} not yours)")
 
 
 def gloss(game: Game, order: str, names: dict[str, str],
@@ -98,7 +103,7 @@ def gloss(game: Game, order: str, names: dict[str, str],
     impassable = impassable or set()
     if p.kind == "MOVE":
         dest = _place(game, p.dest, names, owners, me)
-        opens = _adjacent_scs(game, p.dest, impassable)
+        opens = _adjacent_scs(game, p.dest, impassable, me)
         if p.via:
             return (f"Move to {dest} by sea. Requires a fleet chain ordered to "
                     f"convoy it this same turn; the move fails outright if any "

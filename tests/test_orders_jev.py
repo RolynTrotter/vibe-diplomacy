@@ -191,9 +191,13 @@ def test_move_options_are_distinguishable_by_what_they_reach():
     """
     criteria = orders_jev.unit_questions(Game(), "ENGLAND")["LON"].criteria
     assert criteria["F LON - NTH"].endswith(
-        "Adjacent SCs Bel, Den, Edi, Hol, Lon, Nwy (6)")
-    assert criteria["F LON - ENG"].endswith("Adjacent SCs Bel, Bre, Lon (3)")
-    assert criteria["F LON - WAL"].endswith("Adjacent SCs Lon, Lvp (2)")
+        "Adjacent SCs Bel, Den, Edi, Hol, Lon, Nwy (6; 4 not yours)")
+    assert criteria["F LON - ENG"].endswith(
+        "Adjacent SCs Bel, Bre, Lon (3; 2 not yours)")
+    # Yorkshire borders three centres too — all England's own. A bare count
+    # would read identically to the Channel's three.
+    assert criteria["F LON - YOR"].endswith(
+        "Adjacent SCs Edi, Lon, Lvp (3; 0 not yours)")
 
 
 def test_adjacent_sc_count_is_computed_not_asked():
@@ -204,8 +208,8 @@ def test_adjacent_sc_count_is_computed_not_asked():
             if not order.startswith("F LON -") and not order.startswith("A LVP -"):
                 continue
             named = text.split("Adjacent SCs ")[1]
-            listed, count = named.rsplit(" (", 1)
-            count = int(count.rstrip(")"))
+            listed, tally = named.rsplit(" (", 1)
+            count = int(tally.rstrip(")").split(";")[0])
             assert count == (0 if listed == "none" else len(listed.split(", ")))
 
 
