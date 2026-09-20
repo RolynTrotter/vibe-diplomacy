@@ -70,31 +70,19 @@ def _place(game: Game, prov: str, names: dict[str, str],
     return f"{label} ({', '.join(bits)})"
 
 
-def _opens_on(game: Game, prov: str, names: dict[str, str], me: str,
-              impassable: set[str]) -> str:
-    """Which contested centres a province puts you next to.
+def _adjacent_scs(game: Game, prov: str, impassable: set[str]) -> str:
+    """The supply centres bordering a province, named and counted.
 
-    The destination's own neighbourhood, joined against centre ownership. Jev
-    answers in one pass rather than chaining lookups, so a fact two hops away in
-    `board_graph` is a fact it will not find; this brings it into the option.
-    Computed, never authored — it holds for any province on any board.
+    Something for the model to index on. Jev answers in one pass and the
+    vendor's own notes call out indirection ("a property of a property") and
+    unreliable counting as failure modes, so the hop is resolved here and the
+    tally is computed in code — the model only reads the result.
     """
-    neutral, foreign = [], []
-    for nb in query.adjacencies(game, prov):
-        base = nb.split("/")[0]
-        if base in impassable or base not in game.map.scs:
-            continue
-        owner = query.owner_of_center(game, base)
-        if owner is None:
-            neutral.append(names.get(base, base))
-        elif owner != me:
-            foreign.append(f"{names.get(base, base)} ({owner})")
-    bits = []
-    if neutral:
-        bits.append("unclaimed centres " + ", ".join(sorted(neutral)))
-    if foreign:
-        bits.append("rival centres " + ", ".join(sorted(foreign)))
-    return "; from there you border " + " and ".join(bits) if bits else ""
+    scs = sorted({nb.split("/")[0] for nb in query.adjacencies(game, prov)}
+                 & set(game.map.scs) - impassable)
+    if not scs:
+        return "Adjacent SCs none (0)"
+    return f"Adjacent SCs {', '.join(c.title() for c in scs)} ({len(scs)})"
 
 
 def gloss(game: Game, order: str, names: dict[str, str],
@@ -110,12 +98,12 @@ def gloss(game: Game, order: str, names: dict[str, str],
     impassable = impassable or set()
     if p.kind == "MOVE":
         dest = _place(game, p.dest, names, owners, me)
-        opens = _opens_on(game, p.dest, names, me, impassable)
+        opens = _adjacent_scs(game, p.dest, impassable)
         if p.via:
             return (f"Move to {dest} by sea. Requires a fleet chain ordered to "
                     f"convoy it this same turn; the move fails outright if any "
-                    f"link is missing.{opens}")
-        return f"Move to {dest}{opens}."
+                    f"link is missing. {opens}")
+        return f"Move to {dest}. {opens}"
     if p.kind == "SUP_M":
         who = owners.get(p.target, ("", ""))[0]
         whose = "your" if who == me else (f"{who}'s" if who else "the")
@@ -283,6 +271,9 @@ class JevOrders:
         if self.errors:
             lines.append("Rejected by the engine:")
             lines += [f"  {e}" for e in self.errors]
+        if self.usage.get("cost_usd") is not None:
+            lines.append(f"Cost: {self.usage['input_tokens']:,} input tokens — "
+                         f"${self.usage['cost_usd']:.5f}")
         if self.issues:
             lines.append("Coherence:")
             lines.append(coherence.format_issues(self.issues))
@@ -326,6 +317,8 @@ def choose_orders(game: Game, power: str, *, root: Path | None = None,
     result.issues = coherence.check_orders(game, power, checked.accepted)
     usage = getattr(response, "usage", None)
     if usage is not None:
-        result.usage = {"input_tokens": getattr(usage, "input_tokens", None),
-                        "output_tokens": getattr(usage, "output_tokens", None)}
+        tokens_in = getattr(usage, "input_tokens", 0) or 0
+        result.usage = {"input_tokens": tokens_in,
+                        "output_tokens": getattr(usage, "output_tokens", 0) or 0,
+                        "cost_usd": jev.cost_usd(tokens_in)}
     return result

@@ -63,9 +63,9 @@ def test_options_are_grouped_moves_then_supports_then_hold():
 def test_every_option_has_a_gloss_naming_the_board():
     game = Game()
     criteria = orders_jev.unit_questions(game, "FRANCE")["PAR"].criteria
-    assert all(text and text[0].isupper() and text.endswith(".")
-               for text in criteria.values())
+    assert all(text and text[0].isupper() for text in criteria.values())
     assert "Burgundy" in criteria["A PAR - BUR"], "codes are expanded to real names"
+    assert criteria["A PAR H"].endswith("."), "prose glosses stay sentences"
 
 
 def test_convoy_gloss_warns_that_it_needs_an_escort():
@@ -190,11 +190,33 @@ def test_move_options_are_distinguishable_by_what_they_reach():
     borders four unclaimed centres, from Yorkshire, which borders none.
     """
     criteria = orders_jev.unit_questions(Game(), "ENGLAND")["LON"].criteria
-    assert "Norway" in criteria["F LON - NTH"]
-    assert "Denmark" in criteria["F LON - NTH"]
-    assert "Belgium" in criteria["F LON - ENG"]
-    assert "Brest (FRANCE)" in criteria["F LON - ENG"], "rival centres named too"
-    assert criteria["F LON - YOR"] == "Move to Yorkshire (empty)."
+    assert criteria["F LON - NTH"].endswith(
+        "Adjacent SCs Bel, Den, Edi, Hol, Lon, Nwy (6)")
+    assert criteria["F LON - ENG"].endswith("Adjacent SCs Bel, Bre, Lon (3)")
+    assert criteria["F LON - WAL"].endswith("Adjacent SCs Lon, Lvp (2)")
+
+
+def test_adjacent_sc_count_is_computed_not_asked():
+    """Jev does not count reliably, so the tally is done here and handed over."""
+    game = Game()
+    for question in orders_jev.unit_questions(game, "ENGLAND").values():
+        for order, text in question.criteria.items():
+            if not order.startswith("F LON -") and not order.startswith("A LVP -"):
+                continue
+            named = text.split("Adjacent SCs ")[1]
+            listed, count = named.rsplit(" (", 1)
+            count = int(count.rstrip(")"))
+            assert count == (0 if listed == "none" else len(listed.split(", ")))
+
+
+def test_a_province_bordering_no_supply_centre_says_so():
+    """A consistent field beats an absent one when the model is indexing on it."""
+    game = Game()
+    text = orders_jev.gloss(game, "F LON - NTH", orders_jev._names(game),
+                            orders_jev._unit_owners(game), "ENGLAND", set())
+    assert "Adjacent SCs" in text
+    # London itself borders ENG, NTH, WAL and YOR — not one of them is a centre.
+    assert orders_jev._adjacent_scs(game, "LON", set()) == "Adjacent SCs none (0)"
 
 
 def test_impassable_provinces_never_appear_as_reachable():
@@ -203,3 +225,22 @@ def test_impassable_provinces_never_appear_as_reachable():
     graph = orders_jev.board_graph(game)
     assert not any("SWI" in entry["adjacent"] for entry in graph.values())
     assert "SWI" not in graph
+
+
+def test_cost_is_reported_per_request():
+    """Only input tokens are billed, at $0.042 per million."""
+    assert jev.cost_usd(1_000_000) == pytest.approx(0.042)
+    result = orders_jev.choose_orders(
+        Game(), "FRANCE",
+        ask=_ask_returning({"PAR": "A PAR H", "MAR": "A MAR H", "BRE": "F BRE H"}))
+    assert result.usage["input_tokens"] == 1234
+    assert result.usage["cost_usd"] == pytest.approx(1234 / 1e6 * 0.042)
+    assert "$" in result.report()
+
+
+def test_spend_accumulates_across_requests():
+    spend = jev.Spend()
+    spend.add(_Response({}))
+    spend.add(_Response({}))
+    assert spend.requests == 2 and spend.input_tokens == 2468
+    assert spend.usd == pytest.approx(2468 / 1e6 * 0.042)

@@ -20,8 +20,43 @@ import os
 from pathlib import Path
 
 DEFAULT_MODEL = "jev-latest"
+# jev-1.13: $42 per Btok input, output free. Context 64k per request, of which
+# 32k is state plus the longest question.
+USD_PER_INPUT_MTOK = 0.042
+CONTEXT_LIMIT = 64_000
+STATE_LIMIT = 32_000
 ENV_VAR = "TYPESAFE_API_KEY"
 SECRETS_FILE = "secrets.local"
+
+
+def cost_usd(input_tokens: int) -> float:
+    """What a request cost. Only input tokens are billed."""
+    return (input_tokens or 0) / 1_000_000 * USD_PER_INPUT_MTOK
+
+
+class Spend:
+    """Running total for a session, so a phase or a match can be priced."""
+
+    def __init__(self) -> None:
+        self.requests = self.input_tokens = self.output_tokens = 0
+
+    def add(self, response) -> None:
+        usage = getattr(response, "usage", None)
+        self.requests += 1
+        self.input_tokens += getattr(usage, "input_tokens", 0) or 0
+        self.output_tokens += getattr(usage, "output_tokens", 0) or 0
+
+    @property
+    def usd(self) -> float:
+        return cost_usd(self.input_tokens)
+
+    def __str__(self) -> str:
+        return (f"{self.requests} request(s), {self.input_tokens:,} input tokens "
+                f"({self.output_tokens:,} output, free) — ${self.usd:.4f}")
+
+
+#: Totals for everything this process has asked Jev.
+SPEND = Spend()
 
 
 def _key_from_file(root: Path) -> str | None:
@@ -93,4 +128,6 @@ def ask(state, questions, *, root: Path | None = None, model: str = DEFAULT_MODE
         ok, why = available(root)
         raise RuntimeError(f"cannot call Jev: {why}")
     with TypeSafeClient(api_key=key, timeout=timeout) as client:
-        return client.system_one(state=state, questions=questions, model=model)
+        response = client.system_one(state=state, questions=questions, model=model)
+    SPEND.add(response)
+    return response
