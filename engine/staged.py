@@ -110,29 +110,32 @@ def _subset_options(locs: list[str], names: dict[str, str],
 def _unit_digest(game: Game, power: str, locs: list[str],
                  values: dict[str, float] | None,
                  names: dict[str, str], impassable: set[str]) -> dict:
-    """Per-unit facts for the state, so subset options can stay terse."""
+    """Per-unit facts for the state, so subset options can stay terse.
+
+    Each destination is described by `orders_jev.gloss` — the identical text
+    the destination question will show. An earlier version summarised moves
+    here by hand and dropped the one fact that decides most of them: whether
+    the destination is a supply centre you would capture. It also sorted by
+    priority, which undervalues a free centre, so the weaker option led the
+    list. With that digest in state, Spain went to Gascony 3/3; without it,
+    Spain took Portugal 3/3.
+
+    One description of a move, used everywhere. Two descriptions drift, and
+    the one in the state wins.
+    """
+    owners = orders_jev._unit_owners(game)
     legal = validate.legal_orders(game, power)
     digest = {}
     for loc in locs:
-        dests = []
-        for order in legal.get(loc, []):
-            p = coherence.parse_order(order)
-            if p.kind != "MOVE":
-                continue
-            entry = {"to": names.get(p.dest, p.dest),
-                     "adjacent_scs": orders_jev._adjacent_scs(
-                         game, p.dest, impassable, power)}
-            if values is not None:
-                entry["priority"] = values.get(p.dest, 0)
-            if p.via:
-                entry["needs_convoy"] = True
-            dests.append(entry)
-        if values is not None:
-            dests.sort(key=lambda d: -d.get("priority", 0))
-        digest[loc] = {"unit": next(
-            (u for u in game.powers[power.upper()].units
-             if u.split()[1].split("/")[0] == loc), loc),
-            "can_move_to": dests[:12]}
+        moves = [o for o in legal.get(loc, [])
+                 if coherence.parse_order(o).kind == "MOVE"]
+        digest[loc] = {
+            "unit": next((u for u in game.powers[power.upper()].units
+                          if u.split()[1].split("/")[0] == loc), loc),
+            "can_move_to": {
+                o: orders_jev.gloss(game, o, names, owners, power,
+                                    impassable, values) for o in moves},
+        }
     return digest
 
 
