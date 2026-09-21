@@ -27,6 +27,14 @@ Subsets are asked as whole combinations because the commonest decision on the
 board is exclusive: which of two units attacks and which supports it. Only a
 question over combinations can say "Moscow or Warsaw, not both".
 
+The instructions state mechanics and nothing else. They used to editorialise —
+"a unit that does not advance is still useful, it can support or convoy one
+that does", and "back up one that is" — and that advice was worth 0.05 of
+probability against moving at S1901M, measured by ablation on the fleet
+question that kept Brest at home. Boilerplate that tells the model what is
+worth doing is a thumb on the scale wearing the costume of a hint; the numbers
+in the state are where a preference belongs.
+
 Per-unit marginals are logged for inspection and nothing reads them. They are
 recorded because they are free, not because they are a decision rule — on that
 same exclusive pairing, `{Mos}` at 0.48 against `{War}` at 0.47 marginalises to
@@ -178,11 +186,10 @@ def _movers_from(game: Game, power: str, locs: list[str], kind: str,
             instructions=(
                 f"You are {power}. Decide which of these {kind} advance this turn. "
                 f"Each unit's options are in `your_units`; anything already "
-                f"ordered is in `committed_orders`. A unit that does not advance "
-                f"is still useful — it can support or convoy one that does. "
-                f"Your own plan is in `your_own_plan`; agreements you are bound "
-                f"by this turn are in `deal_policy_this_turn`. Choose the "
-                f"combination that does most for your position."),
+                f"ordered is in `committed_orders`. Your own plan is in "
+                f"`your_own_plan`; agreements you are bound by this turn are in "
+                f"`deal_policy_this_turn`. Choose the combination that does most "
+                f"for your position."),
             criteria=_subset_options(group, names, unit_of),
         )
         key = f"{kind}_group_{index}"
@@ -319,11 +326,11 @@ def _helpers(game: Game, power: str, stayers: list[str], state: dict,
         if not opts:
             continue
         questions[loc] = Choice(
-            instructions=(f"You are {power}. This unit is not advancing. Back up "
-                          f"one that is: `committed_orders` lists the moves your "
-                          f"other units are making this turn. A support only "
-                          f"works if it matches an order actually given, and a "
-                          f"convoy only works if the army is moving by sea."),
+            instructions=(f"You are {power}. This unit is not advancing this turn. "
+                          f"Choose what it does instead. `committed_orders` lists "
+                          f"the moves your other units are making. A support only "
+                          f"takes effect if it matches an order actually given, "
+                          f"and a convoy only if that army is moving by sea."),
             criteria={o: orders_jev.gloss(game, o, names, owners, power,
                                           impassable, values) for o in opts},
         )
