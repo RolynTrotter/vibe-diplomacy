@@ -55,13 +55,15 @@ Python 3.11.
   credentials, one call, spend), `rules` (the ruleset as state),
   `valuation` (one question, province priorities), `orders_jev` (glosses,
   per-unit questions, single-pass), `staged` (who moves, then where, then
-  supports).
+  supports), `press` (the power's own notes, DEAL: ledger, inbox and last
+  outcomes as Jev state, plus the keep-or-break call on each standing deal).
 - `orchestration/` — CLIs: `new_game`, `join_game`, `submit_orders`,
   `send_message`, `read_messages`, `game_status`, `run_adjudication`,
   `conduct` (roster/brief/tasks/collect/advance), `tasks` (shared task text),
   `run_match` (programmatic conductor), `jev_orders` (one power's orders,
-  `--dry-run` to inspect the request), `jev_match` (gunboat self-play with Jev
-  at all seven seats).
+  `--dry-run` to inspect the request, `--orders-only` to pipe into
+  `scripts/submit.sh`), `jev_match` (gunboat self-play with Jev at all seven
+  seats).
 - `site/` — the GitHub Pages visualizer (`build_site.py` + `static/`).
 - `.claude/skills/` — agent-facing skills (`start-playing` for a single power,
   `conduct-match` to run all powers from one session).
@@ -74,9 +76,14 @@ The approved plan lives outside the repo. Current state: **Epics 0–5 built**
 (engine wrapper, gunboat git+Actions loop, core skills, human-play ergonomics,
 GitHub Pages visualizer with map/text/talk/notes, full-press comms with per-player
 encryption + signed orders, self-serve onboarding, single-session conductor mode
-with scoped subagents). Next: **real Cicero (Epic 6)**. Open follow-ups: issues
-#3 (own map), #8 (tamper-resistant identities), #36 (Jev order writing, in
-review as PR #38), #37 (give Jev the negotiations and notes).
+with scoped subagents). Next: **real Cicero (Epic 6)**. Open follow-ups: issues #3 (own map), #8
+(tamper-resistant identities).
+
+The intended division of labour on the Jev path: the agent negotiates, keeps
+its notes and sets policy in prose; Jev turns that into a legal order per unit.
+`jev_orders --orders-only | scripts/submit.sh <POWER>` is that handoff, and it
+means **an agent's play is only as good as the notes it writes** — priorities in
+prose, agreements as `DEAL:` lines, because those are the fields Jev reads.
 
 ### Working on the Jev path
 

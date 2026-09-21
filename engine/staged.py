@@ -41,7 +41,7 @@ from pathlib import Path
 
 from diplomacy import Game
 
-from engine import coherence, jev, orders_jev, query, validate
+from engine import coherence, jev, orders_jev, press, query, validate
 
 #: Units per subset question. 2**6 = 64 options, well inside the 255 ceiling.
 #: Every split costs joint reasoning, so this is as high as it goes while
@@ -180,7 +180,9 @@ def _movers_from(game: Game, power: str, locs: list[str], kind: str,
                 f"Each unit's options are in `your_units`; anything already "
                 f"ordered is in `committed_orders`. A unit that does not advance "
                 f"is still useful — it can support or convoy one that does. "
-                f"Choose the combination that does most for your position."),
+                f"Your own plan is in `your_own_plan`; agreements you are bound "
+                f"by this turn are in `deal_policy_this_turn`. Choose the "
+                f"combination that does most for your position."),
             criteria=_subset_options(group, names, unit_of),
         )
         key = f"{kind}_group_{index}"
@@ -227,7 +229,9 @@ def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: 
         questions[loc] = Choice(
             instructions=(f"You are {power}. This unit is advancing this turn. "
                           f"Where does it go? Avoid a province another of your "
-                          f"units is already ordered into — see `committed_orders`."),
+                          f"units is already ordered into — see `committed_orders`, "
+                          f"and do not enter ground a deal you are keeping puts "
+                          f"off limits (`deal_policy_this_turn`)."),
             criteria={o: orders_jev.gloss(game, o, names, owners, power,
                                           impassable, values) for o in moves},
         )
@@ -340,8 +344,14 @@ def _helpers(game: Game, power: str, stayers: list[str], state: dict,
 def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
                          values: dict[str, float] | None = None,
                          model: str = jev.DEFAULT_MODEL,
+                         extra: dict | None = None, stab: bool = False,
                          ask=None) -> orders_jev.JevOrders:
-    """Movement first, then destinations, then everyone else."""
+    """Movement first, then destinations, then everyone else.
+
+    `extra` is pinned onto the state for every stage. With `stab`, each standing
+    `DEAL:` line is decided keep-or-break once, before any unit is asked, and
+    the verdicts ride along in `deal_policy_this_turn` — see `engine.press`.
+    """
     power = power.upper()
     result = orders_jev.JevOrders(power=power, phase=game.get_current_phase())
 
@@ -349,7 +359,7 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
         # Retreats and adjustments are one decision per location with no
         # move/support division to make; the single-pass path handles them.
         return orders_jev.choose_orders(game, power, root=root, values=values,
-                                        model=model, ask=ask)
+                                        model=model, extra=extra, ask=ask)
 
     caller = ask or (lambda s, q: jev.ask(s, q, root=root, model=model))
     armies, fleets = _units_by_kind(game, power)
@@ -359,7 +369,13 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
     impassable = {l.upper().split("/")[0] for l in game.map.locs
                   if game.map.area_type(l.upper().split("/")[0]) == "SHUT"}
     names = orders_jev._names(game)
-    state = orders_jev.build_state(game, power, root=root)
+    state = orders_jev.build_state(game, power, root=root, extra=extra)
+    if stab:
+        deals = press.standing_deals(root, power) if root is not None else []
+        policy = press.stab_policy(deals, state, ask=caller)
+        if policy:
+            state["deal_policy_this_turn"] = policy
+            result.deal_policy = policy
     state["what_your_units_can_do"] = _unit_digest(
         game, power, armies + fleets, values, names, impassable)
     state["your_units"] = state["what_your_units_can_do"]

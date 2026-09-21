@@ -9,7 +9,7 @@ that are removed in code rather than asked away.
 import pytest
 from diplomacy import Game
 
-from engine import staged, validate
+from engine import coherence, staged, validate
 
 
 class _Answer:
@@ -211,3 +211,51 @@ def test_build_cap_holds_when_more_centres_than_allowed():
     owed = len(game.powers["TURKEY"].centers) - len(game.powers["TURKEY"].units)
     capped = _capped_adjustments(game, "TURKEY", ["A CON B", "A SMY B", "F ANK B"])
     assert sum(o.endswith(" B") for o in capped) == max(owed, 0)
+
+
+def test_stab_policy_is_decided_once_and_seen_by_every_later_stage(tmp_path):
+    """The deal is settled before any unit is asked, then rides along.
+
+    Left implicit in the per-unit choices the decision is never actually made:
+    a deal is prose and the options are scored in centres, so the prose loses.
+    """
+    (tmp_path / "notes").mkdir()
+    (tmp_path / "notes" / "FRANCE.md").write_text(
+        "- DEAL: ENGLAND — Channel DMZ — until end 1903\n", encoding="utf-8")
+
+    game = Game()
+    seen, asked = [], []
+
+    def ask(state, questions):
+        seen.append(dict(state))
+        asked.append(sorted(questions))
+        answers = {}
+        for key, question in questions.items():
+            first = next(iter(question.criteria))
+            answers[key] = _Answer(first, {first: 1.0}, confidence=0.7)
+        return _Response(answers)
+
+    result = staged.choose_orders_staged(game, "FRANCE", root=tmp_path,
+                                         stab=True, ask=ask)
+    assert asked[0] == ["deal_0"], "the deal is decided before any unit is"
+    assert result.deal_policy[0]["deal"].startswith("ENGLAND")
+    later = seen[1:]
+    assert later and all("deal_policy_this_turn" in s for s in later), (
+        "every order stage sees the verdict")
+    legal = validate.legal_orders(game, "FRANCE")
+    assert all(o in legal.get(coherence.parse_order(o).loc, [])
+               for o in result.orders), "a stab policy cannot smuggle in an illegal order"
+
+
+def test_no_deals_means_no_stab_request(tmp_path):
+    game = Game()
+    asked = []
+
+    def ask(state, questions):
+        asked.append(sorted(questions))
+        return _Response({k: _Answer(next(iter(q.criteria)))
+                          for k, q in questions.items()})
+
+    staged.choose_orders_staged(game, "FRANCE", root=tmp_path, stab=True, ask=ask)
+    assert not any(k.startswith("deal_") for keys in asked for k in keys), (
+        "a gunboat game never pays for a stab question")

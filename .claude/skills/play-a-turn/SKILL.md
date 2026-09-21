@@ -29,6 +29,18 @@ A MAR - SPA" | scripts/submit.sh <POWER>
 ```
 Validates, seals, commits, and pushes in one shot. Illegal orders print an error and nothing is written — fix and retry.
 
+### Or: let Jev write them
+
+You can negotiate and set the policy, and hand the tactics to Jev — it picks from the legal orders the engine enumerates, so it cannot emit an illegal one.
+
+```bash
+python -m orchestration.jev_orders --power <POWER> --stab --orders-only | scripts/submit.sh <POWER>
+```
+
+It reads your `notes/<POWER>.md`, your `DEAL:` lines, your inbox and what happened to your last orders, so **the quality of its play is the quality of your notes**. Before you run it, write down what you actually want this turn — priorities in prose, agreements as `DEAL:` lines. With `--stab` each standing deal is decided keep-or-break once, up front, and the verdict binds the orders.
+
+Read the report on stderr before you accept the result; drop `--orders-only` to see it without submitting.
+
 ## 4. Update notes
 Overwrite `notes/<POWER>.md` with your updated plan (see **consult-notes**), then:
 ```bash

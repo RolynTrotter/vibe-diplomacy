@@ -14,9 +14,10 @@ that simply fail to execute. `engine.coherence.check_orders` names each one, and
 `choose_orders` returns those issues rather than hiding them — that report is
 the evidence for whether a repair pass is worth building (issue #36).
 
-Diplomatic context (inbox, standing commitments, the power's own notes) is
-issue #37 and is not wired in here; `build_state` takes an `extra` mapping so it
-can be added without reshaping this module.
+Diplomatic context — the power's own notes, its standing `DEAL:` lines, its
+decrypted inbox and what happened to its last orders — comes from
+`engine.press` and is folded into `build_state` whenever a game root is given
+(issue #37). In a gunboat game those sections are simply absent.
 """
 from __future__ import annotations
 
@@ -25,7 +26,7 @@ from pathlib import Path
 
 from diplomacy import Game
 
-from engine import coherence, jev, query, rules, validate
+from engine import coherence, jev, press, query, rules, validate
 
 # Criteria are presented in this order. Dicts preserve insertion order, so this
 # is the order Jev sees the options in: what the unit can do on its own first,
@@ -268,12 +269,16 @@ def board_graph(game: Game) -> dict:
 
 
 def build_state(game: Game, power: str, *, root: Path | None = None,
-                extra: dict | None = None) -> dict:
-    """The board as Jev sees it.
+                extra: dict | None = None, include_press: bool = True) -> dict:
+    """The board as Jev sees it, plus this power's own diplomatic position.
 
     Text only — Jev accepts strings, objects and arrays of text, so the rendered
     board PNG from `engine.mapviz` has no path in here. `engine.context` already
     carries the same facts in words, which is what this reuses.
+
+    With `root` given and `include_press`, `engine.press` adds the private half:
+    notes, standing deals, inbox, last outcomes. Only sections that have content
+    appear, so a gunboat game gets exactly the board-only state it had before.
     """
     power = power.upper()
     summary = query.board_summary(game)
@@ -300,8 +305,10 @@ def build_state(game: Game, power: str, *, root: Path | None = None,
         state["your_legal_moves"] = context._tactical_annex(game, power)
     except Exception:
         pass  # each unit's own options are in its question regardless
+    if include_press and root is not None:
+        state.update(press.diplomatic_state(root, game, power))
     if extra:
-        state.update(extra)          # issue #37 hangs notes and press here
+        state.update(extra)          # stab policy, or anything a caller pins on
     return state
 
 
@@ -317,6 +324,7 @@ class JevOrders:
     errors: list[str] = field(default_factory=list)
     usage: dict = field(default_factory=dict)
     stages: list = field(default_factory=list)   # set by engine.staged
+    deal_policy: list = field(default_factory=list)  # keep/break, engine.press
 
     @property
     def coherent(self) -> bool:
@@ -327,6 +335,9 @@ class JevOrders:
         for o in self.orders:
             c = self.confidence.get(coherence.parse_order(o).loc)
             lines.append(f"  {o}" + (f"   (confidence {c:.2f})" if c is not None else ""))
+        for row in self.deal_policy:
+            lines.append(f"  [{row['this_turn']}] {row['deal']} "
+                         f"({row['confidence']:.2f})")
         if self.errors:
             lines.append("Rejected by the engine:")
             lines += [f"  {e}" for e in self.errors]
