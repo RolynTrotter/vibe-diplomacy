@@ -21,6 +21,7 @@ from __future__ import annotations
 import json
 import os
 import random
+import re
 import subprocess
 import time
 from dataclasses import dataclass, field
@@ -38,6 +39,8 @@ class AgentResult:
     ok: bool = True
     duration: float = 0.0
     error: str | None = None
+    #: The seat said it has nothing further to send or read this phase.
+    final: bool = False
 
     def to_json(self) -> dict:
         return {
@@ -46,6 +49,7 @@ class AgentResult:
             "session_id": self.session_id,
             "duration": self.duration,
             "error": self.error,
+            "final": self.final,
             "transcript": self.transcript,
         }
 
@@ -168,72 +172,135 @@ ORDERS_FORMAT = (
     "per line, engine syntax (e.g. `A PAR - BUR`, `F BRE S A PAR - PIC`). "
     "Only the fenced block is read — no commands, no tools, no prose inside it."
 )
-MESSAGES_FORMAT = (
-    "Reply with the messages you want to send (at most 4), one per line, as\n"
-    "`TO <POWER>: <message>` or `TO ALL: <message>`.\n"
-    "Lines in any other format are ignored. Reply `TO NOBODY: pass` to stay "
-    "silent."
+#: Every reply uses one syntax, for everything a seat wants to say. Where a
+#: line goes is decided in `parse_reply`, in code — so the model has no tool to
+#: call, no file to write, and no routing decision it can get wrong.
+_TO_SYNTAX = (
+    "Write one line per thing you want to say:\n"
+    "  `TO <POWER>: <message>`          sealed mail to that power\n"
+    "  `TO <POWER>, <POWER>: <message>` the same message to several of them\n"
+    "  `TO ALL: <message>`              say it to everyone\n"
+    "  `TO SELF: <note>`                your own notebook. It survives the "
+    "phase and you are shown it next turn. Anything you have agreed and mean "
+    "to keep goes on a line beginning `DEAL:`.\n"
+    "  `TO STAFF: <direction>`          what you want done this phase: what to "
+    "take, what to hold, whom you are fighting. Plain English, places and "
+    "aims — never unit orders; your staff places the units.\n"
+    "`TO SELF` and `TO STAFF` each go on a line of their own. At most 4 "
+    "messages to other powers; write `TO NOBODY: pass` to send none. Anything "
+    "that is not a `TO ...` line is ignored.\n"
+    "End with `FINAL_MESSAGES` on its own line if you have nothing further to "
+    "send or read this phase."
 )
+
+MESSAGES_FORMAT = _TO_SYNTAX
+
 # Messages and orders in one reply. The two formats do not collide — a `TO X:`
 # line is never an order, and only the fenced block is read for orders — so one
 # call can carry both, halving the model calls a full-press movement phase costs.
 COMBINED_FORMAT = (
-    "Reply with BOTH, in this order:\n"
-    "1. Your messages (at most 4), one per line, as `TO <POWER>: <message>` or "
-    "`TO ALL: <message>`. Write `TO NOBODY: pass` to send none.\n"
-    "2. Then your FINAL orders in one fenced code block (```), one order per "
-    "line, engine syntax (e.g. `A PAR - BUR`, `F BRE S A PAR - PIC`).\n"
-    "Only `TO ...` lines and the fenced block are read; prose between them is "
-    "ignored. The orders are binding — there is no later round."
+    _TO_SYNTAX
+    + "\nThen, after those lines, give your FINAL orders in one fenced code "
+      "block (```), one order per line in engine syntax (e.g. `A PAR - BUR`, "
+      "`F BRE S A PAR - PIC`). They are binding — there is no later round."
 )
 
 
 # A seat whose orders are written by its staff (see `orchestration.staff`).
 # The model is told it commands through subordinates and never writes an order;
 # nothing here names the model that does, and nothing should.
-DIRECTIVES_FORMAT = (
-    "Reply with BOTH, in this order:\n"
-    "1. Your messages (at most 4), one per line, as `TO <POWER>: <message>` or "
-    "`TO ALL: <message>`. Write `TO NOBODY: pass` to send none.\n"
-    "2. Then your standing directions to your staff, in one fenced code block "
-    "(```), one direction per line, plain English — what you want taken, what "
-    "must be held, whom you are working with and whom against. Anything you "
-    "have agreed and mean to keep goes on its own line beginning `DEAL:`.\n"
-    "Write intent, not tactics: name provinces and aims, never unit orders. "
-    "Your staff places the units.\n"
-    "Only `TO ...` lines and the fenced block are read; prose between them is "
-    "ignored."
-)
+DIRECTIVES_FORMAT = _TO_SYNTAX
+
+SELF = "SELF"
+STAFF = "STAFF"
+NOBODY = "NOBODY"
+#: A bare line meaning "nothing further to send or read this phase".
+FINAL_MESSAGES = "FINAL_MESSAGES"
+
+#: Diplomatic mail is capped so a seat cannot spend its whole turn writing
+#: letters. SELF and STAFF are capped separately: sharing one budget would let
+#: a chatty phase silently eat the power's own notes, which is the one thing it
+#: cannot afford to lose.
+MAIL_CAP = 4
+NOTE_CAP = 12
+
+_TO_RE = re.compile(r"^\s*TO\s+([A-Za-z][A-Za-z,\s]*?)\s*:\s*(.+)$")
+_ORDER_RE = re.compile(r"^[AF] [A-Z]{3}\b")
 
 
-def extract_directives(reply: str) -> list[str]:
-    """Direction lines from the last fenced block, or bullets outside one.
+@dataclass
+class Reply:
+    """One model reply, already routed.
 
-    Deliberately forgiving about the wrapper and strict about nothing else:
-    these are sentences for another reader, so there is no syntax to get
-    wrong. An order-shaped line is dropped — a seat that writes `A PAR - BUR`
-    here is doing its staff's job, and letting it through would put an
+    Every line a seat writes takes the same shape — `TO <TARGET>: <body>` — and
+    the target decides where it lands: sealed mail, the power's own notebook,
+    or its staff. The seat needs no tools and makes no routing decision; it
+    writes sentences and this turns them into artifacts.
+    """
+    mail: list[tuple[list[str], str]] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)
+    directions: list[str] = field(default_factory=list)
+    final: bool = False
+    errors: list[str] = field(default_factory=list)
+
+    @property
+    def flat_mail(self) -> list[tuple[str, str]]:
+        """(recipient, body) — one pair per recipient of each message."""
+        return [(r, body) for targets, body in self.mail for r in targets]
+
+
+def parse_reply(reply: str) -> Reply:
+    """Route every `TO ...` line in a reply. One parser, every task kind.
+
+    SELF and STAFF must each appear alone on a line. Their routing is not mail,
+    so a line mixing them with a power is refused rather than guessed at —
+    silently mailing a rival your private notes is the worst failure available
+    here, and it should not be one bad regex away.
+
+    An order-shaped line is dropped from SELF and STAFF. A seat that writes
+    `A PAR - BUR` is doing its staff's job, and letting it through would put an
     unreviewed order into the notes.
     """
-    import re
-    blocks = re.findall(r"```[a-zA-Z]*\n(.*?)```", reply, flags=re.DOTALL)
-    text = blocks[-1] if blocks else reply
-    out = []
-    for line in text.splitlines():
-        line = line.strip().strip("`").lstrip("-*0123456789. ").strip()
-        if not line or line.startswith("#"):
+    out = Reply()
+    for raw in reply.splitlines():
+        line = raw.strip()
+        if line.strip("*_` ").upper() == FINAL_MESSAGES:
+            out.final = True
             continue
-        if re.match(r"^[AF] [A-Z]{3}\b", line.upper()):
+        match = _TO_RE.match(line)
+        if not match:
             continue
-        if re.match(r"^\s*TO\s+[A-Za-z]+\s*:", line):
+        targets = [t for t in re.split(r"[,\s]+", match.group(1).upper()) if t]
+        body = match.group(2).strip()
+        if not body:
             continue
-        out.append(line)
-    return out[:12]
+
+        private = [t for t in targets if t in (SELF, STAFF)]
+        if private and len(targets) > 1:
+            out.errors.append(
+                f"`TO {match.group(1).strip()}:` mixes {private[0]} with another "
+                f"target; {private[0]} must be on a line of its own.")
+            continue
+        if private:
+            if _ORDER_RE.match(body.upper()):
+                continue
+            bucket = out.notes if private[0] == SELF else out.directions
+            if len(bucket) < NOTE_CAP:
+                bucket.append(body)
+            continue
+        if NOBODY in targets:
+            continue
+        good = [t for t in targets if t in POWERS or t == "ALL"]
+        unknown = [t for t in targets if t not in POWERS and t != "ALL"]
+        if unknown:
+            out.errors.append(f"unknown recipient(s): {', '.join(unknown)}")
+        if good and len(out.mail) < MAIL_CAP:
+            out.mail.append((["ALL"] if "ALL" in good else good, body))
+    return out
 
 
 def extract_orders(reply: str) -> list[str]:
     """Orders from the last fenced code block (or bare `A/F ...` lines)."""
-    import re
     blocks = re.findall(r"```[a-zA-Z]*\n(.*?)```", reply, flags=re.DOTALL)
     text = blocks[-1] if blocks else reply
     orders = []
@@ -245,17 +312,8 @@ def extract_orders(reply: str) -> list[str]:
 
 
 def extract_messages(reply: str) -> list[tuple[str, str]]:
-    """(recipient, body) pairs from `TO <POWER>: ...` lines."""
-    import re
-    out = []
-    for line in reply.splitlines():
-        m = re.match(r"^\s*TO\s+([A-Za-z]+)\s*:\s*(.+)$", line.strip())
-        if not m:
-            continue
-        recipient, body = m.group(1).upper(), m.group(2).strip()
-        if recipient in POWERS or recipient == "ALL":
-            out.append((recipient, body))
-    return out[:4]
+    """(recipient, body) pairs — the name every existing caller already uses."""
+    return parse_reply(reply).flat_mail
 
 
 def _default_transport(url: str, headers: dict, payload: dict,
@@ -422,9 +480,14 @@ class RawChatAgent(PlayerAgent):
         against — and a rejected order set still gets its single corrective
         retry, asking only for the orders back so the mail is never sent twice.
         """
+        from orchestration import staff
+
         prompt = f"{task}\n\n{COMBINED_FORMAT}"
         reply = self._complete(prompt)
-        sent, errors = self._send_all(extract_messages(reply))
+        parsed = parse_reply(reply)
+        sent, errors = self._send_all(parsed.mail)
+        if parsed.notes:
+            staff.save_notes(self.game_root, self.power, parsed.notes)
 
         orders = extract_orders(reply)
         error = None
@@ -463,38 +526,63 @@ class RawChatAgent(PlayerAgent):
 
         prompt = f"{task}\n\n{DIRECTIVES_FORMAT}"
         reply = self._complete(prompt)
-        sent, errors = self._send_all(extract_messages(reply))
-        directions = extract_directives(reply)
-        result = staff.write_and_submit(self.game_root, self.power, directions,
+        parsed = parse_reply(reply)
+        sent, errors = self._send_all(parsed.mail)
+        result = staff.write_and_submit(self.game_root, self.power,
+                                        parsed.directions, notes=parsed.notes,
                                         repo=self.repo_root)
         return AgentResult(
             reply=reply, ok=result.ok and not errors,
-            error="; ".join(filter(None, [result.error, *errors]))[:500] or None,
-            transcript={"reply": reply, "sent": sent, "directions": directions,
+            error="; ".join(filter(None, [result.error, *errors,
+                                          *parsed.errors]))[:500] or None,
+            final=parsed.final,
+            transcript={"reply": reply, "sent": sent,
+                        "directions": parsed.directions, "notes": parsed.notes,
                         "orders": result.orders, "issues": result.issues,
                         "usage": result.usage})
 
     def _send_all(self, messages) -> tuple[list, list]:
-        """Drive parsed `TO X: ...` pairs through the real send CLI."""
+        """Drive parsed mail through the real send CLI.
+
+        Accepts either `Reply.mail` (recipient *lists*) or the flat
+        `(recipient, body)` pairs older callers pass. A multi-recipient line
+        becomes ONE call — `send_message --to` is already variadic — so one
+        body addressed to three powers costs one invocation, not three.
+        """
         sent, errors = [], []
-        for recipient, body in messages:
-            if recipient == "NOBODY":
+        for targets, body in messages:
+            targets = [targets] if isinstance(targets, str) else list(targets)
+            targets = [t for t in targets if t != NOBODY]
+            if not targets:
                 continue
             proc = self._run_cli("orchestration.send_message",
-                                 ["--power", self.power, "--to", recipient],
+                                 ["--power", self.power, "--to", *targets],
                                  stdin=body)
             (sent if proc.returncode == 0 else errors).append(
-                f"{recipient}: {body[:80]}")
+                f"{', '.join(targets)}: {body[:80]}")
         return sent, errors
 
     def _negotiate(self, task: str) -> AgentResult:
+        """Send this round's mail, and keep any notes the seat wrote itself.
+
+        A negotiation round can produce `TO SELF:` lines — a power works out
+        what it thinks during the talking, not after it — so they are saved
+        here rather than waiting for an orders call that may never come.
+        """
+        from orchestration import staff
+
         prompt = f"{task}\n\n{MESSAGES_FORMAT}"
         reply = self._complete(prompt)
-        sent, errors = self._send_all(extract_messages(reply))
+        parsed = parse_reply(reply)
+        sent, errors = self._send_all(parsed.mail)
+        if parsed.notes:
+            staff.save_notes(self.game_root, self.power, parsed.notes)
         return AgentResult(
             reply=reply, ok=not errors,
-            error="; ".join(errors)[:500] or None,
-            transcript={"reply": reply, "sent": sent, "failed": errors})
+            error="; ".join(errors + parsed.errors)[:500] or None,
+            final=parsed.final,
+            transcript={"reply": reply, "sent": sent, "notes": parsed.notes,
+                        "failed": errors})
 
 
 class FakeAgent(PlayerAgent):

@@ -7,24 +7,39 @@ description: Read and send private diplomatic messages with other powers in a fu
 
 Full-press games only (`press: full` in `game/config.json`). Requires a claimed seat.
 
-## Read inbox
-```bash
-python -m orchestration.read_messages --power FRANCE
-python -m orchestration.read_messages --power FRANCE --with ENGLAND   # one thread
-python -m orchestration.read_messages --power FRANCE --phase S1901M
-```
-Only messages addressed to you are visible. Check `verified: true` — treat unsigned messages with suspicion.
+## Your inbox is already in your brief
 
-## Send a message
+Your brief already carries every message addressed to you this phase, plus a
+threaded digest of older mail per partner. **Do not re-read it** — that is a
+round trip for text you already have.
+
+The only reason to reach for the CLI is a full transcript of one relationship
+that the digest has shortened:
+
+```bash
+python -m orchestration.read_messages --power FRANCE --with ENGLAND
+```
+
+Check `verified: true` — treat unsigned messages with suspicion.
+
+## Send
+
+One command, one message. `--to` takes several powers when the same words go to
+each of them:
+
 ```bash
 echo "Want to DMZ the Channel?" | \
   python -m orchestration.send_message --power FRANCE --to ENGLAND
+
+echo "Burgundy stays empty?" | \
+  python -m orchestration.send_message --power FRANCE --to ENGLAND GERMANY
 
 echo "Russia is pulling ahead — coordinate?" | \
   python -m orchestration.send_message --power FRANCE --to ALL
 ```
 
-## Commit new mail
+Then commit the mail you created:
+
 ```bash
 scripts/sync.sh "<POWER> <phase> messages" mail/
 ```

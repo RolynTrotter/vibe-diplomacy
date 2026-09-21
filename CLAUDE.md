@@ -59,7 +59,8 @@ Python 3.11.
   outcomes as Jev state, plus the keep-or-break call on each standing deal).
 - `orchestration/` — CLIs: `new_game`, `join_game`, `submit_orders`,
   `send_message`, `read_messages`, `game_status`, `run_adjudication`,
-  `conduct` (roster/brief/tasks/collect/advance), `tasks` (shared task text),
+  `conduct` (roster/brief/tasks/collect/next-phase), `tasks` (shared task
+  text), `send_batch` (every `TO ...` line in one call),
   `run_match` (programmatic conductor), `jev_orders` (one power's orders,
   `--dry-run` to inspect the request, `--orders-only` to pipe into
   `scripts/submit.sh`), `jev_match` (gunboat self-play with Jev at all seven
@@ -78,6 +79,37 @@ GitHub Pages visualizer with map/text/talk/notes, full-press comms with per-play
 encryption + signed orders, self-serve onboarding, single-session conductor mode
 with scoped subagents). Next: **real Cicero (Epic 6)**. Open follow-ups: issues #3 (own map), #8
 (tamper-resistant identities).
+
+### One reply, no tools
+
+A seat says everything in one syntax — `TO <POWER>:`, `TO <POWER>, <POWER>:`,
+`TO ALL:`, `TO SELF:`, `TO STAFF:` — and `player_agent.parse_reply` routes each
+line: sealed mail, the power's own notebook, or its staff. `FINAL_MESSAGES`
+ends its participation in the phase's talking. **A seat makes no routing
+decision and calls no tool**, which is the point: a model choosing which CLI to
+run is paying full context price for a decision the code already knows.
+
+Two rules follow from that, and both have been broken before:
+
+- **Never point a seat at a command that re-fetches what it already has.** The
+  brief carries the board, the geometry, the notes, the commitments and the
+  inbox. Its old tail said "use `game_status` … as ground truth", contradicting
+  `scripts/turn.sh`'s own "replaces … game_status", and cost 1–3 calls a turn.
+- **Preload skill text, never name a skill.** `tasks.SKILLS_FOR` pastes the
+  body in for agentic seats. A decision the model cannot make is one it cannot
+  make badly.
+
+Traced before this landed, FRANCE's S1901M cost ~12–14 round trips, 3–4 skill
+loads and a 537 KB image. The image is now movement-phases only.
+
+**Written intent only works if it reaches the valuation request.** That is the
+single point where prose becomes the `Priority N/100` every move option is
+glossed with. Measured at S1901M with the direction "Burgundy before Germany
+gets there": valuation blind to it scored ENG 32, SPA 24, BEL 16 and no
+Burgundy at all, and Paris supported instead of moving 3/3 runs; valuation
+shown it scored POR 85, BUR 13 — exactly the provinces named — and Paris took
+Burgundy 3/3. Any new channel for intent has to reach that call, not just the
+order questions.
 
 ### Staff seats: who decides what
 

@@ -156,11 +156,24 @@ class Conductor:
                 # the last thing a power says is said against orders it is
                 # writing in the same breath.
                 fold = talking and self.spec.combined_final_round
+                # A power that ended a round with FINAL_MESSAGES has said it
+                # wants nothing more this phase. Asking it again buys a
+                # near-empty reply at full price, so it sits out the rest of
+                # the talking and rejoins for the orders call. Resets next
+                # phase — `done_talking` is rebuilt here, per phase.
+                done_talking: set[str] = set()
                 if talking:
                     for rnd in range(self.spec.negotiation_rounds - (1 if fold else 0)):
+                        speaking = [p for p in to_play if p not in done_talking]
+                        if not speaking:
+                            self._log("  -- all powers finished talking --")
+                            break
                         self._log(f"  -- negotiation round {rnd + 1} --")
-                        phase_rec["dispatches"] += self._dispatch_round(
-                            to_play, "negotiation", phase, rnd)
+                        results = self._dispatch_round(
+                            speaking, "negotiation", phase, rnd)
+                        done_talking |= {r["power"] for r in results
+                                         if r.get("final")}
+                        phase_rec["dispatches"] += results
                 # A staff seat never gets an orders task. It is asked for mail
                 # and written directions in one call, and `orchestration.staff`
                 # places its units — so the routing is decided here, in code,
@@ -194,6 +207,7 @@ class Conductor:
             self._log(f"  {power:<8} {kind:<11} -> {tag}")
             return {"power": power, "kind": kind, "round": rnd,
                     "ok": result.ok, "error": result.error,
+                    "final": result.final,
                     "duration": round(result.duration, 2)}
 
         if self.spec.max_concurrency <= 1:

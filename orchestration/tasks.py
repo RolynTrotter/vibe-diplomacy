@@ -24,8 +24,48 @@ the other side of that handoff — see the note in `orchestration.staff`.
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 from orchestration.player_agent import (COMBINED_FORMAT, DIRECTIVES_FORMAT,
                                         MESSAGES_FORMAT, ORDERS_FORMAT)
+
+SKILLS_DIR = Path(__file__).resolve().parent.parent / ".claude" / "skills"
+
+#: Skills whose text an agentic seat needs, per task kind. The body is pasted
+#: into the task rather than named, so the seat never spends a round trip
+#: deciding whether to go and read one. A decision the model cannot make is a
+#: decision it cannot make badly.
+SKILLS_FOR = {
+    "negotiation": ["negotiate"],
+    "directives": ["negotiate"],
+    "combined": ["negotiate", "write-orders"],
+    "orders": ["write-orders"],
+}
+
+
+def skill_text(name: str) -> str:
+    """One skill's body, front-matter stripped. Empty if it is not there."""
+    path = SKILLS_DIR / name / "SKILL.md"
+    if not path.is_file():
+        return ""
+    text = path.read_text(encoding="utf-8")
+    if text.startswith("---"):
+        end = text.find("\n---", 3)
+        if end != -1:
+            text = text[end + 4:]
+    return text.strip()
+
+
+def _preloaded(kind: str, press: str) -> str:
+    """The skill bodies this kind needs, ready to paste into a task."""
+    names = list(SKILLS_FOR.get(kind, []))
+    if press != "full":
+        names = [n for n in names if n != "negotiate"]
+    bodies = [t for t in (skill_text(n) for n in names) if t]
+    if not bodies:
+        return ""
+    return ("\n\n---\n\n## Reference (already loaded — nothing to go and read)\n\n"
+            + "\n\n".join(bodies))
 
 REPLY_FORMATS = {
     "negotiation": MESSAGES_FORMAT,
@@ -81,10 +121,8 @@ def build(power: str, kind: str, phase: str, brief: str, *,
             "orders lock. Do NOT submit orders yet.\n\n"
         )
         if not reply:
-            body += (
-                "Use the `negotiate` skill: read with `read_messages`, send with "
-                "`send_message`, then `scripts/sync.sh` any mail you create.\n\n"
-            )
+            body += ("Your inbox is in the brief below — it is already the "
+                     "whole of your mail this phase.\n\n")
     elif kind == "directives":
         aim = _DIRECT["R" if phase.endswith("R") else
                       "A" if phase.endswith("A") else "M"]
@@ -106,11 +144,8 @@ def build(power: str, kind: str, phase: str, brief: str, *,
               f"units to your staff.\n\n"
         )
         if not reply:
-            body += (
-                "Send messages with `send_message`, then write your directions "
-                f"to `notes/{power}.md` and `scripts/sync.sh` it. Do NOT submit "
-                "orders — that is your staff's job, not yours.\n\n"
-            )
+            body += ("Everything you need is in the brief below. Do NOT submit "
+                     "orders — your staff places the units, not you.\n\n")
     elif kind == "combined":
         body = (
             f"You are {power} in a Diplomacy match. {lead}"
@@ -153,7 +188,9 @@ def build(power: str, kind: str, phase: str, brief: str, *,
     task = body + "Your current brief:\n\n" + brief
     if reply:
         task += "\n\n" + REPLY_FORMATS[kind]
+    else:
+        task += _preloaded(kind, press)
     return task
 
 
-__all__ = ["build", "KINDS", "REPLY_FORMATS"]
+__all__ = ["build", "KINDS", "REPLY_FORMATS", "SKILLS_FOR", "skill_text"]

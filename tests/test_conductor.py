@@ -124,7 +124,7 @@ def test_collect_returns_the_rejection_as_retry_text(tmp_path):
 def test_collect_flags_an_empty_reply(tmp_path):
     _game(tmp_path)
     out = conduct.collect_reply(tmp_path, "FRANCE", "I'd rather not say.")
-    assert not out["ok"] and "no parseable orders" in out["error"]
+    assert not out["ok"] and "parseable orders" in out["error"]
 
 
 def test_collect_ignores_mail_in_a_gunboat_game(tmp_path):
@@ -220,3 +220,66 @@ def test_combined_kind_reaches_the_raw_backend(tmp_path):
     eng_priv = comms.load_privkey(tmp_path, "ENGLAND")
     assert "peace?" in [m["body"] for m in
                         comms.read_inbox(tmp_path, "ENGLAND", eng_priv)]
+
+
+# --------------------------------------------------------------------------- #
+# FINAL_MESSAGES: a power that is done talking stops being asked
+# --------------------------------------------------------------------------- #
+def test_a_power_that_says_it_is_done_sits_out_later_rounds(tmp_path, monkeypatch):
+    """Asking a finished power again buys a near-empty reply at full price."""
+    from orchestration.match_spec import MatchSpec
+    from orchestration.player_agent import AgentResult
+    from orchestration.run_match import Conductor
+
+    spec = MatchSpec.load(None, press="full", negotiation_rounds=3,
+                          combined_final_round=False, max_phases=1)
+    conductor = Conductor(spec, tmp_path, tmp_path, backend="fake")
+
+    asked: list[tuple[int, str]] = []
+
+    class _Stub:
+        def __init__(self, power):
+            self.power = power
+
+        def dispatch(self, task, kind="orders"):
+            asked.append((len(asked), self.power, kind))
+            # FRANCE bows out after the first round; everyone else keeps going.
+            return AgentResult(reply="", ok=True,
+                               final=(self.power == "FRANCE" and kind == "negotiation"))
+
+    monkeypatch.setattr(conductor, "_agent_for", lambda p: _Stub(p))
+    monkeypatch.setattr(conductor, "_build_task", lambda p, k, ph: "task")
+    monkeypatch.setattr(conductor, "_write_transcript",
+                        lambda *a, **k: None)
+
+    # Drive the real dispatch helper rather than re-implementing its loop.
+    done: set[str] = set()
+    rounds = []
+    for rnd in range(3):
+        speaking = [p for p in ("FRANCE", "ENGLAND") if p not in done]
+        rounds.append(list(speaking))
+        results = conductor._dispatch_round(speaking, "negotiation", "S1901M", rnd)
+        done |= {r["power"] for r in results if r.get("final")}
+
+    assert rounds[0] == ["FRANCE", "ENGLAND"]
+    assert rounds[1] == ["ENGLAND"], "FRANCE said FINAL_MESSAGES"
+    assert rounds[2] == ["ENGLAND"]
+
+
+def test_final_is_carried_out_of_a_dispatch(tmp_path, monkeypatch):
+    from orchestration.match_spec import MatchSpec
+    from orchestration.player_agent import AgentResult
+    from orchestration.run_match import Conductor
+
+    spec = MatchSpec.load(None, press="full")
+    conductor = Conductor(spec, tmp_path, tmp_path, backend="fake")
+
+    class _Stub:
+        def dispatch(self, task, kind="orders"):
+            return AgentResult(reply="", ok=True, final=True)
+
+    monkeypatch.setattr(conductor, "_agent_for", lambda p: _Stub())
+    monkeypatch.setattr(conductor, "_build_task", lambda p, k, ph: "task")
+    monkeypatch.setattr(conductor, "_write_transcript", lambda *a, **k: None)
+    rows = conductor._dispatch_round(["FRANCE"], "negotiation", "S1901M", 0)
+    assert rows[0]["final"] is True

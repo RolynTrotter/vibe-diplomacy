@@ -9,9 +9,9 @@ leans on, so the conductor itself juggles almost nothing — the files are the l
     brief    the selective context to hand a power's subagent
     tasks    every task text this phase needs, one per power, ready to fan out
     collect  turn one subagent's REPLY into sealed mail + sealed orders
-    advance  commit, adjudicate, commit the new board, push — the whole seam
+    next-phase  commit, adjudicate, commit the new board, push — the whole seam
 
-`tasks` + `collect` + `advance` exist because the conductor was spending model
+`tasks` + `collect` + `next-phase` exist because the conductor was spending model
 tokens on work with no judgement in it: composing seven near-identical prompts,
 remembering which CLI each subagent should run, and committing after every
 power. With these, a subagent needs no tools at all — it reads a task and
@@ -26,7 +26,7 @@ Usage:
     python -m orchestration.conduct brief --power FRANCE
     python -m orchestration.conduct tasks --kind combined
     echo "<subagent reply>" | python -m orchestration.conduct collect --power FRANCE
-    python -m orchestration.conduct advance
+    python -m orchestration.conduct next-phase
 """
 from __future__ import annotations
 
@@ -40,8 +40,7 @@ import sys
 from orchestration import tasks as task_text
 from orchestration._common import POWERS, publish, repo_root
 from orchestration.game_status import collect as status_collect
-from orchestration.player_agent import (extract_directives,
-                                        extract_messages, extract_orders)
+from orchestration.player_agent import extract_orders, parse_reply
 
 from engine import comms, context, state
 
@@ -124,6 +123,7 @@ def collect_reply(root, power: str, reply: str, repo: str | None = None,
     power = power.upper()
     repo = repo or str(pathlib.Path(__file__).resolve().parent.parent)
     out = {"power": power, "kind": kind, "sent": [], "orders": [],
+           "notes": [], "directions": [], "final": False,
            "ok": True, "error": None}
 
     def run(module, args, stdin=None):
@@ -136,26 +136,37 @@ def collect_reply(root, power: str, reply: str, repo: str | None = None,
     if power not in comms.list_players(root):
         run("orchestration.join_game", ["--power", power])
 
+    parsed = parse_reply(reply)
+    out["notes"], out["final"] = parsed.notes, parsed.final
+    out["directions"] = parsed.directions
+    if parsed.errors:
+        out["error"] = "; ".join(parsed.errors)[:300]
+
     if state.load_config(root).get("press") == "full":
-        for recipient, body in extract_messages(reply):
-            if recipient == "NOBODY":
-                continue
+        # A multi-recipient line is ONE send: `send_message --to` is variadic,
+        # so one body addressed to three powers costs one call, not three.
+        for targets, body in parsed.mail:
             proc = run("orchestration.send_message",
-                       ["--power", power, "--to", recipient], stdin=body)
+                       ["--power", power, "--to", *targets], stdin=body)
             if proc.returncode == 0:
-                out["sent"].append(recipient)
+                out["sent"] += targets
             else:
                 out["ok"] = False
                 out["error"] = proc.stderr.strip()[:300]
+
+    # `TO SELF:` is the durable notebook and is kept whatever the task kind —
+    # a power works out what it thinks while it is talking, not afterwards.
+    if parsed.notes:
+        from orchestration import staff
+        staff.save_notes(root, power, parsed.notes)
 
     if kind == "directives":
         # A staff seat wrote intent, not orders. Persist the directions and let
         # `orchestration.staff` place the units — the subagent is never asked
         # for an order and never told who writes one.
         from orchestration import staff
-        directions = extract_directives(reply)
-        out["directions"] = directions
-        result = staff.write_and_submit(root, power, directions, repo=repo)
+        result = staff.write_and_submit(root, power, parsed.directions,
+                                        notes=parsed.notes, repo=repo)
         out["orders"] = result.orders
         if not result.ok:
             out["ok"] = False
@@ -172,9 +183,9 @@ def collect_reply(root, power: str, reply: str, repo: str | None = None,
             # The rejection text is the retry prompt: hand it straight back to
             # the subagent rather than re-deriving what went wrong.
             out["error"] = (proc.stderr.strip() or proc.stdout.strip())[:1000]
-    elif out["sent"] == []:
+    elif not out["sent"] and not out["notes"]:
         out["ok"] = False
-        out["error"] = "reply contained no messages and no parseable orders"
+        out["error"] = "reply contained no messages, notes, or parseable orders"
     return out
 
 
@@ -241,7 +252,8 @@ def main() -> int:
                    help="Must match the kind this power was tasked with.")
     c.add_argument("--root")
 
-    a = sub.add_parser("advance", help="Commit, adjudicate, commit, push.")
+    a = sub.add_parser("next-phase", aliases=["advance"],
+                       help="Commit, adjudicate, commit, push.")
     a.add_argument("--no-push", action="store_true")
     a.add_argument("--wait", action="store_true",
                    help="Fail rather than force-adjudicating stragglers.")
@@ -270,7 +282,7 @@ def main() -> int:
         result = collect_reply(root, args.power, reply, kind=args.kind)
         print(json.dumps(result, indent=2))
         return 0 if result["ok"] else 1
-    elif args.cmd == "advance":
+    elif args.cmd in ("next-phase", "advance"):
         result = advance(root, force=not args.wait, push=not args.no_push)
         print(json.dumps(result, indent=2))
         return 0 if result["adjudicated"] else 1

@@ -51,7 +51,7 @@ This claims the seat if needed, seals and signs the mail, validates and seals th
 
 ### c. Advance
 ```bash
-python -m orchestration.conduct advance
+python -m orchestration.conduct next-phase
 ```
 Commits what the powers produced, adjudicates locally, commits the new board, and pushes — **two commits per phase**, not one per power per round. Prints `next_phase` and `done`.
 
