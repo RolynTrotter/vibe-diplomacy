@@ -38,12 +38,26 @@ def test_groups_never_exceed_the_subset_cap():
 
 def test_every_subset_is_offered_including_none():
     opts = staged._subset_options(
-        ["MOS", "WAR", "SEV"], {"MOS": "Moscow", "WAR": "Warsaw", "SEV": "Sevastopol"},
-        {"MOS": "A MOS", "WAR": "A WAR", "SEV": "F SEV"})
+        ["MOS", "WAR", "SEV"], {"MOS": "A MOS", "WAR": "A WAR", "SEV": "F SEV"})
     assert len(opts) == 2 ** 3
     assert staged.NONE_KEY in opts, "sitting still is a real decision at a stalemate"
-    assert "A MOS out of Moscow advances" in opts["MOS"], "singular reads correctly"
-    assert "advance." in opts["MOS,WAR"], "plural reads correctly"
+    assert opts["MOS"] == ("A MOS moves. A WAR and F SEV stay, and can support, "
+                           "convoy or hold instead.")
+    assert opts["MOS,WAR"].startswith("A MOS and A WAR move.")
+    assert opts["MOS,WAR,SEV"] == "A MOS, A WAR and F SEV move.", (
+        "nothing stays behind, so nothing is said about what stays behind")
+
+
+def test_no_question_says_advance():
+    """The rules say move. `advance` is a word we invented for the model."""
+    opts = staged._subset_options(["MOS", "WAR"], {"MOS": "A MOS", "WAR": "A WAR"})
+    assert not any("advanc" in v.lower() for v in opts.values())
+
+
+def test_a_unit_is_named_once():
+    """`F BRE out of Brest` said Brest twice; the token already locates it."""
+    text = staged._subset_options(["BRE"], {"BRE": "F BRE"})["BRE"]
+    assert text == "F BRE moves."
 
 
 def test_marginals_are_diagnostic_only_and_would_mislead():

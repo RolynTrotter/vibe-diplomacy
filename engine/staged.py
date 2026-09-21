@@ -28,7 +28,7 @@ board is exclusive: which of two units attacks and which supports it. Only a
 question over combinations can say "Moscow or Warsaw, not both".
 
 The instructions state mechanics and nothing else. They used to editorialise —
-"a unit that does not advance is still useful, it can support or convoy one
+"a unit that does not move is still useful, it can support or convoy one
 that does", and "back up one that is" — and that advice was worth 0.05 of
 probability against moving at S1901M, measured by ablation on the fleet
 question that kept Brest at home. Boilerplate that tells the model what is
@@ -84,9 +84,23 @@ def _groups(locs: list[str], cap: int = GROUP_CAP) -> list[list[str]]:
     return [locs[i:i + cap] for i in range(0, len(locs), cap)] or []
 
 
-def _subset_options(locs: list[str], names: dict[str, str],
-                    unit_of: dict[str, str]) -> dict[str, str]:
+def _english(items: list[str]) -> str:
+    """"A", "A and B", "A, B and C" — a list a reader can parse as a sentence."""
+    if len(items) <= 1:
+        return items[0] if items else ""
+    return ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def _subset_options(locs: list[str], unit_of: dict[str, str]) -> dict[str, str]:
     """Every subset of these units, as Choice options.
+
+    Each option is two plain sentences: who moves, and who stays. An earlier
+    version read "F BRE out of Brest advances. Staying put and free to support
+    or convoy: no others." — which names Brest twice (the unit token already
+    says where it is), uses a word the rules do not ("advance"; the order is a
+    move), and ends in a label-colon-list that degenerates into "no others"
+    when nothing stays behind. Options are compared by reading them, so an
+    option that has to be decoded is an option at a disadvantage.
 
     The empty subset is offered. Sitting still for a phase is a real decision,
     especially in a late-game stalemate — which is also exactly where a power
@@ -101,17 +115,17 @@ def _subset_options(locs: list[str], names: dict[str, str],
         for combo in combinations(locs, size):
             key = ",".join(combo) if combo else NONE_KEY
             if not combo:
-                options[key] = ("None of these units moves this turn; each is "
-                                "free to support, convoy or hold.")
+                options[key] = ("No unit moves. Each one can support, convoy "
+                                "or hold instead.")
                 continue
-            movers = ", ".join(f"{unit_of[l]} out of {names.get(l, l)}"
-                               for l in combo)
-            verb = "advances" if len(combo) == 1 else "advance"
-            stays = [l for l in locs if l not in combo]
-            rest = (", ".join(f"{unit_of[l]}" for l in stays)
-                    if stays else "no others")
-            options[key] = (f"{movers} {verb}. Staying put and free to support "
-                            f"or convoy: {rest}.")
+            movers = _english([unit_of[l] for l in combo])
+            moves = "moves" if len(combo) == 1 else "move"
+            stays = [unit_of[l] for l in locs if l not in combo]
+            text = f"{movers} {moves}."
+            if stays:
+                text += (f" {_english(stays)} {'stays' if len(stays) == 1 else 'stay'}"
+                         f", and can support, convoy or hold instead.")
+            options[key] = text
     return options
 
 
@@ -177,20 +191,19 @@ def _movers_from(game: Game, power: str, locs: list[str], kind: str,
     """Ask which of these units move, in groups small enough to enumerate."""
     from typesafe_sdk import Choice
 
-    names = orders_jev._names(game)
     unit_of = {l: next((r["unit"] for r in state["your_units"]
                         if r["unit"].split()[1].split("/")[0] == l), l) for l in locs}
     movers: list[str] = []
     for index, group in enumerate(_groups(locs)):
         question = Choice(
             instructions=(
-                f"You are {power}. Decide which of these {kind} advance this turn. "
+                f"You are {power}. Decide which of these {kind} move this turn. "
                 f"Each unit's options are in `your_units`; anything already "
                 f"ordered is in `committed_orders`. Your own plan is in "
                 f"`your_own_plan`; agreements you are bound by this turn are in "
                 f"`deal_policy_this_turn`. Choose the combination that does most "
                 f"for your position."),
-            criteria=_subset_options(group, names, unit_of),
+            criteria=_subset_options(group, unit_of),
         )
         key = f"{kind}_group_{index}"
         response = ask(state, {key: question})
@@ -234,7 +247,7 @@ def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: 
         if not moves:
             continue
         questions[loc] = Choice(
-            instructions=(f"You are {power}. This unit is advancing this turn. "
+            instructions=(f"You are {power}. This unit is moving this turn. "
                           f"Where does it go? Avoid a province another of your "
                           f"units is already ordered into — see `committed_orders`, "
                           f"and do not enter ground a deal you are keeping puts "
@@ -279,7 +292,7 @@ def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: 
 def _helpers(game: Game, power: str, stayers: list[str], state: dict,
              values: dict[str, float] | None, *, ask,
              stages: list[Stage]) -> list[str]:
-    """Supports and convoys for the units that are not advancing.
+    """Supports and convoys for the units that are not moving.
 
     Hold is offered only where the unit has no legal support or convoy at all.
     """
@@ -326,7 +339,7 @@ def _helpers(game: Game, power: str, stayers: list[str], state: dict,
         if not opts:
             continue
         questions[loc] = Choice(
-            instructions=(f"You are {power}. This unit is not advancing this turn. "
+            instructions=(f"You are {power}. This unit is not moving this turn. "
                           f"Choose what it does instead. `committed_orders` lists "
                           f"the moves your other units are making. A support only "
                           f"takes effect if it matches an order actually given, "
