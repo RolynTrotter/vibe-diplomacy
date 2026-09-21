@@ -49,11 +49,19 @@ Python 3.11.
 
 - `engine/` — thin wrapper: `state`, `adjudicate`, `validate`, `query`,
   `crypto` (seal + sign), `comms` (full-press), `context` (per-power brief),
-  `mapviz` (labelled board picture per phase).
+  `mapviz` (labelled board picture per phase), `coherence` (catch order sets
+  that are legal but cannot execute).
+- `engine/` (Jev order writing, additive — see PR #38): `jev` (TypeSafe
+  credentials, one call, spend), `rules` (the ruleset as state),
+  `valuation` (one question, province priorities), `orders_jev` (glosses,
+  per-unit questions, single-pass), `staged` (who moves, then where, then
+  supports).
 - `orchestration/` — CLIs: `new_game`, `join_game`, `submit_orders`,
   `send_message`, `read_messages`, `game_status`, `run_adjudication`,
   `conduct` (roster/brief/tasks/collect/advance), `tasks` (shared task text),
-  `run_match` (programmatic conductor).
+  `run_match` (programmatic conductor), `jev_orders` (one power's orders,
+  `--dry-run` to inspect the request), `jev_match` (gunboat self-play with Jev
+  at all seven seats).
 - `site/` — the GitHub Pages visualizer (`build_site.py` + `static/`).
 - `.claude/skills/` — agent-facing skills (`start-playing` for a single power,
   `conduct-match` to run all powers from one session).
@@ -67,4 +75,16 @@ The approved plan lives outside the repo. Current state: **Epics 0–5 built**
 GitHub Pages visualizer with map/text/talk/notes, full-press comms with per-player
 encryption + signed orders, self-serve onboarding, single-session conductor mode
 with scoped subagents). Next: **real Cicero (Epic 6)**. Open follow-ups: issues
-#3 (own map), #8 (tamper-resistant identities), #13 (live conductor run).
+#3 (own map), #8 (tamper-resistant identities), #36 (Jev order writing, in
+review as PR #38), #37 (give Jev the negotiations and notes).
+
+### Working on the Jev path
+
+One lesson recurred often enough to be worth stating up front: **a fact in
+prose loses to a number, every time.** Hold beat scored moves while it carried
+no score of its own; a `Priority 2/100` beat the words "neutral supply centre";
+an absolute count of neighbouring centres beat the one centre a move would
+actually win. Every fix was the same shape — put both sides of the comparison
+in the same units, or stop describing the same thing twice. Change one thing at
+a time and measure it; several changes that sounded obviously right (a complete
+rulebook, an honest owned-versus-gettable split) made play measurably worse.
