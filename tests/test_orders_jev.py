@@ -66,7 +66,7 @@ def test_every_option_has_a_gloss_naming_the_board():
     assert all(text and text[0].isupper() for text in criteria.values())
     assert "Burgundy" in criteria["A PAR - BUR"], "codes are expanded to real names"
     assert criteria["A PAR S F BRE"].endswith("."), "prose glosses stay sentences"
-    assert criteria["A PAR H"].endswith(")"), "hold ends on its own tally"
+    assert criteria["A PAR H"].endswith("own"), "hold ends on its own tally"
 
 
 def test_convoy_gloss_warns_that_it_needs_an_escort():
@@ -191,37 +191,49 @@ def test_move_options_are_distinguishable_by_what_they_reach():
     borders four unclaimed centres, from Yorkshire, which borders none.
     """
     criteria = orders_jev.unit_questions(Game(), "ENGLAND")["LON"].criteria
-    assert criteria["F LON - NTH"].endswith(
-        "Adjacent SCs Bel, Den, Edi, Hol, Lon, Nwy (6; 4 not yours)")
-    assert criteria["F LON - ENG"].endswith(
-        "Adjacent SCs Bel, Bre, Lon (3; 2 not yours)")
-    # Yorkshire borders three centres too — all England's own. A bare count
-    # would read identically to the Channel's three.
-    assert criteria["F LON - YOR"].endswith(
-        "Adjacent SCs Edi, Lon, Lvp (3; 0 not yours)")
+    # Yorkshire borders three centres, all England's own; the North Sea borders
+    # six of which four are not. Counting absolutes made those read 3 against 6
+    # — close. Counting what changes hands makes them 0 against 4.
+    assert criteria["F LON - NTH"].endswith("next to 4 you do not own")
+    assert criteria["F LON - ENG"].endswith("next to 2 you do not own")
+    assert criteria["F LON - YOR"].endswith("next to 0 you do not own")
 
 
-def test_adjacent_sc_count_is_computed_not_asked():
-    """Jev does not count reliably, so the tally is done here and handed over."""
+def test_gain_is_marginal_not_absolute():
+    """What a province is worth is what it changes, not what exists there.
+
+    Paris is a supply centre but worth nothing to take — France holds it.
+    Gascony borders four centres, all French, so it is worth nothing either.
+    Portugal is one unclaimed centre and is worth exactly that.
+    """
     game = Game()
-    for question in orders_jev.unit_questions(game, "ENGLAND").values():
-        for order, text in question.criteria.items():
-            if not order.startswith("F LON -") and not order.startswith("A LVP -"):
-                continue
-            named = text.split("Adjacent SCs ")[1]
-            listed, tally = named.rsplit(" (", 1)
-            count = int(tally.rstrip(")").split(";")[0])
-            assert count == (0 if listed == "none" else len(listed.split(", ")))
+    assert orders_jev.gain_of(game, "PAR", "FRANCE")[0] == 0, "already yours"
+    assert orders_jev.gain_of(game, "POR", "FRANCE")[0] == 1, "unclaimed"
+    assert orders_jev.gain_of(game, "MUN", "FRANCE")[0] == 1, "a rival's counts"
+    # Gascony is no centre itself; of its four neighbouring centres only Spain
+    # is not France's at the opening, so it is worth 0 to take and borders 1.
+    assert orders_jev.gain_of(game, "GAS", "FRANCE") == (0, 1)
 
 
-def test_a_province_bordering_no_supply_centre_says_so():
+def test_the_count_is_computed_here_not_asked_of_the_model():
+    """Jev does not count reliably, so the arithmetic is done in code."""
+    game = Game()
+    for prov in ["NTH", "BUR", "POR", "LON"]:
+        takes, borders = orders_jev.gain_of(game, prov, "ENGLAND")
+        assert takes in (0, 1) and borders >= 0
+        text = orders_jev._adjacent_scs(game, prov, set(), "ENGLAND")
+        assert f"next to {borders}" in text
+
+
+def test_a_province_worth_nothing_says_so_rather_than_saying_nothing():
     """A consistent field beats an absent one when the model is indexing on it."""
     game = Game()
     text = orders_jev.gloss(game, "F LON - NTH", orders_jev._names(game),
                             orders_jev._unit_owners(game), "ENGLAND", set())
-    assert "Adjacent SCs" in text
-    # London itself borders ENG, NTH, WAL and YOR — not one of them is a centre.
-    assert orders_jev._adjacent_scs(game, "LON", set()) == "Adjacent SCs none (0)"
+    assert "new centre" in text
+    # London borders ENG, NTH, WAL and YOR — not one of them is a centre.
+    assert orders_jev._adjacent_scs(game, "LON", set(), "ENGLAND") == \
+        "Worth no new centre to you, next to 0 you do not own"
 
 
 def test_impassable_provinces_never_appear_as_reachable():
@@ -282,7 +294,7 @@ def test_hold_is_scored_on_the_same_axis_as_moves():
     game = Game()
     criteria = orders_jev.unit_questions(game, "ENGLAND", {"NTH": 51.0})["LON"].criteria
     for order in ("F LON - NTH", "F LON H"):
-        assert "Adjacent SCs" in criteria[order]
+        assert "new centre" in criteria[order]
         assert "Priority" in criteria[order]
     assert criteria["F LON - NTH"].endswith("Priority 51/100")
     assert criteria["F LON H"].endswith("Priority 0/100")
