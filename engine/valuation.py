@@ -1,7 +1,15 @@
 """What each province is worth to a power, from one question to Jev.
 
-A Choice over every province on the board — "which one province matters most to
-you right now?" — and then we keep the whole distribution rather than the pick.
+A Choice over every province on the board — "which is of most vital interest to
+your plans this turn?" — and then we keep the whole distribution, not the pick.
+
+The question is deliberately bounded to the turn and otherwise empty of
+strategy. An earlier version asked which province "does the most to decide how
+your game goes", which selects for pivotality rather than value: at S1903M it
+rated Portugal 3/100 — an undefended neutral centre one move from a French
+army, a free build — because nothing was happening there. Naming the cases we
+want instead (take this, defend that) only trades one hard-coded policy for
+another; bounding the horizon and leaving the judgment alone does not.
 Because the probabilities sum to 1, each province's share is directly a percent
 of the power's attention: Turkey at S1901M puts 53 on Bulgaria, 15 on the Black
 Sea, 12 on Constantinople, and nothing at all on the other 65.
@@ -54,9 +62,8 @@ def province_values(game: Game, power: str, *, root: Path | None = None,
                   if game.map.area_type(l.upper().split("/")[0]) == "SHUT"}
 
     question = Choice(
-        instructions=(f"You are {power}. Which single province on the board matters "
-                      f"most to you right now — the one where what happens next does "
-                      f"the most to decide how your game goes?"),
+        instructions=(f"You are {power}'s field marshal. Which province is of most "
+                      f"vital interest to your plans this turn?"),
         criteria={p: _describe(game, p, e, power, impassable)
                   for p, e in graph.items()},
     )

@@ -85,7 +85,11 @@ def _subset_options(locs: list[str], names: dict[str, str],
     has too many units to ask about at once.
     """
     options: dict[str, str] = {}
-    for size in range(len(locs) + 1):
+    # Largest first: everything moving leads, nobody moving comes last. Option
+    # order measurably biases the answer — putting hold at the head of a unit's
+    # options pushed the hold rate from 13/22 to 17/22 — so the passive end of
+    # the ballot does not get the primacy slot.
+    for size in range(len(locs), -1, -1):
         for combo in combinations(locs, size):
             key = ",".join(combo) if combo else NONE_KEY
             if not combo:
