@@ -300,6 +300,7 @@ class JevOrders:
     issues: list[coherence.Issue] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
     usage: dict = field(default_factory=dict)
+    stages: list = field(default_factory=list)   # set by engine.staged
 
     @property
     def coherent(self) -> bool:

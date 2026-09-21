@@ -27,7 +27,7 @@ from pathlib import Path
 
 from orchestration._common import POWERS, repo_root
 
-from engine import jev, orders_jev, state, valuation
+from engine import jev, orders_jev, staged, state, valuation
 from engine.coherence import parse_order
 
 
@@ -48,7 +48,7 @@ def _capped_adjustments(game, power: str, orders: list[str]) -> list[str]:
     return [o for o in orders if not o.upper().endswith(" B") or o in keep]
 
 
-def run(root: Path, until: int, *, log=print) -> dict:
+def run(root: Path, until: int, *, log=print, batch: bool = False) -> dict:
     game = state.load_game(root)
     hits: dict[str, list] = {"build": [], "dislodge": [], "convoy": []}
     phases = 0
@@ -65,7 +65,9 @@ def run(root: Path, until: int, *, log=print) -> dict:
                 continue
             values = (valuation.province_values(game, power, root=root)
                       if movement else None)
-            result = orders_jev.choose_orders(game, power, root=root, values=values)
+            decide = (orders_jev.choose_orders if batch
+                      else staged.choose_orders_staged)
+            result = decide(game, power, root=root, values=values)
             orders = result.orders
             if game.phase_type == "A":
                 orders = _capped_adjustments(game, power, orders)
@@ -105,6 +107,8 @@ def main() -> int:
     ap.add_argument("--root", default=None, help="game root (default: cwd)")
     ap.add_argument("--until", type=int, default=1906, help="last year to play")
     ap.add_argument("--save", default=None, help="write the summary as JSON here")
+    ap.add_argument("--batch", action="store_true",
+                    help="use the single-pass path instead of the staged one")
     args = ap.parse_args()
 
     root = repo_root(args.root)
@@ -113,7 +117,7 @@ def main() -> int:
         print(f"cannot call Jev: {why}", file=sys.stderr)
         return 1
 
-    summary = run(root, args.until)
+    summary = run(root, args.until, batch=args.batch)
     print("\n" + "=" * 64)
     print(f"stopped at {summary['final_phase']} after {summary['phases']} phases")
     print("centres:", ", ".join(f"{p[:3]} {c}" for p, c in
