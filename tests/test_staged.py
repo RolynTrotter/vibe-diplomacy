@@ -164,3 +164,50 @@ def test_armies_are_asked_before_fleets():
     assert seen[0].startswith("armies")
     assert any(s.startswith("fleets") for s in seen)
     assert seen.index("armies_group_0") < seen.index("fleets_group_0")
+
+
+# --- the match runner persists like a real match ---------------------------
+
+def test_runner_saves_board_and_history_each_phase(tmp_path, monkeypatch):
+    """The first runs played in memory and exited, so both boards had to be
+    reconstructed by replaying a log. Phases now persist as the adjudicator
+    writes them."""
+    from engine import crypto, state as st
+    from orchestration import jev_match
+
+    game = st.new_game("persist-test")
+    st.save_game(game, tmp_path)
+    st.save_config({"name": "persist-test", "press": "none", "powers": {}}, tmp_path)
+    _, pub = crypto.generate_keypair()
+    st.pubkey_file(tmp_path).write_text(pub, encoding="utf-8")
+
+    def fake_values(game, power, **kw):
+        return {}
+
+    def fake_orders(game, power, **kw):
+        from engine.orders_jev import JevOrders
+        legal = validate.legal_orders(game, power)
+        return JevOrders(power=power, phase=game.get_current_phase(),
+                         orders=[opts[0] for opts in legal.values()])
+
+    monkeypatch.setattr(jev_match.valuation, "province_values", fake_values)
+    monkeypatch.setattr(jev_match.staged, "choose_orders_staged", fake_orders)
+
+    summary = jev_match.run(tmp_path, until=1901, log=lambda *a: None)
+
+    assert summary["phases"] >= 2
+    assert summary["history"], "each resolved phase is written to history/"
+    assert "S1901M.json" in summary["history"]
+    reloaded = st.load_game(tmp_path)
+    assert reloaded.get_current_phase() == summary["final_phase"], \
+        "the saved board is the board the run ended on"
+
+
+def test_build_cap_holds_when_more_centres_than_allowed():
+    from orchestration.jev_match import _capped_adjustments
+    game = Game()
+    game.set_orders("TURKEY", ["A CON - BUL", "F ANK - BLA", "A SMY - ARM"])
+    game.process(); game.process()
+    owed = len(game.powers["TURKEY"].centers) - len(game.powers["TURKEY"].units)
+    capped = _capped_adjustments(game, "TURKEY", ["A CON B", "A SMY B", "F ANK B"])
+    assert sum(o.endswith(" B") for o in capped) == max(owed, 0)

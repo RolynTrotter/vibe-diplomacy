@@ -2,10 +2,16 @@
 
     python -m orchestration.jev_match --until 1906
 
-Each movement phase costs two requests per power: one valuation
-(`engine.valuation`) and one order set (`engine.orders_jev`). Retreat and
-adjustment phases skip the valuation. No negotiation, no agent in the loop —
-this exists to see whether the order pipeline can actually play a game.
+Each movement phase costs one valuation request per power (`engine.valuation`)
+plus the staged order decisions (`engine.staged`); retreat and adjustment
+phases skip the valuation and fall through to the single-pass path. No
+negotiation, no agent in the loop — this exists to see whether the order
+pipeline can actually play a game.
+
+Phases resolve through `engine.adjudicate` and persist exactly as a real match
+does: the board is written to `state/` and each resolved phase to
+`history/<phase>.json`. A run is therefore resumable, renderable by the Pages
+visualizer, and does not have to be reconstructed from a log afterwards.
 
 It watches for three capabilities that a working pipeline has to show at least
 once, and that nothing in the S1901M testing could reveal:
@@ -27,7 +33,7 @@ from pathlib import Path
 
 from orchestration._common import POWERS, repo_root
 
-from engine import jev, orders_jev, staged, state, valuation
+from engine import adjudicate, jev, orders_jev, staged, state, valuation
 from engine.coherence import parse_order
 
 
@@ -48,6 +54,15 @@ def _capped_adjustments(game, power: str, orders: list[str]) -> list[str]:
     return [o for o in orders if not o.upper().endswith(" B") or o in keep]
 
 
+def _persist(root: Path, game, summary: dict) -> None:
+    """Save the board and the resolved phase, the way the adjudicator does."""
+    state.save_game(game, root)
+    state.set_phase_clock(root, game.get_current_phase())
+    path = state.history_dir(root) / f"{summary['phase']}.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(summary, indent=2, sort_keys=True), encoding="utf-8")
+
+
 def run(root: Path, until: int, *, log=print, batch: bool = False) -> dict:
     game = state.load_game(root)
     hits: dict[str, list] = {"build": [], "dislodge": [], "convoy": []}
@@ -59,7 +74,8 @@ def run(root: Path, until: int, *, log=print, batch: bool = False) -> dict:
         if int(phase[1:5]) > until:
             break
         movement = game.phase_type == "M"
-        acted = []
+        acted: list[str] = []
+        collected: dict[str, list[str]] = {}
         for power in POWERS:
             if not orders_jev.unit_questions(game, power):
                 continue
@@ -77,28 +93,26 @@ def run(root: Path, until: int, *, log=print, batch: bool = False) -> dict:
             for o in orders:
                 if parse_order(o).kind == "CONVOY":
                     hits["convoy"].append((phase, power, o))
-            game.set_orders(power, orders)
+            collected[power] = orders
             per_power_orders[power] += len(orders)
             acted.append(f"{power[:3]} {' | '.join(orders) or '-'}")
         log(f"\n--- {phase} ---")
         for line in acted:
             log("  " + line)
 
-        before = {p: set(u for u in game.powers[p].units) for p in POWERS}
-        game.process()
+        summary = adjudicate.adjudicate(game, collected)
+        _persist(root, game, summary)
         # A dislodgement shows up as a unit owing a retreat.
         for power in POWERS:
-            retreats = getattr(game.powers[power], "retreats", {}) or {}
-            for unit in retreats:
+            for unit in (getattr(game.powers[power], "retreats", {}) or {}):
                 hits["dislodge"].append((phase, power, unit))
-        del before
-
         phases += 1
 
     centers = {p: len(game.powers[p].centers) for p in POWERS}
     return {"final_phase": game.get_current_phase(), "phases": phases,
             "centers": centers, "hits": hits,
-            "orders_written": dict(per_power_orders)}
+            "orders_written": dict(per_power_orders),
+            "history": sorted(p.name for p in state.history_dir(root).glob("*.json"))}
 
 
 def main() -> int:
@@ -118,6 +132,8 @@ def main() -> int:
         return 1
 
     summary = run(root, args.until, batch=args.batch)
+    print(f"\nsaved {len(summary['history'])} phases to "
+          f"{state.history_dir(root)} — board is at {summary['final_phase']}")
     print("\n" + "=" * 64)
     print(f"stopped at {summary['final_phase']} after {summary['phases']} phases")
     print("centres:", ", ".join(f"{p[:3]} {c}" for p, c in
