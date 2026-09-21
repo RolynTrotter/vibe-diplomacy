@@ -99,11 +99,20 @@ the board) and persisted to `notes/<POWER>.md` (durable, and what keeps the
 `DEAL:` ledger working). So **a staff seat's play is only as good as the
 directions it writes**.
 
-Known gap, S1901M, measured: with a `DEAL: ENGLAND — Channel DMZ` kept at 0.97
-confidence, France still chose `F BRE S F LON - ENG` — honouring the letter
-while handing England the province. Foreign supports carry no cost signal in
-the gloss, which is the same "prose loses to a number" shape as every other bug
-on this path.
+Known gap, S1901M, measured: France submitted `F BRE S F LON - ENG`, supporting
+*England* into the Channel while its own `DEAL: Channel DMZ` was kept at 0.97.
+Capturing the actual request showed this was **not a judgment at all** — the
+ballot had exactly one option on it, and the answer came back at confidence
+1.0. Brest had four legal supports; `staged._helpers`'s `useful()` filter drops
+a support for one of *your own* units whose committed order does not match,
+which killed three of them (Paris was going to Burgundy, Marseilles to Spain),
+and a support for a *foreign* unit survives unconditionally because you cannot
+see that power's orders. Hold is offered only `if not opts`, so with one option
+left it never appeared.
+
+So the defect is structural, not a scoring one: **a single-option question is
+not a decision**, and the one class of option that always survives filtering is
+helping somebody else. Check the option count before blaming the choice.
 
 ### Working on the Jev path
 
