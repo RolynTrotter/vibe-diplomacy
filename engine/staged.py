@@ -109,34 +109,44 @@ def _subset_options(locs: list[str], names: dict[str, str],
 
 def _unit_digest(game: Game, power: str, locs: list[str],
                  values: dict[str, float] | None,
-                 names: dict[str, str], impassable: set[str]) -> dict:
-    """Per-unit facts for the state, so subset options can stay terse.
+                 names: dict[str, str], impassable: set[str]) -> list[dict]:
+    """A table: one row per move any of these units could make.
 
-    Each destination is described by `orders_jev.gloss` — the identical text
-    the destination question will show. An earlier version summarised moves
-    here by hand and dropped the one fact that decides most of them: whether
-    the destination is a supply centre you would capture. It also sorted by
-    priority, which undervalues a free centre, so the weaker option led the
-    list. With that digest in state, Spain went to Gascony 3/3; without it,
-    Spain took Portugal 3/3.
+    Columns are what the decision turns on, already reduced to marginals —
+    what standing there would *win* you, not what exists there. An earlier
+    version summarised each destination in prose and dropped whether it was a
+    centre you would capture, and a version before that reported absolutes, so
+    four French-owned neighbours outscored one free centre.
 
-    One description of a move, used everywhere. Two descriptions drift, and
-    the one in the state wins.
+    Every number here comes from `orders_jev.gain_of`, the same function the
+    option glosses use, so the table and the options cannot disagree.
     """
     owners = orders_jev._unit_owners(game)
     legal = validate.legal_orders(game, power)
-    digest = {}
+    rows: list[dict] = []
     for loc in locs:
-        moves = [o for o in legal.get(loc, [])
-                 if coherence.parse_order(o).kind == "MOVE"]
-        digest[loc] = {
-            "unit": next((u for u in game.powers[power.upper()].units
-                          if u.split()[1].split("/")[0] == loc), loc),
-            "can_move_to": {
-                o: orders_jev.gloss(game, o, names, owners, power,
-                                    impassable, values) for o in moves},
-        }
-    return digest
+        unit = next((u for u in game.powers[power.upper()].units
+                     if u.split()[1].split("/")[0] == loc), loc)
+        for order in legal.get(loc, []):
+            p = coherence.parse_order(order)
+            if p.kind != "MOVE":
+                continue
+            takes, borders = orders_jev.gain_of(game, p.dest, power, impassable)
+            row = {"unit": unit, "order": order, "to": names.get(p.dest, p.dest),
+                   "new_centres": takes, "borders_not_yours": borders}
+            occupant = owners.get(p.dest)
+            if occupant:
+                row["defended_by"] = f"{occupant[0]} {occupant[1]}"
+            if p.via:
+                row["needs_convoy"] = True
+            if values is not None:
+                row["priority"] = values.get(p.dest, 0)
+            rows.append(row)
+        takes, borders = orders_jev.gain_of(game, loc, power, impassable)
+        rows.append({"unit": unit, "order": f"{unit} H", "to": names.get(loc, loc),
+                     "new_centres": takes, "borders_not_yours": borders,
+                     "staying_put": True})
+    return rows
 
 
 def _marginals(locs: list[str], probabilities: dict[str, float]) -> dict[str, float]:
@@ -160,7 +170,8 @@ def _movers_from(game: Game, power: str, locs: list[str], kind: str,
     from typesafe_sdk import Choice
 
     names = orders_jev._names(game)
-    unit_of = {l: d["unit"] for l, d in state["your_units"].items() if l in locs}
+    unit_of = {l: next((r["unit"] for r in state["your_units"]
+                        if r["unit"].split()[1].split("/")[0] == l), l) for l in locs}
     movers: list[str] = []
     for index, group in enumerate(_groups(locs)):
         question = Choice(
@@ -349,8 +360,9 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
                   if game.map.area_type(l.upper().split("/")[0]) == "SHUT"}
     names = orders_jev._names(game)
     state = orders_jev.build_state(game, power, root=root)
-    state["your_units"] = _unit_digest(game, power, armies + fleets, values,
-                                       names, impassable)
+    state["what_your_units_can_do"] = _unit_digest(
+        game, power, armies + fleets, values, names, impassable)
+    state["your_units"] = state["what_your_units_can_do"]
     state["committed_orders"] = []
     stages: list[Stage] = []
     orders: list[str] = []

@@ -97,24 +97,40 @@ def _place(game: Game, prov: str, names: dict[str, str],
     return f"{label} ({', '.join(bits)})"
 
 
+def gain_of(game: Game, prov: str, me: str,
+            impassable: set[str] | None = None) -> tuple[int, int]:
+    """(centres standing here would win you, adjacent centres not yours).
+
+    Marginal, not absolute. Reporting absolutes made the model do the
+    subtraction and it did not: Gascony read "Adjacent SCs Bre, Mar, Par, Spa
+    (4)" — an impressive number whose true worth to France is zero, since
+    France owns all four — and beat Portugal, an unclaimed centre, which read
+    1. Paris likewise read as a supply centre while being worth nothing to take
+    because it is already yours. Counting what changes hands removes the trap.
+    """
+    impassable = impassable or set()
+    base = prov.split("/")[0]
+    takes = int(base in game.map.scs
+                and query.owner_of_center(game, base) not in (me, None) or
+                (base in game.map.scs and query.owner_of_center(game, base) is None))
+    scs = sorted({nb.split("/")[0] for nb in query.adjacencies(game, base)}
+                 & set(game.map.scs) - impassable)
+    borders = sum(query.owner_of_center(game, c) != me for c in scs)
+    return takes, borders
+
+
 def _adjacent_scs(game: Game, prov: str, impassable: set[str],
                   me: str = "") -> str:
-    """The supply centres bordering a province, named and counted.
+    """What a province is worth to `me`, in centres gained.
 
-    Something for the model to index on. Jev answers in one pass and the
-    vendor's own notes call out indirection ("a property of a property") and
-    unreliable counting as failure modes, so the hop is resolved here and the
-    tally is computed in code — the model only reads the result.
+    Jev answers in one pass and the vendor's notes call out indirection and
+    unreliable counting as failure modes, so both the hop and the arithmetic
+    are resolved here; the model reads only the result.
     """
-    scs = sorted({nb.split("/")[0] for nb in query.adjacencies(game, prov)}
-                 & set(game.map.scs) - impassable)
-    if not scs:
-        return "Adjacent SCs none (0)"
-    # A bare count reads the same for three of your own centres and three you
-    # could take, so the gettable share is counted separately.
-    theirs = sum(query.owner_of_center(game, c) != me for c in scs)
-    return (f"Adjacent SCs {', '.join(c.title() for c in scs)} "
-            f"({len(scs)}; {theirs} not yours)")
+    takes, borders = gain_of(game, prov, me, impassable)
+    return (f"Worth {takes} new centre to you, next to {borders} more you "
+            f"do not own" if takes else
+            f"Worth no new centre to you, next to {borders} you do not own")
 
 
 def gloss(game: Game, order: str, names: dict[str, str],
