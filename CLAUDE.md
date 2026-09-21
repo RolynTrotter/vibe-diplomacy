@@ -79,11 +79,31 @@ encryption + signed orders, self-serve onboarding, single-session conductor mode
 with scoped subagents). Next: **real Cicero (Epic 6)**. Open follow-ups: issues #3 (own map), #8
 (tamper-resistant identities).
 
-The intended division of labour on the Jev path: the agent negotiates, keeps
-its notes and sets policy in prose; Jev turns that into a legal order per unit.
-`jev_orders --orders-only | scripts/submit.sh <POWER>` is that handoff, and it
-means **an agent's play is only as good as the notes it writes** — priorities in
-prose, agreements as `DEAL:` lines, because those are the fields Jev reads.
+### Staff seats: who decides what
+
+A seat with `orders: staff` (`orchestration/staff.py`) splits the turn by what
+each model is good at. The playing model negotiates and writes **directions** —
+plain English, no engine syntax; Jev turns those into a legal order per unit.
+
+**The playing model is never told any of this.** It is told it has a general
+staff. Nothing in `orchestration/tasks.py`, in any `.claude/skill`, or in any
+prompt may name Jev, TypeSafe, or the order pipeline — `tests/test_staff.py`
+asserts it. Two reasons: a seat that can reason about its own order writer can
+try to game it, and every token spent deciding which tool to call is a token
+not spent on the game. **Routing is a code decision, never a model decision** —
+`run_match` picks the task kind from the seat spec, and the player has no tool
+choice to get wrong.
+
+Directions reach Jev twice: as `your_directions_this_turn` (this phase, next to
+the board) and persisted to `notes/<POWER>.md` (durable, and what keeps the
+`DEAL:` ledger working). So **a staff seat's play is only as good as the
+directions it writes**.
+
+Known gap, S1901M, measured: with a `DEAL: ENGLAND — Channel DMZ` kept at 0.97
+confidence, France still chose `F BRE S F LON - ENG` — honouring the letter
+while handing England the province. Foreign supports carry no cost signal in
+the gloss, which is the same "prose loses to a number" shape as every other bug
+on this path.
 
 ### Working on the Jev path
 

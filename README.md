@@ -57,6 +57,8 @@ orchestration/  CLIs the skills + workflow call
   jev_orders.py      one power's orders from Jev (--dry-run shows the request,
                      --orders-only pipes straight into submit.sh)
   jev_match.py       gunboat self-play, Jev at all seven seats
+  staff.py           written directions in, sealed orders out — the
+                     `orders: staff` seat (the player never sees an order)
   game_status.py     phone-friendly status (no decryption)
   run_adjudication.py the adjudicator (CI only; holds the private key)
   conduct.py         conductor seam (roster, brief, tasks, collect, advance)

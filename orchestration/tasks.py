@@ -11,22 +11,42 @@ Two styles:
   `conduct collect`). The task ends with the exact reply format to produce.
 * **agentic** — the seat is a real session that runs the CLIs itself.
 
-Three kinds: `negotiation` (messages only), `orders` (orders only), and
-`combined` — messages AND orders in one reply, which halves the model calls a
-full-press movement phase costs.
+Four kinds: `negotiation` (messages only), `orders` (orders only), `combined`
+(messages AND orders in one reply, which halves the model calls a full-press
+movement phase costs), and `directives` — messages AND written direction to the
+power's staff, for a seat whose orders are placed by `orchestration.staff`.
+
+A `directives` task is the only one that never mentions an order. That is the
+point of it: the seat is told it commands through subordinates, so it spends
+its whole call on language and none of it on tactics it is bad at or on
+deciding which tool to reach for. Nothing in this file may name the model on
+the other side of that handoff — see the note in `orchestration.staff`.
 """
 from __future__ import annotations
 
-from orchestration.player_agent import (COMBINED_FORMAT, MESSAGES_FORMAT,
-                                        ORDERS_FORMAT)
+from orchestration.player_agent import (COMBINED_FORMAT, DIRECTIVES_FORMAT,
+                                        MESSAGES_FORMAT, ORDERS_FORMAT)
 
 REPLY_FORMATS = {
     "negotiation": MESSAGES_FORMAT,
     "orders": ORDERS_FORMAT,
     "combined": COMBINED_FORMAT,
+    "directives": DIRECTIVES_FORMAT,
 }
 
 KINDS = tuple(REPLY_FORMATS)
+
+
+#: What a staff seat is asked to direct, per phase type. The words stay in the
+#: register of command — a head of government says what it wants held and
+#: taken; it does not say "disband A BUR".
+_DIRECT = {
+    "R": ("where your dislodged units should fall back to, and which are not "
+          "worth saving"),
+    "A": ("where your new strength should be raised, or which commands to wind "
+          "up if you are over-extended"),
+    "M": "what you want taken, what must be held, and whom you are fighting",
+}
 
 
 def _what(phase: str) -> str:
@@ -64,6 +84,32 @@ def build(power: str, kind: str, phase: str, brief: str, *,
             body += (
                 "Use the `negotiate` skill: read with `read_messages`, send with "
                 "`send_message`, then `scripts/sync.sh` any mail you create.\n\n"
+            )
+    elif kind == "directives":
+        aim = _DIRECT["R" if phase.endswith("R") else
+                      "A" if phase.endswith("A") else "M"]
+        body = (
+            f"You are {power} in a Diplomacy match. {lead}"
+            f"It is {phase}. You do not place units yourself — you have a "
+            f"general staff for that, and they are competent. Your job is the "
+            f"part they cannot do: reading the table, talking to the other "
+            f"powers, and telling your staff what you want.\n\n"
+            f"Acting ONLY as {power}: "
+            + (f"send any messages you want to send, then write your standing "
+               f"directions — {aim}.\n\n" if full else
+               f"write your standing directions — {aim}. There is no "
+               f"negotiation in this match.\n\n")
+            + f"Your directions are acted on this phase, so say what you "
+              f"actually want. Be concrete about places and aims — \"take "
+              f"Portugal before Spain\", \"Munich matters more than Belgium\", "
+              f"\"do not let Austria into Serbia\" — and leave the placing of "
+              f"units to your staff.\n\n"
+        )
+        if not reply:
+            body += (
+                "Send messages with `send_message`, then write your directions "
+                f"to `notes/{power}.md` and `scripts/sync.sh` it. Do NOT submit "
+                "orders — that is your staff's job, not yours.\n\n"
             )
     elif kind == "combined":
         body = (

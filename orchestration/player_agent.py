@@ -188,6 +188,49 @@ COMBINED_FORMAT = (
 )
 
 
+# A seat whose orders are written by its staff (see `orchestration.staff`).
+# The model is told it commands through subordinates and never writes an order;
+# nothing here names the model that does, and nothing should.
+DIRECTIVES_FORMAT = (
+    "Reply with BOTH, in this order:\n"
+    "1. Your messages (at most 4), one per line, as `TO <POWER>: <message>` or "
+    "`TO ALL: <message>`. Write `TO NOBODY: pass` to send none.\n"
+    "2. Then your standing directions to your staff, in one fenced code block "
+    "(```), one direction per line, plain English — what you want taken, what "
+    "must be held, whom you are working with and whom against. Anything you "
+    "have agreed and mean to keep goes on its own line beginning `DEAL:`.\n"
+    "Write intent, not tactics: name provinces and aims, never unit orders. "
+    "Your staff places the units.\n"
+    "Only `TO ...` lines and the fenced block are read; prose between them is "
+    "ignored."
+)
+
+
+def extract_directives(reply: str) -> list[str]:
+    """Direction lines from the last fenced block, or bullets outside one.
+
+    Deliberately forgiving about the wrapper and strict about nothing else:
+    these are sentences for another reader, so there is no syntax to get
+    wrong. An order-shaped line is dropped — a seat that writes `A PAR - BUR`
+    here is doing its staff's job, and letting it through would put an
+    unreviewed order into the notes.
+    """
+    import re
+    blocks = re.findall(r"```[a-zA-Z]*\n(.*?)```", reply, flags=re.DOTALL)
+    text = blocks[-1] if blocks else reply
+    out = []
+    for line in text.splitlines():
+        line = line.strip().strip("`").lstrip("-*0123456789. ").strip()
+        if not line or line.startswith("#"):
+            continue
+        if re.match(r"^[AF] [A-Z]{3}\b", line.upper()):
+            continue
+        if re.match(r"^\s*TO\s+[A-Za-z]+\s*:", line):
+            continue
+        out.append(line)
+    return out[:12]
+
+
 def extract_orders(reply: str) -> list[str]:
     """Orders from the last fenced code block (or bare `A/F ...` lines)."""
     import re
@@ -331,6 +374,8 @@ class RawChatAgent(PlayerAgent):
             self._ensure_seat()
             if kind == "negotiation":
                 result = self._negotiate(task)
+            elif kind == "directives":
+                result = self._directives(task)
             elif kind == "combined":
                 result = self._combined(task)
             else:
@@ -405,6 +450,30 @@ class RawChatAgent(PlayerAgent):
         return AgentResult(reply=reply, ok=False, error=(error or "")[:500],
                            transcript={"reply": reply, "sent": sent})
 
+    def _directives(self, task: str) -> AgentResult:
+        """Send this phase's mail, then hand the staff its directions.
+
+        One model call for the whole phase, and it is spent entirely on
+        language: what to say, and what the power wants. The order writing is
+        not a decision this model makes or is told about, so there is no tool
+        choice to get wrong and no retry loop to pay for — an illegal order is
+        impossible by construction on the other side of this handoff.
+        """
+        from orchestration import staff
+
+        prompt = f"{task}\n\n{DIRECTIVES_FORMAT}"
+        reply = self._complete(prompt)
+        sent, errors = self._send_all(extract_messages(reply))
+        directions = extract_directives(reply)
+        result = staff.write_and_submit(self.game_root, self.power, directions,
+                                        repo=self.repo_root)
+        return AgentResult(
+            reply=reply, ok=result.ok and not errors,
+            error="; ".join(filter(None, [result.error, *errors]))[:500] or None,
+            transcript={"reply": reply, "sent": sent, "directions": directions,
+                        "orders": result.orders, "issues": result.issues,
+                        "usage": result.usage})
+
     def _send_all(self, messages) -> tuple[list, list]:
         """Drive parsed `TO X: ...` pairs through the real send CLI."""
         sent, errors = [], []
@@ -434,6 +503,8 @@ class FakeAgent(PlayerAgent):
     It ignores the natural-language task entirely and instead does what a real
     player would do through the same CLIs: claim its seat, then (on an orders
     task) submit a random pick of legal orders. Negotiation tasks are a no-op.
+    It cannot hold an `orders: staff` seat: the staff is a real model, and a
+    stand-in for it would report a pipeline this backend never ran.
     """
 
     def dispatch(self, task: str, kind: str = "orders") -> AgentResult:
@@ -442,6 +513,14 @@ class FakeAgent(PlayerAgent):
         if kind == "negotiation":
             return AgentResult(reply="(fake: no negotiation)", ok=True,
                                duration=time.monotonic() - start)
+        if kind == "directives":
+            # No stand-in here on purpose. A staff seat's orders come from the
+            # real order writer, and faking that would make this backend report
+            # a working staff pipeline it never exercised.
+            return AgentResult(
+                reply="", ok=False, duration=time.monotonic() - start,
+                error="the fake backend cannot hold an `orders: staff` seat — "
+                      "the staff is a real model; use --backend raw or headless")
         orders = self._orders()
         if not orders:
             return AgentResult(reply="(fake: no orders this phase)", ok=True,
@@ -499,7 +578,8 @@ def make_agent(backend: str, power: str, seat: SeatSpec, repo_root: Path,
 
 __all__ = [
     "AgentResult", "PlayerAgent", "HeadlessClaudeAgent", "RawChatAgent",
-    "COMBINED_FORMAT", "MESSAGES_FORMAT", "ORDERS_FORMAT",
+    "COMBINED_FORMAT", "DIRECTIVES_FORMAT", "MESSAGES_FORMAT", "ORDERS_FORMAT",
+    "extract_directives",
     "FakeAgent", "make_agent", "_player_env",
     "extract_orders", "extract_messages",
 ]

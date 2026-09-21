@@ -40,7 +40,8 @@ import sys
 from orchestration import tasks as task_text
 from orchestration._common import POWERS, publish, repo_root
 from orchestration.game_status import collect as status_collect
-from orchestration.player_agent import extract_messages, extract_orders
+from orchestration.player_agent import (extract_directives,
+                                        extract_messages, extract_orders)
 
 from engine import comms, context, state
 
@@ -111,7 +112,8 @@ def phase_tasks(root, kind: str | None = None, powers: list[str] | None = None,
     }
 
 
-def collect_reply(root, power: str, reply: str, repo: str | None = None) -> dict:
+def collect_reply(root, power: str, reply: str, repo: str | None = None,
+                  kind: str = "orders") -> dict:
     """Turn one subagent's reply into sealed mail and sealed orders.
 
     The subagent needs no tools and no CLI knowledge: it reads a task and
@@ -121,7 +123,8 @@ def collect_reply(root, power: str, reply: str, repo: str | None = None) -> dict
     """
     power = power.upper()
     repo = repo or str(pathlib.Path(__file__).resolve().parent.parent)
-    out = {"power": power, "sent": [], "orders": [], "ok": True, "error": None}
+    out = {"power": power, "kind": kind, "sent": [], "orders": [],
+           "ok": True, "error": None}
 
     def run(module, args, stdin=None):
         env = dict(os.environ)
@@ -144,6 +147,20 @@ def collect_reply(root, power: str, reply: str, repo: str | None = None) -> dict
             else:
                 out["ok"] = False
                 out["error"] = proc.stderr.strip()[:300]
+
+    if kind == "directives":
+        # A staff seat wrote intent, not orders. Persist the directions and let
+        # `orchestration.staff` place the units — the subagent is never asked
+        # for an order and never told who writes one.
+        from orchestration import staff
+        directions = extract_directives(reply)
+        out["directions"] = directions
+        result = staff.write_and_submit(root, power, directions, repo=repo)
+        out["orders"] = result.orders
+        if not result.ok:
+            out["ok"] = False
+            out["error"] = (result.error or "the staff produced no orders")[:1000]
+        return out
 
     orders = extract_orders(reply)
     if orders:
@@ -220,6 +237,8 @@ def main() -> int:
     c = sub.add_parser("collect", help="Turn a subagent's reply into artifacts.")
     c.add_argument("--power", required=True)
     c.add_argument("--file", help="Reply text (default: stdin).")
+    c.add_argument("--kind", choices=task_text.KINDS, default="orders",
+                   help="Must match the kind this power was tasked with.")
     c.add_argument("--root")
 
     a = sub.add_parser("advance", help="Commit, adjudicate, commit, push.")
@@ -248,7 +267,7 @@ def main() -> int:
     elif args.cmd == "collect":
         reply = (open(args.file, encoding="utf-8").read() if args.file
                  else sys.stdin.read())
-        result = collect_reply(root, args.power, reply)
+        result = collect_reply(root, args.power, reply, kind=args.kind)
         print(json.dumps(result, indent=2))
         return 0 if result["ok"] else 1
     elif args.cmd == "advance":

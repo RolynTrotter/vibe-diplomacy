@@ -17,16 +17,6 @@ Illegal orders print a readable error and write nothing — fix and retry. Use `
 
 The submitter also **coherence-checks the set**: a support for one of your own moves you didn't actually order, a support-hold for a unit you ordered to move, or a convoy with no matching move is *provably void* and gets rejected with a fix-it message (override with `--no-coherence` if you truly mean it). Supports/convoys that depend on **another power's** order are accepted with a printed warning — make sure that power actually agreed.
 
-## Having Jev write them for you
-
-Instead of composing the lines yourself:
-
-```bash
-python -m orchestration.jev_orders --power <POWER> --stab --orders-only | scripts/submit.sh <POWER>
-```
-
-Jev chooses from the legal orders the engine already enumerates, so an illegal or malformed single order is impossible by construction; the set still goes through the same validation, coherence check, signing and sealing below. Its state is your notes, your `DEAL:` lines, your inbox and your last outcomes — so set the policy in your notes first and let it do the tactics. Run without `--orders-only` to read the report and the per-stage picks before committing to anything.
-
 ## Order syntax
 
 | Intent | Syntax | Example |

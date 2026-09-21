@@ -161,8 +161,19 @@ class Conductor:
                         self._log(f"  -- negotiation round {rnd + 1} --")
                         phase_rec["dispatches"] += self._dispatch_round(
                             to_play, "negotiation", phase, rnd)
-                phase_rec["dispatches"] += self._dispatch_round(
-                    to_play, "combined" if fold else "orders", phase)
+                # A staff seat never gets an orders task. It is asked for mail
+                # and written directions in one call, and `orchestration.staff`
+                # places its units — so the routing is decided here, in code,
+                # and never by the model holding the seat.
+                staffed = [p for p in to_play
+                           if self.spec.seats[p].orders == "staff"]
+                own = [p for p in to_play if p not in staffed]
+                if staffed:
+                    phase_rec["dispatches"] += self._dispatch_round(
+                        staffed, "directives", phase)
+                if own:
+                    phase_rec["dispatches"] += self._dispatch_round(
+                        own, "combined" if fold else "orders", phase)
 
             self._adjudicate(rs)
             summary["phases"].append(phase_rec)
@@ -320,11 +331,14 @@ class Conductor:
         self._log(self.spec.to_yaml())
         intended = []
         live = self.spec.live_powers()
+        staffed = set(self.spec.staff_powers())
         if (self.spec.press == "full" and self.spec.negotiation_rounds > 0):
             for rnd in range(self.spec.negotiation_rounds):
                 intended += [{"power": p, "kind": "negotiation", "round": rnd}
                              for p in live]
-        intended += [{"power": p, "kind": "orders"} for p in live]
+        intended += [{"power": p,
+                      "kind": "directives" if p in staffed else "orders"}
+                     for p in live]
         self._log("Intended dispatches for the first movement phase "
                   f"({self.backend} backend):")
         for d in intended:
