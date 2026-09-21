@@ -202,3 +202,7 @@ def format_issues(issues: list[Issue]) -> str:
 parse_order = _parse
 
 __all__ = ["Issue", "check_orders", "format_issues", "parse_order"]
+
+
+# Public alias: other modules (engine/orders_jev.py) parse canonical orders too.
+parse_order = _parse
