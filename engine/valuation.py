@@ -62,8 +62,8 @@ def province_values(game: Game, power: str, *, root: Path | None = None,
                   if game.map.area_type(l.upper().split("/")[0]) == "SHUT"}
 
     question = Choice(
-        instructions=(f"You are {power}'s field marshal. Which province is of most "
-                      f"vital interest to your plans this turn?"),
+        instructions=(f"You are {power}'s field marshal. Which province is of "
+                      f"interest to your plans this turn?"),
         criteria={p: _describe(game, p, e, power, impassable)
                   for p, e in graph.items()},
     )
