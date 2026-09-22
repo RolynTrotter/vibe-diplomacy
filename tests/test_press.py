@@ -181,3 +181,36 @@ def test_gunboat_config_keeps_mail_out_of_the_state(tmp_path):
     comms.send_message(tmp_path, "ENGLAND", ["FRANCE"], "hello", "S1901M",
                        pub, sign_priv=eng["sign"])
     assert "your_inbox" not in press.diplomatic_state(tmp_path, Game(), "FRANCE")
+
+
+# --------------------------------------------------------------------------- #
+# Turning a written prohibition into a removed option
+# --------------------------------------------------------------------------- #
+def test_nothing_forbidden_is_the_normal_answer():
+    from engine import valuation
+
+    game = Game()
+
+    def ask(state, questions):
+        q = questions["forbidden"]
+        assert valuation.NOTHING_FORBIDDEN in q.criteria, (
+            "without an abstain option the question must name a victim")
+        return _Response({"forbidden": _Answer(
+            valuation.NOTHING_FORBIDDEN,
+            {valuation.NOTHING_FORBIDDEN: 0.64, "BLA": 0.33})})
+
+    assert valuation.forbidden_provinces(game, "TURKEY", ask=ask) == set()
+
+
+def test_a_clear_prohibition_is_returned():
+    from engine import valuation
+
+    game = Game()
+
+    def ask(state, questions):
+        return _Response({"forbidden": _Answer(
+            "BLA", {"BLA": 0.81, valuation.NOTHING_FORBIDDEN: 0.17,
+                    "CON": 0.01})})
+
+    off = valuation.forbidden_provinces(game, "TURKEY", ask=ask)
+    assert off == {"BLA"}, "only what clears the threshold, not the long tail"

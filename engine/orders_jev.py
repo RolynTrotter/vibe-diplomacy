@@ -134,6 +134,17 @@ def _adjacent_scs(game: Game, prov: str, impassable: set[str],
             f"Worth no new centre to you, next to {borders} you do not own")
 
 
+#: How a province's priority is rendered into an option's gloss. The scale is
+#: a knob because the size of the number is itself a lever: `Priority 62/100`
+#: is a loud claim next to "worth 1 new centre", and a fraction is a quiet one.
+#: Measured — see CLAUDE.md.
+PRIORITY_SUFFIX = "/100"
+
+
+def priority_text(value: float) -> str:
+    return f"Priority {value:g}{PRIORITY_SUFFIX}"
+
+
 def gloss(game: Game, order: str, names: dict[str, str],
           owners: dict[str, tuple[str, str]], me: str,
           impassable: set[str] | None = None,
@@ -150,7 +161,7 @@ def gloss(game: Game, order: str, names: dict[str, str],
         dest = _place(game, p.dest, names, owners, me)
         opens = _adjacent_scs(game, p.dest, impassable, me)
         if values is not None:
-            opens += f". Priority {values.get(p.dest, 0):g}/100"
+            opens += ". " + priority_text(values.get(p.dest, 0))
         if p.via:
             return (f"Move to {dest} by sea. Requires a fleet chain ordered to "
                     f"convoy it this same turn; the move fails outright if any "
@@ -180,7 +191,7 @@ def gloss(game: Game, order: str, names: dict[str, str],
         text = (f"Stay in {_place(game, p.loc, names, owners, me)}, taking no new "
                 f"ground. {_adjacent_scs(game, p.loc, impassable, me)}")
         if values is not None:
-            text += f". Priority {values.get(p.loc, 0):g}/100"
+            text += ". " + priority_text(values.get(p.loc, 0))
         return text
     return f"{order}."
 

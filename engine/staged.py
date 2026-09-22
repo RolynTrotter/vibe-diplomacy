@@ -220,7 +220,8 @@ def _movers_from(game: Game, power: str, locs: list[str], kind: str,
 
 def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: str,
                   values: dict[str, float] | None, *, ask, stages: list[Stage],
-                  taken: set[str] | None = None) -> tuple[list[str], list[str]]:
+                  taken: set[str] | None = None,
+                  forbid: set[str] | None = None) -> tuple[list[str], list[str]]:
     """One Choice per moving unit, over its legal moves only.
 
     The questions run in one request and cannot see each other, so two units
@@ -243,7 +244,8 @@ def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: 
     questions = {}
     for loc in movers:
         moves = [o for o in legal.get(loc, [])
-                 if coherence.parse_order(o).kind == "MOVE"]
+                 if coherence.parse_order(o).kind == "MOVE"
+                 and coherence.parse_order(o).dest not in (forbid or set())]
         if not moves:
             continue
         questions[loc] = Choice(
@@ -290,8 +292,8 @@ def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: 
 
 
 def _helpers(game: Game, power: str, stayers: list[str], state: dict,
-             values: dict[str, float] | None, *, ask,
-             stages: list[Stage]) -> list[str]:
+             values: dict[str, float] | None, *, ask, stages: list[Stage],
+             forbid: set[str] | None = None) -> list[str]:
     """Supports and convoys for the units that are not moving.
 
     Hold is offered only where the unit has no legal support or convoy at all.
@@ -317,6 +319,11 @@ def _helpers(game: Game, power: str, stayers: list[str], state: dict,
         cannot see their orders, and backing one is a legitimate gamble.
         """
         p = coherence.parse_order(order)
+        # A province your own orders put off limits stays off limits when you
+        # are helping somebody else into it. Honouring a DMZ in the letter
+        # while escorting a rival through it is not honouring it.
+        if p.dest and p.dest in (forbid or set()):
+            return False
         if p.target not in ours:
             return True
         committed = mine.get(p.target)
@@ -365,6 +372,7 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
                          values: dict[str, float] | None = None,
                          model: str = jev.DEFAULT_MODEL,
                          extra: dict | None = None, stab: bool = False,
+                         forbid: set[str] | None = None,
                          ask=None) -> orders_jev.JevOrders:
     """Movement first, then destinations, then everyone else.
 
@@ -406,7 +414,8 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
     army_movers = _movers_from(game, power, armies, "armies", state,
                                ask=caller, stages=stages)
     army_orders, demoted = _destinations(game, power, army_movers, state, "army",
-                                         values, ask=caller, stages=stages)
+                                         values, ask=caller, stages=stages,
+                                         forbid=forbid)
     orders += army_orders
     state["committed_orders"] = list(orders)
     army_movers = [l for l in army_movers if l not in demoted]
@@ -416,7 +425,7 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
     taken = {coherence.parse_order(o).dest for o in orders}
     fleet_orders, demoted = _destinations(game, power, fleet_movers, state, "fleet",
                                           values, ask=caller, stages=stages,
-                                          taken=taken)
+                                          taken=taken, forbid=forbid)
     orders += fleet_orders
     state["committed_orders"] = list(orders)
     fleet_movers = [l for l in fleet_movers if l not in demoted]
@@ -424,7 +433,7 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
     stayers = [l for l in armies + fleets
                if l not in army_movers and l not in fleet_movers]
     orders += _helpers(game, power, stayers, state, values,
-                       ask=caller, stages=stages)
+                       ask=caller, stages=stages, forbid=forbid)
 
     checked = validate.validate_orders(game, power, orders)
     result.orders = checked.accepted

@@ -71,3 +71,63 @@ def province_values(game: Game, power: str, *, root: Path | None = None,
     response = caller(state, {"most_important": question})
     answer = response.answers["most_important"]
     return {p: round(v * 100, 1) for p, v in (answer.probabilities or {}).items()}
+
+
+#: The option a power picks when its orders forbid nothing — the normal case.
+NOTHING_FORBIDDEN = "NOTHING_IS_OFF_LIMITS"
+
+
+def forbidden_provinces(game: Game, power: str, *, root: Path | None = None,
+                        state: dict | None = None, threshold: float = 0.15,
+                        model: str = jev.DEFAULT_MODEL, ask=None) -> set[str]:
+    """Provinces this power's own directions put off limits this turn.
+
+    A prohibition cannot be enforced by describing it. Measured three ways at
+    S1901M with Turkey told "DMZ in Black Sea": the fleet entered the Black Sea
+    3/3 with the priority scale at 0-100, 3/3 at 0-1, and 3/3 with no valuation
+    at all — and 3/3 again when the directions were framed as binding orders
+    from a head of state carrying `weight: 5000`. Emphasis is prose, and prose
+    loses to the `Priority 55/100` sitting on the option itself.
+
+    So the prohibition is turned into the one thing that cannot be argued with:
+    the option is not offered. `engine.staged` drops moves into these
+    provinces, and supports and convoys that would carry somebody else in —
+    honouring a DMZ while escorting a rival through it is not honouring it.
+
+    `NOTHING_FORBIDDEN` is on the ballot and is meant to win most of the time,
+    because most directions forbid nothing. That option is what keeps the
+    question honest: told "Russia and I have agreed to bounce in Black Sea" —
+    an agreement to *enter* — it answers `NOTHING_IS_OFF_LIMITS` at 0.64
+    against BLA at 0.33, and the fleet sails as instructed.
+    """
+    from typesafe_sdk import Choice
+
+    power = power.upper()
+    state = state if state is not None else orders_jev.build_state(
+        game, power, root=root)
+    graph = state["board_graph"]
+
+    criteria = {NOTHING_FORBIDDEN:
+                ("Your standing orders name no province you must keep out of. "
+                 "Every province is a legitimate destination this turn.")}
+    for prov, entry in graph.items():
+        criteria[prov] = (
+            f"{entry['name']} — your standing orders forbid entering it this "
+            f"turn (a demilitarised zone, ground you promised a neighbour you "
+            f"would leave alone, or similar).")
+
+    question = Choice(
+        instructions=(
+            f"You are {power}. Read your standing orders. Is there a province "
+            f"your own orders say your units must NOT enter this turn? Choose "
+            f"it. If your orders forbid nothing, choose {NOTHING_FORBIDDEN} — "
+            f"that is the normal case."),
+        criteria=criteria)
+
+    caller = ask or (lambda s, q: jev.ask(s, q, root=root, model=model))
+    answer = caller(state, {"forbidden": question}).answers["forbidden"]
+    probs = dict(answer.probabilities or {})
+    if not probs or probs.get(NOTHING_FORBIDDEN, 0.0) >= max(probs.values()):
+        return set()
+    return {p for p, v in probs.items()
+            if p != NOTHING_FORBIDDEN and v >= threshold}

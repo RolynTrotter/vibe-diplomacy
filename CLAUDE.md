@@ -102,6 +102,21 @@ Two rules follow from that, and both have been broken before:
 Traced before this landed, FRANCE's S1901M cost ~12–14 round trips, 3–4 skill
 loads and a 537 KB image. The image is now movement-phases only.
 
+**A prohibition must remove the option; nothing else works.** Told "DMZ in
+Black Sea", Turkey's fleet entered the Black Sea 3/3 at priority scale 0-100,
+3/3 at 0-1, 3/3 with no valuation at all, and 3/3 when the directions were
+framed as binding orders from a head of state carrying `weight: 5000`.
+Emphasis is prose and prose loses. `valuation.forbidden_provinces` asks one
+Choice — with an explicit `NOTHING_IS_OFF_LIMITS` option that is meant to win
+most of the time — and `staged` then drops those destinations from every
+ballot, moves and supports alike. The discrimination is real: "agreed to
+*bounce* in Black Sea" (an agreement to enter) returns nothing forbidden at
+0.64 and the fleet sails.
+
+Corollary worth keeping: **under-engineering the numbers is not the answer.**
+Removing the valuation entirely made things worse, not simpler — the Black Sea
+bounce went 3/3 to 0/3 without it.
+
 **Written intent only works if it reaches the valuation request.** That is the
 single point where prose becomes the `Priority N/100` every move option is
 glossed with. Measured at S1901M with the direction "Burgundy before Germany

@@ -273,3 +273,53 @@ def test_no_deals_means_no_stab_request(tmp_path):
     staged.choose_orders_staged(game, "FRANCE", root=tmp_path, stab=True, ask=ask)
     assert not any(k.startswith("deal_") for keys in asked for k in keys), (
         "a gunboat game never pays for a stab question")
+
+
+# --------------------------------------------------------------------------- #
+# A prohibition has to take the option away
+# --------------------------------------------------------------------------- #
+def test_a_forbidden_province_is_never_on_a_ballot(tmp_path):
+    """Describing a DMZ was ignored 3/3 in every phrasing. Removing it works."""
+    game = Game()
+    offered = []
+
+    def ask(state, questions):
+        answers = {}
+        for key, q in questions.items():
+            offered.extend(q.criteria)
+            first = next(iter(q.criteria))
+            answers[key] = _Answer(first, {first: 1.0}, confidence=0.7)
+        return _Response(answers)
+
+    result = staged.choose_orders_staged(game, "TURKEY", root=tmp_path,
+                                         forbid={"BLA"}, ask=ask)
+    assert not any("BLA" in o for o in offered), (
+        "no move, support or convoy may reach a forbidden province")
+    assert not any("BLA" in o for o in result.orders)
+
+
+def test_forbidding_nothing_leaves_every_option_standing():
+    game = Game()
+    legal = validate.legal_orders(game, "TURKEY")
+    assert any("BLA" in o for o in legal["ANK"]), (
+        "the Black Sea is on Ankara's ballot when nothing forbids it")
+
+
+def test_a_support_into_a_forbidden_province_is_dropped_too(tmp_path):
+    """Escorting a rival through a DMZ is not honouring the DMZ."""
+    game = Game()
+    offered = []
+
+    def ask(state, questions):
+        answers = {}
+        for key, q in questions.items():
+            offered.extend(q.criteria)
+            first = next(iter(q.criteria))
+            answers[key] = _Answer(first, {first: 1.0})
+        return _Response(answers)
+
+    staged.choose_orders_staged(game, "TURKEY", root=tmp_path,
+                                forbid={"BLA"}, ask=ask)
+    helps = [o for o in offered if " S " in o or " C " in o]
+    assert helps, "supports were offered at all"
+    assert not any(o.endswith("BLA") or "- BLA" in o for o in helps)
