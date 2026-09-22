@@ -7,14 +7,18 @@
 - Stay flexible on East Med — keep ITALY at distance but not hostile
 
 ## Trust & deals
-- RUSSIA: unknown | risk: can reach SEV in 2 moves, potential competitor in Balkans
-- AUSTRIA: unknown | critical: Balkans bottleneck (BUL/BUD/TRI/SER). Seek non-aggression
-- ITALY: unknown | risk: can reach TUN/NAP in 3 moves, controls opposite shore
-- ENGLAND: distant | likely neutral initially
-- FRANCE: distant | likely neutral initially
-- GERMANY: distant | likely neutral initially
+- RUSSIA: calculating | expanding eastward (RUM, SWE), honors Black Sea DMZ — watch SEV
+- AUSTRIA: coordinating | pivoting SER after RUM went to Russia; allied on Balkans containment
+- ITALY: opening | just reached out (S1902M), wants regional coordination; Eastern Med understanding
+- ENGLAND: distant | no contact, likely neutral
+- FRANCE: distant | no contact, likely neutral
+- GERMANY: distant | no contact, likely neutral
 
-## Next phase (S1901M)
-- Move: F ANK to BLA (supports expansion), A CON to BUL (grab neutral), A SMY to ARM (flex)
-- Open diplomatic channel with AUSTRIA (gauge Balkans intentions)
-- Monitor RUSSIA for aggressive Balkan positioning
+DEAL: RUSSIA — Black Sea DMZ (no expansion into BLA/CON region) — standing
+DEAL: AUSTRIA — SER cooperation: Turkey Balkans (BUL/RUM), Austria Balkans (GRE/SER) — RUM broken by Russia, SER pivot active
+DEAL: ITALY — Eastern Med understanding, no surprises — emerging
+
+## Next phase (S1902M)
+- Defend/consolidate BUL (threatened by AUSTRIA F GRE + RUSSIA F RUM — coordinate with both)
+- Watch RUSSIA's next move closely — 6 centers is dominant, SEV expansion is key risk
+- Reinforce ITALY channel, lock Eastern Med boundaries
