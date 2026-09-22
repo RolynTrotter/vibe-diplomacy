@@ -9,18 +9,19 @@
 
 ## Trust & deals
 - AUSTRIA: allied | Balkans expansion (GRE, RUM, SER, BUD), I keep TRI
-- FRANCE: allied | Mediterranean coordination, I take Adriatic/Greece
-- ENGLAND: friendly | Continental coordination, mutual respect
+- FRANCE: allied | Mediterranean coordination, I take Adriatic/Greece, joint RUSSIA watch
+- ENGLAND: trusted | Continental coordination vs. RUSSIA, mutual respect
 - GERMANY: non-aggression | Far apart, no friction
-- RUSSIA: distant | Monitor; 4 centers, watch for expansion
-- TURKEY: unknown | No contact yet
+- RUSSIA: **threat** | 6 centers now (jumped from 4), ENGLAND/FRANCE flagging, must contain
+- TURKEY: opening contact | Reached out about coordination this phase
 
 DEAL: AUSTRIA — Balkans to them (GRE, RUM, SER, BUD), Adriatic peace, TRI stays mine — standing
 DEAL: FRANCE — Mediterranean split: Spain/west to them, Adriatic/Greece to me — standing
 DEAL: ENGLAND — Continental coordination vs. RUSSIA, mutual respect — standing
 DEAL: GERMANY — Non-aggression pact, far-apart spheres — standing
 
-## Next phase
-- Execute expansion: A TRI → SER or VIE, A APU → GRE or TUN, F ION support or move
-- Monitor RUSSIA (4 centers, closest threat after AUSTRIA)
-- Watch for TURKEY expansion from southeast
+## Next phase (F1902M)
+- Build 2 (likely A APU + 1 more) to counter RUSSIA growth
+- Expand toward GRE/SER per AUSTRIA deal; confirm their Balkans push
+- Coordinate with FRANCE/ENGLAND on RUSSIA containment
+- Monitor TURKEY response to opening contact
