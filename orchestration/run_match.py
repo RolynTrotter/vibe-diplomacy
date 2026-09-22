@@ -156,13 +156,37 @@ class Conductor:
                 # the last thing a power says is said against orders it is
                 # writing in the same breath.
                 fold = talking and self.spec.combined_final_round
+                # A power that ended a round with FINAL_MESSAGES has said it
+                # wants nothing more this phase. Asking it again buys a
+                # near-empty reply at full price, so it sits out the rest of
+                # the talking and rejoins for the orders call. Resets next
+                # phase — `done_talking` is rebuilt here, per phase.
+                done_talking: set[str] = set()
                 if talking:
                     for rnd in range(self.spec.negotiation_rounds - (1 if fold else 0)):
+                        speaking = [p for p in to_play if p not in done_talking]
+                        if not speaking:
+                            self._log("  -- all powers finished talking --")
+                            break
                         self._log(f"  -- negotiation round {rnd + 1} --")
-                        phase_rec["dispatches"] += self._dispatch_round(
-                            to_play, "negotiation", phase, rnd)
-                phase_rec["dispatches"] += self._dispatch_round(
-                    to_play, "combined" if fold else "orders", phase)
+                        results = self._dispatch_round(
+                            speaking, "negotiation", phase, rnd)
+                        done_talking |= {r["power"] for r in results
+                                         if r.get("final")}
+                        phase_rec["dispatches"] += results
+                # A staff seat never gets an orders task. It is asked for mail
+                # and written directions in one call, and `orchestration.staff`
+                # places its units — so the routing is decided here, in code,
+                # and never by the model holding the seat.
+                staffed = [p for p in to_play
+                           if self.spec.seats[p].orders == "staff"]
+                own = [p for p in to_play if p not in staffed]
+                if staffed:
+                    phase_rec["dispatches"] += self._dispatch_round(
+                        staffed, "directives", phase)
+                if own:
+                    phase_rec["dispatches"] += self._dispatch_round(
+                        own, "combined" if fold else "orders", phase)
 
             self._adjudicate(rs)
             summary["phases"].append(phase_rec)
@@ -183,6 +207,7 @@ class Conductor:
             self._log(f"  {power:<8} {kind:<11} -> {tag}")
             return {"power": power, "kind": kind, "round": rnd,
                     "ok": result.ok, "error": result.error,
+                    "final": result.final,
                     "duration": round(result.duration, 2)}
 
         if self.spec.max_concurrency <= 1:
@@ -320,11 +345,14 @@ class Conductor:
         self._log(self.spec.to_yaml())
         intended = []
         live = self.spec.live_powers()
+        staffed = set(self.spec.staff_powers())
         if (self.spec.press == "full" and self.spec.negotiation_rounds > 0):
             for rnd in range(self.spec.negotiation_rounds):
                 intended += [{"power": p, "kind": "negotiation", "round": rnd}
                              for p in live]
-        intended += [{"power": p, "kind": "orders"} for p in live]
+        intended += [{"power": p,
+                      "kind": "directives" if p in staffed else "orders"}
+                     for p in live]
         self._log("Intended dispatches for the first movement phase "
                   f"({self.backend} backend):")
         for d in intended:
@@ -373,6 +401,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--human", nargs="*")
     p.add_argument("--model")
     p.add_argument("--endpoint", choices=["local", "api"])
+    p.add_argument("--staff", dest="orders", action="store_const", const="staff",
+                   help="Seats issue written directions and a separate order "
+                        "writer places their units. Off by default: a seat "
+                        "writes its own orders.")
+    p.add_argument("--orders", choices=["self", "staff"],
+                   help="Per-match default for who writes orders (see --staff).")
     p.add_argument("--rounds", dest="negotiation_rounds", type=int)
     p.add_argument("--session-mode", dest="session_mode", choices=["oneshot", "persistent"])
     p.add_argument("--max-concurrency", dest="max_concurrency", type=int)
@@ -397,6 +431,7 @@ def main(argv: list[str] | None = None) -> int:
     spec_overrides = {
         k: getattr(args, k) for k in (
             "name", "press", "idle", "human", "model", "endpoint",
+            "orders",
             "negotiation_rounds", "session_mode", "max_concurrency", "max_phases",
             "end_year", "adjudication", "deadline", "per_call_timeout_s",
             "retries", "runs_dir", "verbosity", "dry_run",

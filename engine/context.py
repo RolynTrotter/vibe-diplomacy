@@ -546,7 +546,10 @@ def power_brief(root: Path, power: str) -> str:
             "",
             "## Rules reminders\n" + RULES_CRIB,
         ]
-    if opts["image"]:
+    # Movement phases only. A retreat or a build is one decision over a
+    # handful of options; half a megabyte of map buys nothing there, and the
+    # text sections below carry the same geometry regardless.
+    if opts["image"] and game.phase_type == "M":
         picture = _board_picture(root, game, power)
         if picture:
             sections += ["", "## The board, drawn\n" + picture]
@@ -561,6 +564,11 @@ def power_brief(root: Path, power: str) -> str:
                          + _my_inbox(root, power,
                                      recent_only=opts["inbox_recent_only"])]
 
+    # Everything above is already the live board, rendered for this power. The
+    # old tail pointed at `game_status` and check-board-state as "ground
+    # truth", which contradicted `scripts/turn.sh` ("replaces ... game_status")
+    # and bought 1-3 extra tool calls a turn to re-fetch what is already here.
+    # A brief should say what you have, never suggest where to look for it.
     sections += [
         "",
         "## Do now",
@@ -568,7 +576,8 @@ def power_brief(root: Path, power: str) -> str:
         "2. Run **play-a-turn** for " + power + " this phase"
         + (" — negotiate first (**negotiate**)," if full_press else ",")
         + " then validate + sign + seal your orders and commit only your own files.",
-        "Use the live board (`game_status`, check-board-state) as ground truth; "
-        "this brief is a snapshot.",
+        "This brief is everything you are allowed to see this phase — units, "
+        "centres, geometry, your notes"
+        + (", your commitments and your inbox." if full_press else "."),
     ]
     return "\n".join(sections)

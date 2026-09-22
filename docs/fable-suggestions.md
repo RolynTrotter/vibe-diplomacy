@@ -131,7 +131,7 @@ Two costs had nothing to do with playing well:
   near-identical prompts, remembering which CLI each subagent should run, and
   committing after every power. `conduct tasks` builds every task for the
   phase, `conduct collect` turns one subagent's plain-text reply into sealed
-  mail and sealed orders, `conduct advance` commits, adjudicates, commits and
+  mail and sealed orders, `conduct next-phase` commits, adjudicates, commits and
   pushes. Subagents now need **no tools at all**, and a phase costs **two
   commits** instead of one per power per round. `orchestration/tasks.py` holds
   the wording so the skill and `run_match` cannot drift apart.

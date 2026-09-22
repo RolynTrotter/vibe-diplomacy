@@ -9,7 +9,7 @@ that are removed in code rather than asked away.
 import pytest
 from diplomacy import Game
 
-from engine import staged, validate
+from engine import coherence, staged, validate
 
 
 class _Answer:
@@ -38,12 +38,26 @@ def test_groups_never_exceed_the_subset_cap():
 
 def test_every_subset_is_offered_including_none():
     opts = staged._subset_options(
-        ["MOS", "WAR", "SEV"], {"MOS": "Moscow", "WAR": "Warsaw", "SEV": "Sevastopol"},
-        {"MOS": "A MOS", "WAR": "A WAR", "SEV": "F SEV"})
+        ["MOS", "WAR", "SEV"], {"MOS": "A MOS", "WAR": "A WAR", "SEV": "F SEV"})
     assert len(opts) == 2 ** 3
     assert staged.NONE_KEY in opts, "sitting still is a real decision at a stalemate"
-    assert "A MOS out of Moscow advances" in opts["MOS"], "singular reads correctly"
-    assert "advance." in opts["MOS,WAR"], "plural reads correctly"
+    assert opts["MOS"] == ("A MOS moves. A WAR and F SEV stay, and can support, "
+                           "convoy or hold instead.")
+    assert opts["MOS,WAR"].startswith("A MOS and A WAR move.")
+    assert opts["MOS,WAR,SEV"] == "A MOS, A WAR and F SEV move.", (
+        "nothing stays behind, so nothing is said about what stays behind")
+
+
+def test_no_question_says_advance():
+    """The rules say move. `advance` is a word we invented for the model."""
+    opts = staged._subset_options(["MOS", "WAR"], {"MOS": "A MOS", "WAR": "A WAR"})
+    assert not any("advanc" in v.lower() for v in opts.values())
+
+
+def test_a_unit_is_named_once():
+    """`F BRE out of Brest` said Brest twice; the token already locates it."""
+    text = staged._subset_options(["BRE"], {"BRE": "F BRE"})["BRE"]
+    assert text == "F BRE moves."
 
 
 def test_marginals_are_diagnostic_only_and_would_mislead():
@@ -211,3 +225,101 @@ def test_build_cap_holds_when_more_centres_than_allowed():
     owed = len(game.powers["TURKEY"].centers) - len(game.powers["TURKEY"].units)
     capped = _capped_adjustments(game, "TURKEY", ["A CON B", "A SMY B", "F ANK B"])
     assert sum(o.endswith(" B") for o in capped) == max(owed, 0)
+
+
+def test_stab_policy_is_decided_once_and_seen_by_every_later_stage(tmp_path):
+    """The deal is settled before any unit is asked, then rides along.
+
+    Left implicit in the per-unit choices the decision is never actually made:
+    a deal is prose and the options are scored in centres, so the prose loses.
+    """
+    (tmp_path / "notes").mkdir()
+    (tmp_path / "notes" / "FRANCE.md").write_text(
+        "- DEAL: ENGLAND — Channel DMZ — until end 1903\n", encoding="utf-8")
+
+    game = Game()
+    seen, asked = [], []
+
+    def ask(state, questions):
+        seen.append(dict(state))
+        asked.append(sorted(questions))
+        answers = {}
+        for key, question in questions.items():
+            first = next(iter(question.criteria))
+            answers[key] = _Answer(first, {first: 1.0}, confidence=0.7)
+        return _Response(answers)
+
+    result = staged.choose_orders_staged(game, "FRANCE", root=tmp_path,
+                                         stab=True, ask=ask)
+    assert asked[0] == ["deal_0"], "the deal is decided before any unit is"
+    assert result.deal_policy[0]["deal"].startswith("ENGLAND")
+    later = seen[1:]
+    assert later and all("deal_policy_this_turn" in s for s in later), (
+        "every order stage sees the verdict")
+    legal = validate.legal_orders(game, "FRANCE")
+    assert all(o in legal.get(coherence.parse_order(o).loc, [])
+               for o in result.orders), "a stab policy cannot smuggle in an illegal order"
+
+
+def test_no_deals_means_no_stab_request(tmp_path):
+    game = Game()
+    asked = []
+
+    def ask(state, questions):
+        asked.append(sorted(questions))
+        return _Response({k: _Answer(next(iter(q.criteria)))
+                          for k, q in questions.items()})
+
+    staged.choose_orders_staged(game, "FRANCE", root=tmp_path, stab=True, ask=ask)
+    assert not any(k.startswith("deal_") for keys in asked for k in keys), (
+        "a gunboat game never pays for a stab question")
+
+
+# --------------------------------------------------------------------------- #
+# A prohibition has to take the option away
+# --------------------------------------------------------------------------- #
+def test_a_forbidden_province_is_never_on_a_ballot(tmp_path):
+    """Describing a DMZ was ignored 3/3 in every phrasing. Removing it works."""
+    game = Game()
+    offered = []
+
+    def ask(state, questions):
+        answers = {}
+        for key, q in questions.items():
+            offered.extend(q.criteria)
+            first = next(iter(q.criteria))
+            answers[key] = _Answer(first, {first: 1.0}, confidence=0.7)
+        return _Response(answers)
+
+    result = staged.choose_orders_staged(game, "TURKEY", root=tmp_path,
+                                         forbid={"BLA"}, ask=ask)
+    assert not any("BLA" in o for o in offered), (
+        "no move, support or convoy may reach a forbidden province")
+    assert not any("BLA" in o for o in result.orders)
+
+
+def test_forbidding_nothing_leaves_every_option_standing():
+    game = Game()
+    legal = validate.legal_orders(game, "TURKEY")
+    assert any("BLA" in o for o in legal["ANK"]), (
+        "the Black Sea is on Ankara's ballot when nothing forbids it")
+
+
+def test_a_support_into_a_forbidden_province_is_dropped_too(tmp_path):
+    """Escorting a rival through a DMZ is not honouring the DMZ."""
+    game = Game()
+    offered = []
+
+    def ask(state, questions):
+        answers = {}
+        for key, q in questions.items():
+            offered.extend(q.criteria)
+            first = next(iter(q.criteria))
+            answers[key] = _Answer(first, {first: 1.0})
+        return _Response(answers)
+
+    staged.choose_orders_staged(game, "TURKEY", root=tmp_path,
+                                forbid={"BLA"}, ask=ask)
+    helps = [o for o in offered if " S " in o or " C " in o]
+    assert helps, "supports were offered at all"
+    assert not any(o.endswith("BLA") or "- BLA" in o for o in helps)

@@ -27,6 +27,14 @@ Subsets are asked as whole combinations because the commonest decision on the
 board is exclusive: which of two units attacks and which supports it. Only a
 question over combinations can say "Moscow or Warsaw, not both".
 
+The instructions state mechanics and nothing else. They used to editorialise —
+"a unit that does not move is still useful, it can support or convoy one
+that does", and "back up one that is" — and that advice was worth 0.05 of
+probability against moving at S1901M, measured by ablation on the fleet
+question that kept Brest at home. Boilerplate that tells the model what is
+worth doing is a thumb on the scale wearing the costume of a hint; the numbers
+in the state are where a preference belongs.
+
 Per-unit marginals are logged for inspection and nothing reads them. They are
 recorded because they are free, not because they are a decision rule — on that
 same exclusive pairing, `{Mos}` at 0.48 against `{War}` at 0.47 marginalises to
@@ -41,7 +49,7 @@ from pathlib import Path
 
 from diplomacy import Game
 
-from engine import coherence, jev, orders_jev, query, validate
+from engine import coherence, jev, orders_jev, press, query, validate
 
 #: Units per subset question. 2**6 = 64 options, well inside the 255 ceiling.
 #: Every split costs joint reasoning, so this is as high as it goes while
@@ -76,9 +84,23 @@ def _groups(locs: list[str], cap: int = GROUP_CAP) -> list[list[str]]:
     return [locs[i:i + cap] for i in range(0, len(locs), cap)] or []
 
 
-def _subset_options(locs: list[str], names: dict[str, str],
-                    unit_of: dict[str, str]) -> dict[str, str]:
+def _english(items: list[str]) -> str:
+    """"A", "A and B", "A, B and C" — a list a reader can parse as a sentence."""
+    if len(items) <= 1:
+        return items[0] if items else ""
+    return ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def _subset_options(locs: list[str], unit_of: dict[str, str]) -> dict[str, str]:
     """Every subset of these units, as Choice options.
+
+    Each option is two plain sentences: who moves, and who stays. An earlier
+    version read "F BRE out of Brest advances. Staying put and free to support
+    or convoy: no others." — which names Brest twice (the unit token already
+    says where it is), uses a word the rules do not ("advance"; the order is a
+    move), and ends in a label-colon-list that degenerates into "no others"
+    when nothing stays behind. Options are compared by reading them, so an
+    option that has to be decoded is an option at a disadvantage.
 
     The empty subset is offered. Sitting still for a phase is a real decision,
     especially in a late-game stalemate — which is also exactly where a power
@@ -93,17 +115,17 @@ def _subset_options(locs: list[str], names: dict[str, str],
         for combo in combinations(locs, size):
             key = ",".join(combo) if combo else NONE_KEY
             if not combo:
-                options[key] = ("None of these units moves this turn; each is "
-                                "free to support, convoy or hold.")
+                options[key] = ("No unit moves. Each one can support, convoy "
+                                "or hold instead.")
                 continue
-            movers = ", ".join(f"{unit_of[l]} out of {names.get(l, l)}"
-                               for l in combo)
-            verb = "advances" if len(combo) == 1 else "advance"
-            stays = [l for l in locs if l not in combo]
-            rest = (", ".join(f"{unit_of[l]}" for l in stays)
-                    if stays else "no others")
-            options[key] = (f"{movers} {verb}. Staying put and free to support "
-                            f"or convoy: {rest}.")
+            movers = _english([unit_of[l] for l in combo])
+            moves = "moves" if len(combo) == 1 else "move"
+            stays = [unit_of[l] for l in locs if l not in combo]
+            text = f"{movers} {moves}."
+            if stays:
+                text += (f" {_english(stays)} {'stays' if len(stays) == 1 else 'stay'}"
+                         f", and can support, convoy or hold instead.")
+            options[key] = text
     return options
 
 
@@ -169,19 +191,19 @@ def _movers_from(game: Game, power: str, locs: list[str], kind: str,
     """Ask which of these units move, in groups small enough to enumerate."""
     from typesafe_sdk import Choice
 
-    names = orders_jev._names(game)
     unit_of = {l: next((r["unit"] for r in state["your_units"]
                         if r["unit"].split()[1].split("/")[0] == l), l) for l in locs}
     movers: list[str] = []
     for index, group in enumerate(_groups(locs)):
         question = Choice(
             instructions=(
-                f"You are {power}. Decide which of these {kind} advance this turn. "
+                f"You are {power}. Decide which of these {kind} move this turn. "
                 f"Each unit's options are in `your_units`; anything already "
-                f"ordered is in `committed_orders`. A unit that does not advance "
-                f"is still useful — it can support or convoy one that does. "
-                f"Choose the combination that does most for your position."),
-            criteria=_subset_options(group, names, unit_of),
+                f"ordered is in `committed_orders`. Your own plan is in "
+                f"`your_own_plan`; agreements you are bound by this turn are in "
+                f"`deal_policy_this_turn`. Choose the combination that does most "
+                f"for your position."),
+            criteria=_subset_options(group, unit_of),
         )
         key = f"{kind}_group_{index}"
         response = ask(state, {key: question})
@@ -198,7 +220,8 @@ def _movers_from(game: Game, power: str, locs: list[str], kind: str,
 
 def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: str,
                   values: dict[str, float] | None, *, ask, stages: list[Stage],
-                  taken: set[str] | None = None) -> tuple[list[str], list[str]]:
+                  taken: set[str] | None = None,
+                  forbid: set[str] | None = None) -> tuple[list[str], list[str]]:
     """One Choice per moving unit, over its legal moves only.
 
     The questions run in one request and cannot see each other, so two units
@@ -221,13 +244,16 @@ def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: 
     questions = {}
     for loc in movers:
         moves = [o for o in legal.get(loc, [])
-                 if coherence.parse_order(o).kind == "MOVE"]
+                 if coherence.parse_order(o).kind == "MOVE"
+                 and coherence.parse_order(o).dest not in (forbid or set())]
         if not moves:
             continue
         questions[loc] = Choice(
-            instructions=(f"You are {power}. This unit is advancing this turn. "
+            instructions=(f"You are {power}. This unit is moving this turn. "
                           f"Where does it go? Avoid a province another of your "
-                          f"units is already ordered into — see `committed_orders`."),
+                          f"units is already ordered into — see `committed_orders`, "
+                          f"and do not enter ground a deal you are keeping puts "
+                          f"off limits (`deal_policy_this_turn`)."),
             criteria={o: orders_jev.gloss(game, o, names, owners, power,
                                           impassable, values) for o in moves},
         )
@@ -266,9 +292,9 @@ def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: 
 
 
 def _helpers(game: Game, power: str, stayers: list[str], state: dict,
-             values: dict[str, float] | None, *, ask,
-             stages: list[Stage]) -> list[str]:
-    """Supports and convoys for the units that are not advancing.
+             values: dict[str, float] | None, *, ask, stages: list[Stage],
+             sealed: set[str] | None = None) -> list[str]:
+    """Supports and convoys for the units that are not moving.
 
     Hold is offered only where the unit has no legal support or convoy at all.
     """
@@ -293,6 +319,12 @@ def _helpers(game: Game, power: str, stayers: list[str], state: dict,
         cannot see their orders, and backing one is a legitimate gamble.
         """
         p = coherence.parse_order(order)
+        # A demilitarised province stays off limits when you are helping
+        # somebody else in — escorting a rival through a DMZ is not honouring
+        # it. A province PROMISED to another power is the opposite case: the
+        # support is the thing you agreed to give, so it stays on the ballot.
+        if p.dest and p.dest in (sealed or set()):
+            return False
         if p.target not in ours:
             return True
         committed = mine.get(p.target)
@@ -315,11 +347,11 @@ def _helpers(game: Game, power: str, stayers: list[str], state: dict,
         if not opts:
             continue
         questions[loc] = Choice(
-            instructions=(f"You are {power}. This unit is not advancing. Back up "
-                          f"one that is: `committed_orders` lists the moves your "
-                          f"other units are making this turn. A support only "
-                          f"works if it matches an order actually given, and a "
-                          f"convoy only works if the army is moving by sea."),
+            instructions=(f"You are {power}. This unit is not moving this turn. "
+                          f"Choose what it does instead. `committed_orders` lists "
+                          f"the moves your other units are making. A support only "
+                          f"takes effect if it matches an order actually given, "
+                          f"and a convoy only if that army is moving by sea."),
             criteria={o: orders_jev.gloss(game, o, names, owners, power,
                                           impassable, values) for o in opts},
         )
@@ -340,8 +372,23 @@ def _helpers(game: Game, power: str, stayers: list[str], state: dict,
 def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
                          values: dict[str, float] | None = None,
                          model: str = jev.DEFAULT_MODEL,
+                         extra: dict | None = None, stab: bool = False,
+                         forbid: set[str] | None = None,
+                         sealed: set[str] | None = None,
                          ask=None) -> orders_jev.JevOrders:
-    """Movement first, then destinations, then everyone else."""
+    """Movement first, then destinations, then everyone else.
+
+    `extra` is pinned onto the state for every stage. With `stab`, each standing
+    `DEAL:` line is decided keep-or-break once, before any unit is asked, and
+    the verdicts ride along in `deal_policy_this_turn` — see `engine.press`.
+
+    `forbid` is every province this power's own units may not enter; `sealed`
+    is the subset that must stay empty altogether, so supports and convoys
+    carrying somebody else in are dropped too. A province in `forbid` but not
+    `sealed` is one the power promised to a friend: it stays out, and helping
+    the friend in is exactly what it agreed to do. Both come from
+    `engine.valuation.province_constraints`.
+    """
     power = power.upper()
     result = orders_jev.JevOrders(power=power, phase=game.get_current_phase())
 
@@ -349,7 +396,7 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
         # Retreats and adjustments are one decision per location with no
         # move/support division to make; the single-pass path handles them.
         return orders_jev.choose_orders(game, power, root=root, values=values,
-                                        model=model, ask=ask)
+                                        model=model, extra=extra, ask=ask)
 
     caller = ask or (lambda s, q: jev.ask(s, q, root=root, model=model))
     armies, fleets = _units_by_kind(game, power)
@@ -359,7 +406,13 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
     impassable = {l.upper().split("/")[0] for l in game.map.locs
                   if game.map.area_type(l.upper().split("/")[0]) == "SHUT"}
     names = orders_jev._names(game)
-    state = orders_jev.build_state(game, power, root=root)
+    state = orders_jev.build_state(game, power, root=root, extra=extra)
+    if stab:
+        deals = press.standing_deals(root, power) if root is not None else []
+        policy = press.stab_policy(deals, state, ask=caller)
+        if policy:
+            state["deal_policy_this_turn"] = policy
+            result.deal_policy = policy
     state["what_your_units_can_do"] = _unit_digest(
         game, power, armies + fleets, values, names, impassable)
     state["your_units"] = state["what_your_units_can_do"]
@@ -370,7 +423,8 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
     army_movers = _movers_from(game, power, armies, "armies", state,
                                ask=caller, stages=stages)
     army_orders, demoted = _destinations(game, power, army_movers, state, "army",
-                                         values, ask=caller, stages=stages)
+                                         values, ask=caller, stages=stages,
+                                         forbid=forbid)
     orders += army_orders
     state["committed_orders"] = list(orders)
     army_movers = [l for l in army_movers if l not in demoted]
@@ -380,7 +434,7 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
     taken = {coherence.parse_order(o).dest for o in orders}
     fleet_orders, demoted = _destinations(game, power, fleet_movers, state, "fleet",
                                           values, ask=caller, stages=stages,
-                                          taken=taken)
+                                          taken=taken, forbid=forbid)
     orders += fleet_orders
     state["committed_orders"] = list(orders)
     fleet_movers = [l for l in fleet_movers if l not in demoted]
@@ -388,7 +442,7 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
     stayers = [l for l in armies + fleets
                if l not in army_movers and l not in fleet_movers]
     orders += _helpers(game, power, stayers, state, values,
-                       ask=caller, stages=stages)
+                       ask=caller, stages=stages, sealed=sealed)
 
     checked = validate.validate_orders(game, power, orders)
     result.orders = checked.accepted

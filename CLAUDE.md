@@ -55,13 +55,16 @@ Python 3.11.
   credentials, one call, spend), `rules` (the ruleset as state),
   `valuation` (one question, province priorities), `orders_jev` (glosses,
   per-unit questions, single-pass), `staged` (who moves, then where, then
-  supports).
+  supports), `press` (the power's own notes, DEAL: ledger, inbox and last
+  outcomes as Jev state, plus the keep-or-break call on each standing deal).
 - `orchestration/` — CLIs: `new_game`, `join_game`, `submit_orders`,
   `send_message`, `read_messages`, `game_status`, `run_adjudication`,
-  `conduct` (roster/brief/tasks/collect/advance), `tasks` (shared task text),
+  `conduct` (roster/brief/tasks/collect/next-phase), `tasks` (shared task
+  text), `send_batch` (every `TO ...` line in one call),
   `run_match` (programmatic conductor), `jev_orders` (one power's orders,
-  `--dry-run` to inspect the request), `jev_match` (gunboat self-play with Jev
-  at all seven seats).
+  `--dry-run` to inspect the request, `--orders-only` to pipe into
+  `scripts/submit.sh`), `jev_match` (gunboat self-play with Jev at all seven
+  seats).
 - `site/` — the GitHub Pages visualizer (`build_site.py` + `static/`).
 - `.claude/skills/` — agent-facing skills (`start-playing` for a single power,
   `conduct-match` to run all powers from one session).
@@ -74,9 +77,103 @@ The approved plan lives outside the repo. Current state: **Epics 0–5 built**
 (engine wrapper, gunboat git+Actions loop, core skills, human-play ergonomics,
 GitHub Pages visualizer with map/text/talk/notes, full-press comms with per-player
 encryption + signed orders, self-serve onboarding, single-session conductor mode
-with scoped subagents). Next: **real Cicero (Epic 6)**. Open follow-ups: issues
-#3 (own map), #8 (tamper-resistant identities), #36 (Jev order writing, in
-review as PR #38), #37 (give Jev the negotiations and notes).
+with scoped subagents). Next: **real Cicero (Epic 6)**. Open follow-ups: issues #3 (own map), #8
+(tamper-resistant identities).
+
+### One reply, no tools
+
+A seat says everything in one syntax — `TO <POWER>:`, `TO <POWER>, <POWER>:`,
+`TO ALL:`, `TO SELF:`, `TO STAFF:` — and `player_agent.parse_reply` routes each
+line: sealed mail, the power's own notebook, or its staff. `FINAL_MESSAGES`
+ends its participation in the phase's talking. **A seat makes no routing
+decision and calls no tool**, which is the point: a model choosing which CLI to
+run is paying full context price for a decision the code already knows.
+
+Two rules follow from that, and both have been broken before:
+
+- **Never point a seat at a command that re-fetches what it already has.** The
+  brief carries the board, the geometry, the notes, the commitments and the
+  inbox. Its old tail said "use `game_status` … as ground truth", contradicting
+  `scripts/turn.sh`'s own "replaces … game_status", and cost 1–3 calls a turn.
+- **Preload skill text, never name a skill.** `tasks.SKILLS_FOR` pastes the
+  body in for agentic seats. A decision the model cannot make is one it cannot
+  make badly.
+
+Traced before this landed, FRANCE's S1901M cost ~12–14 round trips, 3–4 skill
+loads and a 537 KB image. The image is now movement-phases only.
+
+**A prohibition must remove the option; nothing else works.** Told "DMZ in
+Black Sea", Turkey's fleet entered the Black Sea 3/3 at priority scale 0-100,
+3/3 at 0-1, 3/3 with no valuation at all, and 3/3 when the directions were
+framed as binding orders from a head of state carrying `weight: 5000`.
+Emphasis is prose and prose loses. `valuation.forbidden_provinces` asks one
+Choice — with an explicit `NOTHING_IS_OFF_LIMITS` option that is meant to win
+most of the time — and `staged` then drops those destinations from every
+ballot, moves and supports alike. The discrimination is real: "agreed to
+*bounce* in Black Sea" (an agreement to enter) returns nothing forbidden at
+0.64 and the fleet sails.
+
+Corollary worth keeping: **under-engineering the numbers is not the answer.**
+Removing the valuation entirely made things worse, not simpler — the Black Sea
+bounce went 3/3 to 0/3 without it.
+
+**Written intent only works if it reaches the valuation request.** That is the
+single point where prose becomes the `Priority N/100` every move option is
+glossed with. Measured at S1901M with the direction "Burgundy before Germany
+gets there": valuation blind to it scored ENG 32, SPA 24, BEL 16 and no
+Burgundy at all, and Paris supported instead of moving 3/3 runs; valuation
+shown it scored POR 85, BUR 13 — exactly the provinces named — and Paris took
+Burgundy 3/3. Any new channel for intent has to reach that call, not just the
+order questions.
+
+### Staff seats: opt-in, and off by default
+
+`run_match --staff` (or `orders: staff` on a seat or match in the YAML). Without
+it every seat writes its own orders, in text, from `ORDERS_BLOCK` — one line per
+unit, fenced or bare, both parsed. A self-ordering seat is never told it has a
+staff: being offered a subordinate that does not exist is a way to spend a whole
+turn issuing instructions nobody carries out.
+
+Jev order-writing stopped here. The mechanism works, but making written
+instructions actually bind needed a per-province constraint probe on top of the
+valuation on top of the staged decomposition, and that wiring outgrew what the
+approach was buying. What survives is worth keeping: the one-reply no-tools seat,
+the `TO ...` routing, and the measurements below.
+
+### Staff seats: who decides what
+
+A seat with `orders: staff` (`orchestration/staff.py`) splits the turn by what
+each model is good at. The playing model negotiates and writes **directions** —
+plain English, no engine syntax; Jev turns those into a legal order per unit.
+
+**The playing model is never told any of this.** It is told it has a general
+staff. Nothing in `orchestration/tasks.py`, in any `.claude/skill`, or in any
+prompt may name Jev, TypeSafe, or the order pipeline — `tests/test_staff.py`
+asserts it. Two reasons: a seat that can reason about its own order writer can
+try to game it, and every token spent deciding which tool to call is a token
+not spent on the game. **Routing is a code decision, never a model decision** —
+`run_match` picks the task kind from the seat spec, and the player has no tool
+choice to get wrong.
+
+Directions reach Jev twice: as `your_directions_this_turn` (this phase, next to
+the board) and persisted to `notes/<POWER>.md` (durable, and what keeps the
+`DEAL:` ledger working). So **a staff seat's play is only as good as the
+directions it writes**.
+
+Known gap, S1901M, measured: France submitted `F BRE S F LON - ENG`, supporting
+*England* into the Channel while its own `DEAL: Channel DMZ` was kept at 0.97.
+Capturing the actual request showed this was **not a judgment at all** — the
+ballot had exactly one option on it, and the answer came back at confidence
+1.0. Brest had four legal supports; `staged._helpers`'s `useful()` filter drops
+a support for one of *your own* units whose committed order does not match,
+which killed three of them (Paris was going to Burgundy, Marseilles to Spain),
+and a support for a *foreign* unit survives unconditionally because you cannot
+see that power's orders. Hold is offered only `if not opts`, so with one option
+left it never appeared.
+
+So the defect is structural, not a scoring one: **a single-option question is
+not a decision**, and the one class of option that always survives filtering is
+helping somebody else. Check the option count before blaming the choice.
 
 ### Working on the Jev path
 

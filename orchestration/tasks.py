@@ -11,22 +11,82 @@ Two styles:
   `conduct collect`). The task ends with the exact reply format to produce.
 * **agentic** — the seat is a real session that runs the CLIs itself.
 
-Three kinds: `negotiation` (messages only), `orders` (orders only), and
-`combined` — messages AND orders in one reply, which halves the model calls a
-full-press movement phase costs.
+Four kinds: `negotiation` (messages only), `orders` (orders only), `combined`
+(messages AND orders in one reply, which halves the model calls a full-press
+movement phase costs), and `directives` — messages AND written direction to the
+power's staff, for a seat whose orders are placed by `orchestration.staff`.
+
+A `directives` task is the only one that never mentions an order. That is the
+point of it: the seat is told it commands through subordinates, so it spends
+its whole call on language and none of it on tactics it is bad at or on
+deciding which tool to reach for. Nothing in this file may name the model on
+the other side of that handoff — see the note in `orchestration.staff`.
 """
 from __future__ import annotations
 
-from orchestration.player_agent import (COMBINED_FORMAT, MESSAGES_FORMAT,
-                                        ORDERS_FORMAT)
+from pathlib import Path
+
+from orchestration.player_agent import (COMBINED_FORMAT, DIRECTIVES_FORMAT,
+                                        MESSAGES_FORMAT, ORDERS_FORMAT)
+
+SKILLS_DIR = Path(__file__).resolve().parent.parent / ".claude" / "skills"
+
+#: Skills whose text an agentic seat needs, per task kind. The body is pasted
+#: into the task rather than named, so the seat never spends a round trip
+#: deciding whether to go and read one. A decision the model cannot make is a
+#: decision it cannot make badly.
+SKILLS_FOR = {
+    "negotiation": ["negotiate"],
+    "directives": ["negotiate"],
+    "combined": ["negotiate", "write-orders"],
+    "orders": ["write-orders"],
+}
+
+
+def skill_text(name: str) -> str:
+    """One skill's body, front-matter stripped. Empty if it is not there."""
+    path = SKILLS_DIR / name / "SKILL.md"
+    if not path.is_file():
+        return ""
+    text = path.read_text(encoding="utf-8")
+    if text.startswith("---"):
+        end = text.find("\n---", 3)
+        if end != -1:
+            text = text[end + 4:]
+    return text.strip()
+
+
+def _preloaded(kind: str, press: str) -> str:
+    """The skill bodies this kind needs, ready to paste into a task."""
+    names = list(SKILLS_FOR.get(kind, []))
+    if press != "full":
+        names = [n for n in names if n != "negotiate"]
+    bodies = [t for t in (skill_text(n) for n in names) if t]
+    if not bodies:
+        return ""
+    return ("\n\n---\n\n## Reference (already loaded — nothing to go and read)\n\n"
+            + "\n\n".join(bodies))
 
 REPLY_FORMATS = {
     "negotiation": MESSAGES_FORMAT,
     "orders": ORDERS_FORMAT,
     "combined": COMBINED_FORMAT,
+    "directives": DIRECTIVES_FORMAT,
 }
 
 KINDS = tuple(REPLY_FORMATS)
+
+
+#: What a staff seat is asked to direct, per phase type. The words stay in the
+#: register of command — a head of government says what it wants held and
+#: taken; it does not say "disband A BUR".
+_DIRECT = {
+    "R": ("where your dislodged units should fall back to, and which are not "
+          "worth saving"),
+    "A": ("where your new strength should be raised, or which commands to wind "
+          "up if you are over-extended"),
+    "M": "what you want taken, what must be held, and whom you are fighting",
+}
 
 
 def _what(phase: str) -> str:
@@ -61,10 +121,31 @@ def build(power: str, kind: str, phase: str, brief: str, *,
             "orders lock. Do NOT submit orders yet.\n\n"
         )
         if not reply:
-            body += (
-                "Use the `negotiate` skill: read with `read_messages`, send with "
-                "`send_message`, then `scripts/sync.sh` any mail you create.\n\n"
-            )
+            body += ("Your inbox is in the brief below — it is already the "
+                     "whole of your mail this phase.\n\n")
+    elif kind == "directives":
+        aim = _DIRECT["R" if phase.endswith("R") else
+                      "A" if phase.endswith("A") else "M"]
+        body = (
+            f"You are {power} in a Diplomacy match. {lead}"
+            f"It is {phase}. You do not place units yourself — you have a "
+            f"general staff for that, and they are competent. Your job is the "
+            f"part they cannot do: reading the table, talking to the other "
+            f"powers, and telling your staff what you want.\n\n"
+            f"Acting ONLY as {power}: "
+            + (f"send any messages you want to send, then write your standing "
+               f"directions — {aim}.\n\n" if full else
+               f"write your standing directions — {aim}. There is no "
+               f"negotiation in this match.\n\n")
+            + f"Your directions are acted on this phase, so say what you "
+              f"actually want. Be concrete about places and aims — \"take "
+              f"Portugal before Spain\", \"Munich matters more than Belgium\", "
+              f"\"do not let Austria into Serbia\" — and leave the placing of "
+              f"units to your staff.\n\n"
+        )
+        if not reply:
+            body += ("Everything you need is in the brief below. Do NOT submit "
+                     "orders — your staff places the units, not you.\n\n")
     elif kind == "combined":
         body = (
             f"You are {power} in a Diplomacy match. {lead}"
@@ -107,7 +188,9 @@ def build(power: str, kind: str, phase: str, brief: str, *,
     task = body + "Your current brief:\n\n" + brief
     if reply:
         task += "\n\n" + REPLY_FORMATS[kind]
+    else:
+        task += _preloaded(kind, press)
     return task
 
 
-__all__ = ["build", "KINDS", "REPLY_FORMATS"]
+__all__ = ["build", "KINDS", "REPLY_FORMATS", "SKILLS_FOR", "skill_text"]

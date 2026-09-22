@@ -62,6 +62,13 @@ class SeatSpec:
     base_url: str | None = None      # resolved for local seats
     token: str | None = None         # resolved for local seats
     persona: str | None = None       # free-text system flavor for this seat
+    orders: str = "self"             # self  = this seat writes its own orders
+                                     # staff = it negotiates and issues written
+                                     #         directions; `orchestration.staff`
+                                     #         places the units. Lets a cheap
+                                     #         model hold a seat: it spends its
+                                     #         whole call on language and never
+                                     #         sees an order or a tool choice.
     vision: bool = True              # attach the board picture to this seat's
                                      # turn prompt (raw backend; harmless to
                                      # disable for a text-only model)
@@ -84,6 +91,7 @@ class MatchSpec:
     # Defaults applied to every seat that doesn't override them.
     model: str = DEFAULT_MODEL
     endpoint: str = "local"
+    orders: str = "self"                    # default for every seat; see SeatSpec
     lm_studio_env: str | None = None
 
     # Brief-section toggles written into game/config.json (see
@@ -171,6 +179,7 @@ class MatchSpec:
                 base_url=cfg.get("base_url"),
                 token=cfg.get("token"),
                 persona=cfg.get("persona"),
+                orders=cfg.get("orders", self.orders),
                 vision=cfg.get("vision", True),
                 enabled=cfg.get("enabled", True),
             )
@@ -188,10 +197,15 @@ class MatchSpec:
             raise ValueError(f"deadline must be wait|force, got {self.deadline!r}")
         if self.max_concurrency < 1:
             raise ValueError("max_concurrency must be >= 1")
+        if self.orders not in ("self", "staff"):
+            raise ValueError(f"orders must be self|staff, got {self.orders!r}")
         for power, seat in self.seats.items():
             if seat.endpoint not in ("local", "api"):
                 raise ValueError(
                     f"seats.{power}.endpoint must be local|api, got {seat.endpoint!r}")
+            if seat.orders not in ("self", "staff"):
+                raise ValueError(
+                    f"seats.{power}.orders must be self|staff, got {seat.orders!r}")
 
     def _resolve_seats(self) -> None:
         """Fill in base_url/token for local seats; clear them for api seats."""
@@ -216,6 +230,10 @@ class MatchSpec:
     def live_powers(self) -> list[str]:
         idle = set(self.idle_powers())
         return [p for p in POWERS if p not in idle]
+
+    def staff_powers(self) -> list[str]:
+        """Seats whose units are placed by `orchestration.staff`."""
+        return [p for p in self.live_powers() if self.seats[p].orders == "staff"]
 
     # ------------------------------------------------------------------ #
     # Serialization

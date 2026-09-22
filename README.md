@@ -46,17 +46,23 @@ engine/         thin wrapper around the diplomacy engine
   valuation.py    one question -> what each province is worth this turn
   orders_jev.py   option glosses + per-unit questions (single pass)
   staged.py       who moves -> where -> who supports (the working path)
+  press.py        notes, DEAL: ledger, inbox, outcomes as Jev state;
+                  and the keep-or-break decision on each standing deal
 orchestration/  CLIs the skills + workflow call
   new_game.py        initialize a match (--press, adjudicator key reuse)
   join_game.py       claim a free seat (self-serve identity + keys)
   submit_orders.py   validate -> sign -> seal -> stage orders/<POWER>/<phase>.enc
   send_message.py    seal a signed message to a power / broadcast
   read_messages.py   trial-decrypt your inbox
-  jev_orders.py      one power's orders from Jev (--dry-run shows the request)
+  jev_orders.py      one power's orders from Jev (--dry-run shows the request,
+                     --orders-only pipes straight into submit.sh)
   jev_match.py       gunboat self-play, Jev at all seven seats
+  send_batch.py      every `TO ...` line sent in one call
+  staff.py           written directions in, sealed orders out — the
+                     opt-in `--staff` seat (the player never sees an order)
   game_status.py     phone-friendly status (no decryption)
   run_adjudication.py the adjudicator (CI only; holds the private key)
-  conduct.py         conductor seam (roster, brief, tasks, collect, advance)
+  conduct.py         conductor seam (roster, brief, tasks, collect, next-phase)
   tasks.py           the task text a power gets — one wording, every caller
   run_match.py       programmatic conductor (one command, per-power sessions)
 site/           static GitHub Pages visualizer
