@@ -1,0 +1,38 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [
+      "F LON B"
+    ],
+    "FRANCE": [
+      "F MAR B"
+    ],
+    "GERMANY": [],
+    "ITALY": [],
+    "RUSSIA": [
+      "A MOS B",
+      "F STP/NC B"
+    ],
+    "TURKEY": [
+      "A CON B"
+    ]
+  },
+  "phase": "W1901A",
+  "results": {
+    "A CON": [
+      ""
+    ],
+    "A MOS": [
+      ""
+    ],
+    "F LON": [
+      ""
+    ],
+    "F MAR": [
+      ""
+    ],
+    "F STP/NC": [
+      ""
+    ]
+  }
+}
