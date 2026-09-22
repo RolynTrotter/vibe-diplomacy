@@ -1,0 +1,15 @@
+# Seven Haiku seats, full press, stop at the end of 1902.
+#   python -m orchestration.run_match --spec matches/haiku-sep21.yaml
+name: haiku-sep21
+press: full
+
+model: claude-haiku-4-5-20251001
+endpoint: api            # ambient Anthropic credentials, no base-url override
+
+negotiation_rounds: 2
+session_mode: oneshot
+max_concurrency: 4
+end_year: 1902
+max_phases: 20
+adjudication: local
+deadline: force
