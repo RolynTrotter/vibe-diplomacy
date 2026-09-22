@@ -1,0 +1,46 @@
+{
+  "orders": {
+    "AUSTRIA": [],
+    "ENGLAND": [],
+    "FRANCE": [
+      "A PAR B"
+    ],
+    "GERMANY": [
+      "F KIE B",
+      "A MUN B"
+    ],
+    "ITALY": [
+      "A NAP B",
+      "A ROM B",
+      "A VEN B"
+    ],
+    "RUSSIA": [],
+    "TURKEY": [
+      "A ANK B"
+    ]
+  },
+  "phase": "W1902A",
+  "results": {
+    "A ANK": [
+      ""
+    ],
+    "A MUN": [
+      ""
+    ],
+    "A NAP": [
+      ""
+    ],
+    "A PAR": [
+      ""
+    ],
+    "A ROM": [
+      ""
+    ],
+    "A VEN": [
+      ""
+    ],
+    "F KIE": [
+      ""
+    ]
+  }
+}
