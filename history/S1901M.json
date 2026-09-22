@@ -1,0 +1,73 @@
+{
+  "orders": {
+    "AUSTRIA": [
+      "A BUD - RUM",
+      "A VIE - GAL",
+      "F TRI - ALB"
+    ],
+    "ENGLAND": [
+      "F LON - ENG",
+      "F EDI - NTH",
+      "A LVP - WAL"
+    ],
+    "FRANCE": [
+      "A MAR - SPA",
+      "A PAR - BUR",
+      "F BRE - MAO"
+    ],
+    "GERMANY": [
+      "F KIE - HOL",
+      "A BER - PRU",
+      "A MUN - RUH"
+    ],
+    "ITALY": [
+      "A VEN - TRI",
+      "A ROM - APU",
+      "F NAP - ION"
+    ],
+    "RUSSIA": [
+      "A MOS - UKR",
+      "F SEV - RUM",
+      "F STP/SC - BOT",
+      "A WAR - GAL"
+    ],
+    "TURKEY": [
+      "A CON - BUL",
+      "F ANK - BLA",
+      "A SMY - ARM"
+    ]
+  },
+  "phase": "S1901M",
+  "results": {
+    "A BER": [],
+    "A BUD": [
+      "bounce"
+    ],
+    "A CON": [],
+    "A LVP": [],
+    "A MAR": [],
+    "A MOS": [],
+    "A MUN": [],
+    "A PAR": [],
+    "A ROM": [],
+    "A SMY": [],
+    "A VEN": [],
+    "A VIE": [
+      "bounce"
+    ],
+    "A WAR": [
+      "bounce"
+    ],
+    "F ANK": [],
+    "F BRE": [],
+    "F EDI": [],
+    "F KIE": [],
+    "F LON": [],
+    "F NAP": [],
+    "F SEV": [
+      "bounce"
+    ],
+    "F STP/SC": [],
+    "F TRI": []
+  }
+}
