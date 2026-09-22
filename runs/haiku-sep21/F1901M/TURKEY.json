@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "\u2713 **TURKEY's turn locked in for F1901M**\n\n**Final position:**\n- **Messages sent:** Austria (confirming Balkans split: I take BUL & RUM, they take GRE & SER) and Russia (confirming I secure Balkans while they expand east)\n- **Orders sealed & submitted:**\n  - A BUL H \u2014 hold to keep Bulgaria\n  - A ARM - RUM VIA \u2014 convoy to Rumania (expanding south/east)\n  - F BLA C A ARM - RUM \u2014 Black Sea fleet provides convoy\n\nYour 4 centers by phase end (ANK, CON, SMY, RUM) honor both diplomatic agreements and position you competitively against Russia's dominance. Balloons your unit count to 4 in S1901, ready for a build.",
+  "session_id": "9fa04e76-d86f-4f8b-99c2-14d20ccc80f2",
+  "duration": 63.08782133401837,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 57257,
+    "stop_reason": "end_turn",
+    "session_id": "9fa04e76-d86f-4f8b-99c2-14d20ccc80f2",
+    "total_cost_usd": 0.07515219999999999,
+    "usage": {
+      "input_tokens": 26,
+      "cache_creation_input_tokens": 17917,
+      "cache_read_input_tokens": 75972,
+      "output_tokens": 6339,
+      "output_tokens_details": {
+        "thinking_tokens": 5479
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17917,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 442,
+          "cache_read_input_tokens": 32867,
+          "cache_creation_input_tokens": 1339,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1339
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 26,
+        "outputTokens": 6339,
+        "cacheReadInputTokens": 75972,
+        "cacheCreationInputTokens": 17917,
+        "webSearchRequests": 0,
+        "costUSD": 0.07515219999999999,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 5479,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 3,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "\u2713 **TURKEY's turn locked in for F1901M**\n\n**Final position:**\n- **Messages sent:** Austria (confirming Balkans split: I take BUL & RUM, they take GRE & SER) and Russia (confirming I secure Balkans while they expand east)\n- **Orders sealed & submitted:**\n  - A BUL H \u2014 hold to keep Bulgaria\n  - A ARM - RUM VIA \u2014 convoy to Rumania (expanding south/east)\n  - F BLA C A ARM - RUM \u2014 Black Sea fleet provides convoy\n\nYour 4 centers by phase end (ANK, CON, SMY, RUM) honor both diplomatic agreements and position you competitively against Russia's dominance. Balloons your unit count to 4 in S1901, ready for a build.",
+    "ttft_ms": 40281,
+    "type": "result",
+    "duration_ms": 61710,
+    "uuid": "2c430486-d511-4d25-aefc-bef93440c88e",
+    "ttft_stream_ms": 656,
+    "time_to_request_ms": 47,
+    "first_content_frame_ms": 657,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

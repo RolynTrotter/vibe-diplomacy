@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**GERMANY's F1901M turn complete.**\n\n\u2713 Sealed messages sent to FRANCE, RUSSIA, ITALY (confirming alliances and positioning)  \n\u2713 Orders validated and submitted:\n  - F HOL - HEL (fleet moves east toward DEN for spring attack)\n  - A RUH - BEL (army takes neutral BEL, expanding to 4 centers)\n  - A PRU H (army holds, respects RUSSIA's northeast agreement)  \n\u2713 All files pushed to game/haiku-sep21\n\nI'm building toward a 5-center position by S1902 (BER, KIE, MUN, BEL, then DEN), honoring the north-south split with FRANCE, keeping RUSSIA's northeast quiet, and maintaining ITALY's non-agg pact. Ready for adjudication.",
+  "session_id": "180212d8-2fe6-41cc-bdab-a1abbd3e9153",
+  "duration": 94.6828894589562,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 90114,
+    "stop_reason": "end_turn",
+    "session_id": "180212d8-2fe6-41cc-bdab-a1abbd3e9153",
+    "total_cost_usd": 0.08410830000000001,
+    "usage": {
+      "input_tokens": 26,
+      "cache_creation_input_tokens": 19095,
+      "cache_read_input_tokens": 77373,
+      "output_tokens": 7631,
+      "output_tokens_details": {
+        "thinking_tokens": 6573
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 19095,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 308,
+          "cache_read_input_tokens": 34178,
+          "cache_creation_input_tokens": 1206,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1206
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 26,
+        "outputTokens": 7631,
+        "cacheReadInputTokens": 77373,
+        "cacheCreationInputTokens": 19095,
+        "webSearchRequests": 0,
+        "costUSD": 0.08410830000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 6573,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**GERMANY's F1901M turn complete.**\n\n\u2713 Sealed messages sent to FRANCE, RUSSIA, ITALY (confirming alliances and positioning)  \n\u2713 Orders validated and submitted:\n  - F HOL - HEL (fleet moves east toward DEN for spring attack)\n  - A RUH - BEL (army takes neutral BEL, expanding to 4 centers)\n  - A PRU H (army holds, respects RUSSIA's northeast agreement)  \n\u2713 All files pushed to game/haiku-sep21\n\nI'm building toward a 5-center position by S1902 (BER, KIE, MUN, BEL, then DEN), honoring the north-south split with FRANCE, keeping RUSSIA's northeast quiet, and maintaining ITALY's non-agg pact. Ready for adjudication.",
+    "ttft_ms": 76421,
+    "type": "result",
+    "duration_ms": 92523,
+    "uuid": "e6c2ec2d-f148-4a67-9eea-2a09de02c141",
+    "ttft_stream_ms": 646,
+    "time_to_request_ms": 45,
+    "first_content_frame_ms": 647,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

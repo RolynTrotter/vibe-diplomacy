@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Messages sent and committed.** My diplomatic position is now:\n\n- **ITALY**: Non-aggression \u2014 I'm expanding into the Balkans, not at TRI\n- **RUSSIA**: Stable northern border \u2014 GAL stays theirs, no conflict on AUSTRIA's north  \n- **TURKEY**: Balkans division \u2014 I target GRE and SER (west), they focus on BUL and RUM (east/south)\n\n**Strategic thinking for orders (not yet submitted):**\n- F ALB \u2192 GRE (claim western Balkans)\n- A BUD \u2192 RUM or SER (second center in Balkans)  \n- A VIE \u2192 BOH or SER (complement the expansion, or secure against Germany)\n\nThis gives me a path to 4\u20135 centers by Spring 1902 without direct confrontation with ITALY or RUSSIA. I'm in the negotiation window now, so ready to pivot to order-writing once you give the signal.",
+  "session_id": "767ebf4f-7b92-4242-960c-e7cf0ec6c037",
+  "duration": 37.47614599997178,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 33313,
+    "stop_reason": "end_turn",
+    "session_id": "767ebf4f-7b92-4242-960c-e7cf0ec6c037",
+    "total_cost_usd": 0.0544595,
+    "usage": {
+      "input_tokens": 50,
+      "cache_creation_input_tokens": 12730,
+      "cache_read_input_tokens": 153295,
+      "output_tokens": 2724,
+      "output_tokens_details": {
+        "thinking_tokens": 1691
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 12730,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 419,
+          "cache_read_input_tokens": 28362,
+          "cache_creation_input_tokens": 657,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 657
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 50,
+        "outputTokens": 2724,
+        "cacheReadInputTokens": 153295,
+        "cacheCreationInputTokens": 12730,
+        "webSearchRequests": 0,
+        "costUSD": 0.0544595,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 1691,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Messages sent and committed.** My diplomatic position is now:\n\n- **ITALY**: Non-aggression \u2014 I'm expanding into the Balkans, not at TRI\n- **RUSSIA**: Stable northern border \u2014 GAL stays theirs, no conflict on AUSTRIA's north  \n- **TURKEY**: Balkans division \u2014 I target GRE and SER (west), they focus on BUL and RUM (east/south)\n\n**Strategic thinking for orders (not yet submitted):**\n- F ALB \u2192 GRE (claim western Balkans)\n- A BUD \u2192 RUM or SER (second center in Balkans)  \n- A VIE \u2192 BOH or SER (complement the expansion, or secure against Germany)\n\nThis gives me a path to 4\u20135 centers by Spring 1902 without direct confrontation with ITALY or RUSSIA. I'm in the negotiation window now, so ready to pivot to order-writing once you give the signal.",
+    "ttft_ms": 11196,
+    "type": "result",
+    "duration_ms": 35857,
+    "uuid": "3641256e-07d4-4f97-b9f4-c8d52bed9de2",
+    "ttft_stream_ms": 668,
+    "time_to_request_ms": 28,
+    "first_content_frame_ms": 668,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

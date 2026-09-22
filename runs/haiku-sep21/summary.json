@@ -1,0 +1,707 @@
+{
+  "name": "haiku-sep21",
+  "press": "full",
+  "backend": "headless",
+  "phases": [
+    {
+      "phase": "S1901M",
+      "phase_type": "M",
+      "to_play": [
+        "AUSTRIA",
+        "ENGLAND",
+        "FRANCE",
+        "GERMANY",
+        "ITALY",
+        "RUSSIA",
+        "TURKEY"
+      ],
+      "dispatches": [
+        {
+          "power": "AUSTRIA",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 26.87
+        },
+        {
+          "power": "ENGLAND",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 57.36
+        },
+        {
+          "power": "FRANCE",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 45.23
+        },
+        {
+          "power": "GERMANY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 69.88
+        },
+        {
+          "power": "ITALY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 43.78
+        },
+        {
+          "power": "RUSSIA",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 65.72
+        },
+        {
+          "power": "TURKEY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 57.54
+        },
+        {
+          "power": "AUSTRIA",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 84.81
+        },
+        {
+          "power": "ENGLAND",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 27.54
+        },
+        {
+          "power": "FRANCE",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 74.92
+        },
+        {
+          "power": "GERMANY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 88.38
+        },
+        {
+          "power": "ITALY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 42.31
+        },
+        {
+          "power": "RUSSIA",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 44.13
+        },
+        {
+          "power": "TURKEY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 63.45
+        }
+      ]
+    },
+    {
+      "phase": "F1901M",
+      "phase_type": "M",
+      "to_play": [
+        "AUSTRIA",
+        "ENGLAND",
+        "FRANCE",
+        "GERMANY",
+        "ITALY",
+        "RUSSIA",
+        "TURKEY"
+      ],
+      "dispatches": [
+        {
+          "power": "AUSTRIA",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 37.48
+        },
+        {
+          "power": "ENGLAND",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 41.83
+        },
+        {
+          "power": "FRANCE",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 65.29
+        },
+        {
+          "power": "GERMANY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 55.22
+        },
+        {
+          "power": "ITALY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 69.31
+        },
+        {
+          "power": "RUSSIA",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 52.87
+        },
+        {
+          "power": "TURKEY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 28.5
+        },
+        {
+          "power": "AUSTRIA",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 95.4
+        },
+        {
+          "power": "ENGLAND",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 106.19
+        },
+        {
+          "power": "FRANCE",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 121.86
+        },
+        {
+          "power": "GERMANY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 94.68
+        },
+        {
+          "power": "ITALY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 122.53
+        },
+        {
+          "power": "RUSSIA",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 68.9
+        },
+        {
+          "power": "TURKEY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 63.09
+        }
+      ]
+    },
+    {
+      "phase": "W1901A",
+      "phase_type": "A",
+      "to_play": [
+        "ENGLAND",
+        "FRANCE",
+        "ITALY",
+        "RUSSIA",
+        "TURKEY"
+      ],
+      "dispatches": [
+        {
+          "power": "ENGLAND",
+          "kind": "orders",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 25.98
+        },
+        {
+          "power": "FRANCE",
+          "kind": "orders",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 25.64
+        },
+        {
+          "power": "ITALY",
+          "kind": "orders",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 38.51
+        },
+        {
+          "power": "RUSSIA",
+          "kind": "orders",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 31.56
+        },
+        {
+          "power": "TURKEY",
+          "kind": "orders",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 55.31
+        }
+      ]
+    },
+    {
+      "phase": "S1902M",
+      "phase_type": "M",
+      "to_play": [
+        "AUSTRIA",
+        "ENGLAND",
+        "FRANCE",
+        "GERMANY",
+        "ITALY",
+        "RUSSIA",
+        "TURKEY"
+      ],
+      "dispatches": [
+        {
+          "power": "AUSTRIA",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 60.47
+        },
+        {
+          "power": "ENGLAND",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 36.7
+        },
+        {
+          "power": "FRANCE",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 42.91
+        },
+        {
+          "power": "GERMANY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 91.41
+        },
+        {
+          "power": "ITALY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 50.12
+        },
+        {
+          "power": "RUSSIA",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 52.01
+        },
+        {
+          "power": "TURKEY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 66.16
+        },
+        {
+          "power": "AUSTRIA",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 93.49
+        },
+        {
+          "power": "ENGLAND",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 168.47
+        },
+        {
+          "power": "FRANCE",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 125.77
+        },
+        {
+          "power": "GERMANY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 117.62
+        },
+        {
+          "power": "ITALY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 132.37
+        },
+        {
+          "power": "RUSSIA",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 62.76
+        },
+        {
+          "power": "TURKEY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 148.56
+        }
+      ]
+    },
+    {
+      "phase": "F1902M",
+      "phase_type": "M",
+      "to_play": [
+        "AUSTRIA",
+        "ENGLAND",
+        "FRANCE",
+        "GERMANY",
+        "ITALY",
+        "RUSSIA",
+        "TURKEY"
+      ],
+      "dispatches": [
+        {
+          "power": "AUSTRIA",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 40.38
+        },
+        {
+          "power": "ENGLAND",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 40.86
+        },
+        {
+          "power": "FRANCE",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 34.25
+        },
+        {
+          "power": "GERMANY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 64.57
+        },
+        {
+          "power": "ITALY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 69.14
+        },
+        {
+          "power": "RUSSIA",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 44.87
+        },
+        {
+          "power": "TURKEY",
+          "kind": "negotiation",
+          "round": 0,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 56.1
+        },
+        {
+          "power": "AUSTRIA",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 174.59
+        },
+        {
+          "power": "ENGLAND",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 121.96
+        },
+        {
+          "power": "FRANCE",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 117.07
+        },
+        {
+          "power": "GERMANY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 54.62
+        },
+        {
+          "power": "ITALY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 120.95
+        },
+        {
+          "power": "RUSSIA",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 97.24
+        },
+        {
+          "power": "TURKEY",
+          "kind": "combined",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 134.34
+        }
+      ]
+    },
+    {
+      "phase": "W1902A",
+      "phase_type": "A",
+      "to_play": [
+        "FRANCE",
+        "GERMANY",
+        "ITALY",
+        "TURKEY"
+      ],
+      "dispatches": [
+        {
+          "power": "FRANCE",
+          "kind": "orders",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 36.51
+        },
+        {
+          "power": "GERMANY",
+          "kind": "orders",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 33.37
+        },
+        {
+          "power": "ITALY",
+          "kind": "orders",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 40.79
+        },
+        {
+          "power": "TURKEY",
+          "kind": "orders",
+          "round": null,
+          "ok": true,
+          "error": null,
+          "final": false,
+          "duration": 30.55
+        }
+      ]
+    }
+  ],
+  "final": {
+    "AUSTRIA": {
+      "centers": 3,
+      "units": 3
+    },
+    "ENGLAND": {
+      "centers": 4,
+      "units": 4
+    },
+    "FRANCE": {
+      "centers": 5,
+      "units": 5
+    },
+    "GERMANY": {
+      "centers": 5,
+      "units": 5
+    },
+    "ITALY": {
+      "centers": 6,
+      "units": 6
+    },
+    "RUSSIA": {
+      "centers": 6,
+      "units": 6
+    },
+    "TURKEY": {
+      "centers": 5,
+      "units": 5
+    }
+  }
+}

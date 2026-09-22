@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**TURKEY's S1901M phase complete.**\n\n**Diplomatic position established:**\n- **RUSSIA**: Accepted their Black Sea non-aggression proposal; clarified I'm defending the Eastern Mediterranean while they expand eastward\n- **AUSTRIA**: Proposed Balkans coordination to avoid future conflicts\n\n**Orders submitted & sealed:**\n- **A CON - BUL** \u2014 seize the gateway to the southern Balkans\n- **F ANK - BLA** \u2014 establish Black Sea presence defensively (supports SEV containment)\n- **A SMY - ARM** \u2014 flex east, ready for future expansion\n\nAll files committed to game/haiku-sep21. My orders are now locked in and cryptographically sealed to the adjudicator. Waiting for adjudication.",
+  "session_id": "0d33c55d-b130-4266-af7a-6d7b0b23e1c7",
+  "duration": 63.44803337508347,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 58431,
+    "stop_reason": "end_turn",
+    "session_id": "0d33c55d-b130-4266-af7a-6d7b0b23e1c7",
+    "total_cost_usd": 0.0715128,
+    "usage": {
+      "input_tokens": 42,
+      "cache_creation_input_tokens": 16141,
+      "cache_read_input_tokens": 137488,
+      "output_tokens": 5088,
+      "output_tokens_details": {
+        "thinking_tokens": 4060
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16141,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 301,
+          "cache_read_input_tokens": 32163,
+          "cache_creation_input_tokens": 267,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 267
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 42,
+        "outputTokens": 5088,
+        "cacheReadInputTokens": 137488,
+        "cacheCreationInputTokens": 16141,
+        "webSearchRequests": 0,
+        "costUSD": 0.0715128,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 4060,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**TURKEY's S1901M phase complete.**\n\n**Diplomatic position established:**\n- **RUSSIA**: Accepted their Black Sea non-aggression proposal; clarified I'm defending the Eastern Mediterranean while they expand eastward\n- **AUSTRIA**: Proposed Balkans coordination to avoid future conflicts\n\n**Orders submitted & sealed:**\n- **A CON - BUL** \u2014 seize the gateway to the southern Balkans\n- **F ANK - BLA** \u2014 establish Black Sea presence defensively (supports SEV containment)\n- **A SMY - ARM** \u2014 flex east, ready for future expansion\n\nAll files committed to game/haiku-sep21. My orders are now locked in and cryptographically sealed to the adjudicator. Waiting for adjudication.",
+    "ttft_ms": 42929,
+    "type": "result",
+    "duration_ms": 61997,
+    "uuid": "5a910d3f-37a6-44e4-983c-0e2d22fede8f",
+    "ttft_stream_ms": 615,
+    "time_to_request_ms": 47,
+    "first_content_frame_ms": 615,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

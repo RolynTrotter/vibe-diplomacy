@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "Done. **A ANK B** sealed, signed, and submitted for W1902A. The build strengthens your land position in the Balkans without overcommitting to naval power\u2014gives you the army you need to contest RUM/SER or shore up BUL against ITALY's GRE. \n\nYour position going into S1902M: 5 centers, 5 units. Ready for the next phase.",
+  "session_id": "8b82246b-9f68-460a-ba27-99d16bab4fe5",
+  "duration": 30.55322558293119,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 26849,
+    "stop_reason": "end_turn",
+    "session_id": "8b82246b-9f68-460a-ba27-99d16bab4fe5",
+    "total_cost_usd": 0.0428673,
+    "usage": {
+      "input_tokens": 18,
+      "cache_creation_input_tokens": 13436,
+      "cache_read_input_tokens": 43473,
+      "output_tokens": 2326,
+      "output_tokens_details": {
+        "thinking_tokens": 1919
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 13436,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 190,
+          "cache_read_input_tokens": 27184,
+          "cache_creation_input_tokens": 2541,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 2541
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 18,
+        "outputTokens": 2326,
+        "cacheReadInputTokens": 43473,
+        "cacheCreationInputTokens": 13436,
+        "webSearchRequests": 0,
+        "costUSD": 0.0428673,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 1919,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 2,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Done. **A ANK B** sealed, signed, and submitted for W1902A. The build strengthens your land position in the Balkans without overcommitting to naval power\u2014gives you the army you need to contest RUM/SER or shore up BUL against ITALY's GRE. \n\nYour position going into S1902M: 5 centers, 5 units. Ready for the next phase.",
+    "ttft_ms": 20979,
+    "type": "result",
+    "duration_ms": 28845,
+    "uuid": "6985aef4-0fe0-4a3b-ad94-b768b6b1bbc8",
+    "ttft_stream_ms": 1230,
+    "time_to_request_ms": 26,
+    "first_content_frame_ms": 1231,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

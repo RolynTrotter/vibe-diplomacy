@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Done.** GERMANY S1901M locked in:\n\n- **F KIE - HOL**: Secure western neutral, establish presence in Dutch/Belgian theater\n- **A BER - PRU**: Assert northeast presence\u2014I'm not accepting RUSSIA's deal to stay out of Prussia; their 4-center lead needs watching\n- **A MUN - RUH**: Advance west toward Burgundy/Marseille theater, supporting later expansion\n\n**Diplomatic stance**: Accepted ITALY's NAP (we're far apart, mutual benefit), politely declined RUSSIA's constraints (keeping options open), and proposed BUR/MAR coordination with FRANCE (opens dialogue without overcommitting).\n\nOrders sealed, mail and orders committed and pushed to `game/haiku-sep21`. Awaiting fall adjudication.",
+  "session_id": "41d71ef8-a538-4a0f-a79a-d6197c020c11",
+  "duration": 88.37808254198171,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 82914,
+    "stop_reason": "end_turn",
+    "session_id": "41d71ef8-a538-4a0f-a79a-d6197c020c11",
+    "total_cost_usd": 0.08358059999999999,
+    "usage": {
+      "input_tokens": 34,
+      "cache_creation_input_tokens": 18146,
+      "cache_read_input_tokens": 109546,
+      "output_tokens": 7260,
+      "output_tokens_details": {
+        "thinking_tokens": 6375
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 18146,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 353,
+          "cache_read_input_tokens": 33734,
+          "cache_creation_input_tokens": 701,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 701
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 34,
+        "outputTokens": 7260,
+        "cacheReadInputTokens": 109546,
+        "cacheCreationInputTokens": 18146,
+        "webSearchRequests": 0,
+        "costUSD": 0.08358059999999999,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 6375,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Done.** GERMANY S1901M locked in:\n\n- **F KIE - HOL**: Secure western neutral, establish presence in Dutch/Belgian theater\n- **A BER - PRU**: Assert northeast presence\u2014I'm not accepting RUSSIA's deal to stay out of Prussia; their 4-center lead needs watching\n- **A MUN - RUH**: Advance west toward Burgundy/Marseille theater, supporting later expansion\n\n**Diplomatic stance**: Accepted ITALY's NAP (we're far apart, mutual benefit), politely declined RUSSIA's constraints (keeping options open), and proposed BUR/MAR coordination with FRANCE (opens dialogue without overcommitting).\n\nOrders sealed, mail and orders committed and pushed to `game/haiku-sep21`. Awaiting fall adjudication.",
+    "ttft_ms": 68813,
+    "type": "result",
+    "duration_ms": 86510,
+    "uuid": "1e373625-29a9-4d1c-9a75-be1267c07f78",
+    "ttft_stream_ms": 659,
+    "time_to_request_ms": 45,
+    "first_content_frame_ms": 659,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

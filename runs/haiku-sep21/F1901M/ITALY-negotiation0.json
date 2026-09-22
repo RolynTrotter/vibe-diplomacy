@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Negotiations complete.** I've confirmed four standing deals and recorded them:\n\n1. **FRANCE** \u2014 Mediterranean coordination: They take Spain and west, I secure Adriatic and Greece\n2. **AUSTRIA** \u2014 Balkans arrangement: They expand into Balkans (GRE, RUM, SER, BUD), I keep TRI and don't contest\n3. **ENGLAND** \u2014 Continental coordination: Mutual respect, eyes on RUSSIA\n4. **GERMANY** \u2014 Non-aggression: Far apart, clean separation\n\nAll messages are sealed and committed. My notes are updated with the DEAL: ledger. \n\n**Strategic position:** Strong isolation. AUSTRIA is locked into the Balkans, FRANCE is allied in the Mediterranean, ENGLAND and GERMANY are non-aggressive. RUSSIA (4 centers) is the long-term threat to watch, and TURKEY hasn't contacted me yet.\n\nReady to submit orders when you give the signal. What's next?",
+  "session_id": "1b578921-0b3d-4b7f-96d8-dcf5c0ea0c3b",
+  "duration": 69.31180779193528,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 63776,
+    "stop_reason": "end_turn",
+    "session_id": "1b578921-0b3d-4b7f-96d8-dcf5c0ea0c3b",
+    "total_cost_usd": 0.09411319999999998,
+    "usage": {
+      "input_tokens": 94,
+      "cache_creation_input_tokens": 17718,
+      "cache_read_input_tokens": 320882,
+      "output_tokens": 5299,
+      "output_tokens_details": {
+        "thinking_tokens": 3191
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17718,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 500,
+          "cache_read_input_tokens": 33556,
+          "cache_creation_input_tokens": 451,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 451
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 94,
+        "outputTokens": 5299,
+        "cacheReadInputTokens": 320882,
+        "cacheCreationInputTokens": 17718,
+        "webSearchRequests": 0,
+        "costUSD": 0.09411319999999998,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 3191,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 13,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Negotiations complete.** I've confirmed four standing deals and recorded them:\n\n1. **FRANCE** \u2014 Mediterranean coordination: They take Spain and west, I secure Adriatic and Greece\n2. **AUSTRIA** \u2014 Balkans arrangement: They expand into Balkans (GRE, RUM, SER, BUD), I keep TRI and don't contest\n3. **ENGLAND** \u2014 Continental coordination: Mutual respect, eyes on RUSSIA\n4. **GERMANY** \u2014 Non-aggression: Far apart, clean separation\n\nAll messages are sealed and committed. My notes are updated with the DEAL: ledger. \n\n**Strategic position:** Strong isolation. AUSTRIA is locked into the Balkans, FRANCE is allied in the Mediterranean, ENGLAND and GERMANY are non-aggressive. RUSSIA (4 centers) is the long-term threat to watch, and TURKEY hasn't contacted me yet.\n\nReady to submit orders when you give the signal. What's next?",
+    "ttft_ms": 20354,
+    "type": "result",
+    "duration_ms": 67878,
+    "uuid": "c6d0e065-336b-44f6-a3cd-637e31d454c2",
+    "ttft_stream_ms": 1336,
+    "time_to_request_ms": 29,
+    "first_content_frame_ms": 1337,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

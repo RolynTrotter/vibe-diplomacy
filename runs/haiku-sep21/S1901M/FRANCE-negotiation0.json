@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Inbox status:** Empty \u2014 other powers haven't claimed seats yet besides Italy.\n\n**Negotiation status:** Sent opening probe to Italy about Mediterranean interests. Ready to receive incoming messages and respond as other powers join and claim seats.\n\n**Current position:** 3 units, 3 centers (fully built). No adjustments needed.\n\nI'm ready to negotiate further as other powers come online, but at this stage only France and Italy have claimed their seats. I have **not submitted orders** yet, as instructed \u2014 waiting for your signal to do so once the negotiation window closes or you're ready to move forward.",
+  "session_id": "2a3d080f-5065-4bfb-9fb0-b9f54aa6db8d",
+  "duration": 45.23431462503504,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 36003,
+    "stop_reason": "end_turn",
+    "session_id": "2a3d080f-5065-4bfb-9fb0-b9f54aa6db8d",
+    "total_cost_usd": 0.0728492,
+    "usage": {
+      "input_tokens": 76,
+      "cache_creation_input_tokens": 17454,
+      "cache_read_input_tokens": 235052,
+      "output_tokens": 2872,
+      "output_tokens_details": {
+        "thinking_tokens": 1846
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17454,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 353,
+          "cache_read_input_tokens": 29286,
+          "cache_creation_input_tokens": 474,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 474
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 76,
+        "outputTokens": 2872,
+        "cacheReadInputTokens": 235052,
+        "cacheCreationInputTokens": 17454,
+        "webSearchRequests": 0,
+        "costUSD": 0.0728492,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 1846,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 10,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Inbox status:** Empty \u2014 other powers haven't claimed seats yet besides Italy.\n\n**Negotiation status:** Sent opening probe to Italy about Mediterranean interests. Ready to receive incoming messages and respond as other powers join and claim seats.\n\n**Current position:** 3 units, 3 centers (fully built). No adjustments needed.\n\nI'm ready to negotiate further as other powers come online, but at this stage only France and Italy have claimed their seats. I have **not submitted orders** yet, as instructed \u2014 waiting for your signal to do so once the negotiation window closes or you're ready to move forward.",
+    "ttft_ms": 15795,
+    "type": "result",
+    "duration_ms": 39761,
+    "uuid": "51798803-589c-413d-94c1-6ee65122948d",
+    "ttft_stream_ms": 803,
+    "time_to_request_ms": 32,
+    "first_content_frame_ms": 804,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

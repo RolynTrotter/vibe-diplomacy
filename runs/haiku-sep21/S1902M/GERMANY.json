@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "\u2713 **Phase locked.** \n\n**Orders submitted:**\n- F HEL \u2192 HOL (secure northern neutral)\n- A RUH \u2192 BEL (expand west)  \n- A PRU \u2192 SIL (cautious central push)\n\n**Message sent to FRANCE:** Confirmed north-south split, expressed concern about RUSSIA's lead, signaled alignment on the agreed strategy.\n\nYour turn is sealed and committed to game/haiku-sep21. No further moves or messages this phase.",
+  "session_id": "ebf59919-8f2f-4a03-ac90-d76cb3b3068a",
+  "duration": 117.61576658301055,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 113465,
+    "stop_reason": "end_turn",
+    "session_id": "ebf59919-8f2f-4a03-ac90-d76cb3b3068a",
+    "total_cost_usd": 0.09958910000000001,
+    "usage": {
+      "input_tokens": 18,
+      "cache_creation_input_tokens": 21732,
+      "cache_read_input_tokens": 43221,
+      "output_tokens": 10357,
+      "output_tokens_details": {
+        "thinking_tokens": 9758
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 21732,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 350,
+          "cache_read_input_tokens": 26932,
+          "cache_creation_input_tokens": 11089,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 11089
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 18,
+        "outputTokens": 10357,
+        "cacheReadInputTokens": 43221,
+        "cacheCreationInputTokens": 21732,
+        "webSearchRequests": 0,
+        "costUSD": 0.09958910000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 9758,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 4,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "\u2713 **Phase locked.** \n\n**Orders submitted:**\n- F HEL \u2192 HOL (secure northern neutral)\n- A RUH \u2192 BEL (expand west)  \n- A PRU \u2192 SIL (cautious central push)\n\n**Message sent to FRANCE:** Confirmed north-south split, expressed concern about RUSSIA's lead, signaled alignment on the agreed strategy.\n\nYour turn is sealed and committed to game/haiku-sep21. No further moves or messages this phase.",
+    "ttft_ms": 103962,
+    "type": "result",
+    "duration_ms": 115850,
+    "uuid": "f6727c13-5225-443b-90b0-b751403e47a6",
+    "ttft_stream_ms": 616,
+    "time_to_request_ms": 33,
+    "first_content_frame_ms": 616,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

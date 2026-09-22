@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "Perfect! **Orders committed and pushed.** \n\n## Summary of ENGLAND's S1902M moves:\n\n**Sent messages to:**\n- **RUSSIA**: Confirmed northern stability  \n- **GERMANY**: Clarified naval strategy (consolidating Channel and nearby waters, no conflict)\n- **FRANCE**: Reaffirmed Channel DMZ  \n- **ITALY**: Confirmed Mediterranean coordination\n\n**Orders executed:**\n- **F ENG - BEL** \u2014 seize neutral, expand south (honored Channel DMZ with France by not placing in ENG)\n- **A WAL - LON** \u2014 consolidate home position, vacate WAL  \n- **F LON - NTH** \u2014 reinforce North Sea, defend against Russia/Germany pressure  \n- **F DEN - BAL** \u2014 withdraw from threatened DEN (faced 2-on-1 attack from HEL + SWE) while retaining the center\n\n**Position after S1902M:**\n- 5 centers (gained BEL, kept EDI, LON, LVP, DEN)\n- Units: F BEL, A LON, F NTH, F BAL\n- No adjustment due\n\nRussia's 6-center lead remains the chief concern. Orders sealed, signed, and submitted to the adjudicator. **Your final word this phase is committed.**",
+  "session_id": "a6feed51-f104-471e-bd45-68b3d705286f",
+  "duration": 168.473263541935,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 164962,
+    "stop_reason": "end_turn",
+    "session_id": "a6feed51-f104-471e-bd45-68b3d705286f",
+    "total_cost_usd": 0.14652430000000002,
+    "usage": {
+      "input_tokens": 34,
+      "cache_creation_input_tokens": 27769,
+      "cache_read_input_tokens": 116373,
+      "output_tokens": 15863,
+      "output_tokens_details": {
+        "thinking_tokens": 14350
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 27769,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 342,
+          "cache_read_input_tokens": 37494,
+          "cache_creation_input_tokens": 6564,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 6564
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 34,
+        "outputTokens": 15863,
+        "cacheReadInputTokens": 116373,
+        "cacheCreationInputTokens": 27769,
+        "webSearchRequests": 0,
+        "costUSD": 0.14652430000000002,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 14350,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 8,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Perfect! **Orders committed and pushed.** \n\n## Summary of ENGLAND's S1902M moves:\n\n**Sent messages to:**\n- **RUSSIA**: Confirmed northern stability  \n- **GERMANY**: Clarified naval strategy (consolidating Channel and nearby waters, no conflict)\n- **FRANCE**: Reaffirmed Channel DMZ  \n- **ITALY**: Confirmed Mediterranean coordination\n\n**Orders executed:**\n- **F ENG - BEL** \u2014 seize neutral, expand south (honored Channel DMZ with France by not placing in ENG)\n- **A WAL - LON** \u2014 consolidate home position, vacate WAL  \n- **F LON - NTH** \u2014 reinforce North Sea, defend against Russia/Germany pressure  \n- **F DEN - BAL** \u2014 withdraw from threatened DEN (faced 2-on-1 attack from HEL + SWE) while retaining the center\n\n**Position after S1902M:**\n- 5 centers (gained BEL, kept EDI, LON, LVP, DEN)\n- Units: F BEL, A LON, F NTH, F BAL\n- No adjustment due\n\nRussia's 6-center lead remains the chief concern. Orders sealed, signed, and submitted to the adjudicator. **Your final word this phase is committed.**",
+    "ttft_ms": 90716,
+    "type": "result",
+    "duration_ms": 167690,
+    "uuid": "953577ce-9aa2-4660-a44b-6b23ee55dc2c",
+    "ttft_stream_ms": 831,
+    "time_to_request_ms": 28,
+    "first_content_frame_ms": 831,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

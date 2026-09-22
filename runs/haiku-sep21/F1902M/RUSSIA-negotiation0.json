@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "Negotiation complete. I've sent strategic messages to all powers:\n\n**AUSTRIA** \u2014 Reassured them that RUM expansion is natural growth, not a threat to our core territories pact.\n\n**GERMANY** \u2014 Confirmed our northeast arrangement remains solid; my expansion is eastward, not westward.\n\n**ENGLAND** \u2014 Accepted their Baltic corridor stability offer and confirmed our northern security.\n\n**TURKEY** \u2014 Reaffirmed the Black Sea DMZ that serves us both; they take Balkans, I expand east.\n\n**FRANCE** \u2014 Acknowledged our peaceful coexistence: distinct regions, no collision.\n\n**ITALY** \u2014 Accepted their non-aggression offer; mutual understanding without formal pact.\n\nAll messages are sealed and committed. My position as the leading power (6 centers) is now reinforced by agreements that discourage coalition formation while keeping expansion options open. I'm ready for orders when you give the go-ahead.",
+  "session_id": "a78e599e-1b31-4a4c-bf89-4de59a9f1c28",
+  "duration": 44.87383283302188,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 41747,
+    "stop_reason": "end_turn",
+    "session_id": "a78e599e-1b31-4a4c-bf89-4de59a9f1c28",
+    "total_cost_usd": 0.0612455,
+    "usage": {
+      "input_tokens": 35,
+      "cache_creation_input_tokens": 16064,
+      "cache_read_input_tokens": 105025,
+      "output_tokens": 3716,
+      "output_tokens_details": {
+        "thinking_tokens": 2387
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16064,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 410,
+          "cache_read_input_tokens": 31438,
+          "cache_creation_input_tokens": 915,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 915
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 35,
+        "outputTokens": 3716,
+        "cacheReadInputTokens": 105025,
+        "cacheCreationInputTokens": 16064,
+        "webSearchRequests": 0,
+        "costUSD": 0.0612455,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 2387,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 10,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Negotiation complete. I've sent strategic messages to all powers:\n\n**AUSTRIA** \u2014 Reassured them that RUM expansion is natural growth, not a threat to our core territories pact.\n\n**GERMANY** \u2014 Confirmed our northeast arrangement remains solid; my expansion is eastward, not westward.\n\n**ENGLAND** \u2014 Accepted their Baltic corridor stability offer and confirmed our northern security.\n\n**TURKEY** \u2014 Reaffirmed the Black Sea DMZ that serves us both; they take Balkans, I expand east.\n\n**FRANCE** \u2014 Acknowledged our peaceful coexistence: distinct regions, no collision.\n\n**ITALY** \u2014 Accepted their non-aggression offer; mutual understanding without formal pact.\n\nAll messages are sealed and committed. My position as the leading power (6 centers) is now reinforced by agreements that discourage coalition formation while keeping expansion options open. I'm ready for orders when you give the go-ahead.",
+    "ttft_ms": 20961,
+    "type": "result",
+    "duration_ms": 43415,
+    "uuid": "c7b0a161-f956-4067-9989-4c470516b9b6",
+    "ttft_stream_ms": 589,
+    "time_to_request_ms": 27,
+    "first_content_frame_ms": 589,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

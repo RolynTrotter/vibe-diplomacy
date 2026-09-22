@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Orders locked and messages sent.** \n\nI've committed to an aggressive but measured expansion:\n- **A TRI \u2192 SER**: Join the Balkans push (honors AUSTRIA's focus there)\n- **A TUN \u2192 GRE VIA**: Convoy to Greece (honors FRANCE's Mediterranean split)\n- **F ION convoys**: Support the takeover\n\nThis puts me at **7 centers** (SER + GRE additions), matching and exceeding RUSSIA's 6. I've diplomatically framed it as honoring agreements, not breaking them\u2014SER is neutral/AUSTRIA's extension, Greece is FRANCE's part of our split.\n\nMy messages establish positions without overcommitting: AUSTRIA that I respect the Balkans boundary, FRANCE that I'm following through on the arrangement, TURKEY for Eastern Med awareness, ENGLAND for continental coordination, RUSSIA offering coexistence (not non-aggression), and GERMANY confirming NAP.\n\nNow we await the adjudicator.",
+  "session_id": "bee6acc8-5723-4f23-8e55-48e06cb90de2",
+  "duration": 132.36681512498762,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 125792,
+    "stop_reason": "end_turn",
+    "session_id": "bee6acc8-5723-4f23-8e55-48e06cb90de2",
+    "total_cost_usd": 0.13013929999999999,
+    "usage": {
+      "input_tokens": 42,
+      "cache_creation_input_tokens": 25143,
+      "cache_read_input_tokens": 163813,
+      "output_tokens": 12686,
+      "output_tokens_details": {
+        "thinking_tokens": 11217
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 25143,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 573,
+          "cache_read_input_tokens": 40738,
+          "cache_creation_input_tokens": 694,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 694
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 42,
+        "outputTokens": 12686,
+        "cacheReadInputTokens": 163813,
+        "cacheCreationInputTokens": 25143,
+        "webSearchRequests": 0,
+        "costUSD": 0.13013929999999999,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 11217,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 5,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Orders locked and messages sent.** \n\nI've committed to an aggressive but measured expansion:\n- **A TRI \u2192 SER**: Join the Balkans push (honors AUSTRIA's focus there)\n- **A TUN \u2192 GRE VIA**: Convoy to Greece (honors FRANCE's Mediterranean split)\n- **F ION convoys**: Support the takeover\n\nThis puts me at **7 centers** (SER + GRE additions), matching and exceeding RUSSIA's 6. I've diplomatically framed it as honoring agreements, not breaking them\u2014SER is neutral/AUSTRIA's extension, Greece is FRANCE's part of our split.\n\nMy messages establish positions without overcommitting: AUSTRIA that I respect the Balkans boundary, FRANCE that I'm following through on the arrangement, TURKEY for Eastern Med awareness, ENGLAND for continental coordination, RUSSIA offering coexistence (not non-aggression), and GERMANY confirming NAP.\n\nNow we await the adjudicator.",
+    "ttft_ms": 105113,
+    "type": "result",
+    "duration_ms": 130864,
+    "uuid": "a260bfa4-2759-4e3a-b1af-1da0bd477fee",
+    "ttft_stream_ms": 519,
+    "time_to_request_ms": 50,
+    "first_content_frame_ms": 519,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

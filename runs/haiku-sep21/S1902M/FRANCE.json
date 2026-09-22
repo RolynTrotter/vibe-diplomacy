@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**\u2713 S1902M complete!**\n\n**Messages sent:**\n- **GERMANY**: Confirmed north-south split, clarified Burgundy strategy (staying flexible), promised to keep borders clear\n- **RUSSIA**: Acknowledged their outreach, established cordial understanding, stated regions are distinct\n\n**Orders submitted and pushed:**\n- A BUR - GAS (withdraw west from German border, support Spanish expansion)\n- A POR - SPA (take Spain for Mediterranean domination)\n- F MAR - SPA/SC (control Spanish coast alongside army)\n- F WES - LYO (consolidate Mediterranean position)\n\nAll orders are legal, aligned with my standing agreements, and address immediate tactical needs: Mediterranean expansion per Italy deal, keeping borders clear with Germany, respecting Channel DMZ with England, and maintaining peaceful distance from Russia. France now controls the western Mediterranean approach\u2014ready to build on this position in Fall 1902.",
+  "session_id": "705f987c-f0bc-4fec-9afd-0c877b6f26a6",
+  "duration": 125.76838249992579,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 122542,
+    "stop_reason": "end_turn",
+    "session_id": "705f987c-f0bc-4fec-9afd-0c877b6f26a6",
+    "total_cost_usd": 0.12808889999999998,
+    "usage": {
+      "input_tokens": 66,
+      "cache_creation_input_tokens": 23962,
+      "cache_read_input_tokens": 276189,
+      "output_tokens": 10496,
+      "output_tokens_details": {
+        "thinking_tokens": 9226
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 23962,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 505,
+          "cache_read_input_tokens": 39873,
+          "cache_creation_input_tokens": 378,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 378
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 66,
+        "outputTokens": 10496,
+        "cacheReadInputTokens": 276189,
+        "cacheCreationInputTokens": 23962,
+        "webSearchRequests": 0,
+        "costUSD": 0.12808889999999998,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 9226,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 9,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**\u2713 S1902M complete!**\n\n**Messages sent:**\n- **GERMANY**: Confirmed north-south split, clarified Burgundy strategy (staying flexible), promised to keep borders clear\n- **RUSSIA**: Acknowledged their outreach, established cordial understanding, stated regions are distinct\n\n**Orders submitted and pushed:**\n- A BUR - GAS (withdraw west from German border, support Spanish expansion)\n- A POR - SPA (take Spain for Mediterranean domination)\n- F MAR - SPA/SC (control Spanish coast alongside army)\n- F WES - LYO (consolidate Mediterranean position)\n\nAll orders are legal, aligned with my standing agreements, and address immediate tactical needs: Mediterranean expansion per Italy deal, keeping borders clear with Germany, respecting Channel DMZ with England, and maintaining peaceful distance from Russia. France now controls the western Mediterranean approach\u2014ready to build on this position in Fall 1902.",
+    "ttft_ms": 92447,
+    "type": "result",
+    "duration_ms": 125077,
+    "uuid": "1e3c33d3-dde8-4930-8ea2-5f72b3b524ec",
+    "ttft_stream_ms": 1188,
+    "time_to_request_ms": 44,
+    "first_content_frame_ms": 1189,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

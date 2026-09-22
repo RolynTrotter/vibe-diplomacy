@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "\u2713 **Negotiation complete.** Three messages sent and committed:\n\n1. **RUSSIA** \u2014 Questioned their RUM take as inconsistent with your stability pact. Probing whether they're shifting to expansion or blocking someone else.\n\n2. **TURKEY** \u2014 Acknowledged Russia broke the Balkans deal for both of you. Proposed tightening coordination on SER and watching Russia together.\n\n3. **ITALY** \u2014 Reaffirmed Adriatic peace holds. Assured them your next push (SER) won't touch TRI.\n\nYour inbox is now cleared and your diplomatic position is firmed up. **When you're ready to move to orders, I'll call play-a-turn to validate, seal, and submit your moves for S1902M.**",
+  "session_id": "b8c2c7b4-99a6-471e-a33b-20aac6c78aa5",
+  "duration": 60.47462833405007,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 56097,
+    "stop_reason": "end_turn",
+    "session_id": "b8c2c7b4-99a6-471e-a33b-20aac6c78aa5",
+    "total_cost_usd": 0.0717196,
+    "usage": {
+      "input_tokens": 51,
+      "cache_creation_input_tokens": 15560,
+      "cache_read_input_tokens": 165386,
+      "output_tokens": 4802,
+      "output_tokens_details": {
+        "thinking_tokens": 3874
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15560,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 363,
+          "cache_read_input_tokens": 31190,
+          "cache_creation_input_tokens": 659,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 659
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 51,
+        "outputTokens": 4802,
+        "cacheReadInputTokens": 165386,
+        "cacheCreationInputTokens": 15560,
+        "webSearchRequests": 0,
+        "costUSD": 0.0717196,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 3874,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 7,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "\u2713 **Negotiation complete.** Three messages sent and committed:\n\n1. **RUSSIA** \u2014 Questioned their RUM take as inconsistent with your stability pact. Probing whether they're shifting to expansion or blocking someone else.\n\n2. **TURKEY** \u2014 Acknowledged Russia broke the Balkans deal for both of you. Proposed tightening coordination on SER and watching Russia together.\n\n3. **ITALY** \u2014 Reaffirmed Adriatic peace holds. Assured them your next push (SER) won't touch TRI.\n\nYour inbox is now cleared and your diplomatic position is firmed up. **When you're ready to move to orders, I'll call play-a-turn to validate, seal, and submit your moves for S1902M.**",
+    "ttft_ms": 37201,
+    "type": "result",
+    "duration_ms": 58226,
+    "uuid": "c4dcddc7-b2fa-44bd-b4b4-7e054e56a382",
+    "ttft_stream_ms": 604,
+    "time_to_request_ms": 35,
+    "first_content_frame_ms": 605,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

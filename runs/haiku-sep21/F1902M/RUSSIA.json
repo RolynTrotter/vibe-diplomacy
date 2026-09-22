@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Orders locked and submitted.** All 6 moves validated, sealed, and pushed to game/haiku-sep21. \n\nMy F1902M position holds my 6-center lead while maintaining diplomatic standing: NWY secured, northern flank strengthened via BAL, and LVN repositioned toward the Balkans for next phase's SER assessment. All core agreements (Black Sea DMZ with TURKEY, border pact with AUSTRIA, northeast quiet with GERMANY, northern stability with ENGLAND, non-aggression with FRANCE/ITALY) stay honored. This phase is complete.",
+  "session_id": "98bde2ed-a5eb-41ad-a5b6-d6427f5df087",
+  "duration": 97.2361047079321,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 94488,
+    "stop_reason": "end_turn",
+    "session_id": "98bde2ed-a5eb-41ad-a5b6-d6427f5df087",
+    "total_cost_usd": 0.08709330000000001,
+    "usage": {
+      "input_tokens": 18,
+      "cache_creation_input_tokens": 20491,
+      "cache_read_input_tokens": 43633,
+      "output_tokens": 8346,
+      "output_tokens_details": {
+        "thinking_tokens": 7913
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 20491,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 275,
+          "cache_read_input_tokens": 27344,
+          "cache_creation_input_tokens": 9436,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 9436
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 18,
+        "outputTokens": 8346,
+        "cacheReadInputTokens": 43633,
+        "cacheCreationInputTokens": 20491,
+        "webSearchRequests": 0,
+        "costUSD": 0.08709330000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 7913,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 2,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Orders locked and submitted.** All 6 moves validated, sealed, and pushed to game/haiku-sep21. \n\nMy F1902M position holds my 6-center lead while maintaining diplomatic standing: NWY secured, northern flank strengthened via BAL, and LVN repositioned toward the Balkans for next phase's SER assessment. All core agreements (Black Sea DMZ with TURKEY, border pact with AUSTRIA, northeast quiet with GERMANY, northern stability with ENGLAND, non-aggression with FRANCE/ITALY) stay honored. This phase is complete.",
+    "ttft_ms": 86671,
+    "type": "result",
+    "duration_ms": 96484,
+    "uuid": "37a18a74-de25-47ca-903f-a7a9a402c8bc",
+    "ttft_stream_ms": 630,
+    "time_to_request_ms": 40,
+    "first_content_frame_ms": 631,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

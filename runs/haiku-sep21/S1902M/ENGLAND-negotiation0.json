@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "\u2713 **Negotiation complete.** Sealed messages sent to Italy and France:\n\n- **ITALY**: Coordinated against Russia's 6-center lead; confirmed you respect Adriatic/Mediterranean as theirs.\n- **FRANCE**: Confirmed Channel DMZ holds, flagged Russia expansion risk.\n\nYour diplomacy maintains both alliances (Italy for anti-Russia pressure, France for Channel security) and reinforces the strategic vision in your notes: monitor Russia, honor the Channel DMZ, prepare for expansion toward nearby neutrals.\n\n**Ready for orders** when you are. Do NOT run orders until you signal.",
+  "session_id": "ecc24b4b-c15a-4dc8-a42d-a411a56d6f7c",
+  "duration": 36.69964408397209,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 33185,
+    "stop_reason": "end_turn",
+    "session_id": "ecc24b4b-c15a-4dc8-a42d-a411a56d6f7c",
+    "total_cost_usd": 0.0494082,
+    "usage": {
+      "input_tokens": 35,
+      "cache_creation_input_tokens": 13183,
+      "cache_read_input_tokens": 99222,
+      "output_tokens": 2617,
+      "output_tokens_details": {
+        "thinking_tokens": 1842
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 13183,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 283,
+          "cache_read_input_tokens": 28917,
+          "cache_creation_input_tokens": 555,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 555
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 35,
+        "outputTokens": 2617,
+        "cacheReadInputTokens": 99222,
+        "cacheCreationInputTokens": 13183,
+        "webSearchRequests": 0,
+        "costUSD": 0.0494082,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 1842,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "\u2713 **Negotiation complete.** Sealed messages sent to Italy and France:\n\n- **ITALY**: Coordinated against Russia's 6-center lead; confirmed you respect Adriatic/Mediterranean as theirs.\n- **FRANCE**: Confirmed Channel DMZ holds, flagged Russia expansion risk.\n\nYour diplomacy maintains both alliances (Italy for anti-Russia pressure, France for Channel security) and reinforces the strategic vision in your notes: monitor Russia, honor the Channel DMZ, prepare for expansion toward nearby neutrals.\n\n**Ready for orders** when you are. Do NOT run orders until you signal.",
+    "ttft_ms": 16427,
+    "type": "result",
+    "duration_ms": 34857,
+    "uuid": "8fc91db9-ddbe-49c2-82ca-17cdd3288175",
+    "ttft_stream_ms": 654,
+    "time_to_request_ms": 28,
+    "first_content_frame_ms": 655,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

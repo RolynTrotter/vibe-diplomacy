@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**S1902M orders locked in.** TURKEY's strategy this phase:\n\n- **A ARM \u2192 SEV** (2-strength push east with F BLA support to contest Russia's expansion)\n- **A BUL holds + A CON supports** (defensive posture against AUSTRIA F GRE and RUSSIA F RUM threats)\n\nMessages sent to RUSSIA (confirming Black Sea DMZ respect) and AUSTRIA (coordinating north-push while they secure SER). This maintains my alliances while pressing for Balkans consolidation. Phase closed.",
+  "session_id": "266e8d4e-2978-42d2-846d-68e2a6b7ff11",
+  "duration": 148.5605696249986,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 143093,
+    "stop_reason": "end_turn",
+    "session_id": "266e8d4e-2978-42d2-846d-68e2a6b7ff11",
+    "total_cost_usd": 0.13069930000000002,
+    "usage": {
+      "input_tokens": 42,
+      "cache_creation_input_tokens": 25359,
+      "cache_read_input_tokens": 160243,
+      "output_tokens": 12783,
+      "output_tokens_details": {
+        "thinking_tokens": 11756
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 25359,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 335,
+          "cache_read_input_tokens": 41081,
+          "cache_creation_input_tokens": 567,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 567
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 42,
+        "outputTokens": 12783,
+        "cacheReadInputTokens": 160243,
+        "cacheCreationInputTokens": 25359,
+        "webSearchRequests": 0,
+        "costUSD": 0.13069930000000002,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 11756,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**S1902M orders locked in.** TURKEY's strategy this phase:\n\n- **A ARM \u2192 SEV** (2-strength push east with F BLA support to contest Russia's expansion)\n- **A BUL holds + A CON supports** (defensive posture against AUSTRIA F GRE and RUSSIA F RUM threats)\n\nMessages sent to RUSSIA (confirming Black Sea DMZ respect) and AUSTRIA (coordinating north-push while they secure SER). This maintains my alliances while pressing for Balkans consolidation. Phase closed.",
+    "ttft_ms": 107637,
+    "type": "result",
+    "duration_ms": 147866,
+    "uuid": "b0e757b2-b4c1-47b8-b8e6-2bb2c4fb35d1",
+    "ttft_stream_ms": 698,
+    "time_to_request_ms": 114,
+    "first_content_frame_ms": 699,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

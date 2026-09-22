@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**AUSTRIA S1902M complete.** \n\nConfirmed the SER arrangement with TURKEY, documented strategy, and locked in orders:\n- **A BUD - SER** (secure 4th center, enabling build next phase)\n- **A GAL H** (consolidate position)\n- **F GRE - AEG** (position for future Balkans operations)\n\nOrders sealed and submitted. I'm now at parity with ITALY/FRANCE/TURKEY (4 centers), with eyes on preventing RUSSIA's continued expansion.",
+  "session_id": "4585c256-895f-45aa-b90f-4eff08dd5a75",
+  "duration": 93.49106337502599,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 86656,
+    "stop_reason": "end_turn",
+    "session_id": "4585c256-895f-45aa-b90f-4eff08dd5a75",
+    "total_cost_usd": 0.10061880000000001,
+    "usage": {
+      "input_tokens": 68,
+      "cache_creation_input_tokens": 20164,
+      "cache_read_input_tokens": 242278,
+      "output_tokens": 7199,
+      "output_tokens_details": {
+        "thinking_tokens": 5587
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 20164,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 338,
+          "cache_read_input_tokens": 34763,
+          "cache_creation_input_tokens": 1690,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1690
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 68,
+        "outputTokens": 7199,
+        "cacheReadInputTokens": 242278,
+        "cacheCreationInputTokens": 20164,
+        "webSearchRequests": 0,
+        "costUSD": 0.10061880000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 5587,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 9,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**AUSTRIA S1902M complete.** \n\nConfirmed the SER arrangement with TURKEY, documented strategy, and locked in orders:\n- **A BUD - SER** (secure 4th center, enabling build next phase)\n- **A GAL H** (consolidate position)\n- **F GRE - AEG** (position for future Balkans operations)\n\nOrders sealed and submitted. I'm now at parity with ITALY/FRANCE/TURKEY (4 centers), with eyes on preventing RUSSIA's continued expansion.",
+    "ttft_ms": 42993,
+    "type": "result",
+    "duration_ms": 92721,
+    "uuid": "3c6a07ff-cb8d-41c3-b485-899a1854d569",
+    "ttft_stream_ms": 1029,
+    "time_to_request_ms": 29,
+    "first_content_frame_ms": 1029,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

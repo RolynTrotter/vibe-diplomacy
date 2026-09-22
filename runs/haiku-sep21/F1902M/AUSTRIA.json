@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "Orders locked in and pushed. AUSTRIA's F1902M complete.\n\nI accepted ITALY's renegotiated deal: they keep the coast/Greece (including GRE), I secure the interior Balkans (SER this phase, positioning for BUD/RUM next). This keeps ITALY as an ally against the bigger threat (RUSSIA at 6 centers) rather than weakening both of us in a contested fight over GRE.\n\nTrusted the explicit message: \"I still back your push into SER\" \u2014 and moved accordingly.",
+  "session_id": "d910a020-3571-47d8-ae7d-bd6bf5489c32",
+  "duration": 174.59129295905586,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 171738,
+    "stop_reason": "end_turn",
+    "session_id": "d910a020-3571-47d8-ae7d-bd6bf5489c32",
+    "total_cost_usd": 0.1331381,
+    "usage": {
+      "input_tokens": 18,
+      "cache_creation_input_tokens": 26923,
+      "cache_read_input_tokens": 43541,
+      "output_tokens": 14984,
+      "output_tokens_details": {
+        "thinking_tokens": 14332
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 26923,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 373,
+          "cache_read_input_tokens": 27252,
+          "cache_creation_input_tokens": 15960,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 15960
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 18,
+        "outputTokens": 14984,
+        "cacheReadInputTokens": 43541,
+        "cacheCreationInputTokens": 26923,
+        "webSearchRequests": 0,
+        "costUSD": 0.1331381,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 14332,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 2,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Orders locked in and pushed. AUSTRIA's F1902M complete.\n\nI accepted ITALY's renegotiated deal: they keep the coast/Greece (including GRE), I secure the interior Balkans (SER this phase, positioning for BUD/RUM next). This keeps ITALY as an ally against the bigger threat (RUSSIA at 6 centers) rather than weakening both of us in a contested fight over GRE.\n\nTrusted the explicit message: \"I still back your push into SER\" \u2014 and moved accordingly.",
+    "ttft_ms": 159866,
+    "type": "result",
+    "duration_ms": 173784,
+    "uuid": "49e1deb2-12c1-4d63-b2fc-ee6c23e251f6",
+    "ttft_stream_ms": 754,
+    "time_to_request_ms": 26,
+    "first_content_frame_ms": 754,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

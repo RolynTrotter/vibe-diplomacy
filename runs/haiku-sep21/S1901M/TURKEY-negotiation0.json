@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Negotiation phase complete for TURKEY (S1901M):**\n\n\u2713 Claimed TURKEY seat and locked identity\n\u2713 Established strategic plan (notes saved)\n\u2713 Sent opening diplomatic message to RUSSIA proposing coordination on Eastern fronts (Balkans/Black Sea)\n\u2713 Committed diplomatic messages to game branch\n\n**Summary:**\nMy inbox was empty at the start. I took the initiative with RUSSIA, the most strategically critical neighbor, to open dialogue about mutually beneficial arrangements before orders lock. My strategic notes record my primary objectives: securing the Balkans early (BUL first), monitoring RUSSIA's Black Sea intentions, and avoiding early conflict with AUSTRIA over TRI/BUD while we both expand.\n\nStanding ready to write and submit orders once negotiations window closes. No deals recorded yet \u2014 waiting for response from RUSSIA.",
+  "session_id": "17e486fa-905c-4978-b698-06573d84c14f",
+  "duration": 57.53606720897369,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 54785,
+    "stop_reason": "end_turn",
+    "session_id": "17e486fa-905c-4978-b698-06573d84c14f",
+    "total_cost_usd": 0.0854608,
+    "usage": {
+      "input_tokens": 92,
+      "cache_creation_input_tokens": 15783,
+      "cache_read_input_tokens": 310078,
+      "output_tokens": 4559,
+      "output_tokens_details": {
+        "thinking_tokens": 2750
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15783,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 386,
+          "cache_read_input_tokens": 31568,
+          "cache_creation_input_tokens": 504,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 504
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 92,
+        "outputTokens": 4559,
+        "cacheReadInputTokens": 310078,
+        "cacheCreationInputTokens": 15783,
+        "webSearchRequests": 0,
+        "costUSD": 0.0854608,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 2750,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 13,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Negotiation phase complete for TURKEY (S1901M):**\n\n\u2713 Claimed TURKEY seat and locked identity\n\u2713 Established strategic plan (notes saved)\n\u2713 Sent opening diplomatic message to RUSSIA proposing coordination on Eastern fronts (Balkans/Black Sea)\n\u2713 Committed diplomatic messages to game branch\n\n**Summary:**\nMy inbox was empty at the start. I took the initiative with RUSSIA, the most strategically critical neighbor, to open dialogue about mutually beneficial arrangements before orders lock. My strategic notes record my primary objectives: securing the Balkans early (BUL first), monitoring RUSSIA's Black Sea intentions, and avoiding early conflict with AUSTRIA over TRI/BUD while we both expand.\n\nStanding ready to write and submit orders once negotiations window closes. No deals recorded yet \u2014 waiting for response from RUSSIA.",
+    "ttft_ms": 15822,
+    "type": "result",
+    "duration_ms": 55903,
+    "uuid": "90db0939-e470-4a5a-a16a-a73d7413e1de",
+    "ttft_stream_ms": 648,
+    "time_to_request_ms": 26,
+    "first_content_frame_ms": 648,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

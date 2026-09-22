@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Negotiation complete.** I've sent three sealed messages:\n\n1. **To ITALY:** Reaffirmed Mediterranean coordination and flagged Russia's 6-center advantage as a mutual concern\n2. **To ENGLAND:** Reconfirmed the Channel DMZ through 1902 and noted Russia's dominance\n3. **To GERMANY:** Confirmed our north-south split is solid and asked about Russia watch\n\nAll messages are committed. My deals from 1901 are holding, and I've positioned FRANCE to maintain current alliances while signaling concern about Russia's growth. Now waiting for responses and ready for order writing when you give the word.",
+  "session_id": "f51a6214-4716-45cf-9c0f-df0271ed3745",
+  "duration": 42.91179258294869,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 39548,
+    "stop_reason": "end_turn",
+    "session_id": "f51a6214-4716-45cf-9c0f-df0271ed3745",
+    "total_cost_usd": 0.0514451,
+    "usage": {
+      "input_tokens": 26,
+      "cache_creation_input_tokens": 13846,
+      "cache_read_input_tokens": 72271,
+      "output_tokens": 3300,
+      "output_tokens_details": {
+        "thinking_tokens": 2425
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 13846,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 306,
+          "cache_read_input_tokens": 29528,
+          "cache_creation_input_tokens": 607,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 607
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 26,
+        "outputTokens": 3300,
+        "cacheReadInputTokens": 72271,
+        "cacheCreationInputTokens": 13846,
+        "webSearchRequests": 0,
+        "costUSD": 0.0514451,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 2425,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 5,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Negotiation complete.** I've sent three sealed messages:\n\n1. **To ITALY:** Reaffirmed Mediterranean coordination and flagged Russia's 6-center advantage as a mutual concern\n2. **To ENGLAND:** Reconfirmed the Channel DMZ through 1902 and noted Russia's dominance\n3. **To GERMANY:** Confirmed our north-south split is solid and asked about Russia watch\n\nAll messages are committed. My deals from 1901 are holding, and I've positioned FRANCE to maintain current alliances while signaling concern about Russia's growth. Now waiting for responses and ready for order writing when you give the word.",
+    "ttft_ms": 27120,
+    "type": "result",
+    "duration_ms": 41136,
+    "uuid": "4877acc3-f4a9-43c1-a870-723e18862e38",
+    "ttft_stream_ms": 631,
+    "time_to_request_ms": 31,
+    "first_content_frame_ms": 631,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

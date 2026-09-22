@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Negotiation summary for ITALY (S1901M):**\n\nI've opened diplomatically with:\n- **FRANCE**: Proposed Mediterranean coordination and alliance against northern powers\n- **ENGLAND**: Sought mutual respect and non-aggression\n- **GERMANY**: Offered distance pact\n\nMy strategy notebook is set with a cautious opening approach:\n- Probe AUSTRIA's intentions on TRI/VEN border\n- Build Mediterranean alliance preferentially with FRANCE\n- Avoid early conflict, position for expansion into Balkans\n\nThree powers (AUSTRIA, RUSSIA, TURKEY) haven't claimed their seats yet, so I couldn't reach them this phase.\n\nAll messages committed and queued. I'm ready for responses and will coordinate my unit moves once I see how the other powers respond to these opening feelers. Standing by\u2014not submitting orders yet, as instructed.",
+  "session_id": "4e1c3f7d-14d5-44d6-8e5e-d689ebf42f52",
+  "duration": 43.778999750036746,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 38691,
+    "stop_reason": "end_turn",
+    "session_id": "4e1c3f7d-14d5-44d6-8e5e-d689ebf42f52",
+    "total_cost_usd": 0.0628035,
+    "usage": {
+      "input_tokens": 59,
+      "cache_creation_input_tokens": 14373,
+      "cache_read_input_tokens": 183435,
+      "output_tokens": 3131,
+      "output_tokens_details": {
+        "thinking_tokens": 1345
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 14373,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 419,
+          "cache_read_input_tokens": 30088,
+          "cache_creation_input_tokens": 574,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 574
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 59,
+        "outputTokens": 3131,
+        "cacheReadInputTokens": 183435,
+        "cacheCreationInputTokens": 14373,
+        "webSearchRequests": 0,
+        "costUSD": 0.0628035,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 1345,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 13,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Negotiation summary for ITALY (S1901M):**\n\nI've opened diplomatically with:\n- **FRANCE**: Proposed Mediterranean coordination and alliance against northern powers\n- **ENGLAND**: Sought mutual respect and non-aggression\n- **GERMANY**: Offered distance pact\n\nMy strategy notebook is set with a cautious opening approach:\n- Probe AUSTRIA's intentions on TRI/VEN border\n- Build Mediterranean alliance preferentially with FRANCE\n- Avoid early conflict, position for expansion into Balkans\n\nThree powers (AUSTRIA, RUSSIA, TURKEY) haven't claimed their seats yet, so I couldn't reach them this phase.\n\nAll messages committed and queued. I'm ready for responses and will coordinate my unit moves once I see how the other powers respond to these opening feelers. Standing by\u2014not submitting orders yet, as instructed.",
+    "ttft_ms": 3625,
+    "type": "result",
+    "duration_ms": 42319,
+    "uuid": "d74bd891-b563-4fbd-8533-6aeeadc037a4",
+    "ttft_stream_ms": 617,
+    "time_to_request_ms": 25,
+    "first_content_frame_ms": 617,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

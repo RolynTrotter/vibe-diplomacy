@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "Perfect\u2014orders committed and pushed successfully. My F1901M turn is submitted with:\n- F ALB \u2192 GRE\n- A BUD \u2192 RUM  \n- A VIE \u2192 GAL\n\nThis secures three new centers (growing from 3 to 6), honors my agreement with ITALY on Balkan expansion, and positions me to take SER next turn to complete the region. Austria's turn is locked in.",
+  "session_id": "b3e6095e-4e34-4a99-880b-20b7892f7ff9",
+  "duration": 95.40361566690262,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 91230,
+    "stop_reason": "end_turn",
+    "session_id": "b3e6095e-4e34-4a99-880b-20b7892f7ff9",
+    "total_cost_usd": 0.09311760000000001,
+    "usage": {
+      "input_tokens": 34,
+      "cache_creation_input_tokens": 20646,
+      "cache_read_input_tokens": 114516,
+      "output_tokens": 8068,
+      "output_tokens_details": {
+        "thinking_tokens": 7301
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 20646,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 156,
+          "cache_read_input_tokens": 36511,
+          "cache_creation_input_tokens": 424,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 424
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 34,
+        "outputTokens": 8068,
+        "cacheReadInputTokens": 114516,
+        "cacheCreationInputTokens": 20646,
+        "webSearchRequests": 0,
+        "costUSD": 0.09311760000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 7301,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 4,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Perfect\u2014orders committed and pushed successfully. My F1901M turn is submitted with:\n- F ALB \u2192 GRE\n- A BUD \u2192 RUM  \n- A VIE \u2192 GAL\n\nThis secures three new centers (growing from 3 to 6), honors my agreement with ITALY on Balkan expansion, and positions me to take SER next turn to complete the region. Austria's turn is locked in.",
+    "ttft_ms": 71742,
+    "type": "result",
+    "duration_ms": 93730,
+    "uuid": "afef4605-4e19-4167-bbf7-7dd4d315cfa3",
+    "ttft_stream_ms": 653,
+    "time_to_request_ms": 30,
+    "first_content_frame_ms": 653,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

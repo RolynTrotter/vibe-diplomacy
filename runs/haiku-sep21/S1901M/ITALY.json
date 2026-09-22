@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**ITALY's S1901M complete.**\n\nI've played an aggressive opening aligned with my diplomatic outreach:\n\n**Messages sent**: \n- **AUSTRIA**: Direct, honest probe about TRI\u2014testing the border while leaving room for cooperation\n- **FRANCE**: Mediterranean alliance confirmed\u2014coordinated growth on the south\n- **ENGLAND**: Accepted their Mediterranean understanding\u2014mutual defense pact\n\n**Orders committed**:\n- **A VEN \u2192 TRI**: Attack AUSTRIA's F TRI\u2014this is the critical growth point\n- **A ROM \u2192 APU**: Advance toward Balkans \n- **F NAP \u2192 ION**: Mediterranean positioning for future expansion\n\nThese moves execute my standing plan: probe AUSTRIA's intentions at TRI while building southward with FRANCE and ENGLAND as buffer allies. Spring 1901 is about staking position early\u2014I'm showing strength at my border while securing the Mediterranean. All commitments are now sealed and submitted.",
+  "session_id": "e20ae122-18fa-4635-958b-4104b4579ef9",
+  "duration": 42.30662883410696,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 38570,
+    "stop_reason": "end_turn",
+    "session_id": "e20ae122-18fa-4635-958b-4104b4579ef9",
+    "total_cost_usd": 0.05576450000000001,
+    "usage": {
+      "input_tokens": 34,
+      "cache_creation_input_tokens": 14001,
+      "cache_read_input_tokens": 102185,
+      "output_tokens": 3502,
+      "output_tokens_details": {
+        "thinking_tokens": 2573
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 14001,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 259,
+          "cache_read_input_tokens": 30092,
+          "cache_creation_input_tokens": 198,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 198
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 34,
+        "outputTokens": 3502,
+        "cacheReadInputTokens": 102185,
+        "cacheCreationInputTokens": 14001,
+        "webSearchRequests": 0,
+        "costUSD": 0.05576450000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 2573,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**ITALY's S1901M complete.**\n\nI've played an aggressive opening aligned with my diplomatic outreach:\n\n**Messages sent**: \n- **AUSTRIA**: Direct, honest probe about TRI\u2014testing the border while leaving room for cooperation\n- **FRANCE**: Mediterranean alliance confirmed\u2014coordinated growth on the south\n- **ENGLAND**: Accepted their Mediterranean understanding\u2014mutual defense pact\n\n**Orders committed**:\n- **A VEN \u2192 TRI**: Attack AUSTRIA's F TRI\u2014this is the critical growth point\n- **A ROM \u2192 APU**: Advance toward Balkans \n- **F NAP \u2192 ION**: Mediterranean positioning for future expansion\n\nThese moves execute my standing plan: probe AUSTRIA's intentions at TRI while building southward with FRANCE and ENGLAND as buffer allies. Spring 1901 is about staking position early\u2014I'm showing strength at my border while securing the Mediterranean. All commitments are now sealed and submitted.",
+    "ttft_ms": 26227,
+    "type": "result",
+    "duration_ms": 40923,
+    "uuid": "702ac7af-2577-48c4-8607-d6697211f95e",
+    "ttft_stream_ms": 688,
+    "time_to_request_ms": 37,
+    "first_content_frame_ms": 688,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

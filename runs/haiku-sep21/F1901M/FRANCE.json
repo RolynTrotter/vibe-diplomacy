@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "\u2713 **Orders submitted.** All three orders validated, sealed, signed, and pushed to game/haiku-sep21.\n\n**F1901M FRANCE turn complete:**\n- **A SPA - POR** \u2014 Take Portugal, expand western flank (uncontested)\n- **A BUR H** \u2014 Hold Burgundy, neutral per Germany agreement\n- **F MAO - WES** \u2014 Reposition fleet into Western Mediterranean for southern expansion\n\n**Result:** FRANCE will enter W1901 with 4 centers (BRE, MAR, PAR, SPA) and new holding in POR. Fleet now in position to support Mediterranean strategy coordinated with ITALY. All diplomatic commitments honored. Awaiting adjudication.",
+  "session_id": "f4de0149-773e-42b0-8284-d18920407d5d",
+  "duration": 121.8557120419573,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 118975,
+    "stop_reason": "end_turn",
+    "session_id": "f4de0149-773e-42b0-8284-d18920407d5d",
+    "total_cost_usd": 0.10217190000000001,
+    "usage": {
+      "input_tokens": 26,
+      "cache_creation_input_tokens": 22621,
+      "cache_read_input_tokens": 73239,
+      "output_tokens": 9916,
+      "output_tokens_details": {
+        "thinking_tokens": 9250
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 22621,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 334,
+          "cache_read_input_tokens": 30606,
+          "cache_creation_input_tokens": 8304,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 8304
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 26,
+        "outputTokens": 9916,
+        "cacheReadInputTokens": 73239,
+        "cacheCreationInputTokens": 22621,
+        "webSearchRequests": 0,
+        "costUSD": 0.10217190000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 9250,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 3,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "\u2713 **Orders submitted.** All three orders validated, sealed, signed, and pushed to game/haiku-sep21.\n\n**F1901M FRANCE turn complete:**\n- **A SPA - POR** \u2014 Take Portugal, expand western flank (uncontested)\n- **A BUR H** \u2014 Hold Burgundy, neutral per Germany agreement\n- **F MAO - WES** \u2014 Reposition fleet into Western Mediterranean for southern expansion\n\n**Result:** FRANCE will enter W1901 with 4 centers (BRE, MAR, PAR, SPA) and new holding in POR. Fleet now in position to support Mediterranean strategy coordinated with ITALY. All diplomatic commitments honored. Awaiting adjudication.",
+    "ttft_ms": 20964,
+    "type": "result",
+    "duration_ms": 121088,
+    "uuid": "2c991a32-5c0c-464c-855e-c8ec29212b53",
+    "ttft_stream_ms": 695,
+    "time_to_request_ms": 25,
+    "first_content_frame_ms": 695,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

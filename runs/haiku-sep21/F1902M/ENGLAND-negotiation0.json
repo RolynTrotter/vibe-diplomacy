@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "Done negotiating. I've sent four messages:\n\n1. **FRANCE** \u2014 Confirmed Channel DMZ continues, emphasizing Russia (6 centers) is the shared board threat we should both watch.\n2. **ITALY** \u2014 Strengthened Russia containment: Mediterranean locked, I'm holding the north and applying Channel-side pressure.\n3. **RUSSIA** \u2014 Proposed DEN/Baltic border stability in exchange for respecting each other's growth zones (cautious diplomacy\u2014they reached out first, I'm keeping options open).\n4. **GERMANY** \u2014 Clarified I'm watching Russia, not targeting the north; signaled non-collision if they respect the same.\n\n**Strategic position:** I'm defending the Channel DMZ with France, coordinating Russia containment with Italy, and keeping Russia diplomatically engaged while staying cautious. My next orders will reflect these commitments. \n\n**Negotiation window is now closed for my outgoing messages.** Ready for orders phase when you give the word.",
+  "session_id": "ff3dad85-9ba8-4989-8d6c-a55056ae57e0",
+  "duration": 40.85734995803796,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 36688,
+    "stop_reason": "end_turn",
+    "session_id": "ff3dad85-9ba8-4989-8d6c-a55056ae57e0",
+    "total_cost_usd": 0.0625467,
+    "usage": {
+      "input_tokens": 59,
+      "cache_creation_input_tokens": 14184,
+      "cache_read_input_tokens": 189597,
+      "output_tokens": 3032,
+      "output_tokens_details": {
+        "thinking_tokens": 1841
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 14184,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 423,
+          "cache_read_input_tokens": 29950,
+          "cache_creation_input_tokens": 523,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 523
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 59,
+        "outputTokens": 3032,
+        "cacheReadInputTokens": 189597,
+        "cacheCreationInputTokens": 14184,
+        "webSearchRequests": 0,
+        "costUSD": 0.0625467,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 1841,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 8,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Done negotiating. I've sent four messages:\n\n1. **FRANCE** \u2014 Confirmed Channel DMZ continues, emphasizing Russia (6 centers) is the shared board threat we should both watch.\n2. **ITALY** \u2014 Strengthened Russia containment: Mediterranean locked, I'm holding the north and applying Channel-side pressure.\n3. **RUSSIA** \u2014 Proposed DEN/Baltic border stability in exchange for respecting each other's growth zones (cautious diplomacy\u2014they reached out first, I'm keeping options open).\n4. **GERMANY** \u2014 Clarified I'm watching Russia, not targeting the north; signaled non-collision if they respect the same.\n\n**Strategic position:** I'm defending the Channel DMZ with France, coordinating Russia containment with Italy, and keeping Russia diplomatically engaged while staying cautious. My next orders will reflect these commitments. \n\n**Negotiation window is now closed for my outgoing messages.** Ready for orders phase when you give the word.",
+    "ttft_ms": 15211,
+    "type": "result",
+    "duration_ms": 39098,
+    "uuid": "36a2a951-8387-4ab1-936b-6d4d703e5b20",
+    "ttft_stream_ms": 728,
+    "time_to_request_ms": 34,
+    "first_content_frame_ms": 729,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

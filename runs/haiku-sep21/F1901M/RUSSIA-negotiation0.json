@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Negotiation complete.** I've sent sealed messages to all three key partners:\n\n- **TURKEY**: Confirmed mutual non-aggression in the East; they secure the Balkans, I expand eastward\n- **AUSTRIA**: Reinforced border stability agreement; we both focus on growth elsewhere  \n- **GERMANY**: Assured them I won't seek direct conflict; both pursue regional flexibility\n\nAll messages are now committed and sealed. I'm holding my orders per your instruction \u2014 ready to write and submit once you give the signal.",
+  "session_id": "2ed61857-d128-4b82-8f6a-0d00827067d4",
+  "duration": 52.87442883301992,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 49517,
+    "stop_reason": "end_turn",
+    "session_id": "2ed61857-d128-4b82-8f6a-0d00827067d4",
+    "total_cost_usd": 0.08174529999999999,
+    "usage": {
+      "input_tokens": 85,
+      "cache_creation_input_tokens": 17039,
+      "cache_read_input_tokens": 288723,
+      "output_tokens": 3742,
+      "output_tokens_details": {
+        "thinking_tokens": 2562
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17039,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 241,
+          "cache_read_input_tokens": 32732,
+          "cache_creation_input_tokens": 596,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 596
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 85,
+        "outputTokens": 3742,
+        "cacheReadInputTokens": 288723,
+        "cacheCreationInputTokens": 17039,
+        "webSearchRequests": 0,
+        "costUSD": 0.08174529999999999,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 2562,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 12,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Negotiation complete.** I've sent sealed messages to all three key partners:\n\n- **TURKEY**: Confirmed mutual non-aggression in the East; they secure the Balkans, I expand eastward\n- **AUSTRIA**: Reinforced border stability agreement; we both focus on growth elsewhere  \n- **GERMANY**: Assured them I won't seek direct conflict; both pursue regional flexibility\n\nAll messages are now committed and sealed. I'm holding my orders per your instruction \u2014 ready to write and submit once you give the signal.",
+    "ttft_ms": 14171,
+    "type": "result",
+    "duration_ms": 52072,
+    "uuid": "0d693b2d-a7d4-4699-93af-779e9bcdbdcf",
+    "ttft_stream_ms": 619,
+    "time_to_request_ms": 35,
+    "first_content_frame_ms": 619,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

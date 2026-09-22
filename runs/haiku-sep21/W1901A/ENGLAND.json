@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "Done. England's W1901A build submitted: **F LON B**. Your fleet is now in London, reinforcing the Channel/North Sea strategy. Committed and pushed to game/haiku-sep21.",
+  "session_id": "10d23a98-d55b-4352-a2ec-fe0b965c9688",
+  "duration": 25.977080291020684,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 21641,
+    "stop_reason": "end_turn",
+    "session_id": "10d23a98-d55b-4352-a2ec-fe0b965c9688",
+    "total_cost_usd": 0.0362721,
+    "usage": {
+      "input_tokens": 18,
+      "cache_creation_input_tokens": 11938,
+      "cache_read_input_tokens": 42581,
+      "output_tokens": 1624,
+      "output_tokens_details": {
+        "thinking_tokens": 1250
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 11938,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 95,
+          "cache_read_input_tokens": 26292,
+          "cache_creation_input_tokens": 1935,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1935
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 18,
+        "outputTokens": 1624,
+        "cacheReadInputTokens": 42581,
+        "cacheCreationInputTokens": 11938,
+        "webSearchRequests": 0,
+        "costUSD": 0.0362721,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 1250,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 2,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "Done. England's W1901A build submitted: **F LON B**. Your fleet is now in London, reinforcing the Channel/North Sea strategy. Committed and pushed to game/haiku-sep21.",
+    "ttft_ms": 16624,
+    "type": "result",
+    "duration_ms": 23474,
+    "uuid": "8fe9e4ff-04dc-41e3-b3ea-79a9bb284aef",
+    "ttft_stream_ms": 815,
+    "time_to_request_ms": 36,
+    "first_content_frame_ms": 815,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

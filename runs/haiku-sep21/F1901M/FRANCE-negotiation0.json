@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Negotiation complete.** I've sent three sealed messages and formalized three key agreements:\n\n1. **ENGLAND** \u2014 Channel DMZ confirmed (no fleets in ENG either side)\n2. **ITALY** \u2014 Mediterranean coordination accepted (they control Adriatic/Greece, France pushes west/south toward Portugal and southern coast)\n3. **GERMANY** \u2014 North-south split established (they take DEN/HOL, France expands west/south, Burgundy remains fluid)\n\nAll agreements are recorded in `notes/FRANCE.md` as formal `DEAL:` lines and committed. Ready for Fall move orders whenever you want to proceed with `play-a-turn`.",
+  "session_id": "f17b62b2-e008-4c08-86c6-3da4f3b18fa5",
+  "duration": 65.28747450001538,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 61090,
+    "stop_reason": "end_turn",
+    "session_id": "f17b62b2-e008-4c08-86c6-3da4f3b18fa5",
+    "total_cost_usd": 0.0942302,
+    "usage": {
+      "input_tokens": 99,
+      "cache_creation_input_tokens": 17438,
+      "cache_read_input_tokens": 346202,
+      "output_tokens": 4927,
+      "output_tokens_details": {
+        "thinking_tokens": 2998
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 17438,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 345,
+          "cache_read_input_tokens": 33281,
+          "cache_creation_input_tokens": 446,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 446
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 99,
+        "outputTokens": 4927,
+        "cacheReadInputTokens": 346202,
+        "cacheCreationInputTokens": 17438,
+        "webSearchRequests": 0,
+        "costUSD": 0.0942302,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 2998,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 13,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Negotiation complete.** I've sent three sealed messages and formalized three key agreements:\n\n1. **ENGLAND** \u2014 Channel DMZ confirmed (no fleets in ENG either side)\n2. **ITALY** \u2014 Mediterranean coordination accepted (they control Adriatic/Greece, France pushes west/south toward Portugal and southern coast)\n3. **GERMANY** \u2014 North-south split established (they take DEN/HOL, France expands west/south, Burgundy remains fluid)\n\nAll agreements are recorded in `notes/FRANCE.md` as formal `DEAL:` lines and committed. Ready for Fall move orders whenever you want to proceed with `play-a-turn`.",
+    "ttft_ms": 24499,
+    "type": "result",
+    "duration_ms": 63496,
+    "uuid": "3566e815-1c52-4242-a48d-396aebdd0d15",
+    "ttft_stream_ms": 591,
+    "time_to_request_ms": 27,
+    "first_content_frame_ms": 592,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

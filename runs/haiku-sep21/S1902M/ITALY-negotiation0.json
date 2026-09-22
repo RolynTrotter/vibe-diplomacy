@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Negotiation phase complete.** I've sent three sealed messages:\n\n1. **To ENGLAND & FRANCE** \u2014 Confirmed coordination against RUSSIA's threat (6 centers now, up from 4). Reassured them our Mediterranean/Adriatic deals stay locked.\n\n2. **To AUSTRIA** \u2014 Confirmed our Balkans expansion deal is still good and flagged RUSSIA as the board's biggest threat. Checking they're monitoring the east.\n\n3. **To TURKEY** \u2014 Opened contact since they're an unknown. Asked about regional coordination against RUSSIA's expansion.\n\nAll mail has been sealed, committed, and pushed. Your notes are updated with RUSSIA reclassified as a **major threat** (doubled from 4 to 6 centers) and TURKEY marked as opening contact. \n\nReady to write and submit orders when you are\u2014just say when.",
+  "session_id": "492dec15-519f-4da4-a5c9-1fb7698458cd",
+  "duration": 50.11810154200066,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 44933,
+    "stop_reason": "end_turn",
+    "session_id": "492dec15-519f-4da4-a5c9-1fb7698458cd",
+    "total_cost_usd": 0.08236030000000001,
+    "usage": {
+      "input_tokens": 84,
+      "cache_creation_input_tokens": 16843,
+      "cache_read_input_tokens": 284053,
+      "output_tokens": 4037,
+      "output_tokens_details": {
+        "thinking_tokens": 2112
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16843,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 423,
+          "cache_read_input_tokens": 32684,
+          "cache_creation_input_tokens": 448,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 448
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 84,
+        "outputTokens": 4037,
+        "cacheReadInputTokens": 284053,
+        "cacheCreationInputTokens": 16843,
+        "webSearchRequests": 0,
+        "costUSD": 0.08236030000000001,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 2112,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 12,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Negotiation phase complete.** I've sent three sealed messages:\n\n1. **To ENGLAND & FRANCE** \u2014 Confirmed coordination against RUSSIA's threat (6 centers now, up from 4). Reassured them our Mediterranean/Adriatic deals stay locked.\n\n2. **To AUSTRIA** \u2014 Confirmed our Balkans expansion deal is still good and flagged RUSSIA as the board's biggest threat. Checking they're monitoring the east.\n\n3. **To TURKEY** \u2014 Opened contact since they're an unknown. Asked about regional coordination against RUSSIA's expansion.\n\nAll mail has been sealed, committed, and pushed. Your notes are updated with RUSSIA reclassified as a **major threat** (doubled from 4 to 6 centers) and TURKEY marked as opening contact. \n\nReady to write and submit orders when you are\u2014just say when.",
+    "ttft_ms": 9903,
+    "type": "result",
+    "duration_ms": 48754,
+    "uuid": "1752795e-7cd1-480d-b30b-86d7ad319364",
+    "ttft_stream_ms": 1075,
+    "time_to_request_ms": 26,
+    "first_content_frame_ms": 1076,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

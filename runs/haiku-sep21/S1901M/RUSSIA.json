@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**RUSSIA phase complete.** Negotiation messages sealed and orders submitted:\n\n- **A MOS \u2192 UKR** (southern expansion)  \n- **F SEV \u2192 RUM** (Balkans foothold)  \n- **F STP/SC \u2192 BOT** (northern move)  \n- **A WAR \u2192 GAL** (central board pressure)\n\nMessages sent to Turkey (mutual coordination in the East, Black Sea respect) and Austria (non-hostility confirmation). All commits pushed to game/haiku-sep21. Ready for adjudication.",
+  "session_id": "235ebacd-76ab-49ea-9830-fb71c64fd361",
+  "duration": 44.12602166598663,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 38703,
+    "stop_reason": "end_turn",
+    "session_id": "235ebacd-76ab-49ea-9830-fb71c64fd361",
+    "total_cost_usd": 0.0602898,
+    "usage": {
+      "input_tokens": 50,
+      "cache_creation_input_tokens": 15007,
+      "cache_read_input_tokens": 161958,
+      "output_tokens": 2806,
+      "output_tokens_details": {
+        "thinking_tokens": 2142
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 15007,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 337,
+          "cache_read_input_tokens": 30792,
+          "cache_creation_input_tokens": 504,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 504
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 50,
+        "outputTokens": 2806,
+        "cacheReadInputTokens": 161958,
+        "cacheCreationInputTokens": 15007,
+        "webSearchRequests": 0,
+        "costUSD": 0.0602898,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 2142,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 6,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**RUSSIA phase complete.** Negotiation messages sealed and orders submitted:\n\n- **A MOS \u2192 UKR** (southern expansion)  \n- **F SEV \u2192 RUM** (Balkans foothold)  \n- **F STP/SC \u2192 BOT** (northern move)  \n- **A WAR \u2192 GAL** (central board pressure)\n\nMessages sent to Turkey (mutual coordination in the East, Black Sea respect) and Austria (non-hostility confirmation). All commits pushed to game/haiku-sep21. Ready for adjudication.",
+    "ttft_ms": 9904,
+    "type": "result",
+    "duration_ms": 42546,
+    "uuid": "e8e4b0a1-cb5b-403f-a057-dfc30dc75c88",
+    "ttft_stream_ms": 626,
+    "time_to_request_ms": 48,
+    "first_content_frame_ms": 626,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}

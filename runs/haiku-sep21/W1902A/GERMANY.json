@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "reply": "**Builds submitted for Germany (W1902A):**\n- **F KIE B** \u2014 builds a fleet in Kiel for Baltic naval strength\n- **A MUN B** \u2014 builds an army in Munich for central land power\n\nOrders sealed, signed, and committed. Germany now has 5 units (2 armies, 2 fleets, 1 shared) heading into S1903M with a stronger position to maintain the north-south alliance and manage the Russia threat.",
+  "session_id": "ef09c3eb-5b84-4d23-917a-3579dd286f2f",
+  "duration": 33.36998733296059,
+  "error": null,
+  "final": false,
+  "transcript": {
+    "duration_api_ms": 29627,
+    "stop_reason": "end_turn",
+    "session_id": "ef09c3eb-5b84-4d23-917a-3579dd286f2f",
+    "total_cost_usd": 0.0431237,
+    "usage": {
+      "input_tokens": 18,
+      "cache_creation_input_tokens": 13319,
+      "cache_read_input_tokens": 43277,
+      "output_tokens": 2428,
+      "output_tokens_details": {
+        "thinking_tokens": 1998
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 13319,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 8,
+          "output_tokens": 217,
+          "cache_read_input_tokens": 26988,
+          "cache_creation_input_tokens": 2620,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 2620
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 18,
+        "outputTokens": 2428,
+        "cacheReadInputTokens": 43277,
+        "cacheCreationInputTokens": 13319,
+        "webSearchRequests": 0,
+        "costUSD": 0.0431237,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000,
+        "thinkingTokens": 1998,
+        "canonicalModel": "claude-haiku-4-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 2,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "**Builds submitted for Germany (W1902A):**\n- **F KIE B** \u2014 builds a fleet in Kiel for Baltic naval strength\n- **A MUN B** \u2014 builds an army in Munich for central land power\n\nOrders sealed, signed, and committed. Germany now has 5 units (2 armies, 2 fleets, 1 shared) heading into S1903M with a stronger position to maintain the north-south alliance and manage the Russia threat.",
+    "ttft_ms": 23249,
+    "type": "result",
+    "duration_ms": 31561,
+    "uuid": "c5112ecc-65d5-49a4-9ead-02354808f0a5",
+    "ttft_stream_ms": 706,
+    "time_to_request_ms": 24,
+    "first_content_frame_ms": 707,
+    "queued_turn_count": 0,
+    "result_index": 0
+  }
+}
