@@ -401,6 +401,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--human", nargs="*")
     p.add_argument("--model")
     p.add_argument("--endpoint", choices=["local", "api"])
+    p.add_argument("--staff", dest="orders", action="store_const", const="staff",
+                   help="Seats issue written directions and a separate order "
+                        "writer places their units. Off by default: a seat "
+                        "writes its own orders.")
+    p.add_argument("--orders", choices=["self", "staff"],
+                   help="Per-match default for who writes orders (see --staff).")
     p.add_argument("--rounds", dest="negotiation_rounds", type=int)
     p.add_argument("--session-mode", dest="session_mode", choices=["oneshot", "persistent"])
     p.add_argument("--max-concurrency", dest="max_concurrency", type=int)
@@ -425,6 +431,7 @@ def main(argv: list[str] | None = None) -> int:
     spec_overrides = {
         k: getattr(args, k) for k in (
             "name", "press", "idle", "human", "model", "endpoint",
+            "orders",
             "negotiation_rounds", "session_mode", "max_concurrency", "max_phases",
             "end_year", "adjudication", "deadline", "per_call_timeout_s",
             "retries", "runs_dir", "verbosity", "dry_run",

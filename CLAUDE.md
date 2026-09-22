@@ -126,6 +126,20 @@ shown it scored POR 85, BUR 13 — exactly the provinces named — and Paris too
 Burgundy 3/3. Any new channel for intent has to reach that call, not just the
 order questions.
 
+### Staff seats: opt-in, and off by default
+
+`run_match --staff` (or `orders: staff` on a seat or match in the YAML). Without
+it every seat writes its own orders, in text, from `ORDERS_BLOCK` — one line per
+unit, fenced or bare, both parsed. A self-ordering seat is never told it has a
+staff: being offered a subordinate that does not exist is a way to spend a whole
+turn issuing instructions nobody carries out.
+
+Jev order-writing stopped here. The mechanism works, but making written
+instructions actually bind needed a per-province constraint probe on top of the
+valuation on top of the staged decomposition, and that wiring outgrew what the
+approach was buying. What survives is worth keeping: the one-reply no-tools seat,
+the `TO ...` routing, and the measurements below.
+
 ### Staff seats: who decides what
 
 A seat with `orders: staff` (`orchestration/staff.py`) splits the turn by what

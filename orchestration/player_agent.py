@@ -167,15 +167,10 @@ class HeadlessClaudeAgent(PlayerAgent):
         return text, None, payload
 
 
-ORDERS_FORMAT = (
-    "Reply with your FINAL orders in one fenced code block (```), one order "
-    "per line, engine syntax (e.g. `A PAR - BUR`, `F BRE S A PAR - PIC`). "
-    "Only the fenced block is read — no commands, no tools, no prose inside it."
-)
 #: Every reply uses one syntax, for everything a seat wants to say. Where a
 #: line goes is decided in `parse_reply`, in code — so the model has no tool to
 #: call, no file to write, and no routing decision it can get wrong.
-_TO_SYNTAX = (
+_TO_HEAD = (
     "Write one line per thing you want to say:\n"
     "  `TO <POWER>: <message>`          sealed mail to that power\n"
     "  `TO <POWER>, <POWER>: <message>` the same message to several of them\n"
@@ -183,33 +178,62 @@ _TO_SYNTAX = (
     "  `TO SELF: <note>`                your own notebook. It survives the "
     "phase and you are shown it next turn. Anything you have agreed and mean "
     "to keep goes on a line beginning `DEAL:`.\n"
+)
+# Only a seat that HAS a staff is told it has one. A seat writing its own
+# orders must never see this line — being offered a subordinate that does not
+# exist is a way to spend a turn giving instructions nobody carries out.
+_TO_STAFF = (
     "  `TO STAFF: <direction>`          what you want done this phase: what to "
     "take, what to hold, whom you are fighting. Plain English, places and "
     "aims — never unit orders; your staff places the units.\n"
-    "`TO SELF` and `TO STAFF` each go on a line of their own. At most 4 "
-    "messages to other powers; write `TO NOBODY: pass` to send none. Anything "
-    "that is not a `TO ...` line is ignored.\n"
+)
+_TO_TAIL = (
+    "Each `TO ...` goes on a line of its own. At most 4 messages to other "
+    "powers; write `TO NOBODY: pass` to send none. Anything that is not a "
+    "`TO ...` line is ignored.\n"
     "End with `FINAL_MESSAGES` on its own line if you have nothing further to "
     "send or read this phase."
 )
 
-MESSAGES_FORMAT = _TO_SYNTAX
+#: Writing orders yourself: the whole syntax, with an example of each form.
+#: Deliberately permissive about the wrapper — a fenced block is welcome and a
+#: bare list is equally fine, because `extract_orders` reads either. The syntax
+#: of an order is the engine's and cannot be negotiated; where you put it is
+#: not worth a failed turn.
+ORDERS_BLOCK = (
+    "Write your orders for this phase, one per line:\n"
+    "  `A PAR - BUR`             move\n"
+    "  `A PAR H`                 hold\n"
+    "  `A MAR S A PAR - BUR`     support that move\n"
+    "  `F BRE S A PAR`           support a unit where it stands\n"
+    "  `F ENG C A LON - BRE`     convoy an army across\n"
+    "  `A LON - BRE VIA`         the army being convoyed\n"
+    "  `A BUR R MAR` / `A BUR D` retreat, or disband\n"
+    "  `A PAR B` / `F BRE B`     build, on a home centre you still hold\n"
+    "One order per unit, province codes in capitals (`BUR`, `SPA`, `SPA/SC`). "
+    "Put them at the end of your reply — in a fenced code block (```) or as "
+    "plain lines, both are read."
+)
 
-# Messages and orders in one reply. The two formats do not collide — a `TO X:`
-# line is never an order, and only the fenced block is read for orders — so one
-# call can carry both, halving the model calls a full-press movement phase costs.
-COMBINED_FORMAT = (
-    _TO_SYNTAX
-    + "\nThen, after those lines, give your FINAL orders in one fenced code "
-      "block (```), one order per line in engine syntax (e.g. `A PAR - BUR`, "
-      "`F BRE S A PAR - PIC`). They are binding — there is no later round."
+ORDERS_FORMAT = ORDERS_BLOCK + (
+    "\nYou may also write `TO SELF: <note>` lines to keep something in your "
+    "notebook for next phase."
+)
+
+MESSAGES_FORMAT = _TO_HEAD + _TO_TAIL
+
+# Messages and orders in one reply. The two do not collide — a `TO X:` line is
+# never an order — so one call carries both, halving the model calls a
+# full-press movement phase costs.
+COMBINED_FORMAT = _TO_HEAD + _TO_TAIL + "\n\n" + ORDERS_BLOCK + (
+    " They are binding — there is no later round."
 )
 
 
 # A seat whose orders are written by its staff (see `orchestration.staff`).
 # The model is told it commands through subordinates and never writes an order;
 # nothing here names the model that does, and nothing should.
-DIRECTIVES_FORMAT = _TO_SYNTAX
+DIRECTIVES_FORMAT = _TO_HEAD + _TO_STAFF + _TO_TAIL
 
 SELF = "SELF"
 STAFF = "STAFF"

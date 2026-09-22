@@ -91,7 +91,7 @@ def test_orders_turn_produces_sealed_artifact(tmp_path):
     result = agent.dispatch("You are FRANCE. It is S1901M.", kind="orders")
     assert result.ok, result.error
     assert state.power_orders_file(root, "FRANCE", "S1901M").exists()
-    assert "FINAL orders" in prompt_text(prompts[0])   # format instruction attached
+    assert "Write your orders for this phase" in prompt_text(prompts[0])
 
 
 def test_incoherent_orders_get_one_corrective_retry(tmp_path):

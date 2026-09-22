@@ -270,3 +270,58 @@ def test_the_map_is_skipped_on_adjustments(tmp_path, monkeypatch):
     assert phase_type == "A", "taking Spain in 1901 produces a build phase"
     assert "PICTURE-HERE" not in brief
     assert "Board topology" in brief, "the geometry is still there, in text"
+
+
+# --------------------------------------------------------------------------- #
+# Staff is opt-in. By default a seat writes its own orders.
+# --------------------------------------------------------------------------- #
+def test_a_match_has_no_staff_unless_asked():
+    assert MatchSpec.load(None).staff_powers() == []
+    assert len(MatchSpec.load(None, orders="staff").staff_powers()) == 7
+
+
+def test_the_staff_flag_is_off_by_default():
+    from orchestration.run_match import build_parser
+
+    assert build_parser().parse_args([]).orders is None, "unset leaves the YAML"
+    assert build_parser().parse_args(["--staff"]).orders == "staff"
+
+
+@pytest.mark.parametrize("kind", ["orders", "combined", "negotiation"])
+def test_a_self_ordering_seat_is_never_told_it_has_a_staff(kind):
+    """Being offered a subordinate that does not exist wastes a whole turn."""
+    task = tasks.build("FRANCE", kind, "S1901M", "<brief>", press="full")
+    assert "staff" not in task.lower()
+    assert "TO STAFF" not in task
+
+
+def test_the_orders_block_shows_every_form():
+    from orchestration.player_agent import ORDERS_BLOCK
+
+    for example in ("A PAR - BUR", "A PAR H", "A MAR S A PAR - BUR",
+                    "F BRE S A PAR", "F ENG C A LON - BRE", "A LON - BRE VIA",
+                    "A BUR R MAR", "A BUR D", "A PAR B"):
+        assert example in ORDERS_BLOCK, f"{example} has no example"
+
+
+def test_orders_parse_fenced_or_bare():
+    """The engine's syntax is not negotiable; the wrapper is not worth a turn."""
+    from orchestration.player_agent import extract_orders
+
+    body = "A PAR - BUR\nA MAR - SPA\nF BRE S A PAR - BUR"
+    want = ["A PAR - BUR", "A MAR - SPA", "F BRE S A PAR - BUR"]
+    assert extract_orders(f"Here they are:\n```\n{body}\n```") == want
+    assert extract_orders(f"Here they are:\n\n{body}\n") == want
+
+
+def test_a_self_seat_can_mail_note_and_order_in_one_reply():
+    from orchestration.player_agent import extract_orders
+
+    reply = ("TO ENGLAND: Channel DMZ?\n"
+             "TO SELF: DEAL: ENGLAND — Channel DMZ until 1903\n\n"
+             "A PAR - BUR\nA MAR - SPA\n")
+    parsed = parse_reply(reply)
+    assert parsed.flat_mail == [("ENGLAND", "Channel DMZ?")]
+    assert parsed.notes == ["DEAL: ENGLAND — Channel DMZ until 1903"]
+    assert parsed.directions == [], "no staff, so nothing is directed at one"
+    assert extract_orders(reply) == ["A PAR - BUR", "A MAR - SPA"]
