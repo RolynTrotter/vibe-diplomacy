@@ -293,7 +293,7 @@ def _destinations(game: Game, power: str, movers: list[str], state: dict, kind: 
 
 def _helpers(game: Game, power: str, stayers: list[str], state: dict,
              values: dict[str, float] | None, *, ask, stages: list[Stage],
-             forbid: set[str] | None = None) -> list[str]:
+             sealed: set[str] | None = None) -> list[str]:
     """Supports and convoys for the units that are not moving.
 
     Hold is offered only where the unit has no legal support or convoy at all.
@@ -319,10 +319,11 @@ def _helpers(game: Game, power: str, stayers: list[str], state: dict,
         cannot see their orders, and backing one is a legitimate gamble.
         """
         p = coherence.parse_order(order)
-        # A province your own orders put off limits stays off limits when you
-        # are helping somebody else into it. Honouring a DMZ in the letter
-        # while escorting a rival through it is not honouring it.
-        if p.dest and p.dest in (forbid or set()):
+        # A demilitarised province stays off limits when you are helping
+        # somebody else in — escorting a rival through a DMZ is not honouring
+        # it. A province PROMISED to another power is the opposite case: the
+        # support is the thing you agreed to give, so it stays on the ballot.
+        if p.dest and p.dest in (sealed or set()):
             return False
         if p.target not in ours:
             return True
@@ -373,12 +374,20 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
                          model: str = jev.DEFAULT_MODEL,
                          extra: dict | None = None, stab: bool = False,
                          forbid: set[str] | None = None,
+                         sealed: set[str] | None = None,
                          ask=None) -> orders_jev.JevOrders:
     """Movement first, then destinations, then everyone else.
 
     `extra` is pinned onto the state for every stage. With `stab`, each standing
     `DEAL:` line is decided keep-or-break once, before any unit is asked, and
     the verdicts ride along in `deal_policy_this_turn` — see `engine.press`.
+
+    `forbid` is every province this power's own units may not enter; `sealed`
+    is the subset that must stay empty altogether, so supports and convoys
+    carrying somebody else in are dropped too. A province in `forbid` but not
+    `sealed` is one the power promised to a friend: it stays out, and helping
+    the friend in is exactly what it agreed to do. Both come from
+    `engine.valuation.province_constraints`.
     """
     power = power.upper()
     result = orders_jev.JevOrders(power=power, phase=game.get_current_phase())
@@ -433,7 +442,7 @@ def choose_orders_staged(game: Game, power: str, *, root: Path | None = None,
     stayers = [l for l in armies + fleets
                if l not in army_movers and l not in fleet_movers]
     orders += _helpers(game, power, stayers, state, values,
-                       ask=caller, stages=stages, forbid=forbid)
+                       ask=caller, stages=stages, sealed=sealed)
 
     checked = validate.validate_orders(game, power, orders)
     result.orders = checked.accepted

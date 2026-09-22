@@ -163,24 +163,25 @@ def write_orders(root: Path, power: str, directions: list[str] | None = None, *,
             #   valuation without the directions -> ENG 32, SPA 24, BEL 16,
             #     BUR absent; Paris supports instead of moving, 3/3 runs.
             #   valuation with them -> POR 85, BUR 13; Paris takes Burgundy.
-            picks, off_limits = None, set()
+            picks, keep_out, gifts = None, set(), set()
             if values and game.phase_type == "M":
                 st = orders_jev.build_state(game, power, root=root, extra=extra)
                 picks = valuation.province_values(game, power, root=root,
                                                   state=st)
                 if extra:
-                    # Only worth asking when there are directions to forbid
-                    # anything. See `valuation.forbidden_provinces` for why a
-                    # prohibition has to remove the option rather than describe
-                    # itself: every prose form of it was ignored 3/3.
-                    off_limits = valuation.forbidden_provinces(
+                    # Only worth asking when there are directions that could
+                    # constrain anything. See `valuation.province_constraints`
+                    # for why a constraint has to remove the option rather than
+                    # describe itself: every prose form of it was ignored 3/3.
+                    keep_out, gifts = valuation.province_constraints(
                         game, power, root=root, state=st)
-                    for prov in off_limits:
+                    for prov in keep_out:
                         picks[prov] = 0.0
             return staged.choose_orders_staged(game, power, root=root,
                                                values=picks, stab=stab,
-                                               extra=extra, forbid=off_limits,
-                                               **kw)
+                                               extra=extra,
+                                               forbid=keep_out | gifts,
+                                               sealed=keep_out, **kw)
 
     chosen = decide(game, power, extra=extra)
     result.orders = list(chosen.orders)

@@ -184,33 +184,75 @@ def test_gunboat_config_keeps_mail_out_of_the_state(tmp_path):
 
 
 # --------------------------------------------------------------------------- #
-# Turning a written prohibition into a removed option
+# Turning a written constraint into a removed option
 # --------------------------------------------------------------------------- #
-def test_nothing_forbidden_is_the_normal_answer():
+class _Noul:
+    def __init__(self, value):
+        self.noul = value
+
+
+def _constraints(game, bar: dict, gift: dict):
+    """Drive `province_constraints` with canned per-province probabilities."""
     from engine import valuation
 
-    game = Game()
+    calls = []
 
     def ask(state, questions):
-        q = questions["forbidden"]
-        assert valuation.NOTHING_FORBIDDEN in q.criteria, (
-            "without an abstain option the question must name a victim")
-        return _Response({"forbidden": _Answer(
-            valuation.NOTHING_FORBIDDEN,
-            {valuation.NOTHING_FORBIDDEN: 0.64, "BLA": 0.33})})
+        calls.append(len(questions))
+        # The bar question runs first, then the gift question.
+        table = bar if len(calls) == 1 else gift
+        return _Response({p: _Noul(table.get(p, 0.05)) for p in questions})
 
-    assert valuation.forbidden_provinces(game, "TURKEY", ask=ask) == set()
+    out = valuation.province_constraints(game, "GERMANY", ask=ask)
+    return out, calls
 
 
-def test_a_clear_prohibition_is_returned():
+def test_six_dmzs_are_all_found():
+    """The failure that killed the one-Choice version: mass split six ways.
+
+    A pick-one primitive cannot answer a many-of-N question. One yes/no per
+    reachable province can, and costs the same whether one province is
+    forbidden or six.
+    """
+    game = Game()
+    six = {"BUR": 0.71, "TYR": 0.76, "BOH": 0.78, "SIL": 0.76, "PRU": 0.78,
+           "BAL": 0.75, "KIE": 0.29, "MUN": 0.29}
+    (keep_out, gifts), calls = _constraints(game, six, {})
+    assert keep_out == {"BUR", "TYR", "BOH", "SIL", "PRU", "BAL"}
+    assert gifts == set()
+    assert len(calls) == 2, "one request for the bar, one for the gift"
+    assert calls[0] > 6, "every reachable province is asked about, not just six"
+
+
+def test_an_agreement_to_enter_is_not_a_bar():
+    """"Bounce in the Black Sea" is an agreement to move there."""
+    game = Game()
+    (keep_out, gifts), _ = _constraints(game, {"BLA": 0.27}, {"BLA": 0.10})
+    assert keep_out == set() and gifts == set()
+
+
+def test_a_province_promised_to_a_friend_is_a_gift_not_a_dmz():
+    """Told "England takes Holland, not me": stay out, but escort them in."""
+    game = Game()
+    (keep_out, gifts), _ = _constraints(game, {"HOL": 0.22}, {"HOL": 0.95})
+    assert gifts == {"HOL"}, "you stay out"
+    assert keep_out == set(), "but it is not sealed — you may help them in"
+
+
+def test_only_provinces_a_unit_could_reach_are_asked_about():
+    """The question set is bounded by the board, not by the agreement count.
+
+    Belgium is not adjacent to any German unit at S1901M, so it is not on the
+    ballot and cannot be constrained — there is nothing to constrain.
+    """
     from engine import valuation
 
+    reach = valuation._reachable(Game(), "GERMANY")
+    assert "BEL" not in reach and "HOL" in reach
+    assert len(reach) < 20, "a bounded set, not all 75 provinces"
+
+
+def test_a_province_cannot_be_both():
     game = Game()
-
-    def ask(state, questions):
-        return _Response({"forbidden": _Answer(
-            "BLA", {"BLA": 0.81, valuation.NOTHING_FORBIDDEN: 0.17,
-                    "CON": 0.01})})
-
-    off = valuation.forbidden_provinces(game, "TURKEY", ask=ask)
-    assert off == {"BLA"}, "only what clears the threshold, not the long tail"
+    (keep_out, gifts), _ = _constraints(game, {"BUR": 0.8}, {"BUR": 0.8})
+    assert keep_out == {"BUR"} and gifts == set(), "sealed wins; nobody goes in"
