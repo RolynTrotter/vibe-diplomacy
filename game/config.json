@@ -1,0 +1,29 @@
+{
+  "deadline_hours": 24.0,
+  "name": "aurora",
+  "powers": {
+    "AUSTRIA": {
+      "type": "agent"
+    },
+    "ENGLAND": {
+      "type": "agent"
+    },
+    "FRANCE": {
+      "type": "agent"
+    },
+    "GERMANY": {
+      "type": "agent"
+    },
+    "ITALY": {
+      "type": "agent"
+    },
+    "RUSSIA": {
+      "type": "agent"
+    },
+    "TURKEY": {
+      "type": "agent"
+    }
+  },
+  "press": "full",
+  "variant": "standard"
+}
