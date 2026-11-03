@@ -23,7 +23,10 @@ hand. `./dip --help` and `./dip <command> --help` show the same flags.
   Wait for it.
 - `--model fake` (no `--base-url`) plays random legal orders with no server, as a dry run.
 - `--press full` turns on negotiation. `--max-year 1910` sets when the game
-  ends, and `--deadline 30m` the time limit per phase.
+  ends, and `--deadline 30m` the time limit per phase. The deadline is only
+  for seats played from outside (`--agents`): it never fires while `dip run`
+  is still waiting on its own models, however slow they are, so a
+  models-only game needs no special deadline.
 
 It prints one endpoint line, a `settings:` line with everything the match
 was created with, then `next: .../dip run <name>`.
@@ -62,6 +65,9 @@ While it's playing:
       runner: running (pid 4242), log .../games/gunboat/run.log
       latest:   FRANCE (flint): 4 order(s) (52s)
 
+If a phase resolved without some seats, status adds a line saying so and
+why: `F1901M resolved (deadline) with 2 seat(s) missing, who held: ...`.
+
 **Finished** looks like this, and the runner exits by itself:
 
     gunboat: over — year cap 1910 (last phase played: W1910A)   (or: over — solo FRANCE)
@@ -74,6 +80,7 @@ Lines in `latest` (and in the log) that need no action, or one flag:
 |---|---|---|
 | `FRANCE (flint): 0 order(s) — holding [retry: ...]` | unusable orders twice, so its units hold | nothing; the game goes on |
 | `FRANCE: call failed (no tokens for 180s); retrying` | server busy or stalled | nothing, unless it repeats |
+| `FRANCE: too late — S1901M has already resolved ...` | its orders came in after the phase closed (it was forced, or an outside seat's deadline passed); they were dropped, not applied to the next phase | nothing |
 | `... no tokens for 180s — model too slow: try ...` | still failing after the retry, so the seat holds | restart with the flags below |
 
 A slow model that is still writing is never cut off; a call only fails

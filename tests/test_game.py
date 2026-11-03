@@ -136,3 +136,26 @@ def test_inbox_is_private(tmp_path):
     assert [x["body"] for x in m.inbox("FRANCE")] == ["channel DMZ?", "peace in our time"]
     with pytest.raises(MatchError):
         m.send("FRANCE", ["SPAIN"], "?")
+
+
+def test_orders_for_a_resolved_phase_are_refused_not_carried_over(match):
+    match.advance(force=True)                       # S1901M resolves without ENGLAND
+    with pytest.raises(gamemod.LateOrders, match="S1901M has already resolved"):
+        match.submit("ENGLAND", ["F LON - NTH"], phase="S1901M")
+    assert "ENGLAND" not in match.submitted()       # nothing landed in F1901M
+
+
+def test_deadline_waits_while_the_runner_has_calls_in_flight(tmp_path):
+    import os
+    m = Match.create("busy", root=tmp_path, deadline_s=1)
+    m._set_config(phase_started=time.time() - 5)
+    (m.path / "busy").write_text(str(os.getpid()))
+    assert m.advance() is None                      # still waiting on our own calls
+    (m.path / "busy").write_text("999999")          # a runner that has died
+    assert m.advance()["resolved"] == "deadline"
+
+
+def test_history_says_how_a_phase_resolved(match):
+    submit_all(match)
+    assert match.history("S1901M")["resolved"] == "everyone in"
+    assert match.advance(force=True)["resolved"] == "forced"

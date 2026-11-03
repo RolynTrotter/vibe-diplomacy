@@ -13,7 +13,7 @@ import time
 
 from vibe import board as boardmod
 from vibe import mapviz
-from vibe.game import POWERS, ROOT, Match, MatchError
+from vibe.game import POWERS, ROOT, LateOrders, Match, MatchError
 
 DIP = ROOT / "dip"
 
@@ -157,8 +157,15 @@ def cmd_submit(args) -> int:
         print(f"{power} has nothing to order in {phase}. Run `wait`.")
         return 0
     orders = _read_orders(args.orders)
+    # Orders are for the phase this seat last looked at; if that has since
+    # resolved, they were written against a board that no longer exists.
+    written_for = match.seen(power) or phase
     match.seen(power, phase)
-    checked = match.submit(power, orders)
+    try:
+        checked = match.submit(power, orders, phase=written_for)
+    except LateOrders as exc:
+        print(f"Not submitted: {exc}. Run `board` to see {phase}, then submit again.")
+        return 1
     if not checked.ok:
         print("Not submitted — fix these and submit the whole set again:")
         for e in checked.errors:
@@ -277,6 +284,11 @@ def cmd_status(args) -> int:
             print(f"{m.name}: {game.get_current_phase()}, {len(sub)}/{len(owing)} submitted"
                   + (f"; waiting on {', '.join(waiting)}" if waiting else ""))
         print(f"  settings: {settings_line(m)}")
+        played = [str(k) for k in game.order_history.keys()]
+        last = m.history(played[-1]) if played else None
+        if last and last.get("missing"):
+            print(f"  {last['phase']} resolved ({last.get('resolved', 'deadline')}) with "
+                  f"{len(last['missing'])} seat(s) missing, who held: {', '.join(last['missing'])}")
         log = m.path / "run.log"
         if pid := runner_pid(m):
             print(f"  runner: running (pid {pid}), log {log}")

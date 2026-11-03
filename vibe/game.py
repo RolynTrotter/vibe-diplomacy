@@ -19,8 +19,10 @@ from __future__ import annotations
 
 import fcntl
 import json
+import os
 import re
 import secrets
+import threading
 import time
 from contextlib import contextmanager
 from dataclasses import dataclass, field
@@ -99,6 +101,21 @@ class MatchError(Exception):
     pass
 
 
+class LateOrders(MatchError):
+    """Orders written for a phase that has already resolved."""
+
+
+def _write(path: Path, text: str) -> None:
+    """Replace a file in one step, so a reader never sees half of it.
+
+    Several processes and threads read these files while one writes them
+    (`status` while the runner plays, seats while a phase resolves).
+    """
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.{threading.get_ident()}.tmp")
+    tmp.write_text(text)
+    tmp.replace(path)
+
+
 def _year(phase: str) -> int:
     return int(phase[1:5]) if len(phase) >= 5 and phase[1:5].isdigit() else 0
 
@@ -125,7 +142,7 @@ class Match:
             "ended": None,
             "seats": {p: secrets.token_hex(4) for p in POWERS},
         }
-        (path / "config.json").write_text(json.dumps(config, indent=2))
+        _write(path / "config.json", json.dumps(config, indent=2))
         match = cls(path)
         game = Game()
         game.note = name
@@ -158,7 +175,7 @@ class Match:
     def _set_config(self, **changes) -> None:
         cfg = self.config
         cfg.update(changes)
-        (self.path / "config.json").write_text(json.dumps(cfg, indent=2))
+        _write(self.path / "config.json", json.dumps(cfg, indent=2))
 
     @property
     def name(self) -> str:
@@ -172,9 +189,7 @@ class Match:
         return from_saved_game_format(json.loads((self.path / "game.json").read_text()))
 
     def save(self, game: Game) -> None:
-        tmp = self.path / "game.json.tmp"
-        tmp.write_text(json.dumps(to_saved_game_format(game)))
-        tmp.replace(self.path / "game.json")
+        _write(self.path / "game.json", json.dumps(to_saved_game_format(game)))
 
     def phase(self) -> str:
         return self.load().get_current_phase()
@@ -211,22 +226,32 @@ class Match:
                 out.append(p)
         return out
 
-    def submit(self, power: str, orders: list[str], *, partial: bool = False) -> Checked:
+    def submit(self, power: str, orders: list[str], *, partial: bool = False,
+               phase: str | None = None) -> Checked:
         """Check and store `power`'s orders, replacing any earlier set.
 
         Any error rejects the whole set unless `partial`, in which case the
         legal orders are kept and the rest hold. An empty list is a valid
         submission: everything holds (or, in winter, builds are waived).
+
+        `phase` is the phase the orders were written for. If that phase has
+        already resolved they are refused, never applied to the next one:
+        spring orders are often still legal in the fall, and would be
+        silently accepted there.
         """
         if self.ended():
             raise MatchError(f"the game is over ({self.ended()})")
         with self._lock():
             game = self.load()
+            current = game.get_current_phase()
+            if phase and phase != current:
+                raise LateOrders(f"{phase} has already resolved (it is now {current}); "
+                                 f"these orders were not used")
             checked = check_orders(game, power, orders)
             if checked.ok or partial:
                 f = self._pending(power)
                 f.parent.mkdir(exist_ok=True)
-                f.write_text(json.dumps({"phase": game.get_current_phase(),
+                _write(f, json.dumps({"phase": game.get_current_phase(),
                                          "orders": checked.accepted}))
         self.advance()
         return checked
@@ -243,13 +268,29 @@ class Match:
             cfg = self.config
             owing = self.owing(game)
             done = set(self.submitted(game))
-            late = (cfg.get("deadline_s") and
+            late = (cfg.get("deadline_s") and not self.runner_busy() and
                     time.time() - cfg["phase_started"] > cfg["deadline_s"])
             if not (force or late or done >= set(owing)):
                 return None
-            return self._resolve(game, owing)
+            how = "forced" if force else "everyone in" if done >= set(owing) else "deadline"
+            return self._resolve(game, owing, how)
 
-    def _resolve(self, game: Game, owing: list[str]) -> dict:
+    def runner_busy(self) -> bool:
+        """Whether `dip run` has calls in flight for this phase.
+
+        The deadline is for players who have gone away, not for a model the
+        runner is still waiting on, so it does not fire while this is true.
+        """
+        f = self.path / "busy"
+        if not f.exists():
+            return False
+        try:
+            os.kill(int(f.read_text().strip()), 0)
+            return True
+        except (ValueError, ProcessLookupError, PermissionError):
+            return False
+
+    def _resolve(self, game: Game, owing: list[str], how: str = "everyone in") -> dict:
         phase = game.get_current_phase()
         missing = sorted(set(owing) - set(self.submitted(game)))
         for power in owing:
@@ -268,11 +309,11 @@ class Match:
             pass
         summary = {"phase": phase, "orders": ordered,
                    "results": {u: r for u, r in results.items() if r},
-                   "missing": missing}
+                   "missing": missing, "resolved": how}
         self.save(game)
         hist = self.path / "history"
         hist.mkdir(exist_ok=True)
-        (hist / f"{phase}.json").write_text(json.dumps(summary, indent=2))
+        _write(hist / f"{phase}.json", json.dumps(summary, indent=2))
         for f in (self.path / "pending").glob("*.json"):
             f.unlink()
 
@@ -294,7 +335,7 @@ class Match:
         f = self.path / "seen" / power
         if phase:
             f.parent.mkdir(exist_ok=True)
-            f.write_text(phase)
+            _write(f, phase)
             return phase
         return f.read_text().strip() if f.exists() else None
 
@@ -344,4 +385,4 @@ class Match:
         phase = self.phase()
         old = [l for l in self.notes(power).splitlines() if l.strip()]
         new = old + [f"[{phase}] {l}" for l in lines]
-        f.write_text("\n".join(new[-keep:]) + "\n")
+        _write(f, "\n".join(new[-keep:]) + "\n")

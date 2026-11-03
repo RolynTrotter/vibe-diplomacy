@@ -33,7 +33,7 @@ from dataclasses import dataclass, field
 
 from vibe import board as boardmod
 from vibe import mapviz
-from vibe.game import ALL, POWERS, ROOT, Match, check_orders
+from vibe.game import ALL, POWERS, ROOT, LateOrders, Match, check_orders
 
 FINAL_ROUND_NOTE = "Orders are due now."
 SLOW_HINT = ("model too slow: try --reasoning-effort low, a lower --concurrency, "
@@ -439,7 +439,12 @@ class Runner:
                       f"list above, for example:\n```\n{examples}\n```\nReply again with "
                       "your complete orders in one fenced code block. Messages were "
                       "already sent.")
-        self.match.submit(power, orders, partial=True)
+        try:
+            self.match.submit(power, orders, partial=True, phase=phase)
+        except LateOrders as exc:
+            self._record(power, phase, "orders", {"replies": replies, "late": str(exc)})
+            self.log(f"  {power}: too late — {exc}")
+            return
         self._record(power, phase, "orders", {"replies": replies, "submitted": orders})
         held = "" if orders else " — holding"
         self.log(f"  {power} ({self.seats[power].label()}): {len(orders)} order(s){held}"
@@ -453,11 +458,16 @@ class Runner:
         owing = [p for p in self.match.owing(game) if p in played
                  and p not in self.match.submitted(game)]
         self.log(f"{phase}")
-        with ThreadPoolExecutor(max_workers=7) as pool:
-            if self.match.full_press and game.phase_type == "M":
-                for r in range(1, self.rounds + 1):
-                    list(pool.map(lambda p: self.talk(p, phase, r), alive))
-            list(pool.map(lambda p: self.orders(p, phase), owing))
+        busy = self.match.path / "busy"
+        busy.write_text(str(os.getpid()))
+        try:
+            with ThreadPoolExecutor(max_workers=7) as pool:
+                if self.match.full_press and game.phase_type == "M":
+                    for r in range(1, self.rounds + 1):
+                        list(pool.map(lambda p: self.talk(p, phase, r), alive))
+                list(pool.map(lambda p: self.orders(p, phase), owing))
+        finally:
+            busy.unlink(missing_ok=True)
         waiting = False
         while not self.match.ended() and self.match.phase() == phase:
             if not waiting:
@@ -469,7 +479,8 @@ class Runner:
             time.sleep(2)
         if hist := self.match.history(phase):
             if hist.get("missing"):
-                self.log(f"  held for: {', '.join(hist['missing'])}")
+                self.log(f"  {phase} resolved ({hist.get('resolved', 'deadline')}) with "
+                         f"{len(hist['missing'])} missing, who held: {', '.join(hist['missing'])}")
 
     def play(self, max_phases: int | None = None) -> None:
         n = 0

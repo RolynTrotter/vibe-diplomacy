@@ -253,3 +253,22 @@ def test_retry_restates_the_seats_units_and_own_examples(games, monkeypatch):
     assert "Your units: F NAP, A ROM, A VEN" in prompts[1]
     assert "A PAR - BUR" not in prompts[1].split("could not be used")[1].split("\n- ")[0]
     assert m.history("S1901M")["orders"]["ITALY"] == ["A VEN H"]
+
+
+def test_cli_refuses_orders_written_for_a_phase_that_resolved(games, capsys):
+    m = Match.create("late")
+    t = token(m, "FRANCE")
+    cli.main(["board", "--seat", t])                # FRANCE looks at S1901M
+    m.advance(force=True)                           # ...which resolves meanwhile
+    capsys.readouterr()
+    assert cli.main(["submit", "--seat", t, "A PAR - BUR"]) == 1
+    assert "S1901M has already resolved" in capsys.readouterr().out
+    assert cli.main(["submit", "--seat", t, "A PAR - BUR"]) == 0   # now it has seen F1901M
+
+
+def test_status_says_a_phase_resolved_with_seats_missing(games, capsys):
+    m = Match.create("miss")
+    m.submit("FRANCE", [])
+    m.advance(force=True)
+    cli.main(["status", "miss"])
+    assert "S1901M resolved (forced) with 6 seat(s) missing" in capsys.readouterr().out
