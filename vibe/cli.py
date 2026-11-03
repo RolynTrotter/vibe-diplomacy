@@ -46,6 +46,16 @@ def _human(seconds: int) -> str:
     return f"{seconds // 60} minutes" if seconds % 60 == 0 else f"{seconds} seconds"
 
 
+def settings_line(match: Match) -> str:
+    """Everything the match was created with, on one line."""
+    cfg = match.config
+    run = cfg.get("run") or {}
+    seats = (f"seats {run['model']}" + (f" @ {run['base_url']}" if run.get("base_url") else "")
+             if run.get("model") else "seats: none set (pass --model to `run`)")
+    return (f"{cfg['name']}: press {cfg.get('press', 'none')} · ends after "
+            f"{cfg['max_year']} · phase deadline {_human(cfg['deadline_s'])} · {seats}")
+
+
 def brief(match: Match, power: str) -> str:
     """The one page a seat is handed. Everything it needs, nothing it doesn't."""
     cfg = match.config
@@ -232,7 +242,8 @@ def cmd_new(args) -> int:
             print(f"\n{line}")
             if not ok:
                 print("Fix the endpoint first (`./dip check` retries it), then:")
-        print(f"\nnext: {DIP} run {args.name}")
+        print(f"\nsettings: {settings_line(match)}")
+        print(f"next: {DIP} run {args.name}")
     elif args.model:
         print(f"\n--model {args.model} needs --base-url too (e.g. http://127.0.0.1:1234/v1); "
               f"or pass both to run:\nnext: {DIP} run {args.name} --model {args.model} "
@@ -265,6 +276,7 @@ def cmd_status(args) -> int:
             waiting = [p for p in owing if p not in sub]
             print(f"{m.name}: {game.get_current_phase()}, {len(sub)}/{len(owing)} submitted"
                   + (f"; waiting on {', '.join(waiting)}" if waiting else ""))
+        print(f"  settings: {settings_line(m)}")
         log = m.path / "run.log"
         if pid := runner_pid(m):
             print(f"  runner: running (pid {pid}), log {log}")

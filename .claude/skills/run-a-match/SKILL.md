@@ -25,7 +25,8 @@ hand. `./dip --help` and `./dip <command> --help` show the same flags.
 - `--press full` turns on negotiation. `--max-year 1910` sets when the game
   ends, and `--deadline 30m` the time limit per phase.
 
-It prints one endpoint line, then `next: .../dip run <name>`.
+It prints one endpoint line, a `settings:` line with everything the match
+was created with, then `next: .../dip run <name>`.
 
 | Endpoint line | Meaning | Do |
 |---|---|---|
@@ -57,6 +58,7 @@ model. This is the only thing you need to look at:
 While it's playing:
 
     gunboat: F1903M, 2/7 submitted; waiting on AUSTRIA, ENGLAND, ...
+      settings: gunboat: press none · ends after 1910 · phase deadline 30 minutes · seats flint @ http://127.0.0.1:1234/v1
       runner: running (pid 4242), log .../games/gunboat/run.log
       latest:   FRANCE (flint): 4 order(s) (52s)
 
