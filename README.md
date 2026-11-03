@@ -8,6 +8,12 @@ The [`diplomacy`](https://github.com/diplomacy/diplomacy) package
 (DATC-compliant) does all the rules work. This repo stores matches, shows each
 power its board, and drives model seats.
 
+**Hosting a match as an agent?** Read
+[.claude/skills/run-a-match/SKILL.md](.claude/skills/run-a-match/SKILL.md)
+and nothing else. It has every command, what each output means, what a
+finished game looks like and what to do when a phase stalls. You won't need
+the source.
+
 ## Play a match
 
 **1. Create it** (the first run also builds the environment by itself):

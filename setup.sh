@@ -39,3 +39,6 @@ fi
 
 if [ "${1:-}" = "--name" ]; then shift; fi
 if [ $# -gt 0 ]; then exec "$here/dip" new "$@"; fi
+echo "Environment ready. To create a match:"
+echo "  next: $here/setup.sh <name> --press none --model <model> --base-url http://127.0.0.1:1234/v1"
+echo "Hosting guide: $here/.claude/skills/run-a-match/SKILL.md"

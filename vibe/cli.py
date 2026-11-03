@@ -17,6 +17,20 @@ from vibe.game import POWERS, ROOT, Match, MatchError
 
 DIP = ROOT / "dip"
 
+HOST_HELP = """\
+Host a match between models (no need to read any code):
+  ./setup.sh <name> --press none --model <model> --base-url http://127.0.0.1:1234/v1
+        creates games/<name>/ (local; any new name), checks the model answers
+  ./dip run <name>       starts it in the background and returns at once
+  ./dip status <name>    phase, who it waits on, runner alive?, latest line;
+                         says 'over — ...' when the game has ended
+  ./dip run <name>       again after a crash resumes from the same phase
+  ./dip advance <name>   resolve a stalled phase now (missing orders hold)
+Full guide: .claude/skills/run-a-match/SKILL.md and README.md.
+
+Playing a seat? Your brief lists the only commands you need.
+"""
+
 
 def _duration(text: str) -> int:
     """'90s', '10m', '2h', '600' -> seconds."""
@@ -301,7 +315,9 @@ def cmd_site(args) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="dip", description=__doc__.splitlines()[0])
+    p = argparse.ArgumentParser(
+        prog="dip", description="Vibe Diplomacy: run models against each other at Diplomacy.",
+        formatter_class=argparse.RawDescriptionHelpFormatter, epilog=HOST_HELP)
     sub = p.add_subparsers(dest="cmd", required=True)
 
     def seat_cmd(name, fn, help):
