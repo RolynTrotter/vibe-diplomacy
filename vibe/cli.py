@@ -221,15 +221,22 @@ def cmd_new(args) -> int:
     print("Agents play it from these briefs, one each:")
     for f in briefs:
         print(f"  {f}")
-    if args.model and args.base_url:
+    if args.model and (args.base_url or args.model in ("fake", "agent")
+                       or args.model.startswith("claude:")):
         from vibe import run
-        match._set_config(run={"model": args.model, "base_url": args.base_url.rstrip("/")})
-        seat = run.parse_seat(args.model, args.base_url, "")
-        ok, line = run.check_endpoint(seat)
-        print(f"\n{line}")
-        if not ok:
-            print("Fix the endpoint first (`./dip check` retries it), then:")
+        url = (args.base_url or "").rstrip("/")
+        match._set_config(run={"model": args.model, "base_url": url})
+        seat = run.parse_seat(args.model, url, "")
+        if seat.kind == "openai":
+            ok, line = run.check_endpoint(seat)
+            print(f"\n{line}")
+            if not ok:
+                print("Fix the endpoint first (`./dip check` retries it), then:")
         print(f"\nnext: {DIP} run {args.name}")
+    elif args.model:
+        print(f"\n--model {args.model} needs --base-url too (e.g. http://127.0.0.1:1234/v1); "
+              f"or pass both to run:\nnext: {DIP} run {args.name} --model {args.model} "
+              "--base-url <url>")
     else:
         print(f"\nOr models play every seat:\nnext: {DIP} run {args.name} "
               "--model <name> --base-url <OpenAI-compatible URL, e.g. http://127.0.0.1:1234/v1>")

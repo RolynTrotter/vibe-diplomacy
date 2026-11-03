@@ -21,6 +21,7 @@ hand. `./dip --help` and `./dip <command> --help` show the same flags.
   `http://127.0.0.1:11434/v1`. The model is its id on that server.
 - **First run** builds the environment by itself, taking about a minute.
   Wait for it.
+- `--model fake` (no `--base-url`) plays random legal orders with no server, as a dry run.
 - `--press full` turns on negotiation. `--max-year 1910` sets when the game
   ends, and `--deadline 30m` the time limit per phase.
 
