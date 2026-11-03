@@ -162,3 +162,31 @@ def test_board_svg_is_labelled_and_keyed(games):
     svg = mapviz.board_svg(Match.create("s").load())
     assert 'id="ProvinceLabels"' in svg and "FRANCE — 3" in svg
     assert 'class="labeltext24"' not in svg
+
+
+# -- hosting ---------------------------------------------------------------- #
+def test_check_endpoint_reports_down_and_missing_model(monkeypatch):
+    down = run.check_endpoint(Seat("openai", "m", "http://127.0.0.1:9/v1"))
+    assert not down[0] and down[1].startswith("endpoint DOWN")
+
+    class Resp:
+        def __init__(self, body): self.body = body
+        def read(self): return json.dumps(self.body).encode()
+        def __enter__(self): return self
+        def __exit__(self, *a): pass
+
+    monkeypatch.setattr(run.urllib.request, "urlopen",
+                        lambda req, timeout: Resp({"data": [{"id": "flint"}]}))
+    ok, line = run.check_endpoint(Seat("openai", "qwen", "http://h/v1"))
+    assert not ok and "It serves: flint" in line
+    monkeypatch.setattr(run, "_post", lambda *a: {"choices": []})
+    assert run.check_endpoint(Seat("openai", "flint", "http://h/v1")) == \
+        (True, "endpoint OK: flint @ http://h/v1")
+
+
+def test_new_remembers_the_model_for_run(games, monkeypatch, capsys):
+    monkeypatch.setattr(run, "check_endpoint", lambda seat: (True, "endpoint OK: x"))
+    assert cli.main(["new", "r", "--model", "flint", "--base-url", "http://h/v1/"]) == 0
+    out = capsys.readouterr().out
+    assert "endpoint OK" in out and out.rstrip().endswith("dip run r")
+    assert Match.open("r").config["run"] == {"model": "flint", "base_url": "http://h/v1"}

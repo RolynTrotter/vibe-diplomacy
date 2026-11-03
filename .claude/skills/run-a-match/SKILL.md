@@ -1,36 +1,45 @@
 ---
 name: run-a-match
-description: Run a whole Diplomacy match between models from start to finish with one command, and check on it. Use when asked to run, host or conduct a vibe-diplomacy game or to pit models against each other. Not for playing a single seat (a seat's brief covers that).
+description: Run a whole Diplomacy match between models from start to finish, and check on it. Use when asked to run, host or conduct a vibe-diplomacy game or to pit models against each other. Not for playing a single seat (a seat's brief covers that).
 ---
 
 # Run a match
 
-You are the host. You don't play, and you don't need to read any source.
+You are the host. Everything you need is on this page: you don't need to read
+the code, the git history or the issues, or probe the model server by hand.
 
-1. Create the match. The first run also builds the environment; let it finish.
+**1. Create the match.** Pick any name. Matches are local state in `games/`
+(gitignored), and there are no conventions or past games to copy. The first
+run builds the environment itself, which takes about a minute.
 
-       ./setup.sh <name> --press none        # or --press full for negotiation
+    ./setup.sh <name> --press none --model <model> --base-url <url>
 
-2. Start every seat on a model, in the background, and leave it running:
+For LM Studio the URL is `http://127.0.0.1:1234/v1`. This checks the model
+right away and prints one line, either `endpoint OK: ...` or the server's own
+error. It ends with the exact next command.
 
-       nohup ./dip run <name> --model <model> --base-url http://127.0.0.1:1234/v1 > /dev/null 2>&1 &
+**2. Start it.** This returns at once. The game plays in the background and
+stops by itself at the end (after 1910, or at an 18-centre win).
 
-   Use the base URL of any OpenAI-compatible server (LM Studio, Ollama, vLLM).
-   To mix in other players, add `--seat FRANCE=<model>@<url>`, or use
-   `--agents ENGLAND` for a seat that an outside agent plays from
-   `games/<name>/briefs/ENGLAND.md`.
+    ./dip run <name>
 
-3. Check on it now and then, not in a tight loop. Each phase of a local model
-   takes minutes.
+Add `--concurrency 3` if the same server is also serving you.
 
-       ./dip status <name>
+**3. Check on it** every few minutes, not in a loop. A phase takes minutes
+on a local model. This is the only thing you need to look at:
 
-   This prints the phase, who it is waiting on, and the latest progress line.
-   The full progress log is `games/<name>/progress.log`. The run ends by
-   itself when the game does (year cap, 1910 by default, or an 18-centre win).
+    ./dip status <name>
 
-If a phase is stuck on a seat that will never answer: `./dip advance <name>`
-(missing orders hold). For the replay viewer: `./dip site --serve 8000`.
-Useful `run` flags: `--concurrency 4` (calls at once per server),
-`--max-tokens 8000`, `--reasoning-effort low`, `--rounds 2` (talk rounds per
-phase in full press). Nothing here pushes, commits or needs keys.
+It shows the phase, who the game is waiting on, whether the runner is alive,
+its latest line, and the log path. If the runner died, it shows the log's last
+lines.
+
+That's all. To stop: `./dip stop <name>` (`./dip run <name>` resumes). If a
+seat is stuck: `./dip advance <name>` (missing orders hold). To watch the
+replay: `./dip site --serve 8000`. Nothing here commits, pushes or needs keys.
+
+Optional `run` flags: `--press full` at step 1 for negotiation, with
+`--rounds 2` talk rounds per phase. `--max-tokens 8000` per call, and
+`--reasoning-effort low`. `--seat FRANCE=<model>@<url>` gives a seat a
+different model. `--agents ENGLAND` leaves a seat to an outside agent, which
+plays from `games/<name>/briefs/ENGLAND.md`.

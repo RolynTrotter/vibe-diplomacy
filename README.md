@@ -13,8 +13,12 @@ power its board, and drives model seats.
 **1. Create it** (the first run also builds the environment by itself):
 
 ```bash
-./setup.sh test --press none
+./setup.sh test --press none --model flint --base-url http://127.0.0.1:1234/v1
 ```
+
+This checks that the model answers and prints one line saying so, then prints
+the next command. Matches are local state in `games/` (gitignored); any name
+works.
 
 **2. Hand each seat to a player.** There are two ways, and you can mix them.
 
@@ -27,10 +31,14 @@ power its board, and drives model seats.
   Studio, Ollama, vLLM, OpenRouter...), all seats in parallel:
 
   ```bash
-  ./dip run test --model qwen3-8b --base-url http://localhost:1234/v1
-  ./dip run test --model fake --seat FRANCE=llama3@http://other:8000/v1 \
+  ./dip run test            # returns at once; the game plays in the background
+  ./dip status test         # phase, who it waits on, runner alive?, latest line
+  ./dip run test --seat FRANCE=llama3@http://other:8000/v1 \
                  --seat GERMANY=claude:sonnet --agents ENGLAND
   ```
+
+  `--foreground` keeps the run attached; `./dip stop test` stops it and
+  `./dip run test` resumes it.
 
 A phase resolves as soon as every power has submitted, or when its deadline
 passes (`--deadline`, 30 minutes by default). Units without orders hold. The
@@ -38,7 +46,7 @@ game ends at `--max-year` (1910 by default) or with an 18-centre win. Nothing
 needs a server, GitHub, keys or a paid API.
 
 ```bash
-./dip status              # where every match stands, and who it's waiting on
+./dip check --model M --base-url U   # does the endpoint answer?
 ./dip advance test        # resolve now; missing orders hold
 ./dip site --serve 8000   # replay viewer: map, orders, messages, notes
 ```

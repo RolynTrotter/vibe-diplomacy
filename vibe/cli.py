@@ -202,12 +202,23 @@ def cmd_new(args) -> int:
                          deadline_s=args.deadline)
     briefs = write_briefs(match)
     print(f"Created match {args.name!r} ({'full press' if match.full_press else 'gunboat'},"
-          f" ends after {args.max_year}, phase limit {_human(args.deadline)}).\n")
-    print("To play it with agents, hand each one its brief:")
+          f" ends after {args.max_year}, phase limit {_human(args.deadline)}).")
+    print(f"It lives in {match.path} (local only; any name works, nothing to copy).\n")
+    print("Agents play it from these briefs, one each:")
     for f in briefs:
         print(f"  {f}")
-    print(f"\nTo play it with models instead:  {DIP} run {args.name} "
-          "--model <name> --base-url <OpenAI-compatible URL>")
+    if args.model and args.base_url:
+        from vibe import run
+        match._set_config(run={"model": args.model, "base_url": args.base_url.rstrip("/")})
+        seat = run.parse_seat(args.model, args.base_url, "")
+        ok, line = run.check_endpoint(seat)
+        print(f"\n{line}")
+        if not ok:
+            print("Fix the endpoint first (`./dip check` retries it), then:")
+        print(f"\nnext: {DIP} run {args.name}")
+    else:
+        print(f"\nOr models play every seat:\nnext: {DIP} run {args.name} "
+              "--model <name> --base-url <OpenAI-compatible URL, e.g. http://127.0.0.1:1234/v1>")
     return 0
 
 
@@ -220,20 +231,44 @@ def cmd_status(args) -> int:
     matches = [Match.open(args.name)] if args.name else Match.all()
     if not matches:
         print("No matches yet. Create one with `./dip new <name>`.")
+    from vibe.run import runner_pid
     for m in matches:
         m.advance()
         game = m.load()
         if m.ended():
             print(f"{m.name}: over — {m.ended()} (at {game.get_current_phase()})")
-            continue
-        sub, owing = m.submitted(game), m.owing(game)
-        waiting = [p for p in owing if p not in sub]
-        print(f"{m.name}: {game.get_current_phase()}, {len(sub)}/{len(owing)} submitted"
-              + (f"; waiting on {', '.join(waiting)}" if waiting else ""))
+        else:
+            sub, owing = m.submitted(game), m.owing(game)
+            waiting = [p for p in owing if p not in sub]
+            print(f"{m.name}: {game.get_current_phase()}, {len(sub)}/{len(owing)} submitted"
+                  + (f"; waiting on {', '.join(waiting)}" if waiting else ""))
+        log = m.path / "run.log"
+        if pid := runner_pid(m):
+            print(f"  runner: running (pid {pid}), log {log}")
+        elif log.exists():
+            print(f"  runner: not running. Last lines of {log}:")
+            for line in log.read_text().splitlines()[-3:]:
+                print(f"    {line}")
         progress = m.path / "progress.log"
-        if progress.exists():
+        if progress.exists() and pid:
             tail = progress.read_text().splitlines()[-1:]
-            print(f"  last from ./dip run: {tail[0].strip() if tail else ''}")
+            print(f"  latest: {tail[0].strip() if tail else ''}")
+    return 0
+
+
+def cmd_stop(args) -> int:
+    import os
+    import signal
+
+    from vibe.run import runner_pid
+    match = Match.open(args.name)
+    pid = runner_pid(match)
+    if not pid:
+        print(f"No runner is running for {match.name}.")
+        return 0
+    os.killpg(pid, signal.SIGTERM)
+    print(f"Stopped the runner (pid {pid}). The match keeps its state; "
+          f"`./dip run {match.name}` resumes it.")
     return 0
 
 
@@ -246,6 +281,13 @@ def cmd_advance(args) -> int:
     print(f"Resolved {summary['phase']}; now {match.phase()}."
           + (f" Held for: {', '.join(summary['missing'])}." if summary["missing"] else ""))
     return 0
+
+
+def cmd_check(args) -> int:
+    from vibe import run
+    ok, line = run.check_endpoint(run.parse_seat(args.model, args.base_url, ""))
+    print(line)
+    return 0 if ok else 1
 
 
 def cmd_run(args) -> int:
@@ -286,6 +328,8 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--max-year", type=int, default=1910)
     s.add_argument("--deadline", type=_duration, default="30m",
                    help="per-phase time limit, e.g. 10m (0 = none)")
+    s.add_argument("--model", help="model for `./dip run` to use (checked now)")
+    s.add_argument("--base-url", help="its OpenAI-compatible URL, e.g. http://127.0.0.1:1234/v1")
     s.set_defaults(fn=cmd_new)
 
     s = sub.add_parser("brief", help="[host] print a seat's brief")
@@ -296,6 +340,15 @@ def build_parser() -> argparse.ArgumentParser:
     s = sub.add_parser("status", help="[host] where each match stands")
     s.add_argument("name", nargs="?")
     s.set_defaults(fn=cmd_status)
+
+    s = sub.add_parser("stop", help="[host] stop a background `run`")
+    s.add_argument("name")
+    s.set_defaults(fn=cmd_stop)
+
+    s = sub.add_parser("check", help="[host] does the model endpoint answer?")
+    s.add_argument("--model", required=True)
+    s.add_argument("--base-url", required=True)
+    s.set_defaults(fn=cmd_check)
 
     s = sub.add_parser("advance", help="[host] resolve the phase now; missing orders hold")
     s.add_argument("name")

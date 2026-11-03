@@ -15,11 +15,13 @@ Seat specs (`--seat FRANCE=<spec>`, or `--model` for every unassigned seat):
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import random
 import re
 import subprocess
+import sys
 import tempfile
 import threading
 import time
@@ -30,7 +32,7 @@ from dataclasses import dataclass, field
 
 from vibe import board as boardmod
 from vibe import mapviz
-from vibe.game import ALL, POWERS, Match, check_orders
+from vibe.game import ALL, POWERS, ROOT, Match, check_orders
 
 FINAL_ROUND_NOTE = "Orders are due now."
 
@@ -89,6 +91,36 @@ def _post(url: str, headers: dict, payload: dict, timeout: float) -> dict:
         except (ValueError, AttributeError):
             pass
         raise ServerError(f"HTTP {exc.code}: {str(body)[:300]}") from None
+
+
+def check_endpoint(seat: Seat, timeout: float = 180) -> tuple[bool, str]:
+    """One line saying whether `seat`'s server will actually answer.
+
+    Lists the models, then makes a one-token call, which also makes a server
+    like LM Studio load the model now and report it if it can't.
+    """
+    where = f"{seat.model} @ {seat.base_url}"
+    headers = {"Authorization": f"Bearer {seat.api_key}"} if seat.api_key else {}
+    try:
+        req = urllib.request.Request(f"{seat.base_url}/models", headers=headers)
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            ids = [m.get("id") for m in json.loads(resp.read().decode()).get("data", [])]
+    except urllib.error.HTTPError:
+        ids = []                    # some servers don't list models; try the call
+    except (urllib.error.URLError, OSError, ValueError) as exc:
+        return False, f"endpoint DOWN: nothing answering at {seat.base_url} ({exc})"
+    if ids and seat.model not in ids:
+        return False, (f"endpoint UP at {seat.base_url}, but it has no model "
+                       f"{seat.model!r}. It serves: {', '.join(map(str, ids))}")
+    try:
+        _post(f"{seat.base_url}/chat/completions", headers,
+              {"model": seat.model, "max_tokens": 1,
+               "messages": [{"role": "user", "content": "Say OK."}]}, timeout)
+    except ServerError as exc:
+        return False, f"endpoint ERROR for {where}: {exc}"
+    except (urllib.error.URLError, OSError, ValueError) as exc:
+        return False, f"endpoint ERROR for {where}: {exc}"
+    return True, f"endpoint OK: {where}"
 
 
 def call_openai(seat: Seat, system: str, prompt: str, image: str | None,
@@ -383,9 +415,10 @@ class Runner:
 
 def add_arguments(p) -> None:
     p.add_argument("name", help="the match (create it with `./dip new`)")
-    p.add_argument("--model", help="model for every seat not set with --seat")
-    p.add_argument("--base-url", default=os.environ.get("OPENAI_BASE_URL", ""),
-                   help="OpenAI-compatible base URL, e.g. http://localhost:11434/v1")
+    p.add_argument("--model", help="model for every seat not set with --seat "
+                                   "(default: the one given to `new`)")
+    p.add_argument("--base-url", help="OpenAI-compatible base URL, e.g. "
+                                      "http://127.0.0.1:1234/v1 (default: the one given to `new`)")
     p.add_argument("--api-key-env", default="OPENAI_API_KEY",
                    help="environment variable holding the API key, if any")
     p.add_argument("--seat", action="append", default=[], metavar="POWER=SPEC",
@@ -403,6 +436,9 @@ def add_arguments(p) -> None:
     p.add_argument("--timeout", type=float, default=300, help="seconds per call")
     p.add_argument("--phases", type=int, help="stop after this many phases")
     p.add_argument("--seed", type=int)
+    p.add_argument("--foreground", action="store_true",
+                   help="stay attached instead of running in the background")
+    p.add_argument("--no-check", action="store_true", help=argparse.SUPPRESS)
 
 
 def seats_from_args(args) -> dict[str, Seat]:
@@ -419,15 +455,61 @@ def seats_from_args(args) -> dict[str, Seat]:
     for power in POWERS:
         spec = specs.get(power) or args.model
         if not spec:
-            raise SystemExit(f"no model for {power}: pass --model, or --seat {power}=...")
+            raise SystemExit(f"no model for {power}. Pass --model <name> --base-url <url> "
+                             f"(or give them to `./dip new`), or --seat {power}=...")
         seats[power] = parse_seat(spec, args.base_url, key)
         seats[power].reasoning_effort = args.reasoning_effort or ""
     return seats
 
 
+def runner_pid(match: Match) -> int | None:
+    """The pid of this match's background runner, if one is alive."""
+    f = match.path / "run.pid"
+    if not f.exists():
+        return None
+    try:
+        pid = int(f.read_text().strip())
+        os.kill(pid, 0)
+        return pid
+    except (ValueError, ProcessLookupError, PermissionError):
+        return None
+
+
 def main(args) -> int:
     match = Match.open(args.name)
+    saved = match.config.get("run") or {}
+    args.model = args.model or saved.get("model")
+    args.base_url = (args.base_url or saved.get("base_url")
+                     or os.environ.get("OPENAI_BASE_URL", ""))
     seats = seats_from_args(args)
+
+    if not args.no_check:
+        checked = set()
+        for seat in seats.values():
+            if seat.kind == "openai" and seat.endpoint + seat.model not in checked:
+                checked.add(seat.endpoint + seat.model)
+                ok, line = check_endpoint(seat)
+                print(line, flush=True)
+                if not ok:
+                    return 1
+
+    if not args.foreground:
+        if pid := runner_pid(match):
+            print(f"Already running (pid {pid}). `./dip status {match.name}` to check, "
+                  f"`./dip stop {match.name}` to stop.")
+            return 1
+        log = match.path / "run.log"
+        argv = [a for a in sys.argv[1:] if a != "--detach"] + ["--foreground", "--no-check"]
+        with open(log, "a") as out:
+            proc = subprocess.Popen([sys.executable, "-m", "vibe", *argv], cwd=ROOT,
+                                    stdout=out, stderr=subprocess.STDOUT,
+                                    stdin=subprocess.DEVNULL, start_new_session=True)
+        (match.path / "run.pid").write_text(str(proc.pid))
+        print(f"Running in the background (pid {proc.pid}); it stops by itself when "
+              f"the game ends.\n  check:  {ROOT / 'dip'} status {match.name}\n"
+              f"  log:    {log}\n  stop:   {ROOT / 'dip'} stop {match.name}")
+        return 0
+
     progress = match.path / "progress.log"
 
     def log(line: str) -> None:
