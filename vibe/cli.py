@@ -230,6 +230,10 @@ def cmd_status(args) -> int:
         waiting = [p for p in owing if p not in sub]
         print(f"{m.name}: {game.get_current_phase()}, {len(sub)}/{len(owing)} submitted"
               + (f"; waiting on {', '.join(waiting)}" if waiting else ""))
+        progress = m.path / "progress.log"
+        if progress.exists():
+            tail = progress.read_text().splitlines()[-1:]
+            print(f"  last from ./dip run: {tail[0].strip() if tail else ''}")
     return 0
 
 

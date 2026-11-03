@@ -48,6 +48,7 @@ class Seat:
     model: str = ""
     base_url: str = ""
     api_key: str = ""
+    reasoning_effort: str = ""      # sent only if set; not every server knows it
 
     @property
     def endpoint(self) -> str:
@@ -99,6 +100,8 @@ def call_openai(seat: Seat, system: str, prompt: str, image: str | None,
     payload = {"model": seat.model, "max_tokens": max_tokens,
                "messages": [{"role": "system", "content": system},
                             {"role": "user", "content": content}]}
+    if seat.reasoning_effort:
+        payload["reasoning_effort"] = seat.reasoning_effort
     headers = {"Authorization": f"Bearer {seat.api_key}"} if seat.api_key else {}
     data = transport(f"{seat.base_url}/chat/completions", headers, payload, timeout)
     msg = (data.get("choices") or [{}])[0].get("message") or {}
@@ -228,7 +231,7 @@ def task(kind: str, round_no: int = 0, rounds: int = 0) -> str:
 # --------------------------------------------------------------------------- #
 class Runner:
     def __init__(self, match: Match, seats: dict[str, Seat], *, rounds: int = 2,
-                 concurrency: int = 4, images: bool = False, max_tokens: int = 4000,
+                 concurrency: int = 4, images: bool = False, max_tokens: int = 8000,
                  timeout: float = 300, seed: int | None = None, log=print):
         self.match, self.seats = match, seats
         self.rounds, self.images = rounds, images
@@ -393,7 +396,10 @@ def add_arguments(p) -> None:
     p.add_argument("--concurrency", type=int, default=4,
                    help="simultaneous calls per endpoint")
     p.add_argument("--images", action="store_true", help="attach the board picture")
-    p.add_argument("--max-tokens", type=int, default=4000)
+    p.add_argument("--max-tokens", type=int, default=8000,
+                   help="per call; reasoning models spend most of it thinking")
+    p.add_argument("--reasoning-effort", choices=["low", "medium", "high"],
+                   help="ask the server for less (or more) thinking, if it supports it")
     p.add_argument("--timeout", type=float, default=300, help="seconds per call")
     p.add_argument("--phases", type=int, help="stop after this many phases")
     p.add_argument("--seed", type=int)
@@ -415,14 +421,24 @@ def seats_from_args(args) -> dict[str, Seat]:
         if not spec:
             raise SystemExit(f"no model for {power}: pass --model, or --seat {power}=...")
         seats[power] = parse_seat(spec, args.base_url, key)
+        seats[power].reasoning_effort = args.reasoning_effort or ""
     return seats
 
 
 def main(args) -> int:
     match = Match.open(args.name)
     seats = seats_from_args(args)
-    print(f"Match {match.name}: " + ", ".join(f"{p} {s.label()}" for p, s in seats.items()))
+    progress = match.path / "progress.log"
+
+    def log(line: str) -> None:
+        # Also to a file, so whoever started the run can check on it with
+        # `./dip status` instead of watching the terminal.
+        print(line, flush=True)
+        with open(progress, "a") as fh:
+            fh.write(line + "\n")
+
+    log(f"Match {match.name}: " + ", ".join(f"{p} {s.label()}" for p, s in seats.items()))
     Runner(match, seats, rounds=args.rounds, concurrency=args.concurrency,
            images=args.images, max_tokens=args.max_tokens, timeout=args.timeout,
-           seed=args.seed).play(args.phases)
+           seed=args.seed, log=log).play(args.phases)
     return 0

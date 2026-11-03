@@ -31,5 +31,5 @@ Read `README.md` for how a match runs.
 ```
 
 The old git/Actions pipeline (sealed and signed orders, seat claiming, the
-Jev/staff order writers, skills) was removed in the local-first overhaul. It
+Jev/staff order writers, the player skills) was removed in the local-first overhaul. It
 is still in git history before that commit if any of it is needed again.
