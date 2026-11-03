@@ -40,7 +40,8 @@ ALL = "ALL"
 # --------------------------------------------------------------------------- #
 def normalize(order: str) -> str:
     """'a par-bur' -> 'A PAR - BUR', so any spacing/case compares equal."""
-    text = order.upper().strip().rstrip(".")
+    text = order.split("#")[0].upper().strip().rstrip(".")
+    text = text.replace("→", "-").replace("->", "-")
     text = text.replace("-", " - ")
     return re.sub(r"\s+", " ", text)
 

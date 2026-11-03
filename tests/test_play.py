@@ -41,7 +41,7 @@ def test_board_shows_legal_moves_and_outcomes(games):
     m.submit("GERMANY", ["A MUN - BUR"])
     m.advance(force=True)
     text = board.render(m, "FRANCE")
-    assert "A PAR → BUR, GAS, PIC" in text or "A PAR →" in text
+    assert "\nA PAR - BUR\n" in text and "\nA PAR H\n" in text
     assert "A PAR - BUR → bounced" in text
     assert "GERMANY: A MUN - BUR" in text
 
@@ -212,3 +212,44 @@ def test_streamed_reply_is_reassembled_and_idle_timeout_is_explained(monkeypatch
     monkeypatch.setattr(run.urllib.request, "urlopen", silent)
     with pytest.raises(TimeoutError, match="no tokens for 5s"):
         call_openai(Seat("openai", "m", "http://h/v1"), "s", "p", None, 10, 5)
+
+
+# -- nothing a seat might copy is an illegal order -------------------------- #
+def _listed_orders(text):
+    section = text.split("## Your orders this phase", 1)[1].split("\n## ", 1)[0]
+    return [l for l in section.splitlines() if l[:2] in ("A ", "F ")]
+
+
+@pytest.mark.parametrize("power", gamemod.POWERS)
+def test_every_listed_line_and_example_is_a_legal_order(games, power):
+    from vibe.game import check_orders
+    m = Match.create(f"l{power}")
+    game = m.load()
+    lines = _listed_orders(board.render(m, power))
+    assert lines and check_orders(game, power, lines).ok
+    examples = board.example_orders(game, power)
+    assert len(examples) == 3 and check_orders(game, power, examples).ok
+    assert examples[0] in run.orders_format(m, power)
+    assert "A PAR - BUR" not in run.orders_format(m, power) or power == "FRANCE"
+
+
+def test_annotated_and_arrow_lines_still_parse(games):
+    m = Match.create("a")
+    assert m.submit("GERMANY", ["A MUN - BUR   # GERMANY A is there", "A BER → KIE"]).ok
+
+
+def test_retry_restates_the_seats_units_and_own_examples(games, monkeypatch):
+    m = Match.create("rr")
+    seats = {p: Seat("fake") for p in gamemod.POWERS}
+    seats["ITALY"] = Seat("openai", "m", "http://x/v1")
+    prompts = []
+
+    def fake(seat, system, prompt, image, max_tokens, timeout, **kw):
+        prompts.append(prompt)
+        return "```\nA PAR - BUR\n```" if len(prompts) == 1 else "```\nA VEN H\n```"
+
+    monkeypatch.setattr(run, "call_openai", fake)
+    Runner(m, seats, seed=1, log=lambda *_: None).phase()
+    assert "Your units: F NAP, A ROM, A VEN" in prompts[1]
+    assert "A PAR - BUR" not in prompts[1].split("could not be used")[1].split("\n- ")[0]
+    assert m.history("S1901M")["orders"]["ITALY"] == ["A VEN H"]

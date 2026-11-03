@@ -290,25 +290,30 @@ def system_prompt(match: Match, power: str) -> str:
             "as you can by the end.")
 
 
-ORDERS_FORMAT = (
-    "Reply with your orders for this phase in ONE fenced code block, one order "
-    "per line, for example:\n```\nA PAR - BUR\nF BRE - MAO\nA MAR S A PAR - BUR\n```\n"
-    "Think first if you like; only the last code block counts. Optionally add "
-    "lines `TO SELF: <note>` to remember plans for later turns.")
+def orders_format(match: Match, power: str) -> str:
+    examples = "\n".join(boardmod.example_orders(match.load(), power)) or "A <at> H"
+    return (
+        "Reply with your orders for this phase in ONE fenced code block, one "
+        "order per line, written exactly like the orders listed above. This "
+        "shows the format only; choose your own moves:\n"
+        f"```\n{examples}\n```\nThink first if you like; only the last "
+        "code block counts. Optionally add lines `TO SELF: <note>` to remember "
+        "plans for later turns.")
+
 
 MAIL_FORMAT = (
     "Write each message on its own line as `TO ENGLAND: <message>`, "
     "`TO ENGLAND, GERMANY: <message>` or `TO ALL: <message>`.")
 
 
-def task(kind: str, round_no: int = 0, rounds: int = 0) -> str:
+def task(kind: str, orders: str = "", round_no: int = 0, rounds: int = 0) -> str:
     if kind == "talk":
         return (f"Negotiation round {round_no} of {rounds}. Orders come after the "
                 f"last round. {MAIL_FORMAT} You may also write `TO SELF: <note>` "
                 "lines. Do not write orders yet.")
     if kind == "final":
-        return f"{FINAL_ROUND_NOTE} You may send last messages first. {MAIL_FORMAT}\n\n{ORDERS_FORMAT}"
-    return ORDERS_FORMAT
+        return f"{FINAL_ROUND_NOTE} You may send last messages first. {MAIL_FORMAT}\n\n{orders}"
+    return orders
 
 
 # --------------------------------------------------------------------------- #
@@ -370,7 +375,7 @@ class Runner:
 
     def _prompt(self, power: str, kind: str, **kw) -> str:
         board = boardmod.render(self.match, power, inbox=True, notes=True)
-        return f"{board}\n\n---\n\n{task(kind, **kw)}"
+        return f"{board}\n\n---\n\n{task(kind, orders_format(self.match, power), **kw)}"
 
     def _record(self, power: str, phase: str, kind: str, data: dict) -> None:
         d = self.match.path / "log" / phase
@@ -426,9 +431,14 @@ class Runner:
             problem = ("\n".join(f"- {e}" for e in checked.errors) if checked.errors
                        else "- no orders found: put them in one fenced code block")
             note = f"retry: {problem.splitlines()[0][2:]}"
+            units = ", ".join(game.powers[power].units) or "none"
+            examples = "\n".join(boardmod.example_orders(game, power))
             prompt = (f"{self._prompt(power, 'orders')}\n\nYour last reply could not "
-                      f"be used:\n{problem}\nReply again with your complete orders in one "
-                      f"fenced code block. Messages were already sent.")
+                      f"be used:\n{problem}\n\nYou are {power}. Your units: {units}. "
+                      "Write one order per unit, each exactly like a line from the "
+                      f"list above, for example:\n```\n{examples}\n```\nReply again with "
+                      "your complete orders in one fenced code block. Messages were "
+                      "already sent.")
         self.match.submit(power, orders, partial=True)
         self._record(power, phase, "orders", {"replies": replies, "submitted": orders})
         held = "" if orders else " — holding"

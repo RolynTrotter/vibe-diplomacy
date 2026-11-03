@@ -12,10 +12,11 @@ from diplomacy import Game
 from vibe.game import ALL, POWERS, Match
 
 SYNTAX = (
-    "Order syntax: `A PAR - BUR` move · `A PAR H` hold · `A MAR S A PAR - BUR` "
-    "support a move · `A MUN S A BER` support a hold · `F ENG C A LON - BRE` "
-    "convoy, with `A LON - BRE VIA` · retreat `A BUR R PIC` · disband `A BUR D` "
-    "· build `A PAR B` / `F BRE B`. Units you don't order hold."
+    "Order forms: move `A <from> - <to>` · hold `A <at> H` · support a move "
+    "`A <at> S A <from> - <to>` · support a hold `A <at> S F <at>` · convoy "
+    "`F <sea> C A <from> - <to>` with `A <from> - <to> VIA` · retreat "
+    "`A <at> R <to>` · disband `A <at> D` · build `A <at> B` or `F <at> B`. "
+    "Use F for fleets. Text after # is ignored. Units you don't order hold."
 )
 
 RULES = (
@@ -113,37 +114,78 @@ def _digest(game: Game) -> str:
     return "\n".join(f"- {y}: " + "; ".join(v) for y, v in sorted(years.items()))
 
 
+def example_orders(game: Game, power: str, n: int = 3) -> list[str]:
+    """A few legal orders for `power` right now that also fit together.
+
+    Built from the seat's own units, so an example copied as-is is still a
+    real order (a fixed "A PAR - BUR" is one only for France): a move into an
+    empty province, a hold, and a support of that same move where possible.
+    """
+    possible = game.get_all_possible_orders()
+    opts = [sorted(possible.get(loc) or []) for loc in game.get_orderable_locations(power)]
+    opts = [o for o in opts if o]
+    if game.phase_type != "M":
+        return [o[0] for o in opts[:n]]
+    occupied = _units_by_prov(game)
+    picks: list[str] = []
+    for unit_opts in opts:
+        if len(picks) == n:
+            break
+        if not picks:
+            moves = [o for o in unit_opts if " - " in o and " S " not in o and " C " not in o
+                     and "VIA" not in o and _base(o.split(" - ")[1]) not in occupied]
+            picks.append(moves[0] if moves else unit_opts[0])
+        elif len(picks) == 1:
+            picks.append(next((o for o in unit_opts if o.endswith(" H")), unit_opts[0]))
+        else:
+            first = picks[0]
+            support = next((o for o in unit_opts if o.endswith(" S " + first)), None)
+            picks.append(support or next((o for o in unit_opts if o.endswith(" H")),
+                                         unit_opts[0]))
+    return picks
+
+
 def _orders_section(game: Game, power: str) -> str:
+    """Every move each unit can make, written as the order itself, one per line.
+
+    One order per line, in the exact syntax, because a model will copy a line
+    from here into its answer; anything that is not itself an order (arrows,
+    lists, annotations outside a # comment) comes back as an illegal order.
+    """
     possible = game.get_all_possible_orders()
     locs = game.get_orderable_locations(power)
     if not locs:
         return "You have nothing to order this phase — just wait."
     occupied = _units_by_prov(game)
 
-    def tag(dest: str) -> str:
-        hit = occupied.get(_base(dest))
+    def note(order: str) -> str:
+        if " - " not in order:
+            return order
+        hit = occupied.get(_base(order.split(" - ")[1].replace(" VIA", "")))
         if not hit:
-            return dest
-        return f"{dest} ({'your' if hit[0] == power else hit[0]} {hit[1].split()[0]})"
+            return order
+        return f"{order}   # {'your' if hit[0] == power else hit[0]} {hit[1].split()[0]} is there"
 
+    lines = []
     if game.phase_type == "M":
-        me = game.powers[power]
-        lines = []
         for loc in locs:
-            unit = next((u for u in me.units if _base(u.split()[1]) == _base(loc)), loc)
-            dests = sorted({o.split(" - ")[1].replace(" VIA", "")
-                            for o in possible.get(loc) or []
-                            if " - " in o and " S " not in o and " C " not in o})
-            lines.append(f"- {unit} → {', '.join(tag(d) for d in dests) or '(nowhere)'}")
-        return ("Where each of your units can move (supports and convoys also "
-                "allowed — see syntax):\n" + "\n".join(lines))
+            opts = possible.get(loc) or []
+            moves = sorted(o for o in opts if (" - " in o and " S " not in o
+                                               and " C " not in o) or o.endswith(" H"))
+            lines += [note(o) for o in moves] + [""]
+        return ("Each line below is a complete legal order (moves and holds; "
+                "supports and convoys are also allowed — see the forms below). "
+                "Pick one per unit:\n" + "\n".join(lines).rstrip())
 
-    lines = [f"- {loc}: {', '.join(sorted(possible.get(loc) or []))}" for loc in locs]
+    for loc in locs:
+        lines += sorted(possible.get(loc) or []) + [""]
     if game.phase_type == "R":
-        return "Your dislodged units must retreat or disband:\n" + "\n".join(lines)
+        return ("Your dislodged units must retreat or disband. Each line is a "
+                "complete order; pick one per unit:\n" + "\n".join(lines).rstrip())
     n = len(game.powers[power].centers) - len(game.powers[power].units)
     what = f"build up to {n}" if n > 0 else f"disband {-n}"
-    return (f"Adjustments: you {what}. Options:\n" + "\n".join(lines)
+    return (f"Adjustments: you {what}. Each line is a complete order:\n"
+            + "\n".join(lines).rstrip()
             + ("\nSubmit nothing to waive builds." if n > 0 else ""))
 
 
