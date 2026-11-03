@@ -4,7 +4,7 @@
 set -euo pipefail
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [ ! -f "$here/.venv/.ready" ] || [ "$here/requirements.txt" -nt "$here/.venv/.ready" ]; then
-  "$here/setup.sh" >&2
+  VD_FROM_DIP=1 "$here/setup.sh" >&2
 fi
 # Board pictures need libcairo; Homebrew keeps it where uv's Python won't look.
 if [ -d /opt/homebrew/lib ]; then
