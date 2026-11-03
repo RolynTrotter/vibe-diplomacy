@@ -1,128 +1,92 @@
 # Vibe Diplomacy
 
-A competitive **Diplomacy** environment for AI agents (and humans). The repo
-runs the game, tracks board state, and ships Claude Code skills that help agents
-play. The intended setup: **7 parallel Claude Code sessions**, each playing one
-power, coordinating entirely through Git — no server to host, phone-first.
+Run models against each other at **Diplomacy** on a level playing field. Every
+seat gets the same plain-text board and the same few commands. The rules,
+adjudication and order secrecy are handled for them, out of sight.
 
-## How it works
+The [`diplomacy`](https://github.com/diplomacy/diplomacy) package
+(DATC-compliant) does all the rules work. This repo stores matches, shows each
+power its board, and drives model seats.
 
-- **Engine:** the DATC-compliant [`diplomacy`](https://github.com/diplomacy/diplomacy)
-  package does all order validation and adjudication. We never reimplement the
-  rules; `engine/` is a thin, well-tested wrapper around it.
-- **Git is the database; GitHub Actions is the server.** Each match lives on its
-  own `game/<name>` branch. Players commit their own sealed orders; a CI workflow
-  decrypts, adjudicates, and advances the board. `main` is infra-only.
-- **Orders are secret by cryptography, not by trust.** Diplomacy is simultaneous,
-  so each power encrypts its orders to the **adjudicator's public key**
-  (PyNaCl SealedBox). The matching private key lives only in a GitHub Actions
-  repo secret, so no opponent can read pending orders — even with full repo
-  access. After a phase resolves, orders are revealed publicly in `history/`.
-- **Orders are authenticated, not just secret.** Each power self-claims a seat
-  (`join_game`), generating a signing key. Orders are **signed** and the
-  adjudicator verifies them against the power's committed public key, so France
-  can't submit Germany's orders. No human hands out auth — agents claim seats and
-  divvy up the board themselves.
-- **Full-press comms (optional).** With `--press full`, powers exchange private,
-  signed messages sealed to each recipient (a `mail/` pool that hides even who's
-  talking to whom). Negotiation stays secret during play and is revealed for the
-  post-mortem only once the game ends.
+## Play a match
+
+**1. Create it** (the first run also builds the environment by itself):
+
+```bash
+./setup.sh test --press none
+```
+
+**2. Hand each seat to a player.** There are two ways, and you can mix them.
+
+- **Agents** (Claude Code, Codex, a human, anything that can run a shell
+  command): give each one its brief, `games/test/briefs/<POWER>.md`. The brief
+  is one page. It lists three commands (`board`, `submit`, `wait`), plus `send`
+  and `inbox` in full press. The agent can work from any directory and never
+  needs to read this repo.
+- **Models**, called directly through any OpenAI-compatible endpoint (LM
+  Studio, Ollama, vLLM, OpenRouter...), all seats in parallel:
+
+  ```bash
+  ./dip run test --model qwen3-8b --base-url http://localhost:1234/v1
+  ./dip run test --model fake --seat FRANCE=llama3@http://other:8000/v1 \
+                 --seat GERMANY=claude:sonnet --agents ENGLAND
+  ```
+
+A phase resolves as soon as every power has submitted, or when its deadline
+passes (`--deadline`, 30 minutes by default). Units without orders hold. The
+game ends at `--max-year` (1910 by default) or with an 18-centre win. Nothing
+needs a server, GitHub, keys or a paid API.
+
+```bash
+./dip status              # where every match stands, and who it's waiting on
+./dip advance test        # resolve now; missing orders hold
+./dip site --serve 8000   # replay viewer: map, orders, messages, notes
+```
+
+## Model seats
+
+`./dip run` makes one stateless call per decision. The prompt is the seat's
+board, its inbox and its own notes, followed by what to write. The reply is
+free text:
+
+```
+TO ENGLAND: Channel DMZ this year?
+TO SELF: Germany is massing on Burgundy
+```
+...followed by the orders in a fenced code block. A reply with no usable orders
+gets one retry with the errors spelled out, then its units hold. If a model
+returns only reasoning, the reasoning is parsed. In full press, each movement
+phase has `--rounds` rounds of talk (2 by default) before orders.
+
+Seat specs: `<model>` (at `--base-url`), `openai:<model>@<url>`,
+`claude:<model>` (the `claude` CLI with no tools), `agent` (played from
+outside), `fake` (random legal orders). `--concurrency` caps simultaneous
+calls per endpoint. `--images` attaches the board picture for vision models.
+Each call's transcript is saved in `games/<name>/log/`.
 
 ## Layout
 
 ```
-engine/         thin wrapper around the diplomacy engine
-  state.py        load/save the game, phase clock
-  adjudicate.py   pure (game, orders) -> advanced game
-  validate.py     per-order legality with readable errors
-  query.py        board questions (units, centers, adjacency, builds)
-  crypto.py       SealedBox order secrecy + Ed25519 signing
-  comms.py        full-press messaging (claims, sealed mail pool, reveal)
-  context.py      per-power selective brief (conductor mode)
-  mapviz.py       labelled board picture (SVG/PNG) per phase
-  coherence.py    legal-but-useless order sets (void supports, self-bounces)
-  jev.py          TypeSafe credentials, one System One call, spend tracking
-  rules.py        the ruleset, written as state for a model with no priors
-  valuation.py    one question -> what each province is worth this turn
-  orders_jev.py   option glosses + per-unit questions (single pass)
-  staged.py       who moves -> where -> who supports (the working path)
-  press.py        notes, DEAL: ledger, inbox, outcomes as Jev state;
-                  and the keep-or-break decision on each standing deal
-orchestration/  CLIs the skills + workflow call
-  new_game.py        initialize a match (--press, adjudicator key reuse)
-  join_game.py       claim a free seat (self-serve identity + keys)
-  submit_orders.py   validate -> sign -> seal -> stage orders/<POWER>/<phase>.enc
-  send_message.py    seal a signed message to a power / broadcast
-  read_messages.py   trial-decrypt your inbox
-  jev_orders.py      one power's orders from Jev (--dry-run shows the request,
-                     --orders-only pipes straight into submit.sh)
-  jev_match.py       gunboat self-play, Jev at all seven seats
-  send_batch.py      every `TO ...` line sent in one call
-  staff.py           written directions in, sealed orders out — the
-                     opt-in `--staff` seat (the player never sees an order)
-  game_status.py     phone-friendly status (no decryption)
-  run_adjudication.py the adjudicator (CI only; holds the private key)
-  conduct.py         conductor seam (roster, brief, tasks, collect, next-phase)
-  tasks.py           the task text a power gets — one wording, every caller
-  run_match.py       programmatic conductor (one command, per-power sessions)
-site/           static GitHub Pages visualizer
-  build_site.py     bake SVG board + JSON manifest from every game/* branch
-  static/           mobile-first viewer (game dropdown, map/text/talk/notes, slider)
-.claude/skills/ agent-facing skills (start-playing, conduct-match, join-game,
-                play-a-turn, negotiate, check-board-state, write-orders,
-                consult-notes)
-.github/workflows/adjudicate.yml   the serverless adjudicator
-.github/workflows/pages.yml        builds & deploys the visualizer
-scripts/sync.sh push your files past other sessions without conflicts
-tests/          engine-fidelity + crypto + comms/auth + e2e tests
-docs/RUNBOOK.md how to start a game and brief the 7 sessions
-
-# Per-match files (only on game/<name> branches, never on main):
-state/current.json   orders/<POWER>/<phase>.enc   history/<phase>.json
-players/<POWER>.json   mail/*.enc   game/   (secrets/ is local + gitignored)
+dip, setup.sh   the one entry point; builds .venv on first use
+vibe/
+  game.py       a match on disk: seats, orders, adjudication, mail, notes
+  board.py      the board as one power sees it (legal moves, outcomes, nearby centres)
+  cli.py        ./dip: player commands and host commands, plus the seat brief
+  run.py        model seats: OpenAI-compatible / claude CLI / fake, in parallel
+  mapviz.py     labelled board picture
+  site.py       static replay viewer (+ static/)
+tests/
+games/<name>/   one directory per match (gitignored)
 ```
 
-## Quick start
+## Secrecy and fairness
 
-```bash
-./scripts/setup.sh && source .venv/bin/activate
-pytest -q                       # verify the engine wrapper
+Each seat acts only through its own token, and nothing a seat is shown mentions
+another seat's files, so orders stay hidden by not being pointed at. This keeps
+honest players honest. It does not stop a hostile one: an agent with shell
+access that goes digging could find `games/<name>/pending/`. A match's orders
+and results are written to `history/` after each phase. Messages and notes
+appear in the viewer only once the game is over.
 
-# Initialize a match into the current tree (run on a game/<name> branch):
-python -m orchestration.new_game --name frostbite --human ENGLAND
-```
-
-**To drop an agent into a game**, point a session at the repo and say
-*"play vibe-diplomacy on branch `game/<name>`"* — the `start-playing` skill finds
-the game, claims a free power, and starts. Open seven and they self-organize.
-
-**Or run the whole match from one session** with the `conduct-match` skill: it
-spawns each power as a scoped subagent (callstack-first, native subagents as a
-toggle), hands each only its own context, and adjudicates between phases. Great
-for self-play and evaluation; for distrusting players use the seven-session path
-above. The two compose, and both go through the same signed/sealed pipeline.
-
-See [docs/RUNBOOK.md](docs/RUNBOOK.md) for the full new-game and
-seven-sessions procedure, and `.claude/skills/play-a-turn` for the agent loop.
-
-## Visualizer (GitHub Pages)
-
-A static, phone-first viewer renders every game: pick a game from the dropdown,
-scrub the phase slider to step through the seasons, and toggle between the **map**
-(board + units + move arrows), a **text** move list, **talk** (the message
-threads), and **notes** (each power's private strategy notebook). Like messages,
-notebooks stay sealed during play and are revealed for the post-mortem only once
-the game ends. It's pre-baked — boards are rendered to SVG server-side, so the
-phone only loads static files (no live API calls, no rate limits).
-
-```bash
-python site/build_site.py --out _site   # bake locally
-python -m http.server -d _site 8000     # preview at localhost:8000
-```
-
-`.github/workflows/pages.yml` rebuilds and deploys on push to `main`, on a 30‑min
-schedule, and on demand. **One-time setup:** in repo Settings → Pages, set the
-source to **GitHub Actions**.
-
-> The map and rendering come from the [`diplomacy`](https://github.com/diplomacy/diplomacy)
-> package, which is **AGPL‑3.0+**. See [NOTICE.md](NOTICE.md).
+The map and rendering come from the `diplomacy` package, which is
+**AGPL-3.0+**. See [NOTICE.md](NOTICE.md).
