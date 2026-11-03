@@ -141,7 +141,7 @@ def test_a_seat_with_no_usable_reply_holds_after_one_retry(games):
     seats["FRANCE"] = Seat("openai", "m", "http://x/v1")
     calls = []
 
-    def fake(seat, system, prompt, image, max_tokens, timeout):
+    def fake(seat, system, prompt, image, max_tokens, timeout, **kw):
         calls.append(prompt)
         return "I am not sure what to do."
 
@@ -190,3 +190,25 @@ def test_new_remembers_the_model_for_run(games, monkeypatch, capsys):
     out = capsys.readouterr().out
     assert "endpoint OK" in out and out.rstrip().endswith("dip run r")
     assert Match.open("r").config["run"] == {"model": "flint", "base_url": "http://h/v1"}
+
+
+def test_streamed_reply_is_reassembled_and_idle_timeout_is_explained(monkeypatch):
+    class Stream:
+        headers = {"Content-Type": "text/event-stream"}
+        lines = [b'data: {"choices":[{"delta":{"reasoning_content":"thinking "}}]}\n',
+                 b'data: {"choices":[{"delta":{"content":"```\\nA PAR"}}]}\n',
+                 b'data: {"choices":[{"delta":{"content":" - BUR\\n```"}}]}\n',
+                 b"data: [DONE]\n"]
+        def __iter__(self): return iter(self.lines)
+        def __enter__(self): return self
+        def __exit__(self, *a): pass
+
+    monkeypatch.setattr(run.urllib.request, "urlopen", lambda req, timeout: Stream())
+    text = call_openai(Seat("openai", "m", "http://h/v1"), "s", "p", None, 10, 5)
+    assert parse_reply(text).orders == ["A PAR - BUR"]
+
+    def silent(req, timeout):
+        raise TimeoutError("timed out")
+    monkeypatch.setattr(run.urllib.request, "urlopen", silent)
+    with pytest.raises(TimeoutError, match="no tokens for 5s"):
+        call_openai(Seat("openai", "m", "http://h/v1"), "s", "p", None, 10, 5)

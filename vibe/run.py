@@ -16,6 +16,7 @@ Seat specs (`--seat FRANCE=<spec>`, or `--model` for every unassigned seat):
 from __future__ import annotations
 
 import argparse
+import functools
 import json
 import os
 import random
@@ -35,6 +36,8 @@ from vibe import mapviz
 from vibe.game import ALL, POWERS, ROOT, Match, check_orders
 
 FINAL_ROUND_NOTE = "Orders are due now."
+SLOW_HINT = ("model too slow: try --reasoning-effort low, a lower --concurrency, "
+             "or a higher --timeout")
 
 
 # --------------------------------------------------------------------------- #
@@ -93,6 +96,56 @@ def _post(url: str, headers: dict, payload: dict, timeout: float) -> dict:
         raise ServerError(f"HTTP {exc.code}: {str(body)[:300]}") from None
 
 
+def _stream(url: str, headers: dict, payload: dict, timeout: float,
+            limit: float = 3600) -> dict:
+    """POST a streaming chat completion; return it shaped like a plain one.
+
+    `timeout` is how long the server may go without sending anything, so a
+    slow model that is still writing is never cut off. `limit` caps the whole
+    call; if it is hit, whatever arrived so far is returned. Servers that
+    ignore `stream` and answer with plain JSON work too.
+    """
+    req = urllib.request.Request(url, data=json.dumps({**payload, "stream": True}).encode(),
+                                 headers={"Content-Type": "application/json", **headers})
+    start = time.monotonic()
+    content, reasoning = [], []
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            if "event-stream" not in (resp.headers.get("Content-Type") or ""):
+                return json.loads(resp.read().decode())
+            for raw in resp:
+                line = raw.decode(errors="replace").strip()
+                if not line.startswith("data:"):
+                    continue
+                data = line[5:].strip()
+                if data == "[DONE]":
+                    break
+                try:
+                    delta = (json.loads(data).get("choices") or [{}])[0].get("delta") or {}
+                except ValueError:
+                    continue
+                content.append(delta.get("content") or "")
+                reasoning.append(delta.get("reasoning_content") or delta.get("reasoning") or "")
+                if time.monotonic() - start > limit:
+                    break
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode(errors="replace")
+        try:
+            body = json.loads(body).get("error", body)
+            body = body.get("message", body) if isinstance(body, dict) else body
+        except (ValueError, AttributeError):
+            pass
+        raise ServerError(f"HTTP {exc.code}: {str(body)[:300]}") from None
+    except TimeoutError:
+        raise TimeoutError(f"no tokens for {timeout:.0f}s") from None
+    except urllib.error.URLError as exc:
+        if isinstance(exc.reason, TimeoutError):
+            raise TimeoutError(f"no answer for {timeout:.0f}s") from None
+        raise
+    return {"choices": [{"message": {"content": "".join(content),
+                                     "reasoning_content": "".join(reasoning)}}]}
+
+
 def check_endpoint(seat: Seat, timeout: float = 180) -> tuple[bool, str]:
     """One line saying whether `seat`'s server will actually answer.
 
@@ -124,7 +177,7 @@ def check_endpoint(seat: Seat, timeout: float = 180) -> tuple[bool, str]:
 
 
 def call_openai(seat: Seat, system: str, prompt: str, image: str | None,
-                max_tokens: int, timeout: float, transport=_post) -> str:
+                max_tokens: int, timeout: float, transport=_stream) -> str:
     content: object = prompt
     if image:
         content = [{"type": "image_url", "image_url": {"url": mapviz.image_data_uri(image)}},
@@ -264,10 +317,11 @@ def task(kind: str, round_no: int = 0, rounds: int = 0) -> str:
 class Runner:
     def __init__(self, match: Match, seats: dict[str, Seat], *, rounds: int = 2,
                  concurrency: int = 4, images: bool = False, max_tokens: int = 8000,
-                 timeout: float = 300, seed: int | None = None, log=print):
+                 timeout: float = 180, call_limit: float = 3600,
+                 seed: int | None = None, log=print):
         self.match, self.seats = match, seats
         self.rounds, self.images = rounds, images
-        self.max_tokens, self.timeout = max_tokens, timeout
+        self.max_tokens, self.timeout, self.call_limit = max_tokens, timeout, call_limit
         self.log = log
         self.rng = random.Random(seed)
         self._gates: dict[str, threading.Semaphore] = {}
@@ -287,11 +341,15 @@ class Runner:
         image = None
         if self.images and self.match.load().phase_type == "M":
             image = mapviz.phase_image(self.match.path, self.match.load())
-        call = call_openai if seat.kind == "openai" else call_claude
         with self._gate(seat):
             for attempt in (1, 2):
                 try:
-                    return call(seat, system, prompt, image, self.max_tokens, self.timeout)
+                    if seat.kind == "openai":
+                        return call_openai(seat, system, prompt, image, self.max_tokens,
+                                           self.timeout, transport=functools.partial(
+                                               _stream, limit=self.call_limit))
+                    return call_claude(seat, system, prompt, image, self.max_tokens,
+                                       self.call_limit)
                 except ServerError:
                     if image:          # a text-only model may reject the picture
                         image = None
@@ -303,6 +361,8 @@ class Runner:
                         image = None
                         continue
                     if attempt == 2:
+                        if isinstance(exc, (TimeoutError, subprocess.TimeoutExpired)):
+                            raise TimeoutError(f"{exc} — {SLOW_HINT}") from None
                         raise
                     self.log(f"  {power}: call failed ({exc}); retrying")
                     time.sleep(3)
@@ -433,7 +493,10 @@ def add_arguments(p) -> None:
                    help="per call; reasoning models spend most of it thinking")
     p.add_argument("--reasoning-effort", choices=["low", "medium", "high"],
                    help="ask the server for less (or more) thinking, if it supports it")
-    p.add_argument("--timeout", type=float, default=300, help="seconds per call")
+    p.add_argument("--timeout", type=float, default=180,
+                   help="give up on a call after this many seconds with no tokens at all")
+    p.add_argument("--call-limit", type=float, default=3600,
+                   help="longest any one call may run, even while still writing")
     p.add_argument("--phases", type=int, help="stop after this many phases")
     p.add_argument("--seed", type=int)
     p.add_argument("--foreground", action="store_true",
@@ -522,5 +585,6 @@ def main(args) -> int:
     log(f"Match {match.name}: " + ", ".join(f"{p} {s.label()}" for p, s in seats.items()))
     Runner(match, seats, rounds=args.rounds, concurrency=args.concurrency,
            images=args.images, max_tokens=args.max_tokens, timeout=args.timeout,
+           call_limit=args.call_limit,
            seed=args.seed, log=log).play(args.phases)
     return 0

@@ -76,8 +76,10 @@ Seat specs: `<model>` (at `--base-url`), `openai:<model>@<url>`,
 `claude:<model>` (the `claude` CLI with no tools), `agent` (played from
 outside), `fake` (random legal orders). `--concurrency` caps simultaneous
 calls per endpoint. `--images` attaches the board picture for vision models.
-`--max-tokens` is 8000 by default, because reasoning models spend most of it
-thinking. `--reasoning-effort low` asks for less thinking where the server
+Replies are streamed. A call fails only after `--timeout` seconds (180 by
+default) with no tokens at all, or after `--call-limit` (an hour), so a slow
+local model is never cut off mid-answer. `--max-tokens` is 8000 by default,
+because reasoning models spend most of it thinking. `--reasoning-effort low` asks for less thinking where the server
 supports it. Each call's transcript is saved in `games/<name>/log/`, and
 each phase adds a line to `games/<name>/progress.log`, which `./dip status`
 shows. To have an agent host a match, point it at the `run-a-match` skill.

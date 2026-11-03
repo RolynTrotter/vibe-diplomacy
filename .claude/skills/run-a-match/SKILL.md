@@ -42,9 +42,10 @@ fixed, `./dip run <name> --model M --base-url U` works.
     ./dip run <name>
 
 This returns at once and prints the runner's pid, log path, and the status
-and stop commands. The game plays in the background. Add
-`--concurrency 3` if the same server is also serving you (the default is 4
-calls at once per server).
+and stop commands. The game plays in the background. If the same server is
+also serving you, add `--concurrency 3` (the default is 4 calls at once per
+server). For a local reasoning model, `--reasoning-effort low` is a good
+default too: orders don't need thousands of tokens of thought.
 
 ## 3. Check on it
 
@@ -65,9 +66,19 @@ While it's playing:
       runner: not running. Last lines of .../run.log:
         Game over: year cap 1910. Centres: FRANCE 9, ...
 
-A line like `FRANCE (flint): 0 order(s) — holding [retry: ...]` is normal: a
-model gave unusable orders twice, so its units hold this phase and the game
-goes on.
+Lines in `latest` (and in the log) that need no action, or one flag:
+
+| Line | Meaning | Do |
+|---|---|---|
+| `FRANCE (flint): 0 order(s) — holding [retry: ...]` | unusable orders twice, so its units hold | nothing; the game goes on |
+| `FRANCE: call failed (no tokens for 180s); retrying` | server busy or stalled | nothing, unless it repeats |
+| `... no tokens for 180s — model too slow: try ...` | still failing after the retry, so the seat holds | restart with the flags below |
+
+A slow model that is still writing is never cut off; a call only fails
+after `--timeout` seconds (180 s) with *no* tokens at all, or after
+`--call-limit` (an hour). If seats keep failing on a shared or slow server,
+run `./dip stop <name>`, then
+`./dip run <name> --reasoning-effort low --concurrency 2 --timeout 600`.
 
 ## When it stalls
 
@@ -75,8 +86,8 @@ goes on.
   stopped. Read the log lines status shows, then `./dip run <name>` to resume
   from the same phase; nothing is lost.
 - **The phase hasn't changed in much longer than usual and the runner is
-  running.** Each call times out after 300 s and is retried once, so it will
-  move on by itself. If you can't wait, `./dip advance <name>` resolves the
+  running.** A local reasoning model can take several minutes per seat, and
+  the game moves on by itself. If you can't wait, `./dip advance <name>` resolves the
   phase now, and missing orders hold.
 - `./dip stop <name>` stops the runner; `./dip run <name>` resumes it.
 
