@@ -257,7 +257,9 @@ def cmd_status(args) -> int:
         m.advance()
         game = m.load()
         if m.ended():
-            print(f"{m.name}: over — {m.ended()} (at {game.get_current_phase()})")
+            played = [str(k) for k in game.order_history.keys()]
+            print(f"{m.name}: over — {m.ended()}"
+                  + (f" (last phase played: {played[-1]})" if played else ""))
         else:
             sub, owing = m.submitted(game), m.owing(game)
             waiting = [p for p in owing if p not in sub]

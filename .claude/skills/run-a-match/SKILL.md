@@ -61,7 +61,7 @@ While it's playing:
 
 **Finished** looks like this, and the runner exits by itself:
 
-    gunboat: over — year cap 1910 (at S1911M)        (or: over — solo FRANCE)
+    gunboat: over — year cap 1910 (last phase played: W1910A)   (or: over — solo FRANCE)
       runner: not running. Last lines of .../run.log:
         Game over: year cap 1910. Centres: FRANCE 9, ...
 
