@@ -22,12 +22,9 @@ SYNTAX = (
 RULES = (
     "- Supply centres change hands only when a unit is in them after a Fall "
     "turn; each winter you build or disband to match your centre count.\n"
-    "- A support only counts if the supported unit makes exactly that move; it "
-    "is cut if the supporter is attacked (except from where it is supporting "
-    "into).\n"
-    "- A neutral centre has no defender: move a unit in and still be there "
-    "after a Fall turn, and it is yours.\n"
-    "- 18 centres wins outright."
+    "- A support only counts if the supported unit makes exactly that move. "
+    "It is cut, and the supporter just holds, if the supporter is attacked "
+    "from any province other than the one it is supporting into."
 )
 
 
@@ -46,10 +43,26 @@ def _neighbours(game: Game, prov: str) -> set[str]:
 
 
 def _standings(game: Game, power: str) -> str:
+    """Every supply centre by owner, biggest first, with any foreign unit on it."""
+    occupied = _units_by_prov(game)
+
+    def names(centres, owner) -> str:
+        out = []
+        for c in sorted(centres):
+            hit = occupied.get(c)
+            out.append(f"{c} ({hit[0]} {hit[1].split()[0]} there)"
+                       if hit and hit[0] != owner else c)
+        return ", ".join(out) or "none"
+
     rows = sorted(POWERS, key=lambda p: -len(game.powers[p].centers))
-    return "\n".join(
-        f"- {p}: {len(game.powers[p].centers)} centres, {len(game.powers[p].units)} units"
-        + (" ← you" if p == power else "") for p in rows)
+    lines = [f"- {p}: {len(game.powers[p].centers)} centres, {len(game.powers[p].units)} "
+             f"units{' ← you' if p == power else ''} — {names(game.powers[p].centers, p)}"
+             for p in rows]
+    owned = {c for p in POWERS for c in game.powers[p].centers}
+    neutral = [c for c in game.map.scs if c not in owned]
+    if neutral:
+        lines.append(f"- neutral: {len(neutral)} — {names(neutral, None)}")
+    return "\n".join(lines)
 
 
 def _last_phase(match: Match, game: Game) -> str:
@@ -150,7 +163,7 @@ def _orders_section(game: Game, power: str) -> str:
                                                and " C " not in o) or o.endswith(" H"))
             lines += [note(o) for o in moves] + [""]
         return ("Each line below is a complete legal order (moves and holds; "
-                "supports and convoys are also allowed — see the forms below). "
+                "supports and convoys are also allowed — see the forms below the list). "
                 "Pick one per unit:\n" + "\n".join(lines).rstrip())
 
     for loc in locs:
@@ -188,13 +201,11 @@ def _surroundings(game: Game, power: str) -> str:
         frontier = {n for p in frontier for n in _neighbours(game, p)} - set(seen)
         for n in frontier:
             seen[n] = hop
-    owners = {_base(c): n for n, p in game.powers.items() for c in p.centers}
     targets = sorted((h, p) for p, h in seen.items()
                      if p in game.map.scs and p not in me.centers)[:10]
     if targets:
-        out.append("Supply centres you don't own, nearest first, with the owner and "
-                   "how many moves your nearest unit or centre is from it: " + ", ".join(
-            f"{p} ({owners.get(p, 'neutral')}, {h})" for h, p in targets))
+        out.append("Nearest centres you don't own, with how many moves away: "
+                   + ", ".join(f"{p} {h}" for h, p in targets))
     return "\n".join(out)
 
 
@@ -222,7 +233,7 @@ def render(match: Match, power: str, *, inbox: bool = False,
     press = "full press" if match.full_press else "gunboat (no messages)"
     out = [f"# {power} — {phase} — {match.name}, {press}"]
     if match.ended():
-        out += ["", f"**GAME OVER — {match.ended()}.**", "", "## Final standings",
+        out += ["", f"**GAME OVER — {match.ended()}.**", "", "## Final supply centres",
                 _standings(game, power)]
         return "\n".join(out)
     if not me.units and not me.centers:
@@ -237,8 +248,8 @@ def render(match: Match, power: str, *, inbox: bool = False,
         "", "## You",
         f"- Units: {', '.join(me.units) or 'none'}",
         f"- Centres ({len(me.centers)}): {', '.join(sorted(me.centers)) or 'none'}",
-        "", "## Your orders this phase", _orders_section(game, power),
-        "", "## Standings", _standings(game, power),
+        "", "## Your orders this phase", _orders_section(game, power), "", SYNTAX,
+        "", f"## Supply centres ({len(game.map.scs)}; 18 wins)", _standings(game, power),
     ]
     surroundings = _surroundings(game, power)
     if surroundings:
@@ -258,5 +269,5 @@ def render(match: Match, power: str, *, inbox: bool = False,
         out += ["", "## Your notes", match.notes(power).strip() or "_(none yet)_"]
     if picture:
         out += ["", f"A picture of the board is at {picture}"]
-    out += ["", SYNTAX, "", RULES]
+    out += ["", "## Rules", RULES]
     return "\n".join(out)

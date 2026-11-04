@@ -347,3 +347,15 @@ def test_status_says_a_phase_resolved_with_seats_missing(games, capsys):
     m.advance(force=True)
     cli.main(["status", "miss"])
     assert "S1901M resolved (forced) with 6 seat(s) missing" in capsys.readouterr().out
+
+
+def test_board_lists_every_supply_centre_by_owner(games):
+    m = Match.create("sc")
+    m.submit("FRANCE", ["A MAR - SPA"])
+    m.advance(force=True)                            # a French army in neutral Spain
+    text = board.render(m, "ITALY").split("## Supply centres (34; 18 wins)\n")[1].split("\n\n")[0]
+    rows = text.splitlines()
+    assert rows[0].startswith("- RUSSIA: 4 centres, 4 units — MOS, SEV, STP, WAR")
+    assert "- ITALY: 3 centres, 3 units ← you — NAP, ROM, VEN" in rows
+    assert rows[-1].startswith("- neutral: 12 — BEL, BUL, DEN,") and "SPA (FRANCE A there)" in rows[-1]
+    assert sum(len(r.split(" — ")[1].split(", ")) for r in rows) == 34
