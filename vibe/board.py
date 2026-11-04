@@ -21,7 +21,9 @@ SYNTAX = (
 
 RULES = (
     "- Supply centres change hands only when a unit is in them after a Fall "
-    "turn; each winter you build or disband to match your centre count.\n"
+    "turn. A centre you leave empty in Spring is still yours unless another "
+    "power's unit is standing in it when Fall ends. Each winter you build or "
+    "disband to match your centre count.\n"
     "- A support only counts if the supported unit makes exactly that move. "
     "It is cut, and the supporter just holds, if the supporter is attacked "
     "from any province other than the one it is supporting into."
@@ -35,11 +37,6 @@ def _base(prov: str) -> str:
 def _units_by_prov(game: Game) -> dict[str, tuple[str, str]]:
     return {_base(u.split()[1]): (name, u)
             for name, p in game.powers.items() for u in p.units}
-
-
-def _neighbours(game: Game, prov: str) -> set[str]:
-    abut = game.map.loc_abut.get(prov) or game.map.loc_abut.get(prov.lower()) or []
-    return {_base(a) for a in abut} - {_base(prov)}
 
 
 def _standings(game: Game, power: str) -> str:
@@ -184,28 +181,36 @@ def _surroundings(game: Game, power: str) -> str:
     ground = {_base(u.split()[1]) for u in me.units} | {_base(c) for c in me.centers}
     if not ground:
         return ""
-    occupied = _units_by_prov(game)
-    touch: dict[str, set[str]] = {}
-    for prov in ground:
-        for n in _neighbours(game, prov):
-            hit = occupied.get(n)
-            if hit and hit[0] != power:
-                touch.setdefault(hit[0], set()).add(n)
-    out = ["Foreign units next to your ground: "
-           + ("; ".join(f"{p} at {', '.join(sorted(v))}" for p, v in sorted(touch.items()))
-              or "none")]
+    threats = []
+    for name, other in sorted(game.powers.items()):
+        if name == power:
+            continue
+        for unit in other.units:
+            kind, loc = unit.split()
+            into = sorted({_base(n) for n in game.map.abut_list(loc, True)
+                           if game.map.abuts(kind, loc, "-", n.upper())} & ground)
+            if into:
+                threats.append(f"{name} {unit} ({', '.join(into)})")
+    out = ["Foreign units next to you, with which of your provinces each could "
+           "enter: " + ("; ".join(threats) or "none")]
 
-    seen = {p: 0 for p in ground}
-    frontier = set(ground)
-    for hop in (1, 2, 3):
-        frontier = {n for p in frontier for n in _neighbours(game, p)} - set(seen)
-        for n in frontier:
-            seen[n] = hop
+    # Counted along each unit's own legal moves: a fleet on STP's south coast
+    # is not one move from Norway, though the province borders it.
+    seen: dict[str, int] = {}
+    for unit in me.units:
+        kind, loc = unit.split()
+        reached, frontier = {loc}, {loc}
+        for hop in (1, 2, 3):
+            frontier = {n.upper() for at in frontier for n in game.map.abut_list(at, True)
+                        if game.map.abuts(kind, at, "-", n.upper())} - reached
+            reached |= frontier
+            for n in frontier:
+                seen[_base(n)] = min(seen.get(_base(n), hop), hop)
     targets = sorted((h, p) for p, h in seen.items()
                      if p in game.map.scs and p not in me.centers)[:10]
     if targets:
-        out.append("Nearest centres you don't own, with how many moves away: "
-                   + ", ".join(f"{p} {h}" for h, p in targets))
+        out.append("Nearest centres you don't own, with how many moves your nearest "
+                   "unit needs: " + ", ".join(f"{p} {h}" for h, p in targets))
     return "\n".join(out)
 
 

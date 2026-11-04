@@ -359,3 +359,12 @@ def test_board_lists_every_supply_centre_by_owner(games):
     assert "- ITALY: 3 centres, 3 units ← you — NAP, ROM, VEN" in rows
     assert rows[-1].startswith("- neutral: 12 — BEL, BUL, DEN,") and "SPA (FRANCE A there)" in rows[-1]
     assert sum(len(r.split(" — ")[1].split(", ")) for r in rows) == 34
+
+
+def test_around_you_counts_each_units_real_moves(games):
+    m = Match.create("near")
+    game = m.load()
+    russia = board._surroundings(game, "RUSSIA")
+    assert "RUM 1" in russia and "NWY 2" in russia and "NWY 1" not in russia   # F STP/SC
+    assert "AUSTRIA F TRI (VEN)" in board._surroundings(game, "ITALY")
+    assert board._surroundings(game, "GERMANY").splitlines()[0].endswith("enter: none")
