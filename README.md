@@ -68,7 +68,9 @@ TO ENGLAND: Channel DMZ this year?
 TO SELF: Germany is massing on Burgundy
 ```
 ...followed by the orders in a fenced code block. A reply with no usable orders
-gets one retry with the errors spelled out, then its units hold. If a model
+(cut off at `--max-tokens`, no orders block, or illegal orders) is finished
+rather than redone: one short call quotes the seat's own reply back with what
+was wrong and asks only for the orders. If that fails too, its units hold. If a model
 returns only reasoning, the reasoning is parsed. In full press, each movement
 phase has `--rounds` rounds of talk (2 by default) before orders.
 

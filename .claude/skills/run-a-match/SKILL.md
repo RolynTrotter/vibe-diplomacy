@@ -73,12 +73,14 @@ why: `F1901M resolved (deadline) with 2 seat(s) missing, who held: ...`.
     gunboat: over — year cap 1910 (last phase played: W1910A)   (or: over — solo FRANCE)
       runner: not running. Last lines of .../run.log:
         Game over: year cap 1910. Centres: FRANCE 9, ...
+        Finishing calls: 12 (10 gave usable orders). Seats that held: 2 entirely, 1 partly.
 
 Lines in `latest` (and in the log) that need no action, or one flag:
 
 | Line | Meaning | Do |
 |---|---|---|
-| `FRANCE (flint): 0 order(s) — holding [retry: ...]` | unusable orders twice, so its units hold | nothing; the game goes on |
+| `FRANCE (flint): 4 order(s) [+finish 210 tok, cut off] (95s)` | its reply ran out of tokens (or had no orders, or illegal ones), and a short follow-up call got the orders | nothing |
+| `FRANCE (flint): 0 order(s) — holding [+finish ..., ...]` | still no usable orders after that, so its units hold | nothing; the game goes on |
 | `FRANCE: call failed (no tokens for 180s); retrying` | server busy or stalled | nothing, unless it repeats |
 | `FRANCE: too late — S1901M has already resolved ...` | its orders came in after the phase closed (it was forced, or an outside seat's deadline passed); they were dropped, not applied to the next phase | nothing |
 | `... no tokens for 180s — model too slow: try ...` | still failing after the retry, so the seat holds | restart with the flags below |

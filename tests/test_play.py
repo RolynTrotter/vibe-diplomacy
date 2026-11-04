@@ -135,15 +135,15 @@ def test_fake_seats_play_a_full_press_game_to_the_cap(games):
     assert (m.path / "history" / "F1902M.json").exists()
 
 
-def test_a_seat_with_no_usable_reply_holds_after_one_retry(games):
+def test_a_seat_with_no_usable_reply_holds_after_one_finishing_call(games):
     m = Match.create("h")
     seats = {p: Seat("fake") for p in gamemod.POWERS}
     seats["FRANCE"] = Seat("openai", "m", "http://x/v1")
     calls = []
 
     def fake(seat, system, prompt, image, max_tokens, timeout, **kw):
-        calls.append(prompt)
-        return "I am not sure what to do."
+        calls.append((prompt, max_tokens))
+        return run.Answer.of("I am not sure what to do.")
 
     runner = Runner(m, seats, seed=1, log=lambda *_: None)
     import vibe.run as r
@@ -153,8 +153,52 @@ def test_a_seat_with_no_usable_reply_holds_after_one_retry(games):
         runner.phase()
     finally:
         r.call_openai = orig
-    assert len(calls) == 2 and "could not be used" in calls[1]
+    assert len(calls) == 2 and "had no orders in a fenced code block" in calls[1][0]
+    assert calls[1][1] == run.FINISH_TOKENS and calls[0][1] == runner.max_tokens
     assert json.loads((m.path / "history" / "S1901M.json").read_text())["orders"]["FRANCE"] == []
+    assert runner.stats == {"finishes": 1, "held": 1}
+
+
+def test_a_cut_off_reply_is_finished_not_redone(games, monkeypatch):
+    m = Match.create("cut")
+    seats = {p: Seat("fake") for p in gamemod.POWERS}
+    seats["ENGLAND"] = Seat("openai", "m", "http://x/v1")
+    prompts, lines = [], []
+
+    def fake(seat, system, prompt, image, max_tokens, timeout, **kw):
+        prompts.append(prompt)
+        if len(prompts) == 1:
+            return run.Answer.of("", "Long thought: the fleet should go north. This means",
+                                 "length", 8000)
+        return run.Answer.of("```\nF LON - NTH\nF EDI - NWG\nA LVP - YOR\n```", tokens=40)
+
+    monkeypatch.setattr(run, "call_openai", fake)
+    runner = Runner(m, seats, seed=1, log=lines.append)
+    runner.play(max_phases=1)
+    finish = prompts[1]
+    assert finish.startswith(prompts[0])                    # cache-friendly prefix
+    assert "the fleet should go north. This means" in finish   # its reasoning is kept
+    assert "cut off at the length limit" in finish
+    assert m.history("S1901M")["orders"]["ENGLAND"] == ["F LON - NTH", "F EDI - NWG", "A LVP - YOR"]
+    assert any("3 order(s) [+finish 40 tok, cut off]" in l for l in lines)
+    assert lines[-1].startswith("Finishing calls: 1 (1 gave usable orders). Seats that held: 0")
+
+
+def test_stream_reports_finish_reason_and_usage(monkeypatch):
+    class Stream:
+        headers = {"Content-Type": "text/event-stream"}
+        lines = [b'data: {"choices":[{"delta":{"content":"So the plan"}}]}\n',
+                 b'data: {"choices":[{"delta":{},"finish_reason":"length"}]}\n',
+                 b'data: {"choices":[],"usage":{"completion_tokens":8000}}\n',
+                 b"data: [DONE]\n"]
+        def __iter__(self): return iter(self.lines)
+        def __enter__(self): return self
+        def __exit__(self, *a): pass
+
+    monkeypatch.setattr(run.urllib.request, "urlopen", lambda req, timeout: Stream())
+    a = call_openai(Seat("openai", "m", "http://h/v1"), "s", "p", None, 10, 5)
+    assert a == "So the plan" and a.cut_off and a.cost() == "8000 tok"
+    assert run.Answer.of("x" * 40).cost() == "~10 tok"
 
 
 # -- the picture ------------------------------------------------------------ #
@@ -238,7 +282,7 @@ def test_annotated_and_arrow_lines_still_parse(games):
     assert m.submit("GERMANY", ["A MUN - BUR   # GERMANY A is there", "A BER → KIE"]).ok
 
 
-def test_retry_restates_the_seats_units_and_own_examples(games, monkeypatch):
+def test_finishing_call_restates_errors_units_and_own_examples(games, monkeypatch):
     m = Match.create("rr")
     seats = {p: Seat("fake") for p in gamemod.POWERS}
     seats["ITALY"] = Seat("openai", "m", "http://x/v1")
@@ -246,12 +290,14 @@ def test_retry_restates_the_seats_units_and_own_examples(games, monkeypatch):
 
     def fake(seat, system, prompt, image, max_tokens, timeout, **kw):
         prompts.append(prompt)
-        return "```\nA PAR - BUR\n```" if len(prompts) == 1 else "```\nA VEN H\n```"
+        return run.Answer.of("```\nA PAR - BUR\n```" if len(prompts) == 1 else "```\nA VEN H\n```")
 
     monkeypatch.setattr(run, "call_openai", fake)
     Runner(m, seats, seed=1, log=lambda *_: None).phase()
-    assert "Your units: F NAP, A ROM, A VEN" in prompts[1]
-    assert "A PAR - BUR" not in prompts[1].split("could not be used")[1].split("\n- ")[0]
+    tail = prompts[1].split("Your reply so far:")[1]
+    assert "could not be used" in tail and "nothing to order at PAR" in tail
+    assert "Your units: F NAP, A ROM, A VEN" in tail
+    assert "A PAR - BUR" not in tail.split("for example:")[1]
     assert m.history("S1901M")["orders"]["ITALY"] == ["A VEN H"]
 
 

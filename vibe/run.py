@@ -33,11 +33,37 @@ from dataclasses import dataclass, field
 
 from vibe import board as boardmod
 from vibe import mapviz
-from vibe.game import ALL, POWERS, ROOT, LateOrders, Match, check_orders
+from vibe.game import ALL, POWERS, ROOT, Checked, LateOrders, Match, check_orders
 
 FINAL_ROUND_NOTE = "Orders are due now."
 SLOW_HINT = ("model too slow: try --reasoning-effort low, a lower --concurrency, "
              "or a higher --timeout")
+FINISH_TOKENS = 1500            # finishing a reply needs orders, not another essay
+
+
+class Answer(str):
+    """A model's reply, plus why it ended and roughly what it cost.
+
+    `thought` is reasoning the server sent apart from the answer, `cut_off`
+    is true when the reply hit the token limit (or the call limit) before
+    it finished, and `tokens` is the server's count, or an estimate.
+    """
+    thought: str = ""
+    cut_off: bool = False
+    tokens: int | None = None
+    estimated: bool = False
+
+    @classmethod
+    def of(cls, text: str, thought: str = "", finish: str = "", tokens=None) -> "Answer":
+        a = cls(text)
+        a.thought, a.cut_off = thought, finish == "length"
+        a.tokens, a.estimated = tokens, tokens is None
+        if tokens is None:
+            a.tokens = (len(text) + (len(thought) if thought != text else 0)) // 4
+        return a
+
+    def cost(self) -> str:
+        return f"{'~' if self.estimated else ''}{self.tokens} tok"
 
 
 # --------------------------------------------------------------------------- #
@@ -108,7 +134,7 @@ def _stream(url: str, headers: dict, payload: dict, timeout: float,
     req = urllib.request.Request(url, data=json.dumps({**payload, "stream": True}).encode(),
                                  headers={"Content-Type": "application/json", **headers})
     start = time.monotonic()
-    content, reasoning = [], []
+    content, reasoning, finish, usage = [], [], "", None
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             if "event-stream" not in (resp.headers.get("Content-Type") or ""):
@@ -121,12 +147,17 @@ def _stream(url: str, headers: dict, payload: dict, timeout: float,
                 if data == "[DONE]":
                     break
                 try:
-                    delta = (json.loads(data).get("choices") or [{}])[0].get("delta") or {}
+                    chunk = json.loads(data)
                 except ValueError:
                     continue
+                usage = chunk.get("usage") or usage
+                choice = (chunk.get("choices") or [{}])[0]
+                finish = choice.get("finish_reason") or finish
+                delta = choice.get("delta") or {}
                 content.append(delta.get("content") or "")
                 reasoning.append(delta.get("reasoning_content") or delta.get("reasoning") or "")
                 if time.monotonic() - start > limit:
+                    finish = "length"
                     break
     except urllib.error.HTTPError as exc:
         body = exc.read().decode(errors="replace")
@@ -143,7 +174,8 @@ def _stream(url: str, headers: dict, payload: dict, timeout: float,
             raise TimeoutError(f"no answer for {timeout:.0f}s") from None
         raise
     return {"choices": [{"message": {"content": "".join(content),
-                                     "reasoning_content": "".join(reasoning)}}]}
+                                     "reasoning_content": "".join(reasoning)},
+                         "finish_reason": finish}], "usage": usage}
 
 
 def check_endpoint(seat: Seat, timeout: float = 180) -> tuple[bool, str]:
@@ -177,7 +209,7 @@ def check_endpoint(seat: Seat, timeout: float = 180) -> tuple[bool, str]:
 
 
 def call_openai(seat: Seat, system: str, prompt: str, image: str | None,
-                max_tokens: int, timeout: float, transport=_stream) -> str:
+                max_tokens: int, timeout: float, transport=_stream) -> Answer:
     content: object = prompt
     if image:
         content = [{"type": "image_url", "image_url": {"url": mapviz.image_data_uri(image)}},
@@ -189,14 +221,15 @@ def call_openai(seat: Seat, system: str, prompt: str, image: str | None,
         payload["reasoning_effort"] = seat.reasoning_effort
     headers = {"Authorization": f"Bearer {seat.api_key}"} if seat.api_key else {}
     data = transport(f"{seat.base_url}/chat/completions", headers, payload, timeout)
-    msg = (data.get("choices") or [{}])[0].get("message") or {}
+    choice = (data.get("choices") or [{}])[0]
+    msg = choice.get("message") or {}
     text = msg.get("content") or ""
     # Reasoning models may put everything in a separate field, or leave the
     # answer empty after thinking; the reasoning is still worth parsing.
     reasoning = msg.get("reasoning_content") or msg.get("reasoning") or ""
-    if reasoning and not text.strip():
-        return reasoning
-    return text
+    tokens = (data.get("usage") or {}).get("completion_tokens")
+    return Answer.of(text if text.strip() or not reasoning else reasoning, reasoning,
+                     choice.get("finish_reason") or "", tokens)
 
 
 def call_claude(seat: Seat, system: str, prompt: str, image: str | None,
@@ -332,16 +365,18 @@ class Runner:
         self._gates: dict[str, threading.Semaphore] = {}
         self._gate_lock = threading.Lock()
         self.concurrency = concurrency
+        self.stats: dict[str, int] = {}
 
     def _gate(self, seat: Seat) -> threading.Semaphore:
         with self._gate_lock:
             return self._gates.setdefault(seat.endpoint,
                                           threading.Semaphore(self.concurrency))
 
-    def _complete(self, power: str, prompt: str) -> str:
+    def _complete(self, power: str, prompt: str, max_tokens: int | None = None) -> Answer:
         seat = self.seats[power]
+        max_tokens = max_tokens or self.max_tokens
         if seat.kind == "fake":
-            return fake_reply(self.match, power, self.rng)
+            return Answer.of(fake_reply(self.match, power, self.rng))
         system = system_prompt(self.match, power)
         image = None
         if self.images and self.match.load().phase_type == "M":
@@ -350,11 +385,11 @@ class Runner:
             for attempt in (1, 2):
                 try:
                     if seat.kind == "openai":
-                        return call_openai(seat, system, prompt, image, self.max_tokens,
+                        return call_openai(seat, system, prompt, image, max_tokens,
                                            self.timeout, transport=functools.partial(
                                                _stream, limit=self.call_limit))
-                    return call_claude(seat, system, prompt, image, self.max_tokens,
-                                       self.call_limit)
+                    return Answer.of(call_claude(seat, system, prompt, image, max_tokens,
+                                                 self.call_limit))
                 except ServerError:
                     if image:          # a text-only model may reject the picture
                         image = None
@@ -371,7 +406,7 @@ class Runner:
                         raise
                     self.log(f"  {power}: call failed ({exc}); retrying")
                     time.sleep(3)
-        return ""
+        return Answer.of("")
 
     def _prompt(self, power: str, kind: str, **kw) -> str:
         board = boardmod.render(self.match, power, inbox=True, notes=True)
@@ -405,42 +440,69 @@ class Runner:
         self.log(f"  {power} talk {round_no}: {sent} message(s) "
                  f"({time.monotonic() - start:.0f}s)")
 
+    def _finish_prompt(self, power: str, prompt: str, answer: Answer,
+                       checked: Checked | None) -> str:
+        """The original prompt again, with the seat's own reply quoted under it.
+
+        Quoted in the same user turn rather than sent back as an assistant
+        turn: chat templates often strip or rewrite earlier reasoning, and
+        some refuse two user turns in a row. The prompt is unchanged up to
+        the quote, so a server's prompt cache still covers it.
+        """
+        game = self.match.load()
+        said = answer.thought if answer.thought and answer.thought != answer else ""
+        quoted = "\n\n".join(t for t in (said, str(answer)) if t.strip())[-60000:]
+        if checked and checked.errors:
+            why = "Some of the orders in it could not be used:\n" + "\n".join(
+                f"- {e}" for e in checked.errors)
+        elif answer.cut_off:
+            why = ("It was cut off at the length limit before you gave orders. Decide "
+                   "now from what you have; don't start the analysis again.")
+        else:
+            why = "It had no orders in a fenced code block."
+        units = ", ".join(game.powers[power].units) or "none"
+        examples = "\n".join(boardmod.example_orders(game, power))
+        return (f"{prompt}\n\n---\n\nYour reply so far:\n\n<<<\n{quoted}\n>>>\n\n"
+                f"{why}\n\nYou are {power}. Your units: {units}. Based on your reasoning "
+                "above, write only your final orders: one per unit, each exactly like "
+                f"a line from the list above, for example:\n```\n{examples}\n```\n"
+                "Reply with just that one fenced code block. Messages were already sent.")
+
     def orders(self, power: str, phase: str) -> None:
         start = time.monotonic()
         game = self.match.load()
         kind = "final" if self.match.full_press and game.phase_type == "M" else "orders"
         prompt = self._prompt(power, kind)
-        replies, orders, note = [], [], ""
-        for attempt in (1, 2):
-            try:
-                text = self._complete(power, prompt)
-            except Exception as exc:
-                note = f"call failed: {exc}"
-                break
-            replies.append(text)
-            reply = parse_reply(text)
-            if attempt == 1:
-                self._deliver(power, reply)
-            else:
-                self.match.add_notes(power, reply.notes)
+        replies, orders, note, finish = [], [], "", ""
+        try:
+            answer = self._complete(power, prompt)
+            replies.append(answer)
+            reply = parse_reply(answer)
+            self._deliver(power, reply)
             checked = check_orders(game, power, reply.orders)
             orders = checked.accepted
-            if reply.orders and checked.ok:
-                note = ""
-                break
-            problem = ("\n".join(f"- {e}" for e in checked.errors) if checked.errors
-                       else "- no orders found: put them in one fenced code block")
-            more = len(checked.errors) - 1
-            note = (f"retry: {problem.splitlines()[0][2:]}"
-                    + (f" (+{more} more)" if more > 0 else ""))
-            units = ", ".join(game.powers[power].units) or "none"
-            examples = "\n".join(boardmod.example_orders(game, power))
-            prompt = (f"{self._prompt(power, 'orders')}\n\nYour last reply could not "
-                      f"be used:\n{problem}\n\nYou are {power}. Your units: {units}. "
-                      "Write one order per unit, each exactly like a line from the "
-                      f"list above, for example:\n```\n{examples}\n```\nReply again with "
-                      "your complete orders in one fenced code block. Messages were "
-                      "already sent.")
+            if not (reply.orders and checked.ok):
+                # Finish the reply rather than redo it: the reasoning is kept,
+                # and only the orders are asked for, at a fraction of the cost.
+                again = self._complete(power, self._finish_prompt(
+                    power, prompt, answer, checked if reply.orders else None),
+                    max_tokens=FINISH_TOKENS)
+                replies.append(again)
+                reply = parse_reply(again)
+                self.match.add_notes(power, reply.notes)
+                retried = check_orders(game, power, reply.orders)
+                why = ("illegal orders" if checked.errors and reply.orders
+                       else "cut off" if answer.cut_off else "no orders block")
+                finish = f"+finish {again.cost()}, {why}"
+                ok = bool(reply.orders) and retried.ok
+                self._count("finishes", "finished" if ok else None)
+                if reply.orders:
+                    orders = retried.accepted
+                if not ok:
+                    errs = retried.errors or ["no orders found in the finishing reply"]
+                    note = errs[0] + (f" (+{len(errs) - 1} more)" if len(errs) > 1 else "")
+        except Exception as exc:
+            note = f"call failed: {exc}"
         try:
             self.match.submit(power, orders, partial=True, phase=phase)
         except LateOrders as exc:
@@ -448,9 +510,27 @@ class Runner:
             self.log(f"  {power}: too late — {exc}")
             return
         self._record(power, phase, "orders", {"replies": replies, "submitted": orders})
-        held = "" if orders else " — holding"
+        held = ""
+        if note and not orders:
+            held = " — holding"
+            self._count("held")
+        elif note:
+            self._count("partly held")
+        extra = ", ".join(x for x in (finish, note) if x)
         self.log(f"  {power} ({self.seats[power].label()}): {len(orders)} order(s){held}"
-                 f"{' [' + note + ']' if note else ''} ({time.monotonic() - start:.0f}s)")
+                 f"{' [' + extra + ']' if extra else ''} ({time.monotonic() - start:.0f}s)")
+
+    def _count(self, *keys: str | None) -> None:
+        with self._gate_lock:
+            for k in keys:
+                if k:
+                    self.stats[k] = self.stats.get(k, 0) + 1
+
+    def summary(self) -> str:
+        s = self.stats
+        return (f"Finishing calls: {s.get('finishes', 0)} ({s.get('finished', 0)} gave "
+                f"usable orders). Seats that held: {s.get('held', 0)} entirely, "
+                f"{s.get('partly held', 0)} partly.")
 
     def phase(self) -> None:
         game = self.match.load()
@@ -494,6 +574,8 @@ class Runner:
             self.log(f"\nGame over: {self.match.ended()}. Centres: " + ", ".join(
                 f"{p} {len(game.powers[p].centers)}" for p in
                 sorted(POWERS, key=lambda p: -len(game.powers[p].centers))))
+        if n:
+            self.log(self.summary())
 
 
 def add_arguments(p) -> None:
