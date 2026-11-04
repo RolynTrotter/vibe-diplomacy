@@ -92,9 +92,14 @@ def _my_outcomes(match: Match, game: Game, power: str) -> str:
             tags = results.get(unit) or []
             if tags:
                 bad.append(f"- {o} → " + "; ".join(_WHY.get(t, t) for t in tags))
-        if not bad:
-            return f"All {len(mine)} of your {phase} orders succeeded."
-        return f"_{phase}:_ {len(mine) - len(bad)} succeeded, these did not:\n" + "\n".join(bad)
+        refused = (hist.get("refused") or {}).get(power) or []
+        out = (f"All {len(mine)} of your {phase} orders succeeded." if not bad else
+               f"_{phase}:_ {len(mine) - len(bad)} succeeded, these did not:\n"
+               + "\n".join(bad))
+        if refused:
+            out += ("\nYou also wrote these, which could not be used, so the orders "
+                    "above were played instead:\n" + "\n".join(f"- {r}" for r in refused))
+        return out
     return ""
 
 

@@ -63,6 +63,7 @@ def legal_orders(game: Game, power: str) -> dict[str, list[str]]:
 class Checked:
     accepted: list[str] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
+    refused: list[str] = field(default_factory=list)   # short, for the seat's next board
 
     @property
     def ok(self) -> bool:
@@ -98,9 +99,16 @@ def check_orders(game: Game, power: str, orders: list[str]) -> Checked:
             shown = legal[loc] if len(legal[loc]) <= 25 else legal[loc][:25] + ["..."]
             out.errors.append(f"{raw!r} is not legal. Legal orders for {loc}: "
                               + ", ".join(shown))
+            why = "not a legal order"
+            if len(parts) == 4 and parts[2] == "-":
+                dest = parts[3].split("/")[0]
+                if not game.map.abuts(parts[0], parts[1], "-", parts[3]):
+                    why += f": {loc} does not border {dest}"
+            out.refused.append(f"{norm} — {why}")
         else:
             out.errors.append(f"{raw!r}: you have nothing to order at {loc} this "
                               f"phase. You can order: {', '.join(sorted(legal)) or 'nothing'}")
+            out.refused.append(f"{norm} — you had nothing to order at {loc}")
     for loc, given in per_unit.items():
         if len(given) == 1:
             out.accepted.append(given[0])
@@ -108,6 +116,7 @@ def check_orders(game: Game, power: str, orders: list[str]) -> Checked:
         shown = given if len(given) <= 4 else given[:4] + ["..."]
         out.errors.append(f"{len(given)} different orders for {loc} ({', '.join(shown)}); "
                           f"it holds. Give exactly one order per unit")
+        out.refused.append(f"{len(given)} different orders for {loc} — it held")
     return out
 
 
@@ -244,7 +253,7 @@ class Match:
         return out
 
     def submit(self, power: str, orders: list[str], *, partial: bool = False,
-               phase: str | None = None) -> Checked:
+               phase: str | None = None, refused: list[str] = ()) -> Checked:
         """Check and store `power`'s orders, replacing any earlier set.
 
         Any error rejects the whole set unless `partial`, in which case the
@@ -255,6 +264,10 @@ class Match:
         already resolved they are refused, never applied to the next one:
         spring orders are often still legal in the fall, and would be
         silently accepted there.
+
+        `refused` adds orders the seat wrote earlier that could not be used,
+        so its next board can say so; otherwise a corrected set reads as
+        though nothing had gone wrong.
         """
         if self.ended():
             raise MatchError(f"the game is over ({self.ended()})")
@@ -269,7 +282,8 @@ class Match:
                 f = self._pending(power)
                 f.parent.mkdir(exist_ok=True)
                 _write(f, json.dumps({"phase": game.get_current_phase(),
-                                         "orders": checked.accepted}))
+                                         "orders": checked.accepted,
+                                         "refused": [*refused, *checked.refused]}))
         self.advance()
         return checked
 
@@ -310,12 +324,15 @@ class Match:
     def _resolve(self, game: Game, owing: list[str], how: str = "everyone in") -> dict:
         phase = game.get_current_phase()
         missing = sorted(set(owing) - set(self.submitted(game)))
+        refused = {}
         for power in owing:
             f = self._pending(power)
             if f.exists():
                 data = json.loads(f.read_text())
                 if data.get("phase") == phase:
                     game.set_orders(power, data["orders"], expand=True, replace=True)
+                    if data.get("refused"):
+                        refused[power] = data["refused"]
         ordered = {p: list(game.get_orders(p)) for p in POWERS}
         game.process()
         results = {}
@@ -326,7 +343,7 @@ class Match:
             pass
         summary = {"phase": phase, "orders": ordered,
                    "results": {u: r for u, r in results.items() if r},
-                   "missing": missing, "resolved": how}
+                   "missing": missing, "resolved": how, "refused": refused}
         self.save(game)
         hist = self.path / "history"
         hist.mkdir(exist_ok=True)

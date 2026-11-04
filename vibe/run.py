@@ -473,7 +473,7 @@ class Runner:
         game = self.match.load()
         kind = "final" if self.match.full_press and game.phase_type == "M" else "orders"
         prompt = self._prompt(power, kind)
-        replies, orders, note, finish = [], [], "", ""
+        replies, orders, note, finish, refused = [], [], "", "", []
         try:
             answer = self._complete(power, prompt)
             replies.append(answer)
@@ -482,6 +482,7 @@ class Runner:
             checked = check_orders(game, power, reply.orders)
             orders = checked.accepted
             if not (reply.orders and checked.ok):
+                refused = list(checked.refused)
                 # Finish the reply rather than redo it: the reasoning is kept,
                 # and only the orders are asked for, at a fraction of the cost.
                 again = self._complete(power, self._finish_prompt(
@@ -498,13 +499,14 @@ class Runner:
                 self._count("finishes", "finished" if ok else None)
                 if reply.orders:
                     orders = retried.accepted
+                    refused = [r for r in checked.refused if r not in retried.refused]
                 if not ok:
                     errs = retried.errors or ["no orders found in the finishing reply"]
                     note = errs[0] + (f" (+{len(errs) - 1} more)" if len(errs) > 1 else "")
         except Exception as exc:
             note = f"call failed: {exc}"
         try:
-            self.match.submit(power, orders, partial=True, phase=phase)
+            self.match.submit(power, orders, partial=True, phase=phase, refused=refused)
         except LateOrders as exc:
             self._record(power, phase, "orders", {"replies": replies, "late": str(exc)})
             self.log(f"  {power}: too late — {exc}")

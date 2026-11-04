@@ -299,6 +299,20 @@ def test_finishing_call_restates_errors_units_and_own_examples(games, monkeypatc
     assert "Your units: F NAP, A ROM, A VEN" in tail
     assert "A PAR - BUR" not in tail.split("for example:")[1]
     assert m.history("S1901M")["orders"]["ITALY"] == ["A VEN H"]
+    told = board.render(m, "ITALY").split("## How your last orders went")[1]
+    assert "A PAR - BUR — you had nothing to order at PAR" in told
+    assert "could not be used" not in board.render(m, "FRANCE")   # private to Italy
+
+
+def test_a_move_to_a_province_it_does_not_border_says_so(games):
+    m = Match.create("adj")
+    checked = gamemod.check_orders(m.load(), "FRANCE", ["A PAR - BEL", "F BRE H"])
+    assert checked.refused == ["A PAR - BEL — not a legal order: PAR does not border BEL"]
+    m.submit("FRANCE", ["F BRE H"], partial=True, refused=checked.refused)
+    m.advance(force=True)
+    told = board.render(m, "FRANCE").split("## How your last orders went")[1]
+    assert "All 1 of your S1901M orders succeeded." in told
+    assert "could not be used" in told and "PAR does not border BEL" in told
 
 
 def test_cli_refuses_orders_written_for_a_phase_that_resolved(games, capsys):
