@@ -226,7 +226,7 @@ def test_every_listed_line_and_example_is_a_legal_order(games, power):
     m = Match.create(f"l{power}")
     game = m.load()
     lines = _listed_orders(board.render(m, power))
-    assert lines and check_orders(game, power, lines).ok
+    assert lines and all(check_orders(game, power, [l]).ok for l in lines)
     examples = board.example_orders(game, power)
     assert len(examples) == 3 and check_orders(game, power, examples).ok
     assert examples[0] in run.orders_format(m, power)

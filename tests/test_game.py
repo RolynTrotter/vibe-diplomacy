@@ -159,3 +159,16 @@ def test_history_says_how_a_phase_resolved(match):
     submit_all(match)
     assert match.history("S1901M")["resolved"] == "everyone in"
     assert match.advance(force=True)["resolved"] == "forced"
+
+
+def test_one_order_per_unit_and_a_pasted_list_holds(match):
+    game = match.load()
+    pasted = ["A PAR - BUR", "A PAR - PIC", "A PAR - GAS", "A PAR H", "F BRE - MAO"]
+    checked = check_orders(game, "FRANCE", pasted)
+    assert checked.accepted == ["F BRE - MAO"]             # PAR is not guessed at
+    assert "4 different orders for PAR" in checked.errors[0] and "holds" in checked.errors[0]
+    same = check_orders(game, "FRANCE", ["A PAR - BUR", "a par-bur"])
+    assert same.ok and same.accepted == ["A PAR - BUR"]   # a repeat is not a conflict
+    r = match.submit("FRANCE", pasted, partial=True)
+    pending = json.loads((match.path / "pending" / "FRANCE.json").read_text())
+    assert pending["orders"] == ["F BRE - MAO"]

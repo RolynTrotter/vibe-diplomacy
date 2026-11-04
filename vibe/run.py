@@ -430,7 +430,9 @@ class Runner:
                 break
             problem = ("\n".join(f"- {e}" for e in checked.errors) if checked.errors
                        else "- no orders found: put them in one fenced code block")
-            note = f"retry: {problem.splitlines()[0][2:]}"
+            more = len(checked.errors) - 1
+            note = (f"retry: {problem.splitlines()[0][2:]}"
+                    + (f" (+{more} more)" if more > 0 else ""))
             units = ", ".join(game.powers[power].units) or "none"
             examples = "\n".join(boardmod.example_orders(game, power))
             prompt = (f"{self._prompt(power, 'orders')}\n\nYour last reply could not "

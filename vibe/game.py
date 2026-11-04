@@ -70,16 +70,26 @@ class Checked:
 
 
 def check_orders(game: Game, power: str, orders: list[str]) -> Checked:
-    """Accepted canonical orders, and one readable error per rejected one."""
+    """Accepted canonical orders, and one readable error per rejected one.
+
+    One order per unit. A unit given two different orders is not guessed at
+    (a model that pastes the whole list of legal moves names every one of
+    them): it holds, and the error says so. Repeating the same order is fine.
+    """
     legal = legal_orders(game, power)
     canon = {normalize(o): o for opts in legal.values() for o in opts}
     out = Checked()
+    per_unit: dict[str, list[str]] = {}
     for raw in orders:
         if not raw.strip():
             continue
         norm = normalize(raw)
         if norm in canon:
-            out.accepted.append(canon[norm])
+            order = canon[norm]
+            parts = order.split()
+            key = parts[1].split("/")[0] if parts[0] in ("A", "F") else order
+            if order not in per_unit.setdefault(key, []):
+                per_unit[key].append(order)
             continue
         parts = norm.split()
         loc = (parts[1] if len(parts) > 1 and parts[0] in ("A", "F")
@@ -91,6 +101,13 @@ def check_orders(game: Game, power: str, orders: list[str]) -> Checked:
         else:
             out.errors.append(f"{raw!r}: you have nothing to order at {loc} this "
                               f"phase. You can order: {', '.join(sorted(legal)) or 'nothing'}")
+    for loc, given in per_unit.items():
+        if len(given) == 1:
+            out.accepted.append(given[0])
+            continue
+        shown = given if len(given) <= 4 else given[:4] + ["..."]
+        out.errors.append(f"{len(given)} different orders for {loc} ({', '.join(shown)}); "
+                          f"it holds. Give exactly one order per unit")
     return out
 
 
