@@ -5,6 +5,7 @@ import pytest
 
 from vibe import board, cli, game as gamemod, mapviz, run
 from vibe.game import Match
+from vibe.game import normalize
 from vibe.run import Runner, Seat, call_openai, parse_reply
 
 
@@ -94,6 +95,21 @@ def test_parse_reply_takes_last_fenced_block_and_routes_lines():
 def test_parse_reply_bare_lines_and_think_only():
     assert parse_reply("I'll go\nA PAR - BUR\nF BRE H").orders == ["A PAR - BUR", "F BRE H"]
     assert parse_reply("<think>```\nA PAR - BUR\n```</think>").orders == ["A PAR - BUR"]
+
+
+def test_fences_on_the_same_line_unclosed_or_after_drafts():
+    assert parse_reply("Plan: A BUD - GAL maybe\n```A BUD - SER\nF TRI H```").orders == [
+        "A BUD - SER", "F TRI H"]
+    assert parse_reply("A VIE - TYR is tempting\n```text\nA VIE - GAL\n```").orders == [
+        "A VIE - GAL"]
+    cut = "draft:\n```\nA PAR - PIC\n```\nbetter:\n```\nA PAR - BUR\nF BRE"
+    assert parse_reply(cut).orders == ["A PAR - BUR", "F BRE"]
+    assert parse_reply("```\nTO ENGLAND: hi\n```\nA PAR H").orders == ["A PAR H"]
+
+
+def test_a_unit_written_as_a_label_still_reads():
+    assert normalize("F LON: F LON - NTH") == normalize("F LON: - NTH") == "F LON - NTH"
+    assert normalize("F LON: H") == "F LON H" and normalize("A PAR - BUR,") == "A PAR - BUR"
 
 
 def test_reasoning_only_reply_is_used():
@@ -271,10 +287,9 @@ def test_every_listed_line_and_example_is_a_legal_order(games, power):
     game = m.load()
     lines = _listed_orders(board.render(m, power))
     assert lines and all(check_orders(game, power, [l]).ok for l in lines)
-    examples = board.example_orders(game, power)
-    assert len(examples) == 3 and check_orders(game, power, examples).ok
-    assert examples[0] in run.orders_format(m, power)
-    assert "A PAR - BUR" not in run.orders_format(m, power) or power == "FRANCE"
+    fmt = run.orders_format(m, power)
+    assert "```" not in fmt and not parse_reply(fmt).orders   # nothing to echo back
+    assert all(u in fmt for u in game.powers[power].units)
 
 
 def test_annotated_and_arrow_lines_still_parse(games):
@@ -282,7 +297,7 @@ def test_annotated_and_arrow_lines_still_parse(games):
     assert m.submit("GERMANY", ["A MUN - BUR   # GERMANY A is there", "A BER → KIE"]).ok
 
 
-def test_finishing_call_restates_errors_units_and_own_examples(games, monkeypatch):
+def test_finishing_call_restates_errors_and_units(games, monkeypatch):
     m = Match.create("rr")
     seats = {p: Seat("fake") for p in gamemod.POWERS}
     seats["ITALY"] = Seat("openai", "m", "http://x/v1")
@@ -297,7 +312,7 @@ def test_finishing_call_restates_errors_units_and_own_examples(games, monkeypatc
     tail = prompts[1].split("Your reply so far:")[1]
     assert "could not be used" in tail and "nothing to order at PAR" in tail
     assert "Your units: F NAP, A ROM, A VEN" in tail
-    assert "A PAR - BUR" not in tail.split("for example:")[1]
+    assert "```" not in tail.split(">>>")[1]                 # no example to copy
     assert m.history("S1901M")["orders"]["ITALY"] == ["A VEN H"]
     told = board.render(m, "ITALY").split("## How your last orders went")[1]
     assert "A PAR - BUR — you had nothing to order at PAR" in told

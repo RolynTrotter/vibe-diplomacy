@@ -301,14 +301,30 @@ def parse_reply(text: str) -> Reply:
         elif all(t in POWERS or t == ALL for t in targets):
             out.mail.append((targets, body))
 
-    blocks = re.findall(r"```[a-zA-Z]*\n(.*?)```", answer, re.S)
-    source = blocks[-1] if blocks else answer
-    for line in source.splitlines():
+    # Fenced pieces are the odd ones between ``` marks. An unclosed last
+    # fence (a reply cut off mid-block) still counts, and so does an order on
+    # the fence line itself ("```A BUD - SER"). The last piece with an order
+    # in it wins; loose lines are scraped only if no fence holds any, since
+    # scraping a long reasoning reply picks up fragments of every draft.
+    pieces = answer.split("```")[1::2]
+    if len(answer.split("```")) % 2 == 0:
+        pieces.append(answer.split("```")[-1])
+    for source in [*reversed(pieces), answer]:
+        found = _order_lines(re.sub(r"^[a-zA-Z]+\n", "", source))
+        if found:
+            out.orders = found
+            break
+    return out
+
+
+def _order_lines(text: str) -> list[str]:
+    orders = []
+    for line in text.splitlines():
         line = line.split("#")[0].strip().strip("`*-• ").strip()
         line = re.sub(r"^\d+[.)]\s*", "", line)
         if _ORDER.match(line) and not _TO.match(line):
-            out.orders.append(line)
-    return out
+            orders.append(line)
+    return orders
 
 
 # --------------------------------------------------------------------------- #
@@ -324,14 +340,17 @@ def system_prompt(match: Match, power: str) -> str:
 
 
 def orders_format(match: Match, power: str) -> str:
-    examples = "\n".join(boardmod.example_orders(match.load(), power)) or "A <at> H"
+    # No example orders. Any example that is a legal order gets submitted as
+    # the seat's real orders (gunboat2: 8 phases were the example verbatim),
+    # and one that isn't comes back as an illegal order. The list above is
+    # the menu; the forms under it cover supports and convoys.
+    units = ", ".join(match.load().powers[power].units) or "none"
     return (
-        "Reply with your orders for this phase in ONE fenced code block, one "
-        "order per line, written exactly like the orders listed above. This "
-        "shows the format only; choose your own moves:\n"
-        f"```\n{examples}\n```\nThink first if you like; only the last "
-        "code block counts. Optionally add lines `TO SELF: <note>` to remember "
-        "plans for later turns.")
+        f"Reply with your orders for this phase in ONE fenced code block: one "
+        f"line per unit ({units}), each either copied from that unit's list "
+        "above or a support or convoy written in the order forms. Think first "
+        "if you like; only the last code block counts. Optionally add lines "
+        "`TO SELF: <note>` to remember plans for later turns.")
 
 
 MAIL_FORMAT = (
@@ -461,12 +480,11 @@ class Runner:
         else:
             why = "It had no orders in a fenced code block."
         units = ", ".join(game.powers[power].units) or "none"
-        examples = "\n".join(boardmod.example_orders(game, power))
         return (f"{prompt}\n\n---\n\nYour reply so far:\n\n<<<\n{quoted}\n>>>\n\n"
                 f"{why}\n\nYou are {power}. Your units: {units}. Based on your reasoning "
-                "above, write only your final orders: one per unit, each exactly like "
-                f"a line from the list above, for example:\n```\n{examples}\n```\n"
-                "Reply with just that one fenced code block. Messages were already sent.")
+                "above, write only your final orders: one per unit, each copied from "
+                "that unit's list above or written in the order forms. Reply with just "
+                "that one fenced code block. Messages were already sent.")
 
     def orders(self, power: str, phase: str) -> None:
         start = time.monotonic()

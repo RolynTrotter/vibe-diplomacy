@@ -25,6 +25,8 @@ RULES = (
     "- A support only counts if the supported unit makes exactly that move; it "
     "is cut if the supporter is attacked (except from where it is supporting "
     "into).\n"
+    "- A neutral centre has no defender: move a unit in and still be there "
+    "after a Fall turn, and it is yours.\n"
     "- 18 centres wins outright."
 )
 
@@ -119,37 +121,6 @@ def _digest(game: Game) -> str:
     return "\n".join(f"- {y}: " + "; ".join(v) for y, v in sorted(years.items()))
 
 
-def example_orders(game: Game, power: str, n: int = 3) -> list[str]:
-    """A few legal orders for `power` right now that also fit together.
-
-    Built from the seat's own units, so an example copied as-is is still a
-    real order (a fixed "A PAR - BUR" is one only for France): a move into an
-    empty province, a hold, and a support of that same move where possible.
-    """
-    possible = game.get_all_possible_orders()
-    opts = [sorted(possible.get(loc) or []) for loc in game.get_orderable_locations(power)]
-    opts = [o for o in opts if o]
-    if game.phase_type != "M":
-        return [o[0] for o in opts[:n]]
-    occupied = _units_by_prov(game)
-    picks: list[str] = []
-    for unit_opts in opts:
-        if len(picks) == n:
-            break
-        if not picks:
-            moves = [o for o in unit_opts if " - " in o and " S " not in o and " C " not in o
-                     and "VIA" not in o and _base(o.split(" - ")[1]) not in occupied]
-            picks.append(moves[0] if moves else unit_opts[0])
-        elif len(picks) == 1:
-            picks.append(next((o for o in unit_opts if o.endswith(" H")), unit_opts[0]))
-        else:
-            first = picks[0]
-            support = next((o for o in unit_opts if o.endswith(" S " + first)), None)
-            picks.append(support or next((o for o in unit_opts if o.endswith(" H")),
-                                         unit_opts[0]))
-    return picks
-
-
 def _orders_section(game: Game, power: str) -> str:
     """Every move each unit can make, written as the order itself, one per line.
 
@@ -221,7 +192,8 @@ def _surroundings(game: Game, power: str) -> str:
     targets = sorted((h, p) for p, h in seen.items()
                      if p in game.map.scs and p not in me.centers)[:10]
     if targets:
-        out.append("Centres you don't own, nearest first (moves away): " + ", ".join(
+        out.append("Supply centres you don't own, nearest first, with the owner and "
+                   "how many moves your nearest unit or centre is from it: " + ", ".join(
             f"{p} ({owners.get(p, 'neutral')}, {h})" for h, p in targets))
     return "\n".join(out)
 

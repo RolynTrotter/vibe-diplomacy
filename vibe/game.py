@@ -42,7 +42,11 @@ ALL = "ALL"
 # --------------------------------------------------------------------------- #
 def normalize(order: str) -> str:
     """'a par-bur' -> 'A PAR - BUR', so any spacing/case compares equal."""
-    text = order.split("#")[0].upper().strip().rstrip(".")
+    text = order.split("#")[0].upper().strip().rstrip(".,;")
+    # "F LON: F LON - NTH" / "F LON: H" — a unit written as a label
+    label = re.match(r"^([AF]\s+[A-Z/]+)\s*:\s*(.*)$", text)
+    if label:
+        text = label[2] if re.match(r"^[AF]\s", label[2]) else f"{label[1]} {label[2]}"
     text = text.replace("→", "-").replace("->", "-")
     text = text.replace("-", " - ")
     return re.sub(r"\s+", " ", text)
