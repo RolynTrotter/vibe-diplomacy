@@ -19,7 +19,11 @@ to "no picture" with a readable reason rather than breaking a turn.
 """
 from __future__ import annotations
 
+import functools
+import os
 import re
+import shutil
+import subprocess
 from pathlib import Path
 
 from diplomacy import Game
@@ -39,8 +43,40 @@ _LABEL_LAYER_RE = re.compile(
     r'<g class="labeltext24" id="BriefLabelLayer">(.*?)</g>', re.S)
 
 
+@functools.cache
+def _cairo_libdir() -> str:
+    """Where the installed libcairo is, asked of the tools that installed it.
+
+    Homebrew on Apple Silicon (/opt/homebrew/lib) and MacPorts install where
+    the macOS loader doesn't look; pkg-config, or Homebrew itself, knows.
+    """
+    for cmd in (["pkg-config", "--variable=libdir", "cairo"], ["brew", "--prefix", "cairo"]):
+        if not shutil.which(cmd[0]):
+            continue
+        try:
+            out = subprocess.run(cmd, capture_output=True, text=True, timeout=20).stdout.strip()
+        except (OSError, subprocess.TimeoutExpired):
+            continue
+        libdir = out if cmd[0] == "pkg-config" else f"{out}/lib"
+        if out and Path(libdir).is_dir():
+            return libdir
+    return ""
+
+
+def _find_cairo() -> None:
+    # cairocffi locates the library through ctypes, which reads this variable
+    # when it looks, so setting it before the import is enough.
+    libdir = _cairo_libdir()
+    paths = [p for p in os.environ.get("DYLD_FALLBACK_LIBRARY_PATH", "").split(":") if p]
+    if libdir and libdir not in paths:
+        os.environ["DYLD_FALLBACK_LIBRARY_PATH"] = ":".join(
+            paths + [libdir] + ([] if paths else ["/usr/local/lib", "/usr/lib"]))
+
+
 def available() -> tuple[bool, str]:
     """(can we render PNGs, why not) — cairosvg needs a system libcairo."""
+    if os.uname().sysname == "Darwin":
+        _find_cairo()
     try:
         import cairosvg  # noqa: F401
     except Exception as exc:   # ImportError, or OSError when libcairo is absent

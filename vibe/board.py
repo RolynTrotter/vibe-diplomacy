@@ -7,6 +7,8 @@ All geometry comes from the engine, so none of it can drift from the rules.
 """
 from __future__ import annotations
 
+import re
+
 from diplomacy import Game
 
 from vibe.game import ALL, POWERS, Match
@@ -32,6 +34,11 @@ RULES = (
 
 def _base(prov: str) -> str:
     return prov.upper().split("/")[0]
+
+
+def _no_coast(order: str) -> str:
+    """A support names the destination without its coast: S F BLA - BUL."""
+    return re.sub(r"/[A-Z]{2}\b", "", order)
 
 
 def _units_by_prov(game: Game) -> dict[str, tuple[str, str]]:
@@ -63,18 +70,29 @@ def _standings(game: Game, power: str) -> str:
 
 
 def _last_phase(match: Match, game: Game) -> str:
-    phases = list(game.order_history.keys())
+    """The last movement phase in full, then any retreats or builds since.
+
+    After a winter the builds alone say little; the moves before them are
+    the only sign of what anyone intends.
+    """
+    phases = [str(k) for k in game.order_history.keys()]
     if not phases:
         return "_(nothing yet — this is the opening.)_"
-    hist = match.history(str(phases[-1])) or {}
-    lines = [f"_{phases[-1]}:_"]
-    for p, orders in sorted((hist.get("orders") or {}).items()):
-        if orders:
-            lines.append(f"- {p}: {', '.join(orders)}")
-    results = hist.get("results") or {}
-    if results:
-        lines.append("Results: " + "; ".join(f"{u} {', '.join(r)}"
-                                              for u, r in sorted(results.items())))
+    moves = [i for i, ph in enumerate(phases) if ph.endswith("M")]
+    start = moves[-1] if moves else len(phases) - 1
+    lines = []
+    for ph in phases[start:]:
+        hist = match.history(ph) or {}
+        orders = sorted((p, o) for p, o in (hist.get("orders") or {}).items() if o)
+        if ph == phases[start]:
+            lines.append(f"_{ph}:_")
+            lines += [f"- {p}: {', '.join(o)}" for p, o in orders]
+            results = hist.get("results") or {}
+            if results:
+                lines.append("Results: " + "; ".join(f"{u} {', '.join(r)}"
+                                                      for u, r in sorted(results.items())))
+        elif orders:
+            lines.append(f"_Then {ph}:_ " + "; ".join(f"{p} {', '.join(o)}" for p, o in orders))
     return "\n".join(lines)
 
 
@@ -143,25 +161,44 @@ def _orders_section(game: Game, power: str) -> str:
     if not locs:
         return "You have nothing to order this phase — just wait."
     occupied = _units_by_prov(game)
+    owners = {c: p for p, pw in game.powers.items() for c in pw.centers}
 
     def note(order: str) -> str:
+        """`# TURKEY centre, TURKEY A there`: what is in the destination."""
         if " - " not in order:
             return order
-        hit = occupied.get(_base(order.split(" - ")[1].replace(" VIA", "")))
-        if not hit:
-            return order
-        return f"{order}   # {'your' if hit[0] == power else hit[0]} {hit[1].split()[0]} is there"
+        dest = _base(order.split(" - ")[1].replace(" VIA", ""))
+        what = []
+        if dest in game.map.scs:
+            owner = owners.get(dest)
+            what.append("your centre" if owner == power else
+                        f"{owner} centre" if owner else "neutral centre")
+        hit = occupied.get(dest)
+        what.append(f"{'your' if hit[0] == power else hit[0]} {hit[1].split()[0]} there"
+                    if hit else "empty")
+        return f"{order}   # {', '.join(what)}"
 
     lines = []
     if game.phase_type == "M":
+        # Supports a unit could give each of your own moves, nested under the
+        # move: "A BUD S A SER - BUL" goes under "A SER - BUL".
+        backing: dict[str, list[str]] = {}
+        for loc in locs:
+            for o in possible.get(loc) or []:
+                if " S " in o and " - " in o:
+                    backing.setdefault(_no_coast(o.split(" S ", 1)[1]), []).append(o)
         for loc in locs:
             opts = possible.get(loc) or []
             moves = sorted(o for o in opts if (" - " in o and " S " not in o
                                                and " C " not in o) or o.endswith(" H"))
-            lines += [note(o) for o in moves] + [""]
-        return ("Each line below is a complete legal order (moves and holds; "
-                "supports and convoys are also allowed — see the forms below the list). "
-                "Pick one per unit:\n" + "\n".join(lines).rstrip())
+            for o in moves:
+                lines.append(note(o))
+                lines += [f"    {b}" for b in sorted(backing.get(_no_coast(o), []))]
+            lines.append("")
+        return ("Each line below is a complete legal order. After # is what is in the "
+                "destination. Indented under a move are the supports your other units "
+                "could give it; supports of holds and convoys use the forms below the "
+                "list. Pick one order per unit:\n" + "\n".join(lines).rstrip())
 
     for loc in locs:
         lines += sorted(possible.get(loc) or []) + [""]
@@ -173,45 +210,6 @@ def _orders_section(game: Game, power: str) -> str:
     return (f"Adjustments: you {what}. Each line is a complete order:\n"
             + "\n".join(lines).rstrip()
             + ("\nSubmit nothing to waive builds." if n > 0 else ""))
-
-
-def _surroundings(game: Game, power: str) -> str:
-    """Who you border, and the centres you don't own within three moves."""
-    me = game.powers[power]
-    ground = {_base(u.split()[1]) for u in me.units} | {_base(c) for c in me.centers}
-    if not ground:
-        return ""
-    threats = []
-    for name, other in sorted(game.powers.items()):
-        if name == power:
-            continue
-        for unit in other.units:
-            kind, loc = unit.split()
-            into = sorted({_base(n) for n in game.map.abut_list(loc, True)
-                           if game.map.abuts(kind, loc, "-", n.upper())} & ground)
-            if into:
-                threats.append(f"{name} {unit} ({', '.join(into)})")
-    out = ["Foreign units next to you, with which of your provinces each could "
-           "enter: " + ("; ".join(threats) or "none")]
-
-    # Counted along each unit's own legal moves: a fleet on STP's south coast
-    # is not one move from Norway, though the province borders it.
-    seen: dict[str, int] = {}
-    for unit in me.units:
-        kind, loc = unit.split()
-        reached, frontier = {loc}, {loc}
-        for hop in (1, 2, 3):
-            frontier = {n.upper() for at in frontier for n in game.map.abut_list(at, True)
-                        if game.map.abuts(kind, at, "-", n.upper())} - reached
-            reached |= frontier
-            for n in frontier:
-                seen[_base(n)] = min(seen.get(_base(n), hop), hop)
-    targets = sorted((h, p) for p, h in seen.items()
-                     if p in game.map.scs and p not in me.centers)[:10]
-    if targets:
-        out.append("Nearest centres you don't own, with how many moves your nearest "
-                   "unit needs: " + ", ".join(f"{p} {h}" for h, p in targets))
-    return "\n".join(out)
 
 
 def _inbox(match: Match, power: str, limit: int = 40) -> str:
@@ -230,7 +228,7 @@ def _inbox(match: Match, power: str, limit: int = 40) -> str:
 
 
 def render(match: Match, power: str, *, inbox: bool = False,
-           notes: bool = False, picture: str | None = None) -> str:
+           picture: str | None = None) -> str:
     """The board for `power` this phase, as markdown."""
     game = match.load()
     phase = game.get_current_phase()
@@ -256,12 +254,9 @@ def render(match: Match, power: str, *, inbox: bool = False,
         "", "## Your orders this phase", _orders_section(game, power), "", SYNTAX,
         "", f"## Supply centres ({len(game.map.scs)}; 18 wins)", _standings(game, power),
     ]
-    surroundings = _surroundings(game, power)
-    if surroundings:
-        out += ["", "## Around you", surroundings]
     out += ["", "## Everyone's units"] + [
         f"- {p}: {', '.join(game.powers[p].units) or 'none'}" for p in POWERS]
-    out += ["", "## Last phase", _last_phase(match, game)]
+    out += ["", "## Last moves", _last_phase(match, game)]
     mine = _my_outcomes(match, game, power)
     if mine:
         out += ["", "## How your last orders went", mine]
@@ -270,8 +265,6 @@ def render(match: Match, power: str, *, inbox: bool = False,
         out += ["", "## Centre changes by year", digest]
     if inbox and match.full_press:
         out += ["", "## Messages", _inbox(match, power)]
-    if notes:
-        out += ["", "## Your notes", match.notes(power).strip() or "_(none yet)_"]
     if picture:
         out += ["", f"A picture of the board is at {picture}"]
     out += ["", "## Rules", RULES]

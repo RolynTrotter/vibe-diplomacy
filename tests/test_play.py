@@ -43,7 +43,7 @@ def test_board_shows_legal_moves_and_outcomes(games):
     m.submit("GERMANY", ["A MUN - BUR"])
     m.advance(force=True)
     text = board.render(m, "FRANCE")
-    assert "\nA PAR - BUR\n" in text and "\nA PAR H\n" in text
+    assert "\nA PAR - BUR   # empty\n" in text and "\nA PAR H\n" in text
     assert "A PAR - BUR → bounced" in text
     assert "GERMANY: A MUN - BUR" in text
 
@@ -86,11 +86,9 @@ def test_bad_token_is_a_clean_error(games, capsys):
 def test_parse_reply_takes_last_fenced_block_and_routes_lines():
     r = parse_reply("<think>maybe A PAR - PIC</think>\n"
                     "TO ENGLAND: DMZ the channel?\n**TO GERMANY, ITALY:** hello\n"
-                    "TO SELF: watch Germany\n"
                     "```\nA PAR - GAS\n```\nfinal:\n```\n1. A PAR - BUR\n- F BRE - MAO  # go\n```")
     assert r.orders == ["A PAR - BUR", "F BRE - MAO"]
     assert r.mail == [(["ENGLAND"], "DMZ the channel?"), (["GERMANY", "ITALY"], "hello")]
-    assert r.notes == ["watch Germany"]
 
 
 def test_parse_reply_bare_lines_and_think_only():
@@ -362,14 +360,13 @@ def test_board_lists_every_supply_centre_by_owner(games):
     assert sum(len(r.split(" — ")[1].split(", ")) for r in rows) == 34
 
 
-def test_around_you_counts_each_units_real_moves(games):
-    m = Match.create("near")
-    game = m.load()
-    russia = board._surroundings(game, "RUSSIA")
-    assert "RUM 1" in russia and "NWY 2" in russia and "NWY 1" not in russia   # F STP/SC
-    assert "AUSTRIA F TRI (VEN)" in board._surroundings(game, "ITALY")
-    assert board._surroundings(game, "GERMANY").splitlines()[0].endswith("enter: none")
-
+def test_moves_say_what_is_there_and_which_of_your_units_can_support_them(games):
+    text = board.render(Match.create("near"), "AUSTRIA")
+    assert "\nA BUD - GAL   # empty\n    A VIE S A BUD - GAL\n" in text
+    assert "\nF TRI - VEN   # ITALY centre, ITALY A there\n" in text
+    assert "\nA VIE - TRI   # your centre, your F there\n" in text
+    assert "## Around you" not in text
+    assert board._no_coast("F BLA - BUL/EC") == "F BLA - BUL"
 
 def test_claude_seats_report_real_tokens(monkeypatch):
     out = json.dumps({"result": "```\nA PAR H\n```", "stop_reason": "max_tokens",
@@ -412,3 +409,16 @@ def test_unfenced_reasoning_keeps_each_units_last_mention():
     assert parse_reply(thinking).orders == ["F EDI - CLY", "F LON - ENG", "A LVP - WAL"]
     fenced = "```\nF EDI - NTH\nF EDI - CLY\n```"
     assert parse_reply(fenced).orders == ["F EDI - NTH", "F EDI - CLY"]   # still a conflict
+
+
+def test_after_a_winter_the_board_still_shows_the_last_moves(games):
+    m = Match.create("moves")
+    for orders in (["A MAR - SPA"], ["A SPA H"], ["A MAR B"]):
+        for p in m.owing(m.load()):
+            if p != "FRANCE":
+                m.submit(p, [])
+        m.submit("FRANCE", orders)
+    assert m.phase() == "S1902M"
+    last = board.render(m, "GERMANY").split("## Last moves\n")[1].split("\n\n")[0]
+    assert last.startswith("_F1901M:_\n- FRANCE: A SPA H")
+    assert "_Then W1901A:_ FRANCE A MAR B" in last

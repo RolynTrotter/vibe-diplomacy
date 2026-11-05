@@ -60,12 +60,11 @@ needs a server, GitHub, keys or a paid API.
 ## Model seats
 
 `./dip run` makes one stateless call per decision. The prompt is the seat's
-board, its inbox and its own notes, followed by what to write. The reply is
+board and its inbox, followed by what to write. The reply is
 free text:
 
 ```
 TO ENGLAND: Channel DMZ this year?
-TO SELF: Germany is massing on Burgundy
 ```
 ...followed by the orders in a fenced code block. A reply with no usable orders
 (cut off at `--max-tokens`, no orders block, or illegal orders) is finished
@@ -91,7 +90,7 @@ shows. To have an agent host a match, point it at the `run-a-match` skill.
 ```
 dip, setup.sh   the one entry point; builds .venv on first use
 vibe/
-  game.py       a match on disk: seats, orders, adjudication, mail, notes
+  game.py       a match on disk: seats, orders, adjudication, mail
   board.py      the board as one power sees it (legal moves, outcomes, nearby centres)
   cli.py        ./dip: player commands and host commands, plus the seat brief
   run.py        model seats: OpenAI-compatible / claude CLI / fake, in parallel
@@ -107,8 +106,7 @@ Each seat acts only through its own token, and nothing a seat is shown mentions
 another seat's files, so orders stay hidden by not being pointed at. This keeps
 honest players honest. It does not stop a hostile one: an agent with shell
 access that goes digging could find `games/<name>/pending/`. A match's orders
-and results are written to `history/` after each phase. Messages and notes
-appear in the viewer only once the game is over.
+and results are written to `history/` after each phase. Messages appear in the viewer only once the game is over.
 
 The map and rendering come from the `diplomacy` package, which is
 **AGPL-3.0+**. See [NOTICE.md](NOTICE.md).

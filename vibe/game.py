@@ -7,7 +7,7 @@ Each match is one directory, `games/<name>/` (gitignored):
     pending/<POWER>.json this phase's orders, until it resolves     (host only)
     history/<phase>.json what was ordered and what happened, once resolved
     mail.jsonl           every message, revealed to the site when the game ends
-    notes/<POWER>.md     a model seat's own notebook
+    notes/<POWER>.md     a seat's notebook (older matches; shown in the viewer)
     briefs/<POWER>.md    the one page a seat is handed
 
 Order secrecy is by not telling: a seat acts through its token, and nothing a
@@ -412,17 +412,7 @@ class Match:
         return [m for m in self.messages()
                 if m["sender"] == power or power in m["to"] or ALL in m["to"]]
 
-    # -- notes (model seats keep a notebook between stateless calls) ---------- #
+    # -- notes: older matches' seat notebooks, shown in the replay viewer ------ #
     def notes(self, power: str) -> str:
         f = self.path / "notes" / f"{power}.md"
         return f.read_text() if f.exists() else ""
-
-    def add_notes(self, power: str, lines: list[str], keep: int = 20) -> None:
-        if not lines:
-            return
-        f = self.path / "notes" / f"{power}.md"
-        f.parent.mkdir(exist_ok=True)
-        phase = self.phase()
-        old = [l for l in self.notes(power).splitlines() if l.strip()]
-        new = old + [f"[{phase}] {l}" for l in lines]
-        _write(f, "\n".join(new[-keep:]) + "\n")

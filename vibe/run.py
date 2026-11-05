@@ -1,7 +1,7 @@
 """`./dip run` — play some or all seats of a match with models.
 
 Each model seat is one stateless call per decision: the prompt is the seat's
-board (plus inbox and its own notes), the reply is free text that we parse.
+board (plus its inbox), the reply is free text that we parse.
 A seat makes no tool calls and sees no part of this harness. Seats marked
 `agent` are left alone: an outside agent plays them through `./dip submit`,
 and the phase resolves once they are in, so the two kinds mix freely.
@@ -287,7 +287,7 @@ def fake_reply(match: Match, power: str, rng: random.Random) -> str:
                 used.add(loc)
     else:
         orders = [rng.choice(sorted(possible[loc])) for loc in locs if possible.get(loc)]
-    return "TO SELF: playing at random\n```\n" + "\n".join(orders) + "\n```"
+    return "```\n" + "\n".join(orders) + "\n```"
 
 
 # --------------------------------------------------------------------------- #
@@ -307,7 +307,6 @@ _ORDER = re.compile(rf"^(?:{_U} (?:H|- {_P}(?: VIA)?|S {_U}(?: - {_P}| H)?|C {_U
 class Reply:
     orders: list[str] = field(default_factory=list)
     mail: list[tuple[list[str], str]] = field(default_factory=list)
-    notes: list[str] = field(default_factory=list)
 
 
 def parse_reply(text: str) -> Reply:
@@ -323,9 +322,7 @@ def parse_reply(text: str) -> Reply:
             continue
         targets = [t for t in re.split(r"[,\s]+", m.group(1).upper()) if t]
         body = m.group(2).strip().lstrip("*_` ").strip()
-        if targets == ["SELF"]:
-            out.notes.append(body)
-        elif all(t in POWERS or t == ALL for t in targets):
+        if all(t in POWERS or t == ALL for t in targets):
             out.mail.append((targets, body))
 
     # Fenced pieces are the odd ones between ``` marks. An unclosed last
@@ -385,8 +382,7 @@ def orders_format(match: Match, power: str) -> str:
         f"Reply with your orders for this phase in ONE fenced code block: one "
         f"line per unit ({units}), each either copied from that unit's list "
         "above or a support or convoy written in the order forms. Think first "
-        "if you like; only the last code block counts. Optionally add lines "
-        "`TO SELF: <note>` to remember plans for later turns.")
+        "if you like; only the last code block counts.")
 
 
 MAIL_FORMAT = (
@@ -397,8 +393,7 @@ MAIL_FORMAT = (
 def task(kind: str, orders: str = "", round_no: int = 0, rounds: int = 0) -> str:
     if kind == "talk":
         return (f"Negotiation round {round_no} of {rounds}. Orders come after the "
-                f"last round. {MAIL_FORMAT} You may also write `TO SELF: <note>` "
-                "lines. Do not write orders yet.")
+                f"last round. {MAIL_FORMAT} Do not write orders yet.")
     if kind == "final":
         return f"{FINAL_ROUND_NOTE} You may send last messages first. {MAIL_FORMAT}\n\n{orders}"
     return orders
@@ -465,7 +460,7 @@ class Runner:
         return Answer.of("")
 
     def _prompt(self, power: str, kind: str, **kw) -> str:
-        board = boardmod.render(self.match, power, inbox=True, notes=True)
+        board = boardmod.render(self.match, power, inbox=True)
         return f"{board}\n\n---\n\n{task(kind, orders_format(self.match, power), **kw)}"
 
     def _record(self, power: str, phase: str, kind: str, data: dict) -> None:
@@ -474,7 +469,6 @@ class Runner:
         (d / f"{power}-{kind}.json").write_text(json.dumps(data, indent=2))
 
     def _deliver(self, power: str, reply: Reply) -> int:
-        self.match.add_notes(power, reply.notes)
         sent = 0
         if self.match.full_press:
             for to, body in reply.mail[:10]:
@@ -547,7 +541,6 @@ class Runner:
                 self._tally(again)
                 replies.append(again)
                 reply = parse_reply(again)
-                self.match.add_notes(power, reply.notes)
                 retried = check_orders(game, power, reply.orders)
                 why = ("illegal orders" if checked.errors and reply.orders
                        else "cut off" if answer.cut_off else "no orders block")
