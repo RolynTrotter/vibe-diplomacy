@@ -331,16 +331,19 @@ def parse_reply(text: str) -> Reply:
     # Fenced pieces are the odd ones between ``` marks. An unclosed last
     # fence (a reply cut off mid-block) still counts, and so does an order on
     # the fence line itself ("```A BUD - SER"). The last piece with an order
-    # in it wins; loose lines are scraped only if no fence holds any, since
-    # scraping a long reasoning reply picks up fragments of every draft.
+    # in it wins; loose lines are scraped only if no fence holds any.
     pieces = answer.split("```")[1::2]
     if len(answer.split("```")) % 2 == 0:
         pieces.append(answer.split("```")[-1])
-    for source in [*reversed(pieces), answer]:
+    for source in reversed(pieces):
         found = _order_lines(re.sub(r"^[a-zA-Z]+\n", "", source))
         if found:
             out.orders = found
-            break
+            return out
+    # No fenced orders: reasoning names many candidates for a unit before
+    # settling, so each unit's last mention is the one it settled on.
+    last = {_unit(normalize(o)): o for o in _order_lines(answer)}
+    out.orders = list(last.values())
     return out
 
 

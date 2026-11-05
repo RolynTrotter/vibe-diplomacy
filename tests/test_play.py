@@ -404,3 +404,11 @@ def test_units_the_finishing_call_leaves_out_keep_their_first_order(games, monke
     Runner(m, seats, seed=1, log=lambda *_: None).play(max_phases=1)
     assert sorted(m.history("S1901M")["orders"]["ENGLAND"]) == [
         "A LVP - YOR", "F EDI - NWG", "F LON - NTH"]
+
+
+def test_unfenced_reasoning_keeps_each_units_last_mention():
+    thinking = ("Maybe F EDI - NWG? Or:\nF EDI - NTH\nF LON - ENG\nA LVP - YOR\n"
+                "On reflection the order set:\nF EDI - CLY\nF LON - ENG\nA LVP - WAL\n")
+    assert parse_reply(thinking).orders == ["F EDI - CLY", "F LON - ENG", "A LVP - WAL"]
+    fenced = "```\nF EDI - NTH\nF EDI - CLY\n```"
+    assert parse_reply(fenced).orders == ["F EDI - NTH", "F EDI - CLY"]   # still a conflict
