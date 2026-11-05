@@ -172,3 +172,10 @@ def test_one_order_per_unit_and_a_pasted_list_holds(match):
     r = match.submit("FRANCE", pasted, partial=True)
     pending = json.loads((match.path / "pending" / "FRANCE.json").read_text())
     assert pending["orders"] == ["F BRE - MAO"]
+
+
+def test_two_builds_for_one_centre_take_the_last(match):
+    submit_all(match, {"FRANCE": ["A MAR - SPA"]})
+    submit_all(match, {"FRANCE": ["A SPA H"]})
+    checked = check_orders(match.load(), "FRANCE", ["A MAR B", "F MAR B"])
+    assert checked.ok and checked.accepted == ["F MAR B"]

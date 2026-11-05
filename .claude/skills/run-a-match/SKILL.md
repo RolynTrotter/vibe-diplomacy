@@ -74,6 +74,10 @@ why: `F1901M resolved (deadline) with 2 seat(s) missing, who held: ...`.
       runner: not running. Last lines of .../run.log:
         Game over: year cap 1910. Centres: FRANCE 9, ...
         Finishing calls: 12 (10 gave usable orders). Seats that held: 2 entirely, 1 partly.
+        Tokens over 154 order calls: 600,469 read, 258,500 written, $0.25.
+
+`~` before a written count means the server didn't report usage, so it is
+an estimate; the cost appears only when the seat's backend states one.
 
 Lines in `latest` (and in the log) that need no action, or one flag:
 

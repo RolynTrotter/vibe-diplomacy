@@ -1,5 +1,6 @@
 """What a seat sees and says: the brief, the board, the CLI, and model seats."""
 import json
+import subprocess
 
 import pytest
 
@@ -103,7 +104,7 @@ def test_fences_on_the_same_line_unclosed_or_after_drafts():
     assert parse_reply("A VIE - TYR is tempting\n```text\nA VIE - GAL\n```").orders == [
         "A VIE - GAL"]
     cut = "draft:\n```\nA PAR - PIC\n```\nbetter:\n```\nA PAR - BUR\nF BRE"
-    assert parse_reply(cut).orders == ["A PAR - BUR", "F BRE"]
+    assert parse_reply(cut).orders == ["A PAR - BUR"]        # half an order is not one
     assert parse_reply("```\nTO ENGLAND: hi\n```\nA PAR H").orders == ["A PAR H"]
 
 
@@ -368,3 +369,38 @@ def test_around_you_counts_each_units_real_moves(games):
     assert "RUM 1" in russia and "NWY 2" in russia and "NWY 1" not in russia   # F STP/SC
     assert "AUSTRIA F TRI (VEN)" in board._surroundings(game, "ITALY")
     assert board._surroundings(game, "GERMANY").splitlines()[0].endswith("enter: none")
+
+
+def test_claude_seats_report_real_tokens(monkeypatch):
+    out = json.dumps({"result": "```\nA PAR H\n```", "stop_reason": "max_tokens",
+                      "total_cost_usd": 0.01, "usage": {
+                          "input_tokens": 5, "cache_creation_input_tokens": 100,
+                          "cache_read_input_tokens": 900, "output_tokens": 40}})
+    monkeypatch.setattr(run.subprocess, "run", lambda *a, **k: subprocess.CompletedProcess(
+        a, 0, stdout=out, stderr=""))
+    a = run.call_claude(run.Seat("claude", "haiku"), "sys", "prompt", None, 100, 10)
+    assert a == "```\nA PAR H\n```" and a.cut_off
+    assert (a.read, a.tokens, a.usd, a.estimated) == (1005, 40, 0.01, False)
+
+
+def test_reasoning_lines_are_not_orders():
+    thinking = ("A TUS - VEN is legal? List: A TUS - PIE, A TUS - ROM\n"
+                "F KIE - BAL? Or F KIE - DEN? Or F KIE H?\n"
+                "F EDI: F EDI - CLY, F EDI - NTH, F EDI H\n"
+                "A MUN - BUR is in legal list? yes\n")
+    assert parse_reply(thinking).orders == []
+    assert parse_reply("```\nA MUN - BUR (to bounce)\nF KIE: F KIE - DEN\n"
+                       "A ROM S A NAP - APU\nF NAP C A ROM - TUN\n```").orders == [
+        "A MUN - BUR", "F KIE: F KIE - DEN", "A ROM S A NAP - APU", "F NAP C A ROM - TUN"]
+
+
+def test_units_the_finishing_call_leaves_out_keep_their_first_order(games, monkeypatch):
+    m = Match.create("merge")
+    seats = {p: Seat("fake") for p in gamemod.POWERS}
+    seats["ENGLAND"] = Seat("openai", "m", "http://x/v1")
+    replies = iter([run.Answer.of("```\nF LON - NTH\nF EDI - LON\nA LVP - YOR\n```"),
+                    run.Answer.of("```\nF EDI - NWG\n```")])
+    monkeypatch.setattr(run, "call_openai", lambda *a, **k: next(replies))
+    Runner(m, seats, seed=1, log=lambda *_: None).play(max_phases=1)
+    assert sorted(m.history("S1901M")["orders"]["ENGLAND"]) == [
+        "A LVP - YOR", "F EDI - NWG", "F LON - NTH"]

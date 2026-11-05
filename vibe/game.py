@@ -114,8 +114,10 @@ def check_orders(game: Game, power: str, orders: list[str]) -> Checked:
                               f"phase. You can order: {', '.join(sorted(legal)) or 'nothing'}")
             out.refused.append(f"{norm} — you had nothing to order at {loc}")
     for loc, given in per_unit.items():
-        if len(given) == 1:
-            out.accepted.append(given[0])
+        # Two builds offered for one centre ("A BER B", "F BER B"): the last
+        # one written is the choice. Any other unit with two orders holds.
+        if len(given) == 1 or all(o.endswith(" B") for o in given):
+            out.accepted.append(given[-1])
             continue
         shown = given if len(given) <= 4 else given[:4] + ["..."]
         out.errors.append(f"{len(given)} different orders for {loc} ({', '.join(shown)}); "

@@ -33,12 +33,12 @@ from dataclasses import dataclass, field
 
 from vibe import board as boardmod
 from vibe import mapviz
-from vibe.game import ALL, POWERS, ROOT, Checked, LateOrders, Match, check_orders
+from vibe.game import ALL, POWERS, ROOT, Checked, LateOrders, Match, check_orders, normalize
 
 FINAL_ROUND_NOTE = "Orders are due now."
 SLOW_HINT = ("model too slow: try --reasoning-effort low, a lower --concurrency, "
              "or a higher --timeout")
-FINISH_TOKENS = 1500            # finishing a reply needs orders, not another essay
+FINISH_TOKENS = 4000            # orders, plus room for a reasoning model to stop thinking
 
 
 class Answer(str):
@@ -47,17 +47,23 @@ class Answer(str):
     `thought` is reasoning the server sent apart from the answer, `cut_off`
     is true when the reply hit the token limit (or the call limit) before
     it finished, and `tokens` is the server's count, or an estimate.
+    `read` is the prompt tokens the server counted (cached ones included)
+    and `usd` its stated cost, when it gives them.
     """
     thought: str = ""
     cut_off: bool = False
     tokens: int | None = None
     estimated: bool = False
+    read: int = 0
+    usd: float = 0.0
 
     @classmethod
-    def of(cls, text: str, thought: str = "", finish: str = "", tokens=None) -> "Answer":
+    def of(cls, text: str, thought: str = "", finish: str = "", tokens=None,
+           read: int = 0, usd: float = 0.0) -> "Answer":
         a = cls(text)
-        a.thought, a.cut_off = thought, finish == "length"
+        a.thought, a.cut_off = thought, finish in ("length", "max_tokens")
         a.tokens, a.estimated = tokens, tokens is None
+        a.read, a.usd = read or 0, usd or 0.0
         if tokens is None:
             a.tokens = (len(text) + (len(thought) if thought != text else 0)) // 4
         return a
@@ -131,7 +137,8 @@ def _stream(url: str, headers: dict, payload: dict, timeout: float,
     call; if it is hit, whatever arrived so far is returned. Servers that
     ignore `stream` and answer with plain JSON work too.
     """
-    req = urllib.request.Request(url, data=json.dumps({**payload, "stream": True}).encode(),
+    req = urllib.request.Request(url, data=json.dumps({**payload, "stream": True,
+                                                  "stream_options": {"include_usage": True}}).encode(),
                                  headers={"Content-Type": "application/json", **headers})
     start = time.monotonic()
     content, reasoning, finish, usage = [], [], "", None
@@ -227,23 +234,38 @@ def call_openai(seat: Seat, system: str, prompt: str, image: str | None,
     # Reasoning models may put everything in a separate field, or leave the
     # answer empty after thinking; the reasoning is still worth parsing.
     reasoning = msg.get("reasoning_content") or msg.get("reasoning") or ""
-    tokens = (data.get("usage") or {}).get("completion_tokens")
+    usage = data.get("usage") or {}
     return Answer.of(text if text.strip() or not reasoning else reasoning, reasoning,
-                     choice.get("finish_reason") or "", tokens)
+                     choice.get("finish_reason") or "", usage.get("completion_tokens"),
+                     usage.get("prompt_tokens") or 0)
 
 
 def call_claude(seat: Seat, system: str, prompt: str, image: str | None,
-                max_tokens: int, timeout: float) -> str:
+                max_tokens: int, timeout: float) -> Answer:
     with tempfile.TemporaryDirectory() as empty:
+        # No tools, connectors, skills or user settings: a seat sees only the game.
         cmd = ["claude", "-p", "--tools", "", "--no-session-persistence",
-               "--system-prompt", system]
+               "--strict-mcp-config", "--disable-slash-commands",
+               "--setting-sources", "project",
+               "--output-format", "json", "--system-prompt", system]
         if seat.model:
             cmd += ["--model", seat.model]
         proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True,
                               cwd=empty, timeout=timeout)
     if proc.returncode != 0:
-        raise RuntimeError(proc.stderr.strip()[:300] or "claude exited non-zero")
-    return proc.stdout
+        raise RuntimeError((proc.stderr.strip() or proc.stdout.strip())[:300]
+                           or "claude exited non-zero")
+    try:
+        data = json.loads(proc.stdout)
+    except ValueError:
+        return Answer.of(proc.stdout)
+    if data.get("is_error"):
+        raise RuntimeError(str(data.get("result") or "claude reported an error")[:300])
+    u = data.get("usage") or {}
+    read = sum(u.get(k) or 0 for k in ("input_tokens", "cache_creation_input_tokens",
+                                       "cache_read_input_tokens"))
+    return Answer.of(data.get("result") or "", "", data.get("stop_reason") or "",
+                     u.get("output_tokens"), read, data.get("total_cost_usd"))
 
 
 def fake_reply(match: Match, power: str, rng: random.Random) -> str:
@@ -273,7 +295,12 @@ def fake_reply(match: Match, power: str, rng: random.Random) -> str:
 # --------------------------------------------------------------------------- #
 _THINK = re.compile(r"<think>.*?</think>", re.S | re.I)
 _TO = re.compile(r"^\s*[*_`]*TO\s+([A-Za-z][A-Za-z ,]*?)\s*[*_`]*:\s*(.+)$")
-_ORDER = re.compile(r"^[AF]\s+[A-Z]{3}", re.I)
+_P = r"[A-Z]{3}(?:/[A-Z]{2})?"
+_U = rf"[AF] {_P}"
+# A whole order and nothing else, once normalized: reasoning lines such as
+# "A TUS - VEN is legal? List: ..." or "F KIE - BAL? Or F KIE H?" don't count.
+_ORDER = re.compile(rf"^(?:{_U} (?:H|- {_P}(?: VIA)?|S {_U}(?: - {_P}| H)?|C {_U} - {_P}"
+                    rf"|R {_P}|B|D)|WAIVE)$")
 
 
 @dataclass
@@ -317,12 +344,18 @@ def parse_reply(text: str) -> Reply:
     return out
 
 
+def _unit(order: str) -> str:
+    parts = order.split()
+    return parts[1].split("/")[0] if parts[0] in ("A", "F") else order
+
+
 def _order_lines(text: str) -> list[str]:
     orders = []
     for line in text.splitlines():
         line = line.split("#")[0].strip().strip("`*-• ").strip()
         line = re.sub(r"^\d+[.)]\s*", "", line)
-        if _ORDER.match(line) and not _TO.match(line):
+        line = re.split(r"\s*(?:\(|—|//)", line)[0]      # a trailing aside
+        if _ORDER.match(normalize(line)) and not _TO.match(line):
             orders.append(line)
     return orders
 
@@ -385,6 +418,7 @@ class Runner:
         self._gate_lock = threading.Lock()
         self.concurrency = concurrency
         self.stats: dict[str, int] = {}
+        self.tokens = {"calls": 0, "read": 0, "written": 0, "usd": 0.0, "estimated": False}
 
     def _gate(self, seat: Seat) -> threading.Semaphore:
         with self._gate_lock:
@@ -407,8 +441,8 @@ class Runner:
                         return call_openai(seat, system, prompt, image, max_tokens,
                                            self.timeout, transport=functools.partial(
                                                _stream, limit=self.call_limit))
-                    return Answer.of(call_claude(seat, system, prompt, image, max_tokens,
-                                                 self.call_limit))
+                    return call_claude(seat, system, prompt, image, max_tokens,
+                                       self.call_limit)
                 except ServerError:
                     if image:          # a text-only model may reject the picture
                         image = None
@@ -494,6 +528,7 @@ class Runner:
         replies, orders, note, finish, refused = [], [], "", "", []
         try:
             answer = self._complete(power, prompt)
+            self._tally(answer)
             replies.append(answer)
             reply = parse_reply(answer)
             self._deliver(power, reply)
@@ -506,6 +541,7 @@ class Runner:
                 again = self._complete(power, self._finish_prompt(
                     power, prompt, answer, checked if reply.orders else None),
                     max_tokens=FINISH_TOKENS)
+                self._tally(again)
                 replies.append(again)
                 reply = parse_reply(again)
                 self.match.add_notes(power, reply.notes)
@@ -516,7 +552,10 @@ class Runner:
                 ok = bool(reply.orders) and retried.ok
                 self._count("finishes", "finished" if ok else None)
                 if reply.orders:
-                    orders = retried.accepted
+                    # Units the finishing call left out keep the main reply's order.
+                    done = {_unit(o) for o in retried.accepted}
+                    orders = retried.accepted + [o for o in checked.accepted
+                                                 if _unit(o) not in done]
                     refused = [r for r in checked.refused if r not in retried.refused]
                 if not ok:
                     errs = retried.errors or ["no orders found in the finishing reply"]
@@ -529,7 +568,9 @@ class Runner:
             self._record(power, phase, "orders", {"replies": replies, "late": str(exc)})
             self.log(f"  {power}: too late — {exc}")
             return
-        self._record(power, phase, "orders", {"replies": replies, "submitted": orders})
+        self._record(power, phase, "orders", {
+            "replies": replies, "submitted": orders,
+            "tokens": [{"read": a.read, "written": a.tokens, "usd": a.usd} for a in replies]})
         held = ""
         if note and not orders:
             held = " — holding"
@@ -546,11 +587,23 @@ class Runner:
                 if k:
                     self.stats[k] = self.stats.get(k, 0) + 1
 
+    def _tally(self, answer: Answer) -> None:
+        with self._gate_lock:
+            t = self.tokens
+            t["calls"] += 1
+            t["read"] += answer.read
+            t["written"] += answer.tokens or 0
+            t["usd"] += answer.usd
+            t["estimated"] = t["estimated"] or answer.estimated
+
     def summary(self) -> str:
-        s = self.stats
+        s, t = self.stats, self.tokens
+        cost = f", ${t['usd']:.2f}" if t["usd"] else ""
         return (f"Finishing calls: {s.get('finishes', 0)} ({s.get('finished', 0)} gave "
                 f"usable orders). Seats that held: {s.get('held', 0)} entirely, "
-                f"{s.get('partly held', 0)} partly.")
+                f"{s.get('partly held', 0)} partly.\n"
+                f"Tokens over {t['calls']} order calls: {t['read']:,} read, "
+                f"{'~' if t['estimated'] else ''}{t['written']:,} written{cost}.")
 
     def phase(self) -> None:
         game = self.match.load()
