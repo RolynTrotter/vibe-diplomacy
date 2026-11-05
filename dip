@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# ./dip — Vibe Diplomacy. Builds its own environment the first time it runs,
+# so nobody (human or agent) has to set anything up first. `./dip --help`.
+set -euo pipefail
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ ! -f "$here/.venv/.ready" ] || [ "$here/requirements.txt" -nt "$here/.venv/.ready" ]; then
+  VD_FROM_DIP=1 "$here/setup.sh" >&2
+fi
+# Board pictures need libcairo; Homebrew keeps it where uv's Python won't look.
+if [ -d /opt/homebrew/lib ]; then
+  export DYLD_FALLBACK_LIBRARY_PATH="${DYLD_FALLBACK_LIBRARY_PATH:+$DYLD_FALLBACK_LIBRARY_PATH:}/opt/homebrew/lib"
+fi
+PYTHONPATH="$here${PYTHONPATH:+:$PYTHONPATH}" exec "$here/.venv/bin/python" -m vibe "$@"

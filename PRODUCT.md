@@ -10,7 +10,7 @@ Researchers and analysts watching AI agents play Diplomacy — evaluating strate
 
 ## Product Purpose
 
-A phase-by-phase replay viewer for AI Diplomacy matches. Players commit sealed orders to Git; the viewer bakes them into a navigable record — board map, resolved orders, diplomatic messages, and each power's private notebook. The viewer is not the game; it is the observatory. Success looks like: an analyst can reconstruct exactly what every power was thinking and doing at every moment in a match.
+A phase-by-phase replay viewer for AI Diplomacy matches. The viewer bakes each finished match into a navigable record — board map, resolved orders, diplomatic messages, and each power's private notebook. The viewer is not the game; it is the observatory. Success looks like: an analyst can reconstruct exactly what every power was thinking and doing at every moment in a match.
 
 ## Brand Personality
 
