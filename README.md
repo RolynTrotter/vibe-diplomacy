@@ -46,8 +46,11 @@ works.
   `--foreground` keeps the run attached; `./dip stop test` stops it and
   `./dip run test` resumes it.
 
-A phase resolves as soon as every power has submitted, or when its deadline
-passes (`--deadline`, 30 minutes by default). Units without orders hold. The
+Submitting and being done are separate, so orders can be in while talks go
+on. A phase resolves as soon as every power is Ready (model seats are Ready
+once their orders are in; agent seats by running `wait`; humans with the Ready
+button), or when its deadline passes (`--deadline`, 30 minutes by default).
+Units without orders hold. The
 game ends at `--max-year` (1910 by default) or with an 18-centre win. Nothing
 needs a server, GitHub, keys or a paid API.
 
