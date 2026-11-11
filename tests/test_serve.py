@@ -72,3 +72,47 @@ def test_model_seats_are_not_served_and_bad_settings_are_refused(api):
     assert api(f"/api/seat/{tok}")[0] == 400
     assert api("/api/new", {"humans": [], "model": "fake"})[0] == 400
     assert api("/api/new", {"humans": ["ITALY"], "model": "gpt-9"})[0] == 400
+
+
+def _raw(api_base, path, headers, data=b"{}"):
+    req = urllib.request.Request(api_base + path, data=data, method="POST", headers=headers)
+    try:
+        with urllib.request.urlopen(req) as r:
+            return r.status, r.headers
+    except urllib.error.HTTPError as e:
+        return e.code, e.headers
+
+
+@pytest.fixture
+def base(tmp_path, monkeypatch):
+    monkeypatch.setattr(gamemod, "GAMES", tmp_path)
+    monkeypatch.setattr(serve, "start_runner", lambda match: None)
+    server = serve.Server(("127.0.0.1", 0), serve.Handler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    yield f"http://127.0.0.1:{server.server_address[1]}"
+    server.shutdown()
+
+
+def test_no_cross_site_posts_and_bounded_bodies(base):
+    body = json.dumps({"humans": ["FRANCE"], "model": "hold"}).encode()
+    js = {"Content-Type": "application/json"}
+    assert _raw(base, "/api/new", {**js, "Origin": "https://evil.example"}, body)[0] == 403
+    assert _raw(base, "/api/new", {"Content-Type": "text/plain"}, body)[0] == 415
+    code, headers = _raw(base, "/api/new", {**js, "Origin": "https://skandha-1.tailafb97d.ts.net"}, body)
+    assert code == 200 and headers["Access-Control-Allow-Origin"] == "https://skandha-1.tailafb97d.ts.net"
+    assert _raw(base, "/api/new", {**js, "Origin": "https://evil.example"}, body)[1].get(
+        "Access-Control-Allow-Origin") is None
+    import socket
+    host, port = base.split("//")[1].split(":")
+    with socket.create_connection((host, int(port)), timeout=5) as s:
+        s.sendall(b"POST /api/new HTTP/1.1\r\nHost: x\r\nContent-Type: application/json\r\n"
+                  b"Content-Length: -1\r\n\r\n")
+        assert b" 400 " in s.recv(200)
+
+
+def test_model_matches_are_capped(api):
+    for i in range(serve.MAX_MODEL_MATCHES):
+        assert api("/api/new", {"humans": ["FRANCE"], "model": "claude:haiku", "name": f"q{i}"})[0] == 200
+    code, err = api("/api/new", {"humans": ["FRANCE"], "model": "claude:haiku", "name": "over"})
+    assert code == 400 and "already" in err["error"]
+    assert api("/api/new", {"humans": ["FRANCE"], "model": "fake", "name": "free"})[0] == 200

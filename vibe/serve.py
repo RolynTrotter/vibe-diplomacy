@@ -31,6 +31,11 @@ from vibe.game import POWERS, ROOT, LateOrders, Match, MatchError, legal_orders
 
 MODELS = ("claude:haiku", "claude:sonnet", "fake", "hold")
 DEADLINES = (3600, 86400)
+MAX_MODEL_MATCHES = 3           # live hosted matches with Claude seats: a quota guard
+# The page's own homes: the portal on the tailnet and on the LAN door, and this
+# server itself. Browsers may POST only from these (no cross-site requests).
+ORIGINS = {"https://skandha-1.tailafb97d.ts.net", "http://192.168.1.159:8080",
+           "http://skandha-1.local:8080", "http://127.0.0.1:8010", "http://localhost:8010"}
 
 
 def _summary(match: Match) -> dict:
@@ -122,6 +127,12 @@ def create(body: dict) -> Match:
         raise MatchError("pick at least one power for humans")
     if model not in MODELS or deadline not in DEADLINES or not 1901 <= max_year <= 1930:
         raise MatchError("bad settings")
+    if model.startswith("claude:") and sum(
+            1 for m in Match.all() if m.config.get("hosted") and not m.ended()
+            and str((m.config.get("hosted") or {}).get("model", "")).startswith("claude:")
+    ) >= MAX_MODEL_MATCHES:
+        raise MatchError(f"already {MAX_MODEL_MATCHES} matches with model seats running; "
+                         "finish one first, or use Random or Hold")
     name = body.get("name") or time.strftime("game-%m%d-%H%M")
     if not re.fullmatch(r"[A-Za-z0-9_-]{1,40}", name):
         raise MatchError("names are letters, digits, - and _")
@@ -133,13 +144,20 @@ def create(body: dict) -> Match:
 
 class Handler(http.server.BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
-        sys.stderr.write(f"{self.log_date_time_string()} {fmt % args}\n")
+        line = re.sub(r"/api/seat/[0-9a-f]+", "/api/seat/…", fmt % args)  # tokens are keys
+        sys.stderr.write(f"{self.log_date_time_string()} {line}\n")
+
+    def _cors(self) -> None:
+        origin = self.headers.get("Origin")
+        if origin in ORIGINS:
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Vary", "Origin")
 
     def _send(self, code: int, body: bytes, ctype: str) -> None:
         self.send_response(code)
         self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(body)))
-        self.send_header("Access-Control-Allow-Origin", "*")
+        self._cors()
         self.send_header("Cache-Control", "no-store")
         self.end_headers()
         self.wfile.write(body)
@@ -148,14 +166,20 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self._send(code, json.dumps(obj).encode(), "application/json")
 
     def _body(self) -> dict:
-        n = int(self.headers.get("Content-Length") or 0)
-        if n > 100_000:
-            raise MatchError("too large")
-        return json.loads(self.rfile.read(n) or b"{}")
+        try:
+            n = int(self.headers.get("Content-Length") or 0)
+        except ValueError:
+            raise MatchError("bad Content-Length") from None
+        if not 0 <= n <= 100_000:
+            raise MatchError("bad Content-Length")
+        body = json.loads(self.rfile.read(n) or b"{}")
+        if not isinstance(body, dict):
+            raise MatchError("expected a JSON object")
+        return body
 
     def do_OPTIONS(self):
         self.send_response(204)
-        self.send_header("Access-Control-Allow-Origin", "*")
+        self._cors()
         self.send_header("Access-Control-Allow-Methods", "GET, POST")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
@@ -191,6 +215,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_POST(self):
         path = urllib.parse.urlparse(self.path).path
+        # No cross-site POSTs: a browser always sends Origin on a POST, and a
+        # JSON content type can't be sent cross-site without a preflight.
+        origin = self.headers.get("Origin")
+        if origin is not None and origin not in ORIGINS:
+            return self._json(403, {"error": "not from this site"})
+        if (self.headers.get("Content-Type") or "").split(";")[0].strip() != "application/json":
+            return self._json(415, {"error": "send JSON"})
         try:
             body = self._body()
             if path == "/api/new":

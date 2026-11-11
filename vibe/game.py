@@ -182,7 +182,7 @@ class Match:
             "name": name, "press": press, "max_year": max_year,
             "deadline_s": deadline_s, "phase_started": time.time(),
             "ended": None,
-            "seats": {p: secrets.token_hex(4) for p in POWERS},
+            "seats": {p: secrets.token_hex(12) for p in POWERS},
         }
         _write(path / "config.json", json.dumps(config, indent=2))
         match = cls(path)
