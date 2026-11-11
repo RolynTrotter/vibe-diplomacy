@@ -40,7 +40,24 @@ from diplomacy import Game
 from diplomacy.utils.export import from_saved_game_format, to_saved_game_format
 
 ROOT = Path(__file__).resolve().parent.parent
-GAMES = ROOT / "games"
+# Where matches live. VIBE_GAMES moves them, e.g. to an external drive through a
+# stable path (~/Storage/fast/diplomacy/games). That directory is never created
+# here: if it is missing the drive isn't mounted, and writing there would land
+# on the boot disk under an empty mount point.
+LOCAL_GAMES = ROOT / "games"
+GAMES = Path(os.environ["VIBE_GAMES"]).expanduser() if os.environ.get("VIBE_GAMES") else LOCAL_GAMES
+
+
+def storage_ready(root: Path | None = None) -> bool:
+    """Whether matches can be written: the local games/ is made on first use,
+    a configured location must already be there."""
+    root = Path(root or GAMES)
+    if root.is_dir():
+        return True
+    if root == LOCAL_GAMES:
+        root.mkdir()
+        return True
+    return False
 POWERS = ("AUSTRIA", "ENGLAND", "FRANCE", "GERMANY", "ITALY", "RUSSIA", "TURKEY")
 # Maps from the engine. A match plays the powers its map has: the 1v1 variant
 # leaves every other centre empty and unowned.
@@ -185,7 +202,10 @@ class Match:
             raise MatchError(f"unknown map {map_name!r}; try {', '.join(MAPS)}")
         game = Game(map_name=map_name)
         powers = sorted(game.powers)
-        path.mkdir(parents=True)
+        if not storage_ready(path.parent):
+            raise MatchError(f"match storage is not available at {path.parent} "
+                             "(is the drive mounted?)")
+        path.mkdir()
         config = {
             "name": name, "press": press, "max_year": max_year,
             "deadline_s": deadline_s, "phase_started": time.time(),
