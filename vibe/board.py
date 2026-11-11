@@ -152,6 +152,69 @@ def _digest(game: Game) -> str:
     return "\n".join(f"- {y}: " + "; ".join(v) for y, v in sorted(years.items()))
 
 
+SEASON = {
+    "S": "Spring {y}: centres do not change hands this turn.",
+    "F": "Fall {y}: when this turn ends, every supply centre goes to the power "
+         "whose unit is standing in it.",
+}
+
+
+def _season(game: Game) -> str:
+    phase = game.get_current_phase()
+    if game.phase_type == "M":
+        return SEASON[phase[0]].format(y=phase[1:5])
+    if game.phase_type == "R":
+        return f"Retreats after {('Spring', 'Fall')[phase[0] == 'F']} {phase[1:5]}."
+    return f"Winter {phase[1:5]}: builds and disbands."
+
+
+def _reach(game: Game, power: str) -> str:
+    """For each centre in play: who owns it, what is on it, and who can move in.
+
+    Taken from the engine's own list of legal moves for every unit on the
+    board, so it is exactly what can happen this turn (convoys included).
+    """
+    if game.phase_type != "M":
+        return ""
+    possible = game.get_all_possible_orders()
+    unit_at = {_base(u.split()[1]): (p, u) for p, pw in game.powers.items() for u in pw.units}
+    can: dict[str, list[tuple[str, str]]] = {}
+    for loc, opts in possible.items():
+        who = unit_at.get(_base(loc))
+        if not who:
+            continue
+        for o in opts:
+            parts = o.split()
+            if len(parts) >= 4 and parts[2] == "-" and " S " not in o and " C " not in o:
+                dest = _base(parts[3])
+                if who not in can.setdefault(dest, []):
+                    can[dest].append(who)
+    owners = {c: p for p, pw in game.powers.items() for c in pw.centers}
+
+    def line(c: str) -> str:
+        owner = owners.get(c)
+        whose = "yours" if owner == power else f"{owner}'s" if owner else "neutral"
+        on = unit_at.get(c)
+        there = (f"your {on[1]} on it" if on and on[0] == power else
+                 f"{on[0]} {on[1]} on it" if on else "empty")
+        mine = [u for p, u in can.get(c, []) if p == power]
+        others = [f"{p} {u}" for p, u in can.get(c, []) if p != power]
+        parts = [f"- {c} ({whose}, {there})"]
+        if mine:
+            parts.append(f"your {', '.join(mine)} can move in")
+        parts.append(f"{', '.join(others)} can move in" if others else "no other power can move in")
+        return " — ".join(parts)
+
+    mine = sorted(c for c in game.map.scs if owners.get(c) == power)
+    near = sorted(c for c in game.map.scs if owners.get(c) != power
+                  and any(p == power for p, _ in can.get(c, [])))
+    out = []
+    if near:
+        out += ["Centres your units can move into:"] + [line(c) for c in near]
+    out += ["Your centres:"] + [line(c) for c in mine]
+    return "\n".join(out)
+
+
 def _orders_section(game: Game, power: str) -> str:
     """Every move each unit can make, written as the order itself, one per line.
 
@@ -250,6 +313,7 @@ def render(match: Match, power: str, *, inbox: bool = False,
     ready = match.readied(game)
     owing = match.owing(game)
     out += [
+        _season(game),
         f"Submitted this phase: {len([p for p in sub if p in owing])}/{len(owing)}"
         + (" (including you)" if power in sub else "")
         + f"; done: {len([p for p in ready if p in owing])}/{len(owing)}",
@@ -261,6 +325,10 @@ def render(match: Match, power: str, *, inbox: bool = False,
         out += ["", "## Your notebook (only you see this)", notes]
     if not game.order_history and (lore := match.lore(power).strip()):
         out += ["", f"## Left by earlier players of {power}", lore[-LORE_SHOWN:]]
+    out += [
+    ]
+    if reach := _reach(game, power):
+        out += ["", "## Who can move into each centre this turn", reach]
     out += [
         "", "## Your orders this phase", _orders_section(game, power), "", SYNTAX,
         "", f"## Supply centres ({len(game.map.scs)}; 18 wins)", _standings(game, power),
