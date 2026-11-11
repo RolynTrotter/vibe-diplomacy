@@ -448,16 +448,21 @@ class Match:
     def add_lore(self, power: str, text: str) -> bool:
         """After the game, `power`'s lesson for its next player. Once per match."""
         text = text.strip()[:LORE_MAX]
-        if not (self.ended() and text) or power in self.config.get("lore_from", []):
+        if not (self.ended() and text):
             return False
         game = self.load()
         f = self._lore_file(power)
-        f.parent.mkdir(exist_ok=True)
+        head = f"## {self.name} ("
         with self._lock():
+            # Checked under the lock, against the lore file itself, so two callers
+            # or a retry after a crash can never leave a second entry.
+            if any(line.startswith(head) for line in self.lore(power).splitlines()):
+                return False
+            f.parent.mkdir(exist_ok=True)
             with open(f, "a") as fh:
-                fh.write(f"## {self.name} ({self.ended()}; {power} finished with "
+                fh.write(f"{head}{self.ended()}; {power} finished with "
                          f"{len(game.powers[power].centers)} centres)\n\n{text}\n\n")
-            self._set_config(lore_from=[*self.config.get("lore_from", []), power])
+            self._set_config(lore_from=sorted({*self.config.get("lore_from", []), power}))
         self.write_log()
         return True
 
@@ -467,9 +472,11 @@ class Match:
         cfg = self.config
         game = self.load()
         played = [str(k) for k in game.order_history.keys()]
-        mail = self.messages()
+        # Press and notebooks are private until the game is over, like the viewer:
+        # a seat that can read the match's files must not find its rivals' plans here.
+        mail = self.messages() if self.ended() else []
         notes = []
-        if (self.path / "notes.jsonl").exists():
+        if self.ended() and (self.path / "notes.jsonl").exists():
             notes = [json.loads(l) for l in (self.path / "notes.jsonl").read_text().splitlines()
                      if l.strip()]
         players = cfg.get("players") or {}

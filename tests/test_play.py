@@ -457,15 +457,19 @@ def test_notebook_lore_and_log_across_two_matches(games, monkeypatch):
     assert "## Your notebook (only you see this)\nKeep the Channel promise." in board_fr
     assert "Channel" not in board.render(m, "ENGLAND")
     log = (m.path / "log.md").read_text()
-    assert "## S1901M" in log and "FRANCE → ENGLAND: hi" in log and "### Notebooks" in log
+    assert "## S1901M" in log and "### Orders" in log
     assert "Seats: AUSTRIA fake" in log and "FRANCE haiku" in log
+    assert "ENGLAND: hi" not in log and "Channel" not in log     # private until the end
 
     runner.play()
     assert m.ended()
     assert "England kept the Channel deal" in m.lore("FRANCE") and not m.lore("ENGLAND")
     log = (m.path / "log.md").read_text()
     assert "## Game over" in log and "### Lore from FRANCE" in log and "Centres: " in log
+    assert "FRANCE → ENGLAND: hi" in log and "### Notebooks" in log
     runner.play()                                   # a rerun leaves no second entry
+    m._set_config(lore_from=[])                     # nor does a crash before the config
+    assert not m.add_lore("FRANCE", "again")
     assert m.lore("FRANCE").count("## first") == 1
 
     nxt = Match.create("second")
