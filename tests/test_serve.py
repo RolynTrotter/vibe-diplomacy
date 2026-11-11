@@ -129,3 +129,19 @@ def test_the_france_austria_map_from_the_page(api):
     tok = api("/api/claim", {"match": "fa", "power": "FRANCE"})[1]["token"]
     seat = api(f"/api/seat/{tok}")[1]
     assert "A PAR - BUR" in seat["options"]["PAR"]["orders"] and seat["owing_count"] == 2
+
+
+def test_serve_waits_for_storage_before_anything(tmp_path, monkeypatch):
+    target = tmp_path / "drive" / "games"
+    monkeypatch.setattr(gamemod, "GAMES", target)
+    lines = []
+    sleeps = []
+
+    def nap(s):
+        sleeps.append(s)
+        if len(sleeps) == 3:
+            target.mkdir(parents=True)          # the drive mounts
+    monkeypatch.setattr(serve.time, "sleep", nap)
+    serve.wait_for_storage(log=lines.append, pause=30)
+    assert len(sleeps) == 3 and "waiting for match storage" in lines[0]
+    assert lines[-1].startswith(f"match storage: {target}") and "after 90s" in lines[-1]

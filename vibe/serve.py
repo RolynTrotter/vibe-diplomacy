@@ -14,6 +14,10 @@ just another seat and mixes with model seats through the same match files.
 
 Matches created here are hosted: their model seats are played by `./dip run`,
 started here and restarted here if it isn't running (after a reboot, say).
+
+Matches live in games/ here, or wherever VIBE_GAMES points (set it in the
+LaunchAgent, e.g. ~/Storage/fast/diplomacy/games). The server waits for that
+location to appear before doing anything, and the runners it starts inherit it.
 """
 from __future__ import annotations
 
@@ -273,7 +277,21 @@ class Server(http.server.ThreadingHTTPServer):
         self.server_name, self.server_port = "localhost", self.server_address[1]
 
 
+def wait_for_storage(log=lambda line: sys.stderr.write(line + "\n"), pause=30.0) -> None:
+    """At boot an external drive may mount late: wait for it, saying so, and
+    never write anything until it is there."""
+    from vibe import game as gamemod
+    waited = 0.0
+    while not gamemod.storage_ready():
+        if waited == 0 or waited % 600 < pause:
+            log(f"waiting for match storage at {gamemod.GAMES} (drive not mounted?)")
+        time.sleep(pause)
+        waited += pause
+    log(f"match storage: {gamemod.GAMES}" + (f" (after {waited:.0f}s)" if waited else ""))
+
+
 def main(args) -> int:
+    wait_for_storage()
     resume_all()
     server = Server(("127.0.0.1", args.port), Handler)
     print(f"serving human seats on http://127.0.0.1:{args.port}", flush=True)
