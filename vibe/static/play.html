@@ -31,6 +31,7 @@ label.chk{display:inline-flex;gap:6px;align-items:center;padding:6px 10px;border
 .dock button{flex:1}
 .err{color:var(--bad);white-space:pre-wrap}
 .okc{color:var(--ok)}
+.banner{background:var(--accent);color:var(--accent-fg);font-weight:bold;border-radius:8px;padding:12px;margin:0 0 10px;text-align:center}
 pre{white-space:pre-wrap;font:inherit;font-size:.92rem;margin:0}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 </style>
@@ -46,6 +47,7 @@ const app = document.getElementById("app");
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const title = s => s.charAt(0) + s.slice(1).toLowerCase();
 let timer = null;
+const seen = {};                // token -> the phase last shown, to announce a new one
 
 function mine() { try { return JSON.parse(localStorage.getItem("dip-seats") || "{}"); } catch { return {}; } }
 function remember(key, tok) { try { const m = mine(); m[key] = tok; localStorage.setItem("dip-seats", JSON.stringify(m)); } catch {} }
@@ -141,6 +143,8 @@ async function seat(tok) {
   remember(`${s.name}/${s.power}`, tok);
   let skew = Date.now() / 1000 - s.now;
   const phase = s.phase;
+  const fresh = seen[tok] && seen[tok] !== phase;
+  seen[tok] = phase;
   const picked = {};
   for (const o of s.submitted || []) picked[o.split(" ")[1].split("/")[0]] = o;
   const units = Object.entries(s.options);
@@ -149,6 +153,7 @@ async function seat(tok) {
     <span><a href="#" aria-label="Lobby">←</a> <b>${title(s.power)}</b> · ${esc(s.ended ? "Game over: " + s.ended : s.season)}</span>
     <span class="muted"><span id="clock"></span> · Ready <span id="rc">${s.ready_count}/${s.owing_count}</span></span>
   </div>
+  ${fresh ? `<div class="banner" role="status">Now: ${esc(s.ended ? "Game over: " + s.ended : s.season)}</div>` : ""}
   <a href="${API}/api/seat/${esc(tok)}/map.svg?p=${esc(phase)}" target="_blank" rel="noopener"><img id="map" alt="Map, ${esc(s.season)}" src="${API}/api/seat/${esc(tok)}/map.svg?p=${esc(phase)}"></a>
   ${s.ended ? "" : s.owes ? `
   <h2>${s.phase_type === "A" ? (s.adjust > 0 ? `Builds: up to ${s.adjust}` : `Disbands: ${-s.adjust}`) : "Orders"}</h2>
@@ -189,6 +194,9 @@ async function seat(tok) {
     rb.disabled = true;
     try {
       const want = !s.ready;
+      const builds = [...app.querySelectorAll("select[data-loc]")].filter(x => / B$/.test(x.value)).length;
+      if (want && s.phase_type === "A" && s.adjust > 0 && !builds &&
+          !confirm(`No builds (up to ${s.adjust}). Ready anyway?`)) { rb.disabled = false; return; }
       if (want && s.owes && document.getElementById("state").textContent !== "Submitted") await send();
       s = await api(`/api/seat/${tok}/ready`, {ready: want, phase});
       if (s.phase !== phase) return seat(tok);
