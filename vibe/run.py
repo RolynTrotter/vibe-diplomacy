@@ -404,7 +404,8 @@ def orders_format(match: Match, power: str) -> str:
 
 NOTES_FORMAT = (
     "You may also keep a notebook: a fenced code block whose first line is the "
-    "word notes, written before any orders, with your plans, what you have promised and to whom, and whom "
+    "word notes, written before any orders, with which centres you will take "
+    "next and with which units, what you have promised and to whom, and whom "
     "you trust. It replaces your notebook, which only you see, at the top of "
     "your next board.")
 

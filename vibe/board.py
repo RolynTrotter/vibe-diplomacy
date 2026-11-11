@@ -169,7 +169,9 @@ def _season(game: Game) -> str:
 
 
 def _reach(game: Game, power: str) -> str:
-    """For each centre in play: who owns it, what is on it, and who can move in.
+    """Each centre your units can move into: who owns it, what is on it, and
+    who else can move in. Threats to your own centres are left out on purpose:
+    listing them made seats camp at home (bench/RESULTS.md, fa-france-e1).
 
     Taken from the engine's own list of legal moves for every unit on the
     board, so it is exactly what can happen this turn (convoys included).
@@ -205,13 +207,11 @@ def _reach(game: Game, power: str) -> str:
         parts.append(f"{', '.join(others)} can move in" if others else "no other power can move in")
         return " — ".join(parts)
 
-    mine = sorted(c for c in game.map.scs if owners.get(c) == power)
     near = sorted(c for c in game.map.scs if owners.get(c) != power
                   and any(p == power for p, _ in can.get(c, [])))
     out = []
     if near:
         out += ["Centres your units can move into:"] + [line(c) for c in near]
-    out += ["Your centres:"] + [line(c) for c in mine]
     return "\n".join(out)
 
 
@@ -328,7 +328,7 @@ def render(match: Match, power: str, *, inbox: bool = False,
     out += [
     ]
     if reach := _reach(game, power):
-        out += ["", "## Who can move into each centre this turn", reach]
+        out += ["", "## Centres you can move into this turn", reach]
     out += [
         "", "## Your orders this phase", _orders_section(game, power), "", SYNTAX,
         "", f"## Supply centres ({len(game.map.scs)}; 18 wins)", _standings(game, power),
