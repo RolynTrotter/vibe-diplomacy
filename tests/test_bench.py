@@ -82,3 +82,10 @@ def test_no_unbuilt_when_there_is_no_room(games):
     play(m2, FRANCE=["A SPA H", "A GAS - MAR"])        # BRE, MAR occupied; PAR open
     play(m2)
     assert score(m2)["FRANCE"]["unbuilt"] == 1         # Paris was open: one build owed
+
+
+def test_scores_only_the_powers_a_variant_has(games):
+    m = Match.create("fa", map_name="standard_france_austria")
+    play(m, FRANCE=["A PAR - BUR", "A MAR - BUR"])
+    s = score(m)
+    assert set(s) == {"AUSTRIA", "FRANCE"} and s["FRANCE"]["selfbounce"] == 1

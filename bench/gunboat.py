@@ -42,7 +42,7 @@ import time
 from collections import defaultdict
 from pathlib import Path
 
-from vibe.game import POWERS, Match
+from vibe.game import MAPS, Match
 from vibe.run import Runner, parse_seat
 
 HERE = Path(__file__).resolve().parent
@@ -73,7 +73,8 @@ def score(match: Match, until: int | None = None) -> dict[str, dict]:
     game = match.load()
     players = match.config.get("players") or {}
     states = [(str(k), v) for k, v in game.state_history.items()]
-    now = {p: list(game.powers[p].centers) for p in POWERS}
+    powers = match.powers
+    now = {p: list(game.powers[p].centers) for p in powers}
     if until is not None:
         later = [st for ph, st in states if _year(ph) > until]
         states = [(ph, st) for ph, st in states if _year(ph) <= until]
@@ -82,11 +83,11 @@ def score(match: Match, until: int | None = None) -> dict[str, dict]:
     out = {p: {"kind": players.get(p, "?"), "moves": 0, "falls": 0, "winters": 0,
                **{m: 0 for m in METRICS},
                "gain": len(now.get(p) or []) - len(states[0][1]["centers"].get(p, []))}
-           for p in POWERS}
+           for p in powers}
     for phase, start in states:
         if phase.endswith("A"):
             orders = ((match.history(phase) or {}).get("orders") or {})
-            for p in POWERS:
+            for p in powers:
                 centres, units = start["centers"].get(p, []), start["units"].get(p, [])
                 taken = {u.split()[1][:3] for us in start["units"].values() for u in us}
                 room = [h for h in start["homes"].get(p, []) if h in centres and h not in taken]
@@ -103,7 +104,7 @@ def score(match: Match, until: int | None = None) -> dict[str, dict]:
         units = start["units"]
         where = {_base(u.split()[1]): (p, u) for p, us in units.items() for u in us}
         fall = phase.startswith("F")
-        for p in POWERS:
+        for p in powers:
             if not units.get(p):
                 continue
             s = out[p]
@@ -193,6 +194,8 @@ def main() -> int:
     ap.add_argument("--max-year", type=int, default=1902)
     ap.add_argument("--label", help="names this run in RESULTS.md")
     ap.add_argument("--models", type=int, default=3, help="model seats per game")
+    ap.add_argument("--map", choices=list(MAPS), default="standard",
+                    help="standard_france_austria: the 1v1 sandbox")
     ap.add_argument("--opponents", default="fake,hold",
                     help="baseline kinds for the other seats, in turn (e.g. fake)")
     ap.add_argument("--seed", type=int, default=1)
@@ -213,8 +216,9 @@ def main() -> int:
         if args.score_only:
             match = Match.open(name)
         else:
-            match = Match.create(name, max_year=args.max_year)
-            order = POWERS[i % 7:] + POWERS[:i % 7]
+            match = Match.create(name, max_year=args.max_year, map_name=args.map)
+            ps = match.powers
+            order = ps[i % len(ps):] + ps[:i % len(ps)]
             others = args.opponents.split(",")
             kinds = [args.model] * args.models + others * 7
             seats = {p: parse_seat(k, "", "") for p, k in zip(order, kinds)}
@@ -229,7 +233,8 @@ def main() -> int:
     print(md)
     with open(HERE / "RESULTS.md", "a") as fh:
         fh.write(f"\n## {args.label} — {time.strftime('%Y-%m-%d')}, {args.model}, "
-                 f"{args.games} games to {args.max_year}\n\n{md}\n")
+                 f"{args.games} games to {args.max_year}"
+                 f"{'' if args.map == 'standard' else ', ' + MAPS[args.map]}\n\n{md}\n")
     return 0
 
 
