@@ -35,3 +35,10 @@ Written by `bench/gunboat.py` (see its docstring for what each column counts). R
 | seats | n | finishing/phase | refused/phase | held/phase | missed/fall | selfbounce/phase | void/phase | gain |
 |---|---|---|---|---|---|---|---|---|
 | haiku | 14 | 0.01 | 0.01 | 0.00 | 0.05 | 0.00 | 0.00 | +1.57 |
+
+## haiku-vs-random — 2026-11-11, claude:haiku, 3 games to 1906
+
+| seats | n | finishing/phase | refused/phase | held/phase | missed/fall | selfbounce/phase | void/phase | unbuilt/winter | gain |
+|---|---|---|---|---|---|---|---|---|---|
+| fake | 18 | 0.00 | 0.00 | 0.00 | 0.31 | 0.20 | 1.56 | 0.00 | +0.56 |
+| haiku | 3 | 0.00 | 0.00 | 0.00 | 0.11 | 0.00 | 0.00 | 0.00 | +4.33 |
