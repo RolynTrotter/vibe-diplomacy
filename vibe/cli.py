@@ -132,10 +132,20 @@ def _picture(match: Match) -> str | None:
     return str(path) if path else None
 
 
+def _show(match: Match, power: str) -> None:
+    """The board, and once the game is over, how to leave lore for the next player."""
+    print(boardmod.render(match, power, picture=_picture(match)))
+    if match.ended() and power not in match.config.get("lore_from", []):
+        token = match.config["seats"][power]
+        print(f"\nLeave notes for whoever plays {power} next game (openings, alliances, "
+              f"what worked, what you'd change; one go, under 200 words):\n"
+              f'    {DIP} lore --seat {token} "your notes"')
+
+
 def cmd_board(args) -> int:
     match, power = _seat(args)
     match.advance()  # a passed deadline resolves on whoever looks first
-    print(boardmod.render(match, power, picture=_picture(match)))
+    _show(match, power)
     match.seen(power, match.phase())
     if match.full_press and not match.ended():
         n = len([m for m in match.inbox(power) if m["sender"] != power])
@@ -189,7 +199,7 @@ def cmd_wait(args) -> int:
     if last and last != start:
         # It resolved before we got here (often on this seat's own submit).
         print(f"{last} has resolved.\n")
-        print(boardmod.render(match, power, picture=_picture(match)))
+        _show(match, power)
         match.seen(power, start)
         return 0
     if not match.ended() and power in match.owing(game) and power not in match.submitted(game):
@@ -201,7 +211,7 @@ def cmd_wait(args) -> int:
         match.advance()
         if match.ended() or match.phase() != start:
             print(f"{start} has resolved.\n")
-            print(boardmod.render(match, power, picture=_picture(match)))
+            _show(match, power)
             match.seen(power, match.phase())
             return 0
         time.sleep(args.poll)
@@ -216,6 +226,18 @@ def cmd_send(args) -> int:
     to = [t for t in re.split(r"[,\s]+", args.to) if t]
     sent = match.send(power, to, " ".join(args.message))
     print(f"Sent to {', '.join(sent)}." if sent else "Nothing sent (empty message?).")
+    return 0
+
+
+def cmd_lore(args) -> int:
+    match, power = _seat(args)
+    if not match.ended():
+        print("The game is not over yet.")
+        return 1
+    if not match.add_lore(power, " ".join(args.text)):
+        print("Not saved: you have already left your notes for this game (or wrote nothing).")
+        return 1
+    print(f"Saved. The next player of {power} will see it at the start of their game.")
     return 0
 
 
@@ -370,6 +392,8 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("message", nargs="+")
     s = seat_cmd("inbox", cmd_inbox, "[player] read your messages (full press)")
     s.add_argument("--last", type=int, default=60)
+    s = seat_cmd("lore", cmd_lore, "[player] after the game: notes for the next player")
+    s.add_argument("text", nargs="+")
 
     s = sub.add_parser("new", help="[host] create a match and its seat briefs")
     s.add_argument("name")
