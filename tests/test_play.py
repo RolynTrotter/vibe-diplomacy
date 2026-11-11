@@ -422,3 +422,71 @@ def test_after_a_winter_the_board_still_shows_the_last_moves(games):
     last = board.render(m, "GERMANY").split("## Last moves\n")[1].split("\n\n")[0]
     assert last.startswith("_F1901M:_\n- FRANCE: A SPA H")
     assert "_Then W1901A:_ FRANCE A MAR B" in last
+
+
+# -- notebooks, lore and the match log --------------------------------------- #
+def test_a_notes_block_is_the_notebook_not_orders():
+    text = ("TO ENGLAND: Channel stays empty?\n```notes\nPromised ENGLAND: no F ENG.\n"
+            "Next: A PAR - BUR\n```\nthinking...\n```\nA PAR H\n```")
+    r = parse_reply(text)
+    assert r.orders == ["A PAR H"] and "Promised ENGLAND" in r.notes
+    assert r.mail == [(["ENGLAND"], "Channel stays empty?")]
+    after = parse_reply("```\nA PAR H\n```\n```notes\nA PAR - BUR in fall\n```")
+    assert after.orders == ["A PAR H"] and after.notes == "A PAR - BUR in fall"
+
+
+def _scripted_france(monkeypatch):
+    def reply(seat, system, prompt, *a, **k):
+        if "The game is over" in prompt:
+            return run.Answer.of("Open to Burgundy; England kept the Channel deal.")
+        if "Negotiation round" in prompt:
+            return run.Answer.of("TO ENGLAND: hi\n```notes\nPromised ENGLAND the Channel.\n```")
+        return run.Answer.of("```notes\nKeep the Channel promise.\n```\n"
+                             "```\nA PAR H\nA MAR H\nF BRE H\n```")
+    monkeypatch.setattr(run, "call_claude", reply)
+
+
+def test_notebook_lore_and_log_across_two_matches(games, monkeypatch):
+    _scripted_france(monkeypatch)
+    m = Match.create("first", press="full", max_year=1901)
+    seats = {p: Seat("fake") for p in gamemod.POWERS}
+    seats["FRANCE"] = Seat("claude", "haiku")
+    runner = Runner(m, seats, seed=2, rounds=1, log=lambda *_: None)
+    runner.play(max_phases=1)
+    board_fr = board.render(m, "FRANCE")
+    assert "## Your notebook (only you see this)\nKeep the Channel promise." in board_fr
+    assert "Channel" not in board.render(m, "ENGLAND")
+    log = (m.path / "log.md").read_text()
+    assert "## S1901M" in log and "FRANCE → ENGLAND: hi" in log and "### Notebooks" in log
+    assert "Seats: AUSTRIA fake" in log and "FRANCE haiku" in log
+
+    runner.play()
+    assert m.ended()
+    assert "England kept the Channel deal" in m.lore("FRANCE") and not m.lore("ENGLAND")
+    log = (m.path / "log.md").read_text()
+    assert "## Game over" in log and "### Lore from FRANCE" in log and "Centres: " in log
+    runner.play()                                   # a rerun leaves no second entry
+    assert m.lore("FRANCE").count("## first") == 1
+
+    nxt = Match.create("second")
+    assert "## Left by earlier players of FRANCE" in board.render(nxt, "FRANCE")
+    assert "Left by earlier" not in board.render(nxt, "ENGLAND")
+    nxt.advance(force=True)
+    assert "Left by earlier" not in board.render(nxt, "FRANCE")   # opening only
+
+
+def test_agent_seats_leave_lore_once_after_the_game(games, capsys):
+    m = Match.create("agentlore", max_year=1901)
+    tok = token(m, "ITALY")
+    assert cli.main(["lore", "--seat", tok, "too soon"]) == 1
+    while not m.ended():
+        m.advance(force=True)
+    capsys.readouterr()
+    cli.main(["board", "--seat", tok])
+    assert f"lore --seat {tok}" in capsys.readouterr().out
+    assert cli.main(["lore", "--seat", tok, "Lepanto", "works."]) == 0
+    assert "Lepanto works." in m.lore("ITALY")
+    assert cli.main(["lore", "--seat", tok, "again"]) == 1
+    capsys.readouterr()
+    cli.main(["board", "--seat", tok])
+    assert "lore --seat" not in capsys.readouterr().out

@@ -307,6 +307,7 @@ _ORDER = re.compile(rf"^(?:{_U} (?:H|- {_P}(?: VIA)?|S {_U}(?: - {_P}| H)?|C {_U
 class Reply:
     orders: list[str] = field(default_factory=list)
     mail: list[tuple[list[str], str]] = field(default_factory=list)
+    notes: str = ""
 
 
 def parse_reply(text: str) -> Reply:
@@ -332,6 +333,17 @@ def parse_reply(text: str) -> Reply:
     pieces = answer.split("```")[1::2]
     if len(answer.split("```")) % 2 == 0:
         pieces.append(answer.split("```")[-1])
+    # A ```notes block is the seat's notebook; orders it mentions are only plans.
+    kept = []
+    for source in pieces:
+        head, _, body = source.partition("\n")
+        if head.strip().lower() == "notes":
+            out.notes = body.strip()
+        else:
+            kept.append(source)
+    pieces = kept
+    if out.notes:
+        answer = re.sub(r"```\s*notes\s*\n.*?(```|$)", "", answer, flags=re.S | re.I)
     for source in reversed(pieces):
         found = _order_lines(re.sub(r"^[a-zA-Z]+\n", "", source))
         if found:
@@ -382,8 +394,20 @@ def orders_format(match: Match, power: str) -> str:
         f"Reply with your orders for this phase in ONE fenced code block: one "
         f"line per unit ({units}), each either copied from that unit's list "
         "above or a support or convoy written in the order forms. Think first "
-        "if you like; only the last code block counts.")
+        "if you like; only the last code block counts.\n\n" + NOTES_FORMAT)
 
+
+NOTES_FORMAT = (
+    "You may also keep a notebook: a fenced code block whose first line is the "
+    "word notes, written before any orders, with your plans, what you have promised and to whom, and whom "
+    "you trust. It replaces your notebook, which only you see, at the top of "
+    "your next board.")
+
+LORE_TASK = (
+    "The game is over. Leave notes for whoever plays {power} in the next game: "
+    "what you opened with, who you allied with and whether it held, what "
+    "worked and what you would do differently. Plain text, under 200 words, "
+    "nothing else.")
 
 MAIL_FORMAT = (
     "Write each message on its own line as `TO ENGLAND: <message>`, "
@@ -393,7 +417,7 @@ MAIL_FORMAT = (
 def task(kind: str, orders: str = "", round_no: int = 0, rounds: int = 0) -> str:
     if kind == "talk":
         return (f"Negotiation round {round_no} of {rounds}. Orders come after the "
-                f"last round. {MAIL_FORMAT} Do not write orders yet.")
+                f"last round. {MAIL_FORMAT} Do not write orders yet.\n\n{NOTES_FORMAT}")
     if kind == "final":
         return f"{FINAL_ROUND_NOTE} You may send last messages first. {MAIL_FORMAT}\n\n{orders}"
     return orders
@@ -486,6 +510,7 @@ class Runner:
             return
         reply = parse_reply(text)
         sent = self._deliver(power, reply)
+        self.match.set_notes(power, reply.notes)
         self._record(power, phase, f"talk{round_no}", {"reply": text})
         self.log(f"  {power} talk {round_no}: {sent} message(s) "
                  f"({time.monotonic() - start:.0f}s)")
@@ -529,6 +554,7 @@ class Runner:
             replies.append(answer)
             reply = parse_reply(answer)
             self._deliver(power, reply)
+            self.match.set_notes(power, reply.notes)
             checked = check_orders(game, power, reply.orders)
             orders = checked.accepted
             if not (reply.orders and checked.ok):
@@ -633,7 +659,22 @@ class Runner:
                 self.log(f"  {phase} resolved ({hist.get('resolved', 'deadline')}) with "
                          f"{len(hist['missing'])} missing, who held: {', '.join(hist['missing'])}")
 
+    def lore(self, power: str) -> None:
+        """After the game: `power`'s lesson for whoever plays it next."""
+        prompt = (f"{boardmod.render(self.match, power)}\n\n## Your notebook\n"
+                  f"{self.match.notes(power).strip() or '(empty)'}\n\n---\n\n"
+                  + LORE_TASK.format(power=power))
+        try:
+            answer = self._complete(power, prompt, max_tokens=FINISH_TOKENS)
+        except Exception as exc:
+            self.log(f"  {power} lore: failed — {exc}")
+            return
+        text = _THINK.sub("", answer).strip().strip("`").strip()
+        if self.match.add_lore(power, text):
+            self.log(f"  {power} left lore ({len(text)} chars)")
+
     def play(self, max_phases: int | None = None) -> None:
+        self.match._set_config(players={p: s.label() for p, s in self.seats.items()})
         n = 0
         while not self.match.ended() and (max_phases is None or n < max_phases):
             self.phase()
@@ -643,6 +684,11 @@ class Runner:
             self.log(f"\nGame over: {self.match.ended()}. Centres: " + ", ".join(
                 f"{p} {len(game.powers[p].centers)}" for p in
                 sorted(POWERS, key=lambda p: -len(game.powers[p].centers))))
+            done = set(self.match.config.get("lore_from", []))
+            todo = [p for p, s in self.seats.items()
+                    if s.kind in ("openai", "claude") and p not in done]
+            with ThreadPoolExecutor(max_workers=7) as pool:
+                list(pool.map(self.lore, todo))
         if n:
             self.log(self.summary())
 

@@ -7,8 +7,13 @@ Each match is one directory, `games/<name>/` (gitignored):
     pending/<POWER>.json this phase's orders, until it resolves     (host only)
     history/<phase>.json what was ordered and what happened, once resolved
     mail.jsonl           every message, revealed to the site when the game ends
-    notes/<POWER>.md     a seat's notebook (older matches; shown in the viewer)
+    notes/<POWER>.md     a seat's private notebook, shown back to it on its board
+    notes.jsonl          every notebook as written, by phase (for log.md)
+    log.md               the readable record: press, orders, results, notes, lore
     briefs/<POWER>.md    the one page a seat is handed
+
+Lore outlives a match: `_lore/<POWER>.md`, beside the matches, is what earlier
+players of each power left for the next one.
 
 Order secrecy is by not telling: a seat acts through its token, and nothing a
 seat is shown names another seat's files. A phase resolves the moment every
@@ -35,6 +40,8 @@ ROOT = Path(__file__).resolve().parent.parent
 GAMES = ROOT / "games"
 POWERS = ("AUSTRIA", "ENGLAND", "FRANCE", "GERMANY", "ITALY", "RUSSIA", "TURKEY")
 ALL = "ALL"
+NOTES_MAX = 2000                # a notebook, not a diary: it is on every board
+LORE_MAX = 1500                 # one game's lore entry
 
 
 # --------------------------------------------------------------------------- #
@@ -364,6 +371,7 @@ class Match:
         elif _year(game.get_current_phase()) > self.config.get("max_year", 9999):
             ended = f"year cap {self.config['max_year']}"
         self._set_config(phase_started=time.time(), ended=ended)
+        self.write_log()
         return summary
 
     def history(self, phase: str) -> dict | None:
@@ -412,7 +420,107 @@ class Match:
         return [m for m in self.messages()
                 if m["sender"] == power or power in m["to"] or ALL in m["to"]]
 
-    # -- notes: older matches' seat notebooks, shown in the replay viewer ------ #
+    # -- notes and lore -------------------------------------------------------- #
     def notes(self, power: str) -> str:
         f = self.path / "notes" / f"{power}.md"
         return f.read_text() if f.exists() else ""
+
+    def set_notes(self, power: str, text: str) -> None:
+        """Replace `power`'s notebook. Only that power is shown it."""
+        text = text.strip()[:NOTES_MAX]
+        if not text or text == self.notes(power).strip():
+            return
+        d = self.path / "notes"
+        d.mkdir(exist_ok=True)
+        _write(d / f"{power}.md", text + "\n")
+        with self._lock(), open(self.path / "notes.jsonl", "a") as fh:
+            fh.write(json.dumps({"phase": self.phase(), "power": power,
+                                 "text": text, "time": time.time()}) + "\n")
+
+    def _lore_file(self, power: str) -> Path:
+        return self.path.parent / "_lore" / f"{power}.md"
+
+    def lore(self, power: str) -> str:
+        """What earlier players of `power` left, newest last."""
+        f = self._lore_file(power)
+        return f.read_text() if f.exists() else ""
+
+    def add_lore(self, power: str, text: str) -> bool:
+        """After the game, `power`'s lesson for its next player. Once per match."""
+        text = text.strip()[:LORE_MAX]
+        if not (self.ended() and text) or power in self.config.get("lore_from", []):
+            return False
+        game = self.load()
+        f = self._lore_file(power)
+        f.parent.mkdir(exist_ok=True)
+        with self._lock():
+            with open(f, "a") as fh:
+                fh.write(f"## {self.name} ({self.ended()}; {power} finished with "
+                         f"{len(game.powers[power].centers)} centres)\n\n{text}\n\n")
+            self._set_config(lore_from=[*self.config.get("lore_from", []), power])
+        self.write_log()
+        return True
+
+    # -- the readable record ---------------------------------------------------- #
+    def write_log(self) -> None:
+        """log.md: the whole match, phase by phase, for whoever studies it after."""
+        cfg = self.config
+        game = self.load()
+        played = [str(k) for k in game.order_history.keys()]
+        mail = self.messages()
+        notes = []
+        if (self.path / "notes.jsonl").exists():
+            notes = [json.loads(l) for l in (self.path / "notes.jsonl").read_text().splitlines()
+                     if l.strip()]
+        players = cfg.get("players") or {}
+        out = [f"# {cfg['name']}",
+               f"{'Full press' if self.full_press else 'Gunboat'}, ends after "
+               f"{cfg['max_year']}."]
+        if players:
+            out += ["", "Seats: " + ", ".join(f"{p} {players[p]}" for p in POWERS
+                                              if p in players)]
+        # The centres each phase left behind are the next phase's starting state.
+        starts = [(str(k), v.get("centers") or {}) for k, v in game.state_history.items()]
+        starts.append((game.get_current_phase(),
+                       {p: list(game.powers[p].centers) for p in POWERS}))
+        after = {ph: nxt for (ph, _), (_, nxt) in zip(starts, starts[1:])}
+        for phase in [*played, *([] if self.ended() else [game.get_current_phase()])]:
+            hist = self.history(phase) or {}
+            said = [m for m in mail if m["phase"] == phase]
+            wrote = [n for n in notes if n["phase"] == phase]
+            if not (hist or said or wrote):
+                continue
+            out += ["", f"## {phase}" + ("" if hist else " (in progress)")]
+            if said:
+                out += ["", "### Press"] + [
+                    f"- {m['sender']} → {', '.join(m['to'])}: {m['body']}" for m in said]
+            if hist:
+                out += ["", "### Orders"] + [
+                    f"- {p}: {', '.join(o)}" for p, o in sorted(hist["orders"].items()) if o]
+                if hist.get("results"):
+                    out += ["", "Results: " + "; ".join(
+                        f"{u} {', '.join(r)}" for u, r in sorted(hist["results"].items()))]
+                if hist.get("missing"):
+                    out += ["", f"No orders (held): {', '.join(hist['missing'])}"]
+                if hist.get("refused"):
+                    out += ["", "Refused: " + "; ".join(
+                        f"{p}: {', '.join(r)}" for p, r in sorted(hist["refused"].items()))]
+            if wrote:
+                last = {n["power"]: n["text"] for n in wrote}
+                out += ["", "### Notebooks"]
+                for p, text in sorted(last.items()):
+                    out += [f"- {p}:"] + [f"  > {l}" for l in text.splitlines()]
+            if phase.endswith("A") and hist:
+                centres = after.get(phase) or {}
+                out += ["", "Centres: " + ", ".join(
+                    f"{p} {len(centres.get(p) or [])}" for p in
+                    sorted(POWERS, key=lambda p: -len(centres.get(p) or [])))]
+        if self.ended():
+            out += ["", f"## Game over: {self.ended()}", "", ", ".join(
+                f"{p} {len(game.powers[p].centers)}" for p in
+                sorted(POWERS, key=lambda p: -len(game.powers[p].centers)))]
+            for p in cfg.get("lore_from", []):
+                entry = self.lore(p).rsplit(f"## {self.name} (", 1)
+                if len(entry) == 2:
+                    out += ["", f"### Lore from {p}", "", entry[1].split("\n", 1)[1].strip()]
+        _write(self.path / "log.md", "\n".join(out) + "\n")

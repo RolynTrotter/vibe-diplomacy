@@ -79,6 +79,11 @@ why: `F1901M resolved (deadline) with 2 seat(s) missing, who held: ...`.
 `~` before a written count means the server didn't report usage, so it is
 an estimate; the cost appears only when the seat's backend states one.
 
+Before exiting, the runner asks each model seat for lore (`FRANCE left lore`
+lines): notes for the next player of that power, shown on that power's
+opening board in later matches. `games/<name>/log.md` is the readable record
+of the whole match: press, orders, results, notebooks, lore.
+
 Lines in `latest` (and in the log) that need no action, or one flag:
 
 | Line | Meaning | Do |

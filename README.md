@@ -85,6 +85,13 @@ supports it. Each call's transcript is saved in `games/<name>/log/`, and
 each phase adds a line to `games/<name>/progress.log`, which `./dip status`
 shows. To have an agent host a match, point it at the `run-a-match` skill.
 
+Model seats may keep a private notebook (plans, promises, whom they trust),
+shown back to them at the top of their next board. After the game each seat
+leaves lore for the next player of its power (agent seats with `lore`), kept in
+`games/_lore/<POWER>.md` and shown on that power's opening board in later
+matches. `games/<name>/log.md` is the whole match in readable form: press,
+orders, results, notebooks and lore.
+
 ## Layout
 
 ```
