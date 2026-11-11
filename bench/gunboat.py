@@ -209,6 +209,8 @@ def _main() -> int:
     ap.add_argument("--models", type=int, default=3, help="model seats per game")
     ap.add_argument("--map", choices=list(MAPS), default="standard",
                     help="standard_france_austria: the 1v1 sandbox")
+    ap.add_argument("--as", dest="play_as", metavar="POWER[,POWER]",
+                    help="model seats always play these powers instead of rotating")
     ap.add_argument("--opponents", default="fake,hold",
                     help="baseline kinds for the other seats, in turn (e.g. fake)")
     ap.add_argument("--seed", type=int, default=1)
@@ -232,6 +234,9 @@ def _main() -> int:
             match = Match.create(name, max_year=args.max_year, map_name=args.map)
             ps = match.powers
             order = ps[i % len(ps):] + ps[:i % len(ps)]
+            if args.play_as:              # the model seats always play these powers
+                fixed = [p.upper() for p in args.play_as.split(",")]
+                order = fixed + [p for p in order if p not in fixed]
             others = args.opponents.split(",")
             kinds = [args.model] * args.models + others * 7
             seats = {p: parse_seat(k, "", "") for p, k in zip(order, kinds)}
