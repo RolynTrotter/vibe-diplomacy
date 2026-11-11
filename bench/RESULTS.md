@@ -42,3 +42,17 @@ Written by `bench/gunboat.py` (see its docstring for what each column counts). R
 |---|---|---|---|---|---|---|---|---|---|
 | fake | 18 | 0.00 | 0.00 | 0.00 | 0.31 | 0.20 | 1.56 | 0.00 | +0.56 |
 | haiku | 3 | 0.00 | 0.00 | 0.00 | 0.11 | 0.00 | 0.00 | 0.00 | +4.33 |
+
+
+## fa-haiku-vs-random — 2026-11-11, claude:haiku, 4 games to 1906, France vs Austria
+
+| seats | n | finishing/phase | refused/phase | held/phase | missed/fall | selfbounce/phase | void/phase | unbuilt/winter | gain |
+|---|---|---|---|---|---|---|---|---|---|
+| fake | 4 | 0.00 | 0.00 | 0.00 | 2.35 | 0.15 | 1.50 | 0.00 | +3.25 |
+| haiku | 4 | 0.02 | 0.02 | 0.00 | 0.61 | 0.00 | 0.00 | 0.00 | +11.75 |
+
+## fa-haiku-vs-haiku — 2026-11-11, claude:haiku, 2 games to 1906, France vs Austria
+
+| seats | n | finishing/phase | refused/phase | held/phase | missed/fall | selfbounce/phase | void/phase | unbuilt/winter | gain |
+|---|---|---|---|---|---|---|---|---|---|
+| haiku | 4 | 0.00 | 0.00 | 0.00 | 0.58 | 0.00 | 0.00 | 0.00 | +12.25 |
