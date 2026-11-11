@@ -7,13 +7,14 @@ Written by `bench/gunboat.py` (see its docstring for what each column counts). R
 
 
 
+
 ## before — 2026-11-11, claude:haiku, 3 games to 1902
 
 | seats | n | finishing/phase | refused/phase | held/phase | missed/fall | selfbounce/phase | void/phase | gain |
 |---|---|---|---|---|---|---|---|---|
 | fake | 6 | 0.00 | 0.00 | 0.00 | 0.25 | 0.38 | 1.38 | -0.17 |
 | haiku | 9 | 0.03 | 0.03 | 0.00 | 0.22 | 0.00 | 0.00 | +2.56 |
-| hold | 6 | 0.00 | 0.00 | 0.00 | 0.33 | 0.00 | 0.00 | +0.00 |
+| hold | 6 | 0.00 | 0.00 | 1.00 | 0.33 | 0.00 | 0.00 | +0.00 |
 
 ## after — 2026-11-11, claude:haiku, 3 games to 1902
 
@@ -21,7 +22,7 @@ Written by `bench/gunboat.py` (see its docstring for what each column counts). R
 |---|---|---|---|---|---|---|---|---|
 | fake | 6 | 0.00 | 0.00 | 0.00 | 0.50 | 0.33 | 1.67 | +0.00 |
 | haiku | 9 | 0.00 | 0.00 | 0.00 | 0.11 | 0.00 | 0.00 | +2.44 |
-| hold | 6 | 0.00 | 0.00 | 0.00 | 0.33 | 0.00 | 0.00 | +0.00 |
+| hold | 6 | 0.00 | 0.00 | 1.00 | 0.33 | 0.00 | 0.00 | +0.00 |
 
 ## before-7 — 2026-11-11, claude:haiku, 2 games to 1904
 

@@ -4,9 +4,10 @@ Runs short gunboat matches with model seats beside two baselines, random
 legal orders (`fake`) and holding everything (`hold`), rotating which powers
 each kind plays, then scores every seat from the match files:
 
-    finishing   movement phases whose first reply had no usable orders
+    finishing   movement phases whose first reply wasn't clean, so a finishing
+                call followed: no orders, cut off, or any order refused
     refused     orders that could not be used (illegal or unparseable)
-    held        movement phases that ended with no orders at all
+    held        movement phases that resolved with no orders from it at all
     missed      Fall: an empty centre it doesn't own that only it could reach,
                 with a unit that could have moved there doing anything other
                 than moving into a centre. An early-competence signal only, to
@@ -84,9 +85,8 @@ def score(match: Match) -> dict[str, dict]:
             s["refused"] += len((hist.get("refused") or {}).get(p) or [])
             rec = match.path / "log" / phase / f"{p}-orders.json"
             if rec.exists():
-                data = json.loads(rec.read_text())
-                s["finishing"] += len(data.get("replies") or []) > 1
-                s["held"] += not data.get("submitted")
+                s["finishing"] += len(json.loads(rec.read_text()).get("replies") or []) > 1
+            s["held"] += not orders
             moves = {}
             stays = set()
             for o in orders:

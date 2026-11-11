@@ -45,3 +45,10 @@ def test_a_chain_behind_a_failed_attack_is_not_a_self_bounce(games):
     # A BUR attacks MUN and fails; A PAR, moving in behind it, bounces too.
     play(m, GERMANY=["A MUN H"], FRANCE=["A BUR - MUN", "A PAR - BUR"])
     assert score(m)["FRANCE"]["selfbounce"] == 0
+
+
+def test_held_comes_from_the_resolved_orders(games):
+    m = Match.create("hd")
+    play(m, FRANCE=["A PAR - BUR"])
+    s = score(m)
+    assert s["FRANCE"]["held"] == 0 and s["GERMANY"]["held"] == 1
