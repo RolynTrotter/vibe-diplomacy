@@ -18,6 +18,8 @@ each kind plays, then scores every seat from the match files:
                 attack. Ramp-up only, retired with missed: a deliberate
                 self-bounce to deny a province is often the best play.
     void        supports that didn't match the supported unit's move
+    unbuilt     builds left unused in a winter: open home centres it could have
+                built on, up to its surplus of centres over units
     gain        supply centres at the end minus at the start
 
 Nothing here rewards caution: leaving a centre undefended is not counted,
@@ -44,7 +46,7 @@ from vibe.game import POWERS, Match
 from vibe.run import Runner, parse_seat
 
 HERE = Path(__file__).resolve().parent
-METRICS = ("finishing", "refused", "held", "missed", "selfbounce", "void")
+METRICS = ("finishing", "refused", "held", "missed", "selfbounce", "void", "unbuilt")
 
 
 def _base(loc: str) -> str:
@@ -57,17 +59,43 @@ def _reach(game, unit: str, prov: str) -> bool:
                if _base(d.upper()) == prov)
 
 
-def score(match: Match) -> dict[str, dict]:
-    """Per power: its seat kind, raw counts, and how many phases they cover."""
+def _year(phase: str) -> int:
+    return int(phase[1:5])
+
+
+def score(match: Match, until: int | None = None) -> dict[str, dict]:
+    """Per power: its seat kind, raw counts, and how many phases they cover.
+
+    `until` scores only the phases up to the end of that year, with gain
+    measured from the centres held then, so games of any length compare at
+    the same cutoff.
+    """
     game = match.load()
     players = match.config.get("players") or {}
     states = [(str(k), v) for k, v in game.state_history.items()]
-    final = {p: list(game.powers[p].centers) for p in POWERS}
-    out = {p: {"kind": players.get(p, "?"), "moves": 0, "falls": 0,
+    now = {p: list(game.powers[p].centers) for p in POWERS}
+    if until is not None:
+        later = [st for ph, st in states if _year(ph) > until]
+        states = [(ph, st) for ph, st in states if _year(ph) <= until]
+        if later:
+            now = later[0]["centers"]
+    out = {p: {"kind": players.get(p, "?"), "moves": 0, "falls": 0, "winters": 0,
                **{m: 0 for m in METRICS},
-               "gain": len(final[p]) - len(states[0][1]["centers"].get(p, []))}
+               "gain": len(now.get(p) or []) - len(states[0][1]["centers"].get(p, []))}
            for p in POWERS}
     for phase, start in states:
+        if phase.endswith("A"):
+            orders = ((match.history(phase) or {}).get("orders") or {})
+            for p in POWERS:
+                centres, units = start["centers"].get(p, []), start["units"].get(p, [])
+                taken = {u.split()[1][:3] for us in start["units"].values() for u in us}
+                room = [h for h in start["homes"].get(p, []) if h in centres and h not in taken]
+                can = min(len(centres) - len(units), len(room))
+                if can > 0:
+                    built = sum(o.endswith(" B") for o in orders.get(p) or [])
+                    out[p]["winters"] += 1
+                    out[p]["unbuilt"] += max(0, can - built)
+            continue
         if not phase.endswith("M"):
             continue
         hist = match.history(phase) or {}
@@ -136,8 +164,8 @@ def table(rows: list[dict]) -> str:
     for r in rows:
         by[r["kind"]].append(r)
     head = ("| seats | n | finishing/phase | refused/phase | held/phase "
-            "| missed/fall | selfbounce/phase | void/phase | gain |")
-    lines = [head, "|" + "---|" * 9]
+            "| missed/fall | selfbounce/phase | void/phase | unbuilt/winter | gain |")
+    lines = [head, "|" + "---|" * 10]
     for kind, rs in sorted(by.items()):
         moves = sum(r["moves"] for r in rs) or 1
         falls = sum(r["falls"] for r in rs) or 1
@@ -148,6 +176,7 @@ def table(rows: list[dict]) -> str:
                      f"{per('refused', moves)} | {per('held', moves)} | "
                      f"{per('missed', falls)} | "
                      f"{per('selfbounce', moves)} | {per('void', moves)} | "
+                     f"{per('unbuilt', sum(r['winters'] for r in rs) or 1)} | "
                      f"{sum(r['gain'] for r in rs) / len(rs):+.2f} |")
     return "\n".join(lines)
 
@@ -158,17 +187,22 @@ def main() -> int:
     ap.add_argument("--score", nargs="+", metavar="MATCH",
                     help="only score these existing matches")
     ap.add_argument("--root", help="the games directory they are in")
+    ap.add_argument("--until", type=int, metavar="YEAR",
+                    help="score only up to the end of this year (compare games of any length)")
     ap.add_argument("--games", type=int, default=3)
     ap.add_argument("--max-year", type=int, default=1902)
     ap.add_argument("--label", help="names this run in RESULTS.md")
     ap.add_argument("--models", type=int, default=3, help="model seats per game")
+    ap.add_argument("--opponents", default="fake,hold",
+                    help="baseline kinds for the other seats, in turn (e.g. fake)")
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--score-only", action="store_true",
                     help="score this label's existing matches again")
     args = ap.parse_args()
     if args.score:
         rows = [r for name in args.score
-                for r in score(Match.open(name, root=Path(args.root) if args.root else None)).values()]
+                for r in score(Match.open(name, root=Path(args.root) if args.root else None),
+                               args.until).values()]
         print(table(rows))
         return 0
     if not (args.model and args.label):
@@ -181,8 +215,8 @@ def main() -> int:
         else:
             match = Match.create(name, max_year=args.max_year)
             order = POWERS[i % 7:] + POWERS[:i % 7]
-            kinds = ([args.model] * args.models
-                     + ["fake", "hold"] * ((7 - args.models) // 2 + 1))
+            others = args.opponents.split(",")
+            kinds = [args.model] * args.models + others * 7
             seats = {p: parse_seat(k, "", "") for p, k in zip(order, kinds)}
             with open(match.path / "progress.log", "a") as fh:
                 def log(line, fh=fh):
