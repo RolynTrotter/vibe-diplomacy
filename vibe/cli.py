@@ -365,6 +365,11 @@ def cmd_run(args) -> int:
     return run.main(args)
 
 
+def cmd_serve(args) -> int:
+    from vibe import serve
+    return serve.main(args)
+
+
 def cmd_site(args) -> int:
     from vibe import site
     return site.main(args)
@@ -431,6 +436,10 @@ def build_parser() -> argparse.ArgumentParser:
     from vibe import run
     run.add_arguments(sub.add_parser("run", help="[host] play seats with models"))
     sub.choices["run"].set_defaults(fn=cmd_run)
+
+    s = sub.add_parser("serve", help="[host] serve human seats to the web page")
+    s.add_argument("--port", type=int, default=8010)
+    s.set_defaults(fn=cmd_serve)
 
     s = sub.add_parser("site", help="[host] build the replay viewer for every match")
     s.add_argument("--out", default="_site")

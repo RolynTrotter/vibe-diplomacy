@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diplomacy</title>
+<style>
+:root{--bg:#141210;--surface:#1f1b17;--surface-2:#29241f;--ink:#ece6da;--muted:#a29a8c;--accent:#c79a62;--accent-fg:#16130f;--line:#3a332b;--ok:#8fbf8a;--bad:#e08a7a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 Georgia,"Iowan Old Style",serif}
+main{max-width:46rem;margin:0 auto;padding:12px 16px 120px}
+h1{font-size:1.25rem;margin:.4rem 0 1rem;letter-spacing:.04em}
+h2{font-size:1rem;margin:1.4rem 0 .5rem;color:var(--muted);font-weight:normal;letter-spacing:.06em;text-transform:uppercase}
+a{color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px;margin:0 0 10px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.muted{color:var(--muted);font-size:.9rem}
+button,select{font:inherit;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:9px 12px;min-height:44px}
+button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent);font-weight:bold}
+button.on{background:var(--ok);color:#10140f;border-color:var(--ok);font-weight:bold}
+button:disabled{opacity:.5}
+select{width:100%}
+label.chk{display:inline-flex;gap:6px;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.unit{display:grid;grid-template-columns:5.5rem 1fr;gap:8px;align-items:center;margin:6px 0}
+.unit b{font-variant:small-caps;letter-spacing:.03em}
+#map{width:100%;border-radius:8px;border:1px solid var(--line);background:#e8e2d4;display:block}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line);margin-bottom:10px}
+.dock{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.dock .row{max-width:46rem;margin:0 auto}
+.dock button{flex:1}
+.err{color:var(--bad);white-space:pre-wrap}
+.okc{color:var(--ok)}
+pre{white-space:pre-wrap;font:inherit;font-size:.92rem;margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+"use strict";
+const API = location.port === "8010" ? location.origin : location.protocol + "//" + location.hostname + ":8010";
+const POWERS = ["AUSTRIA","ENGLAND","FRANCE","GERMANY","ITALY","RUSSIA","TURKEY"];
+const OPPONENTS = [["claude:haiku","Haiku"],["claude:sonnet","Sonnet"],["fake","Random"],["hold","Hold"]];
+const app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const title = s => s.charAt(0) + s.slice(1).toLowerCase();
+let timer = null;
+
+function mine() { try { return JSON.parse(localStorage.getItem("dip-seats") || "{}"); } catch { return {}; } }
+function remember(key, tok) { try { const m = mine(); m[key] = tok; localStorage.setItem("dip-seats", JSON.stringify(m)); } catch {} }
+
+async function api(path, body) {
+  const r = await fetch(API + path, body === undefined ? {} :
+    {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+  const data = await r.json().catch(() => ({error: "server error"}));
+  if (!r.ok) throw new Error(data.error || r.statusText);
+  return data;
+}
+
+function left(at, now) {
+  if (!at) return "";
+  const s = Math.max(0, Math.round(at - now));
+  const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60);
+  return h ? `${h}h ${m}m` : `${m}m ${s % 60}s`;
+}
+
+// ---------------------------------------------------------------- lobby --- //
+async function lobby() {
+  clearInterval(timer);
+  let matches = [];
+  let err = "";
+  try { matches = await api("/api/matches"); } catch (e) { err = "Server offline"; }
+  const seats = mine();
+  const live = matches.filter(m => !m.ended);
+  const yours = Object.entries(seats).filter(([k]) => matches.some(m => k.startsWith(m.name + "/")));
+  app.innerHTML = `<h1>Diplomacy</h1>
+  ${err ? `<p class="err">${err}</p>` : ""}
+  ${yours.length ? `<h2>Your seats</h2>` + yours.map(([k, t]) => {
+      const [name, p] = k.split("/"); const m = matches.find(x => x.name === name);
+      return `<a class="card row" href="#seat=${esc(t)}" style="text-decoration:none;color:inherit;justify-content:space-between">
+        <b>${esc(title(p))}</b><span class="muted">${esc(name)} · ${esc(m.ended ? "over: " + m.ended : m.phase)}</span></a>`;
+    }).join("") : ""}
+  <h2>Open seats</h2>
+  ${live.flatMap(m => POWERS.filter(p => m.seats[p].open).map(p =>
+      `<div class="card row" style="justify-content:space-between"><span><b>${title(p)}</b>
+       <span class="muted">${esc(m.name)} · ${esc(m.phase)}</span></span>
+       <button class="primary" data-claim="${esc(m.name)}/${p}">Play</button></div>`)).join("") || `<p class="muted">None</p>`}
+  <h2>New match</h2>
+  <div class="card">
+    <div class="muted">Humans</div>
+    <div class="row" style="margin:6px 0 12px">${POWERS.map(p =>
+      `<label class="chk"><input type="checkbox" name="h" value="${p}">${title(p)}</label>`).join("")}</div>
+    <div class="grid">
+      <label><span class="muted">Other powers</span><select id="model">${OPPONENTS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select></label>
+      <label><span class="muted">Turn</span><select id="deadline"><option value="3600">1 hour</option><option value="86400">24 hours</option></select></label>
+      <label><span class="muted">Ends after</span><select id="year">${[1902,1904,1906,1910].map(y => `<option${y===1904?" selected":""}>${y}</option>`).join("")}</select></label>
+    </div>
+    <p id="newerr" class="err"></p>
+    <button class="primary" id="create" style="width:100%">Create</button>
+  </div>
+  <h2>Matches</h2>
+  ${matches.map(m => `<div class="card"><div class="row" style="justify-content:space-between"><b>${esc(m.name)}</b>
+     <span class="muted">${esc(m.ended ? "over: " + m.ended : m.phase + (m.deadline_at ? " · " + left(m.deadline_at, Date.now()/1000) : ""))}</span></div>
+     <div class="muted">${POWERS.map(p => `${title(p)} ${m.seats[p].centres}${m.seats[p].human ? " (human)" : ""}`).join(" · ")}</div></div>`).join("") || `<p class="muted">None</p>`}`;
+  app.querySelectorAll("[data-claim]").forEach(b => b.onclick = async () => {
+    const [match, power] = b.dataset.claim.split("/");
+    b.disabled = true;
+    try { const r = await api("/api/claim", {match, power}); remember(`${match}/${power}`, r.token); location.hash = "seat=" + r.token; }
+    catch (e) { alert(e.message); lobby(); }
+  });
+  document.getElementById("create").onclick = async () => {
+    const humans = [...app.querySelectorAll("input[name=h]:checked")].map(i => i.value);
+    const body = {humans, model: document.getElementById("model").value,
+      deadline: +document.getElementById("deadline").value, max_year: +document.getElementById("year").value};
+    try { await api("/api/new", body); lobby(); }
+    catch (e) { document.getElementById("newerr").textContent = e.message; }
+  };
+}
+
+// ----------------------------------------------------------------- seat --- //
+function describe(order, names) {
+  const n = a => names[a.split("/")[0]] ? `${names[a.split("/")[0]]}${a.includes("/") ? " (" + a.split("/")[1].toLowerCase() + ")" : ""}` : a;
+  const p = order.split(" ");
+  if (p[2] === "H") return "Hold";
+  if (p[2] === "-") return `Move to ${n(p[3])}${p[4] === "VIA" ? " by convoy" : ""}`;
+  if (p[2] === "S") return p[5] === "-" ? `Support ${p[3]} ${n(p[4])} to ${n(p[6])}` : `Support ${p[3]} ${n(p[4])} holding`;
+  if (p[2] === "C") return `Convoy ${p[3]} ${n(p[4])} to ${n(p[6])}`;
+  if (p[2] === "R") return `Retreat to ${n(p[3])}`;
+  if (p[2] === "D") return "Disband";
+  if (p[2] === "B") return `Build ${p[0] === "A" ? "army" : "fleet"}`;
+  return order;
+}
+const GROUPS = [["H","Hold"],["-","Move"],["S","Support"],["C","Convoy"],["R","Retreat"],["D","Disband"],["B","Build"]];
+
+async function seat(tok) {
+  clearInterval(timer);
+  let s;
+  try { s = await api(`/api/seat/${tok}`); }
+  catch (e) { app.innerHTML = `<h1>Diplomacy</h1><p class="err">${esc(e.message)}</p><p><a href="#">Back</a></p>`; return; }
+  remember(`${s.name}/${s.power}`, tok);
+  let skew = Date.now() / 1000 - s.now;
+  const phase = s.phase;
+  const picked = {};
+  for (const o of s.submitted || []) picked[o.split(" ")[1].split("/")[0]] = o;
+  const units = Object.entries(s.options);
+  app.innerHTML = `
+  <div class="bar row" style="justify-content:space-between">
+    <span><a href="#" aria-label="Lobby">←</a> <b>${title(s.power)}</b> · ${esc(s.ended ? "Game over: " + s.ended : s.season)}</span>
+    <span class="muted"><span id="clock"></span> · Ready <span id="rc">${s.ready_count}/${s.owing_count}</span></span>
+  </div>
+  <a href="${API}/api/seat/${esc(tok)}/map.svg?p=${esc(phase)}" target="_blank" rel="noopener"><img id="map" alt="Map, ${esc(s.season)}" src="${API}/api/seat/${esc(tok)}/map.svg?p=${esc(phase)}"></a>
+  ${s.ended ? "" : s.owes ? `
+  <h2>${s.phase_type === "A" ? (s.adjust > 0 ? `Builds: up to ${s.adjust}` : `Disbands: ${-s.adjust}`) : "Orders"}</h2>
+  <div class="card" id="orders">${units.map(([loc, u]) => {
+    const def = picked[loc] || (s.phase_type === "M" ? u.orders.find(o => o.endsWith(" H")) : "");
+    const groups = GROUPS.map(([k, label]) => [label, u.orders.filter(o => o.split(" ")[2] === k)]).filter(g => g[1].length);
+    return `<div class="unit"><b>${esc(s.phase_type === "A" ? (s.names[loc] || loc) : u.unit)}</b>
+      <select data-loc="${esc(loc)}" aria-label="${esc(u.unit)}">${s.phase_type === "M" ? "" : `<option value="">—</option>`}
+      ${groups.map(([label, os]) => `<optgroup label="${label}">${os.map(o =>
+        `<option value="${esc(o)}"${o === def ? " selected" : ""}>${esc(describe(o, s.names))}</option>`).join("")}</optgroup>`).join("")}
+      </select></div>`;
+  }).join("")}</div>
+  <p id="state" class="${s.submitted ? "okc" : "muted"}">${s.submitted ? "Submitted" : "Not submitted"}</p>
+  <p id="err" class="err"></p>` : `<p class="muted">Nothing to order</p>`}
+  ${s.last ? `<h2>Last turn</h2><div class="card"><pre>${esc(s.last)}</pre></div>` : ""}
+  <h2>Supply centres</h2><div class="card"><pre>${esc(s.standings)}</pre></div>
+  ${s.ended ? "" : `<div class="dock"><div class="row">
+    ${s.owes ? `<button id="submit">Submit</button>` : ""}
+    <button id="ready" class="${s.ready ? "on" : "primary"}" aria-pressed="${s.ready}">${s.ready ? "Ready ✓" : "Ready"}</button>
+  </div></div>`}`;
+
+  const clock = document.getElementById("clock");
+  const tick = () => { clock.textContent = s.deadline_at ? left(s.deadline_at, Date.now() / 1000 - skew) : ""; };
+  tick();
+  const err = m => { const e = document.getElementById("err"); if (e) e.textContent = m; };
+  const send = async () => {
+    const orders = [...app.querySelectorAll("select[data-loc]")].map(x => x.value).filter(Boolean);
+    try { s = await api(`/api/seat/${tok}/submit`, {orders, phase}); err("");
+      const st = document.getElementById("state"); st.textContent = "Submitted"; st.className = "okc"; }
+    catch (e) { err(e.message); if (/resolved/.test(e.message)) seat(tok); throw e; }
+  };
+  const sub = document.getElementById("submit");
+  if (sub) sub.onclick = () => send().catch(() => {});
+  app.querySelectorAll("select[data-loc]").forEach(x => x.onchange = () => {
+    const st = document.getElementById("state"); st.textContent = "Not submitted"; st.className = "muted"; });
+  const rb = document.getElementById("ready");
+  if (rb) rb.onclick = async () => {
+    rb.disabled = true;
+    try {
+      const want = !s.ready;
+      if (want && s.owes && document.getElementById("state").textContent !== "Submitted") await send();
+      s = await api(`/api/seat/${tok}/ready`, {ready: want, phase});
+      if (s.phase !== phase) return seat(tok);
+      rb.className = s.ready ? "on" : "primary"; rb.textContent = s.ready ? "Ready ✓" : "Ready";
+      rb.setAttribute("aria-pressed", s.ready);
+      document.getElementById("rc").textContent = `${s.ready_count}/${s.owing_count}`;
+    } catch (e) { err(e.message); if (/resolved/.test(e.message)) return seat(tok); }
+    rb.disabled = false;
+  };
+  timer = setInterval(async () => {
+    tick();
+    if (Math.round(Date.now() / 1000) % 5) return;
+    try {
+      const n = await api(`/api/seat/${tok}`);
+      if (n.phase !== phase || n.ended !== s.ended) return seat(tok);
+      skew = Date.now() / 1000 - n.now;
+      document.getElementById("rc").textContent = `${n.ready_count}/${n.owing_count}`;
+    } catch {}
+  }, 1000);
+}
+
+function route() {
+  const m = location.hash.match(/seat=([0-9a-f]+)/);
+  m ? seat(m[1]) : lobby();
+}
+addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>

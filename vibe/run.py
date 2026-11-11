@@ -12,6 +12,7 @@ Seat specs (`--seat FRANCE=<spec>`, or `--model` for every unassigned seat):
     claude:<model>            the `claude` CLI, no tools (uses your login)
     agent                     played from outside by an agent or a human
     fake                      random legal orders (smoke tests)
+    hold                      no orders: every unit holds (a baseline)
 """
 from __future__ import annotations
 
@@ -81,7 +82,7 @@ class ServerError(RuntimeError):
 
 @dataclass
 class Seat:
-    kind: str                       # openai | claude | agent | fake
+    kind: str                       # openai | claude | agent | fake | hold
     model: str = ""
     base_url: str = ""
     api_key: str = ""
@@ -97,7 +98,7 @@ class Seat:
 
 def parse_seat(spec: str, base_url: str, api_key: str) -> Seat:
     spec = spec.strip()
-    if spec in ("agent", "fake"):
+    if spec in ("agent", "fake", "hold"):
         return Seat(spec)
     if spec.startswith("claude:"):
         return Seat("claude", spec.split(":", 1)[1])
@@ -452,6 +453,8 @@ class Runner:
         max_tokens = max_tokens or self.max_tokens
         if seat.kind == "fake":
             return Answer.of(fake_reply(self.match, power, self.rng))
+        if seat.kind == "hold":
+            return Answer.of("")
         system = system_prompt(self.match, power)
         image = None
         if self.images and self.match.load().phase_type == "M":
@@ -543,6 +546,9 @@ class Runner:
                 "that one fenced code block. Messages were already sent.")
 
     def orders(self, power: str, phase: str) -> None:
+        if self.seats[power].kind == "hold":
+            self.match.submit(power, [], phase=phase, ready=True)
+            return
         start = time.monotonic()
         game = self.match.load()
         kind = "final" if self.match.full_press and game.phase_type == "M" else "orders"
@@ -675,7 +681,9 @@ class Runner:
             self.log(f"  {power} left lore ({len(text)} chars)")
 
     def play(self, max_phases: int | None = None) -> None:
-        self.match._set_config(players={p: s.label() for p, s in self.seats.items()})
+        humans = self.match.config.get("humans") or {}
+        self.match._set_config(players={p: "human" if p in humans else s.label()
+                                        for p, s in self.seats.items()})
         n = 0
         while not self.match.ended() and (max_phases is None or n < max_phases):
             self.phase()
@@ -703,7 +711,8 @@ def add_arguments(p) -> None:
     p.add_argument("--api-key-env", default="OPENAI_API_KEY",
                    help="environment variable holding the API key, if any")
     p.add_argument("--seat", action="append", default=[], metavar="POWER=SPEC",
-                   help="per-seat spec: <model>, openai:<model>@<url>, claude:<model>, agent, fake")
+                   help="per-seat spec: <model>, openai:<model>@<url>, claude:<model>, "
+                        "agent, fake, hold")
     p.add_argument("--agents", default="", help="POWER,POWER played from outside")
     p.add_argument("--rounds", type=int, default=2,
                    help="negotiation rounds per movement phase (full press)")
