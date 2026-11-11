@@ -97,8 +97,9 @@ def brief(match: Match, power: str) -> str:
         f"until `board` or `wait` says GAME OVER (the game ends after "
         f"{cfg['max_year']} or when someone reaches 18 centres).",
         "",
-        f"A phase resolves once every power has submitted, or after "
-        f"{_human(cfg['deadline_s'])}; anything not submitted holds. Retreat "
+        f"`wait` also says you are done with the phase. It resolves once every "
+        f"power is done, or after {_human(cfg['deadline_s'])}; anything not "
+        f"submitted holds. Retreat "
         "and winter-build phases work the same way — `board` shows your options.",
         "",
         "These commands are all you need. Nothing else on this computer is part "
@@ -183,11 +184,8 @@ def cmd_submit(args) -> int:
         return 1
     shown = "\n".join(f"  {o}" for o in checked.accepted) or "  (none — everything holds)"
     print(f"Submitted for {phase}:\n{shown}")
-    if match.phase() != phase or match.ended():
-        print(f"\nEveryone was in, so {phase} has resolved. Run `wait` or `board`.")
-    else:
-        print("\nYou can submit again to replace these until the phase resolves. "
-              "Now run `wait`.")
+    print("\nYou can submit again to replace these until the phase resolves. "
+          "When you are done, run `wait`.")
     return 0
 
 
@@ -206,6 +204,8 @@ def cmd_wait(args) -> int:
         print(f"You have not submitted orders for {start} yet; the phase is waiting "
               "on you. Run `submit` first (with no orders, everything holds).")
         return 1
+    if not match.ended():
+        match.set_ready(power, phase=start)
     deadline = time.monotonic() + args.timeout
     while time.monotonic() < deadline:
         match.advance()
@@ -216,8 +216,8 @@ def cmd_wait(args) -> int:
             return 0
         time.sleep(args.poll)
     game = match.load()
-    print(f"Still waiting on {start}: {len(match.submitted(game))}/"
-          f"{len(match.owing(game))} powers have submitted. Run `wait` again.")
+    print(f"Still waiting on {start}: {len(match.readied(game))}/"
+          f"{len(match.owing(game))} powers are done. Run `wait` again.")
     return 0
 
 
@@ -301,9 +301,10 @@ def cmd_status(args) -> int:
             print(f"{m.name}: over — {m.ended()}"
                   + (f" (last phase played: {played[-1]})" if played else ""))
         else:
-            sub, owing = m.submitted(game), m.owing(game)
-            waiting = [p for p in owing if p not in sub]
-            print(f"{m.name}: {game.get_current_phase()}, {len(sub)}/{len(owing)} submitted"
+            sub, ready, owing = m.submitted(game), m.readied(game), m.owing(game)
+            waiting = [p for p in owing if p not in ready]
+            print(f"{m.name}: {game.get_current_phase()}, {len(sub)}/{len(owing)} submitted, "
+                  f"{len([p for p in ready if p in owing])}/{len(owing)} ready"
                   + (f"; waiting on {', '.join(waiting)}" if waiting else ""))
         print(f"  settings: {settings_line(m)}")
         played = [str(k) for k in game.order_history.keys()]

@@ -5,7 +5,7 @@ import time
 import pytest
 
 from vibe import game as gamemod
-from vibe.game import Match, MatchError, check_orders, normalize
+from vibe.game import POWERS, Match, MatchError, check_orders, normalize
 
 
 @pytest.fixture
@@ -17,7 +17,7 @@ def submit_all(match, orders=None):
     orders = orders or {}
     game = match.load()
     for p in match.owing(game):
-        assert match.submit(p, orders.get(p, [])).ok
+        assert match.submit(p, orders.get(p, []), ready=True).ok
 
 
 # -- engine fidelity -------------------------------------------------------- #
@@ -57,19 +57,38 @@ def test_a_year_runs_through_builds(match):
     game = match.load()
     assert game.get_current_phase() == "W1901A"
     assert match.owing(game) == ["FRANCE"] or "FRANCE" in match.owing(game)
-    assert match.submit("FRANCE", ["A MAR B"]).ok
+    assert match.submit("FRANCE", ["A MAR B"], ready=True).ok
     game = match.load()
     assert game.get_current_phase().startswith("S1902")
     assert "A MAR" in game.powers["FRANCE"].units
 
 
 # -- the phase clock -------------------------------------------------------- #
-def test_resolves_only_when_everyone_is_in(match):
-    for p in ["AUSTRIA", "ENGLAND", "FRANCE", "GERMANY", "ITALY", "RUSSIA"]:
-        match.submit(p, [])
-        assert match.phase() == "S1901M"
-    match.submit("TURKEY", [])
+def test_resolves_only_when_everyone_is_ready(match):
+    for p in POWERS:
+        match.submit(p, [])                      # orders in, talks can go on
+    assert match.phase() == "S1901M"
+    for p in POWERS[:-1]:
+        assert match.set_ready(p)
+    assert match.phase() == "S1901M"
+    match.set_ready("FRANCE", False)             # un-ready until adjudication
+    match.set_ready("TURKEY")
+    assert match.phase() == "S1901M" and "FRANCE" not in match.readied()
+    match.submit("FRANCE", ["A PAR - BUR"], ready=True)
     assert match.phase() == "F1901M"
+    assert match.history("S1901M")["orders"]["FRANCE"] == ["A PAR - BUR"]
+    assert match.readied() == []                 # a new phase starts with nobody ready
+    assert not match.set_ready("FRANCE", phase="S1901M")   # too late for that one
+
+
+def test_ready_without_orders_holds_and_the_deadline_still_resolves(match):
+    for p in POWERS:
+        match.set_ready(p)
+    assert match.phase() == "F1901M" and match.history("S1901M")["missing"] == list(POWERS)
+    match._set_config(deadline_s=1, phase_started=0)
+    match.submit("FRANCE", ["A PAR - BUR"])      # submitted, never Ready
+    assert match.phase() == "S1902M" or match.phase().startswith("W")
+    assert match.history("F1901M")["resolved"] == "deadline"
 
 
 def test_resubmitting_replaces(match):
@@ -157,7 +176,7 @@ def test_deadline_waits_while_the_runner_has_calls_in_flight(tmp_path):
 
 def test_history_says_how_a_phase_resolved(match):
     submit_all(match)
-    assert match.history("S1901M")["resolved"] == "everyone in"
+    assert match.history("S1901M")["resolved"] == "everyone ready"
     assert match.advance(force=True)["resolved"] == "forced"
 
 
