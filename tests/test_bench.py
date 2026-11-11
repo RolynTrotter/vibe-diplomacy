@@ -52,3 +52,18 @@ def test_held_comes_from_the_resolved_orders(games):
     play(m, FRANCE=["A PAR - BUR"])
     s = score(m)
     assert s["FRANCE"]["held"] == 0 and s["GERMANY"]["held"] == 1
+
+
+def test_unused_builds_and_a_cutoff_year(games):
+    m = Match.create("ub", max_year=1903)
+    play(m, FRANCE=["A MAR - SPA"])
+    play(m, FRANCE=["A SPA H"])
+    assert m.phase() == "W1901A"
+    play(m)                                   # France had a build and waived it
+    play(m); play(m); play(m)                 # 1902: nothing changes
+    s = score(m)
+    assert s["FRANCE"]["unbuilt"] == 2 and s["FRANCE"]["winters"] == 2   # 1901 and 1902
+    assert s["GERMANY"]["winters"] == 0
+    early = score(m, until=1901)
+    assert early["FRANCE"]["unbuilt"] == 1 and early["FRANCE"]["gain"] == 1
+    assert early["FRANCE"]["moves"] == 2
