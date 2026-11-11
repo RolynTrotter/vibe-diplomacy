@@ -42,6 +42,7 @@ pre{white-space:pre-wrap;font:inherit;font-size:.92rem;margin:0}
 "use strict";
 const API = location.port === "8010" ? location.origin : location.protocol + "//" + location.hostname + ":8010";
 const POWERS = ["AUSTRIA","ENGLAND","FRANCE","GERMANY","ITALY","RUSSIA","TURKEY"];
+const MAPS = [["standard","Standard",POWERS],["standard_france_austria","France vs Austria",["AUSTRIA","FRANCE"]]];
 const OPPONENTS = [["claude:haiku","Haiku"],["claude:sonnet","Sonnet"],["fake","Random"],["hold","Hold"]];
 const app = document.getElementById("app");
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -84,15 +85,15 @@ async function lobby() {
         <b>${esc(title(p))}</b><span class="muted">${esc(name)} · ${esc(m.ended ? "over: " + m.ended : m.phase)}</span></a>`;
     }).join("") : ""}
   <h2>Open seats</h2>
-  ${live.flatMap(m => POWERS.filter(p => m.seats[p].open).map(p =>
+  ${live.flatMap(m => Object.keys(m.seats).filter(p => m.seats[p].open).map(p =>
       `<div class="card row" style="justify-content:space-between"><span><b>${title(p)}</b>
        <span class="muted">${esc(m.name)} · ${esc(m.phase)}</span></span>
        <button class="primary" data-claim="${esc(m.name)}/${p}">Play</button></div>`)).join("") || `<p class="muted">None</p>`}
   <h2>New match</h2>
   <div class="card">
-    <div class="muted">Humans</div>
-    <div class="row" style="margin:6px 0 12px">${POWERS.map(p =>
-      `<label class="chk"><input type="checkbox" name="h" value="${p}">${title(p)}</label>`).join("")}</div>
+    <label><span class="muted">Map</span><select id="map">${MAPS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select></label>
+    <div class="muted" style="margin-top:10px">Humans</div>
+    <div class="row" id="humans" style="margin:6px 0 12px"></div>
     <div class="grid">
       <label><span class="muted">Other powers</span><select id="model">${OPPONENTS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select></label>
       <label><span class="muted">Turn</span><select id="deadline"><option value="3600">1 hour</option><option value="86400">24 hours</option></select></label>
@@ -104,7 +105,15 @@ async function lobby() {
   <h2>Matches</h2>
   ${matches.map(m => `<div class="card"><div class="row" style="justify-content:space-between"><b>${esc(m.name)}</b>
      <span class="muted">${esc(m.ended ? "over: " + m.ended : m.phase + (m.deadline_at ? " · " + left(m.deadline_at, Date.now()/1000) : ""))}</span></div>
-     <div class="muted">${POWERS.map(p => `${title(p)} ${m.seats[p].centres}${m.seats[p].human ? " (human)" : ""}`).join(" · ")}</div></div>`).join("") || `<p class="muted">None</p>`}`;
+     <div class="muted">${m.map === "standard_france_austria" ? "France vs Austria · " : ""}${Object.keys(m.seats).map(p => `${title(p)} ${m.seats[p].centres}${m.seats[p].human ? " (human)" : ""}`).join(" · ")}</div></div>`).join("") || `<p class="muted">None</p>`}`;
+  const mapSel = document.getElementById("map");
+  const drawHumans = () => {
+    const ps = MAPS.find(m => m[0] === mapSel.value)[2];
+    document.getElementById("humans").innerHTML = ps.map(p =>
+      `<label class="chk"><input type="checkbox" name="h" value="${p}">${title(p)}</label>`).join("");
+  };
+  mapSel.onchange = drawHumans;
+  drawHumans();
   app.querySelectorAll("[data-claim]").forEach(b => b.onclick = async () => {
     const [match, power] = b.dataset.claim.split("/");
     b.disabled = true;
@@ -113,7 +122,7 @@ async function lobby() {
   });
   document.getElementById("create").onclick = async () => {
     const humans = [...app.querySelectorAll("input[name=h]:checked")].map(i => i.value);
-    const body = {humans, model: document.getElementById("model").value,
+    const body = {humans, map: mapSel.value, model: document.getElementById("model").value,
       deadline: +document.getElementById("deadline").value, max_year: +document.getElementById("year").value};
     try { await api("/api/new", body); lobby(); }
     catch (e) { document.getElementById("newerr").textContent = e.message; }

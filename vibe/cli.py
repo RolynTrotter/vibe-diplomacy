@@ -13,7 +13,7 @@ import time
 
 from vibe import board as boardmod
 from vibe import mapviz
-from vibe.game import POWERS, ROOT, LateOrders, Match, MatchError
+from vibe.game import MAPS, POWERS, ROOT, LateOrders, Match, MatchError
 
 DIP = ROOT / "dip"
 
@@ -56,6 +56,10 @@ def settings_line(match: Match) -> str:
             f"{cfg['max_year']} · phase deadline {_human(cfg['deadline_s'])} · {seats}")
 
 
+def _count(n: int) -> str:
+    return {2: "Two", 7: "Seven"}.get(n, str(n))
+
+
 def brief(match: Match, power: str) -> str:
     """The one page a seat is handed. Everything it needs, nothing it doesn't."""
     cfg = match.config
@@ -80,7 +84,8 @@ def brief(match: Match, power: str) -> str:
     lines = [
         f"# You are {power} in a game of Diplomacy",
         "",
-        f"Seven players, one per great power; you play **{power}**. Each phase "
+        f"{_count(len(match.powers))} players, one per great power; you play **{power}**. "
+        "Each phase "
         "every power writes orders in secret and they resolve together. "
         f"{press}",
         "",
@@ -111,7 +116,7 @@ def brief(match: Match, power: str) -> str:
 def write_briefs(match: Match) -> list:
     out = []
     (match.path / "briefs").mkdir(exist_ok=True)
-    for power in POWERS:
+    for power in match.powers:
         f = match.path / "briefs" / f"{power}.md"
         f.write_text(brief(match, power) + "\n")
         out.append(f)
@@ -252,7 +257,7 @@ def cmd_inbox(args) -> int:
 # --------------------------------------------------------------------------- #
 def cmd_new(args) -> int:
     match = Match.create(args.name, press=args.press, max_year=args.max_year,
-                         deadline_s=args.deadline)
+                         deadline_s=args.deadline, map_name=args.map)
     briefs = write_briefs(match)
     print(f"Created match {args.name!r} ({'full press' if match.full_press else 'gunboat'},"
           f" ends after {args.max_year}, phase limit {_human(args.deadline)}).")
@@ -404,6 +409,8 @@ def build_parser() -> argparse.ArgumentParser:
     s = sub.add_parser("new", help="[host] create a match and its seat briefs")
     s.add_argument("name")
     s.add_argument("--press", choices=["none", "full"], default="none")
+    s.add_argument("--map", choices=list(MAPS), default="standard",
+                   help="standard_france_austria: France and Austria alone, every other centre empty")
     s.add_argument("--max-year", type=int, default=1910)
     s.add_argument("--deadline", type=_duration, default="30m",
                    help="per-phase time limit, e.g. 10m (0 = none)")

@@ -637,7 +637,7 @@ class Runner:
     def phase(self) -> None:
         game = self.match.load()
         phase = game.get_current_phase()
-        played = [p for p in POWERS if self.seats[p].kind != "agent"]
+        played = [p for p in self.match.powers if self.seats[p].kind != "agent"]
         alive = [p for p in played if game.powers[p].units or game.powers[p].centers]
         owing = [p for p in self.match.owing(game) if p in played
                  and p not in self.match.submitted(game)]
@@ -692,7 +692,7 @@ class Runner:
         if self.match.ended():
             self.log(f"\nGame over: {self.match.ended()}. Centres: " + ", ".join(
                 f"{p} {len(game.powers[p].centers)}" for p in
-                sorted(POWERS, key=lambda p: -len(game.powers[p].centers))))
+                sorted(self.match.powers, key=lambda p: -len(game.powers[p].centers))))
             done = set(self.match.config.get("lore_from", []))
             todo = [p for p, s in self.seats.items()
                     if s.kind in ("openai", "claude") and p not in done]
@@ -734,18 +734,18 @@ def add_arguments(p) -> None:
     p.add_argument("--no-check", action="store_true", help=argparse.SUPPRESS)
 
 
-def seats_from_args(args) -> dict[str, Seat]:
+def seats_from_args(args, powers=POWERS) -> dict[str, Seat]:
     key = os.environ.get(args.api_key_env, "")
     specs = {}
     for item in args.seat:
         power, _, spec = item.partition("=")
-        if power.upper() not in POWERS or not spec:
+        if power.upper() not in powers or not spec:
             raise SystemExit(f"bad --seat {item!r}; use e.g. FRANCE=qwen3:8b")
         specs[power.upper()] = spec
     for power in filter(None, args.agents.upper().replace(" ", "").split(",")):
         specs[power] = "agent"
     seats = {}
-    for power in POWERS:
+    for power in powers:
         spec = specs.get(power) or args.model
         if not spec:
             raise SystemExit(f"no model for {power}. Pass --model <name> --base-url <url> "
@@ -774,7 +774,7 @@ def main(args) -> int:
     args.model = args.model or saved.get("model")
     args.base_url = (args.base_url or saved.get("base_url")
                      or os.environ.get("OPENAI_BASE_URL", ""))
-    seats = seats_from_args(args)
+    seats = seats_from_args(args, match.powers)
 
     if not args.no_check:
         checked = set()

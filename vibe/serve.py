@@ -27,7 +27,9 @@ import urllib.parse
 
 from vibe import board as boardmod
 from vibe import mapviz
-from vibe.game import POWERS, ROOT, LateOrders, Match, MatchError, legal_orders
+from diplomacy import Game
+
+from vibe.game import MAPS, ROOT, LateOrders, Match, MatchError, legal_orders
 
 MODELS = ("claude:haiku", "claude:sonnet", "fake", "hold")
 DEADLINES = (3600, 86400)
@@ -50,7 +52,8 @@ def _summary(match: Match) -> dict:
                         if cfg.get("deadline_s") and not match.ended() else None),
         "seats": {p: {"human": p in humans, "open": humans.get(p) == "open",
                       "player": "human" if p in humans else players.get(p, ""),
-                      "centres": len(game.powers[p].centers)} for p in POWERS},
+                      "centres": len(game.powers[p].centers)} for p in match.powers},
+        "map": cfg.get("map", "standard"),
     }
 
 
@@ -123,7 +126,11 @@ def create(body: dict) -> Match:
     model = body.get("model") or "claude:haiku"
     deadline = int(body.get("deadline") or DEADLINES[0])
     max_year = int(body.get("max_year") or 1904)
-    if not humans or any(p not in POWERS for p in humans):
+    map_name = body.get("map") or "standard"
+    if map_name not in MAPS:
+        raise MatchError("unknown map")
+    powers = sorted(Game(map_name=map_name).powers)
+    if not humans or any(p not in powers for p in humans):
         raise MatchError("pick at least one power for humans")
     if model not in MODELS or deadline not in DEADLINES or not 1901 <= max_year <= 1930:
         raise MatchError("bad settings")
@@ -136,7 +143,8 @@ def create(body: dict) -> Match:
     name = body.get("name") or time.strftime("game-%m%d-%H%M")
     if not re.fullmatch(r"[A-Za-z0-9_-]{1,40}", name):
         raise MatchError("names are letters, digits, - and _")
-    match = Match.create(name, press="none", max_year=max_year, deadline_s=deadline)
+    match = Match.create(name, press="none", max_year=max_year, deadline_s=deadline,
+                         map_name=map_name)
     match._set_config(humans={p: "open" for p in humans}, hosted={"model": model})
     start_runner(match)
     return match

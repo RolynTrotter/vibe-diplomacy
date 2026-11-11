@@ -72,7 +72,7 @@ def build_game(match: Match, out: Path) -> dict | None:
         })
 
     messages = viewer_messages(match)
-    notes = {p: match.notes(p) for p in POWERS if match.notes(p).strip()}
+    notes = {p: match.notes(p) for p in match.powers if match.notes(p).strip()}
     meta = {
         "name": name, "title": name, "phases": phases_meta,
         "current_phase": phases_meta[-1]["code"], "complete": complete,

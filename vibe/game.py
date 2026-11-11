@@ -42,6 +42,9 @@ from diplomacy.utils.export import from_saved_game_format, to_saved_game_format
 ROOT = Path(__file__).resolve().parent.parent
 GAMES = ROOT / "games"
 POWERS = ("AUSTRIA", "ENGLAND", "FRANCE", "GERMANY", "ITALY", "RUSSIA", "TURKEY")
+# Maps from the engine. A match plays the powers its map has: the 1v1 variant
+# leaves every other centre empty and unowned.
+MAPS = {"standard": "Standard", "standard_france_austria": "France vs Austria"}
 ALL = "ALL"
 NOTES_MAX = 2000                # a notebook, not a diary: it is on every board
 LORE_MAX = 1500                 # one game's lore entry
@@ -171,22 +174,27 @@ class Match:
     # -- creating and finding ------------------------------------------------ #
     @classmethod
     def create(cls, name: str, *, press: str = "none", max_year: int = 1910,
-               deadline_s: int = 0, root: Path | None = None) -> "Match":
+               deadline_s: int = 0, root: Path | None = None,
+               map_name: str = "standard") -> "Match":
         if not re.fullmatch(r"[A-Za-z0-9_-]+", name):
             raise MatchError("match names are letters, digits, - and _")
         path = Path(root or GAMES) / name
         if path.exists():
             raise MatchError(f"match {name!r} already exists at {path}")
+        if map_name not in MAPS:
+            raise MatchError(f"unknown map {map_name!r}; try {', '.join(MAPS)}")
+        game = Game(map_name=map_name)
+        powers = sorted(game.powers)
         path.mkdir(parents=True)
         config = {
             "name": name, "press": press, "max_year": max_year,
             "deadline_s": deadline_s, "phase_started": time.time(),
             "ended": None,
-            "seats": {p: secrets.token_hex(12) for p in POWERS},
+            "map": map_name, "powers": powers,
+            "seats": {p: secrets.token_hex(12) for p in powers},
         }
         _write(path / "config.json", json.dumps(config, indent=2))
         match = cls(path)
-        game = Game()
         game.note = name
         match.save(game)
         return match
@@ -224,6 +232,11 @@ class Match:
         return self.config["name"]
 
     @property
+    def powers(self) -> tuple[str, ...]:
+        """The powers this match is played by (all seven, unless a variant)."""
+        return tuple(self.config.get("powers") or POWERS)
+
+    @property
     def full_press(self) -> bool:
         return self.config.get("press") == "full"
 
@@ -253,7 +266,7 @@ class Match:
     @staticmethod
     def owing(game: Game) -> list[str]:
         """Powers that have something to order this phase."""
-        return [p for p in POWERS if game.get_orderable_locations(p)]
+        return [p for p in sorted(game.powers) if game.get_orderable_locations(p)]
 
     def _pending(self, power: str) -> Path:
         return self.path / "pending" / f"{power}.json"
@@ -262,7 +275,7 @@ class Match:
         game = game or self.load()
         phase = game.get_current_phase()
         out = []
-        for p in POWERS:
+        for p in self.powers:
             f = self._pending(p)
             if f.exists() and json.loads(f.read_text()).get("phase") == phase:
                 out.append(p)
@@ -272,7 +285,7 @@ class Match:
         """Powers that have declared themselves done with this phase."""
         phase = (game or self.load()).get_current_phase()
         d = self.path / "ready"
-        return [p for p in POWERS if (d / p).exists() and (d / p).read_text().strip() == phase]
+        return [p for p in self.powers if (d / p).exists() and (d / p).read_text().strip() == phase]
 
     def set_ready(self, power: str, ready: bool = True, *, phase: str | None = None) -> bool:
         """Declare `power` done with the phase (or not). Ready resolves the
@@ -381,7 +394,7 @@ class Match:
                     game.set_orders(power, data["orders"], expand=True, replace=True)
                     if data.get("refused"):
                         refused[power] = data["refused"]
-        ordered = {p: list(game.get_orders(p)) for p in POWERS}
+        ordered = {p: list(game.get_orders(p)) for p in self.powers}
         game.process()
         results = {}
         try:
@@ -401,7 +414,7 @@ class Match:
 
         ended = None
         if game.is_game_done:
-            leader = max(POWERS, key=lambda p: len(game.powers[p].centers))
+            leader = max(self.powers, key=lambda p: len(game.powers[p].centers))
             ended = f"solo {leader}" if len(game.powers[leader].centers) >= 18 else "draw"
         elif _year(game.get_current_phase()) > self.config.get("max_year", 9999):
             ended = f"year cap {self.config['max_year']}"
@@ -428,7 +441,7 @@ class Match:
         if not self.full_press:
             raise MatchError("this is a gunboat game: no messages")
         to = [t.upper() for t in to]
-        bad = [t for t in to if t not in POWERS and t != ALL]
+        bad = [t for t in to if t not in self.powers and t != ALL]
         if bad:
             raise MatchError(f"unknown recipient(s) {', '.join(bad)}; "
                              f"use power names or ALL")
@@ -519,12 +532,12 @@ class Match:
                f"{'Full press' if self.full_press else 'Gunboat'}, ends after "
                f"{cfg['max_year']}."]
         if players:
-            out += ["", "Seats: " + ", ".join(f"{p} {players[p]}" for p in POWERS
+            out += ["", "Seats: " + ", ".join(f"{p} {players[p]}" for p in self.powers
                                               if p in players)]
         # The centres each phase left behind are the next phase's starting state.
         starts = [(str(k), v.get("centers") or {}) for k, v in game.state_history.items()]
         starts.append((game.get_current_phase(),
-                       {p: list(game.powers[p].centers) for p in POWERS}))
+                       {p: list(game.powers[p].centers) for p in self.powers}))
         after = {ph: nxt for (ph, _), (_, nxt) in zip(starts, starts[1:])}
         for phase in [*played, *([] if self.ended() else [game.get_current_phase()])]:
             hist = self.history(phase) or {}
@@ -556,11 +569,11 @@ class Match:
                 centres = after.get(phase) or {}
                 out += ["", "Centres: " + ", ".join(
                     f"{p} {len(centres.get(p) or [])}" for p in
-                    sorted(POWERS, key=lambda p: -len(centres.get(p) or [])))]
+                    sorted(self.powers, key=lambda p: -len(centres.get(p) or [])))]
         if self.ended():
             out += ["", f"## Game over: {self.ended()}", "", ", ".join(
                 f"{p} {len(game.powers[p].centers)}" for p in
-                sorted(POWERS, key=lambda p: -len(game.powers[p].centers)))]
+                sorted(self.powers, key=lambda p: -len(game.powers[p].centers)))]
             for p in cfg.get("lore_from", []):
                 entry = self.lore(p).rsplit(f"## {self.name} (", 1)
                 if len(entry) == 2:

@@ -116,3 +116,16 @@ def test_model_matches_are_capped(api):
     code, err = api("/api/new", {"humans": ["FRANCE"], "model": "claude:haiku", "name": "over"})
     assert code == 400 and "already" in err["error"]
     assert api("/api/new", {"humans": ["FRANCE"], "model": "fake", "name": "free"})[0] == 200
+
+
+def test_the_france_austria_map_from_the_page(api):
+    code, m = api("/api/new", {"humans": ["FRANCE"], "model": "fake", "name": "fa",
+                               "map": "standard_france_austria"})
+    assert code == 200 and set(m["seats"]) == {"AUSTRIA", "FRANCE"}
+    assert m["map"] == "standard_france_austria"
+    assert api("/api/new", {"humans": ["ITALY"], "model": "fake", "name": "fa2",
+                            "map": "standard_france_austria"})[0] == 400
+    assert api("/api/new", {"humans": ["FRANCE"], "model": "fake", "map": "mars"})[0] == 400
+    tok = api("/api/claim", {"match": "fa", "power": "FRANCE"})[1]["token"]
+    seat = api(f"/api/seat/{tok}")[1]
+    assert "A PAR - BUR" in seat["options"]["PAR"]["orders"] and seat["owing_count"] == 2
