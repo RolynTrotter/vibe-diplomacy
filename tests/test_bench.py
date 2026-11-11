@@ -67,3 +67,18 @@ def test_unused_builds_and_a_cutoff_year(games):
     early = score(m, until=1901)
     assert early["FRANCE"]["unbuilt"] == 1 and early["FRANCE"]["gain"] == 1
     assert early["FRANCE"]["moves"] == 2
+
+
+def test_no_unbuilt_when_there_is_no_room(games):
+    # Germany takes Marseilles while France takes Spain: centres even, nothing to build.
+    m = Match.create("nr", max_year=1901)
+    play(m, FRANCE=["A MAR - SPA"], GERMANY=["A MUN - BUR"])
+    play(m, FRANCE=["A SPA H"], GERMANY=["A BUR - MAR"])
+    play(m)
+    assert score(m)["FRANCE"]["unbuilt"] == 0
+    # One build is owed only for an open home centre.
+    m2 = Match.create("nr2", max_year=1901)
+    play(m2, FRANCE=["A MAR - SPA", "A PAR - GAS"])
+    play(m2, FRANCE=["A SPA H", "A GAS - MAR"])        # BRE, MAR occupied; PAR open
+    play(m2)
+    assert score(m2)["FRANCE"]["unbuilt"] == 1         # Paris was open: one build owed
