@@ -134,13 +134,16 @@ def test_the_france_austria_map_from_the_page(api):
 def test_serve_waits_for_storage_before_anything(tmp_path, monkeypatch):
     target = tmp_path / "drive" / "games"
     monkeypatch.setattr(gamemod, "GAMES", target)
+    monkeypatch.setattr(gamemod, "EXTERNAL", True)
     lines = []
     sleeps = []
 
     def nap(s):
         sleeps.append(s)
+        if len(sleeps) == 2:
+            target.mkdir(parents=True)          # an empty mount point: keep waiting
         if len(sleeps) == 3:
-            target.mkdir(parents=True)          # the drive mounts
+            (target / gamemod.STORAGE_MARKER).touch()   # the drive mounts
     monkeypatch.setattr(serve.time, "sleep", nap)
     serve.wait_for_storage(log=lines.append, pause=30)
     assert len(sleeps) == 3 and "waiting for match storage" in lines[0]

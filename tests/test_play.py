@@ -507,3 +507,9 @@ def test_france_vs_austria_plays_with_two_powers(games, capsys):
     Runner(m, seats, seed=4, log=lambda *_: None).play()
     assert m.ended() and m.history("S1901M")["resolved"] == "everyone ready"
     assert set(m.history("S1901M")["orders"]) == {"AUSTRIA", "FRANCE"}
+
+
+def test_model_seats_are_told_how_many_opponents_there_are(games):
+    assert "against six other players" in run.system_prompt(Match.create("s7"), "FRANCE")
+    fa = Match.create("s2", map_name="standard_france_austria")
+    assert "against one other player" in run.system_prompt(fa, "FRANCE")
