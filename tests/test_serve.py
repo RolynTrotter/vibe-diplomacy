@@ -230,21 +230,22 @@ def test_each_power_gets_its_own_player(api, monkeypatch):
     from vibe import relay
     monkeypatch.setattr(relay, "config", lambda: {"name": "Cutie"})
     monkeypatch.setattr(relay, "models", lambda **k: ["flint"])
-    seats = {"AUSTRIA": "fake", "ENGLAND": "fake", "FRANCE": "me", "GERMANY": "fake",
+    seats = {"AUSTRIA": "fake", "ENGLAND": "fake", "FRANCE": "human", "GERMANY": "fake",
              "ITALY": "local:flint", "RUSSIA": "fake", "TURKEY": "fake"}
     code, m = api("/api/new", {"seats": seats, "name": "pp"})
-    assert code == 200 and set(m["tokens"]) == {"FRANCE"}
-    assert m["seats"]["FRANCE"]["human"] and not m["seats"]["FRANCE"]["open"]   # mine already
+    assert code == 200 and m["seats"]["FRANCE"]["open"]
     assert m["seats"]["ITALY"]["player"] == "Cutie: flint"
     assert m["seats"]["AUSTRIA"]["player"] == "Random"
-    assert api("/api/seat", None, m["tokens"]["FRANCE"])[1]["power"] == "FRANCE"
-    assert api("/api/claim", {"match": "pp", "power": "FRANCE"})[0] == 400        # taken
+    tok = api("/api/claim", {"match": "pp", "power": "FRANCE"})[1]["token"]
+    assert api("/api/seat", None, tok)[1]["power"] == "FRANCE"
 
     opts = {o["value"]: o for o in api("/api/options")[1]}
-    assert opts["local:flint"]["available"] and opts["me"]["label"] == "Me"
+    assert opts["local:flint"]["available"] and opts["human"]["label"] == "Human"
+    assert "me" not in opts
     assert api("/api/new", {"seats": {**seats, "FRANCE": "fake"}})[0] == 400      # no human
-    assert api("/api/new", {"seats": {"FRANCE": "me"}})[0] == 400                 # not all powers
+    assert api("/api/new", {"seats": {"FRANCE": "human"}})[0] == 400              # not all powers
     assert api("/api/new", {"seats": {**seats, "ITALY": "local:gpt9"}})[0] == 400
+    assert api("/api/new", {"seats": {**seats, "AUSTRIA": "me"}})[0] == 400       # no "me" kind
 
 
 def test_the_runner_plays_each_computer_seat_as_picked(tmp_path, monkeypatch):

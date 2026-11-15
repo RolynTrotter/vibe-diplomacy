@@ -98,7 +98,7 @@ async function lobby() {
     <label><span class="muted">Map</span><select id="map">${MAPS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select></label>
     <div id="seats" style="margin:10px 0"></div>
     <div class="row" style="margin-bottom:12px">
-      <label style="flex:1"><span class="muted">Set all</span><select id="setall"><option value=""></option>${opts.filter(o => o.available && o.value !== "me").map(o => `<option value="${esc(o.value)}">${esc(o.label)}</option>`).join("")}</select></label>
+      <label style="flex:1"><span class="muted">Set all</span><select id="setall"><option value=""></option>${opts.filter(o => o.available).map(o => `<option value="${esc(o.value)}">${esc(o.label)}</option>`).join("")}</select></label>
       <button id="shuffle" style="align-self:flex-end">Randomize powers</button>
     </div>
     <div class="grid">
@@ -117,7 +117,7 @@ async function lobby() {
   const drawSeats = (chosen = {}) => {
     const ps = MAPS.find(m => m[0] === mapSel.value)[2];
     document.getElementById("seats").innerHTML = ps.map((p, i) =>
-      `<div class="unit"><b>${title(p)}</b>${pick(p, chosen[p] || (i === 0 && !Object.keys(chosen).length ? "me" : firstFree))}</div>`).join("");
+      `<div class="unit"><b>${title(p)}</b>${pick(p, chosen[p] || (i === 0 && !Object.keys(chosen).length ? "human" : firstFree))}</div>`).join("");
   };
   const current = () => Object.fromEntries([...app.querySelectorAll("select[data-power]")].map(x => [x.dataset.power, x.value]));
   mapSel.onchange = () => drawSeats();
@@ -125,7 +125,7 @@ async function lobby() {
   document.getElementById("setall").onchange = e => {
     if (!e.target.value) return;
     const now = current();
-    drawSeats(Object.fromEntries(Object.keys(now).map(p => [p, now[p] === "me" ? "me" : e.target.value])));
+    drawSeats(Object.fromEntries(Object.keys(now).map(p => [p, e.target.value])));
     e.target.value = "";
   };
   document.getElementById("shuffle").onclick = () => {
@@ -142,12 +142,7 @@ async function lobby() {
   document.getElementById("create").onclick = async () => {
     const body = {seats: current(), map: mapSel.value,
       deadline: +document.getElementById("deadline").value, max_year: +document.getElementById("year").value};
-    try {
-      const m = await api("/api/new", body);
-      const mine = Object.entries(m.tokens || {});
-      mine.forEach(([p, t]) => remember(`${m.name}/${p}`, t));
-      if (mine.length) location.hash = "seat=" + mine[0][1]; else lobby();
-    }
+    try { await api("/api/new", body); lobby(); }
     catch (e) { document.getElementById("newerr").textContent = e.message; }
   };
 }

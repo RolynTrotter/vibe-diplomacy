@@ -54,7 +54,7 @@ CLAUDE = {"claude:haiku": "Haiku", "claude:sonnet": "Sonnet"}
 
 def label(spec: str) -> str:
     """How a seat's player is shown: Human, Random, Haiku, Cutie: flint ..."""
-    if spec in ("me", "human"):
+    if spec == "human":
         return "Human"
     if spec.startswith("local:"):
         return f"{(relay.config() or {}).get('name', 'Local')}: {spec.split(':', 1)[1]}"
@@ -76,8 +76,7 @@ def _claude_matches() -> int:
 
 def options() -> list[dict]:
     """Every kind of player a seat can have, and whether it can be picked now."""
-    out = [{"value": "me", "label": "Me", "available": True, "reason": ""},
-           {"value": "human", "label": "Human (open seat)", "available": True, "reason": ""}]
+    out = [{"value": "human", "label": "Human", "available": True, "reason": ""}]
     out += [{"value": v, "label": l, "available": True, "reason": ""} for v, l in BASIC.items()]
     busy = _claude_matches() >= MAX_MODEL_MATCHES
     out += [{"value": v, "label": l, "available": not busy,
@@ -181,10 +180,11 @@ def resume_all() -> None:
             start_runner(m)
 
 
-def create(body: dict) -> tuple[Match, dict[str, str]]:
-    """A new hosted match, and the tokens of any seats the creator took ("me").
+def create(body: dict) -> Match:
+    """A new hosted match.
 
-    `seats` gives each power its player: me, human (an open seat), fake
+    `seats` gives each power its player: human (an open seat that anyone
+    claims from the lobby), fake
     (Random), hold, claude:haiku, claude:sonnet or local:<model>. The older
     form, `humans` plus one `model` for the rest, still works.
     """
@@ -202,7 +202,7 @@ def create(body: dict) -> tuple[Match, dict[str, str]]:
     seats = {str(p).upper(): str(v) for p, v in seats.items()}
     if set(seats) != set(powers):
         raise MatchError("give every power a player")
-    if not any(v in ("me", "human") for v in seats.values()):
+    if "human" not in seats.values():
         raise MatchError("pick at least one power for a human")
     offered = {o["value"]: o for o in options()}
     for p, v in seats.items():
@@ -221,14 +221,10 @@ def create(body: dict) -> tuple[Match, dict[str, str]]:
         raise MatchError("names are letters, digits, - and _")
     match = Match.create(name, press="none", max_year=max_year, deadline_s=deadline,
                          map_name=map_name)
-    humans = {p: "taken" if v == "me" else "open" for p, v in seats.items()
-              if v in ("me", "human")}
-    match._set_config(humans=humans,
-                      hosted={"seats": {p: v for p, v in seats.items()
-                                        if v not in ("me", "human")}})
+    match._set_config(humans={p: "open" for p, v in seats.items() if v == "human"},
+                      hosted={"seats": {p: v for p, v in seats.items() if v != "human"}})
     start_runner(match)
-    tokens = {p: match.config["seats"][p] for p, v in seats.items() if v == "me"}
-    return match, tokens
+    return match
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
@@ -325,8 +321,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         try:
             body = self._body()
             if path == "/api/new":
-                match, tokens = create(body)
-                return self._json(200, {**_summary(match), "tokens": tokens})
+                return self._json(200, _summary(create(body)))
             if path == "/api/claim":
                 match = Match.open(str(body.get("match", "")))
                 power = str(body.get("power", "")).upper()
