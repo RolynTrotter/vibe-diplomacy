@@ -43,7 +43,6 @@ pre{white-space:pre-wrap;font:inherit;font-size:.92rem;margin:0}
 const API = location.port === "8010" ? location.origin : location.protocol + "//" + location.hostname + ":8010";
 const POWERS = ["AUSTRIA","ENGLAND","FRANCE","GERMANY","ITALY","RUSSIA","TURKEY"];
 const MAPS = [["standard","Standard",POWERS],["standard_france_austria","France vs Austria",["AUSTRIA","FRANCE"]]];
-const OPPONENTS = [["claude:haiku","Haiku"],["claude:sonnet","Sonnet"],["fake","Random"],["hold","Hold"]];
 const app = document.getElementById("app");
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const title = s => s.charAt(0) + s.slice(1).toLowerCase();
@@ -74,12 +73,11 @@ async function lobby() {
   clearInterval(timer);
   let matches = [];
   let err = "";
-  let local = {available: false, models: [], name: null, reason: ""};
+  let opts = [];
   try { matches = await api("/api/matches"); } catch (e) { err = "Server offline"; }
-  try { local = await api("/api/local"); } catch (e) {}
-  const localOpts = local.name ? (local.available
-      ? local.models.map(m => `<option value="local:${esc(m)}">Local (${esc(local.name)}): ${esc(m)}</option>`).join("")
-      : `<option disabled>Local (${esc(local.name)}): ${esc(local.reason)}</option>`) : "";
+  try { opts = await api("/api/options"); } catch (e) {}
+  const pick = (p, chosen) => `<select data-power="${p}" aria-label="${title(p)}">${opts.map(o =>
+    `<option value="${esc(o.value)}"${o.available ? "" : " disabled"}${o.value === chosen ? " selected" : ""}>${esc(o.label)}${o.available ? "" : " — " + esc(o.reason)}</option>`).join("")}</select>`;
   const seats = mine();
   const live = matches.filter(m => !m.ended);
   const yours = Object.entries(seats).filter(([k]) => matches.some(m => k.startsWith(m.name + "/")));
@@ -98,10 +96,12 @@ async function lobby() {
   <h2>New match</h2>
   <div class="card">
     <label><span class="muted">Map</span><select id="map">${MAPS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select></label>
-    <div class="muted" style="margin-top:10px">Humans</div>
-    <div class="row" id="humans" style="margin:6px 0 12px"></div>
+    <div id="seats" style="margin:10px 0"></div>
+    <div class="row" style="margin-bottom:12px">
+      <label style="flex:1"><span class="muted">Set all</span><select id="setall"><option value=""></option>${opts.filter(o => o.available && o.value !== "me").map(o => `<option value="${esc(o.value)}">${esc(o.label)}</option>`).join("")}</select></label>
+      <button id="shuffle" style="align-self:flex-end">Randomize powers</button>
+    </div>
     <div class="grid">
-      <label><span class="muted">Other powers</span><select id="model">${OPPONENTS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}${localOpts}</select></label>
       <label><span class="muted">Turn</span><select id="deadline"><option value="3600">1 hour</option><option value="86400">24 hours</option></select></label>
       <label><span class="muted">Ends after</span><select id="year">${[1902,1904,1906,1910].map(y => `<option${y===1904?" selected":""}>${y}</option>`).join("")}</select></label>
     </div>
@@ -111,15 +111,28 @@ async function lobby() {
   <h2>Matches</h2>
   ${matches.map(m => `<div class="card"><div class="row" style="justify-content:space-between"><b>${esc(m.name)}</b>
      <span class="muted">${esc(m.ended ? "over: " + m.ended : m.phase + (m.deadline_at ? " · " + left(m.deadline_at, Date.now()/1000) : ""))}</span></div>
-     <div class="muted">${m.map === "standard_france_austria" ? "France vs Austria · " : ""}${Object.keys(m.seats).map(p => `${title(p)} ${m.seats[p].centres}${m.seats[p].human ? " (human)" : ""}`).join(" · ")}</div></div>`).join("") || `<p class="muted">None</p>`}`;
+     <div class="muted">${m.map === "standard_france_austria" ? "France vs Austria · " : ""}${Object.keys(m.seats).map(p => `${title(p)} ${m.seats[p].centres} (${esc(m.seats[p].player)})`).join(" · ")}</div></div>`).join("") || `<p class="muted">None</p>`}`;
   const mapSel = document.getElementById("map");
-  const drawHumans = () => {
+  const firstFree = (opts.find(o => o.value === "fake") || {}).value;
+  const drawSeats = (chosen = {}) => {
     const ps = MAPS.find(m => m[0] === mapSel.value)[2];
-    document.getElementById("humans").innerHTML = ps.map(p =>
-      `<label class="chk"><input type="checkbox" name="h" value="${p}">${title(p)}</label>`).join("");
+    document.getElementById("seats").innerHTML = ps.map((p, i) =>
+      `<div class="unit"><b>${title(p)}</b>${pick(p, chosen[p] || (i === 0 && !Object.keys(chosen).length ? "me" : firstFree))}</div>`).join("");
   };
-  mapSel.onchange = drawHumans;
-  drawHumans();
+  const current = () => Object.fromEntries([...app.querySelectorAll("select[data-power]")].map(x => [x.dataset.power, x.value]));
+  mapSel.onchange = () => drawSeats();
+  drawSeats();
+  document.getElementById("setall").onchange = e => {
+    if (!e.target.value) return;
+    const now = current();
+    drawSeats(Object.fromEntries(Object.keys(now).map(p => [p, now[p] === "me" ? "me" : e.target.value])));
+    e.target.value = "";
+  };
+  document.getElementById("shuffle").onclick = () => {
+    const now = current(), ps = Object.keys(now), vs = Object.values(now);
+    for (let i = vs.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [vs[i], vs[j]] = [vs[j], vs[i]]; }
+    drawSeats(Object.fromEntries(ps.map((p, i) => [p, vs[i]])));
+  };
   app.querySelectorAll("[data-claim]").forEach(b => b.onclick = async () => {
     const [match, power] = b.dataset.claim.split("/");
     b.disabled = true;
@@ -127,10 +140,14 @@ async function lobby() {
     catch (e) { alert(e.message); lobby(); }
   });
   document.getElementById("create").onclick = async () => {
-    const humans = [...app.querySelectorAll("input[name=h]:checked")].map(i => i.value);
-    const body = {humans, map: mapSel.value, model: document.getElementById("model").value,
+    const body = {seats: current(), map: mapSel.value,
       deadline: +document.getElementById("deadline").value, max_year: +document.getElementById("year").value};
-    try { await api("/api/new", body); lobby(); }
+    try {
+      const m = await api("/api/new", body);
+      const mine = Object.entries(m.tokens || {});
+      mine.forEach(([p, t]) => remember(`${m.name}/${p}`, t));
+      if (mine.length) location.hash = "seat=" + mine[0][1]; else lobby();
+    }
     catch (e) { document.getElementById("newerr").textContent = e.message; }
   };
 }
@@ -184,6 +201,8 @@ async function seat(tok) {
   <p id="state" class="${s.submitted ? "okc" : "muted"}">${s.submitted ? "Submitted" : "Not submitted"}</p>
   <p id="err" class="err"></p>` : `<p class="muted">Nothing to order</p>`}
   ${s.last ? `<h2>Last turn</h2><div class="card"><pre>${esc(s.last)}</pre></div>` : ""}
+  <h2>Players</h2><div class="card">${Object.entries(s.seats).map(([p, x]) =>
+    `<div class="row" style="justify-content:space-between"><span>${p === s.power ? "<b>" + title(p) + "</b>" : title(p)}</span><span class="muted">${esc(x.player)} · ${x.centres}</span></div>`).join("")}</div>
   <h2>Supply centres</h2><div class="card"><pre>${esc(s.standings)}</pre></div>
   ${s.ended ? "" : `<div class="dock"><div class="row">
     ${s.owes ? `<button id="submit">Submit</button>` : ""}

@@ -224,3 +224,43 @@ def test_the_seat_token_rides_in_a_header_not_the_url(api):
     assert api(f"/api/seat/{tok}")[0] == 404             # no token in paths any more
     assert api("/api/seat")[0] == 400                     # and none without the header
     assert api("/api/seat", None, tok)[1]["power"] == "FRANCE"
+
+
+def test_each_power_gets_its_own_player(api, monkeypatch):
+    from vibe import relay
+    monkeypatch.setattr(relay, "config", lambda: {"name": "Cutie"})
+    monkeypatch.setattr(relay, "models", lambda **k: ["flint"])
+    seats = {"AUSTRIA": "fake", "ENGLAND": "fake", "FRANCE": "me", "GERMANY": "fake",
+             "ITALY": "local:flint", "RUSSIA": "fake", "TURKEY": "fake"}
+    code, m = api("/api/new", {"seats": seats, "name": "pp"})
+    assert code == 200 and set(m["tokens"]) == {"FRANCE"}
+    assert m["seats"]["FRANCE"]["human"] and not m["seats"]["FRANCE"]["open"]   # mine already
+    assert m["seats"]["ITALY"]["player"] == "Cutie: flint"
+    assert m["seats"]["AUSTRIA"]["player"] == "Random"
+    assert api("/api/seat", None, m["tokens"]["FRANCE"])[1]["power"] == "FRANCE"
+    assert api("/api/claim", {"match": "pp", "power": "FRANCE"})[0] == 400        # taken
+
+    opts = {o["value"]: o for o in api("/api/options")[1]}
+    assert opts["local:flint"]["available"] and opts["me"]["label"] == "Me"
+    assert api("/api/new", {"seats": {**seats, "FRANCE": "fake"}})[0] == 400      # no human
+    assert api("/api/new", {"seats": {"FRANCE": "me"}})[0] == 400                 # not all powers
+    assert api("/api/new", {"seats": {**seats, "ITALY": "local:gpt9"}})[0] == 400
+
+
+def test_the_runner_plays_each_computer_seat_as_picked(tmp_path, monkeypatch):
+    monkeypatch.setattr(gamemod, "GAMES", tmp_path)
+    m = Match.create("cmd")
+    m._set_config(humans={"FRANCE": "taken", "ENGLAND": "open"},
+                  hosted={"seats": {"AUSTRIA": "local:flint", "GERMANY": "fake", "ITALY": "hold",
+                                    "RUSSIA": "fake", "TURKEY": "claude:haiku"}})
+    ran = []
+    monkeypatch.setattr(serve.subprocess, "run",
+                        lambda cmd, **k: ran.append(cmd) or type("R", (), {"returncode": 0})())
+    serve.start_runner(m)
+    cmd = ran[0]
+    assert "--agents" in cmd and cmd[cmd.index("--agents") + 1] == "ENGLAND,FRANCE"
+    assert {"AUSTRIA=local:flint", "ITALY=hold", "TURKEY=claude:haiku"} <= set(cmd)
+    ran.clear()
+    m._set_config(humans={p: "open" for p in m.powers}, hosted={"seats": {}})
+    serve.start_runner(m)
+    assert ran == []                                      # all human: no runner

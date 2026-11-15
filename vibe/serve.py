@@ -5,7 +5,8 @@ A seat's token is its key, exactly as with `./dip submit --seat`, so a human is
 just another seat and mixes with model seats through the same match files.
 
     GET  /api/matches                 every match: phase, deadline, seats
-    POST /api/new                     {humans: [POWER...], model, max_year, deadline}
+    GET  /api/options                 every kind of player, and which can be picked now
+    POST /api/new                     {seats: {POWER: player}, map, max_year, deadline}
     POST /api/claim                   {match, power} -> {token}   (open human seats)
     GET  /api/seat                    the seat's board, as data
     GET  /api/seat/map.svg            the current position
@@ -39,7 +40,6 @@ from diplomacy import Game
 
 from vibe.game import MAPS, ROOT, LateOrders, Match, MatchError, legal_orders
 
-MODELS = ("claude:haiku", "claude:sonnet", "fake", "hold")
 DEADLINES = (3600, 86400)
 MAX_MODEL_MATCHES = 3           # live hosted matches with Claude seats: a quota guard
 # The page's own homes: the portal on the tailnet and on the LAN door, and this
@@ -48,18 +48,65 @@ ORIGINS = {"https://skandha-1.tailafb97d.ts.net", "http://192.168.1.159:8080",
            "http://skandha-1.local:8080", "http://127.0.0.1:8010", "http://localhost:8010"}
 
 
+BASIC = {"fake": "Random", "hold": "Hold"}
+CLAUDE = {"claude:haiku": "Haiku", "claude:sonnet": "Sonnet"}
+
+
+def label(spec: str) -> str:
+    """How a seat's player is shown: Human, Random, Haiku, Cutie: flint ..."""
+    if spec in ("me", "human"):
+        return "Human"
+    if spec.startswith("local:"):
+        return f"{(relay.config() or {}).get('name', 'Local')}: {spec.split(':', 1)[1]}"
+    return BASIC.get(spec) or CLAUDE.get(spec) or spec
+
+
+def _seats(cfg: dict, powers) -> dict[str, str]:
+    """Each power's seat spec: 'human' for humans, else what the runner plays."""
+    humans = cfg.get("humans") or {}
+    hosted = cfg.get("hosted") or {}
+    specs = hosted.get("seats") or {p: hosted.get("model", "fake") for p in powers}
+    return {p: "human" if p in humans else specs.get(p, "fake") for p in powers}
+
+
+def _claude_matches() -> int:
+    return sum(1 for m in Match.all() if m.config.get("hosted") and not m.ended()
+               and any(v.startswith("claude:") for v in _seats(m.config, m.powers).values()))
+
+
+def options() -> list[dict]:
+    """Every kind of player a seat can have, and whether it can be picked now."""
+    out = [{"value": "me", "label": "Me", "available": True, "reason": ""},
+           {"value": "human", "label": "Human (open seat)", "available": True, "reason": ""}]
+    out += [{"value": v, "label": l, "available": True, "reason": ""} for v, l in BASIC.items()]
+    busy = _claude_matches() >= MAX_MODEL_MATCHES
+    out += [{"value": v, "label": l, "available": not busy,
+             "reason": f"{MAX_MODEL_MATCHES} games with Claude seats already running" if busy else ""}
+            for v, l in CLAUDE.items()]
+    cfg = relay.config()
+    if cfg:
+        found = relay.models()
+        if found:
+            out += [{"value": f"local:{m}", "label": f"Local ({cfg['name']}): {m}",
+                     "available": True, "reason": ""} for m in found]
+        else:
+            out.append({"value": "local:", "label": f"Local ({cfg['name']})",
+                        "available": False, "reason": f"{cfg['name']} is not answering"})
+    return out
+
+
 def _summary(match: Match) -> dict:
     cfg = match.config
     game = match.load()
     humans = cfg.get("humans") or {}
-    players = cfg.get("players") or {}
+    seats = _seats(cfg, match.powers)
     return {
         "name": cfg["name"], "phase": game.get_current_phase(), "ended": match.ended(),
         "press": cfg.get("press", "none"), "max_year": cfg["max_year"],
         "deadline_at": (cfg["phase_started"] + cfg["deadline_s"]
                         if cfg.get("deadline_s") and not match.ended() else None),
         "seats": {p: {"human": p in humans, "open": humans.get(p) == "open",
-                      "player": "human" if p in humans else players.get(p, ""),
+                      "player": label(seats[p]),
                       "centres": len(game.powers[p].centers)} for p in match.powers},
         "map": cfg.get("map", "standard"),
     }
@@ -110,10 +157,15 @@ def seat_state(match: Match, power: str) -> dict:
 
 
 def start_runner(match: Match) -> None:
-    """Have `./dip run` play the model seats; it returns once it has started."""
-    hosted = match.config.get("hosted") or {}
-    humans = sorted(match.config.get("humans") or {})
-    cmd = [str(ROOT / "dip"), "run", match.name, "--model", hosted.get("model", "fake")]
+    """Have `./dip run` play the computer seats; it returns once it has started."""
+    seats = _seats(match.config, match.powers)
+    played = {p: spec for p, spec in seats.items() if spec != "human"}
+    if not played:
+        return                              # all humans: nothing for a runner to do
+    humans = sorted(p for p, spec in seats.items() if spec == "human")
+    cmd = [str(ROOT / "dip"), "run", match.name, "--model", "fake"]
+    for p, spec in sorted(played.items()):
+        cmd += ["--seat", f"{p}={spec}"]
     if humans:
         cmd += ["--agents", ",".join(humans)]
     done = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=300)
@@ -129,38 +181,54 @@ def resume_all() -> None:
             start_runner(m)
 
 
-def create(body: dict) -> Match:
-    humans = [p.upper() for p in body.get("humans") or []]
-    model = body.get("model") or "claude:haiku"
+def create(body: dict) -> tuple[Match, dict[str, str]]:
+    """A new hosted match, and the tokens of any seats the creator took ("me").
+
+    `seats` gives each power its player: me, human (an open seat), fake
+    (Random), hold, claude:haiku, claude:sonnet or local:<model>. The older
+    form, `humans` plus one `model` for the rest, still works.
+    """
     deadline = int(body.get("deadline") or DEADLINES[0])
     max_year = int(body.get("max_year") or 1904)
     map_name = body.get("map") or "standard"
     if map_name not in MAPS:
         raise MatchError("unknown map")
     powers = sorted(Game(map_name=map_name).powers)
-    if not humans or any(p not in powers for p in humans):
-        raise MatchError("pick at least one power for humans")
-    local = model.startswith("local:")
-    if local and model.split(":", 1)[1] not in (relay.models() or []):
-        raise MatchError(f"{(relay.config() or {}).get('name', 'the local server')} "
-                         "isn't answering, or doesn't have that model")
-    if (not local and model not in MODELS) or deadline not in DEADLINES \
-            or not 1901 <= max_year <= 1930:
+    seats = body.get("seats")
+    if not isinstance(seats, dict):
+        humans = [str(p).upper() for p in body.get("humans") or []]
+        seats = {p: "human" if p in humans else (body.get("model") or "claude:haiku")
+                 for p in powers}
+    seats = {str(p).upper(): str(v) for p, v in seats.items()}
+    if set(seats) != set(powers):
+        raise MatchError("give every power a player")
+    if not any(v in ("me", "human") for v in seats.values()):
+        raise MatchError("pick at least one power for a human")
+    offered = {o["value"]: o for o in options()}
+    for p, v in seats.items():
+        o = offered.get(v)
+        if not o:
+            if v.startswith("local:"):
+                raise MatchError(f"{(relay.config() or {}).get('name', 'the local server')} "
+                                 "isn't answering, or doesn't have that model")
+            raise MatchError(f"unknown player for {p}: {v}")
+        if not o["available"]:
+            raise MatchError(f"{o['label']}: {o['reason']}")
+    if deadline not in DEADLINES or not 1901 <= max_year <= 1930:
         raise MatchError("bad settings")
-    if model.startswith("claude:") and sum(
-            1 for m in Match.all() if m.config.get("hosted") and not m.ended()
-            and str((m.config.get("hosted") or {}).get("model", "")).startswith("claude:")
-    ) >= MAX_MODEL_MATCHES:
-        raise MatchError(f"already {MAX_MODEL_MATCHES} matches with model seats running; "
-                         "finish one first, or use Random or Hold")
     name = body.get("name") or time.strftime("game-%m%d-%H%M")
     if not re.fullmatch(r"[A-Za-z0-9_-]{1,40}", name):
         raise MatchError("names are letters, digits, - and _")
     match = Match.create(name, press="none", max_year=max_year, deadline_s=deadline,
                          map_name=map_name)
-    match._set_config(humans={p: "open" for p in humans}, hosted={"model": model})
+    humans = {p: "taken" if v == "me" else "open" for p, v in seats.items()
+              if v in ("me", "human")}
+    match._set_config(humans=humans,
+                      hosted={"seats": {p: v for p, v in seats.items()
+                                        if v not in ("me", "human")}})
     start_runner(match)
-    return match
+    tokens = {p: match.config["seats"][p] for p, v in seats.items() if v == "me"}
+    return match, tokens
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
@@ -220,6 +288,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if path in ("/", "/index.html"):
                 page = (ROOT / "vibe" / "static" / "play.html").read_bytes()
                 return self._send(200, page, "text/html; charset=utf-8")
+            if path == "/api/options":
+                return self._json(200, options())
             if path == "/api/local":
                 cfg = relay.config()
                 found = relay.models() if cfg else None
@@ -255,7 +325,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
         try:
             body = self._body()
             if path == "/api/new":
-                return self._json(200, _summary(create(body)))
+                match, tokens = create(body)
+                return self._json(200, {**_summary(match), "tokens": tokens})
             if path == "/api/claim":
                 match = Match.open(str(body.get("match", "")))
                 power = str(body.get("power", "")).upper()
