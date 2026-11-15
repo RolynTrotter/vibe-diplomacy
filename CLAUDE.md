@@ -17,6 +17,10 @@ Read `README.md` for how a match runs.
   about what to order. Anything a seat needs belongs in `board.render` (shown
   identically to agent seats and model seats) or in `cli.brief`, which has to
   fit on one screen (`tests/test_play.py` checks this).
+- **Facts and a plan, never orders (Rolyn, 2026-11-15).** A seat may be shown
+  facts the engine knows (which centres its units can reach, who else can
+  reach them) and asked to keep a plan (which centres it will take next, with
+  which units). It is never told which orders to give or which move is best.
 - **A player makes no decisions the code already knows.** It doesn't pick a
   tool, a branch or a file. Three commands, plus two for full press.
 - **No version or environment talk anywhere a player or host reads.**
