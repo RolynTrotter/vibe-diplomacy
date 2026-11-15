@@ -83,5 +83,13 @@ Written by `bench/gunboat.py` (see its docstring for what each column counts). R
 | base | +4.67 | +7.67 | +9.67 | 0.22 | 9-7 (6/12 idle), 13-5 (1/12 idle), 16-9 (1/12 idle) |
 | e1: board lists only centres you can take | +5.00 | +10.00 | +12.33 | 0.06 | 10-7 (4/12 idle), 18-6 (0/12 idle), 18-4 (0/10 idle) |
 | e2: notebook asks which centres to take next | +6.00 | +11.33 | +15.33 | 0.35 | 19-8 (1/12 idle), 17-6 (0/12 idle), 19-5 (0/10 idle) |
+| both (as merged in #49) | +6.67 | +11.33 | +13.33 | 0.28 | 17-5 (2/12 idle), 15-6 (1/12 idle), 17-4 (0/12 idle) |
 
-"Idle" = a movement phase where France only held or supported. Base game 1's notebook: "Holding everywhere again ... Consider KIE only once MUN has a second defender."
+"Idle" = a movement phase where France only held or supported. Both changes together beat base at every cutoff; they don't beat the notebook change alone (+13.3 vs +15.3 by 1906, within the noise of 3 games). Base game 1's notebook: "Holding everywhere again ... Consider KIE only once MUN has a second defender."
+
+## fa-france-combined — 2026-11-14, claude:haiku, 3 games to 1906, France vs Austria
+
+| seats | n | finishing/phase | refused/phase | held/phase | missed/fall | selfbounce/phase | void/phase | unbuilt/winter | gain |
+|---|---|---|---|---|---|---|---|---|---|
+| fake | 3 | 0.00 | 0.00 | 0.00 | 2.44 | 0.25 | 1.64 | 0.00 | +2.00 |
+| haiku | 3 | 0.00 | 0.00 | 0.00 | 0.28 | 0.00 | 0.00 | 0.00 | +13.33 |
