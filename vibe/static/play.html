@@ -73,7 +73,12 @@ async function lobby() {
   clearInterval(timer);
   let matches = [];
   let err = "";
+  let local = {available: false, models: [], name: null, reason: ""};
   try { matches = await api("/api/matches"); } catch (e) { err = "Server offline"; }
+  try { local = await api("/api/local"); } catch (e) {}
+  const localOpts = local.name ? (local.available
+      ? local.models.map(m => `<option value="local:${esc(m)}">Local (${esc(local.name)}): ${esc(m)}</option>`).join("")
+      : `<option disabled>Local (${esc(local.name)}): ${esc(local.reason)}</option>`) : "";
   const seats = mine();
   const live = matches.filter(m => !m.ended);
   const yours = Object.entries(seats).filter(([k]) => matches.some(m => k.startsWith(m.name + "/")));
@@ -95,7 +100,7 @@ async function lobby() {
     <div class="muted" style="margin-top:10px">Humans</div>
     <div class="row" id="humans" style="margin:6px 0 12px"></div>
     <div class="grid">
-      <label><span class="muted">Other powers</span><select id="model">${OPPONENTS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select></label>
+      <label><span class="muted">Other powers</span><select id="model">${OPPONENTS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}${localOpts}</select></label>
       <label><span class="muted">Turn</span><select id="deadline"><option value="3600">1 hour</option><option value="86400">24 hours</option></select></label>
       <label><span class="muted">Ends after</span><select id="year">${[1902,1904,1906,1910].map(y => `<option${y===1904?" selected":""}>${y}</option>`).join("")}</select></label>
     </div>

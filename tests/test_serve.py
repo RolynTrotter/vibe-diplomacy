@@ -148,3 +148,34 @@ def test_serve_waits_for_storage_before_anything(tmp_path, monkeypatch):
     serve.wait_for_storage(log=lines.append, pause=30)
     assert len(sleeps) == 3 and "waiting for match storage" in lines[0]
     assert lines[-1].startswith(f"match storage: {target}") and "after 90s" in lines[-1]
+
+
+def test_local_models_are_offered_only_while_the_server_answers(api, monkeypatch):
+    from vibe import relay
+    monkeypatch.setattr(relay, "config", lambda: None)
+    local = api("/api/local")[1]
+    assert not local["available"] and local["reason"] == "not set up on this host"
+    monkeypatch.setattr(relay, "config", lambda: {"name": "Cutie"})
+    monkeypatch.setattr(relay, "models", lambda **k: None)
+    local = api("/api/local")[1]
+    assert not local["available"] and local["reason"] == "Cutie is not answering"
+    assert api("/api/new", {"humans": ["FRANCE"], "model": "local:flint", "name": "l1"})[0] == 400
+    monkeypatch.setattr(relay, "models", lambda **k: ["flint"])
+    assert api("/api/local")[1] == {"name": "Cutie", "models": ["flint"], "available": True,
+                                    "reason": ""}
+    assert api("/api/new", {"humans": ["FRANCE"], "model": "local:flint", "name": "l2"})[0] == 200
+    assert api("/api/new", {"humans": ["FRANCE"], "model": "local:gpt9", "name": "l3"})[0] == 400
+
+
+def test_a_local_seat_holds_and_says_so_when_its_server_is_down(tmp_path, monkeypatch):
+    from vibe import relay, run
+    monkeypatch.setattr(gamemod, "GAMES", tmp_path)
+    monkeypatch.setattr(relay, "models", lambda **k: None)
+    m = Match.create("down", max_year=1901)
+    seats = {p: run.Seat("fake") for p in m.powers}
+    seats["FRANCE"] = run.Seat("openai", "flint", "http://127.0.0.1:9/v1", local="Cutie")
+    lines = []
+    r = run.Runner(m, seats, seed=1, log=lines.append)
+    r.play(max_phases=1)
+    assert m.phase() == "F1901M" and m.history("S1901M")["orders"]["FRANCE"] == []
+    assert any("Cutie is not answering; holds this phase" in l for l in lines)

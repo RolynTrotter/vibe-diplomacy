@@ -30,7 +30,7 @@ import time
 import urllib.parse
 
 from vibe import board as boardmod
-from vibe import mapviz
+from vibe import mapviz, relay
 from diplomacy import Game
 
 from vibe.game import MAPS, ROOT, LateOrders, Match, MatchError, legal_orders
@@ -136,7 +136,12 @@ def create(body: dict) -> Match:
     powers = sorted(Game(map_name=map_name).powers)
     if not humans or any(p not in powers for p in humans):
         raise MatchError("pick at least one power for humans")
-    if model not in MODELS or deadline not in DEADLINES or not 1901 <= max_year <= 1930:
+    local = model.startswith("local:")
+    if local and model.split(":", 1)[1] not in (relay.models() or []):
+        raise MatchError(f"{(relay.config() or {}).get('name', 'the local server')} "
+                         "isn't answering, or doesn't have that model")
+    if (not local and model not in MODELS) or deadline not in DEADLINES \
+            or not 1901 <= max_year <= 1930:
         raise MatchError("bad settings")
     if model.startswith("claude:") and sum(
             1 for m in Match.all() if m.config.get("hosted") and not m.ended()
@@ -210,6 +215,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if path in ("/", "/index.html"):
                 page = (ROOT / "vibe" / "static" / "play.html").read_bytes()
                 return self._send(200, page, "text/html; charset=utf-8")
+            if path == "/api/local":
+                cfg = relay.config()
+                found = relay.models() if cfg else None
+                return self._json(200, {
+                    "name": cfg["name"] if cfg else None, "models": found or [],
+                    "available": bool(found),
+                    "reason": ("" if found else "not set up on this host" if not cfg
+                               else f"{cfg['name']} is not answering")})
             if path == "/api/matches":
                 return self._json(200, [_summary(m) for m in reversed(Match.all())
                                         if m.config.get("hosted")])
