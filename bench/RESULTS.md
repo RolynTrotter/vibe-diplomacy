@@ -56,3 +56,10 @@ Written by `bench/gunboat.py` (see its docstring for what each column counts). R
 | seats | n | finishing/phase | refused/phase | held/phase | missed/fall | selfbounce/phase | void/phase | unbuilt/winter | gain |
 |---|---|---|---|---|---|---|---|---|---|
 | haiku | 4 | 0.00 | 0.00 | 0.00 | 0.58 | 0.00 | 0.00 | 0.00 | +12.25 |
+
+## flint-smoke — 2026-11-14, local:flint, 1 games to 1901
+
+| seats | n | finishing/phase | refused/phase | held/phase | missed/fall | selfbounce/phase | void/phase | unbuilt/winter | gain |
+|---|---|---|---|---|---|---|---|---|---|
+| fake | 6 | 0.00 | 0.00 | 0.00 | 0.33 | 0.33 | 1.42 | 0.00 | +0.17 |
+| flint@Cutie | 1 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | +2.00 |

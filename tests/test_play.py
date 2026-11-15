@@ -513,3 +513,13 @@ def test_model_seats_are_told_how_many_opponents_there_are(games):
     assert "against six other players" in run.system_prompt(Match.create("s7"), "FRANCE")
     fa = Match.create("s2", map_name="standard_france_austria")
     assert "against one other player" in run.system_prompt(fa, "FRANCE")
+
+
+def test_winter_asks_for_builds_not_a_line_per_unit(games):
+    m = Match.create("wb")
+    m.submit("FRANCE", ["A MAR - SPA"]); m.advance(force=True)
+    m.submit("FRANCE", ["A SPA H"]); m.advance(force=True)
+    assert m.phase() == "W1901A"
+    fmt = run.orders_format(m, "FRANCE")
+    assert "up to 1 build(s)" in fmt and "one line per unit" not in fmt
+    assert "```" not in fmt and not parse_reply(fmt).orders
