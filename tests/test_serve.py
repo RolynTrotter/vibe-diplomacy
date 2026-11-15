@@ -19,10 +19,11 @@ def api(tmp_path, monkeypatch):
     threading.Thread(target=server.serve_forever, daemon=True).start()
     base = f"http://127.0.0.1:{server.server_address[1]}"
 
-    def call(path, body=None):
+    def call(path, body=None, seat=None):
+        headers = {"Content-Type": "application/json", **({"X-Seat": seat} if seat else {})}
         req = urllib.request.Request(base + path, method="POST" if body is not None else "GET",
                                      data=json.dumps(body).encode() if body is not None else None,
-                                     headers={"Content-Type": "application/json"})
+                                     headers=headers)
         try:
             with urllib.request.urlopen(req) as r:
                 raw = r.read()
@@ -45,14 +46,14 @@ def test_a_human_creates_claims_submits_and_readies(api):
     assert api("/api/claim", {"match": "h1", "power": "ENGLAND"})[0] == 400  # not human
     tok = claim["token"]
 
-    code, seat = api(f"/api/seat/{tok}")
+    code, seat = api("/api/seat", None, tok)
     assert seat["power"] == "FRANCE" and seat["season"] == "Spring 1901"
     assert "A PAR - BUR" in seat["options"]["PAR"]["orders"]
     assert seat["options"]["PAR"]["unit"] == "A PAR" and seat["submitted"] is None
-    assert api(f"/api/seat/{tok}/map.svg")[1].lstrip().startswith("<")
+    assert api("/api/seat/map.svg", None, tok)[1].lstrip().startswith("<")
 
-    assert api(f"/api/seat/{tok}/submit", {"orders": ["F BRE - LON"]})[0] == 400
-    code, seat = api(f"/api/seat/{tok}/submit", {"orders": ["A PAR - BUR"], "phase": "S1901M"})
+    assert api("/api/seat/submit", {"orders": ["F BRE - LON"]}, tok)[0] == 400
+    code, seat = api("/api/seat/submit", {"orders": ["A PAR - BUR"], "phase": "S1901M"}, tok)
     assert seat["submitted"] == ["A PAR - BUR"] and not seat["ready"]
 
     match = Match.open("h1")
@@ -60,16 +61,16 @@ def test_a_human_creates_claims_submits_and_readies(api):
         if p != "FRANCE":
             match.submit(p, [], ready=True)
     assert match.phase() == "S1901M"                       # waiting on France's Ready
-    code, seat = api(f"/api/seat/{tok}/ready", {"ready": True, "phase": "S1901M"})
+    code, seat = api("/api/seat/ready", {"ready": True, "phase": "S1901M"}, tok)
     assert seat["phase"] == "F1901M" and seat["submitted"] is None and not seat["ready"]
     assert "A BUR" in seat["units"]
-    assert api(f"/api/seat/{tok}/ready", {"ready": True, "phase": "S1901M"})[0] == 409
+    assert api("/api/seat/ready", {"ready": True, "phase": "S1901M"}, tok)[0] == 409
 
 
 def test_model_seats_are_not_served_and_bad_settings_are_refused(api):
     api("/api/new", {"humans": ["ITALY"], "model": "fake", "name": "h2"})
     tok = Match.open("h2").config["seats"]["AUSTRIA"]
-    assert api(f"/api/seat/{tok}")[0] == 400
+    assert api("/api/seat", None, tok)[0] == 400
     assert api("/api/new", {"humans": [], "model": "fake"})[0] == 400
     assert api("/api/new", {"humans": ["ITALY"], "model": "gpt-9"})[0] == 400
 
@@ -127,7 +128,7 @@ def test_the_france_austria_map_from_the_page(api):
                             "map": "standard_france_austria"})[0] == 400
     assert api("/api/new", {"humans": ["FRANCE"], "model": "fake", "map": "mars"})[0] == 400
     tok = api("/api/claim", {"match": "fa", "power": "FRANCE"})[1]["token"]
-    seat = api(f"/api/seat/{tok}")[1]
+    seat = api("/api/seat", None, tok)[1]
     assert "A PAR - BUR" in seat["options"]["PAR"]["orders"] and seat["owing_count"] == 2
 
 
@@ -215,3 +216,11 @@ def test_the_relay_is_loopback_only_and_per_process(tmp_path, monkeypatch):
     url = relay.base_url()
     assert url.startswith("http://127.0.0.1:") and ":12340" not in url
     assert relay.base_url() == url                    # one relay per process
+
+
+def test_the_seat_token_rides_in_a_header_not_the_url(api):
+    api("/api/new", {"humans": ["FRANCE"], "model": "hold", "name": "hdr"})
+    tok = api("/api/claim", {"match": "hdr", "power": "FRANCE"})[1]["token"]
+    assert api(f"/api/seat/{tok}")[0] == 404             # no token in paths any more
+    assert api("/api/seat")[0] == 400                     # and none without the header
+    assert api("/api/seat", None, tok)[1]["power"] == "FRANCE"
