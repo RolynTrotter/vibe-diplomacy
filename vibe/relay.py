@@ -8,7 +8,7 @@ Some hosts can't open a plain TCP connection to the machine running the model
 The host describes the server in a JSON file named by VIBE_LOCAL:
 
     {"name": "Cutie",                       shown on the page
-     "listen": "127.0.0.1:12340",           where the relay listens
+     "listen": "127.0.0.1",                 loopback only; each process picks a free port
      "command": ["tailscale", "nc", "cutie-1", "1234"],   one per connection
      "key_file": "~/.config/lmstudio/token",              Bearer token, if any
      "concurrency": 1}                      calls at once: one GPU
@@ -29,8 +29,9 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-_started: set[str] = set()
+_ports: dict[str, int] = {}             # listen host -> this process's relay port
 _lock = threading.Lock()
+LOOPBACK = ("127.0.0.1", "localhost", "::1")
 _cache: dict = {"at": 0.0, "models": None}
 
 
@@ -40,7 +41,12 @@ def config() -> dict | None:
         return None
     cfg = json.loads(Path(path).expanduser().read_text())
     cfg.setdefault("name", "Local")
-    cfg.setdefault("listen", "127.0.0.1:12340")
+    cfg.setdefault("listen", "127.0.0.1")
+    cfg["listen"] = cfg["listen"].rsplit(":", 1)[0] if cfg["listen"].count(":") == 1 \
+        else cfg["listen"]                 # an old "host:port" keeps its host
+    if cfg["listen"] not in LOOPBACK:
+        raise ValueError(f"local relay must listen on loopback, not {cfg['listen']!r}: "
+                         "it has no authentication of its own")
     cfg.setdefault("concurrency", 1)
     home = os.path.expanduser("~")
     cfg["command"] = [os.path.expanduser(c).replace("=~/", f"={home}/")   # --socket=~/...
@@ -49,8 +55,12 @@ def config() -> dict | None:
 
 
 def base_url(cfg: dict | None = None) -> str:
+    """This process's relay, started if need be."""
     cfg = cfg or config()
-    return f"http://{cfg['listen']}/v1" if cfg else ""
+    if not cfg:
+        return ""
+    host = "[::1]" if cfg["listen"] == "::1" else cfg["listen"]
+    return f"http://{host}:{ensure(cfg)}/v1"
 
 
 def api_key(cfg: dict | None = None) -> str:
@@ -62,9 +72,10 @@ def api_key(cfg: dict | None = None) -> str:
 def _pipe(client: socket.socket, command: list[str]) -> None:
     """One connection: the client's bytes to the command, its output back.
 
-    The command's stdin is left open when the client stops sending: closing
-    it can end `nc` before the reply arrives. The connection ends when the
-    server's side does, or when the client goes away.
+    The command's stdin is never closed early: closing it can end `nc`
+    before the reply arrives. Our clients send a request and read the reply
+    without half-closing, so the client's EOF means it is gone: the command
+    is then stopped and reaped, as it is when the server's side ends.
     """
     try:
         proc = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
@@ -80,6 +91,7 @@ def _pipe(client: socket.socket, command: list[str]) -> None:
                 proc.stdin.flush()
         except (OSError, ValueError):
             pass
+        proc.kill()                        # the client is gone: so is this request
 
     threading.Thread(target=upstream, daemon=True).start()
     try:
@@ -89,27 +101,25 @@ def _pipe(client: socket.socket, command: list[str]) -> None:
         pass
     finally:
         proc.kill()
+        proc.wait()
         client.close()
 
 
-def ensure(cfg: dict | None = None) -> bool:
-    """Start the relay in this process unless something already listens there."""
+def ensure(cfg: dict | None = None) -> int:
+    """This process's relay port, starting the relay on a free loopback port.
+
+    Every process has its own: nothing else can be listening on it, so the
+    token never goes to a stranger who took a fixed port first.
+    """
     cfg = cfg or config()
-    if not cfg:
-        return False
     with _lock:
-        if cfg["listen"] in _started:
-            return True
-        host, port = cfg["listen"].rsplit(":", 1)
-        srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        try:
-            srv.bind((host, int(port)))
-        except OSError:
-            srv.close()
-            return True                   # another process (the server) has it
+        if cfg["listen"] in _ports:
+            return _ports[cfg["listen"]]
+        family = socket.AF_INET6 if cfg["listen"] == "::1" else socket.AF_INET
+        srv = socket.socket(family, socket.SOCK_STREAM)
+        srv.bind((cfg["listen"], 0))
         srv.listen(16)
-        _started.add(cfg["listen"])
+        _ports[cfg["listen"]] = srv.getsockname()[1]
 
     def serve():
         while True:
@@ -117,7 +127,12 @@ def ensure(cfg: dict | None = None) -> bool:
             threading.Thread(target=_pipe, args=(client, cfg["command"]), daemon=True).start()
 
     threading.Thread(target=serve, daemon=True).start()
-    return True
+    return _ports[cfg["listen"]]
+
+
+def forget() -> None:
+    """A call to the server just failed: the next check asks it again."""
+    _cache.update(at=0.0, models=None)
 
 
 def models(timeout: float = 8.0, fresh: float = 30.0) -> list[str] | None:
@@ -130,7 +145,6 @@ def models(timeout: float = 8.0, fresh: float = 30.0) -> list[str] | None:
         return None
     if time.time() - _cache["at"] < fresh:
         return _cache["models"]
-    ensure(cfg)
     found = None
     req = urllib.request.Request(base_url(cfg) + "/models",
                                  headers={"Authorization": f"Bearer {api_key(cfg)}"})

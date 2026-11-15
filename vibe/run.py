@@ -77,6 +77,14 @@ class Answer(str):
 # --------------------------------------------------------------------------- #
 # Seats and backends
 # --------------------------------------------------------------------------- #
+LOCAL_SILENCE = 30.0            # local seats: seconds with no tokens before giving up
+LOCAL_CALL_LIMIT = 600.0        # and the longest one call may take (flint: ~220 s)
+
+
+class LocalDown(RuntimeError):
+    """A local seat's server stopped answering mid-call: the seat holds."""
+
+
 class ServerError(RuntimeError):
     """The endpoint answered, with an error. Retrying the same call won't help."""
 
@@ -491,13 +499,19 @@ class Runner:
         image = None
         if self.images and self.match.load().phase_type == "M":
             image = mapviz.phase_image(self.match.path, self.match.load())
+        timeout, limit = self.timeout, self.call_limit
+        if seat.local:
+            # A local model streams its reasoning from the first second, so a
+            # short silence means the server is gone. Fail fast, don't retry,
+            # and let the seat hold rather than keep the phase open.
+            timeout, limit = min(timeout, LOCAL_SILENCE), min(limit, LOCAL_CALL_LIMIT)
         with self._gate(seat):
-            for attempt in (1, 2):
+            for attempt in ((1,) if seat.local else (1, 2)):
                 try:
                     if seat.kind == "openai":
                         return call_openai(seat, system, prompt, image, max_tokens,
-                                           self.timeout, transport=functools.partial(
-                                               _stream, limit=self.call_limit))
+                                           timeout, transport=functools.partial(
+                                               _stream, limit=limit))
                     return call_claude(seat, system, prompt, image, max_tokens,
                                        self.call_limit)
                 except ServerError:
@@ -507,6 +521,10 @@ class Runner:
                     raise
                 except (urllib.error.URLError, TimeoutError, OSError, RuntimeError,
                         subprocess.TimeoutExpired) as exc:
+                    if seat.local:
+                        from vibe import relay
+                        relay.forget()             # next check asks the server again
+                        raise LocalDown(f"{seat.local} stopped answering ({exc})") from None
                     if image:          # a text-only model may reject the picture
                         image = None
                         continue
@@ -636,6 +654,9 @@ class Runner:
                 if not ok:
                     errs = retried.errors or ["no orders found in the finishing reply"]
                     note = errs[0] + (f" (+{len(errs) - 1} more)" if len(errs) > 1 else "")
+        except LocalDown as exc:
+            note = f"{exc}; holds"
+            self._count("local down")
         except Exception as exc:
             note = f"call failed: {exc}"
         try:

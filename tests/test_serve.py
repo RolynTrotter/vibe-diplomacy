@@ -179,3 +179,39 @@ def test_a_local_seat_holds_and_says_so_when_its_server_is_down(tmp_path, monkey
     r.play(max_phases=1)
     assert m.phase() == "F1901M" and m.history("S1901M")["orders"]["FRANCE"] == []
     assert any("Cutie is not answering; holds this phase" in l for l in lines)
+
+
+def test_a_local_server_that_dies_mid_game_costs_seconds_not_minutes(tmp_path, monkeypatch):
+    """The health check said yes; the server is gone by the time the seat calls."""
+    import socket as sk
+    import time as tm
+    from vibe import relay, run
+    monkeypatch.setattr(gamemod, "GAMES", tmp_path)
+    monkeypatch.setattr(relay, "models", lambda **k: ["flint"])        # stale "up"
+    forgot = []
+    monkeypatch.setattr(relay, "forget", lambda: forgot.append(1))
+    dead = sk.socket(); dead.bind(("127.0.0.1", 0)); port = dead.getsockname()[1]
+    dead.close()                                                        # nothing listens
+    m = Match.create("mid", max_year=1901)
+    seats = {p: run.Seat("fake") for p in m.powers}
+    seats["FRANCE"] = run.Seat("openai", "flint", f"http://127.0.0.1:{port}/v1", local="Cutie")
+    lines = []
+    t = tm.monotonic()
+    run.Runner(m, seats, seed=1, log=lines.append).play(max_phases=1)
+    assert tm.monotonic() - t < 20 and m.phase() == "F1901M"
+    assert m.history("S1901M")["orders"]["FRANCE"] == [] and forgot
+    assert any("Cutie stopped answering" in l and "holds" in l for l in lines)
+
+
+def test_the_relay_is_loopback_only_and_per_process(tmp_path, monkeypatch):
+    import json as js
+    from vibe import relay
+    cfg = tmp_path / "local.json"
+    cfg.write_text(js.dumps({"command": ["true"], "listen": "0.0.0.0:12340"}))
+    monkeypatch.setenv("VIBE_LOCAL", str(cfg))
+    with pytest.raises(ValueError, match="loopback"):
+        relay.config()
+    cfg.write_text(js.dumps({"command": ["true"], "listen": "127.0.0.1:12340"}))
+    url = relay.base_url()
+    assert url.startswith("http://127.0.0.1:") and ":12340" not in url
+    assert relay.base_url() == url                    # one relay per process
