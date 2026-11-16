@@ -494,3 +494,16 @@ def test_agent_seats_leave_lore_once_after_the_game(games, capsys):
     capsys.readouterr()
     cli.main(["board", "--seat", tok])
     assert "lore --seat" not in capsys.readouterr().out
+
+
+def test_france_vs_austria_plays_with_two_powers(games, capsys):
+    m = Match.create("fa", map_name="standard_france_austria", max_year=1903)
+    assert m.powers == ("AUSTRIA", "FRANCE")
+    assert sorted(f.stem for f in cli.write_briefs(m)) == ["AUSTRIA", "FRANCE"]
+    assert cli.brief(m, "FRANCE").count("Two players") == 1
+    text = board.render(m, "FRANCE")
+    assert "neutral: 28" in text and "ENGLAND" not in text
+    seats = {p: Seat("fake") for p in m.powers}
+    Runner(m, seats, seed=4, log=lambda *_: None).play()
+    assert m.ended() and m.history("S1901M")["resolved"] == "everyone ready"
+    assert set(m.history("S1901M")["orders"]) == {"AUSTRIA", "FRANCE"}
