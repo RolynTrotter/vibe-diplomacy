@@ -10,11 +10,12 @@ Each match is one directory, `games/<name>/` (gitignored):
     mail.jsonl           every message, revealed to the site when the game ends
     notes/<POWER>.md     a seat's private notebook, shown back to it on its board
     notes.jsonl          every notebook as written, by phase (for log.md)
-    log.md               the readable record: press, orders, results, notes, lore
+    log.md               the readable record: press, orders, results, notes
     briefs/<POWER>.md    the one page a seat is handed
 
-Lore outlives a match: `_lore/<POWER>.md`, beside the matches, is what earlier
-players of each power left for the next one.
+Carry-over notes (optional, off unless the match is created with them) outlive
+a match: `_carry_over/<POWER>.md`, beside the matches, is what earlier players
+of each power left for the next one.
 
 Order secrecy is by not telling: a seat acts through its token, and nothing a
 seat is shown names another seat's files. Submitting and being Ready are
@@ -65,7 +66,7 @@ POWERS = ("AUSTRIA", "ENGLAND", "FRANCE", "GERMANY", "ITALY", "RUSSIA", "TURKEY"
 MAPS = {"standard": "Standard", "standard_france_austria": "France vs Austria"}
 ALL = "ALL"
 NOTES_MAX = 2000                # a notebook, not a diary: it is on every board
-LORE_MAX = 1500                 # one game's lore entry
+CARRY_MAX = 1500                # one game's carry-over entry
 
 
 # --------------------------------------------------------------------------- #
@@ -193,7 +194,7 @@ class Match:
     @classmethod
     def create(cls, name: str, *, press: str = "none", max_year: int = 1910,
                deadline_s: int = 0, root: Path | None = None,
-               map_name: str = "standard") -> "Match":
+               map_name: str = "standard", carry_over: bool = False) -> "Match":
         if not re.fullmatch(r"[A-Za-z0-9_-]+", name):
             raise MatchError("match names are letters, digits, - and _")
         path = Path(root or GAMES) / name
@@ -211,7 +212,7 @@ class Match:
             "name": name, "press": press, "max_year": max_year,
             "deadline_s": deadline_s, "phase_started": time.time(),
             "ended": None,
-            "map": map_name, "powers": powers,
+            "map": map_name, "powers": powers, "carry_over": carry_over,
             "seats": {p: secrets.token_hex(12) for p in powers},
         }
         _write(path / "config.json", json.dumps(config, indent=2))
@@ -489,7 +490,7 @@ class Match:
         return [m for m in self.messages()
                 if m["sender"] == power or power in m["to"] or ALL in m["to"]]
 
-    # -- notes and lore -------------------------------------------------------- #
+    # -- notes and carry-over notes -------------------------------------------- #
     def notes(self, power: str) -> str:
         f = self.path / "notes" / f"{power}.md"
         return f.read_text() if f.exists() else ""
@@ -506,32 +507,37 @@ class Match:
             fh.write(json.dumps({"phase": self.phase(), "power": power,
                                  "text": text, "time": time.time()}) + "\n")
 
-    def _lore_file(self, power: str) -> Path:
-        return self.path.parent / "_lore" / f"{power}.md"
+    @property
+    def carry_over(self) -> bool:
+        """Whether this match shows and collects carry-over notes."""
+        return bool(self.config.get("carry_over"))
 
-    def lore(self, power: str) -> str:
-        """What earlier players of `power` left, newest last."""
-        f = self._lore_file(power)
+    def _carry_file(self, power: str) -> Path:
+        return self.path.parent / "_carry_over" / f"{power}.md"
+
+    def carried(self, power: str) -> str:
+        """Carry-over notes earlier players of `power` left, newest last."""
+        f = self._carry_file(power)
         return f.read_text() if f.exists() else ""
 
-    def add_lore(self, power: str, text: str) -> bool:
-        """After the game, `power`'s lesson for its next player. Once per match."""
-        text = text.strip()[:LORE_MAX]
-        if not (self.ended() and text):
+    def add_carry_over(self, power: str, text: str) -> bool:
+        """After the game, `power`'s notes for its next player. Once per match."""
+        text = text.strip()[:CARRY_MAX]
+        if not (self.carry_over and self.ended() and text):
             return False
         game = self.load()
-        f = self._lore_file(power)
+        f = self._carry_file(power)
         head = f"## {self.name} ("
         with self._lock():
-            # Checked under the lock, against the lore file itself, so two callers
+            # Checked under the lock, against the notes file itself, so two callers
             # or a retry after a crash can never leave a second entry.
-            if any(line.startswith(head) for line in self.lore(power).splitlines()):
+            if any(line.startswith(head) for line in self.carried(power).splitlines()):
                 return False
             f.parent.mkdir(exist_ok=True)
             with open(f, "a") as fh:
                 fh.write(f"{head}{self.ended()}; {power} finished with "
                          f"{len(game.powers[power].centers)} centres)\n\n{text}\n\n")
-            self._set_config(lore_from=sorted({*self.config.get("lore_from", []), power}))
+            self._set_config(carried_from=sorted({*self.config.get("carried_from", []), power}))
         self.write_log()
         return True
 
@@ -560,6 +566,10 @@ class Match:
         starts.append((game.get_current_phase(),
                        {p: list(game.powers[p].centers) for p in self.powers}))
         after = {ph: nxt for (ph, _), (_, nxt) in zip(starts, starts[1:])}
+        # Centres are listed once a year, after its last played phase (a Winter
+        # with nothing to build or disband is skipped by the engine).
+        year_end = {ph for ph, nxt in zip(played, [*played[1:], None])
+                    if nxt is None or nxt[1:5] != ph[1:5]}
         for phase in [*played, *([] if self.ended() else [game.get_current_phase()])]:
             hist = self.history(phase) or {}
             said = [m for m in mail if m["phase"] == phase]
@@ -586,7 +596,7 @@ class Match:
                 out += ["", "### Notebooks"]
                 for p, text in sorted(last.items()):
                     out += [f"- {p}:"] + [f"  > {l}" for l in text.splitlines()]
-            if phase.endswith("A") and hist:
+            if phase in year_end and hist:
                 centres = after.get(phase) or {}
                 out += ["", "Centres: " + ", ".join(
                     f"{p} {len(centres.get(p) or [])}" for p in
@@ -595,8 +605,9 @@ class Match:
             out += ["", f"## Game over: {self.ended()}", "", ", ".join(
                 f"{p} {len(game.powers[p].centers)}" for p in
                 sorted(self.powers, key=lambda p: -len(game.powers[p].centers)))]
-            for p in cfg.get("lore_from", []):
-                entry = self.lore(p).rsplit(f"## {self.name} (", 1)
+            for p in cfg.get("carried_from", []):
+                entry = self.carried(p).rsplit(f"## {self.name} (", 1)
                 if len(entry) == 2:
-                    out += ["", f"### Lore from {p}", "", entry[1].split("\n", 1)[1].strip()]
+                    out += ["", f"### Carry-over notes from {p}", "",
+                            entry[1].split("\n", 1)[1].strip()]
         _write(self.path / "log.md", "\n".join(out) + "\n")
