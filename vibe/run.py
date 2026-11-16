@@ -439,7 +439,7 @@ NOTES_FORMAT = (
     "you trust. It replaces your notebook, which only you see, at the top of "
     "your next board.")
 
-LORE_TASK = (
+CARRY_TASK = (
     "The game is over. Leave notes for whoever plays {power} in the next game: "
     "what you opened with, who you allied with and whether it held, what "
     "worked and what you would do differently. Plain text, under 200 words, "
@@ -737,19 +737,19 @@ class Runner:
                 self.log(f"  {phase} resolved ({hist.get('resolved', 'deadline')}) with "
                          f"{len(hist['missing'])} missing, who held: {', '.join(hist['missing'])}")
 
-    def lore(self, power: str) -> None:
-        """After the game: `power`'s lesson for whoever plays it next."""
+    def carry_over(self, power: str) -> None:
+        """After the game: `power`'s notes for whoever plays it next."""
         prompt = (f"{boardmod.render(self.match, power)}\n\n## Your notebook\n"
                   f"{self.match.notes(power).strip() or '(empty)'}\n\n---\n\n"
-                  + LORE_TASK.format(power=power))
+                  + CARRY_TASK.format(power=power))
         try:
             answer = self._complete(power, prompt, max_tokens=FINISH_TOKENS)
         except Exception as exc:
-            self.log(f"  {power} lore: failed — {exc}")
+            self.log(f"  {power} carry-over notes: failed — {exc}")
             return
         text = _THINK.sub("", answer).strip().strip("`").strip()
-        if self.match.add_lore(power, text):
-            self.log(f"  {power} left lore ({len(text)} chars)")
+        if self.match.add_carry_over(power, text):
+            self.log(f"  {power} left carry-over notes ({len(text)} chars)")
 
     def play(self, max_phases: int | None = None) -> None:
         humans = self.match.config.get("humans") or {}
@@ -764,11 +764,12 @@ class Runner:
             self.log(f"\nGame over: {self.match.ended()}. Centres: " + ", ".join(
                 f"{p} {len(game.powers[p].centers)}" for p in
                 sorted(self.match.powers, key=lambda p: -len(game.powers[p].centers))))
-            done = set(self.match.config.get("lore_from", []))
+        if self.match.ended() and self.match.carry_over:
+            done = set(self.match.config.get("carried_from", []))
             todo = [p for p, s in self.seats.items()
                     if s.kind in ("openai", "claude") and p not in done]
             with ThreadPoolExecutor(max_workers=7) as pool:
-                list(pool.map(self.lore, todo))
+                list(pool.map(self.carry_over, todo))
         if n:
             self.log(self.summary())
 
