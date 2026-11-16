@@ -424,7 +424,7 @@ def test_after_a_winter_the_board_still_shows_the_last_moves(games):
     assert "_Then W1901A:_ FRANCE A MAR B" in last
 
 
-# -- notebooks, lore and the match log --------------------------------------- #
+# -- notebooks, carry-over notes and the match log --------------------------- #
 def test_a_notes_block_is_the_notebook_not_orders():
     text = ("TO ENGLAND: Channel stays empty?\n```notes\nPromised ENGLAND: no F ENG.\n"
             "Next: A PAR - BUR\n```\nthinking...\n```\nA PAR H\n```")
@@ -446,9 +446,9 @@ def _scripted_france(monkeypatch):
     monkeypatch.setattr(run, "call_claude", reply)
 
 
-def test_notebook_lore_and_log_across_two_matches(games, monkeypatch):
+def test_notebook_carry_over_and_log_across_two_matches(games, monkeypatch):
     _scripted_france(monkeypatch)
-    m = Match.create("first", press="full", max_year=1901)
+    m = Match.create("first", press="full", max_year=1901, carry_over=True)
     seats = {p: Seat("fake") for p in gamemod.POWERS}
     seats["FRANCE"] = Seat("claude", "haiku")
     runner = Runner(m, seats, seed=2, rounds=1, log=lambda *_: None)
@@ -463,37 +463,53 @@ def test_notebook_lore_and_log_across_two_matches(games, monkeypatch):
 
     runner.play()
     assert m.ended()
-    assert "England kept the Channel deal" in m.lore("FRANCE") and not m.lore("ENGLAND")
+    assert "England kept the Channel deal" in m.carried("FRANCE") and not m.carried("ENGLAND")
     log = (m.path / "log.md").read_text()
-    assert "## Game over" in log and "### Lore from FRANCE" in log and "Centres: " in log
+    assert "## Game over" in log and "### Carry-over notes from FRANCE" in log and "Centres: " in log
     assert "FRANCE → ENGLAND: hi" in log and "### Notebooks" in log
     runner.play()                                   # a rerun leaves no second entry
-    m._set_config(lore_from=[])                     # nor does a crash before the config
-    assert not m.add_lore("FRANCE", "again")
-    assert m.lore("FRANCE").count("## first") == 1
+    m._set_config(carried_from=[])                     # nor does a crash before the config
+    assert not m.add_carry_over("FRANCE", "again")
+    assert m.carried("FRANCE").count("## first") == 1
 
-    nxt = Match.create("second")
-    assert "## Left by earlier players of FRANCE" in board.render(nxt, "FRANCE")
-    assert "Left by earlier" not in board.render(nxt, "ENGLAND")
+    nxt = Match.create("second", carry_over=True)
+    assert "## Notes from earlier players of FRANCE" in board.render(nxt, "FRANCE")
+    assert "earlier players" not in board.render(nxt, "ENGLAND")
     nxt.advance(force=True)
-    assert "Left by earlier" not in board.render(nxt, "FRANCE")   # opening only
+    assert "earlier players" not in board.render(nxt, "FRANCE")   # opening only
 
 
-def test_agent_seats_leave_lore_once_after_the_game(games, capsys):
-    m = Match.create("agentlore", max_year=1901)
+def test_agent_seats_leave_carry_over_notes_once_after_the_game(games, capsys):
+    m = Match.create("agentnotes", max_year=1901, carry_over=True)
     tok = token(m, "ITALY")
-    assert cli.main(["lore", "--seat", tok, "too soon"]) == 1
+    assert cli.main(["carry-over", "--seat", tok, "too soon"]) == 1
     while not m.ended():
         m.advance(force=True)
     capsys.readouterr()
     cli.main(["board", "--seat", tok])
-    assert f"lore --seat {tok}" in capsys.readouterr().out
-    assert cli.main(["lore", "--seat", tok, "Lepanto", "works."]) == 0
-    assert "Lepanto works." in m.lore("ITALY")
-    assert cli.main(["lore", "--seat", tok, "again"]) == 1
+    assert f"carry-over --seat {tok}" in capsys.readouterr().out
+    assert cli.main(["carry-over", "--seat", tok, "Lepanto", "works."]) == 0
+    assert "Lepanto works." in m.carried("ITALY")
+    assert cli.main(["carry-over", "--seat", tok, "again"]) == 1
     capsys.readouterr()
     cli.main(["board", "--seat", tok])
-    assert "lore --seat" not in capsys.readouterr().out
+    assert "carry-over --seat" not in capsys.readouterr().out
+
+
+def test_carry_over_notes_are_off_unless_the_match_asks(games, monkeypatch, capsys):
+    _scripted_france(monkeypatch)
+    m = Match.create("plain", max_year=1901)
+    seats = {p: Seat("fake") for p in gamemod.POWERS}
+    seats["FRANCE"] = Seat("claude", "haiku")
+    Runner(m, seats, seed=2, log=lambda *_: None).play()
+    assert m.ended() and not m.carried("FRANCE")
+    assert not (m.path.parent / "_carry_over").exists()
+    tok = token(m, "FRANCE")
+    capsys.readouterr()
+    cli.main(["board", "--seat", tok])
+    assert "carry-over" not in capsys.readouterr().out
+    assert cli.main(["carry-over", "--seat", tok, "hello"]) == 1
+    assert not m.add_carry_over("FRANCE", "hello")
 
 
 def test_france_vs_austria_plays_with_two_powers(games, capsys):

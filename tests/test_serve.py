@@ -87,8 +87,10 @@ def _raw(api_base, path, headers, data=b"{}"):
 def base(tmp_path, monkeypatch):
     monkeypatch.setattr(gamemod, "GAMES", tmp_path)
     monkeypatch.setattr(serve, "start_runner", lambda match: None)
+    monkeypatch.setenv("VIBE_ORIGINS", "https://play.example.net, https://other.example")
     server = serve.Server(("127.0.0.1", 0), serve.Handler)
     threading.Thread(target=server.serve_forever, daemon=True).start()
+    serve.set_origins(server.server_address[1], ["https://cli.example/"])
     yield f"http://127.0.0.1:{server.server_address[1]}"
     server.shutdown()
 
@@ -98,8 +100,9 @@ def test_no_cross_site_posts_and_bounded_bodies(base):
     js = {"Content-Type": "application/json"}
     assert _raw(base, "/api/new", {**js, "Origin": "https://evil.example"}, body)[0] == 403
     assert _raw(base, "/api/new", {"Content-Type": "text/plain"}, body)[0] == 415
-    code, headers = _raw(base, "/api/new", {**js, "Origin": "https://skandha-1.tailafb97d.ts.net"}, body)
-    assert code == 200 and headers["Access-Control-Allow-Origin"] == "https://skandha-1.tailafb97d.ts.net"
+    code, headers = _raw(base, "/api/new", {**js, "Origin": "https://play.example.net"}, body)
+    assert code == 200 and headers["Access-Control-Allow-Origin"] == "https://play.example.net"
+    assert serve.ORIGINS >= {"https://other.example", "https://cli.example", base}
     assert _raw(base, "/api/new", {**js, "Origin": "https://evil.example"}, body)[1].get(
         "Access-Control-Allow-Origin") is None
     import socket
