@@ -79,6 +79,12 @@ why: `F1901M resolved (deadline) with 2 seat(s) missing, who held: ...`.
 `~` before a written count means the server didn't report usage, so it is
 an estimate; the cost appears only when the seat's backend states one.
 
+If the match was created with `--carry-over`, the runner asks each model seat
+before exiting for notes to the next player of that power (`FRANCE left
+carry-over notes` lines), shown on that power's opening board in later
+`--carry-over` matches. `games/<name>/log.md` is the readable record of the
+whole match: press, orders, results, notebooks (and carry-over notes).
+
 Lines in `latest` (and in the log) that need no action, or one flag:
 
 | Line | Meaning | Do |

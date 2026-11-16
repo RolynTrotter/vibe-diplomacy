@@ -13,7 +13,7 @@ import time
 
 from vibe import board as boardmod
 from vibe import mapviz
-from vibe.game import POWERS, ROOT, LateOrders, Match, MatchError
+from vibe.game import MAPS, POWERS, ROOT, LateOrders, Match, MatchError
 
 DIP = ROOT / "dip"
 
@@ -56,6 +56,10 @@ def settings_line(match: Match) -> str:
             f"{cfg['max_year']} · phase deadline {_human(cfg['deadline_s'])} · {seats}")
 
 
+def _count(n: int) -> str:
+    return {2: "Two", 7: "Seven"}.get(n, str(n))
+
+
 def brief(match: Match, power: str) -> str:
     """The one page a seat is handed. Everything it needs, nothing it doesn't."""
     cfg = match.config
@@ -80,7 +84,8 @@ def brief(match: Match, power: str) -> str:
     lines = [
         f"# You are {power} in a game of Diplomacy",
         "",
-        f"Seven players, one per great power; you play **{power}**. Each phase "
+        f"{_count(len(match.powers))} players, one per great power; you play **{power}**. "
+        "Each phase "
         "every power writes orders in secret and they resolve together. "
         f"{press}",
         "",
@@ -97,8 +102,9 @@ def brief(match: Match, power: str) -> str:
         f"until `board` or `wait` says GAME OVER (the game ends after "
         f"{cfg['max_year']} or when someone reaches 18 centres).",
         "",
-        f"A phase resolves once every power has submitted, or after "
-        f"{_human(cfg['deadline_s'])}; anything not submitted holds. Retreat "
+        f"`wait` also says you are done with the phase. It resolves once every "
+        f"power is done, or after {_human(cfg['deadline_s'])}; anything not "
+        f"submitted holds. Retreat "
         "and winter-build phases work the same way — `board` shows your options.",
         "",
         "These commands are all you need. Nothing else on this computer is part "
@@ -110,7 +116,7 @@ def brief(match: Match, power: str) -> str:
 def write_briefs(match: Match) -> list:
     out = []
     (match.path / "briefs").mkdir(exist_ok=True)
-    for power in POWERS:
+    for power in match.powers:
         f = match.path / "briefs" / f"{power}.md"
         f.write_text(brief(match, power) + "\n")
         out.append(f)
@@ -132,10 +138,21 @@ def _picture(match: Match) -> str | None:
     return str(path) if path else None
 
 
+def _show(match: Match, power: str) -> None:
+    """The board, and once the game is over, how to leave notes for the next player."""
+    print(boardmod.render(match, power, picture=_picture(match)))
+    if (match.carry_over and match.ended()
+            and power not in match.config.get("carried_from", [])):
+        token = match.config["seats"][power]
+        print(f"\nLeave notes for whoever plays {power} next game (openings, alliances, "
+              f"what worked, what you'd change; one go, under 200 words):\n"
+              f'    {DIP} carry-over --seat {token} "your notes"')
+
+
 def cmd_board(args) -> int:
     match, power = _seat(args)
     match.advance()  # a passed deadline resolves on whoever looks first
-    print(boardmod.render(match, power, picture=_picture(match)))
+    _show(match, power)
     match.seen(power, match.phase())
     if match.full_press and not match.ended():
         n = len([m for m in match.inbox(power) if m["sender"] != power])
@@ -173,11 +190,8 @@ def cmd_submit(args) -> int:
         return 1
     shown = "\n".join(f"  {o}" for o in checked.accepted) or "  (none — everything holds)"
     print(f"Submitted for {phase}:\n{shown}")
-    if match.phase() != phase or match.ended():
-        print(f"\nEveryone was in, so {phase} has resolved. Run `wait` or `board`.")
-    else:
-        print("\nYou can submit again to replace these until the phase resolves. "
-              "Now run `wait`.")
+    print("\nYou can submit again to replace these until the phase resolves. "
+          "When you are done, run `wait`.")
     return 0
 
 
@@ -189,25 +203,27 @@ def cmd_wait(args) -> int:
     if last and last != start:
         # It resolved before we got here (often on this seat's own submit).
         print(f"{last} has resolved.\n")
-        print(boardmod.render(match, power, picture=_picture(match)))
+        _show(match, power)
         match.seen(power, start)
         return 0
     if not match.ended() and power in match.owing(game) and power not in match.submitted(game):
         print(f"You have not submitted orders for {start} yet; the phase is waiting "
               "on you. Run `submit` first (with no orders, everything holds).")
         return 1
+    if not match.ended():
+        match.set_ready(power, phase=start)
     deadline = time.monotonic() + args.timeout
     while time.monotonic() < deadline:
         match.advance()
         if match.ended() or match.phase() != start:
             print(f"{start} has resolved.\n")
-            print(boardmod.render(match, power, picture=_picture(match)))
+            _show(match, power)
             match.seen(power, match.phase())
             return 0
         time.sleep(args.poll)
     game = match.load()
-    print(f"Still waiting on {start}: {len(match.submitted(game))}/"
-          f"{len(match.owing(game))} powers have submitted. Run `wait` again.")
+    print(f"Still waiting on {start}: {len(match.readied(game))}/"
+          f"{len(match.owing(game))} powers are done. Run `wait` again.")
     return 0
 
 
@@ -216,6 +232,21 @@ def cmd_send(args) -> int:
     to = [t for t in re.split(r"[,\s]+", args.to) if t]
     sent = match.send(power, to, " ".join(args.message))
     print(f"Sent to {', '.join(sent)}." if sent else "Nothing sent (empty message?).")
+    return 0
+
+
+def cmd_carry_over(args) -> int:
+    match, power = _seat(args)
+    if not match.carry_over:
+        print("This match does not keep notes for the next player.")
+        return 1
+    if not match.ended():
+        print("The game is not over yet.")
+        return 1
+    if not match.add_carry_over(power, " ".join(args.text)):
+        print("Not saved: you have already left your notes for this game (or wrote nothing).")
+        return 1
+    print(f"Saved. The next player of {power} will see it at the start of their game.")
     return 0
 
 
@@ -230,7 +261,8 @@ def cmd_inbox(args) -> int:
 # --------------------------------------------------------------------------- #
 def cmd_new(args) -> int:
     match = Match.create(args.name, press=args.press, max_year=args.max_year,
-                         deadline_s=args.deadline)
+                         deadline_s=args.deadline, map_name=args.map,
+                         carry_over=args.carry_over)
     briefs = write_briefs(match)
     print(f"Created match {args.name!r} ({'full press' if match.full_press else 'gunboat'},"
           f" ends after {args.max_year}, phase limit {_human(args.deadline)}).")
@@ -279,9 +311,10 @@ def cmd_status(args) -> int:
             print(f"{m.name}: over — {m.ended()}"
                   + (f" (last phase played: {played[-1]})" if played else ""))
         else:
-            sub, owing = m.submitted(game), m.owing(game)
-            waiting = [p for p in owing if p not in sub]
-            print(f"{m.name}: {game.get_current_phase()}, {len(sub)}/{len(owing)} submitted"
+            sub, ready, owing = m.submitted(game), m.readied(game), m.owing(game)
+            waiting = [p for p in owing if p not in ready]
+            print(f"{m.name}: {game.get_current_phase()}, {len(sub)}/{len(owing)} submitted, "
+                  f"{len([p for p in ready if p in owing])}/{len(owing)} ready"
                   + (f"; waiting on {', '.join(waiting)}" if waiting else ""))
         print(f"  settings: {settings_line(m)}")
         played = [str(k) for k in game.order_history.keys()]
@@ -342,6 +375,11 @@ def cmd_run(args) -> int:
     return run.main(args)
 
 
+def cmd_serve(args) -> int:
+    from vibe import serve
+    return serve.main(args)
+
+
 def cmd_site(args) -> int:
     from vibe import site
     return site.main(args)
@@ -370,13 +408,21 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("message", nargs="+")
     s = seat_cmd("inbox", cmd_inbox, "[player] read your messages (full press)")
     s.add_argument("--last", type=int, default=60)
+    s = seat_cmd("carry-over", cmd_carry_over,
+                 "[player] after the game: notes for the next player")
+    s.add_argument("text", nargs="+")
 
     s = sub.add_parser("new", help="[host] create a match and its seat briefs")
     s.add_argument("name")
     s.add_argument("--press", choices=["none", "full"], default="none")
+    s.add_argument("--map", choices=list(MAPS), default="standard",
+                   help="standard_france_austria: France and Austria alone, every other centre empty")
     s.add_argument("--max-year", type=int, default=1910)
     s.add_argument("--deadline", type=_duration, default="30m",
                    help="per-phase time limit, e.g. 10m (0 = none)")
+    s.add_argument("--carry-over", action="store_true",
+                   help="after the game each seat leaves notes for the next player of its "
+                        "power, shown on that power's opening board in later matches")
     s.add_argument("--model", help="model for `./dip run` to use (checked now)")
     s.add_argument("--base-url", help="its OpenAI-compatible URL, e.g. http://127.0.0.1:1234/v1")
     s.set_defaults(fn=cmd_new)
@@ -406,6 +452,13 @@ def build_parser() -> argparse.ArgumentParser:
     from vibe import run
     run.add_arguments(sub.add_parser("run", help="[host] play seats with models"))
     sub.choices["run"].set_defaults(fn=cmd_run)
+
+    s = sub.add_parser("serve", help="[host] serve human seats to the web page")
+    s.add_argument("--port", type=int, default=8010)
+    s.add_argument("--origin", action="append", default=[], metavar="URL",
+                   help="a site allowed to POST here (the page's home), e.g. "
+                        "https://example.net; repeatable, also VIBE_ORIGINS")
+    s.set_defaults(fn=cmd_serve)
 
     s = sub.add_parser("site", help="[host] build the replay viewer for every match")
     s.add_argument("--out", default="_site")

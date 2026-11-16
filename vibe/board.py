@@ -32,6 +32,9 @@ RULES = (
 )
 
 
+CARRY_SHOWN = 4000              # the newest few games' worth
+
+
 def _base(prov: str) -> str:
     return prov.upper().split("/")[0]
 
@@ -58,11 +61,11 @@ def _standings(game: Game, power: str) -> str:
                        if hit and hit[0] != owner else c)
         return ", ".join(out) or "none"
 
-    rows = sorted(POWERS, key=lambda p: -len(game.powers[p].centers))
+    rows = sorted(game.powers, key=lambda p: -len(game.powers[p].centers))
     lines = [f"- {p}: {len(game.powers[p].centers)} centres, {len(game.powers[p].units)} "
              f"units{' ← you' if p == power else ''} — {names(game.powers[p].centers, p)}"
              for p in rows]
-    owned = {c for p in POWERS for c in game.powers[p].centers}
+    owned = {c for p in game.powers for c in game.powers[p].centers}
     neutral = [c for c in game.map.scs if c not in owned]
     if neutral:
         lines.append(f"- neutral: {len(neutral)} — {names(neutral, None)}")
@@ -244,18 +247,27 @@ def render(match: Match, power: str, *, inbox: bool = False,
         return "\n".join(out)
 
     sub = match.submitted(game)
+    ready = match.readied(game)
     owing = match.owing(game)
     out += [
         f"Submitted this phase: {len([p for p in sub if p in owing])}/{len(owing)}"
-        + (" (including you)" if power in sub else ""),
+        + (" (including you)" if power in sub else "")
+        + f"; done: {len([p for p in ready if p in owing])}/{len(owing)}",
         "", "## You",
         f"- Units: {', '.join(me.units) or 'none'}",
         f"- Centres ({len(me.centers)}): {', '.join(sorted(me.centers)) or 'none'}",
+    ]
+    if notes := match.notes(power).strip():
+        out += ["", "## Your notebook (only you see this)", notes]
+    if match.carry_over and not game.order_history and (
+            carried := match.carried(power).strip()):
+        out += ["", f"## Notes from earlier players of {power}", carried[-CARRY_SHOWN:]]
+    out += [
         "", "## Your orders this phase", _orders_section(game, power), "", SYNTAX,
         "", f"## Supply centres ({len(game.map.scs)}; 18 wins)", _standings(game, power),
     ]
     out += ["", "## Everyone's units"] + [
-        f"- {p}: {', '.join(game.powers[p].units) or 'none'}" for p in POWERS]
+        f"- {p}: {', '.join(game.powers[p].units) or 'none'}" for p in sorted(game.powers)]
     out += ["", "## Last moves", _last_phase(match, game)]
     mine = _my_outcomes(match, game, power)
     if mine:

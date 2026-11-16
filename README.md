@@ -46,8 +46,11 @@ works.
   `--foreground` keeps the run attached; `./dip stop test` stops it and
   `./dip run test` resumes it.
 
-A phase resolves as soon as every power has submitted, or when its deadline
-passes (`--deadline`, 30 minutes by default). Units without orders hold. The
+Submitting and being done are separate, so orders can be in while talks go
+on. A phase resolves as soon as every power is Ready (model seats are Ready
+once their orders are in; agent seats by running `wait`; humans with the Ready
+button), or when its deadline passes (`--deadline`, 30 minutes by default).
+Units without orders hold. The
 game ends at `--max-year` (1910 by default) or with an 18-centre win. Nothing
 needs a server, GitHub, keys or a paid API.
 
@@ -56,6 +59,11 @@ needs a server, GitHub, keys or a paid API.
 ./dip advance test        # resolve now; missing orders hold
 ./dip site --serve 8000   # replay viewer: map, orders, messages, notes
 ```
+
+Humans can play from a web page: `./dip serve` (127.0.0.1:8010) is the JSON
+API that `vibe/static/play.html` talks to. Browsers may post to it only from
+the server itself unless you allow the page's site with
+`--origin https://your.site` (repeatable) or `VIBE_ORIGINS`.
 
 ## Model seats
 
@@ -84,6 +92,17 @@ because reasoning models spend most of it thinking. `--reasoning-effort low` ask
 supports it. Each call's transcript is saved in `games/<name>/log/`, and
 each phase adds a line to `games/<name>/progress.log`, which `./dip status`
 shows. To have an agent host a match, point it at the `run-a-match` skill.
+
+Model seats may keep a private notebook (plans, promises, whom they trust),
+shown back to them at the top of their next board. `games/<name>/log.md` is
+the whole match in readable form: press, orders, results and notebooks.
+
+Carry-over notes are optional and off by default. A match created with
+`./dip new <name> --carry-over` asks each seat after the game for notes to the
+next player of its power (agent seats leave them with `carry-over`). They are
+kept in `games/_carry_over/<POWER>.md`, shown on that power's opening board in
+later matches that also use `--carry-over`, and added to `log.md`. They give a
+weaker model something to build on from one game to the next.
 
 ## Layout
 

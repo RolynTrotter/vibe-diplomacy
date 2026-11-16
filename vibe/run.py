@@ -12,6 +12,7 @@ Seat specs (`--seat FRANCE=<spec>`, or `--model` for every unassigned seat):
     claude:<model>            the `claude` CLI, no tools (uses your login)
     agent                     played from outside by an agent or a human
     fake                      random legal orders (smoke tests)
+    hold                      no orders: every unit holds (a baseline)
 """
 from __future__ import annotations
 
@@ -81,7 +82,7 @@ class ServerError(RuntimeError):
 
 @dataclass
 class Seat:
-    kind: str                       # openai | claude | agent | fake
+    kind: str                       # openai | claude | agent | fake | hold
     model: str = ""
     base_url: str = ""
     api_key: str = ""
@@ -97,7 +98,7 @@ class Seat:
 
 def parse_seat(spec: str, base_url: str, api_key: str) -> Seat:
     spec = spec.strip()
-    if spec in ("agent", "fake"):
+    if spec in ("agent", "fake", "hold"):
         return Seat(spec)
     if spec.startswith("claude:"):
         return Seat("claude", spec.split(":", 1)[1])
@@ -307,6 +308,7 @@ _ORDER = re.compile(rf"^(?:{_U} (?:H|- {_P}(?: VIA)?|S {_U}(?: - {_P}| H)?|C {_U
 class Reply:
     orders: list[str] = field(default_factory=list)
     mail: list[tuple[list[str], str]] = field(default_factory=list)
+    notes: str = ""
 
 
 def parse_reply(text: str) -> Reply:
@@ -332,6 +334,17 @@ def parse_reply(text: str) -> Reply:
     pieces = answer.split("```")[1::2]
     if len(answer.split("```")) % 2 == 0:
         pieces.append(answer.split("```")[-1])
+    # A ```notes block is the seat's notebook; orders it mentions are only plans.
+    kept = []
+    for source in pieces:
+        head, _, body = source.partition("\n")
+        if head.strip().lower() == "notes":
+            out.notes = body.strip()
+        else:
+            kept.append(source)
+    pieces = kept
+    if out.notes:
+        answer = re.sub(r"```\s*notes\s*\n.*?(```|$)", "", answer, flags=re.S | re.I)
     for source in reversed(pieces):
         found = _order_lines(re.sub(r"^[a-zA-Z]+\n", "", source))
         if found:
@@ -382,8 +395,20 @@ def orders_format(match: Match, power: str) -> str:
         f"Reply with your orders for this phase in ONE fenced code block: one "
         f"line per unit ({units}), each either copied from that unit's list "
         "above or a support or convoy written in the order forms. Think first "
-        "if you like; only the last code block counts.")
+        "if you like; only the last code block counts.\n\n" + NOTES_FORMAT)
 
+
+NOTES_FORMAT = (
+    "You may also keep a notebook: a fenced code block whose first line is the "
+    "word notes, written before any orders, with your plans, what you have promised and to whom, and whom "
+    "you trust. It replaces your notebook, which only you see, at the top of "
+    "your next board.")
+
+CARRY_TASK = (
+    "The game is over. Leave notes for whoever plays {power} in the next game: "
+    "what you opened with, who you allied with and whether it held, what "
+    "worked and what you would do differently. Plain text, under 200 words, "
+    "nothing else.")
 
 MAIL_FORMAT = (
     "Write each message on its own line as `TO ENGLAND: <message>`, "
@@ -393,7 +418,7 @@ MAIL_FORMAT = (
 def task(kind: str, orders: str = "", round_no: int = 0, rounds: int = 0) -> str:
     if kind == "talk":
         return (f"Negotiation round {round_no} of {rounds}. Orders come after the "
-                f"last round. {MAIL_FORMAT} Do not write orders yet.")
+                f"last round. {MAIL_FORMAT} Do not write orders yet.\n\n{NOTES_FORMAT}")
     if kind == "final":
         return f"{FINAL_ROUND_NOTE} You may send last messages first. {MAIL_FORMAT}\n\n{orders}"
     return orders
@@ -428,6 +453,8 @@ class Runner:
         max_tokens = max_tokens or self.max_tokens
         if seat.kind == "fake":
             return Answer.of(fake_reply(self.match, power, self.rng))
+        if seat.kind == "hold":
+            return Answer.of("")
         system = system_prompt(self.match, power)
         image = None
         if self.images and self.match.load().phase_type == "M":
@@ -486,6 +513,7 @@ class Runner:
             return
         reply = parse_reply(text)
         sent = self._deliver(power, reply)
+        self.match.set_notes(power, reply.notes)
         self._record(power, phase, f"talk{round_no}", {"reply": text})
         self.log(f"  {power} talk {round_no}: {sent} message(s) "
                  f"({time.monotonic() - start:.0f}s)")
@@ -518,6 +546,9 @@ class Runner:
                 "that one fenced code block. Messages were already sent.")
 
     def orders(self, power: str, phase: str) -> None:
+        if self.seats[power].kind == "hold":
+            self.match.submit(power, [], phase=phase, ready=True)
+            return
         start = time.monotonic()
         game = self.match.load()
         kind = "final" if self.match.full_press and game.phase_type == "M" else "orders"
@@ -529,6 +560,7 @@ class Runner:
             replies.append(answer)
             reply = parse_reply(answer)
             self._deliver(power, reply)
+            self.match.set_notes(power, reply.notes)
             checked = check_orders(game, power, reply.orders)
             orders = checked.accepted
             if not (reply.orders and checked.ok):
@@ -559,7 +591,8 @@ class Runner:
         except Exception as exc:
             note = f"call failed: {exc}"
         try:
-            self.match.submit(power, orders, partial=True, phase=phase, refused=refused)
+            self.match.submit(power, orders, partial=True, phase=phase, refused=refused,
+                              ready=True)
         except LateOrders as exc:
             self._record(power, phase, "orders", {"replies": replies, "late": str(exc)})
             self.log(f"  {power}: too late — {exc}")
@@ -604,7 +637,7 @@ class Runner:
     def phase(self) -> None:
         game = self.match.load()
         phase = game.get_current_phase()
-        played = [p for p in POWERS if self.seats[p].kind != "agent"]
+        played = [p for p in self.match.powers if self.seats[p].kind != "agent"]
         alive = [p for p in played if game.powers[p].units or game.powers[p].centers]
         owing = [p for p in self.match.owing(game) if p in played
                  and p not in self.match.submitted(game)]
@@ -623,7 +656,7 @@ class Runner:
         while not self.match.ended() and self.match.phase() == phase:
             if not waiting:
                 g = self.match.load()
-                missing = [p for p in self.match.owing(g) if p not in self.match.submitted(g)]
+                missing = [p for p in self.match.owing(g) if p not in self.match.readied(g)]
                 self.log(f"  waiting for {', '.join(missing)}")
                 waiting = True
             self.match.advance()
@@ -633,7 +666,24 @@ class Runner:
                 self.log(f"  {phase} resolved ({hist.get('resolved', 'deadline')}) with "
                          f"{len(hist['missing'])} missing, who held: {', '.join(hist['missing'])}")
 
+    def carry_over(self, power: str) -> None:
+        """After the game: `power`'s notes for whoever plays it next."""
+        prompt = (f"{boardmod.render(self.match, power)}\n\n## Your notebook\n"
+                  f"{self.match.notes(power).strip() or '(empty)'}\n\n---\n\n"
+                  + CARRY_TASK.format(power=power))
+        try:
+            answer = self._complete(power, prompt, max_tokens=FINISH_TOKENS)
+        except Exception as exc:
+            self.log(f"  {power} carry-over notes: failed — {exc}")
+            return
+        text = _THINK.sub("", answer).strip().strip("`").strip()
+        if self.match.add_carry_over(power, text):
+            self.log(f"  {power} left carry-over notes ({len(text)} chars)")
+
     def play(self, max_phases: int | None = None) -> None:
+        humans = self.match.config.get("humans") or {}
+        self.match._set_config(players={p: "human" if p in humans else s.label()
+                                        for p, s in self.seats.items()})
         n = 0
         while not self.match.ended() and (max_phases is None or n < max_phases):
             self.phase()
@@ -642,7 +692,13 @@ class Runner:
         if self.match.ended():
             self.log(f"\nGame over: {self.match.ended()}. Centres: " + ", ".join(
                 f"{p} {len(game.powers[p].centers)}" for p in
-                sorted(POWERS, key=lambda p: -len(game.powers[p].centers))))
+                sorted(self.match.powers, key=lambda p: -len(game.powers[p].centers))))
+        if self.match.ended() and self.match.carry_over:
+            done = set(self.match.config.get("carried_from", []))
+            todo = [p for p, s in self.seats.items()
+                    if s.kind in ("openai", "claude") and p not in done]
+            with ThreadPoolExecutor(max_workers=7) as pool:
+                list(pool.map(self.carry_over, todo))
         if n:
             self.log(self.summary())
 
@@ -656,7 +712,8 @@ def add_arguments(p) -> None:
     p.add_argument("--api-key-env", default="OPENAI_API_KEY",
                    help="environment variable holding the API key, if any")
     p.add_argument("--seat", action="append", default=[], metavar="POWER=SPEC",
-                   help="per-seat spec: <model>, openai:<model>@<url>, claude:<model>, agent, fake")
+                   help="per-seat spec: <model>, openai:<model>@<url>, claude:<model>, "
+                        "agent, fake, hold")
     p.add_argument("--agents", default="", help="POWER,POWER played from outside")
     p.add_argument("--rounds", type=int, default=2,
                    help="negotiation rounds per movement phase (full press)")
@@ -678,18 +735,18 @@ def add_arguments(p) -> None:
     p.add_argument("--no-check", action="store_true", help=argparse.SUPPRESS)
 
 
-def seats_from_args(args) -> dict[str, Seat]:
+def seats_from_args(args, powers=POWERS) -> dict[str, Seat]:
     key = os.environ.get(args.api_key_env, "")
     specs = {}
     for item in args.seat:
         power, _, spec = item.partition("=")
-        if power.upper() not in POWERS or not spec:
+        if power.upper() not in powers or not spec:
             raise SystemExit(f"bad --seat {item!r}; use e.g. FRANCE=qwen3:8b")
         specs[power.upper()] = spec
     for power in filter(None, args.agents.upper().replace(" ", "").split(",")):
         specs[power] = "agent"
     seats = {}
-    for power in POWERS:
+    for power in powers:
         spec = specs.get(power) or args.model
         if not spec:
             raise SystemExit(f"no model for {power}. Pass --model <name> --base-url <url> "
@@ -718,7 +775,7 @@ def main(args) -> int:
     args.model = args.model or saved.get("model")
     args.base_url = (args.base_url or saved.get("base_url")
                      or os.environ.get("OPENAI_BASE_URL", ""))
-    seats = seats_from_args(args)
+    seats = seats_from_args(args, match.powers)
 
     if not args.no_check:
         checked = set()
