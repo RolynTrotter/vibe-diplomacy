@@ -75,6 +75,12 @@ def score(match: Match, until: int | None = None) -> dict[str, dict]:
     states = [(str(k), v) for k, v in game.state_history.items()]
     powers = match.powers
     now = {p: list(game.powers[p].centers) for p in powers}
+    first = states[0][0] if states else game.get_current_phase()
+    if until is not None and until < _year(first):
+        raise ValueError(f"--until {until} is before the game starts ({first})")
+    if not states:
+        states = [(first, {"centers": {p: list(game.powers[p].centers) for p in powers},
+                           "units": {}, "homes": {}})]
     if until is not None:
         later = [st for ph, st in states if _year(ph) > until]
         states = [(ph, st) for ph, st in states if _year(ph) <= until]
@@ -183,6 +189,13 @@ def table(rows: list[dict]) -> str:
 
 
 def main() -> int:
+    try:
+        return _main()
+    except ValueError as exc:
+        raise SystemExit(f"error: {exc}") from None
+
+
+def _main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--model", help="seat spec, e.g. claude:haiku")
     ap.add_argument("--score", nargs="+", metavar="MATCH",
@@ -196,6 +209,8 @@ def main() -> int:
     ap.add_argument("--models", type=int, default=3, help="model seats per game")
     ap.add_argument("--map", choices=list(MAPS), default="standard",
                     help="standard_france_austria: the 1v1 sandbox")
+    ap.add_argument("--as", dest="play_as", metavar="POWER[,POWER]",
+                    help="model seats always play these powers instead of rotating")
     ap.add_argument("--opponents", default="fake,hold",
                     help="baseline kinds for the other seats, in turn (e.g. fake)")
     ap.add_argument("--seed", type=int, default=1)
@@ -219,6 +234,9 @@ def main() -> int:
             match = Match.create(name, max_year=args.max_year, map_name=args.map)
             ps = match.powers
             order = ps[i % len(ps):] + ps[:i % len(ps)]
+            if args.play_as:              # the model seats always play these powers
+                fixed = [p.upper() for p in args.play_as.split(",")]
+                order = fixed + [p for p in order if p not in fixed]
             others = args.opponents.split(",")
             kinds = [args.model] * args.models + others * 7
             seats = {p: parse_seat(k, "", "") for p, k in zip(order, kinds)}
@@ -228,7 +246,7 @@ def main() -> int:
                     fh.flush()
                 Runner(match, seats, seed=args.seed + i, log=log).play()
             print(f"{name}: {match.ended()}", flush=True)
-        rows += score(match).values()
+        rows += score(match, args.until).values()
     md = table(rows)
     print(md)
     with open(HERE / "RESULTS.md", "a") as fh:

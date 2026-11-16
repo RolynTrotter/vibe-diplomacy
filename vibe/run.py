@@ -380,8 +380,12 @@ def system_prompt(match: Match, power: str) -> str:
     press = ("This is full press: you can send private messages to the other "
              "powers. Nothing said is binding." if match.full_press
              else "This is gunboat: no messages, only orders.")
-    return (f"You are playing the board game Diplomacy as {power}, against six other "
-            f"players. {press} Aim to win: control 18 supply centres, or as many "
+    others = len(match.powers) - 1
+    words = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six"}
+    against = ("one other player" if others == 1
+               else f"{words.get(others, others)} other players")
+    return (f"You are playing the board game Diplomacy as {power}, against {against}. "
+            f"{press} Aim to win: control 18 supply centres, or as many "
             "as you can by the end.")
 
 

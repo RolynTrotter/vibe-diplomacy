@@ -198,3 +198,24 @@ def test_two_builds_for_one_centre_take_the_last(match):
     submit_all(match, {"FRANCE": ["A SPA H"]})
     checked = check_orders(match.load(), "FRANCE", ["A MAR B", "F MAR B"])
     assert checked.ok and checked.accepted == ["F MAR B"]
+
+
+def test_a_missing_storage_location_is_never_created(tmp_path, monkeypatch):
+    gone = tmp_path / "Storage" / "fast" / "games"      # the drive isn't mounted
+    monkeypatch.setattr(gamemod, "GAMES", gone)
+    monkeypatch.setattr(gamemod, "EXTERNAL", True)
+    with pytest.raises(MatchError, match="is the drive mounted"):
+        Match.create("x")
+    assert not gone.exists() and not gone.parent.exists()
+    gone.mkdir(parents=True)                            # a bare folder: still not the drive
+    with pytest.raises(MatchError, match="is the drive mounted"):
+        Match.create("x")
+    (gone / gamemod.STORAGE_MARKER).touch()             # the drive, with its marker
+    assert Match.create("x").phase() == "S1901M"
+
+
+def test_the_local_games_directory_is_made_on_first_use(tmp_path, monkeypatch):
+    local = tmp_path / "games"
+    monkeypatch.setattr(gamemod, "LOCAL_GAMES", local)
+    monkeypatch.setattr(gamemod, "GAMES", local)
+    assert Match.create("y").path.parent == local

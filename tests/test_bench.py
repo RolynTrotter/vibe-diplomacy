@@ -89,3 +89,9 @@ def test_scores_only_the_powers_a_variant_has(games):
     play(m, FRANCE=["A PAR - BUR", "A MAR - BUR"])
     s = score(m)
     assert set(s) == {"AUSTRIA", "FRANCE"} and s["FRANCE"]["selfbounce"] == 1
+
+
+def test_a_cutoff_before_the_game_starts_is_refused(games):
+    m = Match.create("early")
+    with pytest.raises(ValueError, match="before the game starts"):
+        score(m, until=1900)
