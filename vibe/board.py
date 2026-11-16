@@ -32,7 +32,7 @@ RULES = (
 )
 
 
-LORE_SHOWN = 4000               # the newest few games' worth
+CARRY_SHOWN = 4000              # the newest few games' worth
 
 
 def _base(prov: str) -> str:
@@ -323,8 +323,9 @@ def render(match: Match, power: str, *, inbox: bool = False,
     ]
     if notes := match.notes(power).strip():
         out += ["", "## Your notebook (only you see this)", notes]
-    if not game.order_history and (lore := match.lore(power).strip()):
-        out += ["", f"## Left by earlier players of {power}", lore[-LORE_SHOWN:]]
+    if match.carry_over and not game.order_history and (
+            carried := match.carried(power).strip()):
+        out += ["", f"## Notes from earlier players of {power}", carried[-CARRY_SHOWN:]]
     out += [
     ]
     if reach := _reach(game, power):

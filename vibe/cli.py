@@ -139,13 +139,14 @@ def _picture(match: Match) -> str | None:
 
 
 def _show(match: Match, power: str) -> None:
-    """The board, and once the game is over, how to leave lore for the next player."""
+    """The board, and once the game is over, how to leave notes for the next player."""
     print(boardmod.render(match, power, picture=_picture(match)))
-    if match.ended() and power not in match.config.get("lore_from", []):
+    if (match.carry_over and match.ended()
+            and power not in match.config.get("carried_from", [])):
         token = match.config["seats"][power]
         print(f"\nLeave notes for whoever plays {power} next game (openings, alliances, "
               f"what worked, what you'd change; one go, under 200 words):\n"
-              f'    {DIP} lore --seat {token} "your notes"')
+              f'    {DIP} carry-over --seat {token} "your notes"')
 
 
 def cmd_board(args) -> int:
@@ -234,12 +235,15 @@ def cmd_send(args) -> int:
     return 0
 
 
-def cmd_lore(args) -> int:
+def cmd_carry_over(args) -> int:
     match, power = _seat(args)
+    if not match.carry_over:
+        print("This match does not keep notes for the next player.")
+        return 1
     if not match.ended():
         print("The game is not over yet.")
         return 1
-    if not match.add_lore(power, " ".join(args.text)):
+    if not match.add_carry_over(power, " ".join(args.text)):
         print("Not saved: you have already left your notes for this game (or wrote nothing).")
         return 1
     print(f"Saved. The next player of {power} will see it at the start of their game.")
@@ -257,7 +261,8 @@ def cmd_inbox(args) -> int:
 # --------------------------------------------------------------------------- #
 def cmd_new(args) -> int:
     match = Match.create(args.name, press=args.press, max_year=args.max_year,
-                         deadline_s=args.deadline, map_name=args.map)
+                         deadline_s=args.deadline, map_name=args.map,
+                         carry_over=args.carry_over)
     briefs = write_briefs(match)
     print(f"Created match {args.name!r} ({'full press' if match.full_press else 'gunboat'},"
           f" ends after {args.max_year}, phase limit {_human(args.deadline)}).")
@@ -403,7 +408,8 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("message", nargs="+")
     s = seat_cmd("inbox", cmd_inbox, "[player] read your messages (full press)")
     s.add_argument("--last", type=int, default=60)
-    s = seat_cmd("lore", cmd_lore, "[player] after the game: notes for the next player")
+    s = seat_cmd("carry-over", cmd_carry_over,
+                 "[player] after the game: notes for the next player")
     s.add_argument("text", nargs="+")
 
     s = sub.add_parser("new", help="[host] create a match and its seat briefs")
@@ -414,6 +420,9 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--max-year", type=int, default=1910)
     s.add_argument("--deadline", type=_duration, default="30m",
                    help="per-phase time limit, e.g. 10m (0 = none)")
+    s.add_argument("--carry-over", action="store_true",
+                   help="after the game each seat leaves notes for the next player of its "
+                        "power, shown on that power's opening board in later matches")
     s.add_argument("--model", help="model for `./dip run` to use (checked now)")
     s.add_argument("--base-url", help="its OpenAI-compatible URL, e.g. http://127.0.0.1:1234/v1")
     s.set_defaults(fn=cmd_new)
@@ -446,6 +455,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     s = sub.add_parser("serve", help="[host] serve human seats to the web page")
     s.add_argument("--port", type=int, default=8010)
+    s.add_argument("--origin", action="append", default=[], metavar="URL",
+                   help="a site allowed to POST here (the page's home), e.g. "
+                        "https://example.net; repeatable, also VIBE_ORIGINS")
     s.set_defaults(fn=cmd_serve)
 
     s = sub.add_parser("site", help="[host] build the replay viewer for every match")
