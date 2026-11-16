@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import http.server
 import json
+import os
 import re
 import subprocess
 import sys
@@ -38,10 +39,18 @@ from vibe.game import MAPS, ROOT, LateOrders, Match, MatchError, legal_orders
 MODELS = ("claude:haiku", "claude:sonnet", "fake", "hold")
 DEADLINES = (3600, 86400)
 MAX_MODEL_MATCHES = 3           # live hosted matches with Claude seats: a quota guard
-# The page's own homes: the portal on the tailnet and on the LAN door, and this
-# server itself. Browsers may POST only from these (no cross-site requests).
-ORIGINS = {"https://skandha-1.tailafb97d.ts.net", "http://192.168.1.159:8080",
-           "http://skandha-1.local:8080", "http://127.0.0.1:8010", "http://localhost:8010"}
+# The page's own homes. Browsers may POST only from these (no cross-site
+# requests): this server itself, plus whatever the host adds with --origin or
+# VIBE_ORIGINS (space- or comma-separated), e.g. the site that serves play.html.
+ORIGINS: set[str] = set()
+
+
+def set_origins(port: int, extra: list[str] | None = None) -> set[str]:
+    env = os.environ.get("VIBE_ORIGINS", "").replace(",", " ").split()
+    ORIGINS.clear()
+    ORIGINS.update({f"http://127.0.0.1:{port}", f"http://localhost:{port}",
+                    *(o.rstrip("/") for o in [*env, *(extra or [])])})
+    return ORIGINS
 
 
 def _summary(match: Match) -> dict:
@@ -291,6 +300,7 @@ def wait_for_storage(log=lambda line: sys.stderr.write(line + "\n"), pause=30.0)
 
 
 def main(args) -> int:
+    set_origins(args.port, getattr(args, "origin", None))
     wait_for_storage()
     resume_all()
     server = Server(("127.0.0.1", args.port), Handler)
