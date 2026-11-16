@@ -1,15 +1,15 @@
 """Local model seats: a model server this machine reaches only through a command.
 
 Some hosts can't open a plain TCP connection to the machine running the model
-(skandha-1's Tailscale runs in userspace, so it reaches Cutie only through
+(a userspace Tailscale, say, reaches other machines only through
 `tailscale nc`). A seat spec `local:<model>` sends its calls to a relay on
 127.0.0.1 that pipes each connection through that command.
 
 The host describes the server in a JSON file named by VIBE_LOCAL:
 
-    {"name": "Cutie",                       shown on the page
+    {"name": "Laptop",                      shown on the page
      "listen": "127.0.0.1",                 loopback only; each process picks a free port
-     "command": ["tailscale", "nc", "cutie-1", "1234"],   one per connection
+     "command": ["tailscale", "nc", "laptop", "1234"],    one per connection
      "key_file": "~/.config/lmstudio/token",              Bearer token, if any
      "concurrency": 1}                      calls at once: one GPU
 
