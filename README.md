@@ -81,7 +81,8 @@ was wrong and asks only for the orders. If that fails too, its units hold. If a 
 returns only reasoning, the reasoning is parsed. In full press, each movement
 phase has `--rounds` rounds of talk (2 by default) before orders.
 
-Seat specs: `<model>` (at `--base-url`), `openai:<model>@<url>`,
+Seat specs: `<model>` (at `--base-url`), `openai:<model>@<url>`, `local:<model>`
+(a model on the host's own local server; see `vibe/relay.py`),
 `claude:<model>` (the `claude` CLI with no tools), `agent` (played from
 outside), `fake` (random legal orders). `--concurrency` caps simultaneous
 calls per endpoint. `--images` attaches the board picture for vision models.

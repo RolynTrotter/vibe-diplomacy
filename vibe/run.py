@@ -10,6 +10,7 @@ Seat specs (`--seat FRANCE=<spec>`, or `--model` for every unassigned seat):
     <model>                   an OpenAI-compatible model at --base-url
     openai:<model>[@<url>]    the same, with its own URL
     claude:<model>            the `claude` CLI, no tools (uses your login)
+    local:<model>             a model on the host's local server (see vibe/relay.py)
     agent                     played from outside by an agent or a human
     fake                      random legal orders (smoke tests)
     hold                      no orders: every unit holds (a baseline)
@@ -76,6 +77,14 @@ class Answer(str):
 # --------------------------------------------------------------------------- #
 # Seats and backends
 # --------------------------------------------------------------------------- #
+LOCAL_SILENCE = 30.0            # local seats: seconds with no tokens before giving up
+LOCAL_CALL_LIMIT = 600.0        # and the longest one call may take (flint: ~220 s)
+
+
+class LocalDown(RuntimeError):
+    """A local seat's server stopped answering mid-call: the seat holds."""
+
+
 class ServerError(RuntimeError):
     """The endpoint answered, with an error. Retrying the same call won't help."""
 
@@ -87,13 +96,14 @@ class Seat:
     base_url: str = ""
     api_key: str = ""
     reasoning_effort: str = ""      # sent only if set; not every server knows it
+    local: str = ""                 # the local server's name, for local:<model> seats
 
     @property
     def endpoint(self) -> str:
         return self.base_url if self.kind == "openai" else self.kind
 
     def label(self) -> str:
-        return self.model or self.kind
+        return f"{self.model}@{self.local}" if self.local else self.model or self.kind
 
 
 def parse_seat(spec: str, base_url: str, api_key: str) -> Seat:
@@ -102,6 +112,14 @@ def parse_seat(spec: str, base_url: str, api_key: str) -> Seat:
         return Seat(spec)
     if spec.startswith("claude:"):
         return Seat("claude", spec.split(":", 1)[1])
+    if spec.startswith("local:"):
+        from vibe import relay
+        cfg = relay.config()
+        if not cfg:
+            raise SystemExit(f"seat {spec!r}: no local model server is set up on this host")
+        relay.ensure(cfg)
+        return Seat("openai", spec.split(":", 1)[1], relay.base_url(cfg), relay.api_key(cfg),
+                    local=cfg["name"])
     if spec.startswith("openai:"):
         spec = spec.split(":", 1)[1]
     model, _, url = spec.partition("@")
@@ -394,12 +412,25 @@ def orders_format(match: Match, power: str) -> str:
     # the seat's real orders (gunboat2: 8 phases were the example verbatim),
     # and one that isn't comes back as an illegal order. The list above is
     # the menu; the forms under it cover supports and convoys.
-    units = ", ".join(match.load().powers[power].units) or "none"
+    game = match.load()
+    tail = " Think first if you like; only the last code block counts.\n\n" + NOTES_FORMAT
+    if game.phase_type == "A":
+        # Winter: the units' list is not what is owed; builds or disbands are.
+        n = len(game.powers[power].centers) - len(game.powers[power].units)
+        what = (f"up to {n} build(s), one per line" if n > 0
+                else f"{-n} disband(s), one per line")
+        return (f"Reply with your adjustments for this phase in ONE fenced code block: "
+                f"{what}, each copied from the list above." + tail)
+    if game.phase_type == "R":
+        retreating = ", ".join(game.powers[power].retreats) or "none"
+        return (f"Reply with your retreats for this phase in ONE fenced code block: one "
+                f"line per dislodged unit ({retreating}), each copied from the list above."
+                + tail)
+    units = ", ".join(game.powers[power].units) or "none"
     return (
         f"Reply with your orders for this phase in ONE fenced code block: one "
         f"line per unit ({units}), each either copied from that unit's list "
-        "above or a support or convoy written in the order forms. Think first "
-        "if you like; only the last code block counts.\n\n" + NOTES_FORMAT)
+        "above or a support or convoy written in the order forms." + tail)
 
 
 NOTES_FORMAT = (
@@ -449,8 +480,13 @@ class Runner:
 
     def _gate(self, seat: Seat) -> threading.Semaphore:
         with self._gate_lock:
-            return self._gates.setdefault(seat.endpoint,
-                                          threading.Semaphore(self.concurrency))
+            if seat.endpoint not in self._gates:
+                n = self.concurrency
+                if seat.local:                 # one GPU: its own, usually smaller, cap
+                    from vibe import relay
+                    n = min(n, int((relay.config() or {}).get("concurrency", 1)))
+                self._gates[seat.endpoint] = threading.Semaphore(n)
+            return self._gates[seat.endpoint]
 
     def _complete(self, power: str, prompt: str, max_tokens: int | None = None) -> Answer:
         seat = self.seats[power]
@@ -463,13 +499,19 @@ class Runner:
         image = None
         if self.images and self.match.load().phase_type == "M":
             image = mapviz.phase_image(self.match.path, self.match.load())
+        timeout, limit = self.timeout, self.call_limit
+        if seat.local:
+            # A local model streams its reasoning from the first second, so a
+            # short silence means the server is gone. Fail fast, don't retry,
+            # and let the seat hold rather than keep the phase open.
+            timeout, limit = min(timeout, LOCAL_SILENCE), min(limit, LOCAL_CALL_LIMIT)
         with self._gate(seat):
-            for attempt in (1, 2):
+            for attempt in ((1,) if seat.local else (1, 2)):
                 try:
                     if seat.kind == "openai":
                         return call_openai(seat, system, prompt, image, max_tokens,
-                                           self.timeout, transport=functools.partial(
-                                               _stream, limit=self.call_limit))
+                                           timeout, transport=functools.partial(
+                                               _stream, limit=limit))
                     return call_claude(seat, system, prompt, image, max_tokens,
                                        self.call_limit)
                 except ServerError:
@@ -479,6 +521,10 @@ class Runner:
                     raise
                 except (urllib.error.URLError, TimeoutError, OSError, RuntimeError,
                         subprocess.TimeoutExpired) as exc:
+                    if seat.local:
+                        from vibe import relay
+                        relay.forget()             # next check asks the server again
+                        raise LocalDown(f"{seat.local} stopped answering ({exc})") from None
                     if image:          # a text-only model may reject the picture
                         image = None
                         continue
@@ -508,6 +554,10 @@ class Runner:
         return sent
 
     def talk(self, power: str, phase: str, round_no: int) -> None:
+        if self.seats[power].local:
+            from vibe import relay
+            if relay.models(fresh=20) is None:
+                return                     # its orders call says so, once
         start = time.monotonic()
         try:
             text = self._complete(power, self._prompt(
@@ -549,8 +599,20 @@ class Runner:
                 "that unit's list above or written in the order forms. Reply with just "
                 "that one fenced code block. Messages were already sent.")
 
+    def _local_down(self, power: str) -> bool:
+        """A local seat whose server isn't answering: say so, rather than wait on it."""
+        seat = self.seats[power]
+        if not seat.local:
+            return False
+        from vibe import relay
+        if relay.models(fresh=20) is not None:
+            return False
+        self.log(f"  {power} ({seat.label()}): {seat.local} is not answering; holds this phase")
+        self._count("local down")
+        return True
+
     def orders(self, power: str, phase: str) -> None:
-        if self.seats[power].kind == "hold":
+        if self.seats[power].kind == "hold" or self._local_down(power):
             self.match.submit(power, [], phase=phase, ready=True)
             return
         start = time.monotonic()
@@ -592,6 +654,9 @@ class Runner:
                 if not ok:
                     errs = retried.errors or ["no orders found in the finishing reply"]
                     note = errs[0] + (f" (+{len(errs) - 1} more)" if len(errs) > 1 else "")
+        except LocalDown as exc:
+            note = f"{exc}; holds"
+            self._count("local down")
         except Exception as exc:
             note = f"call failed: {exc}"
         try:
@@ -634,7 +699,9 @@ class Runner:
         cost = f", ${t['usd']:.2f}" if t["usd"] else ""
         return (f"Finishing calls: {s.get('finishes', 0)} ({s.get('finished', 0)} gave "
                 f"usable orders). Seats that held: {s.get('held', 0)} entirely, "
-                f"{s.get('partly held', 0)} partly.\n"
+                + (f"{s['local down']} because the local server was down, "
+                   if s.get("local down") else "")
+                + f"{s.get('partly held', 0)} partly.\n"
                 f"Tokens over {t['calls']} order calls: {t['read']:,} read, "
                 f"{'~' if t['estimated'] else ''}{t['written']:,} written{cost}.")
 
@@ -756,7 +823,8 @@ def seats_from_args(args, powers=POWERS) -> dict[str, Seat]:
             raise SystemExit(f"no model for {power}. Pass --model <name> --base-url <url> "
                              f"(or give them to `./dip new`), or --seat {power}=...")
         seats[power] = parse_seat(spec, args.base_url, key)
-        seats[power].reasoning_effort = args.reasoning_effort or ""
+        if not seats[power].local:     # a local model may have one fixed level
+            seats[power].reasoning_effort = args.reasoning_effort or ""
     return seats
 
 
@@ -784,7 +852,9 @@ def main(args) -> int:
     if not args.no_check:
         checked = set()
         for seat in seats.values():
-            if seat.kind == "openai" and seat.endpoint + seat.model not in checked:
+            # A local server may be off; its seats hold until it answers, so it
+            # doesn't stop the run.
+            if seat.kind == "openai" and not seat.local and seat.endpoint + seat.model not in checked:
                 checked.add(seat.endpoint + seat.model)
                 ok, line = check_endpoint(seat)
                 print(line, flush=True)

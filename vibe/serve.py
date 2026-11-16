@@ -7,10 +7,14 @@ just another seat and mixes with model seats through the same match files.
     GET  /api/matches                 every match: phase, deadline, seats
     POST /api/new                     {humans: [POWER...], model, max_year, deadline}
     POST /api/claim                   {match, power} -> {token}   (open human seats)
-    GET  /api/seat/<token>            the seat's board, as data
-    GET  /api/seat/<token>/map.svg    the current position
-    POST /api/seat/<token>/submit     {orders: [...]}
-    POST /api/seat/<token>/ready      {ready: true|false}
+    GET  /api/seat                    the seat's board, as data
+    GET  /api/seat/map.svg            the current position
+    POST /api/seat/submit             {orders: [...]}
+    POST /api/seat/ready              {ready: true|false}
+
+The seat routes take the seat's token in an X-Seat header, never in the URL,
+so it stays out of paths and logs. Open seats are claimable without a code
+(Rolyn: a household game).
 
 Matches created here are hosted: their model seats are played by `./dip run`,
 started here and restarted here if it isn't running (after a reboot, say).
@@ -31,7 +35,7 @@ import time
 import urllib.parse
 
 from vibe import board as boardmod
-from vibe import mapviz
+from vibe import mapviz, relay
 from diplomacy import Game
 
 from vibe.game import MAPS, ROOT, LateOrders, Match, MatchError, legal_orders
@@ -145,7 +149,12 @@ def create(body: dict) -> Match:
     powers = sorted(Game(map_name=map_name).powers)
     if not humans or any(p not in powers for p in humans):
         raise MatchError("pick at least one power for humans")
-    if model not in MODELS or deadline not in DEADLINES or not 1901 <= max_year <= 1930:
+    local = model.startswith("local:")
+    if local and model.split(":", 1)[1] not in (relay.models() or []):
+        raise MatchError(f"{(relay.config() or {}).get('name', 'the local server')} "
+                         "isn't answering, or doesn't have that model")
+    if (not local and model not in MODELS) or deadline not in DEADLINES \
+            or not 1901 <= max_year <= 1930:
         raise MatchError("bad settings")
     if model.startswith("claude:") and sum(
             1 for m in Match.all() if m.config.get("hosted") and not m.ended()
@@ -202,10 +211,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.send_response(204)
         self._cors()
         self.send_header("Access-Control-Allow-Methods", "GET, POST")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Seat")
         self.end_headers()
 
-    def _seat(self, token: str) -> tuple[Match, str]:
+    def _seat(self) -> tuple[Match, str]:
+        token = (self.headers.get("X-Seat") or "").strip()
         if not re.fullmatch(r"[0-9a-f]{4,64}", token):
             raise MatchError("no such seat")
         match, power = Match.by_token(token)
@@ -219,15 +229,23 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if path in ("/", "/index.html"):
                 page = (ROOT / "vibe" / "static" / "play.html").read_bytes()
                 return self._send(200, page, "text/html; charset=utf-8")
+            if path == "/api/local":
+                cfg = relay.config()
+                found = relay.models() if cfg else None
+                return self._json(200, {
+                    "name": cfg["name"] if cfg else None, "models": found or [],
+                    "available": bool(found),
+                    "reason": ("" if found else "not set up on this host" if not cfg
+                               else f"{cfg['name']} is not answering")})
             if path == "/api/matches":
                 return self._json(200, [_summary(m) for m in reversed(Match.all())
                                         if m.config.get("hosted")])
-            if m := re.fullmatch(r"/api/seat/([^/]+)", path):
-                match, power = self._seat(m[1])
+            if path == "/api/seat":
+                match, power = self._seat()
                 match.advance()                    # a passed deadline resolves on a look
                 return self._json(200, seat_state(match, power))
-            if m := re.fullmatch(r"/api/seat/([^/]+)/map\.svg", path):
-                match, _ = self._seat(m[1])
+            if path == "/api/seat/map.svg":
+                match, _ = self._seat()
                 svg = mapviz.board_svg(match.load(), orders=False)
                 return self._send(200, svg.encode(), "image/svg+xml")
             return self._json(404, {"error": "not found"})
@@ -256,8 +274,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                         raise MatchError("that seat is taken")
                     match._set_config(humans={**humans, power: "taken"})
                 return self._json(200, {"token": match.config["seats"][power]})
-            if m := re.fullmatch(r"/api/seat/([^/]+)/submit", path):
-                match, power = self._seat(m[1])
+            if path == "/api/seat/submit":
+                match, power = self._seat()
                 phase = body.get("phase") or None
                 try:
                     checked = match.submit(power, [str(o) for o in body.get("orders") or []],
@@ -267,8 +285,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 if not checked.ok:
                     return self._json(400, {"error": "; ".join(checked.errors)})
                 return self._json(200, seat_state(match, power))
-            if m := re.fullmatch(r"/api/seat/([^/]+)/ready", path):
-                match, power = self._seat(m[1])
+            if path == "/api/seat/ready":
+                match, power = self._seat()
                 if not match.set_ready(power, bool(body.get("ready")),
                                        phase=body.get("phase") or None):
                     return self._json(409, {"error": "that phase has already resolved"})

@@ -53,9 +53,10 @@ const seen = {};                // token -> the phase last shown, to announce a 
 function mine() { try { return JSON.parse(localStorage.getItem("dip-seats") || "{}"); } catch { return {}; } }
 function remember(key, tok) { try { const m = mine(); m[key] = tok; localStorage.setItem("dip-seats", JSON.stringify(m)); } catch {} }
 
-async function api(path, body) {
-  const r = await fetch(API + path, body === undefined ? {} :
-    {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+async function api(path, body, seat) {
+  const headers = seat ? {"X-Seat": seat} : {};
+  const r = await fetch(API + path, body === undefined ? {headers} :
+    {method: "POST", headers: {...headers, "Content-Type": "application/json"}, body: JSON.stringify(body)});
   const data = await r.json().catch(() => ({error: "server error"}));
   if (!r.ok) throw new Error(data.error || r.statusText);
   return data;
@@ -73,7 +74,12 @@ async function lobby() {
   clearInterval(timer);
   let matches = [];
   let err = "";
+  let local = {available: false, models: [], name: null, reason: ""};
   try { matches = await api("/api/matches"); } catch (e) { err = "Server offline"; }
+  try { local = await api("/api/local"); } catch (e) {}
+  const localOpts = local.name ? (local.available
+      ? local.models.map(m => `<option value="local:${esc(m)}">Local (${esc(local.name)}): ${esc(m)}</option>`).join("")
+      : `<option disabled>Local (${esc(local.name)}): ${esc(local.reason)}</option>`) : "";
   const seats = mine();
   const live = matches.filter(m => !m.ended);
   const yours = Object.entries(seats).filter(([k]) => matches.some(m => k.startsWith(m.name + "/")));
@@ -95,7 +101,7 @@ async function lobby() {
     <div class="muted" style="margin-top:10px">Humans</div>
     <div class="row" id="humans" style="margin:6px 0 12px"></div>
     <div class="grid">
-      <label><span class="muted">Other powers</span><select id="model">${OPPONENTS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select></label>
+      <label><span class="muted">Other powers</span><select id="model">${OPPONENTS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}${localOpts}</select></label>
       <label><span class="muted">Turn</span><select id="deadline"><option value="3600">1 hour</option><option value="86400">24 hours</option></select></label>
       <label><span class="muted">Ends after</span><select id="year">${[1902,1904,1906,1910].map(y => `<option${y===1904?" selected":""}>${y}</option>`).join("")}</select></label>
     </div>
@@ -147,7 +153,7 @@ const GROUPS = [["H","Hold"],["-","Move"],["S","Support"],["C","Convoy"],["R","R
 async function seat(tok) {
   clearInterval(timer);
   let s;
-  try { s = await api(`/api/seat/${tok}`); }
+  try { s = await api("/api/seat", undefined, tok); }
   catch (e) { app.innerHTML = `<h1>Diplomacy</h1><p class="err">${esc(e.message)}</p><p><a href="#">Back</a></p>`; return; }
   remember(`${s.name}/${s.power}`, tok);
   let skew = Date.now() / 1000 - s.now;
@@ -163,7 +169,7 @@ async function seat(tok) {
     <span class="muted"><span id="clock"></span> · Ready <span id="rc">${s.ready_count}/${s.owing_count}</span></span>
   </div>
   ${fresh ? `<div class="banner" role="status">Now: ${esc(s.ended ? "Game over: " + s.ended : s.season)}</div>` : ""}
-  <a href="${API}/api/seat/${esc(tok)}/map.svg?p=${esc(phase)}" target="_blank" rel="noopener"><img id="map" alt="Map, ${esc(s.season)}" src="${API}/api/seat/${esc(tok)}/map.svg?p=${esc(phase)}"></a>
+  <a id="maplink" target="_blank" rel="noopener"><img id="map" alt="Map, ${esc(s.season)}"></a>
   ${s.ended ? "" : s.owes ? `
   <h2>${s.phase_type === "A" ? (s.adjust > 0 ? `Builds: up to ${s.adjust}` : `Disbands: ${-s.adjust}`) : "Orders"}</h2>
   <div class="card" id="orders">${units.map(([loc, u]) => {
@@ -184,13 +190,20 @@ async function seat(tok) {
     <button id="ready" class="${s.ready ? "on" : "primary"}" aria-pressed="${s.ready}">${s.ready ? "Ready ✓" : "Ready"}</button>
   </div></div>`}`;
 
+  // The map needs the seat's header, which an <img> can't send: fetch it and
+  // show it from memory.
+  fetch(API + "/api/seat/map.svg", {headers: {"X-Seat": tok}}).then(r => r.blob()).then(b => {
+    const url = URL.createObjectURL(b);
+    document.getElementById("map").src = url;
+    document.getElementById("maplink").href = url;
+  }).catch(() => {});
   const clock = document.getElementById("clock");
   const tick = () => { clock.textContent = s.deadline_at ? left(s.deadline_at, Date.now() / 1000 - skew) : ""; };
   tick();
   const err = m => { const e = document.getElementById("err"); if (e) e.textContent = m; };
   const send = async () => {
     const orders = [...app.querySelectorAll("select[data-loc]")].map(x => x.value).filter(Boolean);
-    try { s = await api(`/api/seat/${tok}/submit`, {orders, phase}); err("");
+    try { s = await api("/api/seat/submit", {orders, phase}, tok); err("");
       const st = document.getElementById("state"); st.textContent = "Submitted"; st.className = "okc"; }
     catch (e) { err(e.message); if (/resolved/.test(e.message)) seat(tok); throw e; }
   };
@@ -207,7 +220,7 @@ async function seat(tok) {
       if (want && s.phase_type === "A" && s.adjust > 0 && !builds &&
           !confirm(`No builds (up to ${s.adjust}). Ready anyway?`)) { rb.disabled = false; return; }
       if (want && s.owes && document.getElementById("state").textContent !== "Submitted") await send();
-      s = await api(`/api/seat/${tok}/ready`, {ready: want, phase});
+      s = await api("/api/seat/ready", {ready: want, phase}, tok);
       if (s.phase !== phase) return seat(tok);
       rb.className = s.ready ? "on" : "primary"; rb.textContent = s.ready ? "Ready ✓" : "Ready";
       rb.setAttribute("aria-pressed", s.ready);
@@ -219,7 +232,7 @@ async function seat(tok) {
     tick();
     if (Math.round(Date.now() / 1000) % 5) return;
     try {
-      const n = await api(`/api/seat/${tok}`);
+      const n = await api("/api/seat", undefined, tok);
       if (n.phase !== phase || n.ended !== s.ended) return seat(tok);
       skew = Date.now() / 1000 - n.now;
       document.getElementById("rc").textContent = `${n.ready_count}/${n.owing_count}`;
