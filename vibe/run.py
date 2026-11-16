@@ -585,7 +585,8 @@ class Runner:
         except Exception as exc:
             note = f"call failed: {exc}"
         try:
-            self.match.submit(power, orders, partial=True, phase=phase, refused=refused)
+            self.match.submit(power, orders, partial=True, phase=phase, refused=refused,
+                              ready=True)
         except LateOrders as exc:
             self._record(power, phase, "orders", {"replies": replies, "late": str(exc)})
             self.log(f"  {power}: too late — {exc}")
@@ -649,7 +650,7 @@ class Runner:
         while not self.match.ended() and self.match.phase() == phase:
             if not waiting:
                 g = self.match.load()
-                missing = [p for p in self.match.owing(g) if p not in self.match.submitted(g)]
+                missing = [p for p in self.match.owing(g) if p not in self.match.readied(g)]
                 self.log(f"  waiting for {', '.join(missing)}")
                 waiting = True
             self.match.advance()

@@ -247,10 +247,12 @@ def render(match: Match, power: str, *, inbox: bool = False,
         return "\n".join(out)
 
     sub = match.submitted(game)
+    ready = match.readied(game)
     owing = match.owing(game)
     out += [
         f"Submitted this phase: {len([p for p in sub if p in owing])}/{len(owing)}"
-        + (" (including you)" if power in sub else ""),
+        + (" (including you)" if power in sub else "")
+        + f"; done: {len([p for p in ready if p in owing])}/{len(owing)}",
         "", "## You",
         f"- Units: {', '.join(me.units) or 'none'}",
         f"- Centres ({len(me.centers)}): {', '.join(sorted(me.centers)) or 'none'}",

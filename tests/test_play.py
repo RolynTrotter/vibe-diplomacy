@@ -60,7 +60,7 @@ def test_cli_submit_wait_loop(games, capsys):
     m = Match.create("c", max_year=1901)
     for p in gamemod.POWERS:
         if p != "FRANCE":
-            m.submit(p, [])
+            m.submit(p, [], ready=True)
     t = token(m, "FRANCE")
     assert cli.main(["submit", "--seat", t, "F BRE - LON"]) == 1
     assert "not legal" in capsys.readouterr().out
@@ -416,8 +416,8 @@ def test_after_a_winter_the_board_still_shows_the_last_moves(games):
     for orders in (["A MAR - SPA"], ["A SPA H"], ["A MAR B"]):
         for p in m.owing(m.load()):
             if p != "FRANCE":
-                m.submit(p, [])
-        m.submit("FRANCE", orders)
+                m.submit(p, [], ready=True)
+        m.submit("FRANCE", orders, ready=True)
     assert m.phase() == "S1902M"
     last = board.render(m, "GERMANY").split("## Last moves\n")[1].split("\n\n")[0]
     assert last.startswith("_F1901M:_\n- FRANCE: A SPA H")

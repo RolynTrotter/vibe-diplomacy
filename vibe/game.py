@@ -5,6 +5,7 @@ Each match is one directory, `games/<name>/` (gitignored):
     config.json          press, deadline, year cap, the seat tokens  (host only)
     game.json            the engine's saved-game format: every phase so far
     pending/<POWER>.json this phase's orders, until it resolves     (host only)
+    ready/<POWER>        the phase a power has declared itself done with
     history/<phase>.json what was ordered and what happened, once resolved
     mail.jsonl           every message, revealed to the site when the game ends
     notes/<POWER>.md     a seat's private notebook, shown back to it on its board
@@ -16,9 +17,11 @@ Lore outlives a match: `_lore/<POWER>.md`, beside the matches, is what earlier
 players of each power left for the next one.
 
 Order secrecy is by not telling: a seat acts through its token, and nothing a
-seat is shown names another seat's files. A phase resolves the moment every
-power that owes orders has submitted, or when its deadline passes — whichever
-process notices first does the work, under a file lock, so there is no daemon.
+seat is shown names another seat's files. Submitting and being Ready are
+separate: orders can be in while the talking goes on. A phase resolves the
+moment every power that owes orders is Ready, or when its deadline passes
+(missing orders hold) — whichever process notices first does the work, under a
+file lock, so there is no daemon.
 """
 from __future__ import annotations
 
@@ -265,8 +268,34 @@ class Match:
                 out.append(p)
         return out
 
+    def readied(self, game: Game | None = None) -> list[str]:
+        """Powers that have declared themselves done with this phase."""
+        phase = (game or self.load()).get_current_phase()
+        d = self.path / "ready"
+        return [p for p in POWERS if (d / p).exists() and (d / p).read_text().strip() == phase]
+
+    def set_ready(self, power: str, ready: bool = True, *, phase: str | None = None) -> bool:
+        """Declare `power` done with the phase (or not). Ready resolves the
+        phase once every power that owes orders is Ready. False if `phase`
+        has already resolved."""
+        if self.ended():
+            raise MatchError(f"the game is over ({self.ended()})")
+        with self._lock():
+            current = self.load().get_current_phase()
+            if phase and phase != current:
+                return False
+            f = self.path / "ready" / power
+            if ready:
+                f.parent.mkdir(exist_ok=True)
+                _write(f, current)
+            else:
+                f.unlink(missing_ok=True)
+        self.advance()
+        return True
+
     def submit(self, power: str, orders: list[str], *, partial: bool = False,
-               phase: str | None = None, refused: list[str] = ()) -> Checked:
+               phase: str | None = None, refused: list[str] = (),
+               ready: bool = False) -> Checked:
         """Check and store `power`'s orders, replacing any earlier set.
 
         Any error rejects the whole set unless `partial`, in which case the
@@ -281,6 +310,9 @@ class Match:
         `refused` adds orders the seat wrote earlier that could not be used,
         so its next board can say so; otherwise a corrected set reads as
         though nothing had gone wrong.
+
+        Submitting does not resolve the phase; being Ready does. `ready`
+        declares it in the same step, once the orders are stored.
         """
         if self.ended():
             raise MatchError(f"the game is over ({self.ended()})")
@@ -297,11 +329,14 @@ class Match:
                 _write(f, json.dumps({"phase": game.get_current_phase(),
                                          "orders": checked.accepted,
                                          "refused": [*refused, *checked.refused]}))
+                if ready:
+                    (self.path / "ready").mkdir(exist_ok=True)
+                    _write(self.path / "ready" / power, current)
         self.advance()
         return checked
 
     def advance(self, *, force: bool = False) -> dict | None:
-        """Resolve the phase if everyone is in, its deadline passed, or forced.
+        """Resolve the phase if everyone is Ready, its deadline passed, or forced.
 
         Returns what resolved, or None if the phase is still open.
         """
@@ -311,12 +346,12 @@ class Match:
             game = self.load()
             cfg = self.config
             owing = self.owing(game)
-            done = set(self.submitted(game))
+            done = set(self.readied(game))
             late = (cfg.get("deadline_s") and not self.runner_busy() and
                     time.time() - cfg["phase_started"] > cfg["deadline_s"])
             if not (force or late or done >= set(owing)):
                 return None
-            how = "forced" if force else "everyone in" if done >= set(owing) else "deadline"
+            how = "forced" if force else "everyone ready" if done >= set(owing) else "deadline"
             return self._resolve(game, owing, how)
 
     def runner_busy(self) -> bool:
@@ -334,7 +369,7 @@ class Match:
         except (ValueError, ProcessLookupError, PermissionError):
             return False
 
-    def _resolve(self, game: Game, owing: list[str], how: str = "everyone in") -> dict:
+    def _resolve(self, game: Game, owing: list[str], how: str = "everyone ready") -> dict:
         phase = game.get_current_phase()
         missing = sorted(set(owing) - set(self.submitted(game)))
         refused = {}
@@ -361,7 +396,7 @@ class Match:
         hist = self.path / "history"
         hist.mkdir(exist_ok=True)
         _write(hist / f"{phase}.json", json.dumps(summary, indent=2))
-        for f in (self.path / "pending").glob("*.json"):
+        for f in [*(self.path / "pending").glob("*.json"), *(self.path / "ready").glob("*")]:
             f.unlink()
 
         ended = None
