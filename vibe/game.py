@@ -545,6 +545,10 @@ class Match:
         starts.append((game.get_current_phase(),
                        {p: list(game.powers[p].centers) for p in self.powers}))
         after = {ph: nxt for (ph, _), (_, nxt) in zip(starts, starts[1:])}
+        # Centres are listed once a year, after its last played phase (a Winter
+        # with nothing to build or disband is skipped by the engine).
+        year_end = {ph for ph, nxt in zip(played, [*played[1:], None])
+                    if nxt is None or nxt[1:5] != ph[1:5]}
         for phase in [*played, *([] if self.ended() else [game.get_current_phase()])]:
             hist = self.history(phase) or {}
             said = [m for m in mail if m["phase"] == phase]
@@ -571,7 +575,7 @@ class Match:
                 out += ["", "### Notebooks"]
                 for p, text in sorted(last.items()):
                     out += [f"- {p}:"] + [f"  > {l}" for l in text.splitlines()]
-            if phase.endswith("A") and hist:
+            if phase in year_end and hist:
                 centres = after.get(phase) or {}
                 out += ["", "Centres: " + ", ".join(
                     f"{p} {len(centres.get(p) or [])}" for p in
